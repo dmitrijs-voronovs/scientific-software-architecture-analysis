@@ -1,0 +1,787 @@
+Found 157 potential projects:
+
+Project Name: BetaGlue
+Objective: "BetaGlue is developing an innovative ""radiotherapy from within"", personalized and cost-effective anti-tumoural platform technology called BAT-90.
+TLDR: "BetaGlue is developing an innovative ""radiotherapy from within"", personalized and cost-effective anti-tumoural platform technology called BAT-90. BAT-90 maximises the therapeutic index of loco-regional treatment by eliminating off-target radiation dose in a simple and easy...
+--------------------------------------------------
+
+Project Name: LuxQuanta
+Objective: LuxQuanta develops novel hardware for ultra-secure communications in metropolitan networks (below 50 km) based on Quantum Key Distribution (QKD).
+TLDR: LuxQuanta develops novel hardware for ultra-secure communications in metropolitan networks (below 50 km) based on Quantum Key Distribution (QKD). QKD is a method for securely transmitting encryption keys using the principles of quantum mechanics and is resistant to the threat...
+--------------------------------------------------
+
+Project Name: BV
+Objective: "There is a large unmet medical need for an efficient and highly accessible solution that can simultaneously treat and prevent BV and VVC, while removing the abuse of antibiotic and antimycotic drugs to avoid further antimicrobial resistance.
+TLDR: "There is a large unmet medical need for an efficient and highly accessible solution that can simultaneously treat and prevent BV and VVC, while removing the abuse of antibiotic and antimycotic drugs to avoid further antimicrobial resistance. The inefficacy of current...
+--------------------------------------------------
+
+Project Name: SUNSTONE
+Objective: SUNSTONE is dedicated to reinforcing the SESAME (Synchrotron light for Experimental Science and Applications in the Middle East) facility.
+TLDR: SUNSTONE is dedicated to reinforcing the SESAME (Synchrotron light for Experimental Science and Applications in the Middle East) facility. This initiative includes eight key European and Middle Eastern research infrastructures and organisations, with the Paul Scherrer Institut...
+--------------------------------------------------
+
+Project Name: Crohn
+Objective: The last century has seen a dramatic increase in the prevalence of chronic inflammatory and autoimmune illnesses, including diseases of poorly understood etiology such as Crohn’s disease (CD) and myalgic encephalomyelitis (ME).
+TLDR: The last century has seen a dramatic increase in the prevalence of chronic inflammatory and autoimmune illnesses, including diseases of poorly understood etiology such as Crohn’s disease (CD) and myalgic encephalomyelitis (ME). Recent reports for CD and ME of elevated levels...
+--------------------------------------------------
+
+Project Name: the Cancer Mission cluster
+Objective: Recent research suggests that intratumoral microbiota may contribute to...
+TLDR: "This action is part of the Cancer Mission cluster of projects on “Understanding (tumour-host interactions)"".Challenge: Primary or acquired resistance to therapies is a major challenge in oncology. Recent research suggests that intratumoral microbiota may contribute to...
+--------------------------------------------------
+
+Project Name: ATLAS²
+Objective: The ATLAS² project aims at developing the first service of Space Safety.
+TLDR: The ATLAS² project aims at developing the first service of Space Safety. Based on a network of 7 radars deployed around the world with a new design for scanning and tracking, capable to detect debris down to centimetric size, and through fusing data from its network and other...
+--------------------------------------------------
+
+Project Name: West Africa
+Objective: It is expected to become increasingly important to crop production in the Sahel, and grow as part of Europe’s grain portfolio as incidences of drought become more frequent...
+TLDR: Sorghum is a drought tolerant cereal crop, grown extensively by smallholder farmers in West Africa. It is expected to become increasingly important to crop production in the Sahel, and grow as part of Europe’s grain portfolio as incidences of drought become more frequent...
+--------------------------------------------------
+
+Project Name: NZEB
+Objective: Buildings wield substantial influence on the environment, accounting for a hefty 30% of global energy usage and a consequential 19% of greenhouse gas emissions.
+TLDR: Buildings wield substantial influence on the environment, accounting for a hefty 30% of global energy usage and a consequential 19% of greenhouse gas emissions. To combat this looming crisis, the Net-Zero Energy Building (NZEB) concept emerges as a transformative paradigm...
+--------------------------------------------------
+
+Project Name: the ARCHIBIOFOAM project
+Objective: Our approach integrates biobased materials science, computational metamaterial...
+TLDR: The overall objective of the ARCHIBIOFOAM project is to create mono-material yet multifunctional systems for architecture through the additive fabrication of shape-changing load-bearing biofoams. Our approach integrates biobased materials science, computational metamaterial...
+--------------------------------------------------
+
+Project Name: NeuroWelfare
+Objective: (NW) aims to pave the way for the interdisciplinary study of the brain functioning and the socio-cognitive impact on self and social perception in the...
+TLDR: NeuroWelfare in Cash Transfers Measures (CTs): Do Welfare Cash Transfers Show Different Brain Activity and Improve Equality? (NW) aims to pave the way for the interdisciplinary study of the brain functioning and the socio-cognitive impact on self and social perception in the...
+--------------------------------------------------
+
+Project Name: NutriEV
+Objective: The NutriEV project explores the pivotal role of extracellular vesicles (EVs) derived from food in nutrition.
+TLDR: The NutriEV project explores the pivotal role of extracellular vesicles (EVs) derived from food in nutrition. These nutriEVs are envisioned to serve as superfoods and nutritional biosensors. The project integrates various disciplines, including nutrition, microbiome research...
+--------------------------------------------------
+
+Project Name: the Southern Levant
+Objective: Temples in the Southern Levant during the Persian Empire (c. 539–331BCE) provide a vital, underutilized historical vista for such questions.
+TLDR: How does human work structure the economy and society? Temples in the Southern Levant during the Persian Empire (c. 539–331BCE) provide a vital, underutilized historical vista for such questions. Persian involvement with labor taxation, forced labor, andtemple institutions...
+--------------------------------------------------
+
+Project Name: The European Union
+Objective: The European Union has been challenged to contribute to the global aim of providing sustainable solutions to the current and future needs on synthetic compounds and materials in the coming years.
+TLDR: The European Union has been challenged to contribute to the global aim of providing sustainable solutions to the current and future needs on synthetic compounds and materials in the coming years. In this sense, the development of sustainable chemical processes is one of the...
+--------------------------------------------------
+
+Project Name: NUTRIMMUNE
+Objective: NUTRIMMUNE examines how dietary factors affect immune responses across varying degrees of obesity-related Noncommunicable Disease (NCD) severity.
+TLDR: NUTRIMMUNE examines how dietary factors affect immune responses across varying degrees of obesity-related Noncommunicable Disease (NCD) severity. This focus is crucial given obesity’s link to NCDs and infection risks. The project gathers 6 academic groups and 1 SME across 4...
+--------------------------------------------------
+
+Project Name: Brewer
+Objective: Therefore, there is a need to explore various recycling methods for this residue and transform it into value-added products...
+TLDR: Brewer's spent grain (BSG) is a significant by-product of beer brewing, accounting for 85% of the waste produced and 31% of the original malt weight. Therefore, there is a need to explore various recycling methods for this residue and transform it into value-added products...
+--------------------------------------------------
+
+Project Name: the Río de la Plata
+Objective: The project will investigate the uses of justice by women in the colonial contexts of the Río de la Plata, between Spanish and Portuguese Americas through lawsuits of moral crimes.
+TLDR: The project will investigate the uses of justice by women in the colonial contexts of the Río de la Plata, between Spanish and Portuguese Americas through lawsuits of moral crimes. The ultimate aim is to untangle the trials by detecting features both in and beyond the...
+--------------------------------------------------
+
+Project Name: CharCool
+Objective: In response to set targets for reducing our carbon footprint and securing our energy future in Europe, the CharCool project combines the use of natural energy and nature-based solutions to achieve clean and efficient cooling.
+TLDR: In response to set targets for reducing our carbon footprint and securing our energy future in Europe, the CharCool project combines the use of natural energy and nature-based solutions to achieve clean and efficient cooling. CharCool is an innovative and sustainable...
+--------------------------------------------------
+
+Project Name: SMACool
+Objective: The project SMACool will develop a functional air-conditioning device for residential buildings, based on the emerging technology of elastocalorics, which uses (shape memory) alloys as solid-state refrigerants for efficient and sustainable cold (and heat) generation...
+TLDR: The project SMACool will develop a functional air-conditioning device for residential buildings, based on the emerging technology of elastocalorics, which uses (shape memory) alloys as solid-state refrigerants for efficient and sustainable cold (and heat) generation...
+--------------------------------------------------
+
+Project Name: quantum
+Objective: Ultracold quantum gases allowed to realize experimentally several paradigmatic models of theoretical physics, such as nonrelativistic bosons and fermions with zero-range interactions.
+TLDR: Ultracold quantum gases allowed to realize experimentally several paradigmatic models of theoretical physics, such as nonrelativistic bosons and fermions with zero-range interactions. One of the issues driving the last decades of research on quantum gases was understanding...
+--------------------------------------------------
+
+Project Name: HVDC
+Objective: The PROSECCO project brings direct advancements to the maturity level of HVDC grids.
+TLDR: The PROSECCO project brings direct advancements to the maturity level of HVDC grids. Doing so, it aids in realizing Europe's climate goals for 2050. Meshed HVDC grids is a key technology to integrate offshore wind and to upgrade the European power system. As such, the future...
+--------------------------------------------------
+
+Project Name: Paris Agreement
+Objective: In response to climate change, the landmark Paris Agreement established a set of goals to achieve climate neutrality and limit global warming.
+TLDR: In response to climate change, the landmark Paris Agreement established a set of goals to achieve climate neutrality and limit global warming. To help investors and companies contribute to these goals, the EU adopted a taxonomy for sustainable activities, and in line with it...
+--------------------------------------------------
+
+Project Name: Critique
+Objective: “Critique” represents a fundamental notion of modern European societies.
+TLDR: “Critique” represents a fundamental notion of modern European societies. It is, at least according to our own self-understanding, by thinking and acting critically – that is, by “thinking for ourselves” and by “resisting authority” – that we distinguish...
+--------------------------------------------------
+
+Project Name: SSA
+Objective: Despite this, malnutrition rates of SSA in 2022 have deteriorated compared to 2010.
+TLDR: "In sub-Saharan Africa (SSA), attaining food security is crucial for the United Nations Sustainable Development Goal of 'Zero Hunger'. Despite this, malnutrition rates of SSA in 2022 have deteriorated compared to 2010. Climate change further compounds this challenge, as it...
+--------------------------------------------------
+
+Project Name: Seafood
+Objective: Marine fish and invertebrates are increasingly affected by climate change.
+TLDR: Seafood is a critical component of human diets and the most widely traded food group. Marine fish and invertebrates are increasingly affected by climate change. Global seafood trade could buffer the impacts of climate change by allowing for increased imports. However, global...
+--------------------------------------------------
+
+Project Name: CCAM
+Objective: SYNERGIES confronts pivotal challenges within the CCAM community, such as the absence of interoperable scenario databases, time-consuming and expensive development cycles, and regulatory ambiguities.
+TLDR: SYNERGIES confronts pivotal challenges within the CCAM community, such as the absence of interoperable scenario databases, time-consuming and expensive development cycles, and regulatory ambiguities. It achieves this by implementing the Safety Assurance Framework developed in...
+--------------------------------------------------
+
+Project Name: the European Union
+Objective: Academic research has long interrogated the ways in which crises are dealt with at the European level.
+TLDR: Due to recurring economic and political shocks, the past decade has consolidated crisis-management and resilience as a key priority of the European Union (EU). Academic research has long interrogated the ways in which crises are dealt with at the European level. Yet, the...
+--------------------------------------------------
+
+Project Name: Hanbury-Brown
+Objective: The pioneering experiments of intensity correlations by Hanbury-Brown and Twiss more than 50 years ago not only allowed to measure the angular diameter of many bright stars, but it also motivated Roy Glauber to develop his quantum formalism of photon statistics.
+TLDR: The pioneering experiments of intensity correlations by Hanbury-Brown and Twiss more than 50 years ago not only allowed to measure the angular diameter of many bright stars, but it also motivated Roy Glauber to develop his quantum formalism of photon statistics. The advent of...
+--------------------------------------------------
+
+Project Name: MILADO
+Objective: MILADO will provide a robust and universal technology platform for low-cost and large volume fabrication of mid infrared (MIR) lasers enabling novel sensors in medicine and production.
+TLDR: MILADO will provide a robust and universal technology platform for low-cost and large volume fabrication of mid infrared (MIR) lasers enabling novel sensors in medicine and production. Key innovation is the technology upscale of the epitaxy of Quantum-Cascade-Lasers (QCLs) on...
+--------------------------------------------------
+
+Project Name: DYMAN
+Objective: DYMAN targets the development of a completely new design of adsorption chillers based on the following innovations (1) New low-temperature adsorbents achieving high capacities at very low driving temperatures below 50 °C.
+TLDR: DYMAN targets the development of a completely new design of adsorption chillers based on the following innovations (1) New low-temperature adsorbents achieving high capacities at very low driving temperatures below 50 °C. (2) New type of adsorption heat exchangers made of 3D...
+--------------------------------------------------
+
+Project Name: Immuno-
+Objective: Immuno- and targeted therapies have revolutionized the treatment of cancer patients, and more innovative therapeutics, such as KRAS inhibitors (KRASi), are entering the clinic.
+TLDR: Immuno- and targeted therapies have revolutionized the treatment of cancer patients, and more innovative therapeutics, such as KRAS inhibitors (KRASi), are entering the clinic. However, their use as monotherapies fails to achieve durable tumor control in most patients, and the...
+--------------------------------------------------
+
+Project Name: TEMPA-3D
+Objective: TEMPA-3D offers a transdisciplinary approach to study endangered archaeological collections from Kamyana Mohyla, Ukraine and Rogaland, Norway.
+TLDR: TEMPA-3D offers a transdisciplinary approach to study endangered archaeological collections from Kamyana Mohyla, Ukraine and Rogaland, Norway. By fusing photogrammetry and experimental archaeology TEMPA-3D will initiate new research subfield and make an impact on the broader...
+--------------------------------------------------
+
+Project Name: T2D
+Objective: Type 2 diabetes (T2D) has emerged as a global epidemic, impacting 1 in 10 people worldwide and causing over 114,000 deaths annually in Europe.
+TLDR: Type 2 diabetes (T2D) has emerged as a global epidemic, impacting 1 in 10 people worldwide and causing over 114,000 deaths annually in Europe. Despite extensive research, understanding the pathogenic mechanisms driving distinct disease subtypes and how diet influences glucose...
+--------------------------------------------------
+
+Project Name: Molecular Dynamics
+Objective: Today, battery development is done via extensive trial-and-error laboratory experiments.
+TLDR: Today, battery development is done via extensive trial-and-error laboratory experiments. It is extremely costly and not scalable. Compular has developed an advanced Molecular Dynamics (MD) simulation software, tailored to battery R&D, that enables replacing much of the tedious...
+--------------------------------------------------
+
+Project Name: VINNY
+Objective: The application of VINNY nanoformulations will allow contributing to the...
+TLDR: The main objective of the VINNY is the development of sustainable, low-cost nanoformulated biopesticides (nanoBPs) and biofertilizers (nanoBFs) for contributing to more resilient vineyard systems. The application of VINNY nanoformulations will allow contributing to the...
+--------------------------------------------------
+
+Project Name: secreted specialized
+Objective: Although there is a vast amount of research on the chemistry of secreted specialized...
+TLDR: Chemosensation is a critical signalling process for sea cucumbers which relies on the interaction between their chemosensory receptors and various ligands for foraging and reproduction. Although there is a vast amount of research on the chemistry of secreted specialized...
+--------------------------------------------------
+
+Project Name: Non-Small Cell Lung Cancer
+Objective: The introduction of immune checkpoint therapy for Non-Small Cell Lung Cancer (NSCLC) has improved clinical outcomes.
+TLDR: The introduction of immune checkpoint therapy for Non-Small Cell Lung Cancer (NSCLC) has improved clinical outcomes. However, due to primary or secondary resistance, only a minority of patients show long term responses, leading to exploration of a multiplicity of new agents...
+--------------------------------------------------
+
+Project Name: The ZEUS project
+Objective: The ZEUS project is focused on advancing the development of innovative, highly efficient and radiation-resistant nanowire solar cells designed for in-orbit solar energy collection.
+TLDR: The ZEUS project is focused on advancing the development of innovative, highly efficient and radiation-resistant nanowire solar cells designed for in-orbit solar energy collection. While current space-tested nanowire solar cells offer around 15% efficiency using single-band...
+--------------------------------------------------
+
+Project Name: Half Heusler
+Objective: This project aims to develop high-performance, low-cost and environmentally-friendly Half Heusler (HH) thermoelectric (TE) materials for waste heat recovery in mid-temperature applications.
+TLDR: This project aims to develop high-performance, low-cost and environmentally-friendly Half Heusler (HH) thermoelectric (TE) materials for waste heat recovery in mid-temperature applications. It is an interdisciplinary research program, combining research actions from five...
+--------------------------------------------------
+
+Project Name: LANDLABS
+Objective: LANDLABS operates in six landscape laboratories all over Europe, all of which are urban landscapes characterized by heavy industrial influence.
+TLDR: LANDLABS operates in six landscape laboratories all over Europe, all of which are urban landscapes characterized by heavy industrial influence. Its goals are the development of new theories for understanding urban landscapes in the Anthropocene and new methods to design them...
+--------------------------------------------------
+
+Project Name: Edge
+Objective: In HYPER-AI, we work with smart virtual computing entities (nodes) that come from a variety of infrastructures that span all three of the so-called computing continuum's layers: the Cloud, the Edge, and IoT.It focuses on intensive data-processing applications that present the...
+TLDR: In HYPER-AI, we work with smart virtual computing entities (nodes) that come from a variety of infrastructures that span all three of the so-called computing continuum's layers: the Cloud, the Edge, and IoT.It focuses on intensive data-processing applications that present the...
+--------------------------------------------------
+
+Project Name: the Intelligent Infrastructure Management
+Objective: CoGNETs aims to revolutionize the Intelligent Infrastructure Management by introducing a scalable and interoperable distributed Middleware Framework for autonomous IoT-to-Cloud computing, sustainable during and after the project via FIWARE Foundation (Technical Manager) and...
+TLDR: CoGNETs aims to revolutionize the Intelligent Infrastructure Management by introducing a scalable and interoperable distributed Middleware Framework for autonomous IoT-to-Cloud computing, sustainable during and after the project via FIWARE Foundation (Technical Manager) and...
+--------------------------------------------------
+
+Project Name: NPS
+Objective: Depressed mood, agitation, false beliefs, lack of motivation and other alterations in behaviour, usually named with the umbrella term of neuropsychiatric symptoms (NPS), are commonly observed in people with Alzheimer’s disease (AD).
+TLDR: Depressed mood, agitation, false beliefs, lack of motivation and other alterations in behaviour, usually named with the umbrella term of neuropsychiatric symptoms (NPS), are commonly observed in people with Alzheimer’s disease (AD). NPS are highly prevalent in people with AD...
+--------------------------------------------------
+
+Project Name: AVs
+Objective: The surge in demand for precise localization services, driven by location-based applications and autonomous vehicles (AVs), necessitates advancements beyond current GPS and 5G technologies.
+TLDR: The surge in demand for precise localization services, driven by location-based applications and autonomous vehicles (AVs), necessitates advancements beyond current GPS and 5G technologies. 6G presents a transformative opportunity by leveraging non-terrestrial networks (NTNs)...
+--------------------------------------------------
+
+Project Name: NISQ
+Objective: We are currently witnessing a technological revolution driven by the recent achievements in NISQ devices, which despite their imperfect controllability have already revolutionized our understanding of many-body dynamics and quantum information science.
+TLDR: We are currently witnessing a technological revolution driven by the recent achievements in NISQ devices, which despite their imperfect controllability have already revolutionized our understanding of many-body dynamics and quantum information science. While a lot of effort is...
+--------------------------------------------------
+
+Project Name: quantum technology
+Objective: The rise of quantum technology has opened the eyes of the ICT industry with respect to cryogenics.
+TLDR: The rise of quantum technology has opened the eyes of the ICT industry with respect to cryogenics. It is considered an enabler bringing in quantum functionalities and enhanced system performance and we are observing a massive growth of cryogenics from coolers to cryogenic...
+--------------------------------------------------
+
+Project Name: The Researchers´ Night
+Objective: Since its introduction in 2005, it has steadily grown in terms of scope, geographical coverage, professionalization, and attendance by the public.
+TLDR: The Researchers´ Night is one of the favorite science popularization events in the Czech Republic. Since its introduction in 2005, it has steadily grown in terms of scope, geographical coverage, professionalization, and attendance by the public. The consortium of 18...
+--------------------------------------------------
+
+Project Name: IR
+Objective: POWERSAT focuses on scavenging the unexploited solar infrared (IR) spectrum by providing an original THz (10-400 THz) energy harvesting platform, thus completing the function of photovoltaics cells, and on harvesting the microwave spillover losses from satellite’s antennas...
+TLDR: POWERSAT focuses on scavenging the unexploited solar infrared (IR) spectrum by providing an original THz (10-400 THz) energy harvesting platform, thus completing the function of photovoltaics cells, and on harvesting the microwave spillover losses from satellite’s antennas...
+--------------------------------------------------
+
+Project Name: SSA
+Objective: The SUPPORT project aims to strengthen health research systems in sub-Saharan African (SSA) countries affected by poverty-related pediatric infectious diseases.
+TLDR: The SUPPORT project aims to strengthen health research systems in sub-Saharan African (SSA) countries affected by poverty-related pediatric infectious diseases. This goal will be achieved through a comprehensive fellowship program designed to train and mentor early and...
+--------------------------------------------------
+
+Project Name: EU
+Objective: Long-term sustainability requires improvements in energy efficiency, with a huge return on investment obtained from even slight improvements.
+TLDR: Greenhouse gas emissions for refrigeration systems worldwide were in 2019 equivalent to the whole EU emissions. Long-term sustainability requires improvements in energy efficiency, with a huge return on investment obtained from even slight improvements. The mechanocaloric...
+--------------------------------------------------
+
+Project Name: BioElectronics B.V.
+Objective: Chronic cluster headache and chronic migraine pose a significant challenge for patients and neurologists worldwide.
+TLDR: Chronic cluster headache and chronic migraine pose a significant challenge for patients and neurologists worldwide. Approx. 48-64% of the patients experience only limited relief from drug-based treatments, they are drug-refractory. Salvia BioElectronics B.V. developed PRIMUS...
+--------------------------------------------------
+
+Project Name: Pertinent
+Objective: Pertinent is developing products that combine the effectiveness of chemical pesticides with the safety of biocontrol products.
+TLDR: Pertinent is developing products that combine the effectiveness of chemical pesticides with the safety of biocontrol products.Pertinent is applying to a blended funding program combining €2.5M of grants and €6M in direct investment to cover commercialization of its first...
+--------------------------------------------------
+
+Project Name: AEC
+Objective: CARBCOMN addresses a disruptive innovation in zero-carbon concrete load-bearing structures (combination of columns, beams, slabs or walls) by setting forth a new digital AEC design paradigm that is fully compatible with concrete that uses CO2 as raw material and is...
+TLDR: CARBCOMN addresses a disruptive innovation in zero-carbon concrete load-bearing structures (combination of columns, beams, slabs or walls) by setting forth a new digital AEC design paradigm that is fully compatible with concrete that uses CO2 as raw material and is...
+--------------------------------------------------
+
+Project Name: PWD
+Objective: Modern pig production hugely depends on in-feed antibiotics to control postweaning diarrhea (PWD) and improve pig gut health during weaning.
+TLDR: Modern pig production hugely depends on in-feed antibiotics to control postweaning diarrhea (PWD) and improve pig gut health during weaning. However, the use of in-feed antibiotics and zinc oxide (ZnO) has already been banned in Europe prompting an urgent need for alternative...
+--------------------------------------------------
+
+Project Name: Biomass
+Objective: Biomass and plastic recycling feedstocks hold significant potential to replace chemicals and fuels derived from fossil resources.
+TLDR: Biomass and plastic recycling feedstocks hold significant potential to replace chemicals and fuels derived from fossil resources. However, their distinct chemical compositions, and large water content, present challenges to existing infrastructure and catalysts. Zeolites...
+--------------------------------------------------
+
+Project Name: Maltese
+Objective: This innovative and highly interactive festival seeks to create bridges between science, research, technology and the arts.
+TLDR: This innovative and highly interactive festival seeks to create bridges between science, research, technology and the arts. It aims to attract Maltese and Europeans, from all walks of life. Engaging visitors with activities, performances, workshops, experiments, installations...
+--------------------------------------------------
+
+Project Name: a Point of Care
+Objective: This project proposes developing, preclinical and clinical validation of a Point of Care (PoC) biosensing platform based on multiplexed field-effect sensor technology based on graphene monolayers functionalized with specific and oriented recognizing biomolecules (BioGFET)...
+TLDR: This project proposes developing, preclinical and clinical validation of a Point of Care (PoC) biosensing platform based on multiplexed field-effect sensor technology based on graphene monolayers functionalized with specific and oriented recognizing biomolecules (BioGFET)...
+--------------------------------------------------
+
+Project Name: Space deployment
+Objective: The exponential growth of satellite launches and, in general, of in-orbit activities calls for technological breakthroughs in cost-effective solar energy harvesting technologies for Space deployment.
+TLDR: The exponential growth of satellite launches and, in general, of in-orbit activities calls for technological breakthroughs in cost-effective solar energy harvesting technologies for Space deployment.JUMP INTO SPACE envisions a high-efficient, lightweight and flexible, stable...
+--------------------------------------------------
+
+Project Name: LIGO
+Objective: The discovery of gravitational waves by the LIGO and Virgo collaborations opened a new window to the Universe.
+TLDR: The discovery of gravitational waves by the LIGO and Virgo collaborations opened a new window to the Universe. Space-based gravitational wave detectors, such as the LISA mission, enable an exciting opportunity: using gravitational waves from the very early Universe in the...
+--------------------------------------------------
+
+Project Name: Omegga - World’s
+Objective: Omegga - World’s first low-cost in-ovo sexing solution to finally end chick cullingIn the egg-laying hen industry, over 7 billion day-old roosters are killed each year, because male layer chickens neither lay eggs nor produce enough meat to be profitable.
+TLDR: Omegga - World’s first low-cost in-ovo sexing solution to finally end chick cullingIn the egg-laying hen industry, over 7 billion day-old roosters are killed each year, because male layer chickens neither lay eggs nor produce enough meat to be profitable. Omegga developed a...
+--------------------------------------------------
+
+Project Name: the Standard Model
+Objective: Numerous experimental observations have shown that the Standard Model is not complete.
+TLDR: Numerous experimental observations have shown that the Standard Model is not complete. Precision measurements in quantum systems are one of the privileged frontiers for searching for new physics, as new particles may couple to atoms, provoking tiny changes in atomic structure...
+--------------------------------------------------
+
+Project Name: LEO
+Objective: Deficiencies in propulsion systems—compactness, power, cost-effectiveness, fuel efficiency, scalability, and adaptability—curtail the potential of small satellites in Low Earth Orbit (LEO), hindering mission diversity and longevity.
+TLDR: Deficiencies in propulsion systems—compactness, power, cost-effectiveness, fuel efficiency, scalability, and adaptability—curtail the potential of small satellites in Low Earth Orbit (LEO), hindering mission diversity and longevity. The imminent surge in the deployment of...
+--------------------------------------------------
+
+Project Name: IDEoPOP (International Dimensions
+Objective: The doctoral training network IDEoPOP (International Dimensions and Effects of Populism) aims to study how the phenomenon of populism is related to world politics.
+TLDR: The doctoral training network IDEoPOP (International Dimensions and Effects of Populism) aims to study how the phenomenon of populism is related to world politics. While the global rise of populist political parties, governments and movements all over the world, from Hungary...
+--------------------------------------------------
+
+Project Name: Airbnb
+Objective: "Digital platforms can massively erode the social environment in which they operate.
+TLDR: "Digital platforms can massively erode the social environment in which they operate. For instance, short-term rental platforms (STRs) such as Airbnb dislodge vulnerable locals from their homes, escalate gentrification, and further fuel overtourism. Urban ecosystems develop...
+--------------------------------------------------
+
+Project Name: Late Antiquity
+Objective: In the history of political thought, Late Antiquity is usually considered the period when the city-state gave way to monarchy and the Bible and Qur’an took the place of Plato.
+TLDR: In the history of political thought, Late Antiquity is usually considered the period when the city-state gave way to monarchy and the Bible and Qur’an took the place of Plato. With a focus on kingship and religion, late antique political thinking – so the story goes –...
+--------------------------------------------------
+
+Project Name: TRAILS
+Objective: The project proposal under the title TRAILS (acronym) aims to help prepare the society for large progress that has been made in the field of Artificial Intelligence (AI), emerging AI tools that are already transforming our day-to-day work, and the impact that this research...
+TLDR: The project proposal under the title TRAILS (acronym) aims to help prepare the society for large progress that has been made in the field of Artificial Intelligence (AI), emerging AI tools that are already transforming our day-to-day work, and the impact that this research...
+--------------------------------------------------
+
+Project Name: CRC
+Objective: Liver metastases commonly develop in up to 50% of patients with various cancer types.
+TLDR: Liver metastases commonly develop in up to 50% of patients with various cancer types. The most common cancer that metastasizes to the liver is colorectal cancer (CRC). At least 25% of CRC patients develop colorectal liver metastases (CRLM) during their illness. CRLM represent...
+--------------------------------------------------
+
+Project Name: Earth
+Objective: Biology can provide the answer to this challenge, self-sustainability being the defining characteristic of...
+TLDR: Creating new technologies towards long-term in space self-sustainability is essential to solve the problem of the increasing energy demand both in space and on Earth. Biology can provide the answer to this challenge, self-sustainability being the defining characteristic of...
+--------------------------------------------------
+
+Project Name: DESIRE4EU
+Objective: DESIRE4EU aims at proving the concept of a radically new sustainable approach to produce, use and recycle electronic printed circuit boards (PCB) that combine technical performance, economic and ecological efficiency throughout their life cycle.
+TLDR: DESIRE4EU aims at proving the concept of a radically new sustainable approach to produce, use and recycle electronic printed circuit boards (PCB) that combine technical performance, economic and ecological efficiency throughout their life cycle.The project’s vision is of...
+--------------------------------------------------
+
+Project Name: Green SWaP
+Objective: Similar to terrestrial photosynthesis, whereby plants convert solar energy into chemical energy through the capture of light energy, Green SWaP project seeks to harness this potentiality in space by converting water into highly valuable propellants, specifically hydrogen...
+TLDR: Similar to terrestrial photosynthesis, whereby plants convert solar energy into chemical energy through the capture of light energy, Green SWaP project seeks to harness this potentiality in space by converting water into highly valuable propellants, specifically hydrogen...
+--------------------------------------------------
+
+Project Name: REMPOWER
+Objective: However, SBSP also faces many challenges, such as high launch costs...
+TLDR: The REMPOWER project embarks on a pioneering journey to harness the untapped potential of space-based solar power (SBSP) through innovative rectenna technology and sub-THz wireless energy transmission. However, SBSP also faces many challenges, such as high launch costs...
+--------------------------------------------------
+
+Project Name: Worshipped
+Objective: Worshipped, contested, abandoned.
+TLDR: Worshipped, contested, abandoned. This downward spiral marked the fates of dozens of mystics and aspiring saints who lived in Italy in the first half of the twentieth century. Neglected today by the majority of the faithful, condemned by the ecclesiastical authorities and...
+--------------------------------------------------
+
+Project Name: The Danube River Basin
+Objective: "The Danube River Basin (DRB) faces significant challenges associated with river sediments.
+TLDR: "The Danube River Basin (DRB) faces significant challenges associated with river sediments. In the 2021 update of the Danube River Basin Management Plan, sediment balance alteration emerged as a new sub-topic within the existing Significant Water Management Issue titled...
+--------------------------------------------------
+
+Project Name: DN-JD
+Objective: The DEMINE (Dealing with conflicts related to Migration: Negotiating social cohesion through communication) European Joint Doctorate (DN-JD) network addresses a critical challenge facing Europe: the increasing prevalence of radicalisation and extremism, which threaten social...
+TLDR: The DEMINE (Dealing with conflicts related to Migration: Negotiating social cohesion through communication) European Joint Doctorate (DN-JD) network addresses a critical challenge facing Europe: the increasing prevalence of radicalisation and extremism, which threaten social...
+--------------------------------------------------
+
+Project Name: FutureLakes
+Objective: These aim to significantly improve ecological and chemical status of European lakes, restore biodiversity, recover valuable...
+TLDR: The overarching objective of FutureLakes is to demonstrate innovative solutions needed to transform lake restoration, integrated into lake management. These aim to significantly improve ecological and chemical status of European lakes, restore biodiversity, recover valuable...
+--------------------------------------------------
+
+Project Name: Belgian Women
+Objective: With this project, Belgian Women in Science, a Brussels-based non-profit organisation, aims to bring women researchers closer to the general public and stimulate the interest in scientific careers among young people with a special focus on gender diversity and inclusiveness...
+TLDR: With this project, Belgian Women in Science, a Brussels-based non-profit organisation, aims to bring women researchers closer to the general public and stimulate the interest in scientific careers among young people with a special focus on gender diversity and inclusiveness...
+--------------------------------------------------
+
+Project Name: PLATEX
+Objective: PLATEX reveals a potential “illusion of choice” where optional tools shape competition on...
+TLDR: PLATEX studies how users are affected by increased standardization associated with tools and services offered by platforms, and whether AI offsets these effects through customization. PLATEX reveals a potential “illusion of choice” where optional tools shape competition on...
+--------------------------------------------------
+
+Project Name: EU
+Objective: To foster enabling innovation ecosystems across the EU, a systemic approach that is inclusive and collaborative is required.
+TLDR: Today’s urgent challenges are inherently complex and systemic and will not be solved by individual actors or territories in isolation. To foster enabling innovation ecosystems across the EU, a systemic approach that is inclusive and collaborative is required. Diverse actors...
+--------------------------------------------------
+
+Project Name: Juha Kinnunen
+Objective: In 1997 Juha Kinnunen proved that maximal operators satisfy a Sobolev bound if the Sobolev exponent p is strictly larger than 1.
+TLDR: In 1997 Juha Kinnunen proved that maximal operators satisfy a Sobolev bound if the Sobolev exponent p is strictly larger than 1. His article initiated the study of regularity of maximal functions, a field which has attracted several dozens of authors to this day. Geometric...
+--------------------------------------------------
+
+Project Name: EU
+Objective: But there are no memory manufacturers in Europe.
+TLDR: The semiconductor industry is a 600B$ industry. The share of semiconductor memories is 150B$. But there are no memory manufacturers in Europe. So, the EU is missing out on a huge share of the semiconductor market!FMC will change that – by creating fundamentally new memories...
+--------------------------------------------------
+
+Project Name: PTSD
+Objective: Exposure to a traumatic event can induce psycho-physiological reactions and symptoms that in most people recede over time.
+TLDR: Exposure to a traumatic event can induce psycho-physiological reactions and symptoms that in most people recede over time. A minority of trauma-exposed individuals develop posttraumatic stress disorder (PTSD), characterized by severe functional and emotional impairment. The...
+--------------------------------------------------
+
+Project Name: the European Commission
+Objective: However, current meat analogues in the market...
+TLDR: In a public enquiry made by the European Commission, 80% of respondents were willing to reduce their meat intake to help reduce the emission of greenhouse gases (GHG), and 74% intended to change their diet to improve their health. However, current meat analogues in the market...
+--------------------------------------------------
+
+Project Name: University of Antwerp
+Objective: We recycle captured CO2 and split it into its original building blocks thanks to our proprietary...
+TLDR: Spin-off from University of Antwerp (PLASMANT research group), D-CRBN is a climate tech company which has developed a cutting-edge technology that enables the conversion of CO2. We recycle captured CO2 and split it into its original building blocks thanks to our proprietary...
+--------------------------------------------------
+
+Project Name: Pulsar Timing Arrays
+Objective: Within the next few years nano-Hz GWs will be established as a completely new window on our Universe, unlocking...
+TLDR: We are on the verge of the next big breakthrough in gravitational wave (GW) astronomy: namely the detection of a nano-Hz GW signal with Pulsar Timing Arrays (PTAs). Within the next few years nano-Hz GWs will be established as a completely new window on our Universe, unlocking...
+--------------------------------------------------
+
+Project Name: BC
+Objective: "Between the end of the 9th and the beginning of the 7th centuries BC, the Veneto and Friuli Venezia Giulia regions (Northeastern Italy), as well as Slovenia, were involved in a significant process referred in literature as ""Proto-urbanization"".
+TLDR: "Between the end of the 9th and the beginning of the 7th centuries BC, the Veneto and Friuli Venezia Giulia regions (Northeastern Italy), as well as Slovenia, were involved in a significant process referred in literature as ""Proto-urbanization"". During this period, a...
+--------------------------------------------------
+
+Project Name: SSAH
+Objective: This conference under Belgium Presidency aims at engaging in a dialog with experts in the field of SSAH, knowledge brokers and policymakers with a view to improve the contribution of the SSAH disciplines in evidence-informed policymaking.
+TLDR: This conference under Belgium Presidency aims at engaging in a dialog with experts in the field of SSAH, knowledge brokers and policymakers with a view to improve the contribution of the SSAH disciplines in evidence-informed policymaking. By way of interactive discussions...
+--------------------------------------------------
+
+Project Name: Cilia-AI
+Objective: Cilia-AI will train a new generation of multidisciplinary biomedical researchers and entrepreneurs, and those specializing in emerging machine learning technologies, a subset of AI.
+TLDR: Cilia-AI will train a new generation of multidisciplinary biomedical researchers and entrepreneurs, and those specializing in emerging machine learning technologies, a subset of AI. The focus is the study of primary cilia, microtubule-based projections on cell surfaces that...
+--------------------------------------------------
+
+Project Name: Edge AI
+Objective: Artificial intelligence is increasingly being brought to the source of data, thus establishing the Edge AI concept.
+TLDR: Artificial intelligence is increasingly being brought to the source of data, thus establishing the Edge AI concept. Edge AI is gaining momentum across various industries and services by public authorities and enables new applications requiring high performance, ultra-low...
+--------------------------------------------------
+
+Project Name: ComeInCell
+Objective: ComeInCell will establish a novel integrated Synthetic Cell platform to provide cost- and resource-efficient, environmentally friendly, widely applicable and quantitative model systems to elucidate key cellular mechanisms of health and disease based on the integration of...
+TLDR: ComeInCell will establish a novel integrated Synthetic Cell platform to provide cost- and resource-efficient, environmentally friendly, widely applicable and quantitative model systems to elucidate key cellular mechanisms of health and disease based on the integration of...
+--------------------------------------------------
+
+Project Name: Europe
+Objective: The future economic growth in Europe requires engineers and researchers capable to design, develop and implement new information technologies to support explosive data-driven transformation of economy, public and government activities.
+TLDR: The future economic growth in Europe requires engineers and researchers capable to design, develop and implement new information technologies to support explosive data-driven transformation of economy, public and government activities. The analysis of this data demands a...
+--------------------------------------------------
+
+Project Name: EU
+Objective: As the world's second most widely used metal (after iron), aluminium (Al) and its alloys play a crucial role in decarbonizing the transportation sector and achieving climate neutrality for both the EU and our world.
+TLDR: As the world's second most widely used metal (after iron), aluminium (Al) and its alloys play a crucial role in decarbonizing the transportation sector and achieving climate neutrality for both the EU and our world. Essentially, Al-alloys reinforced with quasicrystalline (QC)...
+--------------------------------------------------
+
+Project Name: AI
+Objective: PROMOTE focuses on multidisciplinary education of doctoral candidates (DCs) in -omics and artificial intelligence (AI) mediated intervention to improve clinical management of Prostate Cancer (PCa).
+TLDR: PROMOTE focuses on multidisciplinary education of doctoral candidates (DCs) in -omics and artificial intelligence (AI) mediated intervention to improve clinical management of Prostate Cancer (PCa). PCa is the second most common malignancy, affecting ~1.3 million men every year...
+--------------------------------------------------
+
+Project Name: Free Electron Lasers
+Objective: Recent progress in Ultra-High Intensity optical laser systems together with the advent of Free Electron Lasers has enabled the possibility to experimentally study hot dense plasmas with unprecedented spatial and temporal resolution.
+TLDR: Recent progress in Ultra-High Intensity optical laser systems together with the advent of Free Electron Lasers has enabled the possibility to experimentally study hot dense plasmas with unprecedented spatial and temporal resolution. This early state of the plasma is prone to...
+--------------------------------------------------
+
+Project Name: Phase-Change Materials
+Objective: This research proposal pioneers energy-efficient residential structures through strategic integration of Phase-Change Materials (PCMs) into building walls.
+TLDR: This research proposal pioneers energy-efficient residential structures through strategic integration of Phase-Change Materials (PCMs) into building walls. Focused on Portugal and the EU, the study targets substantial energy savings, initially estimated at under 18% based on...
+--------------------------------------------------
+
+Project Name: SMARTTEST
+Objective: Current healthcare systems rely heavily on individual’s self-monitoring ability to identify symptoms and initiate professional medical intervention, because of the limited possibilities to monitor a person's health proactively and from a distance.
+TLDR: Current healthcare systems rely heavily on individual’s self-monitoring ability to identify symptoms and initiate professional medical intervention, because of the limited possibilities to monitor a person's health proactively and from a distance. SMARTTEST is a timely...
+--------------------------------------------------
+
+Project Name: Trinity College Dublin
+Objective: Building on this rich experience of public engagement and researcher development, the START project team will once again coordinate an event across multiple partners and locations in...
+TLDR: Trinity College Dublin has co-ordinated European Researchers’ Nights every year since 2013. Building on this rich experience of public engagement and researcher development, the START project team will once again coordinate an event across multiple partners and locations in...
+--------------------------------------------------
+
+Project Name: FDI
+Objective: Foreign direct investment (FDI) flows are conducted by INDIVIDUAL investors (abbreviated as IFDI), which have been strongly promoted by Immigrant Investor Programs (IIPs).
+TLDR: Foreign direct investment (FDI) flows are conducted by INDIVIDUAL investors (abbreviated as IFDI), which have been strongly promoted by Immigrant Investor Programs (IIPs). Twenty-one out of twenty-seven of the member states of the European Union (EU) establish IIPs to attract...
+--------------------------------------------------
+
+Project Name: The European Union's
+Objective: However, ambitious reductions in greenhouse gas emissions may lead to unintended consequences, notably from current EU policies.
+TLDR: "The European Union's goal of achieving climate neutrality by 2050 is crucial for transitioning to a low-carbon economy. However, ambitious reductions in greenhouse gas emissions may lead to unintended consequences, notably from current EU policies. On one hand, increasing...
+--------------------------------------------------
+
+Project Name: DF
+Objective: The consumption of dietary fibres (DF) should be increased to comply with the dietary guidelines and fuel various beneficial metabolites produced by the gut microbiota, such as short chain fatty acids (SCFA).
+TLDR: The consumption of dietary fibres (DF) should be increased to comply with the dietary guidelines and fuel various beneficial metabolites produced by the gut microbiota, such as short chain fatty acids (SCFA). Microbiota also produces gases that, in sensitive persons including...
+--------------------------------------------------
+
+Project Name: NHPs
+Objective: The PRISM project addresses critical challenges in neurosurgical training involving non-human primates (NHPs) within the framework of the 3Rs (Replacement, Reduction, Refinement) endorsed by the EU.
+TLDR: The PRISM project addresses critical challenges in neurosurgical training involving non-human primates (NHPs) within the framework of the 3Rs (Replacement, Reduction, Refinement) endorsed by the EU. NHPs are indispensable models in biomedical research, particularly in...
+--------------------------------------------------
+
+Project Name: the Renewable Energy Directive
+Objective: Anaerobic digestion can tackle both challenges simultaneously, and has been commonly...
+TLDR: Effective (organic) waste management and renewable energy supply are essential in our present society, such as meeting targets of the European Green Deal and the Renewable Energy Directive. Anaerobic digestion can tackle both challenges simultaneously, and has been commonly...
+--------------------------------------------------
+
+Project Name: Plexigrid - Plexar Operated
+Objective: "Plexigrid - Plexar Operated GridsPlexigrid is creating a new value chain since it is building the Operating System for tomorrow's electricity grid.
+TLDR: "Plexigrid - Plexar Operated GridsPlexigrid is creating a new value chain since it is building the Operating System for tomorrow's electricity grid. This system enables a new value chain for electricity distribution, where producers, consumers, grid operators... and their...
+--------------------------------------------------
+
+Project Name: Probabilistically Checkable Proofs
+Objective: This proposal aims to delve further into the study of Probabilistically Checkable Proofs (PCPs), a cornerstone of modern theoretical computer science, that exhibits some of the most powerful local to global behavior.
+TLDR: This proposal aims to delve further into the study of Probabilistically Checkable Proofs (PCPs), a cornerstone of modern theoretical computer science, that exhibits some of the most powerful local to global behavior. Any NP proof can be written in a format that is locally...
+--------------------------------------------------
+
+Project Name: The U2Demo project
+Objective: The U2Demo project aims to create innovative, consumer-centered management strategies that facilitate widespread participation in Peer-to-Peer (P2P) trading and Energy Sharing.
+TLDR: The U2Demo project aims to create innovative, consumer-centered management strategies that facilitate widespread participation in Peer-to-Peer (P2P) trading and Energy Sharing. This initiative will promote equitable and democratic access to sustainable energy resources. The...
+--------------------------------------------------
+
+Project Name: SME
+Objective: This solution can contribute to the decarbonization of...
+TLDR: Hyme is a Danish SME established in 2021, dedicated to revolutionizing large-scale energy storage by developing a Thermal Energy Storage (TES) system that stores energy in the form of high-temperature heat in molten salt. This solution can contribute to the decarbonization of...
+--------------------------------------------------
+
+Project Name: Biontronic Chemistry
+Objective: I envision a new drug delivery system capable spatiotemporal release with electronic precision.
+TLDR: I envision a new drug delivery system capable spatiotemporal release with electronic precision.This technology is based on; Biontronic Chemistry (BC) which combines Bioorthogonal Release (BR) and Iontronic transport to overcome the drawbacks of each individual technology and...
+--------------------------------------------------
+
+Project Name: quantuM PhAseS
+Objective: "The COMPASS project, acronym for ""Cavity cOntrol of quantuM PhAseS in nanophotonic cavitieS,"" delves into the theoretical exploration of inducing and controlling superconductivity and other many-body phases using nanophotonic cavities.
+TLDR: "The COMPASS project, acronym for ""Cavity cOntrol of quantuM PhAseS in nanophotonic cavitieS,"" delves into the theoretical exploration of inducing and controlling superconductivity and other many-body phases using nanophotonic cavities. Situated in the field of cavity...
+--------------------------------------------------
+
+Project Name: SOT
+Objective: Allogeneic tissue graft (hematopoietic cell transplantation; HCT) and solid organ transplantation (SOT) (Kidney, Heart, Lung,..) save tens of thousands of lives annually.
+TLDR: Allogeneic tissue graft (hematopoietic cell transplantation; HCT) and solid organ transplantation (SOT) (Kidney, Heart, Lung,..) save tens of thousands of lives annually. Yet their success is compounded by a high incidence of the potentially fatal graft-versus-host disease...
+--------------------------------------------------
+
+Project Name: Mercury
+Objective: "We develop a new type of a global plasma simulation model with adaptive charged particle kinetic physics for the Mercury-solar wind interaction.
+TLDR: "We develop a new type of a global plasma simulation model with adaptive charged particle kinetic physics for the Mercury-solar wind interaction. Mercury’s solar wind interaction, or space weather, is unique in the solar system due to spatially small and temporally fast...
+--------------------------------------------------
+
+Project Name: HORIZON-INFRA-2023
+Objective: In response to the HORIZON-INFRA-2023-DEV-01-03 call, INFRAPLUS aims to expand INFRAFRONTIER's capacity for human disease modelling, refine its service portfolio by reducing animal usage and developing alternative cellular models, and optimise the use of resources.
+TLDR: In response to the HORIZON-INFRA-2023-DEV-01-03 call, INFRAPLUS aims to expand INFRAFRONTIER's capacity for human disease modelling, refine its service portfolio by reducing animal usage and developing alternative cellular models, and optimise the use of resources. INFRAPLUS...
+--------------------------------------------------
+
+Project Name: HydroChiral
+Objective: Chirality and water both play key roles in various aspects of biological functions and disentangling water’s role in chiral recognition in biological processes is paramount to ultimately understanding the origins of homochirality.
+TLDR: Chirality and water both play key roles in various aspects of biological functions and disentangling water’s role in chiral recognition in biological processes is paramount to ultimately understanding the origins of homochirality. HydroChiral proposes to do this by...
+--------------------------------------------------
+
+Project Name: Deep Neural Network
+Objective: Can we decode the training data of a Deep Neural Network (DNN) directly from its parameters?Training data of DNNs are assumed safe.
+TLDR: Can we decode the training data of a Deep Neural Network (DNN) directly from its parameters?Training data of DNNs are assumed safe. Recent findings by us and by others indicate that this is not the case, with severe implications on Data-Privacy. Yet, such findings shed light...
+--------------------------------------------------
+
+Project Name: Research Reactors (RR
+Objective: Only few initiatives are taken (PALLAS and JHR) to partially replace this capacity.
+TLDR: Many of the existing Research Reactors (RR) in Europe are very old (>60 years operation). Only few initiatives are taken (PALLAS and JHR) to partially replace this capacity. Continued operation of these RRs is mandatory (at least until the new reactors come to operation) to...
+--------------------------------------------------
+
+Project Name: MaLaR
+Objective: MaLaR aims to develop an innovative approach leading to technology for the selective recovery of rare-earth metals from nuclear waste.
+TLDR: MaLaR aims to develop an innovative approach leading to technology for the selective recovery of rare-earth metals from nuclear waste. It involves exploiting materials assembled from 2D sheets into 3D structures to improve the efficiency and selectivity of the recovery process...
+--------------------------------------------------
+
+Project Name: VVER
+Objective: The security of supply of VVER nuclear fuel has become and will remain of vital importance in countries operating VVER-type reactors, and due to the strongly interconnected European grid network, this is also instrumental for Europe as a whole.
+TLDR: The security of supply of VVER nuclear fuel has become and will remain of vital importance in countries operating VVER-type reactors, and due to the strongly interconnected European grid network, this is also instrumental for Europe as a whole. The aim of SAVE project is to...
+--------------------------------------------------
+
+Project Name: RIS
+Objective: Thousands of industrial security vulnerabilities are emerging and our team has contributed to filing hundreds of them related to industrial robots like manipulators, AGVs, AMRs and other components.
+TLDR: Today, robots are not secure. Thousands of industrial security vulnerabilities are emerging and our team has contributed to filing hundreds of them related to industrial robots like manipulators, AGVs, AMRs and other components.We have created RIS (Robot Immune System), the...
+--------------------------------------------------
+
+Project Name: UniverCell Holding GmbH
+Objective: UniverCell Holding GmbH, established in 2019 in Flintbek, Germany, is revolutionizing the battery industry by developing and producing custom battery electrodes and cells tailored for premium applications like scooters, e-bikes, Power tools, Marine applications, Stationary...
+TLDR: UniverCell Holding GmbH, established in 2019 in Flintbek, Germany, is revolutionizing the battery industry by developing and producing custom battery electrodes and cells tailored for premium applications like scooters, e-bikes, Power tools, Marine applications, Stationary...
+--------------------------------------------------
+
+Project Name: CIGS
+Objective: E.T.COMPACT is aimed at reaching technology readiness level four for three in-space technologies on the domain of solar energy harvesting and green propulsion.
+TLDR: E.T.COMPACT is aimed at reaching technology readiness level four for three in-space technologies on the domain of solar energy harvesting and green propulsion. The first technology, a thin film 2-terminal tandem CIGS/Perovskite module with efficiency larger than 15% and a...
+--------------------------------------------------
+
+Project Name: CSS
+Objective: Based on an initial scoping and needs assessment, the CSA will set up an Expert Team to support Thematic...
+TLDR: The CCRI CSA's goal is to strengthen and complement the CCRI, in order to foster the implementation of Circular Systemic Solutions (CSS) in European cities and regions. Based on an initial scoping and needs assessment, the CSA will set up an Expert Team to support Thematic...
+--------------------------------------------------
+
+Project Name: EU
+Objective: The SOLARIZE project intends to enhance the long-term sustainability of the EU-SOLARIS ERIC by successfully achieving its general objectives: enlargement of the membership; further involvement of R&D institutes and national funding institutions at the National Nodes; educating...
+TLDR: The SOLARIZE project intends to enhance the long-term sustainability of the EU-SOLARIS ERIC by successfully achieving its general objectives: enlargement of the membership; further involvement of R&D institutes and national funding institutions at the National Nodes; educating...
+--------------------------------------------------
+
+Project Name: the International Energy Agency
+Objective: The cooling production, coupled with renewable electricity generation, are considered a cornerstone technology to meet increasing global cooling demand whilst decarbonise various sectors.
+TLDR: The cooling production, coupled with renewable electricity generation, are considered a cornerstone technology to meet increasing global cooling demand whilst decarbonise various sectors. According to the International Energy Agency, only accounting the air-conditioning...
+--------------------------------------------------
+
+Project Name: CNS
+Objective: Understanding the exact nature of CNS-dependent regulation of body weight has become of utmost societal importance as we are witnessing an ever-increasing number of overweight and obese subjects who exhibit a predisposition for a plethora of obesity-associated diseases such as...
+TLDR: Understanding the exact nature of CNS-dependent regulation of body weight has become of utmost societal importance as we are witnessing an ever-increasing number of overweight and obese subjects who exhibit a predisposition for a plethora of obesity-associated diseases such as...
+--------------------------------------------------
+
+Project Name: FREquency
+Objective: Nonlinear fiber optics is paving the way for a new paradigm of technological developments, especially in the domain of modern communication, computation and metrology.
+TLDR: Nonlinear fiber optics is paving the way for a new paradigm of technological developments, especially in the domain of modern communication, computation and metrology. Project FRESCOS (FREquency comb SpectrosCOpy with Specialty optical fibers) will utilize nonlinear optical...
+--------------------------------------------------
+
+Project Name: The Minor Bodies of the Solar System
+Objective: The Minor Bodies of the Solar System, Asteroids, Trojans, Comets and Kuiper Belt Objects are left over planetary building bricks called planetesimals once abundant in the solar nebula.
+TLDR: The Minor Bodies of the Solar System, Asteroids, Trojans, Comets and Kuiper Belt Objects are left over planetary building bricks called planetesimals once abundant in the solar nebula. Via collisions and accretion of large grains, aka Pebbles, they grew into planets. The...
+--------------------------------------------------
+
+Project Name: the European Performing Science Program
+Objective: Fundación Épica La Fura dels Baus proposes, in collaboration with a wide scientific ecosystem, the European Performing Science Program (EPSP) that include the two editions of European Performing Science Night (EPSN) for 2024 and 2025 as well as the Next Generation Performing...
+TLDR: Fundación Épica La Fura dels Baus proposes, in collaboration with a wide scientific ecosystem, the European Performing Science Program (EPSP) that include the two editions of European Performing Science Night (EPSN) for 2024 and 2025 as well as the Next Generation Performing...
+--------------------------------------------------
+
+Project Name: The Instituto de Medicina Molecular João Lobo Antunes
+Objective: Research at iMM increasingly requires...
+TLDR: The Instituto de Medicina Molecular João Lobo Antunes (iMM) is a leading European institute in basic biomedical research, now establishing a pioneering Centre of Excellence in human-centred clinical and translational research in Portugal. Research at iMM increasingly requires...
+--------------------------------------------------
+
+Project Name: the University of Cyprus (UCY
+Objective: Advancing capabilities and elevating the profile of the University of Cyprus (UCY) through the establishment of an Additive Manufacturing and Advanced Materials Competence Centre in Cyprus (AM2C3), will increase the potential for excellence-in-research and promote the growth...
+TLDR: Advancing capabilities and elevating the profile of the University of Cyprus (UCY) through the establishment of an Additive Manufacturing and Advanced Materials Competence Centre in Cyprus (AM2C3), will increase the potential for excellence-in-research and promote the growth...
+--------------------------------------------------
+
+Project Name: autonomous;thus
+Objective: Thanks to the advances in information technology, modern industrial systems are becoming increasingly intelligent and autonomous;thus their requirements for, e.g., correctness, availability, traceability and reliability, are also increasing.
+TLDR: Thanks to the advances in information technology, modern industrial systems are becoming increasingly intelligent and autonomous;thus their requirements for, e.g., correctness, availability, traceability and reliability, are also increasing. Monitoring, analysis anddiagnosis...
+--------------------------------------------------
+
+Project Name: HYway
+Objective: HYway is led by a team of experienced scientists who have already conducted extensive research on the climate effects of hydrogen.
+TLDR: The HYway project will be the most comprehensive study on environmental effects of large-scale hydrogen usage to date. HYway is led by a team of experienced scientists who have already conducted extensive research on the climate effects of hydrogen. To fully understand the...
+--------------------------------------------------
+
+Project Name: SUM4Re
+Objective: SUM4Re proposes a comprehensive approach to creating materials banks from the built environment by combining urban mining and technologies for automated on-site data acquisition and building materials identification and asset components.
+TLDR: SUM4Re proposes a comprehensive approach to creating materials banks from the built environment by combining urban mining and technologies for automated on-site data acquisition and building materials identification and asset components. The project aims to achieve nine...
+--------------------------------------------------
+
+Project Name: VL
+Objective: They share similar geographical distributions, increasing susceptibility during co-infections.
+TLDR: Malaria and Visceral Leishmaniasis (VL) are prevalent parasitic diseases presenting substantial healthcare challenges in tropical and subtropical endemic regions. They share similar geographical distributions, increasing susceptibility during co-infections. Utilizing my...
+--------------------------------------------------
+
+Project Name: Research ExchangE
+Objective: STE(A)M for Home economics And Research ExchangE (SHAREE) aims to develop a European-scale research and innovation based hub at Tallinn University - Science Kitchen, with a sustainable management and research performance, strong networking and finance generation capacity to...
+TLDR: STE(A)M for Home economics And Research ExchangE (SHAREE) aims to develop a European-scale research and innovation based hub at Tallinn University - Science Kitchen, with a sustainable management and research performance, strong networking and finance generation capacity to...
+--------------------------------------------------
+
+Project Name: Proton Exchange Fuel Cells
+Objective: Emerging technologies such as Proton Exchange Fuel Cells (PEMFCs) and Redox Flow Batteries (RFB) are expected to contribute to society’s transition towards renewable energy.
+TLDR: Emerging technologies such as Proton Exchange Fuel Cells (PEMFCs) and Redox Flow Batteries (RFB) are expected to contribute to society’s transition towards renewable energy. However, these technologies use toxic, PFSA-based membranes which have caused serious ill effects on...
+--------------------------------------------------
+
+Project Name: R&I
+Objective: "In Europe's digitally transforming business landscape, innovative SMEs and start-ups in widening countries are pioneering change in their region yet face challenges like limited resources and complex R&I ecosystems for internationalization.
+TLDR: "In Europe's digitally transforming business landscape, innovative SMEs and start-ups in widening countries are pioneering change in their region yet face challenges like limited resources and complex R&I ecosystems for internationalization. Concurrently, EU R&I networks seek...
+--------------------------------------------------
+
+Project Name: TE
+Objective: Thermoelectric coolers (TE) offer a solution, saving 1795 kWh/y and...
+TLDR: THERMOCOOL addresses critical global challenges - energy transition and digitalization. With 20% of global energy used for cooling, and 1.6 billion AC units in use, energy-efficient alternatives are vital. Thermoelectric coolers (TE) offer a solution, saving 1795 kWh/y and...
+--------------------------------------------------
+
+Project Name: CFM4Industry
+Objective: The CFM4Industry project, promoted by Moi Composites, represents an industrialization and technology commercial launch project aiming to revolutionize advanced composite manufacturing through Continuous Fiber Manufacturing (CFM) technology.
+TLDR: The CFM4Industry project, promoted by Moi Composites, represents an industrialization and technology commercial launch project aiming to revolutionize advanced composite manufacturing through Continuous Fiber Manufacturing (CFM) technology. This patented, novel digital...
+--------------------------------------------------
+
+Project Name: Electric Vehicles
+Objective: Envisioned battery demand of 735 GWh for electric mobility by 2025, escalating to a projected 125 million Electric Vehicles (EVs) by 2033, fuels our impetus for innovation.
+TLDR: Envisioned battery demand of 735 GWh for electric mobility by 2025, escalating to a projected 125 million Electric Vehicles (EVs) by 2033, fuels our impetus for innovation. However, these prospects are marred by real safety concerns, evidenced by 2 harrowing ship fires...
+--------------------------------------------------
+
+Project Name: ENERGENIUS
+Objective: The ENERGENIUS project provides an innovative pathway dedicated to cultivating an inclusive, community-driven energy transition, underpinned by the ethos of 'Leave No One Behind.'
+TLDR: The ENERGENIUS project provides an innovative pathway dedicated to cultivating an inclusive, community-driven energy transition, underpinned by the ethos of 'Leave No One Behind.' At its heart is the ENERGENIUS Suite, a comprehensive, one-stop-shop digital platform providing a...
+--------------------------------------------------
+
+Project Name: MPS
+Objective: Mitigating the current rise in chronic diseases and effectively addressing the enduring challenges posed by infectious diseases are pressing concerns in 21st-century healthcare.
+TLDR: Mitigating the current rise in chronic diseases and effectively addressing the enduring challenges posed by infectious diseases are pressing concerns in 21st-century healthcare. These challenges demand innovative research approaches, and microphysiological systems (MPS) have...
+--------------------------------------------------
+
+Project Name: AHEAD
+Objective: The AHEAD (AI-informed Holistic Electric Vehicles Integration Approaches for Distribution Grids) project will create a simulation environment capable of predicting the most convenient location to place the electric vehicle (EV) charging stations and optimise both the usage of...
+TLDR: The AHEAD (AI-informed Holistic Electric Vehicles Integration Approaches for Distribution Grids) project will create a simulation environment capable of predicting the most convenient location to place the electric vehicle (EV) charging stations and optimise both the usage of...
+--------------------------------------------------
+
+Project Name: Ca2RuO4
+Objective: Motivated by the recent discovery of a giant strain-induced blue-shift of Terahertz antiferromagnetic spin waves (magnons) in the spin-orbit Mott insulators Sr2IrO4 and Ca2RuO4 by the PI and his group, the SpecTera project will explore whether strain modulation can be...
+TLDR: Motivated by the recent discovery of a giant strain-induced blue-shift of Terahertz antiferromagnetic spin waves (magnons) in the spin-orbit Mott insulators Sr2IrO4 and Ca2RuO4 by the PI and his group, the SpecTera project will explore whether strain modulation can be...
+--------------------------------------------------
+
+Project Name: stroma
+Objective: Immunotherapy can prolong lives of cancer patient subgroups, but fails in solid tumors with dense fibrotic stroma, such as pancreatic cancer.
+TLDR: Immunotherapy can prolong lives of cancer patient subgroups, but fails in solid tumors with dense fibrotic stroma, such as pancreatic cancer. Fibrotic stroma prevents the recruitment and activation of immune effector cells, and, thereby dampens the efficacy of immunotherapy...
+--------------------------------------------------
+
+Project Name: BSE
+Objective: The first 150 million years of the Earth’s history have led to the formation of the metallic core and the solidification of the magma ocean.
+TLDR: The first 150 million years of the Earth’s history have led to the formation of the metallic core and the solidification of the magma ocean. During this period the chemical composition of the core and the bulk silicate Earth (BSE) were defined, setting the initial conditions...
+--------------------------------------------------
+
+Project Name: InP-based semiconductors
+Objective: The project will establish frontline semiconductor terahertz electronics for far-infrared space instruments by exploring and combining InP-based semiconductors with thin silicon membrane technology.
+TLDR: The project will establish frontline semiconductor terahertz electronics for far-infrared space instruments by exploring and combining InP-based semiconductors with thin silicon membrane technology. The goal is to obtain high receiver sensitivity and stability for much less...
+--------------------------------------------------
+
+Project Name: Trilateral Magnetic Exchange'
+Objective: The 'Trilateral Magnetic Exchange' initiative - TRILMAX aims to make a transformative impact on research excellence at Eötvös Loránd Tudományegyetem—ELTE.
+TLDR: The 'Trilateral Magnetic Exchange' initiative - TRILMAX aims to make a transformative impact on research excellence at Eötvös Loránd Tudományegyetem—ELTE. Through strategic collaborations with leading centres of excellence in Germany (Helmholtz-Zentrum Berlin für...
+--------------------------------------------------
+
+Project Name: sensory neuron
+Objective: Pain results from activation of the nociceptive sensory system, which is built upon the primary afferent nociceptor a type of sensory neuron specialized to detect, code and relay information about potentially or actually damaging stimuli.
+TLDR: Pain results from activation of the nociceptive sensory system, which is built upon the primary afferent nociceptor a type of sensory neuron specialized to detect, code and relay information about potentially or actually damaging stimuli. Humans lacking properly functioning...
+--------------------------------------------------
+
+Project Name: OT
+Objective: "Single cell molecular profiling allows to map cellular development at an unprecedented level of detail.
+TLDR: "Single cell molecular profiling allows to map cellular development at an unprecedented level of detail. Optimal transport (OT) enables the analysis of this dynamical process as a trajectory inference problem, using OT flows. These flows treat cells as particles evolving on an...
+--------------------------------------------------
+
+Project Name: Jupiter
+Objective: In the near future a number of space missions will aim to study the icy Galilean satellites of Jupiter to detect subglacial liquid water, using radar sounders.
+TLDR: In the near future a number of space missions will aim to study the icy Galilean satellites of Jupiter to detect subglacial liquid water, using radar sounders. To properly interpret the radar data, it is necessary to understand the dielectric properties of the icy shells of...
+--------------------------------------------------
+
+Project Name: the U.S.-China trade war
+Objective: Currently, we witness the “geopoliticization” of trade, namely the linking of national security concerns to trade policy.
+TLDR: Currently, we witness the “geopoliticization” of trade, namely the linking of national security concerns to trade policy. While this geopoliticization is related to the U.S.-China trade war and the Russian invasion of Ukraine, it has become a broad phenomenon affecting...
+--------------------------------------------------
+
+Project Name: EU
+Objective: EU’s industry is pushed by EC‘s green deal to convert into a net-zero industry, accelerate the transEU’s industry is pushed by EC‘s green deal to convert into a net-zero industry, accelerate the transition to climate neutrality and drive its resilience.
+TLDR: EU’s industry is pushed by EC‘s green deal to convert into a net-zero industry, accelerate the transEU’s industry is pushed by EC‘s green deal to convert into a net-zero industry, accelerate the transition to climate neutrality and drive its resilience. As an important...
+--------------------------------------------------
+
+Project Name: META-MUSEUM
+Objective: META-MUSEUM aims to create empathic encounters where citizens can understand the CH transformative nature through active participation, emotional involvement and co-creation; to develop the “TransforMeans theory” and related new professional skills, based on Neuroscience...
+TLDR: META-MUSEUM aims to create empathic encounters where citizens can understand the CH transformative nature through active participation, emotional involvement and co-creation; to develop the “TransforMeans theory” and related new professional skills, based on Neuroscience...
+--------------------------------------------------
+
+Project Name: GHG
+Objective: Anthropogenic greenhouse gas (GHG) emissions and deteriorating air quality are driving climate change and severely impacting human and ecosystem health, respectively.
+TLDR: Anthropogenic greenhouse gas (GHG) emissions and deteriorating air quality are driving climate change and severely impacting human and ecosystem health, respectively. To combat these issues, new and more stringent green regulations are being implemented globally, which...
+--------------------------------------------------
+
+Project Name: EU
+Objective: EU-TRAINS aims to reinforce the supply chain on sensors for biomechanics and cardiovascular system real-time monitoring targeting applications in the fields of fitness and healthcare.
+TLDR: EU-TRAINS aims to reinforce the supply chain on sensors for biomechanics and cardiovascular system real-time monitoring targeting applications in the fields of fitness and healthcare. It leverages from the strength of EU digital microsystem and design to support a 100%...
+--------------------------------------------------
+
+Project Name: ENCODE
+Objective: Despite emotions being a driver of political choices, building democratically meaningful emotional narratives in politics remains an uncharted territory.
+TLDR: Despite emotions being a driver of political choices, building democratically meaningful emotional narratives in politics remains an uncharted territory. Hence the main venture of ENCODE is to decode the meanings of emotions and encode them to policy-making strategies aiming...
+--------------------------------------------------
+
+Project Name: DISCOVER
+Objective: DISCOVER aims to develop an autonomous, synchronous, continuous and intelligent identification and data analysis system for materials and products in existing end-of-life built works.
+TLDR: DISCOVER aims to develop an autonomous, synchronous, continuous and intelligent identification and data analysis system for materials and products in existing end-of-life built works. The proposed approach will provide key stakeholders, including academia research performers...
+--------------------------------------------------
+
+Project Name: EU
+Objective: However, they cause multiple negative impacts on environmental and human health.
+TLDR: Agrochemicals (i.e., fertilizers and pesticides) are responsible for doubling crop yields over the last century. However, they cause multiple negative impacts on environmental and human health. To lessen their effects, the EU aims at reducing by 50% fertilizer losses and use...
+--------------------------------------------------
+
+Project Name: ChrIs-cross
+Objective: ChrIs-cross will produce the first comprehensive study of Christianities in Jerusalem and the Middle East from the 12th to the 16th c., in the face of shifting rulership structures, first Frankish, then Islamic, and religious affiliations.
+TLDR: ChrIs-cross will produce the first comprehensive study of Christianities in Jerusalem and the Middle East from the 12th to the 16th c., in the face of shifting rulership structures, first Frankish, then Islamic, and religious affiliations. It will envisage them from a...
+--------------------------------------------------
+
