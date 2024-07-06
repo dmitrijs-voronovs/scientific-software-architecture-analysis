@@ -6,21 +6,21 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-API_URL = "https://api.github.com/search/topics"
+API_URL = "https://api.github.com/search/repositories"
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 
-# Increased limit to allow for filtering
-def get_top_repos_by_topic(topic, limit=20):
-    print(GITHUB_TOKEN)
+def get_repos_by_topic(topic, limit=20):
+    # Print first 4 characters of token for verification
+    print(f"Using token: {GITHUB_TOKEN[:4]}...")
+
     headers = {
         "Authorization": f"token {GITHUB_TOKEN}",
         "Accept": "application/vnd.github.v3+json"
     }
 
     params = {
-        # "q": f"topic:{topic}",
-        "q": f"{topic}",
+        "q": f"topic:{topic}",
         "sort": "stars",
         "order": "desc",
         "per_page": limit
@@ -42,25 +42,14 @@ def get_top_repos_by_topic(topic, limit=20):
                 "forks": repo["forks_count"],
                 "open_issues": repo["open_issues_count"],
                 "license": repo["license"]["name"] if repo["license"] else "Not specified",
-                "contributors_url": repo["contributors_url"]
+                "topics": repo["topics"]
             }
             for repo in repos
         ]
     else:
         print(f"Error: {response.status_code}")
+        print(f"Response: {response.text}")
         return []
-
-
-def get_contributor_count(contributors_url):
-    headers = {
-        "Authorization": f"token {GITHUB_TOKEN}",
-        "Accept": "application/vnd.github.v3+json"
-    }
-    response = requests.get(contributors_url, headers=headers)
-    if response.status_code == 200:
-        return len(response.json())
-    else:
-        return "N/A"
 
 
 def filter_repos(repos, min_stars=100, max_days_since_update=365):
@@ -74,15 +63,17 @@ def filter_repos(repos, min_stars=100, max_days_since_update=365):
 
 def main():
     topic = input("Enter the topic you want to search for: ")
-    all_repos = get_top_repos_by_topic(topic)
+    all_repos = get_repos_by_topic(topic)
 
-    # Apply filters
+    if not all_repos:
+        print("No repositories found or an error occurred.")
+        return
+
     filtered_repos = filter_repos(all_repos)
 
     print(f"\nTop repositories for topic '{topic}' (filtered):\n")
     # Display top 10 after filtering
     for i, repo in enumerate(filtered_repos[:10], 1):
-        contributor_count = get_contributor_count(repo['contributors_url'])
         print(f"{i}. {repo['name']}")
         print(f"   Stars: {repo['stars']}")
         print(f"   Language: {repo['language']}")
@@ -91,9 +82,9 @@ def main():
         print(f"   Forks: {repo['forks']}")
         print(f"   Open Issues: {repo['open_issues']}")
         print(f"   License: {repo['license']}")
-        print(f"   Contributors: {contributor_count}")
         print(f"   URL: {repo['url']}")
         print(f"   Description: {repo['description']}")
+        print(f"   Topics: {', '.join(repo['topics'])}")
         print()
 
 
