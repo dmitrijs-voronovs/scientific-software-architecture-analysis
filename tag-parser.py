@@ -46,10 +46,17 @@ def get_repo_tags(repo_url):
 def main():
     # Array of repository URLs
     repo_urls = [
-        "https://github.com/kubernetes/kubernetes",
-        "https://github.com/tensorflow/tensorflow",
-        "https://github.com/facebook/react",
-        "https://github.com/microsoft/vscode"
+        "https://github.com/haddocking/haddock3",
+        "https://github.com/qupath/qupath",
+        "https://github.com/DedalusProject/dedalus",
+        "https://github.com/DeepRank/deeprank2",
+        "https://github.com/GrainLearning/grainLearning",
+        "https://github.com/matchms/matchms",
+        "https://github.com/GooglingTheCancerGenome/sv-callers",
+        "https://github.com/amusecode/amuse",
+        "https://github.com/SCM-NV/qmflows", "https://github.com/mexca/mexca",
+        "https://github.com/duqtools/duqtools",
+        "https://github.com/GO-Eratosthenes/dhdt"
     ]
 
     # Dictionary to store repository names and their tags
