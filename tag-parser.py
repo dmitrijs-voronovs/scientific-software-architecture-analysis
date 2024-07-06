@@ -82,7 +82,7 @@ def main():
     print("\nAll unique tags:")
     all_tags = {tag for tags in repo_tags_map.values() for tag in tags}
     print(all_tags)
-    with open("./code/tags.csv", "w", encoding="utf-8") as f:
+    with open("./code/tags.txt", "w", encoding="utf-8") as f:
         f.writelines("\n".join(all_tags))
 
 
