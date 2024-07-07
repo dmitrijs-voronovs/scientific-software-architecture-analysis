@@ -23,19 +23,13 @@ headers = {
 
 def run_query(query, variables):
     """Execute a GraphQL query."""
-    request = requests.post(GITHUB_API_URL,
-                            json={
-                                'query': query,
-                                'variables': variables
-                            },
-                            headers=headers,
-                            timeout=5)
+    request = requests.post(GITHUB_API_URL, json={
+                            'query': query, 'variables': variables}, headers=headers)
     if request.status_code == 200:
         return request.json()
     else:
         raise Exception(
-            f"Query failed with status code: {request.status_code}. {request.json()}"
-        )
+            f"Query failed with status code: {request.status_code}. Response: {request.text}")
 
 
 def get_repositories(topic, num_repos, cursor=None):
@@ -104,43 +98,30 @@ def scrape_repos(topic, num_repos, start_cursor=None):
 
     while len(repositories) < num_repos:
         try:
-            result = get_repositories(topic,
-                                      min(100, num_repos - len(repositories)),
-                                      cursor)
+            result = get_repositories(topic, min(
+                100, num_repos - len(repositories)), cursor)
+            if 'data' not in result or 'search' not in result['data']:
+                print(f"Unexpected API response: {result}")
+                break
+
             repos = result['data']['search']['nodes']
 
             for repo in repos:
                 repo_data = {
-                    "topic":
-                    topic,
-                    "name":
-                    repo['name'],
-                    "url":
-                    repo['url'],
-                    "stars":
-                    repo['stargazerCount'],
-                    "forks":
-                    repo['forkCount'],
-                    "description":
-                    repo['description'],
-                    "watchers":
-                    repo['watchers']['totalCount'],
-                    "releases":
-                    repo['releases']['totalCount'],
-                    "tags":
-                    repo['tags']['totalCount'],
-                    "total_commits":
-                    repo['defaultBranchRef']['target']['history']
-                    ['totalCount'],
-                    "last_commit_date":
-                    repo['defaultBranchRef']['target']['committedDate'],
-                    "license":
-                    repo['licenseInfo']['name']
-                    if repo['licenseInfo'] else None,
-                    "contributors":
-                    repo['collaborators']['totalCount'],
-                    "readme":
-                    repo['object']['text'] if repo['object'] else None,
+                    "topic": topic,
+                    "name": repo.get('name'),
+                    "url": repo.get('url'),
+                    "stars": repo.get('stargazerCount'),
+                    "forks": repo.get('forkCount'),
+                    "description": repo.get('description'),
+                    "watchers": repo.get('watchers', {}).get('totalCount'),
+                    "releases": repo.get('releases', {}).get('totalCount'),
+                    "tags": repo.get('tags', {}).get('totalCount'),
+                    "total_commits": repo.get('defaultBranchRef', {}).get('target', {}).get('history', {}).get('totalCount'),
+                    "last_commit_date": repo.get('defaultBranchRef', {}).get('target', {}).get('committedDate'),
+                    "license": repo.get('licenseInfo', {}).get('name') if repo.get('licenseInfo') else None,
+                    "contributors": repo.get('collaborators', {}).get('totalCount'),
+                    "readme": repo.get('object', {}).get('text') if repo.get('object') else None,
                 }
                 repositories.append(repo_data)
 
@@ -162,6 +143,9 @@ def save_to_json(data, filename):
 
 def save_to_csv(data, filename):
     """Save data to a CSV file."""
+    if not data:
+        print("No data to save to CSV.")
+        return
     keys = data[0].keys()
     with open(filename, 'w', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=keys)
@@ -172,6 +156,11 @@ def save_to_csv(data, filename):
 def main(topic, num_repos, start_cursor=None):
     """Main function to scrape and save repository data."""
     print(f"Scraping {num_repos} repositories for topic: {topic}")
+
+    if not GITHUB_TOKEN:
+        print("Error: GitHub token not found. Make sure you have a .env file with GITHUB_TOKEN set.")
+        return
+
     repositories, end_cursor = scrape_repos(topic, num_repos, start_cursor)
 
     if repositories:
@@ -194,12 +183,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Scrape GitHub repositories by topic")
     parser.add_argument("topic", help="GitHub topic to scrape")
-    parser.add_argument("num_repos",
-                        type=int,
+    parser.add_argument("num_repos", type=int,
                         help="Number of repositories to scrape")
-    parser.add_argument("--start_cursor",
-                        help="Cursor to start from (for resuming)",
-                        default=None)
+    parser.add_argument(
+        "--start_cursor", help="Cursor to start from (for resuming)", default=None)
     args = parser.parse_args()
 
     main(args.topic, args.num_repos, args.start_cursor)
