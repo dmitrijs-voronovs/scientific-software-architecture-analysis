@@ -1,0 +1,17 @@
+speech-to-text
+modelling
+python3
+analysis
+python
+science
+groovy
+workflow
+automation
+python-3
+javafx
+convolutional-neural-networks
+docker
+workflows
+opencv
+pytorch
+simulations
