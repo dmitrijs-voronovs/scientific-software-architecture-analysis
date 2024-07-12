@@ -9,6 +9,9 @@ query ($name: String!) {
 			totalCount
 			nodes {
 				name
+				owner {
+					login
+				}
 				description
 				url
 				stars: stargazerCount
@@ -19,31 +22,16 @@ query ($name: String!) {
 				licenseInfo {
 					name
 				}
+				contributors: mentionableUsers {
+					# approximately equal to contributors
+					totalCount
+				}
 				branches: refs(refPrefix: "refs/heads/") {
 					totalCount
 				}
 				tags: refs(refPrefix: "refs/tags/") {
 					totalCount
 				}
-				# collaborators(first: 1, affiliation: ALL) {
-				#   totalCount
-				# }
-				# defaultBranchRef {
-				#   target {
-				#     ... on Commit {
-				#       history(first: 100) {
-				#         totalCount
-				#         nodes {
-				#           committer {
-				#             user {
-				#               name
-				#             }
-				#           }
-				#         }
-				#       }
-				#     }
-				#   }
-				# }
 				deployments {
 					totalCount
 				}
