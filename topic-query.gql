@@ -1,99 +1,99 @@
 query ($name: String!) {
-	topic(name: $name) {
-		name
-		repositories(
-			privacy: PUBLIC
-			orderBy: { field: STARGAZERS, direction: DESC }
-			first: 1
-		) {
-			totalCount
-			nodes {
-				name
-				owner {
-					login
-				}
-				description
-				url
-				stars: stargazerCount
-				watchers {
-					totalCount
-				}
-				forkCount
-				licenseInfo {
-					name
-				}
-				# approximately equal to contributors
-				contributors: mentionableUsers {
-					totalCount
-				}
-				branches: refs(refPrefix: "refs/heads/") {
-					totalCount
-				}
-				tags: refs(refPrefix: "refs/tags/") {
-					totalCount
-				}
-				deployments {
-					totalCount
-				}
-				issues {
-					totalCount
-				}
-				pullRequests {
-					totalCount
-				}
-				primaryLanguage {
-					name
-				}
-				languages(first: 100) {
-					totalCount
-					nodes {
-						name
-					}
-				}
-				releases {
-					totalCount
-				}
-				latestRelease {
-					name
-					description
-					tag {
-						name
-					}
-					author {
-						name
-						email
-						login
-					}
-				}
-				diskUsage
-				lastCommit: object(expression: "HEAD") {
-					... on Commit {
-						oid
-						messageHeadline
-						committedDate
-						author {
-							name
-							email
-							user {
-								login
-							}
-						}
-					}
-				}
-				readme: object(expression: "HEAD:README.md") {
-					... on Blob {
-						text
-					}
-				}
-			}
-		}
-	}
-	rateLimit {
-		cost
-		limit
-		nodeCount
-		remaining
-		resetAt
-		used
-	}
+  topic(name: $name) {
+    name
+    repositories(
+      privacy: PUBLIC
+      orderBy: { field: STARGAZERS, direction: DESC }
+      first: 1
+    ) {
+      totalCount
+      nodes {
+        name
+        owner {
+          login
+        }
+        description
+        url
+        stars: stargazerCount
+        watchers {
+          totalCount
+        }
+        forkCount
+        licenseInfo {
+          name
+        }
+        # approximately equal to contributors
+        contributors: mentionableUsers {
+          totalCount
+        }
+        branches: refs(refPrefix: "refs/heads/") {
+          totalCount
+        }
+        tags: refs(refPrefix: "refs/tags/") {
+          totalCount
+        }
+        deployments {
+          totalCount
+        }
+        issues {
+          totalCount
+        }
+        pullRequests {
+          totalCount
+        }
+        primaryLanguage {
+          name
+        }
+        languages(first: 100) {
+          totalCount
+          nodes {
+            name
+          }
+        }
+        releases {
+          totalCount
+        }
+        latestRelease {
+          name
+          description
+          tag {
+            name
+          }
+          author {
+            name
+            email
+            login
+          }
+        }
+        diskUsage
+        lastCommit: object(expression: "HEAD") {
+          ... on Commit {
+            oid
+            messageHeadline
+            committedDate
+            author {
+              name
+              email
+              user {
+                login
+              }
+            }
+          }
+        }
+        readme: object(expression: "HEAD:README.md") {
+          ... on Blob {
+            text
+          }
+        }
+      }
+    }
+  }
+  rateLimit {
+    cost
+    limit
+    nodeCount
+    remaining
+    resetAt
+    used
+  }
 }
