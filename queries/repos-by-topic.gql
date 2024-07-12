@@ -1,0 +1,110 @@
+query($name: String!) {
+  topic(name: $name) {
+    name
+    repositories(privacy: PUBLIC, orderBy: {field: STARGAZERS, direction: DESC}, first: 25) {
+      totalCount
+      nodes {
+        name
+        owner {
+          login
+        }
+        description
+        url
+        stars: stargazerCount
+        watchers {
+          totalCount
+        }
+        forkCount
+        licenseInfo {
+          name
+        }
+        # approximately equal to contributors
+        contributors: mentionableUsers {
+          totalCount
+        }
+        branches: refs(refPrefix: "refs/heads/") {
+          totalCount
+        }
+        tags: refs(refPrefix: "refs/tags/") {
+          totalCount
+        }
+        deployments {
+          totalCount
+        }
+        issuesOpen: issues(states: OPEN) {
+          totalCount
+        }
+        issuesClosed: issues(states: CLOSED) {
+          totalCount
+        }
+        issuesAll: issues(states: [OPEN, CLOSED]) {
+          totalCount
+        }
+        PRsOpen: pullRequests(states: OPEN) {
+          totalCount
+        }
+        PRsClosed: pullRequests(states: CLOSED) {
+          totalCount
+        }
+        PRsMerged: pullRequests(states: MERGED) {
+          totalCount
+        }
+        PRsAll: pullRequests(states: [MERGED, CLOSED, OPEN]) {
+          totalCount
+        }
+        primaryLanguage {
+          name
+        }
+        languages(first: 100) {
+          totalCount
+          nodes {
+            name
+          }
+        }
+        releases {
+          totalCount
+        }
+        latestRelease {
+          name
+          description
+          tag {
+            name
+          }
+          author {
+            name
+            email
+            login
+          }
+        }
+        diskUsage
+        lastCommit: object(expression: "HEAD") {
+          ... on Commit {
+            oid
+            messageHeadline
+            committedDate
+            author {
+              name
+              email
+              user {
+                login
+              }
+            }
+          }
+        }
+        readme: object(expression: "HEAD:README.md") {
+          ... on Blob {
+            text
+          }
+        }
+      }
+    }
+  }
+  rateLimit {
+    cost
+    limit
+    nodeCount
+    remaining
+    resetAt
+    used
+  }
+}
