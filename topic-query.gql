@@ -22,8 +22,8 @@ query ($name: String!) {
 				licenseInfo {
 					name
 				}
+				# approximately equal to contributors
 				contributors: mentionableUsers {
-					# approximately equal to contributors
 					totalCount
 				}
 				branches: refs(refPrefix: "refs/heads/") {
