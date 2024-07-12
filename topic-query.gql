@@ -1,11 +1,7 @@
-query ($name: String!) {
+query($name: String!) {
   topic(name: $name) {
     name
-    repositories(
-      privacy: PUBLIC
-      orderBy: { field: STARGAZERS, direction: DESC }
-      first: 1
-    ) {
+    repositories(privacy: PUBLIC, orderBy: {field: STARGAZERS, direction: DESC}, first: 25) {
       totalCount
       nodes {
         name
@@ -35,10 +31,25 @@ query ($name: String!) {
         deployments {
           totalCount
         }
-        issues {
+        issuesOpen: issues(states: OPEN) {
           totalCount
         }
-        pullRequests {
+        issuesClosed: issues(states: CLOSED) {
+          totalCount
+        }
+        issuesAll: issues(states: [OPEN, CLOSED]) {
+          totalCount
+        }
+        PRsOpen: pullRequests(states: OPEN) {
+          totalCount
+        }
+        PRsClosed: pullRequests(states: CLOSED) {
+          totalCount
+        }
+        PRsMerged: pullRequests(states: MERGED) {
+          totalCount
+        }
+        PRsAll: pullRequests(states: [MERGED, CLOSED, OPEN]) {
           totalCount
         }
         primaryLanguage {
