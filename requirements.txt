@@ -8,6 +8,7 @@ cloudpathlib==0.18.1
 colorama==0.4.6
 confection==0.1.5
 cymem==2.0.8
+dnspython==2.6.1
 idna==3.7
 Jinja2==3.1.4
 langcodes==3.4.0
@@ -16,6 +17,7 @@ marisa-trie==1.2.0
 markdown-it-py==3.0.0
 MarkupSafe==2.1.5
 mdurl==0.1.2
+motor==3.5.1
 murmurhash==1.0.10
 numpy==1.26.4
 packaging==24.1
@@ -23,6 +25,8 @@ preshed==3.0.9
 pydantic==2.8.2
 pydantic_core==2.20.1
 Pygments==2.18.0
+pymongo==4.8.0
+python-dotenv==1.0.1
 requests==2.32.3
 rich==13.7.1
 setuptools==70.3.0
