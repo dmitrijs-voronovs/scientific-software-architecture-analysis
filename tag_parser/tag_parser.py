@@ -3,6 +3,8 @@ import requests
 from dotenv import load_dotenv
 from urllib.parse import urlparse
 
+from utils.paths import Paths
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -43,7 +45,7 @@ def get_repo_tags(repo_url: str) -> tuple[str, list[str]] | tuple[None, None]:
         return None, None
 
 
-def parse(repo_urls: list[str]):
+def parse_tags(repo_urls: list[str]):
     # Dictionary to store repository names and their tags
     repo_tags_map = {}
 
@@ -67,26 +69,23 @@ def parse(repo_urls: list[str]):
     print("\nAll unique tags:")
     all_tags = {tag for tags in repo_tags_map.values() for tag in tags}
     print(all_tags)
-    with open("tags-extracted.txt", "w", encoding="utf-8") as f:
+    with open(Paths.TAGS_EXTRACTED, "w", encoding="utf-8") as f:
         f.writelines("\n".join(all_tags))
+    return list(all_tags)
 
 
-def filter_tags() -> list[str]:
-    with open("tags-extracted.txt", "r", encoding="utf-8") as f:
-        extracted_tags = f.read().splitlines()
-
+def filter_tags(extracted_tags: list[str]) -> list[str]:
     # Filter tags that contain the word "python"
-    with open("tags-to-eliminate.txt", "r", encoding="utf-8") as f:
+    with open(Paths.TAGS_TO_ELIMINATE, "r", encoding="utf-8") as f:
         tags_to_eliminate = f.read().splitlines()
 
     tags = [tag for tag in extracted_tags if tag not in tags_to_eliminate]
-    with open("tags.txt", "w", encoding="utf-8") as f:
+    with open(Paths.TAGS, "w", encoding="utf-8") as f:
         f.writelines("\n".join(tags))
 
     return tags
 
 
 def get_tags(repo_urls: list[str]) -> list[str]:
-    parse(repo_urls)
-    tags = filter_tags()
-    return tags
+    tags = parse_tags(repo_urls)
+    return filter_tags(tags)
