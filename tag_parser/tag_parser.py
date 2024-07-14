@@ -13,7 +13,7 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 API_BASE_URL = "https://api.github.com"
 
 
-def get_repo_tags(repo_url):
+def get_repo_tags(repo_url: str) -> tuple[str, list[str]] | tuple[None, None]:
     # Parse the repository owner and name from the URL
     path_parts = urlparse(repo_url).path.strip('/').split('/')
     if len(path_parts) != 2:
@@ -43,22 +43,7 @@ def get_repo_tags(repo_url):
         return None, None
 
 
-def main():
-    # Array of repository URLs
-    repo_urls = [
-        "https://github.com/haddocking/haddock3",
-        "https://github.com/qupath/qupath",
-        "https://github.com/DedalusProject/dedalus",
-        "https://github.com/DeepRank/deeprank2",
-        "https://github.com/GrainLearning/grainLearning",
-        "https://github.com/matchms/matchms",
-        "https://github.com/GooglingTheCancerGenome/sv-callers",
-        "https://github.com/amusecode/amuse",
-        "https://github.com/SCM-NV/qmflows", "https://github.com/mexca/mexca",
-        "https://github.com/duqtools/duqtools",
-        "https://github.com/GO-Eratosthenes/dhdt"
-    ]
-
+def parse(repo_urls: list[str]):
     # Dictionary to store repository names and their tags
     repo_tags_map = {}
 
@@ -82,9 +67,26 @@ def main():
     print("\nAll unique tags:")
     all_tags = {tag for tags in repo_tags_map.values() for tag in tags}
     print(all_tags)
-    with open("./tags.txt", "w", encoding="utf-8") as f:
+    with open("tags-extracted.txt", "w", encoding="utf-8") as f:
         f.writelines("\n".join(all_tags))
 
 
-if __name__ == "__main__":
-    main()
+def filter_tags() -> list[str]:
+    with open("tags-extracted.txt", "r", encoding="utf-8") as f:
+        extracted_tags = f.read().splitlines()
+
+    # Filter tags that contain the word "python"
+    with open("tags-to-eliminate.txt", "r", encoding="utf-8") as f:
+        tags_to_eliminate = f.read().splitlines()
+
+    tags = [tag for tag in extracted_tags if tag not in tags_to_eliminate]
+    with open("tags.txt", "w", encoding="utf-8") as f:
+        f.writelines("\n".join(tags))
+
+    return tags
+
+
+def get_tags(repo_urls: list[str]) -> list[str]:
+    parse(repo_urls)
+    tags = filter_tags()
+    return tags

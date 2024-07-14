@@ -4,5 +4,5 @@
 -.env.example
 -.gitignore
 .idea/
-data/mongodb/
+data/
 git-repo-analysis/
