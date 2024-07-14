@@ -1,7 +1,7 @@
-query($name: String!) {
+query($name: String!, $number_of_repos: Int!, $cursor: String) {
   topic(name: $name) {
     name
-    repositories(privacy: PUBLIC, orderBy: {field: STARGAZERS, direction: DESC}, first: 25) {
+    repositories(privacy: PUBLIC, orderBy: {field: STARGAZERS, direction: DESC}, first: $number_of_repos, after: $cursor) {
       totalCount
       nodes {
         name
