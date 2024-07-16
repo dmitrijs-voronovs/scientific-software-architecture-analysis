@@ -1,4 +1,6 @@
 import os
+import time
+
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure, ServerSelectionTimeoutError
 
@@ -42,11 +44,3 @@ class MongoDBConnection:
         if self.client:
             self.client.close()
             print("MongoDB connection closed.")
-
-    def __del__(self):
-        try:
-            self.close_connection()
-        except Exception as e:
-            print("Error while closing MongoDB connection.", e)
-            # Ignore any exceptions during shutdown
-            pass
