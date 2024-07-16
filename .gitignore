@@ -6,3 +6,4 @@
 .idea/
 data/
 git-repo-analysis/
+.cache/
