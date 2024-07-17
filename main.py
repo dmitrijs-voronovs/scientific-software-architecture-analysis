@@ -11,7 +11,7 @@ from utils.utils import get_golden_repos
 
 async def query_and_insert(s, category):
     async with s:
-        await query_topics(category, 10,
+        await query_topics(category, 15,
                            lambda data: upsert_collection_async(PROJECTS_DB_NAME, PROJECTS_COLLECTION_NAME, data))
 
 

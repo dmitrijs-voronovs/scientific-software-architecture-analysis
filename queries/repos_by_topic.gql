@@ -35,6 +35,13 @@ query($topic_name: String!, $number_of_repos: Int!, $cursor: String) {
         tags: refs(refPrefix: "refs/tags/") {
           totalCount
         }
+        repositoryTopics(first: 50) {
+          nodes {
+            topic {
+              name
+            }
+          }
+        }
         deployments {
           totalCount
         }
