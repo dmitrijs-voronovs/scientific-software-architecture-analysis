@@ -29,9 +29,9 @@ async def execute_graphql_query(url, token, query, variables=None):
         raise Exception(f"GraphQL query failed with status code {response.status_code}, {response.reason}")
 
 
-async def main():
+async def query_topics(category: str, n, cb):
     # Load the GraphQL query from the file
-    with open("./../queries/repos_by_topic.gql", "r") as f:
+    with open("queries/repos_by_topic.gql", "r") as f:
         query = f.read()
 
     # Set the GraphQL API endpoint and the Bearer token
@@ -39,19 +39,35 @@ async def main():
     dotenv.load_dotenv()
     token = os.getenv("GITHUB_TOKEN")
 
-    # Execute the GraphQL query with variables
-    variables = {
-        "topic_name": "haddock",
-        "number_of_repos": 1
-    }
-    result = await execute_graphql_query(url, token, query, variables)
-    topic = result['data']['topic']
-    topic_name = topic['name']
-    page_info = topic['repositories']['pageInfo']
-    repos = [{**repo, "topic": topic_name} for repo in topic['repositories']['nodes']]
+    cursor = None
+    hasNext = True
+    idx = 0
 
-    print(repos)
+    while hasNext:
+        # Execute the GraphQL query with variables
+        variables = {
+            "topic_name": category,
+            "number_of_repos": n,
+            'cursor': cursor
+        }
+        result = await execute_graphql_query(url, token, query, variables)
+        topic = result['data']['topic']
+        topic_name = topic['name']
+        page_info = topic['repositories']['pageInfo']
+        cursor = page_info['endCursor']
+        hasNext = page_info['hasNextPage']
 
+        repos = [{**repo, "topic": topic_name, '_id': repo['resourcePath']} for repo in topic['repositories']['nodes']]
 
-if __name__ == "__main__":
-    asyncio.run(main())
+        print(f"got repos {category = } {idx = } {topic['repositories']['totalCount'] = } {hasNext =} ")
+        idx += n
+
+        await cb(repos)
+
+# async def main():
+#     topics = ["haddock", "pathology"]
+#     tasks = [query_topics(topic, 2) for topic in topics]
+#     await asyncio.gather(*tasks)
+#
+# if __name__ == "__main__":
+#     asyncio.run(main())
