@@ -2,7 +2,7 @@ import asyncio
 
 from actions.db_actions import upsert_collection, upsert_collection_async
 from actions.query_graphql_endpoint import query_topics
-from cfg.constants import PROJECTS_COLLECTION_NAME, PROJECTS_DB_NAME
+from constants.db import PROJECTS_COLLECTION_NAME, PROJECTS_DB_NAME
 from services.MongoDBConnection import MongoDBConnection
 from tag_parser.tag_parser import get_tags
 from utils.paths import Paths
