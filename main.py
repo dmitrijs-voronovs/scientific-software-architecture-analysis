@@ -9,7 +9,7 @@ def main():
     # repos = get_golden_repos()
     # tags = get_tags(repos)
     # print(tags)
-    upsert_collection(PROJECTS_DB_NAME, PROJECTS_COLLECTION_NAME)
+    # upsert_collection(PROJECTS_DB_NAME, PROJECTS_COLLECTION_NAME)
 
     MongoDBConnection().close_connection()
 
