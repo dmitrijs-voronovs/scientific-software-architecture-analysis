@@ -15,3 +15,5 @@ workflows
 opencv
 pytorch
 simulations
+machine-learning
+image-processing
