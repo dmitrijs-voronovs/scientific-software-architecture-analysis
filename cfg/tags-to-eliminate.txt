@@ -17,3 +17,7 @@ pytorch
 simulations
 machine-learning
 image-processing
+graph-neural-networks
+fuzzy-search
+fuzzy-matching
+materials

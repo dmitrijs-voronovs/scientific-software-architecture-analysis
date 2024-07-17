@@ -79,7 +79,7 @@ def filter_tags(extracted_tags: list[str]) -> list[str]:
     with open(Paths.TAGS_TO_ELIMINATE, "r", encoding="utf-8") as f:
         tags_to_eliminate = f.read().splitlines()
 
-    tags = [tag for tag in extracted_tags if tag not in tags_to_eliminate]
+    tags = [tag for tag in sorted(extracted_tags) if tag not in tags_to_eliminate]
     with open(Paths.TAGS, "w", encoding="utf-8") as f:
         f.writelines("\n".join(tags))
 
