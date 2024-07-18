@@ -9,7 +9,6 @@ cell-segmentation
 chemistry
 complexes
 computational-pathology
-deep-learning
 digital-pathology
 docking
 fluid-dynamics

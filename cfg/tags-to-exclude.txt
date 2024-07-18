@@ -1,6 +1,7 @@
 analysis
 automation
 convolutional-neural-networks
+deep-learning
 docker
 fuzzy-matching
 fuzzy-search
