@@ -25,7 +25,7 @@ async def execute_graphql_query(url, token, query, variables=None):
         raise Exception(f"GraphQL query failed with status code {response.status_code}, {response.reason}")
 
 
-async def query_topics(category: str, n: int, cb: Callable[[object], Coroutine[Any, Any, None]]):
+async def query_topics(category: str, n_repos_to_fetch: int, cb: Callable[[object], Coroutine[Any, Any, None]]):
     # Load the GraphQL query from the file
     with open("queries/repos_by_topic.gql", "r") as f:
         query = f.read()
@@ -36,12 +36,12 @@ async def query_topics(category: str, n: int, cb: Callable[[object], Coroutine[A
     token = os.getenv("GITHUB_TOKEN")
 
     cursor = await get_cursor_from_cache(category)
-    hasNext = True
+    has_next = True
     idx = 0
 
-    while hasNext:
+    while has_next:
         # Execute the GraphQL query with variables
-        variables = {"topic_name": category, "number_of_repos": n, 'cursor': cursor}
+        variables = {"topic_name": category, "number_of_repos": n_repos_to_fetch, 'cursor': cursor}
         try:
             result = await execute_graphql_query(url, token, query, variables)
         except Exception as e:
@@ -51,13 +51,13 @@ async def query_topics(category: str, n: int, cb: Callable[[object], Coroutine[A
         topic = result['data']['topic']
         page_info = topic['repositories']['pageInfo']
         cursor = page_info['endCursor']
-        hasNext = page_info['hasNextPage']
+        has_next = page_info['hasNextPage']
 
         repos = [wrap_with_update_one_operation(normalize_repo(repo, category)) for repo in
                  topic['repositories']['nodes']]
 
-        print(f"got repos {category = } {idx = } {topic['repositories']['totalCount'] = } {hasNext =} {cursor = } ")
-        idx += n
+        print(f"got repos {category = } {idx = } {topic['repositories']['totalCount'] = } {has_next =} {cursor = } ")
+        idx += n_repos_to_fetch
         update_cache(category, cursor)
         await cb(repos)
 

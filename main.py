@@ -9,7 +9,7 @@ from utils.paths import Paths
 from utils.utils import get_golden_repos
 
 REPOSITORY_COUNT_PER_QUERY = 15
-MAX_PARALLEL_TASKS = 10
+MAX_PARALLEL_TASKS = 6
 
 
 async def main():
