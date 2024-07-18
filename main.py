@@ -21,7 +21,6 @@ async def main():
     with open(Paths.TAGS, "r") as f:
         tags = f.read().splitlines()
     # print(tags)
-    tags = tags[:-1]
     semaphore = asyncio.Semaphore(3)
     tasks = [query_and_insert(semaphore, tag) for tag in tags]
     await asyncio.gather(*tasks)

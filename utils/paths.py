@@ -3,3 +3,4 @@ class Paths:
     TAGS = 'cfg/tags.txt'
     TAGS_TO_ELIMINATE = 'cfg/tags-to-eliminate.txt'
     TAGS_EXTRACTED = 'cfg/tags-extracted.txt'
+    CACHED_CURSORS = '.cache/cursors.json'

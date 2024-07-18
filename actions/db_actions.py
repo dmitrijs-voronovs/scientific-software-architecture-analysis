@@ -22,10 +22,13 @@ async def upsert_collection_async(database: str, collection: str, data):
         client = mongo_conn.get_client()
         db = client[database]
         c = db[collection]
-        # c.insert_many(data)
+        # await asyncio.get_event_loop().run_in_executor(
+        #     None, lambda: c.insert_many(data)
+        # )
         await asyncio.get_event_loop().run_in_executor(
-            None, lambda: c.insert_many(data)
+            None, lambda: c.bulk_write(data)
         )
+        await asyncio.sleep(5)
     except Exception as e:
         print(e)
         return None
