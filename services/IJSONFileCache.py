@@ -1,18 +1,25 @@
 import json
+import os
 from abc import ABC
+from pathlib import Path
 
 
 class IJSONFileCache[T](ABC):
     _filename: str = None
 
     @classmethod
-    def _verify_file_exists(cls) -> None:
-        with open(cls._filename, "a+") as f:
-            pass
+    def init(cls) -> None:
+        """create cache file if it doesn't exist"""
+        dirname = Path(cls._filename).parent
+        if not os.path.exists(dirname):
+            os.makedirs(dirname)
+
+        if not os.path.exists(cls._filename):
+            with open(cls._filename, "w") as f:
+                f.write("{}")
 
     @classmethod
     def get(cls, key: str, fallback: T) -> T:
-        cls._verify_file_exists()
         try:
             with open(cls._filename, "r") as f:
                 data = cls._load_json_from_file(f)
@@ -30,22 +37,24 @@ class IJSONFileCache[T](ABC):
 
     @classmethod
     def set(cls, key: str, value: T) -> None:
-        cls._verify_file_exists()
         try:
             with open(cls._filename, "r+") as f:
                 data = cls._load_json_from_file(f)
                 data[key] = value
+                f.seek(0)
                 json.dump(data, f)
+                f.truncate()
         except Exception as e:
             print(f"{cls.__name__}: Error in set", e)
 
     @classmethod
     def delete(cls, key: str) -> None:
-        cls._verify_file_exists()
         try:
             with open(cls._filename, "r+") as f:
                 data = cls._load_json_from_file(f)
                 del data[key]
+                f.seek(0)
                 json.dump(data, f)
+                f.truncate()
         except Exception as e:
             print(f"{cls.__name__}: Error in delete", e)
