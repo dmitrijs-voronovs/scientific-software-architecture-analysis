@@ -18,6 +18,11 @@ class IJSONFileCache[T](ABC):
             with open(cls._filename, "w") as f:
                 f.write("{}")
 
+    def clear(cls) -> None:
+        """clear cache file"""
+        with open(cls._filename, "w") as f:
+            f.write("{}")
+
     @classmethod
     def get(cls, key: str, fallback: T) -> T:
         try:

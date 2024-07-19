@@ -10,3 +10,4 @@ https://github.com/duqtools/duqtools
 https://github.com/ESMValGroup/ESMValTool
 https://github.com/multiscale/muscle3
 https://github.com/Workflomics/workflomics-benchmarker
+https://github.com/root-project/root
