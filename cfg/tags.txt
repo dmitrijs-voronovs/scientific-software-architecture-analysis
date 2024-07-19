@@ -7,7 +7,6 @@ cancer-genomics
 cell-analysis
 cell-segmentation
 chemistry
-complexes
 computational-pathology
 digital-pathology
 docking
@@ -37,6 +36,5 @@ sv-calling
 tissue-microarray-analysis
 tokamak
 uncertainty-quantification
-utrecht-university
 wgs
 whole-slide-imaging
