@@ -26,15 +26,15 @@ async def execute_graphql_query(url, token, query, variables=None):
         raise Exception(f"GraphQL query failed with status code {response.status_code}, {response.reason}")
 
 
+async def query_github(query, variables):
+    url = GITHUB_GRAPHQL_ENDPOINT
+    token = os.getenv("GITHUB_TOKEN")
+    return await execute_graphql_query(url, token, query, variables)
+
+
 async def query_topics(category: str, n_repos_to_fetch: int, cb: Callable[[object], Coroutine[Any, Any, None]]):
-    # Load the GraphQL query from the file
     with open("queries/repos_by_topic.gql", "r") as f:
         query = f.read()
-
-    # Set the GraphQL API endpoint and the Bearer token
-    url = GITHUB_GRAPHQL_ENDPOINT
-    dotenv.load_dotenv()
-    token = os.getenv("GITHUB_TOKEN")
 
     cursor, finished = CategoryCache.get(category, (None, False))
     has_next = not finished
@@ -43,25 +43,31 @@ async def query_topics(category: str, n_repos_to_fetch: int, cb: Callable[[objec
     while has_next:
         variables = {"topic_name": category, "number_of_repos": n_repos_to_fetch, 'cursor': cursor}
         try:
-            result = await execute_graphql_query(url, token, query, variables)
-            # print("executed query", result, f"{category = }, {loop = }, {cursor =}")
+            result = await query_github(query, variables)
         except Exception as e:
             print("stumbled upon an exception", e)
             await asyncio.sleep(10)
             continue
+
         topic = result['data']['topic']
-        page_info = topic['repositories']['pageInfo']
-        cursor = page_info['endCursor']
-        has_next = page_info['hasNextPage']
+        page_info = (repos_raw := topic['repositories'])['pageInfo']
 
         repos = [wrap_with_update_one_operation(normalize_repo(repo, category)) for repo in
-                 topic['repositories']['nodes']]
+                 repos_raw['nodes']]
+
+        try:
+            await cb(repos)
+        except Exception as e:
+            print("Error in upsert_collection_async", e)
+            return None
 
         print(
-            f"got repos {category = }, {loop = }, idx={loop * n_repos_to_fetch}, {topic['repositories']['totalCount'] = }, {has_next =}, {cursor = } ")
+            f"got repos {category = }, {loop = }, idx={loop * n_repos_to_fetch}, {repos_raw['totalCount'] = }, {has_next =}, {cursor = } ")
+        cursor = page_info['endCursor']
+        has_next = page_info['hasNextPage']
         loop += 1
+
         CategoryCache.set(category, (cursor, not has_next))
-        await cb(repos)
 
     print(f"Finished fetching {category = }")
 

@@ -1,0 +1,26 @@
+query($topic_name: String!, $number_of_repos: Int!, $cursor: String) {
+  topic(name: $topic_name) {
+    name
+    repositories(privacy: PUBLIC, orderBy: {field: STARGAZERS, direction: DESC}, first: $number_of_repos, after: $cursor) {
+      totalCount
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
+      }
+      nodes {
+        name
+        isInOrganization
+      }
+    }
+  }
+  rateLimit {
+    cost
+    limit
+    nodeCount
+    remaining
+    resetAt
+    used
+  }
+}

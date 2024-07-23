@@ -26,5 +26,4 @@ async def upsert_collection_async(database: str, collection: str, data):
         await asyncio.sleep(5)
     except Exception as e:
         print("Error in upsert_collection_async", e)
-        print(data)
         return None
