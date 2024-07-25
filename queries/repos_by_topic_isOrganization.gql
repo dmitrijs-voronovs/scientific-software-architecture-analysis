@@ -11,6 +11,7 @@ query($topic_name: String!, $number_of_repos: Int!, $cursor: String) {
       }
       nodes {
         name
+        resourcePath
         isInOrganization
       }
     }
