@@ -12,10 +12,11 @@ class CategoryTopicsFetcher:
     _query: Query = Query.REPOS_BY_TOPIC
     _cache: Type[IJSONFileCache] = CategoryCache
 
-    def __init__(self):
+    def __init__(self, callback: Callable[[object], Coroutine[Any, Any, None]]):
+        self._callback = callback
         self._cache.init()
 
-    async def run(self, category: str, n_repos_to_fetch: int, cb: Callable[[object], Coroutine[Any, Any, None]]):
+    async def run(self, category: str, n_repos_to_fetch: int):
         cache = self._cache
         cursor, finished = cache.get(category, (None, False))
         has_next = not finished
@@ -37,7 +38,7 @@ class CategoryTopicsFetcher:
                      repos_raw['nodes']]
 
             try:
-                await cb(repos)
+                await self._callback(repos)
             except Exception as e:
                 print("Error in upsert_collection_async", e)
                 return None
