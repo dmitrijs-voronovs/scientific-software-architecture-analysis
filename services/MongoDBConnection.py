@@ -19,16 +19,21 @@ class MongoDBConnection:
 
     def connect(self):
         if self.client is None:
-            mongo_host = os.getenv('MONGO_HOST', 'localhost')
-            mongo_port = int(os.getenv('MONGO_PORT', 27017))
+            try:
+                mongo_host = os.getenv('MONGO_HOST', 'localhost')
+                mongo_port = int(os.getenv('MONGO_PORT', 27017))
 
-            self.client = MongoClient(host=mongo_host, port=mongo_port,
-                                      username=os.getenv('MONGO_ROOT_USERNAME'),
-                                      password=os.getenv('MONGO_ROOT_PASSWORD')
-                                      , serverSelectionTimeoutMS=5000)
-            # The ismaster command is cheap and does not require auth.
-            self.client.admin.command('ismaster')
-            print("Successfully connected to MongoDB.")
+                self.client = MongoClient(host=mongo_host, port=mongo_port,
+                                          username=os.getenv('MONGO_ROOT_USERNAME'),
+                                          password=os.getenv('MONGO_ROOT_PASSWORD')
+                                          , serverSelectionTimeoutMS=5000)
+                # The ismaster command is cheap and does not require auth.
+                self.client.admin.command('ismaster')
+                # issue another command that requires auth
+                self.client.server_info()
+                print("Successfully connected to MongoDB.")
+            except ConnectionFailure as e:
+                print("Server not available: ", e)
 
     def get_client(self) -> MongoClient:
         if self.client is None:

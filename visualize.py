@@ -1,5 +1,9 @@
+import dotenv
+
 from actions.data_visualization import visualize
 from services.MongoDBConnection import MongoDBConnection
+
+dotenv.load_dotenv()
 
 
 def main():
