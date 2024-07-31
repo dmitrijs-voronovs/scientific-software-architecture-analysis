@@ -1,13 +1,14 @@
 import dotenv
 
 from actions.data_visualization import visualize
+from constants.db import DBCollections
 from services.MongoDBConnection import MongoDBConnection
 
 dotenv.load_dotenv()
 
 
 def main():
-    visualize()
+    visualize(DBCollections.Selected_projects)
     MongoDBConnection().close_connection()
 
 

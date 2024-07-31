@@ -4,7 +4,7 @@ from asyncio import Semaphore
 import dotenv
 
 from actions.db_actions import upsert_collection_async
-from constants.db import PROJECTS_COLLECTION_NAME, PROJECTS_DB_NAME
+from constants.db import PROJECTS_DB_NAME, DBCollections
 from fetcher.CategoryTopics import CategoryTopicsFetcher_isOrganization
 from services.MongoDBConnection import MongoDBConnection
 from tag_parser.tag_parser import get_tags
@@ -43,7 +43,7 @@ async def load_tags(new=False):
 
 def main():
     Fetcher = CategoryTopicsFetcher_isOrganization(
-        lambda data: upsert_collection_async(PROJECTS_DB_NAME, PROJECTS_COLLECTION_NAME, data))
+        lambda data: upsert_collection_async(PROJECTS_DB_NAME, DBCollections.Repos_by_category.value, data))
     asyncio.run(perform_fetch(Fetcher, False))
 
 

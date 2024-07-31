@@ -1,6 +1,6 @@
 import os
 
-from constants.db import PROJECTS_DB_NAME
+from constants.db import PROJECTS_DB_NAME, DBCollections
 from services.MongoDBConnection import MongoDBConnection
 
 
@@ -153,12 +153,10 @@ def create_pie_chart(collection, collection_name, field_name, sample_size=1000, 
     print(f"Pie chart for '{field_name}' has been saved as '{field_name}_pie_chart.png'")
 
 
-def visualize():
+def visualize(collection_name: DBCollections = DBCollections.Repos_by_category):
     client = MongoDBConnection().get_client()
     db = client[PROJECTS_DB_NAME]
-    # collection_name = PROJECTS_COLLECTION_NAME
-    collection_name = 'proposal-1'
-    collection = db[collection_name]
+    collection = db[collection_name.value]
 
     schema = get_schema_sample(collection)
     print(schema)
