@@ -1,3 +1,5 @@
+import pandas as pd
+import plotly.express as px
 from pymongo import MongoClient
 import subprocess
 from collections import defaultdict
@@ -61,6 +63,15 @@ def visualize_churn_graph(G):
     plt.savefig("churn_graph.png")
 
 
+def interactive_churn_table(churn_data, times_modified):
+    df = pd.DataFrame({'file': list(churn_data.keys()), 'churn': list(churn_data.values()),
+                       'times_modified': list(times_modified.values()),
+                       'ext': [file.split('.')[-1] for file in churn_data.keys()]})
+
+    fig = px.scatter(df, x='times_modified', y='churn', hover_data=['file'], color='ext', log_y=True)
+    fig.show()
+
+
 def store_churn_data(project_name, version, churn_data):
     client = MongoClient('mongodb://localhost:27017/')
     db = client['code_analysis']
@@ -79,8 +90,9 @@ def store_churn_data(project_name, version, churn_data):
 def main():
     repo_path = ".tmp/scverse/scanpy/master"
     churn_data, times_modified = analyze_code_churn(repo_path)
-    churn_graph = create_churn_graph(churn_data, times_modified)
-    visualize_churn_graph(churn_graph)
+    # churn_graph = create_churn_graph(churn_data, times_modified)
+    # visualize_churn_graph(churn_graph)
+    interactive_churn_table(churn_data, times_modified)
 
     # Store the churn data in MongoDB
     project_name = "my_project"
