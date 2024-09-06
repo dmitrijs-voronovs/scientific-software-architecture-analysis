@@ -1,0 +1,3 @@
+author,repo,tag,yml,no_extension,yaml,doc,md,toml,sample,idx,pack,py,test,h5ad,txt,json
+scverse,scanpy,1.10.1,7,15,1,130,3,1,13,1,1,107,336,1,6,
+scverse,scanpy,1.10.2,8,15,1,132,4,1,13,1,1,114,339,1,6,1.0
