@@ -1,50 +1,28 @@
 import os
 import json
 import subprocess
-import tempfile
-from pathlib import Path
 
-from git import Repo
-from pygit2 import Repository, GIT_SORT_TOPOLOGICAL
-
-
-def clone_repo(author, repo_name):
-    repo_url = f"https://github.com/{author}/{repo_name}.git"
-    path = f"./.tmp/{author}/{repo_name}/master"
-    os.makedirs(path, exist_ok=True)
-    print(path)
-    if not os.path.exists(path):
-        Repo.clone_from(repo_url, path)
-    return path
+from services.git import clone_repo, clone_tag, get_abs_parent_dir
 
 
 def run_gumtree_diff(author, repo_name, repo_path, tag1, tag2):
-    # Create temporary directories for each tag
-    path1 = f"./.tmp/{author}/{repo_name}/{tag1}"
-    path2 = f"./.tmp/{author}/{repo_name}/{tag2}"
-    print(f"{path1=}, {path2=}")
 
     # Clone the repository twice and checkout the respective tags
-    if not os.path.exists(path1):
-        Repo.clone_from(repo_path, path1).git.checkout(tag1)
-    if not os.path.exists(path2):
-        Repo.clone_from(repo_path, path2).git.checkout(tag2)
+    path1 = clone_tag(author, repo_name, repo_path, tag1)
+    path2 = clone_tag(author, repo_name, repo_path, tag2)
 
-    full_path_to_file = Path(__file__).resolve().parent
+    root_dir = get_abs_parent_dir()
 
     # Run GumTree on the entire project
     cmd = [
         "gumtree", "textdiff",
         "-f", "JSON",
-        os.path.join(full_path_to_file, path1),
-        os.path.join(full_path_to_file, path2),
+        os.path.join(root_dir, path1),
+        os.path.join(root_dir, path2),
         "-o", f"{repo_path}_{tag1}..{tag2}.diff.json"
     ]
     print(" ".join(cmd))
     result = subprocess.run(cmd, capture_output=True, text=True)
-
-    # Clean up temporary directories
-    # subprocess.run(["rm", "-rf", path1, path2])
 
     return json.loads(result.stdout)
 
