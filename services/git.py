@@ -1,12 +1,18 @@
 import os
 from pathlib import Path
+from typing import Optional
 
 from git import Repo
 
 
-def clone_repo(author, repo_name):
+def get_repo_base_path(author, repo_name, postfix="master"):
+    repo_base_path = f"./.tmp/{author}/{repo_name}/{postfix}"
+    return repo_base_path
+
+
+def clone_repo(author, repo_name, postfix: Optional[str]):
     repo_url = f"https://github.com/{author}/{repo_name}.git"
-    path = f"./.tmp/{author}/{repo_name}/master"
+    path = get_repo_base_path(author, repo_name, postfix)
     os.makedirs(path, exist_ok=True)
     if not os.path.exists(path):
         Repo.clone_from(repo_url, path)
@@ -17,6 +23,16 @@ def clone_tag(author, repo_name, repo_path, tag1):
     path1 = f"./.tmp/{author}/{repo_name}/{tag1}"
     if not os.path.exists(path1):
         Repo.clone_from(repo_path, path1).git.checkout(tag1)
+    return path1
+
+
+def checkout_tag(author, repo_name, tag):
+    path1 = get_repo_base_path(author, repo_name)
+    if not os.path.exists(path1):
+        clone_repo(author, repo_name)
+
+    Repo(path1).git.checkout(tag)
+
     return path1
 
 
