@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 from collections import defaultdict
 import subprocess
 from services.git import checkout_tag
@@ -10,8 +11,7 @@ def get_repo_tags(author, repo_name):
     repo_url = f"https://github.com/{author}/{repo_name}.git"
     result = subprocess.run(['git', 'ls-remote', '--tags', repo_url], capture_output=True, text=True)
     tags = [line.split('refs/tags/')[-1] for line in result.stdout.splitlines()]
-    print(tags)
-    return tags
+    return sorted(tags, key=lambda v: [int(x) for x in v.split('.')])
 
 
 def collect_file_metadata(path):
@@ -38,9 +38,13 @@ def collect_file_metadata(path):
             file_categories[extension] = category
 
             # Count lines
-            with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
-                line_count = sum(1 for line in f)
-                line_counts[extension] += line_count
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    line_count = sum(1 for line in f)
+                    line_counts[extension] += line_count
+            except Exception:
+                # If we can't read the file, we'll just skip counting its lines
+                pass
 
     return {
         'file_counts': dict(file_counts),
@@ -52,7 +56,6 @@ def collect_file_metadata(path):
 def process_repo_tags(author, repo_name, tags):
     all_metadata = []
     for tag in tags:
-        print(f"Processing tag: {tag}")
         path = checkout_tag(author, repo_name, tag)
         metadata = collect_file_metadata(path)
         metadata['author'] = author
@@ -72,8 +75,8 @@ def create_dataframe(all_metadata):
                 'tag': metadata['tag'],
                 'extension': extension,
                 'file_count': count,
-                'line_count': metadata['line_counts'][extension],
-                'category': metadata['file_categories'][extension]
+                'line_count': metadata['line_counts'].get(extension, 0),
+                'category': metadata['file_categories'].get(extension, 'other')
             })
     return pd.DataFrame(rows)
 
@@ -83,63 +86,69 @@ def save_dataframe(df, author, repo_name):
     df.to_csv(f'./metadata/{author}_{repo_name}_metadata.csv', index=False)
 
 
+def load_dataframe(author, repo_name):
+    file_path = f'./metadata/{author}_{repo_name}_metadata.csv'
+    if os.path.exists(file_path):
+        return pd.read_csv(file_path)
+    return None
+
+
 def create_interactive_plot(df):
-    fig = go.Figure()
+    fig = make_subplots(rows=2, cols=1, subplot_titles=("File Counts", "Line Counts"))
 
-    for category in ['test', 'doc', 'other']:
-        df_category = df[df['category'] == category]
+    categories = ['test', 'doc', 'other']
+    colors = {'test': 'blue', 'doc': 'green', 'other': 'red'}
 
-        fig.add_trace(go.Scatter(
-            x=df_category['extension'],
-            y=df_category['file_count'],
-            mode='markers',
-            name=f'{category.capitalize()} Files',
-            marker=dict(size=10),
-            visible=True
-        ))
+    # Get unique tags
+    unique_tags = df['tag'].unique()
 
-        fig.add_trace(go.Scatter(
-            x=df_category['extension'],
-            y=df_category['line_count'],
-            mode='markers',
-            name=f'{category.capitalize()} Lines',
-            marker=dict(size=10),
-            visible=False
-        ))
+    # Create traces for each tag
+    for tag in unique_tags:
+        df_tag = df[df['tag'] == tag]
 
-    # Create and add dropdown
-    dropdown_buttons = [
-        {'label': "File Counts", 'method': "update",
-         'args': [{"visible": [True, False] * 3}, {'yaxis': {'title': 'File Count'}}]},
-        {'label': "Line Counts", 'method': "update",
-         'args': [{"visible": [False, True] * 3}, {'yaxis': {'title': 'Line Count'}}]}
-    ]
+        for i, count_type in enumerate(['file_count', 'line_count']):
+            for category in categories:
+                df_category = df_tag[df_tag['category'] == category]
 
+                fig.add_trace(
+                    go.Bar(
+                        x=df_category['extension'],
+                        y=df_category[count_type],
+                        name=f'{category.capitalize()} ({tag})',
+                        marker_color=colors[category],
+                        legendgroup=category,
+                        showlegend=(i == 0)  # Show legend only for the first subplot
+                    ),
+                    row=i + 1, col=1
+                )
+
+    # Update layout
     fig.update_layout(
-        updatemenus=[
-            dict(
-                buttons=dropdown_buttons,
-                direction="down",
-                pad={"r": 10, "t": 10},
-                showactive=True,
-                x=0.1,
-                xanchor="left",
-                y=1.1,
-                yanchor="top"
-            ),
-        ]
+        barmode='stack',
+        height=800,
+        title_text="File and Line Counts by Extension and Category",
     )
+
+    fig.update_xaxes(title_text="File Extension", row=2, col=1)
+    fig.update_yaxes(title_text="File Count", row=1, col=1)
+    fig.update_yaxes(title_text="Line Count", row=2, col=1)
 
     # Add slider for tags
     steps = []
-    for tag in df['tag'].unique():
+
+    for tag in unique_tags:
+        visibility_mask = [False] * len(fig.data)
+
+        # Set visibility for the traces corresponding to the current tag
+        for trace_idx, trace in enumerate(fig.data):
+            if f"({tag})" in trace.name:  # Check if trace corresponds to the current tag
+                visibility_mask[trace_idx] = True
+
         step = dict(
             method="update",
-            args=[{"visible": [True] * len(fig.data)}],
+            args=[{"visible": visibility_mask}],
             label=tag
         )
-        for trace in fig.data:
-            step["args"][0]["visible"][fig.data.index(trace)] = tag in df[df['extension'].isin(trace.x)]['tag'].values
         steps.append(step)
 
     sliders = [dict(
@@ -149,13 +158,8 @@ def create_interactive_plot(df):
         steps=steps
     )]
 
-    fig.update_layout(
-        sliders=sliders,
-        xaxis_title="File Extension",
-        yaxis_title="Count",
-        title="File and Line Counts by Extension and Category"
-    )
-
+    # Initialize the first tag as visible
+    fig.update_layout(sliders=sliders)
     fig.show()
 
 
@@ -163,11 +167,13 @@ def main():
     author = "scverse"
     repo_name = "scanpy"
 
-    tags = get_repo_tags(author, repo_name)
-    all_metadata = process_repo_tags(author, repo_name, tags)
+    df = load_dataframe(author, repo_name)
 
-    df = create_dataframe(all_metadata)
-    save_dataframe(df, author, repo_name)
+    if df is None:
+        tags = get_repo_tags(author, repo_name)
+        all_metadata = process_repo_tags(author, repo_name, tags)
+        df = create_dataframe(all_metadata)
+        save_dataframe(df, author, repo_name)
 
     create_interactive_plot(df)
 
