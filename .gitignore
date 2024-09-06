@@ -7,3 +7,4 @@
 data/
 git-repo-analysis/
 .cache/
+.tmp/
