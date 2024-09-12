@@ -19,7 +19,8 @@ def extract_text_from_all_nodes(match):
 
 
 Queries = {"python": {"constants": {
-    "handler": (lambda match: {**(m := extract_text_from_all_nodes(match)), "embedding": f"Constant: {m["constant"]}"}),
+    "handler": (
+        lambda match: {**(m := extract_text_from_all_nodes(match)), "embedding": f"Constant: {m["constant"]}"}),
     "query": """
             (module
                 (expression_statement
@@ -29,9 +30,26 @@ Queries = {"python": {"constants": {
                     ) @constant
                 )
             )
-        """}, "imports": {
-    "handler": (lambda match: {**(m := extract_text_from_all_nodes(match)), "embedding": f"Import: {m["import"]}"}),
-    "query": """
+        """},
+    "module_types": {
+        "handler": (lambda match: {
+            **(m := extract_text_from_all_nodes(match)),
+            "embedding": f"Type: {m['type.name']} = {m['type.value']}"
+        }),
+        "query": """
+            (module
+                (type_alias_statement
+                    (type (identifier) @type.name)
+                    (type (generic_type) @type.value)
+                ) @type
+            )
+        """
+    },
+    "imports": {
+        "handler": (lambda match: {
+            **(m := extract_text_from_all_nodes(match)), "embedding": f"Import: {m["import"]}"
+        }),
+        "query": """
             (module
                 (import_from_statement
                     module_name: (dotted_name)? @import.from
@@ -39,17 +57,24 @@ Queries = {"python": {"constants": {
             ;;    (import_statement
             ;;        name: (dotted_name) @import.name) @import
             )
-        """}, "functions": {"handler": (lambda match: match), "query": """
+        """}, "functions": {"handler": (lambda match: {
+        # TODO: remove def keyword
+        **(m := extract_text_from_all_nodes(match)), "embedding": f"Function: {m["function"]}"
+    }), "query": """
             (module
                 (function_definition
                     name: (identifier) @function.name
                     parameters: (parameters) @function.parameters) @function
             )
-        """}, "classes": {"handler": (lambda match: match), "query": """
+        """}, "classes": {"handler": (lambda match: {
+        **(m := extract_text_from_all_nodes(match)), "embedding": f"Class: {m["class"]}"
+    }), "query": """
             (class_definition
                 name: (identifier) @class.name
                 superclasses: (argument_list)? @class.base) @class
-        """}, "class_fields": {"handler": (lambda match: match), "query": """
+        """}, "class_fields": {"handler": (lambda match: {
+        **(m := extract_text_from_all_nodes(match)), "embedding": f"Class field: {m["class_field"]}"
+    }), "query": """
             (class_definition
                 name: (identifier) @class.name
                 body: (block 
@@ -73,7 +98,9 @@ Queries = {"python": {"constants": {
                         (_
                             name: (identifier) @field.name
                             type: (_) @field.type)))) @class_field
-        """}, "class_methods": {"handler": (lambda match: match), "query": """
+        """}, "class_methods": {"handler": (lambda match: {
+        **(m := extract_text_from_all_nodes(match)), "embedding": f"Class method: {m["class_method"]}"
+    }), "query": """
             (class_definition
                 name: (identifier) @class.name
                 body: (block 
