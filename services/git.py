@@ -26,7 +26,7 @@ def clone_tag(author, repo_name, repo_path, tag1):
     return path1
 
 
-def checkout_tag(author, repo_name, tag):
+def checkout_tag(author, repo_name, tag) -> str:
     path1 = get_repo_base_path(author, repo_name)
     if not os.path.exists(path1):
         clone_repo(author, repo_name)

@@ -1,6 +1,8 @@
+import itertools
 import os
 import pandas as pd
 import plotly.graph_objects as go
+import plotly.express as px
 from plotly.subplots import make_subplots
 from collections import defaultdict
 import subprocess
@@ -163,6 +165,80 @@ def create_interactive_plot(df):
     fig.show()
 
 
+def create_tag_based_scatter_chart(df):
+    # Create subplots: upper for file count, lower for line count
+    fig = make_subplots(rows=2, cols=1, shared_xaxes=True,
+                        subplot_titles=("File Count by Tag", "Line Count by Tag"))
+
+    # Define symbols for different categories
+    category_symbols = {'test': 'circle', 'doc': 'square', 'other': 'diamond'}
+
+    # Get unique file extensions
+    unique_extensions = df['extension'].unique()
+
+    # Define a larger color palette
+    color_palette = ['blue', 'green', 'red', 'purple', 'orange', 'cyan', 'magenta', 'brown', 'pink', 'grey', 'olive']
+
+    # Cycle through colors if there are more extensions than available colors
+    color_cycle = itertools.cycle(color_palette)
+
+    # Assign colors to extensions
+    color_map = {}
+    for ext in unique_extensions:
+        if ext not in color_map:
+            color_map[ext] = next(color_cycle)
+
+    # Add scatter points for file_count (upper) and line_count (lower)
+    for count_type, row_num in zip(['file_count', 'line_count'], [1, 2]):
+        for category in df['category'].unique():
+            df_category = df[df['category'] == category]
+
+            fig.add_trace(go.Scatter(
+                x=df_category['tag'],
+                y=df_category[count_type],
+                mode='markers',
+                marker=dict(
+                    symbol=category_symbols[category],  # Shape based on category
+                    color=[color_map[ext] for ext in df_category['extension']],  # Color based on file extension
+                    size=12,
+                ),
+                name=f'{category.capitalize()} - {count_type.capitalize()}',
+                legendgroup=category,  # Group by category to ensure a single legend entry per category
+                showlegend=(row_num == 1),  # Show legend only for the first row (file count)
+                hovertemplate=(
+                    f"<b>Category:</b> {category}<br>"
+                    f"<b>Extension:</b> %{df_category['extension']}<br>"
+                    f"<b>{count_type.capitalize()}:</b> %{df_category[count_type]}"
+                )
+            ), row=row_num, col=1)
+
+    # Update layout for shared x-axis and legends
+    fig.update_layout(
+        height=800,
+        title_text="File and Line Counts by Tag, Extension, and Category",
+        legend_title="File Format (Extension)",
+        hovermode='closest'
+    )
+
+    # Customize axes labels
+    fig.update_xaxes(title_text="Tag", row=2, col=1)
+    fig.update_yaxes(title_text="File Count", row=1, col=1)
+    fig.update_yaxes(title_text="Line Count", row=2, col=1)
+
+    # Add extensions to the legend by creating hidden traces for each extension
+    for ext in unique_extensions:
+        fig.add_trace(go.Scatter(
+            x=[None], y=[None],
+            mode='markers',
+            marker=dict(color=color_map[ext], size=12),
+            legendgroup=ext,
+            showlegend=True,
+            name=f'Extension: {ext}',
+        ))
+
+    fig.show()
+
+
 def main():
     author = "scverse"
     repo_name = "scanpy"
@@ -175,7 +251,8 @@ def main():
         df = create_dataframe(all_metadata)
         save_dataframe(df, author, repo_name)
 
-    create_interactive_plot(df)
+    # create_interactive_plot(df)
+    create_tag_based_scatter_chart(df)
 
 
 if __name__ == "__main__":
