@@ -14,6 +14,9 @@ type Book = List[int]
 
 
 class BaseReader:
+    """
+    Base class for reading books
+    """
     def __init__(self, book: Book):
         self.book = book
 
@@ -73,6 +76,9 @@ def generate_metadata(author, repo_name, tag1, tag2):
 
 
 def main():
+    def sub_fun():
+        pass
+
     # author = input("Enter GitHub repository author: ")
     # repo_name = input("Enter GitHub repository name: ")
     # tag1 = input("Enter first tag: ")

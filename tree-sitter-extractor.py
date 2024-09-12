@@ -1,60 +1,55 @@
 from pathlib import Path
 from typing import Generator
 
-from tree_sitter import Language, Parser, Tree, Node
 import tree_sitter_python as tspython
-import tree_sitter_java as tsjava
+from tree_sitter import Language, Parser, Tree, Node
 
-ext_to_lang = {
-    "py": "python",
-    # "java": "java"
-}
+ext_to_lang = {"py": "python",  # "java": "java"
+               }
 
-Languages = {
-    "python": Language(tspython.language()),
-    # "java": Language(tsjava.language())
-}
+Languages = {"python": Language(tspython.language()),  # "java": Language(tsjava.language())
+             }
 
-Queries = {
-    "python": {
-        "constants": """
+
+def extract_text_from_all_nodes(match):
+    res = {}
+    for [key, value] in match.items():
+        res[key] = value[0].text.decode("utf-8")
+    return res
+
+
+Queries = {"python": {"constants": {
+    "handler": (lambda match: {**(m := extract_text_from_all_nodes(match)), "embedding": f"Constant: {m["constant"]}"}),
+    "query": """
             (module
                 (expression_statement
                     (assignment
                         left: (identifier) @constant.name
-                        right: [
-                            (integer) @constant.value
-                            (float) @constant.value
-                            (string) @constant.value
-                            (true) @constant.value
-                            (false) @constant.value
-                            (call) @constant.value
-                            (none) @constant.value
-                        ]
+                        right: (_) @constant.value
                     ) @constant
                 )
             )
-            ;; Match constant names that are all uppercase and follow the pattern for constants
-            ;; (#match? @constant.name "^[A-Z_][A-Z0-9_]*$")
-        """,
-        "imports": """
-            (import_from_statement
-                module_name: (dotted_name) @import.from
-                name: (dotted_name) @import.name) @import
-            (import_statement
-                name: (dotted_name) @import.name) @import
-        """,
-        "functions": """
-            (function_definition
-                name: (identifier) @function.name
-                parameters: (parameters) @function.parameters) @function
-        """,
-        "classes": """
+        """}, "imports": {
+    "handler": (lambda match: {**(m := extract_text_from_all_nodes(match)), "embedding": f"Import: {m["import"]}"}),
+    "query": """
+            (module
+                (import_from_statement
+                    module_name: (dotted_name)? @import.from
+                    name: (dotted_name) @import.name) @import
+            ;;    (import_statement
+            ;;        name: (dotted_name) @import.name) @import
+            )
+        """}, "functions": {"handler": (lambda match: match), "query": """
+            (module
+                (function_definition
+                    name: (identifier) @function.name
+                    parameters: (parameters) @function.parameters) @function
+            )
+        """}, "classes": {"handler": (lambda match: match), "query": """
             (class_definition
                 name: (identifier) @class.name
                 superclasses: (argument_list)? @class.base) @class
-        """,
-        "class_fields": """
+        """}, "class_fields": {"handler": (lambda match: match), "query": """
             (class_definition
                 name: (identifier) @class.name
                 body: (block 
@@ -78,17 +73,14 @@ Queries = {
                         (_
                             name: (identifier) @field.name
                             type: (_) @field.type)))) @class_field
-        """,
-        "class_methods": """
+        """}, "class_methods": {"handler": (lambda match: match), "query": """
             (class_definition
                 name: (identifier) @class.name
                 body: (block 
                     (function_definition
                         name: (identifier) @method.name
                         parameters: (parameters) @method.parameters))) @class_method
-        """
-    }
-}
+        """}}}
 
 
 def get_ext(file_path: str):
@@ -139,11 +131,12 @@ def main():
 
     extract_tree(tree, "./tree_sitter_playground/test_file.tree")
 
-    for [query_name, query_pattern] in Queries[lang].items():
+    for [query_name, config] in Queries[lang].items():
+        handler, query_pattern = config["handler"], config["query"]
         print(f"\nQuery: {query_name}, Pattern: {query_pattern}")
         query = Languages[lang].query(query_pattern)
-        for capture in query.matches(tree.root_node):
-            print(capture)
+        for [_, capture] in query.matches(tree.root_node):
+            print(handler(capture))
 
         break
 
