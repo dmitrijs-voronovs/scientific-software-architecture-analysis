@@ -3,7 +3,7 @@ from services.ast_extractor import read_file, parse_code, extract_tree, ast_iter
 
 def main():
     file_path = "./tree_sitter_playground/test_file.py"
-    # file_path = "ast-file-extractor.py"
+    # file_path = "ast-project-extractor.py"
     code, filename, lang = read_file(file_path)
     tree = parse_code(code, lang)
 
