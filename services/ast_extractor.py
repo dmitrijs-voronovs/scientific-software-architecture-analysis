@@ -6,7 +6,6 @@ from tree_sitter import Language, Parser, Tree, Node
 
 ext_to_lang = {"py": "python",  # "java": "java"
                }
-
 Languages = {"python": Language(tspython.language()),  # "java": Language(tsjava.language())
              }
 
@@ -22,10 +21,10 @@ def render_if_exists(object, field, prefix="", postfix="", orString="", render_f
     return prefix + render_field(object[field]) + postfix if field in object else orString
 
 
-Queries = {"python": {"class_fields": {"handler": (lambda match: {
+Queries = {"python": {"class_field": {"handler": (lambda match: {
     **(m := extract_text_from_all_nodes(match)),
     "embedding": f"Class field: {render_if_exists(m, "class.instance_field", "[instance] ", render_field=lambda x: "")}{m["class.name"]}.{m["class.field"].replace('self.', '')}"
-    }), "query": """
+}), "query": """
             (class_definition
                 name: (identifier) @class.name
                 body: (block
@@ -57,7 +56,7 @@ Queries = {"python": {"class_fields": {"handler": (lambda match: {
                     ]
                 )
             )
-        """}, "class_methods": {"handler": (lambda match: {
+        """}, "class_method": {"handler": (lambda match: {
     **(m := extract_text_from_all_nodes(match)),
     "embedding": f"Class method: {render_if_exists(m, "method.decorator", "[", "] ")}{m["class.name"]}.{m["method.name"]}{m["method.parameters"]}{render_if_exists(m, "method.type", " -> ")}"
 }), "query": """
@@ -82,7 +81,7 @@ Queries = {"python": {"class_fields": {"handler": (lambda match: {
                 )
             ) ;; @class_method
         """},
-                      "classes": {"handler": (lambda match: {
+                      "class": {"handler": (lambda match: {
                           **(m := extract_text_from_all_nodes(match)),
                           "embedding": f"Class: {m["class.name"]}{render_if_exists(m, "class.base")}"
                       }), "query": """
@@ -91,10 +90,10 @@ Queries = {"python": {"class_fields": {"handler": (lambda match: {
                 superclasses: (argument_list)? @class.base
             ) ;; @class
         """},
-                      "functions": {"handler": (lambda match: {
+                      "function": {"handler": (lambda match: {
                           **(m := extract_text_from_all_nodes(match)),
                           "embedding": f"Function: {m["function.name"]}{m["function.parameters"]}{render_if_exists(m, "function.type", " -> ")}"
-    }), "query": """
+                      }), "query": """
             (module
                 (function_definition
                     name: (identifier) @function.name
@@ -103,7 +102,7 @@ Queries = {"python": {"class_fields": {"handler": (lambda match: {
                     (comment)? @function.docstring
                 ) ;; @function
             )
-        """}, "module_types": {
+        """}, "module_type": {
         "handler": (lambda match: {
             **(m := extract_text_from_all_nodes(match)),
             "embedding": f"Type: {m['type.name']} = {m['type.value']}"
@@ -116,7 +115,7 @@ Queries = {"python": {"class_fields": {"handler": (lambda match: {
                 ) @type
             )
         """
-    }, "constants": {
+    }, "constant": {
         "handler": (
             lambda match: {**(m := extract_text_from_all_nodes(match)), "embedding": f"Constant: {m["constant"]}"}),
         "query": """
@@ -128,7 +127,7 @@ Queries = {"python": {"class_fields": {"handler": (lambda match: {
                     ) @constant
                 )
             )
-        """}, "imports": {
+        """}, "import": {
         "handler": (lambda match: {
             **(m := extract_text_from_all_nodes(match)),
             "embedding": f"Import: {m["import.name"]}{render_if_exists(m, "import.from", " from ")}"
@@ -152,7 +151,7 @@ Queries = {"python": {"class_fields": {"handler": (lambda match: {
                     (aliased_import (dotted_name) @import.name)
                 ) @import
             )
-        """}, "local_imports": {
+        """}, "local_import": {
         "handler": (lambda match: {
             **(m := extract_text_from_all_nodes(match)),
             "embedding": f"Import: {m["import.name"]} from {m["import.from"]}"
@@ -171,15 +170,16 @@ Queries = {"python": {"class_fields": {"handler": (lambda match: {
         """}}}
 
 
-def get_ext(file_path: str):
-    return Path(file_path).suffix
+def get_file_params(file_path: str) -> [str, str]:
+    path = Path(file_path)
+    return path.name, path.suffix
 
 
 def read_file(file_path: str):
-    ext = get_ext(file_path)
+    name, ext = get_file_params(file_path)
     lang = ext_to_lang[ext[1:]]
     with open(file_path, "rb") as f:
-        return f.read(), lang
+        return f.read(), name, lang
 
 
 def parse_code(code: bytes, lang: str):
@@ -213,21 +213,11 @@ def extract_tree(tree: Tree, file):
             f.write(f"{'  ' * level}{node.type}: {node.text}\n")
 
 
-def main():
-    code, lang = read_file("./tree_sitter_playground/test_file.py")
-    tree = parse_code(code, lang)
-
-    extract_tree(tree, "./tree_sitter_playground/test_file.tree")
-
+def ast_iterator(lang, tree) -> Generator[dict, None, None]:
     for [query_name, config] in Queries[lang].items():
         handler, query_pattern = config["handler"], config["query"]
-        print(f"\nQuery: {query_name}, Pattern: {query_pattern}")
+        # print(f"\nQuery: {query_name}, Pattern: {query_pattern}")
+        print(f"\nQuery: {query_name}")
         query = Languages[lang].query(query_pattern)
         for [_, capture] in query.matches(tree.root_node):
-            print(handler(capture))
-
-        break
-
-
-if __name__ == "__main__":
-    main()
+            yield dict(element_type=query_name, **handler(capture))
