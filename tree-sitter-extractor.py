@@ -18,12 +18,13 @@ def extract_text_from_all_nodes(match):
     return res
 
 
-def render_if_exists(object, field, prefix="", postfix="", orString=""):
-    return prefix + object[field] + postfix if field in object else orString
+def render_if_exists(object, field, prefix="", postfix="", orString="", render_field=lambda x: x):
+    return prefix + render_field(object[field]) + postfix if field in object else orString
 
 
 Queries = {"python": {"class_fields": {"handler": (lambda match: {
-    **(m := extract_text_from_all_nodes(match)), "embedding": f"Class field: {m["class.name"]}.{m["class.field"]}"
+    **(m := extract_text_from_all_nodes(match)),
+    "embedding": f"Class field: {render_if_exists(m, "class.instance_field", "[instance] ", render_field=lambda x: "")}{m["class.name"]}.{m["class.field"].replace('self.', '')}"
     }), "query": """
             (class_definition
                 name: (identifier) @class.name
