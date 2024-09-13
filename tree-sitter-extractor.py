@@ -18,20 +18,91 @@ def extract_text_from_all_nodes(match):
     return res
 
 
-Queries = {"python": {"constants": {
-    "handler": (
-        lambda match: {**(m := extract_text_from_all_nodes(match)), "embedding": f"Constant: {m["constant"]}"}),
-    "query": """
-            (module
-                (expression_statement
-                    (assignment
-                        left: (identifier) @constant.name
-                        right: (_) @constant.value
-                    ) @constant
+def render_if_exists(object, field, prefix="", postfix="", orString=""):
+    return prefix + object[field] + postfix if field in object else orString
+
+
+Queries = {"python": {"class_fields": {"handler": (lambda match: {
+    **(m := extract_text_from_all_nodes(match)), "embedding": f"Class field: {m["class.name"]}.{m["class.field"]}"
+    }), "query": """
+            (class_definition
+                name: (identifier) @class.name
+                body: (block
+                    [ 
+                        (expression_statement 
+                            [
+                                (assignment 
+                                    left: (identifier) @field.name
+                                    right: (_)? @field.default) @class.field
+                                (assignment
+                                    left: (_
+                                        name: (identifier) @field.name
+                                        type: (_) @field.type)
+                                    right: (_)? @field.default) @class.field
+                                (_
+                                    name: (identifier) @field.name
+                                    type: (_) @field.type) @class.field
+                            ]
+                        )
+                        (function_definition
+                            (identifier) @method.name
+                            (#match @method.name "^__init__$")
+                            (parameters) @method.parameters
+                            (block
+                                (expression_statement) @class.field @class.instance_field
+                                (#match @class.instance_field "^self\\.")
+                            )
+                        )
+                    ]
                 )
             )
+        """}, "class_methods": {"handler": (lambda match: {
+    **(m := extract_text_from_all_nodes(match)),
+    "embedding": f"Class method: {render_if_exists(m, "method.decorator", "[", "] ")}{m["class.name"]}.{m["method.name"]}{m["method.parameters"]}{render_if_exists(m, "method.type", " -> ")}"
+}), "query": """
+            (class_definition
+                name: (identifier) @class.name
+                body: (block 
+                    [
+                        (function_definition
+                            name: (identifier) @method.name
+                            parameters: (parameters) @method.parameters
+                            (type)? @method.type
+                        )
+                        (decorated_definition
+                            (decorator (_) @method.decorator) 
+                            (function_definition
+                                name: (identifier) @method.name
+                                parameters: (parameters) @method.parameters
+                                (type)? @method.type
+                            )
+                        )
+                    ]                        
+                )
+            ) ;; @class_method
         """},
-    "module_types": {
+                      "classes": {"handler": (lambda match: {
+                          **(m := extract_text_from_all_nodes(match)),
+                          "embedding": f"Class: {m["class.name"]}{render_if_exists(m, "class.base")}"
+                      }), "query": """
+            (class_definition
+                name: (identifier) @class.name
+                superclasses: (argument_list)? @class.base
+            ) ;; @class
+        """},
+                      "functions": {"handler": (lambda match: {
+                          **(m := extract_text_from_all_nodes(match)),
+                          "embedding": f"Function: {m["function.name"]}{m["function.parameters"]}{render_if_exists(m, "function.type", " -> ")}"
+    }), "query": """
+            (module
+                (function_definition
+                    name: (identifier) @function.name
+                    parameters: (parameters) @function.parameters
+                    (type)? @function.type
+                    (comment)? @function.docstring
+                ) ;; @function
+            )
+        """}, "module_types": {
         "handler": (lambda match: {
             **(m := extract_text_from_all_nodes(match)),
             "embedding": f"Type: {m['type.name']} = {m['type.value']}"
@@ -44,69 +115,58 @@ Queries = {"python": {"constants": {
                 ) @type
             )
         """
-    },
-    "imports": {
+    }, "constants": {
+        "handler": (
+            lambda match: {**(m := extract_text_from_all_nodes(match)), "embedding": f"Constant: {m["constant"]}"}),
+        "query": """
+            (module
+                (expression_statement
+                    (assignment
+                        left: (identifier) @constant.name
+                        right: (_) @constant.value
+                    ) @constant
+                )
+            )
+        """}, "imports": {
         "handler": (lambda match: {
-            **(m := extract_text_from_all_nodes(match)), "embedding": f"Import: {m["import"]}"
+            **(m := extract_text_from_all_nodes(match)),
+            "embedding": f"Import: {m["import.name"]}{render_if_exists(m, "import.from", " from ")}"
         }),
         "query": """
             (module
                 (import_from_statement
-                    module_name: (dotted_name)? @import.from
-                    name: (dotted_name) @import.name) @import
-            ;;    (import_statement
-            ;;        name: (dotted_name) @import.name) @import
+                    module_name: (dotted_name) @import.from
+                    (#match @import.from "^\\\\w+$")
+                    name: (dotted_name)? @import.name
+                    (aliased_import (dotted_name) @import.name)?
+                ) @import
             )
-        """}, "functions": {"handler": (lambda match: {
-        # TODO: remove def keyword
-        **(m := extract_text_from_all_nodes(match)), "embedding": f"Function: {m["function"]}"
-    }), "query": """
             (module
-                (function_definition
-                    name: (identifier) @function.name
-                    parameters: (parameters) @function.parameters) @function
+                (import_statement
+                    (dotted_name) @import.name
+                ) @import
             )
-        """}, "classes": {"handler": (lambda match: {
-        **(m := extract_text_from_all_nodes(match)), "embedding": f"Class: {m["class"]}"
-    }), "query": """
-            (class_definition
-                name: (identifier) @class.name
-                superclasses: (argument_list)? @class.base) @class
-        """}, "class_fields": {"handler": (lambda match: {
-        **(m := extract_text_from_all_nodes(match)), "embedding": f"Class field: {m["class_field"]}"
-    }), "query": """
-            (class_definition
-                name: (identifier) @class.name
-                body: (block 
-                    (expression_statement 
-                        (assignment 
-                            left: (identifier) @field.name
-                            right: (_)? @field.default)))) @class_field
-            (class_definition
-                name: (identifier) @class.name
-                body: (block 
-                    (expression_statement
-                        (assignment
-                            left: (_
-                                name: (identifier) @field.name
-                                type: (_) @field.type)
-                            right: (_)? @field.default)))) @class_field
-            (class_definition
-                name: (identifier) @class.name
-                body: (block 
-                    (expression_statement
-                        (_
-                            name: (identifier) @field.name
-                            type: (_) @field.type)))) @class_field
-        """}, "class_methods": {"handler": (lambda match: {
-        **(m := extract_text_from_all_nodes(match)), "embedding": f"Class method: {m["class_method"]}"
-    }), "query": """
-            (class_definition
-                name: (identifier) @class.name
-                body: (block 
-                    (function_definition
-                        name: (identifier) @method.name
-                        parameters: (parameters) @method.parameters))) @class_method
+            (module
+                (import_statement
+                    (aliased_import (dotted_name) @import.name)
+                ) @import
+            )
+        """}, "local_imports": {
+        "handler": (lambda match: {
+            **(m := extract_text_from_all_nodes(match)),
+            "embedding": f"Import: {m["import.name"]} from {m["import.from"]}"
+        }),
+        "query": """
+            (module
+                (import_from_statement
+                    (dotted_name
+                        (identifier)
+                        ("." (identifier))+
+                    ) @import.from @import.path
+                    name: (dotted_name)? @import.name
+                    (aliased_import (dotted_name) @import.name)?
+                ) @import
+            )
         """}}}
 
 

@@ -1,9 +1,12 @@
+from typing import List
+from services.git import clone_repo, clone_tag, get_abs_parent_dir
+
 import os
 import json
+import pathlib as pppp
 import subprocess
-from typing import List
+from re import sub as sssub
 
-from services.git import clone_repo, clone_tag, get_abs_parent_dir
 
 # WORDS = "1,2,31,4124,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20".split(",")
 any_book = 1
@@ -20,8 +23,16 @@ class BaseReader:
     def __init__(self, book: Book):
         self.book = book
 
-    def read(self, page: int):
+    def read(self, page: int) -> int:
         return self.book[page]
+
+    @classmethod
+    def create_class(cls):
+        return BaseReader([1, 23])
+
+    @staticmethod
+    def read_all_words(cls):
+        return ",".join(str(word) for word in cls.book)
 
     def read_all(self):
         return self.book
@@ -29,6 +40,7 @@ class BaseReader:
 
 class WordReader(BaseReader):
     instances = 0
+    new_books: List[Book]
 
     def read(self, page: int):
         return self.book[page]
@@ -40,7 +52,17 @@ class WordReader(BaseReader):
         return ",".join(str(word) for word in self.book)
 
 
-def run_gumtree_diff(author: str, repo_name, repo_path, tag1, tag2):
+class Writer():
+    def write(self, word: str):
+        print(word)
+
+
+class Manager(BaseReader, Writer):
+    def test(self):
+        pass
+
+
+def run_gumtree_diff(author: str, repo_name, repo_path, tag1, tag2) -> dict:
     # Clone the repository twice and checkout the respective tags
     path1 = clone_tag(author, repo_name, repo_path, tag1)
     path2 = clone_tag(author, repo_name, repo_path, tag2)
