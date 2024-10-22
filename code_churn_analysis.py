@@ -145,7 +145,7 @@ def store_churn_data(project_name, version, churn_data):
 
 
 def main():
-    repo_path = ".tmp/scverse/scanpy/master"
+    repo_path = ".tmp/source/scverse/scanpy/master"
     churn_data, times_modified = analyze_code_churn(repo_path)
     churn_graph = create_churn_graph(churn_data, times_modified)
     # visualize_churn_graph(churn_graph)

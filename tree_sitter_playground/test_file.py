@@ -84,7 +84,7 @@ def run_gumtree_diff(author: str, repo_name, repo_path, tag1, tag2) -> dict:
 
 
 def generate_metadata(author, repo_name, tag1, tag2):
-    os.makedirs('./.tmp', exist_ok=True)
+    os.makedirs('./.tmp/source', exist_ok=True)
     repo_path = clone_repo(author, repo_name)
 
     metadata = {
