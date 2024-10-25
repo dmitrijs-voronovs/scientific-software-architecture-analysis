@@ -1,18 +1,22 @@
 import os
 import re
 import string
+import urllib.parse
 from enum import Enum
+from pathlib import Path
 from typing import List, Dict, Generator
 
+import pandas as pd
 from bs4 import BeautifulSoup
 
 AttributeDictType = Dict[str, List[str]]
 
 
 class TextMatch(dict):
-    pattern: str
-    word_match: str
+    keyword: str
+    matched_word: str
     sentence: str
+    quality_attribute: str
 
 
 class MatchSource(Enum):
@@ -32,17 +36,19 @@ class Credentials(Dict):
 class FullMatch(TextMatch, Credentials):
     filename: str
     source: MatchSource
+    url: str
 
 
 def text_keyword_iterator(text: str, attributes: AttributeDictType) -> Generator[TextMatch, None, None]:
     sentences = re.split(r'[\n.]', text)
-    for attr, words in attributes.items():
-        for word in words:
+    for quality_attr, keyword in attributes.items():
+        for word in keyword:
             for sentence in sentences:
+                # Word begins with the keyword. Ends either at the end of the word, at the punctuation or end of line.
                 pattern = re.compile(rf'\b{word}.*?(?=[\s{re.escape(string.punctuation)}]|$)')
                 match = re.search(pattern, sentence)
                 if match:
-                    yield TextMatch(pattern=word, word_match=match.group(), sentence=sentence)
+                    yield TextMatch(quality_attribute=quality_attr, keyword=word, matched_word=match.group(), sentence=sentence)
 
 
 def strip_html_tags(html_content: str) -> str:
@@ -50,17 +56,25 @@ def strip_html_tags(html_content: str) -> str:
     return soup.get_text()
 
 
-def analyze_docs(path: str, creds: Credentials) -> List[FullMatch]:
+def generate_text_fragment_link(base_url: str, text: str, page: str = "") -> str:
+    full_url = f"{base_url}/{page}" if page else base_url
+    encoded_text = urllib.parse.quote(text)
+    return f"{full_url}#:~:text={encoded_text}"
+
+
+def parse_wiki(path: str, creds: Credentials, wiki_url: str) -> List[FullMatch]:
     matches = []
     for root, dirs, files in os.walk(path):
         for file in files:
             if file.endswith(".html"):
                 abs_path = os.path.join(root, file)
                 path_relative_to_docs = os.path.relpath(os.path.normpath(abs_path), start='.tmp/docs')
+                path_relative_from_website_root = os.path.normpath(os.path.relpath(abs_path, path)).replace("\\", "/")
                 documentation_raw = open(abs_path, "r", encoding="utf-8").read()
                 text_content = strip_html_tags(documentation_raw)
                 matches.extend(
-                    [FullMatch(**match, filename=path_relative_to_docs, source=MatchSource.WIKI.value, **creds) for
+                    [FullMatch(**match, source=MatchSource.WIKI.value, filename=path_relative_to_docs, **creds,
+                               url=generate_text_fragment_link(wiki_url, match.get("sentence"), path_relative_from_website_root)) for
                      match in
                      text_keyword_iterator(text_content, quality_attributes_sample)])
 
@@ -106,8 +120,20 @@ quality_attributes_sample = {
     'sample': ['perf', "optimiz", "speed", "fast"]
 }
 
-# Example usage
+
+def save_to_file(records: List, source: MatchSource, creds: Credentials):
+    dir = Path("metadata") / "keywords"
+    os.makedirs(dir, exist_ok=True)
+    filename = f'{creds.get("author")}.{creds.get("repo")}.{creds.get("version")}.{source.value}.csv'
+    pd.DataFrame(records).to_csv(dir / filename, index=False)
+
+
 if __name__ == "__main__":
-    credentials = Credentials(author="scverse", repo="scanpy", version="latest")
-    matches = analyze_docs(".tmp/docs/Scanpy/scanpy.readthedocs.io/en", credentials)
+    creds = Credentials(author="scverse", repo="scanpy", version="latest")
+    wiki_url = "scanpy.readthedocs.io/en"
+    protocol = "https://"
+    docs_path = Path(".tmp/docs")
+    matches = parse_wiki(str(docs_path / f'{creds.get("author")}/{creds.get("repo")}/{wiki_url}'), creds,
+                         f'{protocol}{wiki_url}')
+    save_to_file(matches, MatchSource.WIKI, creds)
     print(matches)
