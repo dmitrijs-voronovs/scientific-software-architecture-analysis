@@ -8,6 +8,7 @@ from typing import List, Dict, Generator
 
 import pandas as pd
 from bs4 import BeautifulSoup
+from tqdm import tqdm
 
 AttributeDictType = Dict[str, List[str]]
 
@@ -62,19 +63,19 @@ def generate_text_fragment_link(base_url: str, text: str, page: str = "") -> str
     return f"{full_url}#:~:text={encoded_text}"
 
 
-def parse_wiki(path: str, creds: Credentials, wiki_url: str) -> List[FullMatch]:
+def parse_wiki(wiki_path: str, creds: Credentials, wiki_url: str) -> List[FullMatch]:
     matches = []
-    for root, dirs, files in os.walk(path):
+    for root, dirs, files in tqdm(os.walk(wiki_path), desc="Parsing wiki"):
+        tqdm.write(f"WIKI parsing > Dir: {root} | Dirs: {len(dirs)} | Files: {len(files)}")
         for file in files:
             if file.endswith(".html"):
                 abs_path = os.path.join(root, file)
-                path_relative_to_docs = os.path.relpath(os.path.normpath(abs_path), start='.tmp/docs')
-                path_relative_from_website_root = os.path.normpath(os.path.relpath(abs_path, path)).replace("\\", "/")
+                rel_path = os.path.normpath(os.path.relpath(abs_path, wiki_path)).replace("\\", "/")
                 documentation_raw = open(abs_path, "r", encoding="utf-8").read()
                 text_content = strip_html_tags(documentation_raw)
                 matches.extend(
-                    [FullMatch(**match, source=MatchSource.WIKI.value, filename=path_relative_to_docs, **creds,
-                               url=generate_text_fragment_link(wiki_url, match.get("sentence"), path_relative_from_website_root)) for
+                    [FullMatch(**match, source=MatchSource.WIKI.value, filename=rel_path, **creds,
+                               url=generate_text_fragment_link(wiki_url, match.get("sentence"), rel_path)) for
                      match in
                      text_keyword_iterator(text_content, quality_attributes_sample)])
 
