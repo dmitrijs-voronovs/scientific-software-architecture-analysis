@@ -10,6 +10,8 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from tqdm import tqdm
 
+from services.ast_extractor import ext_to_lang, get_comments
+
 AttributeDictType = Dict[str, List[str]]
 
 
@@ -82,6 +84,32 @@ def parse_wiki(wiki_path: str, creds: Credentials, wiki_url: str) -> List[FullMa
     return matches
 
 
+BASE_GITHUB_URL = "https://github.com"
+
+
+def get_github_repo_url(creds: Credentials) -> str:
+    return f"{BASE_GITHUB_URL}/{creds['author']}/{creds['repo']}/tree/{creds['version']}"
+
+def parse_comments(source_code_path: str, creds: Credentials) -> List[FullMatch]:
+    repo_url = get_github_repo_url(creds)
+    matches = []
+    for root, dirs, files in tqdm(os.walk(source_code_path), desc="Parsing code comments"):
+        tqdm.write(f"CODE COMMENT parsing > Dir: {root} | Dirs: {len(dirs)} | Files: {len(files)}")
+        for file in files:
+            supported_languages = ext_to_lang.keys()
+            if any(file.endswith(ext) for ext in supported_languages):
+                abs_path = os.path.join(root, file)
+                rel_path = os.path.normpath(os.path.relpath(abs_path, source_code_path)).replace("\\", "/")
+                text_content = "\n".join(get_comments(abs_path))
+                matches.extend(
+                    [FullMatch(**match, source=MatchSource.CODE_COMMENT.value, filename=rel_path, **creds,
+                               url=generate_text_fragment_link(repo_url, match.get("sentence"), rel_path)) for
+                     match in
+                     text_keyword_iterator(text_content, quality_attributes_sample)])
+
+    return matches
+
+
 quality_attributes = {
     "Availability": ["avail", "downtime", "outage", "reliab", "fault", "failure", "error", "robust", "toler",
                      "resilien", "recover", "repair", "failover", "fail-safe", "backup", "redundant", "mask",
@@ -130,11 +158,14 @@ def save_to_file(records: List, source: MatchSource, creds: Credentials):
 
 
 if __name__ == "__main__":
-    creds = Credentials(author="scverse", repo="scanpy", version="latest")
+    creds = Credentials(author="scverse", repo="scanpy", version="1.10.2")
     wiki_url = "scanpy.readthedocs.io/en"
     protocol = "https://"
     docs_path = Path(".tmp/docs")
-    matches = parse_wiki(str(docs_path / f'{creds.get("author")}/{creds.get("repo")}/{wiki_url}'), creds,
+    matches_wiki = parse_wiki(str(docs_path / f'{creds.get("author")}/{creds.get("repo")}/{wiki_url}'), creds,
                          f'{protocol}{wiki_url}')
-    save_to_file(matches, MatchSource.WIKI, creds)
-    print(matches)
+    save_to_file(matches_wiki, MatchSource.WIKI, creds)
+
+    source_code_path = Path(".tmp/source")
+    matches_code_comments = parse_comments(str(source_code_path / f'{creds.get("author")}/{creds.get("repo")}/{creds['version']}'), creds)
+    save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds)
