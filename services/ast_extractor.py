@@ -6,7 +6,7 @@ from tree_sitter import Language, Parser, Tree, Node
 
 ext_to_lang = {"py": "python",  # "java": "java"
                }
-Languages = {"python": Language(tspython.language()),  # "java": Language(tsjava.language())
+Languages: dict[str, Language] = {"python": Language(tspython.language()),  # "java": Language(tsjava.language())
              }
 
 
@@ -213,7 +213,7 @@ def extract_tree(tree: Tree, file):
             f.write(f"{'  ' * level}{node.type}: {node.text}\n")
 
 
-def ast_iterator(lang, tree) -> Generator[dict, None, None]:
+def ast_main_definitions_iterator(lang, tree) -> Generator[dict, None, None]:
     for [query_name, config] in Queries[lang].items():
         handler, query_pattern = config["handler"], config["query"]
         # print(f"\nQuery: {query_name}, Pattern: {query_pattern}")
@@ -221,3 +221,11 @@ def ast_iterator(lang, tree) -> Generator[dict, None, None]:
         query = Languages[lang].query(query_pattern)
         for [_, capture] in query.matches(tree.root_node):
             yield dict(element_type=query_name, **handler(capture))
+
+
+def ast_iterator(lang, tree, query) -> Generator[tuple[int, dict[str, list[Node]]], None, None]:
+    tree_sitter_query = Languages[lang].query(query)
+    for match in tree_sitter_query.matches(tree.root_node):
+        yield match
+
+

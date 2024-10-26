@@ -1,12 +1,21 @@
-from typing import List
-from services.git import clone_repo, clone_tag, get_abs_parent_dir
-
-import os
 import json
-import pathlib as pppp
+import os
 import subprocess
-from re import sub as sssub
+from typing import List
 
+"""Utility functions and classes
+
+This file largely consists of the old _utils.py file. Over time, these functions
+should be moved of this file.
+"""
+
+'''22222Utility functions and classes
+
+This file largely consists of the old _utils.py file. Over time, these functions
+should be moved of this file.
+'''
+
+from services.git import clone_repo, clone_tag, get_abs_parent_dir
 
 # WORDS = "1,2,31,4124,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20".split(",")
 any_book = 1
@@ -16,10 +25,66 @@ WORDS = "1,2,31,4124,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20".split(",")
 type Book = List[int]
 
 
+# --------------------------------------------------------------------------------
+# Graph stuff
+# --------------------------------------------------------------------------------
+
+def read(
+        filename: str,
+):
+    """\
+    Read file and return :class:`~anndata.AnnData` object.
+
+    To speed up reading, consider passing ``cache=True``, which creates an hdf5
+    cache file.
+
+    Parameters
+    ----------
+    filename
+        If the filename has no file extension, it is interpreted as a key for
+        generating a filename via ``sc.settings.writedir / (filename +
+        sc.settings.file_format_data)``.  This is the same behavior as in
+        ``sc.read(filename, ...)``.
+    backed
+        If ``'r'``, load :class:`~anndata.AnnData` in ``backed`` mode instead
+        of fully loading it into memory (`memory` mode). If you want to modify
+        backed attributes of the AnnData object, you need to choose ``'r+'``.
+    sheet
+        Name of sheet/table in hdf5 or Excel file.
+    ext
+        Extension that indicates the file type. If ``None``, uses extension of
+        filename.
+    delimiter
+        Delimiter that separates data within text file. If ``None``, will split at
+        arbitrary number of white spaces, which is different from enforcing
+        splitting at any single white space ``' '``.
+    first_column_names
+        Assume the first column stores row names. This is only necessary if
+        these are not strings: strings in the first column are automatically
+        assumed to be row names.
+    backup_url
+        Retrieve the file from an URL if not present on disk.
+    cache
+        If `False`, read from source, if `True`, read from fast 'h5ad' cache.
+    cache_compression
+        See the h5py :ref:`dataset_compression`.
+        (Default: `settings.cache_compression`)
+    kwargs
+        Parameters passed to :func:`~anndata.read_loom`.
+
+    Returns
+    -------
+    An :class:`~anndata.AnnData` object
+    """
+    filekey = str(filename)
+    return filekey
+
+
 class BaseReader:
     """
     Base class for reading books
     """
+
     def __init__(self, book: Book):
         self.book = book
 
@@ -39,6 +104,21 @@ class BaseReader:
 
 
 class WordReader(BaseReader):
+    """\
+    Functionality for generic grouping and aggregating.
+
+    There is currently support for count_nonzero, sum, mean, and variance.
+
+    **Implementation**
+
+    Moments are computed using weighted sum aggregation of data by some feature
+    via multiplication by a sparse coordinate matrix A.
+
+    Runtime is effectively computation of the product `A @ X`, i.e. the count of (non-zero)
+    entries in X with multiplicity the number of group memberships for that entry.
+    This is `O(data)` for partitions (each observation belonging to exactly one group),
+    independent of the number of groups.
+    """
     instances = 0
     new_books: List[Book]
 

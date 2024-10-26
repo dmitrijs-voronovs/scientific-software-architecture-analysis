@@ -6,7 +6,7 @@ import pandas as pd
 from dotenv import load_dotenv
 from pandas import DataFrame
 
-from services.ast_extractor import read_file, parse_code, extract_tree, ast_iterator
+from services.ast_extractor import read_file, parse_code, extract_tree, ast_main_definitions_iterator
 from services.git import checkout_tag, clone_repo
 
 
@@ -15,7 +15,7 @@ def parse_ast(project_root_path, path, project_data):
         code, filename, lang = read_file(path)
         tree = parse_code(code, lang)
         items = []
-        for el in ast_iterator(lang, tree):
+        for el in ast_main_definitions_iterator(lang, tree):
             embedding_no_type = re.sub(r"^[\w\s]+?: ?", "", el.get("embedding", ""))
             id = "_".join(project_data.values())
             item = dict(id=id, filename=filename, ext=lang, embedding_no_type=embedding_no_type, **el, **project_data)
