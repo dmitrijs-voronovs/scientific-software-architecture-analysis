@@ -1,12 +1,17 @@
+from enum import Enum
 from pathlib import Path
-from typing import Generator
+from typing import Generator, Dict
 
 import tree_sitter_python as tspython
 from tree_sitter import Language, Parser, Tree, Node
 
-ext_to_lang = {"py": "python",  # "java": "java"
+class Lang(Enum):
+    PYTHON = "python"
+    JAVA = "java"
+
+ext_to_lang: Dict[str, Lang] = {"py": Lang.PYTHON,  # "java": "java"
                }
-Languages: dict[str, Language] = {"python": Language(tspython.language()),  # "java": Language(tsjava.language())
+Languages: dict[Lang, Language] = {Lang.PYTHON: Language(tspython.language()),  # Lang.JAVA: Language(tsjava.language())
              }
 
 
@@ -176,13 +181,17 @@ def get_file_params(file_path: str) -> [str, str]:
 
 
 def read_file(file_path: str):
-    name, ext = get_file_params(file_path)
-    lang = ext_to_lang[ext[1:]]
+    name, extension = get_file_params(file_path)
+    lang = get_language(extension)
     with open(file_path, "rb") as f:
         return f.read(), name, lang
 
 
-def parse_code(code: bytes, lang: str):
+def get_language(extension: str):
+    return ext_to_lang[extension[1:]]
+
+
+def parse_code(code: bytes, lang: Lang):
     parser = Parser(Languages[lang])
     return parser.parse(code)
 
@@ -229,3 +238,30 @@ def ast_iterator(lang, tree, query) -> Generator[tuple[int, dict[str, list[Node]
         yield match
 
 
+lang_to_comment_query_map: Dict[Lang, str] = {
+    Lang.PYTHON: """
+        (
+          (string) @docstring
+          (#match? @docstring "^(\\"\\"\\"|''')")
+        )
+        (
+          (comment)+ @comment
+        )
+        """
+}
+
+
+def extract_text_from_comments_node(match):
+    for [_, value] in match.items():
+        return "\n".join([v.text.decode("utf-8") for v in value])
+
+
+def extract_comments(lang, tree):
+    return [extract_text_from_comments_node(match) for [_,match] in ast_iterator(lang, tree, lang_to_comment_query_map[lang])]
+
+
+def get_comments(file_path: str):
+    code, filename, lang = read_file(str(file_path))
+    tree = parse_code(code, lang)
+    comments = extract_comments(lang, tree)
+    return comments
