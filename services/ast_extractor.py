@@ -256,6 +256,7 @@ def extract_text_from_comments_node(match):
         return "\n".join([v.text.decode("utf-8") for v in value])
 
 
+# TODO: add line number extraction
 def extract_comments(lang, tree):
     return [extract_text_from_comments_node(match) for [_,match] in ast_iterator(lang, tree, lang_to_comment_query_map[lang])]
 

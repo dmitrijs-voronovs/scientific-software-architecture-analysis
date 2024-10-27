@@ -43,7 +43,7 @@ class FullMatch(TextMatch, Credentials):
 
 
 def text_keyword_iterator(text: str, attributes: AttributeDictType) -> Generator[TextMatch, None, None]:
-    sentences = re.split(r'[\n.]', text)
+    sentences = re.split(r'(\r?\n|\.)', text)
     for quality_attr, keyword in attributes.items():
         for word in keyword:
             for sentence in sentences:
