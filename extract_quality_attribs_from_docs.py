@@ -23,6 +23,7 @@ class TextMatch(dict):
 
 
 class MatchSource(Enum):
+    RELEASES = "RELEASES"
     WIKI = "WIKI"
     DOCS = "DOCS"
     ISSUE = "ISSUE"
