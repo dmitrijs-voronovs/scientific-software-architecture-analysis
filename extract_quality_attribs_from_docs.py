@@ -56,14 +56,15 @@ class FullMatch(TextMatch, Credentials):
 
 def text_keyword_iterator(text: str, attributes: AttributeDictType) -> Generator[TextMatch, None, None]:
     sentences = re.split(r'(\r?\n|\.)', text)
-    for quality_attr, keyword in attributes.items():
-        for word in keyword:
-            for sentence in sentences:
-                # Word begins with the keyword. Ends either at the end of the word, at the punctuation or end of line.
-                pattern = re.compile(rf'\b{word}.*?(?=[\s{re.escape(string.punctuation)}]|$)')
-                match = re.search(pattern, sentence)
-                if match:
-                    yield TextMatch(quality_attribute=quality_attr, keyword=word, matched_word=match.group(), sentence=sentence)
+    for quality_attr, keywords in attributes.items():
+        for sentence in sentences:
+            # Word begins with the keyword. Ends either at the end of the word, at the punctuation or end of line.
+            # pattern = re.compile(rf'\b({"|".join(keywords)}).*?(?=[\s{re.escape(string.punctuation)}]|$)')
+            pattern = re.compile(rf'\b({"|".join(keywords)})\w*')
+            match = re.search(pattern, sentence)
+            if match:
+                full_match, keyword = match.group(), match.group(1)
+                yield TextMatch(quality_attribute=quality_attr, keyword=keyword, matched_word=full_match, sentence=sentence)
 
 
 def strip_html_tags(html_content: str) -> str:
@@ -79,19 +80,18 @@ def generate_text_fragment_link(base_url: str, text: str, page: str = "") -> str
 
 def parse_wiki(wiki_path: str, creds: Credentials, wiki_url: str) -> List[FullMatch]:
     matches = []
-    for root, dirs, files in tqdm(os.walk(wiki_path), desc="Parsing wiki"):
-        tqdm.write(f"WIKI parsing > Dir: {root} | Dirs: {len(dirs)} | Files: {len(files)}")
-        for file in files:
-            if file.endswith(".html"):
-                abs_path = os.path.join(root, file)
-                rel_path = os.path.normpath(os.path.relpath(abs_path, wiki_path)).replace("\\", "/")
-                documentation_raw = open(abs_path, "r", encoding="utf-8").read()
-                text_content = strip_html_tags(documentation_raw)
-                matches.extend(
-                    [FullMatch(**match, source=MatchSource.WIKI.value, filename=rel_path, **creds,
-                               url=generate_text_fragment_link(wiki_url, match.get("sentence"), rel_path)) for
-                     match in
-                     text_keyword_iterator(text_content, quality_attributes_sample)])
+    files = Path(wiki_path).glob("**/*.html")
+    for file in tqdm(files, desc="Parsing wiki"):
+        tqdm.write(f"WIKI parsing > File: {file}")
+        abs_path = file
+        rel_path = os.path.normpath(os.path.relpath(abs_path, start=wiki_path)).replace("\\", "/")
+        documentation_raw = open(abs_path, "r", encoding="utf-8").read()
+        text_content = strip_html_tags(documentation_raw)
+        matches.extend(
+            [FullMatch(**match, source=MatchSource.WIKI.value, filename=rel_path, **creds,
+                       url=generate_text_fragment_link(wiki_url, match.get("sentence"), rel_path)) for
+             match in
+             text_keyword_iterator(text_content, quality_attributes_sample)])
 
     return matches
 
