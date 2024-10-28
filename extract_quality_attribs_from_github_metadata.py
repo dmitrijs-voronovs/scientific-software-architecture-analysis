@@ -13,13 +13,13 @@ from github import Github
 from github.Issue import Issue
 from github.IssueComment import IssueComment
 from pandas import DataFrame
+from pymongo.collection import Collection
 from tqdm import tqdm
 
 from extract_quality_attribs_from_docs import Credentials
 from services.MongoDBConnection import MongoDBConnection
 
 dotenv.load_dotenv()
-
 
 type InternalReactionKey = Literal["thumbs_up", "thumbs_down", "laugh", "confused", "heart", "hooray", "rocket", "eyes"]
 type ReactionKey = Literal[InternalReactionKey, "+1", "-1"]
@@ -103,7 +103,8 @@ class GitHubDataFetcher:
         with shelve.open(f".cache/issues/{creds.get_repo_name}") as db:
             since = db.get("since", None)
             # Get all issues (including pull requests)
-            issues = repo.get_issues(state='all', direction='asc', since=since) if since else repo.get_issues(state='all', direction='asc')
+            issues = repo.get_issues(state='all', direction='asc', since=since) if since else repo.get_issues(
+                state='all', direction='asc')
             total_count = issues.totalCount
 
             batch = []
@@ -132,22 +133,22 @@ class GitHubDataFetcher:
         # Get comments with their reactions
         comments_data = self._get_comments(issue)
         issue_data = IssueDTO(
-            id= issue.id,
-            html_url= issue.html_url,
-            number= issue.number,
-            title= issue.title,
-            body= issue.body,
-            state= issue.state,
-            created_at= issue.created_at,
-            updated_at= issue.updated_at,
-            closed_at= issue.closed_at,
-            labels= [label.name for label in issue.labels],
-            author= issue.user.login if issue.user else None,
-            assignees= [assignee.login for assignee in issue.assignees],
-            milestone= issue.milestone.title if issue.milestone else None,
-            comments_count= issue.comments,
-            comments_data= comments_data,
-            reactions= reactions)
+            id=issue.id,
+            html_url=issue.html_url,
+            number=issue.number,
+            title=issue.title,
+            body=issue.body,
+            state=issue.state,
+            created_at=issue.created_at,
+            updated_at=issue.updated_at,
+            closed_at=issue.closed_at,
+            labels=[label.name for label in issue.labels],
+            author=issue.user.login if issue.user else None,
+            assignees=[assignee.login for assignee in issue.assignees],
+            milestone=issue.milestone.title if issue.milestone else None,
+            comments_count=issue.comments,
+            comments_data=comments_data,
+            reactions=reactions)
         return issue_data
 
     def _get_comments(self, issue: Issue) -> List[CommentDTO]:
@@ -159,14 +160,14 @@ class GitHubDataFetcher:
                 reactions = self._get_reactions(comment)
 
                 comment_data = CommentDTO(
-                    issued_id= issue.id,
-                    id= comment.id,
-                    html_url= comment.html_url,
-                    body= comment.body,
-                    user= comment.user.login if comment.user else None,
-                    created_at= comment.created_at,
-                    updated_at= comment.updated_at,
-                    reactions= reactions
+                    issued_id=issue.id,
+                    id=comment.id,
+                    html_url=comment.html_url,
+                    body=comment.body,
+                    user=comment.user.login if comment.user else None,
+                    created_at=comment.created_at,
+                    updated_at=comment.updated_at,
+                    reactions=reactions
                 )
                 comments_data.append(comment_data)
 
@@ -226,11 +227,41 @@ def extract_keywords(path: str):
 
 
 class DB:
+
     @staticmethod
     def insert_issues(documents: List[IssueDTO], creds: Credentials):
-        client = MongoDBConnection().get_client()
-        res = client['git_issues'][creds.get_repo_name].insert_many([dataclasses.asdict(issue) for issue in documents])
+        table = DB._issue_collection(creds)
+        res = table.insert_many([dataclasses.asdict(issue) for issue in documents])
         print(res)
+
+    @staticmethod
+    def _issue_collection(creds) -> Collection:
+        client = MongoDBConnection().get_client()
+        # collection = client['git_issues'][creds.get_repo_name]
+        collection = client['git_issues'][creds.get_ref(".")]
+        return collection
+
+    @staticmethod
+    def query_issues(creds: Credentials):
+        return DB._issue_collection(creds).aggregate([
+            {
+                "$project": {
+                    "body": 1,
+                    "id": 1,
+                    "title": 1,
+                    "bodyMatch": {"$regexFind": {"input": "$body", "regex": r'(mak)(\w*)'}},
+                    "titleMatch": {"$regexFind": {"input": "$title", "regex": r'(mak|je)(\w*)'}}
+                }
+            },
+            {
+                "$match": {
+                    "$or": [
+                        {"bodyMatch.match": {"$exists": True}},
+                        {"titleMatch.match": {"$exists": True}}
+                    ]
+                }
+            }
+        ])
 
 
 def main():
@@ -243,9 +274,12 @@ def main():
     token = os.getenv('GITHUB_TOKEN')
     fetcher = GitHubDataFetcher(token)
 
-    print("Fetching issues...")
-    for issues in fetcher.get_all_issues(creds, 2):
-        DB.insert_issues(issues, creds)
+    # print("Fetching issues...")
+    # for issues in fetcher.get_all_issues(creds, 2):
+    #     DB.insert_issues(issues, creds)
+
+    for x in DB.query_issues(creds):
+        print(x)
 
     DataFrame(pd.read_hdf(f"{issues_path}.h5", key="issues")).to_csv(f"{issues_path}.csv", index=False)
     DataFrame(pd.read_hdf(f"{issues_path}.h5", key="comments")).to_csv(f"{issues_path}.comments.csv", index=False)
@@ -254,8 +288,6 @@ def main():
     # fetcher.get_releases(creds)
 
     print("Done!")
-
-
 
 
 if __name__ == "__main__":
