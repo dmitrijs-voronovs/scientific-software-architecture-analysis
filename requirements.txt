@@ -46,3 +46,12 @@ weasel==0.4.1
 wrapt==1.16.0
 
 matplotlib~=3.9.1
+pandas~=2.2.2
+plotly~=5.24.0
+networkx~=3.3
+pygit2~=1.15.1
+nltk~=3.9.1
+beautifulsoup4~=4.12.3
+scikit-learn~=1.5.2
+textblob~=0.18.0.post0
+PyGithub~=2.4.0

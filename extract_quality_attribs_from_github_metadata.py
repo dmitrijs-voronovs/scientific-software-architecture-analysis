@@ -8,11 +8,10 @@ from pathlib import Path
 from typing import Dict, List, Iterator, ClassVar, Literal, cast, TypeGuard
 
 import dotenv
-import pandas as pd
 from github import Github
 from github.Issue import Issue
 from github.IssueComment import IssueComment
-from pandas import DataFrame
+from pymongo import UpdateOne
 from pymongo.collection import Collection
 from tqdm import tqdm
 
@@ -56,11 +55,11 @@ class ReactionDTO:
 
 @dataclass
 class CommentDTO:
-    issued_id: int
-    id: int
+    issue_id: int
+    _id: int
     html_url: str
     body: str
-    user: str
+    user: str | None
     created_at: datetime
     updated_at: datetime
     reactions: ReactionDTO
@@ -68,9 +67,10 @@ class CommentDTO:
 
 @dataclass
 class IssueDTO:
-    id: int
+    _id: int
     html_url: str
     number: int
+    pull_request_html_url: str | None
     title: str
     body: str
     state: str
@@ -78,17 +78,21 @@ class IssueDTO:
     updated_at: datetime
     closed_at: datetime
     labels: List[str]
-    author: str
+    author: str | None
     assignees: List[str]
-    milestone: str
+    milestone: str | None
     comments_count: int
     comments_data: List[CommentDTO]
     reactions: ReactionDTO
 
+    @property
+    def id(self):
+        return self._id
+
 
 @dataclass
 class ReleaseDTO:
-    id: int
+    _id: int
     html_url: str
     tag_name: str
     title: str
@@ -98,8 +102,12 @@ class ReleaseDTO:
     published_at: datetime
     draft: bool
     prerelease: bool
-    author: str
+    author: str | None
     asset_count: int
+
+    @property
+    def id(self):
+        return self._id
 
 
 class GitHubDataFetcher:
@@ -114,6 +122,7 @@ class GitHubDataFetcher:
         self.creds = creds
 
     def get_issues(self, batch_size: int = 10) -> Iterator[List[IssueDTO]]:
+        assert batch_size > 0, "Batch size must be greater than 0"
         repo = self.github.get_repo(self.creds.get_repo_path)
 
         os.makedirs(".cache/issues", exist_ok=True)
@@ -153,9 +162,10 @@ class GitHubDataFetcher:
         # Get comments with their reactions
         comments_data = self._get_comments(issue)
         issue_data = IssueDTO(
-            id=issue.id,
+            _id=issue.id,
             html_url=issue.html_url,
             number=issue.number,
+            pull_request_html_url=issue.pull_request.html_url if issue.pull_request else None,
             title=issue.title,
             body=issue.body,
             state=issue.state,
@@ -180,8 +190,8 @@ class GitHubDataFetcher:
                 reactions = self._get_reactions(comment)
 
                 comment_data = CommentDTO(
-                    issued_id=issue.id,
-                    id=comment.id,
+                    _id=comment.id,
+                    issue_id=issue.id,
                     html_url=comment.html_url,
                     body=comment.body,
                     user=comment.user.login if comment.user else None,
@@ -210,7 +220,9 @@ class GitHubDataFetcher:
 
         return reaction_counts
 
-    def get_releases(self, batch_size = 10) -> Iterator[List[ReleaseDTO]]:
+    def get_releases(self, batch_size=10) -> Iterator[List[ReleaseDTO]]:
+        assert batch_size > 0, "Batch size must be greater than 0"
+
         owner, repo_name = self.creds.get("author"), self.creds.get("repo")
         repo = self.github.get_repo(f"{owner}/{repo_name}")
 
@@ -221,18 +233,18 @@ class GitHubDataFetcher:
         for release in tqdm(releases, total=total_releases, desc="Fetching releases"):
             try:
                 release_data = ReleaseDTO(
-                    id= release.id,
-                    html_url= release.html_url,
+                    _id=release.id,
+                    html_url=release.html_url,
                     title=release.title,
-                    tag_name= release.tag_name,
-                    name= release.title,
-                    body= release.body,
-                    created_at= release.created_at,
-                    published_at= release.published_at,
-                    draft= release.draft,
-                    prerelease= release.prerelease,
-                    author= release.author.login if release.author else None,
-                    asset_count= release.get_assets().totalCount
+                    tag_name=release.tag_name,
+                    name=release.title,
+                    body=release.body,
+                    created_at=release.created_at,
+                    published_at=release.published_at,
+                    draft=release.draft,
+                    prerelease=release.prerelease,
+                    author=release.author.login if release.author else None,
+                    asset_count=release.get_assets().totalCount
                 )
                 batch.append(release_data)
                 if len(batch) == batch_size:
@@ -257,7 +269,6 @@ class DB:
     def __init__(self, creds: Credentials):
         self.creds = creds
         self.client = MongoDBConnection().get_client()
-        self._add_index()
 
     def _issue_collection(self) -> Collection:
         return self.client['git_issues'][self.creds.get_repo_name]
@@ -265,14 +276,11 @@ class DB:
     def _releases_collection(self) -> Collection:
         return self.client['git_releases'][self.creds.get_repo_name]
 
-    def _add_index(self):
-        self._issue_collection().create_index("id")
-        self._releases_collection().create_index("id")
-
     def insert_issues(self, documents: List[IssueDTO]):
         table = self._issue_collection()
         try:
-            res = table.insert_many([dataclasses.asdict(issue) for issue in documents])
+            res = table.bulk_write(
+                [UpdateOne({"_id": issue.id}, {"$set": dataclasses.asdict(issue)}, upsert=True) for issue in documents])
             print(res)
         except Exception as e:
             print(e)
@@ -280,7 +288,8 @@ class DB:
     def insert_releases(self, documents: List[ReleaseDTO]):
         table = self._releases_collection()
         try:
-            res = table.insert_many([dataclasses.asdict(release) for release in documents])
+            res = table.bulk_write(
+                [UpdateOne({"_id": release.id}, {"$set": dataclasses.asdict(release)}, upsert=True) for release in documents])
             print(res)
         except Exception as e:
             print(e)
@@ -290,7 +299,6 @@ class DB:
             {
                 "$project": {
                     "body": 1,
-                    "id": 1,
                     "title": 1,
                     "bodyMatch": {"$regexFind": {"input": "$body", "regex": r'(mak)(\w*)'}},
                     "titleMatch": {"$regexFind": {"input": "$title", "regex": r'(mak|je)(\w*)'}}
@@ -309,6 +317,7 @@ class DB:
 
 def main():
     creds = Credentials(author="scverse", repo="scanpy", version="1.10.2")
+    # creds = Credentials(author="allenai", repo="scispacy", version="v0.5.5")
     github_metadata_path = Path(".tmp/metadata")
     metadata_path = github_metadata_path / creds.get_ref()
     issues_path = metadata_path / "issues"
