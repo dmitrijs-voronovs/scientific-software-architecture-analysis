@@ -31,10 +31,21 @@ class MatchSource(Enum):
     CODE_COMMENT = "CODE_COMMENT"
 
 
-class Credentials(Dict):
+class Credentials(dict):
     author: str
     repo: str
     version: str
+
+    @property
+    def get_repo_path(self) -> str:
+        return f"{self['author']}/{self['repo']}"
+
+    @property
+    def get_repo_name(self) -> str:
+        return f"{self['author']}.{self['repo']}"
+
+    def get_ref(self, delimiter="/") -> str:
+        return f"{self['author']}{delimiter}{self['repo']}{delimiter}{self['version']}"
 
 
 class FullMatch(TextMatch, Credentials):
