@@ -86,8 +86,24 @@ class IssueDTO:
     reactions: ReactionDTO
 
 
+@dataclass
+class ReleaseDTO:
+    id: int
+    html_url: str
+    tag_name: str
+    title: str
+    name: str
+    body: str
+    created_at: datetime
+    published_at: datetime
+    draft: bool
+    prerelease: bool
+    author: str
+    asset_count: int
+
+
 class GitHubDataFetcher:
-    def __init__(self, token: str):
+    def __init__(self, token: str, creds: Credentials):
         """
         Initialize the fetcher with GitHub token
 
@@ -95,12 +111,13 @@ class GitHubDataFetcher:
             token (str): GitHub Personal Access Token
         """
         self.github = Github(token)
+        self.creds = creds
 
-    def get_all_issues(self, creds: Credentials, batch_size: int = 10) -> Iterator[List[IssueDTO]]:
-        repo = self.github.get_repo(creds.get_repo_path)
+    def get_issues(self, batch_size: int = 10) -> Iterator[List[IssueDTO]]:
+        repo = self.github.get_repo(self.creds.get_repo_path)
 
         os.makedirs(".cache/issues", exist_ok=True)
-        with shelve.open(f".cache/issues/{creds.get_repo_name}") as db:
+        with shelve.open(f".cache/issues/{self.creds.get_repo_name}") as db:
             since = db.get("since", None)
             # Get all issues (including pull requests)
             issues = repo.get_issues(state='all', direction='asc', since=since) if since else repo.get_issues(
@@ -114,7 +131,6 @@ class GitHubDataFetcher:
 
                     if len(batch) == batch_size:
                         tqdm.write(f"Yielding batch of {len(batch)} issues")
-                        print(f"Yielding batch of {len(batch)} issues")
                         yield batch
                         db["since"] = issue.created_at
                         batch.clear()
@@ -126,6 +142,10 @@ class GitHubDataFetcher:
                 except Exception as e:
                     print(f"Error processing issue #{issue.number}: {str(e)}")
                     continue
+
+            if len(batch) > 0:
+                tqdm.write(f"Yielding batch of {len(batch)} issues")
+                yield batch
 
     def _map_issue_to_dto(self, issue: Issue) -> IssueDTO:
         # Get reactions for the issue
@@ -190,36 +210,43 @@ class GitHubDataFetcher:
 
         return reaction_counts
 
-    def get_releases(self, creds: Credentials) -> pd.DataFrame:
-        owner, repo_name = creds.get("author"), creds.get("repo")
+    def get_releases(self, batch_size = 10) -> Iterator[List[ReleaseDTO]]:
+        owner, repo_name = self.creds.get("author"), self.creds.get("repo")
         repo = self.github.get_repo(f"{owner}/{repo_name}")
-        releases_data = []
 
         releases = repo.get_releases()
         total_releases = releases.totalCount
 
+        batch = []
         for release in tqdm(releases, total=total_releases, desc="Fetching releases"):
             try:
-                release_data = {
-                    'id': release.id,
-                    'html_url': release.html_url,
-                    'tag_name': release.tag_name,
-                    'name': release.title,
-                    'body': release.body,
-                    'created_at': release.created_at,
-                    'published_at': release.published_at,
-                    'draft': release.draft,
-                    'prerelease': release.prerelease,
-                    'author': release.author.login if release.author else None,
-                    'asset_count': release.get_assets().totalCount
-                }
-                releases_data.append(release_data)
+                release_data = ReleaseDTO(
+                    id= release.id,
+                    html_url= release.html_url,
+                    title=release.title,
+                    tag_name= release.tag_name,
+                    name= release.title,
+                    body= release.body,
+                    created_at= release.created_at,
+                    published_at= release.published_at,
+                    draft= release.draft,
+                    prerelease= release.prerelease,
+                    author= release.author.login if release.author else None,
+                    asset_count= release.get_assets().totalCount
+                )
+                batch.append(release_data)
+                if len(batch) == batch_size:
+                    tqdm.write(f"Yielding batch of {len(batch)} releases")
+                    yield batch
+                    batch.clear()
 
             except Exception as e:
                 print(f"Error processing release {release.title}: {str(e)}")
                 continue
 
-        return pd.DataFrame(releases_data)
+        if len(batch) > 0:
+            tqdm.write(f"Yielding batch of {len(batch)} releases")
+            yield batch
 
 
 def extract_keywords(path: str):
@@ -227,23 +254,39 @@ def extract_keywords(path: str):
 
 
 class DB:
+    def __init__(self, creds: Credentials):
+        self.creds = creds
+        self.client = MongoDBConnection().get_client()
+        self._add_index()
 
-    @staticmethod
-    def insert_issues(documents: List[IssueDTO], creds: Credentials):
-        table = DB._issue_collection(creds)
-        res = table.insert_many([dataclasses.asdict(issue) for issue in documents])
-        print(res)
+    def _issue_collection(self) -> Collection:
+        return self.client['git_issues'][self.creds.get_repo_name]
 
-    @staticmethod
-    def _issue_collection(creds) -> Collection:
-        client = MongoDBConnection().get_client()
-        # collection = client['git_issues'][creds.get_repo_name]
-        collection = client['git_issues'][creds.get_ref(".")]
-        return collection
+    def _releases_collection(self) -> Collection:
+        return self.client['git_releases'][self.creds.get_repo_name]
 
-    @staticmethod
-    def query_issues(creds: Credentials):
-        return DB._issue_collection(creds).aggregate([
+    def _add_index(self):
+        self._issue_collection().create_index("id")
+        self._releases_collection().create_index("id")
+
+    def insert_issues(self, documents: List[IssueDTO]):
+        table = self._issue_collection()
+        try:
+            res = table.insert_many([dataclasses.asdict(issue) for issue in documents])
+            print(res)
+        except Exception as e:
+            print(e)
+
+    def insert_releases(self, documents: List[ReleaseDTO]):
+        table = self._releases_collection()
+        try:
+            res = table.insert_many([dataclasses.asdict(release) for release in documents])
+            print(res)
+        except Exception as e:
+            print(e)
+
+    def pattern_match_issues(self):
+        return self._issue_collection().aggregate([
             {
                 "$project": {
                     "body": 1,
@@ -272,20 +315,22 @@ def main():
     releases_path = metadata_path / "releases"
 
     token = os.getenv('GITHUB_TOKEN')
-    fetcher = GitHubDataFetcher(token)
+    fetcher = GitHubDataFetcher(token, creds)
 
-    # print("Fetching issues...")
-    # for issues in fetcher.get_all_issues(creds, 2):
-    #     DB.insert_issues(issues, creds)
+    db = DB(creds)
+    print("Fetching issues...")
+    for issues in fetcher.get_issues():
+        db.insert_issues(issues)
 
-    for x in DB.query_issues(creds):
-        print(x)
+    # for x in db.pattern_match_issues():
+    #     print(x)
 
-    DataFrame(pd.read_hdf(f"{issues_path}.h5", key="issues")).to_csv(f"{issues_path}.csv", index=False)
-    DataFrame(pd.read_hdf(f"{issues_path}.h5", key="comments")).to_csv(f"{issues_path}.comments.csv", index=False)
+    # DataFrame(pd.read_hdf(f"{issues_path}.h5", key="issues")).to_csv(f"{issues_path}.csv", index=False)
+    # DataFrame(pd.read_hdf(f"{issues_path}.h5", key="comments")).to_csv(f"{issues_path}.comments.csv", index=False)
 
-    # print("Fetching releases...")
-    # fetcher.get_releases(creds)
+    print("Fetching releases...")
+    for releases in fetcher.get_releases(20):
+        db.insert_releases(releases)
 
     print("Done!")
 
