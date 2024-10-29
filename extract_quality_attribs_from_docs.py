@@ -37,11 +37,11 @@ class Credentials(dict):
     version: str
 
     @property
-    def get_repo_path(self) -> str:
+    def repo_path(self) -> str:
         return f"{self['author']}/{self['repo']}"
 
     @property
-    def get_repo_name(self) -> str:
+    def repo_name(self) -> str:
         return f"{self['author']}.{self['repo']}"
 
     def get_ref(self, delimiter="/") -> str:
@@ -58,8 +58,6 @@ def text_keyword_iterator(text: str, attributes: AttributeDictType) -> Generator
     sentences = re.split(r'(\r?\n|\.)', text)
     for quality_attr, keywords in attributes.items():
         for sentence in sentences:
-            # Word begins with the keyword. Ends either at the end of the word, at the punctuation or end of line.
-            # pattern = re.compile(rf'\b({"|".join(keywords)}).*?(?=[\s{re.escape(string.punctuation)}]|$)')
             pattern = re.compile(rf'\b({"|".join(keywords)})\w*')
             match = re.search(pattern, sentence)
             if match:
@@ -92,6 +90,27 @@ def parse_wiki(wiki_path: str, creds: Credentials, wiki_url: str) -> List[FullMa
                        url=generate_text_fragment_link(wiki_url, match.get("sentence"), rel_path)) for
              match in
              text_keyword_iterator(text_content, quality_attributes_sample)])
+
+    return matches
+
+
+def parse_docs(docs_path: str, creds: Credentials) -> List[FullMatch]:
+    repo_url = get_github_repo_url(creds)
+    matches = []
+    docs_extensions = [".md", ".rst", ".txt", ".adoc", ".html"]
+    for ext in docs_extensions:
+        files = Path(docs_path).glob(f"**/*{ext}")
+        for file in tqdm(files, desc="Parsing docs"):
+            tqdm.write(f"DOCS parsing > File: {file}")
+            abs_path = file
+            rel_path = os.path.normpath(os.path.relpath(abs_path, start=docs_path)).replace("\\", "/")
+            documentation_raw = open(abs_path, "r", encoding="utf-8").read()
+            text_content = strip_html_tags(documentation_raw) if ext in ".html" else documentation_raw
+            matches.extend(
+                [FullMatch(**match, source=MatchSource.DOCS.value, filename=rel_path, **creds,
+                           url=generate_text_fragment_link(repo_url, match.get("sentence"), rel_path)) for
+                 match in
+                 text_keyword_iterator(text_content, quality_attributes_sample)])
 
     return matches
 
@@ -174,10 +193,14 @@ if __name__ == "__main__":
     wiki_url = "scanpy.readthedocs.io/en"
     protocol = "https://"
     docs_path = Path(".tmp/docs")
-    matches_wiki = parse_wiki(str(docs_path / f'{creds.get("author")}/{creds.get("repo")}/{wiki_url}'), creds,
+    source_code_path = Path(".tmp/source")
+    matches_wiki = parse_wiki(str(docs_path / f'{creds.repo_path}/{wiki_url}'), creds,
                          f'{protocol}{wiki_url}')
     save_to_file(matches_wiki, MatchSource.WIKI, creds)
 
-    source_code_path = Path(".tmp/source")
-    matches_code_comments = parse_comments(str(source_code_path / f'{creds.get("author")}/{creds.get("repo")}/{creds['version']}'), creds)
+    matches_code_comments = parse_comments(str(source_code_path / creds.get_ref()), creds)
     save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds)
+
+    matches_docs = parse_docs(str(source_code_path / creds.get_ref()), creds)
+    save_to_file(matches_docs, MatchSource.DOCS, creds)
+

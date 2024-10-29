@@ -123,10 +123,10 @@ class GitHubDataFetcher:
 
     def get_issues(self, batch_size: int = 10) -> Iterator[List[IssueDTO]]:
         assert batch_size > 0, "Batch size must be greater than 0"
-        repo = self.github.get_repo(self.creds.get_repo_path)
+        repo = self.github.get_repo(self.creds.repo_path)
 
         os.makedirs(".cache/issues", exist_ok=True)
-        with shelve.open(f".cache/issues/{self.creds.get_repo_name}") as db:
+        with shelve.open(f".cache/issues/{self.creds.repo_name}") as db:
             since = db.get("since", None)
             # Get all issues (including pull requests)
             issues = repo.get_issues(state='all', direction='asc', since=since) if since else repo.get_issues(
@@ -271,10 +271,10 @@ class DB:
         self.client = MongoDBConnection().get_client()
 
     def _issue_collection(self) -> Collection:
-        return self.client['git_issues'][self.creds.get_repo_name]
+        return self.client['git_issues'][self.creds.repo_name]
 
     def _releases_collection(self) -> Collection:
-        return self.client['git_releases'][self.creds.get_repo_name]
+        return self.client['git_releases'][self.creds.repo_name]
 
     def insert_issues(self, documents: List[IssueDTO]):
         table = self._issue_collection()
