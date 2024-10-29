@@ -5,7 +5,7 @@
     {
         "$addFields": {
             "text": "$comments_data.body",
-            "text_match": {"$regexFindAll": { "input": "$comments_data.body", "regex":(fast)(?=\w+?(?=[\s\p{P}])) }},
+            "text_match": {"$regexFindAll": { "input": "$comments_data.body", "regex": r'(fast)(?=\w+?(?=[\s\p{P}]))' }},
         }
     },
     {
@@ -22,4 +22,4 @@
             "text_match": 1
         }
     }
-])
+]

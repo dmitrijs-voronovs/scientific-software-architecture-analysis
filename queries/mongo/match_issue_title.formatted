@@ -2,7 +2,7 @@
     {
         "$addFields": {
             "text": "$title",
-            "text_match": { "$regexFindAll": { "input": "$title", "regex":(fast)\w* } },
+            "text_match": { "$regexFindAll": { "input": "$title", "regex": r'(fast)\w*' } },
         }
     },
     {
@@ -17,4 +17,4 @@
             "text_match": 1
         }
     }
-])
+]
