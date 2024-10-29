@@ -67,7 +67,7 @@ def text_keyword_iterator(text: str, attributes: AttributeDictType) -> Generator
 
 
 def get_keyword_matching_pattern(keywords):
-    return re.compile(rf'\b({"|".join(keywords)})\w*')
+    return re.compile(rf'\b({"|".join(keywords)})[\w-]*')
 
 
 def strip_html_tags(html_content: str) -> str:
@@ -85,7 +85,7 @@ def parse_wiki(wiki_path: str, creds: Credentials, quality_attributes_map: Quali
     matches = []
     files = Path(wiki_path).glob("**/*.html")
     for file in tqdm(files, desc="Parsing wiki"):
-        tqdm.write(f"WIKI parsing > File: {file}")
+        tqdm.write(str(file))
         abs_path = file
         rel_path = os.path.normpath(os.path.relpath(abs_path, start=wiki_path)).replace("\\", "/")
         documentation_raw = open(abs_path, "r", encoding="utf-8").read()
@@ -106,7 +106,7 @@ def parse_docs(docs_path: str, creds: Credentials, quality_attributes_map: Quali
     for ext in docs_extensions:
         files = Path(docs_path).glob(f"**/*{ext}")
         for file in tqdm(files, desc="Parsing docs"):
-            tqdm.write(f"DOCS parsing > File: {file}")
+            tqdm.write(str(file))
             abs_path = file
             rel_path = os.path.normpath(os.path.relpath(abs_path, start=docs_path)).replace("\\", "/")
             documentation_raw = open(abs_path, "r", encoding="utf-8").read()
@@ -131,7 +131,7 @@ def parse_comments(source_code_path: str, creds: Credentials, quality_attributes
     repo_url = get_github_repo_url(creds)
     matches = []
     for root, dirs, files in tqdm(os.walk(source_code_path), desc="Parsing code comments"):
-        tqdm.write(f"CODE COMMENT parsing > Dir: {root} | Dirs: {len(dirs)} | Files: {len(files)}")
+        tqdm.write(str(root))
         for file in files:
             supported_languages = ext_to_lang.keys()
             if any(file.endswith(ext) for ext in supported_languages):
