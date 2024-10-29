@@ -435,6 +435,36 @@ def find_sentence_boundaries(text, match_idx):
     return sentence
 
 
+def save_matched_keywords(creds, db):
+    generators_to_sources = {
+        db.extract_comment_body_keywords: MatchSource.ISSUE_COMMENT,
+        db.extract_issue_body_keywords: MatchSource.ISSUE,
+        db.extract_issue_title_keywords: MatchSource.ISSUE,
+        db.extract_release_body_keywords: MatchSource.RELEASES
+    }
+    for quality_attr, keywords in quality_attributes_sample.items():
+        pattern = get_keyword_matching_pattern(keywords)
+        for gen, source in generators_to_sources.items():
+            matches = []
+            for match in gen(pattern):
+                print(match)
+                # text_match > : captures[0] is keyword, full match is match
+                sentence = find_sentence_boundaries(match["text"], match["text_match"]["idx"])
+                matches.append(FullMatch(
+                    quality_attribute=quality_attr,
+                    keyword=match["text_match"]["captures"][0],
+                    matched_word=match["text_match"]["match"],
+                    sentence=sentence,
+                    source=source,
+                    author=creds['author'],
+                    repo=creds['repo'],
+                    version=creds['version'],
+                    url=match["html_url"],
+                ))
+
+            save_to_file(matches, source, creds)
+
+
 def main():
     creds = Credentials(author="scverse", repo="scanpy", version="1.10.2")
     # creds = Credentials(author="allenai", repo="scispacy", version="v0.5.5")
@@ -455,34 +485,7 @@ def main():
     # for releases in fetcher.get_releases(20):
     #     db.insert_releases(releases)
 
-    generators_to_sources = {
-        db.extract_comment_body_keywords: MatchSource.ISSUE_COMMENT,
-        db.extract_issue_body_keywords: MatchSource.ISSUE,
-        db.extract_issue_title_keywords: MatchSource.ISSUE,
-        db.extract_release_body_keywords: MatchSource.RELEASES
-    }
-
-    for quality_attr, keywords in quality_attributes_sample.items():
-        pattern = get_keyword_matching_pattern(keywords)
-        for gen, source in generators_to_sources.items():
-            matches = []
-            for match in gen(pattern):
-                print(match)
-                # text_match > : captures[0] is keyword, full match is match
-                sentence = find_sentence_boundaries(match["text"], match["text_match"]["idx"])
-                matches.append(FullMatch(
-                    quality_attribute=quality_attr,
-                    keyword=match["text_match"]["captures"][0],
-                    matched_word=match["text_match"]["match"],
-                    sentence=sentence,
-                    source=source,
-                    url=match["html_url"],
-                    author=creds['author'],
-                    repo=creds['repo'],
-                    version=creds['version'],
-                ))
-
-            save_to_file(matches, source, creds)
+    save_matched_keywords(creds, db)
 
     print("Done!")
 
