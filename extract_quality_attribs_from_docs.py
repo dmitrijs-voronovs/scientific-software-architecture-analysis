@@ -9,6 +9,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from tqdm import tqdm
 
+from quality_attributes import quality_attributes_sample, QualityAttributesMap, quality_attributes
 from services.ast_extractor import ext_to_lang, get_comments
 
 AttributeDictType = Dict[str, List[str]]
@@ -61,7 +62,8 @@ def text_keyword_iterator(text: str, attributes: AttributeDictType) -> Generator
             match = re.search(pattern, sentence)
             if match:
                 full_match, keyword = match.group(), match.group(1)
-                yield TextMatch(quality_attribute=quality_attr, keyword=keyword, matched_word=full_match, sentence=sentence.strip())
+                yield TextMatch(quality_attribute=quality_attr, keyword=keyword, matched_word=full_match,
+                                sentence=sentence.strip())
 
 
 def get_keyword_matching_pattern(keywords):
@@ -79,7 +81,7 @@ def generate_text_fragment_link(base_url: str, text: str, page: str = "") -> str
     return f"{full_url}#:~:text={encoded_text}"
 
 
-def parse_wiki(wiki_path: str, creds: Credentials, wiki_url: str) -> List[FullMatch]:
+def parse_wiki(wiki_path: str, creds: Credentials, quality_attributes_map: QualityAttributesMap, wiki_url: str) -> List[FullMatch]:
     matches = []
     files = Path(wiki_path).glob("**/*.html")
     for file in tqdm(files, desc="Parsing wiki"):
@@ -92,12 +94,12 @@ def parse_wiki(wiki_path: str, creds: Credentials, wiki_url: str) -> List[FullMa
             [FullMatch(**match, source=MatchSource.WIKI, filename=rel_path, **creds,
                        url=generate_text_fragment_link(wiki_url, match.get("sentence"), rel_path)) for
              match in
-             text_keyword_iterator(text_content, quality_attributes_sample)])
+             text_keyword_iterator(text_content, quality_attributes_map)])
 
     return matches
 
 
-def parse_docs(docs_path: str, creds: Credentials) -> List[FullMatch]:
+def parse_docs(docs_path: str, creds: Credentials, quality_attributes_map: QualityAttributesMap) -> List[FullMatch]:
     repo_url = get_github_repo_url(creds)
     matches = []
     docs_extensions = [".md", ".rst", ".txt", ".adoc", ".html"]
@@ -113,7 +115,7 @@ def parse_docs(docs_path: str, creds: Credentials) -> List[FullMatch]:
                 [FullMatch(**match, source=MatchSource.DOCS, filename=rel_path, **creds,
                            url=generate_text_fragment_link(repo_url, match.get("sentence"), rel_path)) for
                  match in
-                 text_keyword_iterator(text_content, quality_attributes_sample)])
+                 text_keyword_iterator(text_content, quality_attributes_map)])
 
     return matches
 
@@ -124,7 +126,8 @@ BASE_GITHUB_URL = "https://github.com"
 def get_github_repo_url(creds: Credentials) -> str:
     return f"{BASE_GITHUB_URL}/{creds['author']}/{creds['repo']}/tree/{creds['version']}"
 
-def parse_comments(source_code_path: str, creds: Credentials) -> List[FullMatch]:
+
+def parse_comments(source_code_path: str, creds: Credentials, quality_attributes_map: QualityAttributesMap) -> List[FullMatch]:
     repo_url = get_github_repo_url(creds)
     matches = []
     for root, dirs, files in tqdm(os.walk(source_code_path), desc="Parsing code comments"):
@@ -139,49 +142,9 @@ def parse_comments(source_code_path: str, creds: Credentials) -> List[FullMatch]
                     [FullMatch(**match, source=MatchSource.CODE_COMMENT, filename=rel_path, **creds,
                                url=generate_text_fragment_link(repo_url, match.get("sentence"), rel_path)) for
                      match in
-                     text_keyword_iterator(text_content, quality_attributes_sample)])
+                     text_keyword_iterator(text_content, quality_attributes_map)])
 
     return matches
-
-
-quality_attributes = {
-    "Availability": ["avail", "downtime", "outage", "reliab", "fault", "failure", "error", "robust", "toler",
-                     "resilien", "recover", "repair", "failover", "fail-safe", "backup", "redundant", "mask",
-                     "degraded", "mainten", "heartbeat", "ping", "echo", "rollback", "checkpoint", "spare", "reboot",
-                     "alive", "down", "time"],
-    "Deployability": ["deploy", "release", "update", "install", "rollout", "rollback", "upgrade", "integrat",
-                      "continuous", "version", "hotfix", "patch", "CI/CD", "pipeline", "configurat", "rolling",
-                      "kill switch", "feature toggle", "toggle", "canary", "A/B"],
-    "Energy Efficiency": ["energy", "power", "consumption", "efficient", "battery", "charge", "drain", "watt", "joule",
-                          "green", "sustainab", "meter", "monitor", "reduce", "allocate", "adapt", "schedul", "sensor",
-                          "fusion", "kill", "benchmark"],
-    "Integrability": ["integrat", "interoperab", "interface", "depend", "inject", "wrap", "bridg", "mediat", "abstract",
-                      "service", "discover", "adapter", "normalize", "standard", "contract", "protocol", "message",
-                      "synchronization", "state", "data", "syntactic", "semantic", "publish-subscribe", "service bus",
-                      "rout"],
-    "Modifiability": ["change", "modify", "adapt", "evolve", "extend", "enhance", "flexible", "maintainab", "refactor",
-                      "rewrite", "config", "parameteriz", "polymorphi", "inherit", "coupling", "cohesion",
-                      "abstraction", "layers", "sandbox", "scalab", "variab", "portab", "location independence",
-                      "plug-in", "microkernel", "dept"],
-    "Performance": ["perform", "latency", "throughput", "response time", "miss rate", "load", "scalab", "bottleneck",
-                    "tune", "optimiz", "concurren", "multi-thread", "race condition", "queue", "cache", "throttle",
-                    "load balanc"],
-    "Safety": ["safe", "unsafe", "hazard", "fault", "failure", "risk", "avoid", "detect", "remediat", "redund",
-               "predict", "timeout", "sanity check", "abort", "degrad", "mask", "barrier", "firewall", "interlock",
-               "recover", "rollback", "repair", "reconfigur"],
-    "Security": ["secur", "attack", "intrusion", "denial-of-service", "confidential", "integrity", "authoriz", "access",
-                 "firewall", "interlock", "encrypt", "validat", "sanitiz", "audit", "threat", "attack", "expose",
-                 "checksum", "hash", "man-in-the-middle", "password", "certificate", "authenticat", "biometric",
-                 "CAPTCHA", "injection", "cross-site scripting", "XSS"],
-    "Testability": ["test", "control", "sandbox", "assert", "dependency injection", "strategy", "mock", "stub",
-                    "complex", "report", "verbose", "logg", "resource monitor", "dependency", "benchmark"],
-    "Usability": ["usable", "user-friendly", "user experience", "UX", "efficien", "feedback", "help", "undo", "pause",
-                  "resume", "reversible", "correction", "progress bar", "clear", "learn", "responsiv", "simpl", "guid",
-                  "intuit"], }
-
-quality_attributes_sample = {
-    'sample': ['perf', "optimiz", "speed", "fast", "mode"]
-}
 
 
 def save_to_file(records: List[FullMatch], source: MatchSource, creds: Credentials):
@@ -197,13 +160,12 @@ if __name__ == "__main__":
     protocol = "https://"
     docs_path = Path(".tmp/docs")
     source_code_path = Path(".tmp/source")
-    matches_wiki = parse_wiki(str(docs_path / f'{creds.repo_path}/{wiki_url}'), creds,
-                         f'{protocol}{wiki_url}')
+    matches_wiki = parse_wiki(str(docs_path / f'{creds.repo_path}/{wiki_url}'), creds, quality_attributes,
+                              f'{protocol}{wiki_url}')
     save_to_file(matches_wiki, MatchSource.WIKI, creds)
 
-    matches_code_comments = parse_comments(str(source_code_path / creds.get_ref()), creds)
+    matches_code_comments = parse_comments(str(source_code_path / creds.get_ref()), creds, quality_attributes)
     save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds)
 
-    matches_docs = parse_docs(str(source_code_path / creds.get_ref()), creds)
+    matches_docs = parse_docs(str(source_code_path / creds.get_ref()), creds, quality_attributes)
     save_to_file(matches_docs, MatchSource.DOCS, creds)
-

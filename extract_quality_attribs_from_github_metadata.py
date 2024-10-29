@@ -17,8 +17,9 @@ from pymongo.collection import Collection
 from pymongo.command_cursor import CommandCursor
 from tqdm import tqdm
 
-from extract_quality_attribs_from_docs import Credentials, quality_attributes_sample, get_keyword_matching_pattern, \
+from extract_quality_attribs_from_docs import Credentials, get_keyword_matching_pattern, \
     FullMatch, MatchSource, save_to_file
+from quality_attributes import quality_attributes_sample, QualityAttributesMap, quality_attributes
 from services.MongoDBConnection import MongoDBConnection
 
 dotenv.load_dotenv()
@@ -435,19 +436,18 @@ def find_sentence_boundaries(text, match_idx):
     return sentence
 
 
-def save_matched_keywords(creds, db):
+def save_matched_keywords(creds, db, quality_attributes_map: QualityAttributesMap):
     generators_to_sources = {
         db.extract_comment_body_keywords: MatchSource.ISSUE_COMMENT,
         db.extract_issue_body_keywords: MatchSource.ISSUE,
         db.extract_issue_title_keywords: MatchSource.ISSUE,
         db.extract_release_body_keywords: MatchSource.RELEASES
     }
-    for quality_attr, keywords in quality_attributes_sample.items():
+    for quality_attr, keywords in quality_attributes_map.items():
         pattern = get_keyword_matching_pattern(keywords)
         for gen, source in generators_to_sources.items():
             matches = []
-            for match in gen(pattern):
-                print(match)
+            for match in tqdm(gen(pattern), desc=f"Processing {quality_attr} / {source.value}"):
                 # text_match > : captures[0] is keyword, full match is match
                 sentence = find_sentence_boundaries(match["text"], match["text_match"]["idx"])
                 matches.append(FullMatch(
@@ -485,7 +485,7 @@ def main():
     # for releases in fetcher.get_releases(20):
     #     db.insert_releases(releases)
 
-    save_matched_keywords(creds, db)
+    save_matched_keywords(creds, db, quality_attributes)
 
     print("Done!")
 

@@ -1,23 +1,27 @@
 quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
-sample,fast,faster,"faster mean, variance for computing dispersion",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/163
-sample,perf,performing,Get errors when performing sc.,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/456
-sample,perf,performed,Tracking operations performed on AnnData objects,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/472
-sample,perf,perform,updated Scanpy to support Weighted sampled data to perform clustering…,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/630
-sample,speed,speed,Defer loading of umap to speed up import,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/704
-sample,speed,speed,Use simplified dendrogram for speed,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/715
-sample,perf,perform,"how to perform analysis to get bulk_labels, S_score, G2M_score, phase?",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/744
-sample,perf,perform,"how to perform analysis to get bulk_labels, S_score, G2M_score, phase?",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/745
-sample,perf,performance,Import performance part 3,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/756
-sample,speed,speed,Improve accuracy and speed of _get_mean_var,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/857
-sample,perf,perform,Integrate data from different treatments and perform differential gene expression analysis according to treatment and cell type,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/859
-sample,speed,speeding,Investigate Dask for speeding up Zheng17,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/921
-sample,perf,perfectively,why umap showing bbknn perfectively integrated but tsne,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/1370
-sample,fast,faster,Use faster default Python version for jobs,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/2596
-sample,fast,fast_matrix_market,Use of fast_matrix_market library to read mtx files,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/2846
-sample,optimiz,optimization,Submodular optimization using apricot,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/2862
-sample,optimiz,optimization,t-SNE optimization using scikit-learn-intelex,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/3061
-sample,speed,speedup,"scale function(_get_mean_var) updated for dense array, speedup upto ~4.",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/3099
-sample,speed,speedup,speedup(~7x) of the clipping array inside scaling function,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/3100
-sample,speed,speedup,Backport PR #3100: speedup(~7x) of the clipping array inside scaling function,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/3112
-sample,optimiz,optimization,t-SNE optimization using scikit-learn-intelex,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/3279
-sample,speed,speedup,"scale function(_get_mean_var) updated for dense array, speedup upto ~4.",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/3280
+Usability,simpl,simplify,simplify travis,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/360
+Usability,guid,guidelines,Add issues topic to contributing guidelines,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/568
+Usability,simpl,simple,"Old, simple method for flat return sections",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/610
+Usability,learn,learn,Scanpy not working correctly with scikit-learn 0.,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/654
+Usability,learn,learn,Upgrading scikit-learn from 0.,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/665
+Usability,simpl,simplified,Use simplified dendrogram for speed,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/715
+Usability,learn,learn,"""PackageNotFoundError: umap-learn"" with importlib_metadata version 0.",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/739
+Usability,guid,guide,Update contributing guide to include tests,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/772
+Usability,learn,learning,Make the dca learning rate accessible from scanpy.,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/813
+Usability,simpl,simplicial_set_embedding,Allow control of parallel in simplicial_set_embedding,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/917
+Usability,simpl,simplification,Ingest simplification: remove return_joint,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/964
+Usability,simpl,simplification,"Ingest simplification, more convenience embedding_density",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/965
+Usability,guid,guide,Add link to Scanpy in R guide,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/1186
+Usability,learn,learning,Add transfer learning (TL) technique such as ProjectR to scanpy,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/1205
+Usability,progress bar,progress bar,"Fix progress bar, use requests, tqdm version",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/1507
+Usability,clear,clearly,"rank_genes_groups ""groups"" argument ignored or not clearly explained",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/1519
+Usability,learn,learn,"Hello All, I am trying to learn and create single cell RNA seq pipeline for my project.",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/1559
+Usability,guid,guide,Backport guide,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/1570
+Usability,learn,learn,sne and scikit-learn.,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/1759
+Usability,learn,learn,umap embedding not working as expected in umap-learn 0.,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/2026
+Usability,learn,learn,Update for cope with issue introduced in umap-learn 0.,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/2028
+Usability,learn,learn,(Update for cope with issue introduced in umap-learn 0.,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/2033
+Usability,guid,guide,Update release guide,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/2184
+Usability,guid,guide,ead_10x_h5 does not include guide sequence in the count matrix and .,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/2398
+Usability,learn,learn,t-SNE optimization using scikit-learn-intelex,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/3061
+Usability,learn,learn,t-SNE optimization using scikit-learn-intelex,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/3279
