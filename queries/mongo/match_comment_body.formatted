@@ -1,0 +1,25 @@
+[
+    {
+        "$0": "$comments_data"
+    },
+    {
+        "$0": {
+            "text": "$comments_data.body",
+            "text_match": {"$0": { "$0": "$comments_data.body", "$0":$1 }},
+        }
+    },
+    {
+        "$0": {
+            "text_match.match": { "$0": "$0" }
+        }
+    },
+    {
+        "$0": "$text_match"
+    },
+        {
+        "$0": {
+            "$0": 1,
+            "$0": 1
+        }
+    }
+])
