@@ -1,0 +1,71 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
+sample,mode,models,Add finished models,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/8
+sample,mode,models,Add genia trained models,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/14
+sample,speed,speedups,File cache + test speedups,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/17
+sample,mode,models,Move models and data to s3/ai2-s2-scispacy,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/28
+sample,mode,models,Respect spacy naming conventions for models.,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/35
+sample,mode,model,Custom init model,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/38
+sample,mode,models,Build models,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/43
+sample,mode,models,Ner models,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/50
+sample,mode,models,couple of training tweaks for final models,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/52
+sample,mode,models,Refactor tests to not use global cache for models,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/57
+sample,mode,model,remove `parent_package` from model meta once spacy release 2.,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/60
+sample,mode,model,add model urls and performance specs,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/71
+sample,perf,performance,add model urls and performance specs,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/71
+sample,mode,model,baseline linking model,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/72
+sample,mode,model,Add an evaluation option to use a spacy model for ner instead of gold mentions,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/101
+sample,fast,faster,Run entity-level evaluation on the generated dataset for faster iterations,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/109
+sample,mode,model,OSError: [E050] Can't find model 'en_core_sci_sm',MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/120
+sample,mode,models,Can scispacy models be used in spacy without having installed the additional requirements?,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/130
+sample,mode,models,remove scispacy dependency for models,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/131
+sample,mode,models,Update readme/docs to not require scispacy install for models after next release,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/132
+sample,optimiz,optimizers,disable pipes when creating optimizers,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/146
+sample,mode,model,Large model,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/154
+sample,mode,model,fix link to large model,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/157
+sample,mode,model,add vector name to model creation,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/173
+sample,mode,model,Transfer Learning using a scispacy model,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/179
+sample,mode,models,Archived download link for NER models for version==0.,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/181
+sample,mode,models,Chaining models or specifying priorities for overlapping entities?,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/184
+sample,mode,model,Combine 'ner' model with 'core_sci' model,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/186
+sample,mode,model,Combine 'ner' model with 'core_sci' model,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/186
+sample,mode,model,Are you planning to release a pretrained- NER model for DBpedia?,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/198
+sample,mode,models,Remove models dir,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/203
+sample,mode,model,Entities covered in en_core_sci_sm model,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/206
+sample,mode,model,How to run LDA model for Scispacy NLP pipeline for unsupervised medical text,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/219
+sample,mode,model,scispacy model installation via PyPi / Spacy,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/224
+sample,mode,model,Is Scispacy model compatible with AWS sagemaker ?,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/225
+sample,mode,model,re-train sci-spacy entity linking model,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/234
+sample,mode,model,Spacy's similarity function using model: en_core_sci_lg doesn't give accurate results,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/238
+sample,mode,model,OSError: [E050] Can't find model en-ner-bc5cdr-md,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/240
+sample,mode,models,Inaccurate predictions using biomedical NER models,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/243
+sample,mode,models,Warning about incompatible spaCy models.,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/244
+sample,mode,model,How to print all the trained entities in scispacy model?,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/248
+sample,mode,model,how to add new phrases/ words in the pretrained scispacy model,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/262
+sample,mode,models,Document location of models for older versions,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/273
+sample,mode,models,training NER from scratch and on top of existing NER models,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/281
+sample,mode,model,train a transformer based model,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/304
+sample,fast,faster,try out spacy ray for faster training,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/305
+sample,perf,performance,Fix typo for NER performance,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/306
+sample,mode,models,Smaller models,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/312
+sample,mode,model,"Tokenizer used for NER in Scipacy model : ""en_ner_bionlp13cg_md""",MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/321
+sample,mode,model,Training domain specific language model from scratch,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/329
+sample,mode,models,Install scispacy models with spacy 2.,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/333
+sample,mode,model,Transfer learning of specialised NER model,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/335
+sample,mode,model,OSError at [E050] Can't find model 'en_core_sci_sm '.,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/340
+sample,mode,models,Installing older versions of scispacy and associated language models?,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/349
+sample,mode,model,Adding UmlsEntityLinker to model in spacy v3,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/373
+sample,mode,model,Multiple spacy model,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/374
+sample,mode,models,ensor contain for non-transformer models?,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/387
+sample,mode,model,How to use a custom NER model in SciSpacy?,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/392
+sample,mode,models,computing resources and models in output/,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/395
+sample,mode,model,ScispaCy model filters numbers out from text,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/399
+sample,mode,model,Use other bert model in training scibert,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/401
+sample,mode,model,"To resolve this, download a newer compatible model or retrain your custom model with the current spaCy version.",MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/403
+sample,mode,model,"To resolve this, download a newer compatible model or retrain your custom model with the current spaCy version.",MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/403
+sample,mode,models,how to get per entity evaluation score in ner models of scispacy,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/427
+sample,mode,model,scibert model doesn't split sentences,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/448
+sample,mode,model,"Trouble training custom NER model for en_core_sci_lg - ""ValueError: Can't read file: project_data/vocab_lg.",MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/450
+sample,mode,model,Degradation in en-core-sci-scibert model performance,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/465
+sample,perf,performance,Degradation in en-core-sci-scibert model performance,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/465
+sample,mode,model,Configuration for model locations,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/469
+sample,mode,model,Discrepancy in the bc5cdr ner model output for different spacy versions and different OS,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/492

@@ -180,7 +180,7 @@ quality_attributes = {
                   "intuit"], }
 
 quality_attributes_sample = {
-    'sample': ['perf', "optimiz", "speed", "fast"]
+    'sample': ['perf', "optimiz", "speed", "fast", "mode"]
 }
 
 

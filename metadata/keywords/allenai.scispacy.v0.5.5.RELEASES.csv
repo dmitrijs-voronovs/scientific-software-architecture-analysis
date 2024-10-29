@@ -1,0 +1,7 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
+sample,mode,models,Retrains the models with spacy 3.,MatchSource.RELEASES,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/releases/tag/v0.5.3
+sample,mode,models,Note: The models (e.,MatchSource.RELEASES,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/releases/tag/v0.5.2
+sample,mode,models,"`, as this release did not involve retraining the base models, only the entity linkers.",MatchSource.RELEASES,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/releases/tag/v0.5.2
+sample,mode,models,Retrains the models with spacy 3.,MatchSource.RELEASES,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/releases/tag/v0.5.1
+sample,mode,model,"It also includes a new model 🥳 , `en_core_sci_scibert`, which uses scibert base uncased to do parsing and POS tagging (but not NER, yet.",MatchSource.RELEASES,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/releases/tag/v0.4.0
+sample,mode,models,Retrains the models to be compatible with spacy 2.,MatchSource.RELEASES,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/releases/tag/v0.2.4
