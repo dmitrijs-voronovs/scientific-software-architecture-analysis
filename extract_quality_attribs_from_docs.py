@@ -1,6 +1,5 @@
 import os
 import re
-import string
 import urllib.parse
 from enum import Enum
 from pathlib import Path
@@ -15,7 +14,7 @@ from services.ast_extractor import ext_to_lang, get_comments
 AttributeDictType = Dict[str, List[str]]
 
 
-class TextMatch(dict):
+class TextMatch(Dict):
     keyword: str
     matched_word: str
     sentence: str
@@ -31,7 +30,7 @@ class MatchSource(Enum):
     CODE_COMMENT = "CODE_COMMENT"
 
 
-class Credentials(dict):
+class Credentials(Dict):
     author: str
     repo: str
     version: str
@@ -58,11 +57,15 @@ def text_keyword_iterator(text: str, attributes: AttributeDictType) -> Generator
     sentences = re.split(r'(\r?\n|\.)', text)
     for quality_attr, keywords in attributes.items():
         for sentence in sentences:
-            pattern = re.compile(rf'\b({"|".join(keywords)})\w*')
+            pattern = get_keyword_matching_pattern(keywords)
             match = re.search(pattern, sentence)
             if match:
                 full_match, keyword = match.group(), match.group(1)
-                yield TextMatch(quality_attribute=quality_attr, keyword=keyword, matched_word=full_match, sentence=sentence)
+                yield TextMatch(quality_attribute=quality_attr, keyword=keyword, matched_word=full_match, sentence=sentence.strip())
+
+
+def get_keyword_matching_pattern(keywords):
+    return re.compile(rf'\b({"|".join(keywords)})\w*')
 
 
 def strip_html_tags(html_content: str) -> str:
@@ -86,7 +89,7 @@ def parse_wiki(wiki_path: str, creds: Credentials, wiki_url: str) -> List[FullMa
         documentation_raw = open(abs_path, "r", encoding="utf-8").read()
         text_content = strip_html_tags(documentation_raw)
         matches.extend(
-            [FullMatch(**match, source=MatchSource.WIKI.value, filename=rel_path, **creds,
+            [FullMatch(**match, source=MatchSource.WIKI, filename=rel_path, **creds,
                        url=generate_text_fragment_link(wiki_url, match.get("sentence"), rel_path)) for
              match in
              text_keyword_iterator(text_content, quality_attributes_sample)])
@@ -107,7 +110,7 @@ def parse_docs(docs_path: str, creds: Credentials) -> List[FullMatch]:
             documentation_raw = open(abs_path, "r", encoding="utf-8").read()
             text_content = strip_html_tags(documentation_raw) if ext in ".html" else documentation_raw
             matches.extend(
-                [FullMatch(**match, source=MatchSource.DOCS.value, filename=rel_path, **creds,
+                [FullMatch(**match, source=MatchSource.DOCS, filename=rel_path, **creds,
                            url=generate_text_fragment_link(repo_url, match.get("sentence"), rel_path)) for
                  match in
                  text_keyword_iterator(text_content, quality_attributes_sample)])
@@ -133,7 +136,7 @@ def parse_comments(source_code_path: str, creds: Credentials) -> List[FullMatch]
                 rel_path = os.path.normpath(os.path.relpath(abs_path, source_code_path)).replace("\\", "/")
                 text_content = "\n".join(get_comments(abs_path))
                 matches.extend(
-                    [FullMatch(**match, source=MatchSource.CODE_COMMENT.value, filename=rel_path, **creds,
+                    [FullMatch(**match, source=MatchSource.CODE_COMMENT, filename=rel_path, **creds,
                                url=generate_text_fragment_link(repo_url, match.get("sentence"), rel_path)) for
                      match in
                      text_keyword_iterator(text_content, quality_attributes_sample)])
@@ -181,10 +184,10 @@ quality_attributes_sample = {
 }
 
 
-def save_to_file(records: List, source: MatchSource, creds: Credentials):
+def save_to_file(records: List[FullMatch], source: MatchSource, creds: Credentials):
     dir = Path("metadata") / "keywords"
     os.makedirs(dir, exist_ok=True)
-    filename = f'{creds.get("author")}.{creds.get("repo")}.{creds.get("version")}.{source.value}.csv'
+    filename = f'{creds.get_ref(".")}.{source.value}.csv'
     pd.DataFrame(records).to_csv(dir / filename, index=False)
 
 

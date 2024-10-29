@@ -1,11 +1,12 @@
 import dataclasses
 import os
+import re
 import shelve
 import time
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Iterator, ClassVar, Literal, cast, TypeGuard
+from typing import Dict, List, Iterator, ClassVar, Literal, cast, TypeGuard, Generator, TypedDict
 
 import dotenv
 from github import Github
@@ -13,9 +14,11 @@ from github.Issue import Issue
 from github.IssueComment import IssueComment
 from pymongo import UpdateOne
 from pymongo.collection import Collection
+from pymongo.command_cursor import CommandCursor
 from tqdm import tqdm
 
-from extract_quality_attribs_from_docs import Credentials
+from extract_quality_attribs_from_docs import Credentials, quality_attributes_sample, get_keyword_matching_pattern, \
+    FullMatch, MatchSource, save_to_file
 from services.MongoDBConnection import MongoDBConnection
 
 dotenv.load_dotenv()
@@ -265,6 +268,18 @@ def extract_keywords(path: str):
     pass
 
 
+class MongoTextMatch(TypedDict):
+    captures: List[str]
+    idx: int
+    match: str
+
+
+class MongoMatch(TypedDict):
+    _id: str
+    text: str
+    html_url: str
+    text_match: MongoTextMatch
+
 class DB:
     def __init__(self, creds: Credentials):
         self.creds = creds
@@ -289,30 +304,135 @@ class DB:
         table = self._releases_collection()
         try:
             res = table.bulk_write(
-                [UpdateOne({"_id": release.id}, {"$set": dataclasses.asdict(release)}, upsert=True) for release in documents])
+                [UpdateOne({"_id": release.id}, {"$set": dataclasses.asdict(release)}, upsert=True) for release in
+                 documents])
             print(res)
         except Exception as e:
             print(e)
 
-    def pattern_match_issues(self):
+    def extract_comment_body_keywords(self, pattern: re.Pattern) -> CommandCursor[MongoMatch]:
         return self._issue_collection().aggregate([
             {
-                "$project": {
-                    "body": 1,
-                    "title": 1,
-                    "bodyMatch": {"$regexFind": {"input": "$body", "regex": r'(mak)(\w*)'}},
-                    "titleMatch": {"$regexFind": {"input": "$title", "regex": r'(mak|je)(\w*)'}}
+                "$unwind": "$comments_data"
+            },
+            {
+                "$addFields": {
+                    "text": "$comments_data.body",
+                    "text_match": {
+                        "$regexFindAll": {"input": "$comments_data.body", "regex": pattern}},
                 }
             },
             {
                 "$match": {
-                    "$or": [
-                        {"bodyMatch.match": {"$exists": True}},
-                        {"titleMatch.match": {"$exists": True}}
-                    ]
+                    "text_match.match": {"$exists": True}
+                }
+            },
+            {
+                "$unwind": "$text_match"
+            },
+            {
+                "$project": {
+                    "text": 1,
+                    "html_url": "$comments_data.html_url",
+                    "text_match": 1
                 }
             }
         ])
+
+    def extract_issue_body_keywords(self, pattern: re.Pattern) -> CommandCursor[MongoMatch]:
+        return self._issue_collection().aggregate([
+            {
+                "$addFields": {
+                    "text": "$body",
+                    "text_match": {"$regexFindAll": {"input": "$body", "regex": pattern}},
+                }
+            },
+            {
+                "$match": {"text_match.match": {"$exists": True}}
+            },
+            {
+                "$unwind": "$text_match"
+            },
+            {
+                "$project": {
+                    "text": 1,
+                    "html_url": 1,
+                    "text_match": 1
+                }
+            }
+        ]
+        )
+
+    def extract_issue_title_keywords(self, pattern: re.Pattern) -> CommandCursor[MongoMatch]:
+        return self._issue_collection().aggregate([
+            {
+                "$addFields": {
+                    "text": "$title",
+                    "text_match": {"$regexFindAll": {"input": "$title", "regex": pattern}},
+                }
+            },
+            {
+                "$match": {"text_match.match": {"$exists": True}}
+            },
+            {
+                "$unwind": "$text_match"
+            },
+            {
+                "$project": {
+                    "text": 1,
+                    "html_url": 1,
+                    "text_match": 1
+                }
+            }
+        ]
+        )
+
+    def extract_release_body_keywords(self, pattern: re.Pattern) -> CommandCursor[MongoMatch]:
+        return self._releases_collection().aggregate([
+            {
+                "$addFields": {
+                    "text": "$body",
+                    "text_match": {"$regexFindAll": {"input": "$body", "regex": pattern}},
+                }
+            },
+            {
+                "$match": {"text_match.match": {"$exists": True}}
+            },
+            {
+                "$unwind": "$text_match"
+            },
+            {
+                "$project": {
+                    "text": 1,
+                    "html_url": 1,
+                    "text_match": 1
+                }
+            }
+        ])
+
+
+def find_sentence_boundaries(text, match_idx):
+    sentence_endings = re.compile(r'[.!?\n]')
+
+    # Find the start of the sentence
+    start = match_idx
+    while start > 0 and not sentence_endings.match(text[start - 1]):
+        start -= 1
+    # Adjust start to skip past any punctuation or line break
+    if start > 0 and text[start - 1] != '\n':
+        start += 1  # Skip past the punctuation mark if it isn't a line break
+
+    # Find the end of the sentence
+    end = match_idx
+    while end < len(text) and not sentence_endings.match(text[end]):
+        end += 1
+    # Adjust end to include the punctuation or line break
+    if end < len(text):
+        end += 1  # Include the punctuation mark or line break
+
+    # Extract the sentence and remove extra whitespace
+    sentence = text[start:end].strip()
+    return sentence
 
 
 def main():
@@ -325,21 +445,44 @@ def main():
 
     token = os.getenv('GITHUB_TOKEN')
     fetcher = GitHubDataFetcher(token, creds)
-
     db = DB(creds)
-    print("Fetching issues...")
-    for issues in fetcher.get_issues():
-        db.insert_issues(issues)
 
-    # for x in db.pattern_match_issues():
-    #     print(x)
+    # print("Fetching issues...")
+    # for issues in fetcher.get_issues():
+    #     db.insert_issues(issues)
 
-    # DataFrame(pd.read_hdf(f"{issues_path}.h5", key="issues")).to_csv(f"{issues_path}.csv", index=False)
-    # DataFrame(pd.read_hdf(f"{issues_path}.h5", key="comments")).to_csv(f"{issues_path}.comments.csv", index=False)
+    # print("Fetching releases...")
+    # for releases in fetcher.get_releases(20):
+    #     db.insert_releases(releases)
 
-    print("Fetching releases...")
-    for releases in fetcher.get_releases(20):
-        db.insert_releases(releases)
+    generators_to_sources = {
+        db.extract_comment_body_keywords: MatchSource.ISSUE_COMMENT,
+        db.extract_issue_body_keywords: MatchSource.ISSUE,
+        db.extract_issue_title_keywords: MatchSource.ISSUE,
+        db.extract_release_body_keywords: MatchSource.RELEASES
+    }
+
+    for quality_attr, keywords in quality_attributes_sample.items():
+        pattern = get_keyword_matching_pattern(keywords)
+        for gen, source in generators_to_sources.items():
+            matches = []
+            for match in gen(pattern):
+                print(match)
+                # text_match > : captures[0] is keyword, full match is match
+                sentence = find_sentence_boundaries(match["text"], match["text_match"]["idx"])
+                matches.append(FullMatch(
+                    quality_attribute=quality_attr,
+                    keyword=match["text_match"]["captures"][0],
+                    matched_word=match["text_match"]["match"],
+                    sentence=sentence,
+                    source=source,
+                    url=match["html_url"],
+                    author=creds['author'],
+                    repo=creds['repo'],
+                    version=creds['version'],
+                ))
+
+            save_to_file(matches, source, creds)
 
     print("Done!")
 

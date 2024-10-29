@@ -10,7 +10,7 @@
     },
     {
         "$match": {
-            "text_match.match": { "$exists": true }
+            "text_match.match": { "$exists": True }
         }
     },
     {

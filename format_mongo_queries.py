@@ -7,7 +7,7 @@ def update_query(query: str):
     query = re.sub(r'(?<!")\$\w+', r'"\g<0>"', query)
     query = re.sub(r'(?<=regex:) ?/(.+?)/\w*', r" r'\g<1>'", query)
     query = re.sub(r'(?<=\s)(?<!")\$?\w{2,}(?!=")', r'"\g<0>"', query)
-    query = re.sub(r'"(true|false)"', r'\g<1>', query)
+    query = re.sub(r'"(true|false)"', lambda m: m.group(1).capitalize(), query)
     return query
 
 
