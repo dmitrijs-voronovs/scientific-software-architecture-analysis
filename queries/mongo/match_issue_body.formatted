@@ -1,20 +1,20 @@
 [
     {
-        "$0": {
-            "$0": "$body",
-            "$0": { "$0": { "$0": "$body", "$0":$1 } },
+        "$addFields": {
+            "text": "$body",
+            "text_match": { "$regexFindAll": { "input": "$body", "regex":(fast)\w* } },
         }
     },
     {
-        "$0": { "text_match.match": { "$0": "$0" } }
+        "$match": { "text_match.match": { "$exists": true } }
     },
     {
-        "$0": "$text_match"
+        "$unwind": "$text_match"
     },
         {
-        "$0": {
-            "$0": 1,
-            "$0": 1
+        "$project": {
+            "text": 1,
+            "text_match": 1
         }
     }
 ])

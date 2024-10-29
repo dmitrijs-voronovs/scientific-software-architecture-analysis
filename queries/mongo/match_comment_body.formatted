@@ -1,25 +1,25 @@
 [
     {
-        "$0": "$comments_data"
+        "$unwind": "$comments_data"
     },
     {
-        "$0": {
+        "$addFields": {
             "text": "$comments_data.body",
-            "text_match": {"$0": { "$0": "$comments_data.body", "$0":$1 }},
+            "text_match": {"$regexFindAll": { "input": "$comments_data.body", "regex":(fast)(?=\w+?(?=[\s\p{P}])) }},
         }
     },
     {
-        "$0": {
-            "text_match.match": { "$0": "$0" }
+        "$match": {
+            "text_match.match": { "$exists": true }
         }
     },
     {
-        "$0": "$text_match"
+        "$unwind": "$text_match"
     },
         {
-        "$0": {
-            "$0": 1,
-            "$0": 1
+        "$project": {
+            "text": 1,
+            "text_match": 1
         }
     }
 ])

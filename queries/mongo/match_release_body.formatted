@@ -6,7 +6,7 @@
         }
     },
     {
-        "$match": { "text_match.match": { "$exists": $1 } }
+        "$match": { "text_match.match": { "$exists": true } }
     },
     {
         "$unwind": "$text_match"

@@ -3,12 +3,13 @@ import re
 
 def update_query(query: str):
     query = re.sub(r'db.getCollection\(".+"\).aggregate\(', '', query)
-    query = re.sub(r'^]\)$', ']', query)
-    query = re.sub(r'(?<!")\$\w+', '"$0"', query)
-    query = re.sub(r'(?<=regex:) ?/(.+?)/\w*', '$1', query)
-    query = re.sub(r'(?<=\s)(?<!")\$?\w{2,}(?!=")', '"$0"', query)
-    query = re.sub(r'"(true|false)"', '$1', query)
+    query = re.sub(r'^\]\)$', ']', query)
+    query = re.sub(r'(?<!")\$\w+', r'"\g<0>"', query)
+    query = re.sub(r'(?<=regex:) ?/(.+?)/\w*', r'\1', query)
+    query = re.sub(r'(?<=\s)(?<!")\$?\w{2,}(?!=")', r'"\g<0>"', query)
+    query = re.sub(r'"(true|false)"', r'\1', query)
     return query
+
 
 def main():
     queries = Path("queries/mongo").glob("*.js")
