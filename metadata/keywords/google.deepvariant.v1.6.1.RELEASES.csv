@@ -1,0 +1,6 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
+Usability,feedback,feedback,"* PacBio: William Rowell (@williamrowell), Nathaniel Echols for their feedback and testing.",MatchSource.RELEASES,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/releases/tag/v1.6.0
+Usability,feedback,feedback,"* UCSC: Benedict Paten(@benedictpaten), Shloka Negi (@shlokanegi), Jimin Park (@jimin001), Mobin Asri (@mobinasri) for the feedback.",MatchSource.RELEASES,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/releases/tag/v1.6.0
+Usability,simpl,simplex,simplex and duplex data.,MatchSource.RELEASES,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/releases/tag/v1.5.0
+Usability,guid,guides,o/docs/cpp/guides/container).,MatchSource.RELEASES,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/releases/tag/v0.7.2
+Usability,guid,guide,d#inputs-and-outputs)” in DeepVariant user guide.,MatchSource.RELEASES,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/releases/tag/v0.6.0

@@ -125,6 +125,10 @@ class GitHubDataFetcher:
         self.github = Github(token)
         self.creds = creds
 
+    def get_latest_version(self) -> str:
+        repo = self.github.get_repo(self.creds.repo_path)
+        return repo.get_latest_release().tag_name
+
     def get_issues(self, batch_size: int = 10) -> Iterator[List[IssueDTO]]:
         assert batch_size > 0, "Batch size must be greater than 0"
         repo = self.github.get_repo(self.creds.repo_path)
@@ -466,26 +470,65 @@ def save_matched_keywords(creds, db, quality_attributes_map: QualityAttributesMa
 
 
 def main():
-    creds = Credentials(author="scverse", repo="scanpy", version="1.10.2")
+    # creds = Credentials(author="scverse", repo="scanpy", version="1.10.2") # parsed, old version
+    # creds = Credentials({'author': 'scverse', 'repo': 'scanpy', 'version': '1.10.3'}) # not parsed, new version
     # creds = Credentials(author="allenai", repo="scispacy", version="v0.5.5")
-    github_metadata_path = Path(".tmp/metadata")
-    metadata_path = github_metadata_path / creds.get_ref()
-    issues_path = metadata_path / "issues"
-    releases_path = metadata_path / "releases"
+    # creds = Credentials(**{'author': 'google', 'repo': 'deepvariant', 'version': 'v1.6.1'})
+    # creds = Credentials({'author': 'OpenGene', 'repo': 'fastp', 'version': 'v0.23.4'})
+
+    # creds = Credentials({'author': 'root-project', 'repo': 'root', 'version': 'v6-32-06'})
+    # creds = Credentials({'author': 'broadinstitute', 'repo': 'gatk', 'version': '4.6.0.0'})
+    # creds = Credentials({'author': 'qutip', 'repo': 'qutip', 'version': 'v5.0.4'})
+    # creds = Credentials({'author': 'soedinglab', 'repo': 'MMseqs2', 'version': '15-6f452'})
+    # creds = Credentials({'author': 'su2code', 'repo': 'SU2', 'version': 'v8.1.0'})
+    # creds = Credentials({'author': 'tum-pbs', 'repo': 'PhiFlow', 'version': '3.1.0'})
+    # creds = Credentials({'author': 'scipipe', 'repo': 'scipipe', 'version': 'v0.12.0'})
+    # creds = Credentials({'author': 'openbabel', 'repo': 'openbabel', 'version': 'openbabel-3-1-1'})
+    # creds = Credentials({'author': 'qupath', 'repo': 'qupath', 'version': 'v0.5.1'})
+    # creds = Credentials({'author': 'broadinstitute', 'repo': 'cromwell', 'version': '87'})
+    # creds = Credentials({'author': 'hail-is', 'repo': 'hail', 'version': '0.2.133'})
+    # creds = Credentials({'author': 'psi4', 'repo': 'psi4', 'version': 'v1.9.1'})
+    # creds = Credentials({'author': 'CliMA', 'repo': 'Oceananigans.jl', 'version': 'v0.93.1'})
+    # creds = Credentials({'author': 'sofa-framework', 'repo': 'sofa', 'version': 'v24.06.00'})
+    # creds = Credentials({'author': 'stardist', 'repo': 'stardist', 'version': '0.9.1'})
+    # creds = Credentials({'author': 'COMBINE-lab', 'repo': 'salmon', 'version': 'v1.10.1'})
+    #
+
+    cr = [
+        Credentials({'author': 'qutip', 'repo': 'qutip', 'version': 'v5.0.4'}),
+        Credentials({'author': 'broadinstitute', 'repo': 'gatk', 'version': '4.6.0.0'}),
+        Credentials({'author': 'soedinglab', 'repo': 'MMseqs2', 'version': '15-6f452'}),
+        Credentials({'author': 'su2code', 'repo': 'SU2', 'version': 'v8.1.0'}),
+        Credentials({'author': 'tum-pbs', 'repo': 'PhiFlow', 'version': '3.1.0'}),
+        Credentials({'author': 'scipipe', 'repo': 'scipipe', 'version': 'v0.12.0'}),
+        Credentials({'author': 'openbabel', 'repo': 'openbabel', 'version': 'openbabel-3-1-1'}),
+        Credentials({'author': 'qupath', 'repo': 'qupath', 'version': 'v0.5.1'}),
+        Credentials({'author': 'broadinstitute', 'repo': 'cromwell', 'version': '87'}),
+        Credentials({'author': 'hail-is', 'repo': 'hail', 'version': '0.2.133'}),
+        Credentials({'author': 'psi4', 'repo': 'psi4', 'version': 'v1.9.1'}),
+        Credentials({'author': 'CliMA', 'repo': 'Oceananigans.jl', 'version': 'v0.93.1'}),
+        Credentials({'author': 'sofa-framework', 'repo': 'sofa', 'version': 'v24.06.00'}),
+        Credentials({'author': 'stardist', 'repo': 'stardist', 'version': '0.9.1'}),
+        Credentials({'author': 'COMBINE-lab', 'repo': 'salmon', 'version': 'v1.10.1'}),
+        Credentials({'author': 'root-project', 'repo': 'root', 'version': 'v6-32-06'}),
+    ]
+
 
     token = os.getenv('GITHUB_TOKEN')
-    fetcher = GitHubDataFetcher(token, creds)
-    db = DB(creds)
+    for creds in tqdm(cr, "fetching repositories"):
+        tqdm.write(f"For {creds}")
+        fetcher = GitHubDataFetcher(token, creds)
+        db = DB(creds)
 
-    # print("Fetching issues...")
-    # for issues in fetcher.get_issues():
-    #     db.insert_issues(issues)
+        print("Fetching issues...")
+        for issues in fetcher.get_issues():
+            db.insert_issues(issues)
 
-    # print("Fetching releases...")
-    # for releases in fetcher.get_releases(20):
-    #     db.insert_releases(releases)
+        print("Fetching releases...")
+        for releases in fetcher.get_releases(20):
+            db.insert_releases(releases)
 
-    save_matched_keywords(creds, db, quality_attributes)
+        save_matched_keywords(creds, db, quality_attributes)
 
     print("Done!")
 
