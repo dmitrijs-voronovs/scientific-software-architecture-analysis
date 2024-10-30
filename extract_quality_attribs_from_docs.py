@@ -67,7 +67,7 @@ def text_keyword_iterator(text: str, attributes: AttributeDictType) -> Generator
 
 
 def get_keyword_matching_pattern(keywords):
-    return re.compile(rf'\b({"|".join(keywords)})[\w-]*')
+    return re.compile(rf'\b({"|".join(keywords)})[A-Za-z-]*\b')
 
 
 def strip_html_tags(html_content: str) -> str:

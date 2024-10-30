@@ -8,7 +8,6 @@ Usability,simpl,simplified,Use simplified dendrogram for speed,MatchSource.ISSUE
 Usability,learn,learn,"""PackageNotFoundError: umap-learn"" with importlib_metadata version 0.",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/739
 Usability,guid,guide,Update contributing guide to include tests,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/772
 Usability,learn,learning,Make the dca learning rate accessible from scanpy.,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/813
-Usability,simpl,simplicial_set_embedding,Allow control of parallel in simplicial_set_embedding,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/917
 Usability,simpl,simplification,Ingest simplification: remove return_joint,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/964
 Usability,simpl,simplification,"Ingest simplification, more convenience embedding_density",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/965
 Usability,guid,guide,Add link to Scanpy in R guide,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/1186
@@ -23,5 +22,5 @@ Usability,learn,learn,Update for cope with issue introduced in umap-learn 0.,Mat
 Usability,learn,learn,(Update for cope with issue introduced in umap-learn 0.,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/2033
 Usability,guid,guide,Update release guide,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/2184
 Usability,guid,guide,ead_10x_h5 does not include guide sequence in the count matrix and .,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/2398
-Usability,learn,learn,t-SNE optimization using scikit-learn-intelex,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/3061
-Usability,learn,learn,t-SNE optimization using scikit-learn-intelex,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/3279
+Usability,learn,learn-intelex,t-SNE optimization using scikit-learn-intelex,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/3061
+Usability,learn,learn-intelex,t-SNE optimization using scikit-learn-intelex,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/3279
