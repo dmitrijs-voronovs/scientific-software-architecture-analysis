@@ -5,7 +5,7 @@ import dotenv
 import pandas as pd
 from tqdm import tqdm
 
-from extract_quality_attribs_from_docs import Credentials
+from model.Credentials import Credentials
 from extract_quality_attribs_from_github_metadata import GitHubDataFetcher
 
 dotenv.load_dotenv()
@@ -44,24 +44,27 @@ def query_and_save_versions(package_versions_path):
             repo=repo,
             version="latest"
         ))
-        data.append(dict(author=author, repo=repo, version=git_repo.get_latest_version()))
+        info = git_repo.get_repo_info()
+        data.append(dict(author=author, repo=repo, version=info.latest_version, wiki=info.homepage))
 
     df = pd.DataFrame(data)
     df.to_csv(package_versions_path, index=False)
 
 
-def print_as_credentials(package_versions_path):
+def print_as_credentials(package_versions_path: Path, save_to: Path):
     df = pd.read_csv(package_versions_path)
-    for (author, repo, version) in df.itertuples(index=False):
-        print(Credentials(author=author, repo=repo, version=version))
-
+    with open(save_to, "w", encoding="utf-8") as f:
+        f.write("credential_list: List[Credentials] = [\n")
+        for (author, repo, version, wiki) in df.itertuples(index=False):
+            f.write(f"Credentials({Credentials(author=author, repo=repo, version=version, wiki=wiki if isinstance(wiki, str) else None)}),\n")
+        f.write("]")
 
 
 def main():
-    package_versions_path = Path("metadata/versions/package_versions.csv")
+    package_versions_path = Path("metadata/repo_info/repo_info.csv")
     # query_and_save_versions(package_versions_path)
 
-    print_as_credentials(package_versions_path)
+    print_as_credentials(package_versions_path, package_versions_path.with_suffix(".py"))
 
 
 
