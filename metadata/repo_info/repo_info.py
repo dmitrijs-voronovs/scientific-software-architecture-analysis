@@ -4,13 +4,11 @@ from model.Credentials import Credentials
 
 credential_list: List[Credentials] = [
 Credentials({'author': 'google', 'repo': 'deepvariant', 'version': 'v1.6.1', 'wiki': None}),
-Credentials({'author': 'root-project', 'repo': 'root', 'version': 'v6-32-06', 'wiki': 'https://root.cern'}),
 Credentials({'author': 'OpenGene', 'repo': 'fastp', 'version': 'v0.23.4', 'wiki': None}),
 # Credentials({'author': 'scverse', 'repo': 'scanpy', 'version': '1.10.3', 'wiki': 'https://scanpy.readthedocs.io'}),
 Credentials({'author': 'scverse', 'repo': 'scanpy', 'version': '1.10.2', 'wiki': 'https://scanpy.readthedocs.io'}),
 Credentials({'author': 'allenai', 'repo': 'scispacy', 'version': 'v0.5.5', 'wiki': 'https://allenai.github.io/scispacy/'}),
 # Credentials({'author': 'broadinstitute', 'repo': 'gatk', 'version': '4.6.1.0', 'wiki': 'https://software.broadinstitute.org/gatk'}),
-Credentials({'author': 'broadinstitute', 'repo': 'gatk', 'version': '4.6.0.0', 'wiki': 'https://software.broadinstitute.org/gatk'}),
 Credentials({'author': 'qutip', 'repo': 'qutip', 'version': 'v5.0.4', 'wiki': 'https://qutip.org'}),
 Credentials({'author': 'soedinglab', 'repo': 'MMseqs2', 'version': '15-6f452', 'wiki': 'https://mmseqs.com'}),
 Credentials({'author': 'su2code', 'repo': 'SU2', 'version': 'v8.1.0', 'wiki': 'https://su2code.github.io'}),
@@ -25,4 +23,6 @@ Credentials({'author': 'CliMA', 'repo': 'Oceananigans.jl', 'version': 'v0.93.2',
 Credentials({'author': 'sofa-framework', 'repo': 'sofa', 'version': 'v24.06.00', 'wiki': 'https://www.sofa-framework.org'}),
 Credentials({'author': 'stardist', 'repo': 'stardist', 'version': '0.9.1', 'wiki': None}),
 Credentials({'author': 'COMBINE-lab', 'repo': 'salmon', 'version': 'v1.10.1', 'wiki': 'https://combine-lab.github.io/salmon'}),
+Credentials({'author': 'broadinstitute', 'repo': 'gatk', 'version': '4.6.0.0', 'wiki': 'https://software.broadinstitute.org/gatk'}),
+Credentials({'author': 'root-project', 'repo': 'root', 'version': 'v6-32-06', 'wiki': 'https://root.cern'}),
 ]

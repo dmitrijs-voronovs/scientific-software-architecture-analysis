@@ -15,14 +15,18 @@ def clone_repo(author, repo_name, postfix: Optional[str] = "master"):
     path = get_repo_base_path(author, repo_name, postfix)
     os.makedirs(path, exist_ok=True)
     if not os.path.exists(path) or not os.listdir(path):
-        Repo.clone_from(repo_url, path)
+        repo = Repo.clone_from(repo_url, path)
+        repo.git.checkout(postfix)
+        repo.git.reset('--hard', postfix)
     return path
 
 
-def clone_tag(author, repo_name, repo_path, tag1):
-    path = f"./.tmp/source/{author}/{repo_name}/{tag1}"
+def clone_tag(author, repo_name, repo_path, tag):
+    path = f"./.tmp/source/{author}/{repo_name}/{tag}"
     if not os.path.exists(path) or not os.listdir(path):
-        Repo.clone_from(repo_path, path).git.checkout(tag1)
+        repo = Repo.clone_from(repo_path, path)
+        repo.git.checkout(tag)
+        repo.git.reset('--hard', tag)
     return path
 
 
@@ -32,7 +36,6 @@ def checkout_tag(author, repo_name, tag) -> str:
         clone_repo(author, repo_name, tag)
 
     Repo(path).git.checkout(tag)
-
     return path
 
 

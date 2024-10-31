@@ -148,15 +148,18 @@ if __name__ == "__main__":
 
     for creds in credential_list:
         print(f"Checking out {creds.get_ref()}")
-        checkout_tag(creds['author'], creds['repo'], creds['version'])
+        try:
+            checkout_tag(creds['author'], creds['repo'], creds['version'])
 
-        # if creds.has_wiki():
-        #     matches_wiki = parse_wiki(str(docs_path / f'{creds.repo_path}/{creds.wiki_dir}'), creds, quality_attributes,
-        #                           creds['wiki'])
-        #     save_to_file(matches_wiki, MatchSource.WIKI, creds)
-        #
-        # matches_code_comments = parse_comments(str(source_code_path / creds.get_ref()), creds, quality_attributes)
-        # save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds)
-        #
-        # matches_docs = parse_docs(str(source_code_path / creds.get_ref()), creds, quality_attributes)
-        # save_to_file(matches_docs, MatchSource.DOCS, creds)
+            # if creds.has_wiki():
+            #     matches_wiki = parse_wiki(str(docs_path / f'{creds.repo_path}/{creds.wiki_dir}'), creds, quality_attributes,
+            #                           creds['wiki'])
+            #     save_to_file(matches_wiki, MatchSource.WIKI, creds)
+
+            matches_code_comments = parse_comments(str(source_code_path / creds.get_ref()), creds, quality_attributes)
+            save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds)
+
+            matches_docs = parse_docs(str(source_code_path / creds.get_ref()), creds, quality_attributes)
+            save_to_file(matches_docs, MatchSource.DOCS, creds)
+        except Exception as e:
+            print(f"Error processing {creds.get_ref()}: {str(e)}")
