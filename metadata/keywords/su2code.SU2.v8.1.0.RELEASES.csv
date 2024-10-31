@@ -1,0 +1,9 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
+Usability,simpl,simple,* Add simple custom outputs (functions of other outputs) to all solvers by @pcarruscag in https://github.,MatchSource.RELEASES,su2code,SU2,v8.1.0,https://github.com/su2code/SU2/releases/tag/v8.0.0
+Usability,usab,usability,"* Small cleanup, usability improvement, see the full list below",MatchSource.RELEASES,su2code,SU2,v8.1.0,https://github.com/su2code/SU2/releases/tag/v7.5.1
+Usability,usab,usability,Maintenance release with bug fixes and usability improvements.,MatchSource.RELEASES,su2code,SU2,v8.1.0,https://github.com/su2code/SU2/releases/tag/v7.3.1
+Usability,pause,pause,"We made a pause from the monthly maintenance-release cycle to integrate those features as best as possible, they include:",MatchSource.RELEASES,su2code,SU2,v8.1.0,https://github.com/su2code/SU2/releases/tag/v7.2.0
+Usability,feedback,feedback,- Numerous fixes based on feedback from the SU2 community.,MatchSource.RELEASES,su2code,SU2,v8.1.0,https://github.com/su2code/SU2/releases/tag/v7.2.0
+Usability,usab,usability,"* Additional bug fixes, usability and stability improvements, and general maintenance.",MatchSource.RELEASES,su2code,SU2,v8.1.0,https://github.com/su2code/SU2/releases/tag/v6.0.0
+Usability,usab,usability,"- Free-form deformation (FFD) extensions, including bezier curves and improved usability.",MatchSource.RELEASES,su2code,SU2,v8.1.0,https://github.com/su2code/SU2/releases/tag/v5.0.0
+Usability,feedback,feedback,"- Critical improvements in I/O, including more feedback to the user.",MatchSource.RELEASES,su2code,SU2,v8.1.0,https://github.com/su2code/SU2/releases/tag/v5.0.0
