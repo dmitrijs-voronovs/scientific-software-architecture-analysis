@@ -1,0 +1,23 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
+Usability,guid,guide-states,st and a Gates section to guide-states.,MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v5.0.3
+Usability,progress bar,progress bars,- Fix OverFlowError in progress bars,MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v5.0.1
+Usability,guid,guide,"- Christian Staufenbiel (Add a guide on Superoperators, Pauli Basis and Channel Contraction, #1984)",MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v5.0.0
+Usability,progress bar,progress bar,- The progress bar is now selected using the ``progress_bar`` option.,MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v5.0.0
+Usability,usab,usable,This integrator is only usable with ``sesolve``.,MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v5.0.0
+Usability,feedback,feedback,- Wiener function is now available as a feedback.,MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v5.0.0
+Usability,feedback,feedback,- Restore feedback to solvers (#2210),MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v5.0.0b1
+Usability,guid,guide,- Improve documentation in guide/dynamics (#2271),MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v5.0.0b1
+Usability,guid,guide,"- Add a guide on Superoperators, Pauli Basis and Channel Contraction.",MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v5.0.0a2
+Usability,progress bar,progress bar,- The progress bar is now selected using the ``progress_bar`` option.,MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v5.0.0a1
+Usability,usab,usable,This integrator is only usable with ``sesolve``.,MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v5.0.0a1
+Usability,simpl,simple,Previously calling them raised exceptions in simple cases.,MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v4.7.0
+Usability,guid,guide,- Fixed minor grammar errors in the dynamics guide.,MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v4.7.0
+Usability,guid,guide,- Corrected typo in the states and operators guide.,MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v4.7.0
+Usability,guid,guidelines,- The GitHub contributing guidelines were re-added and updated to point to the more complete guidelines in the documentation.,MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v4.7.0
+Usability,guid,guidelines,- The GitHub contributing guidelines were re-added and updated to point to the more complete guidelines in the documentation.,MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v4.7.0
+Usability,simpl,simple,- The ``enr_destroy`` function was made ~200x faster in many simple cases.,MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v4.6.3
+Usability,guid,guide,- Fixed the parameters in the call to fsesolve in the Floquet guide.,MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v4.6.3
+Usability,guid,guide,- Fixed the description of random number usage in the Monte Carlo solver guide.,MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v4.6.3
+Usability,guid,guide,ettings`` in the settings guide.,MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v4.6.3
+Usability,guid,guide,- Made numerous small improvements to the text of the QuTiP basics guide.,MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v4.6.3
+Usability,simpl,simplify,"- Remove unused imports, simplify some floats and remove unnecessary list conversions.",MatchSource.RELEASES,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/releases/tag/v4.6.0

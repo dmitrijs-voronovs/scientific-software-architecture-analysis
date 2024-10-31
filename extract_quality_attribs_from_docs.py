@@ -9,8 +9,11 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from tqdm import tqdm
 
-from quality_attributes import quality_attributes_sample, QualityAttributesMap, quality_attributes
+from metadata.repo_info.repo_info import credential_list
+from model.Credentials import Credentials
+from quality_attributes import QualityAttributesMap, quality_attributes
 from services.ast_extractor import ext_to_lang, get_comments
+from services.git import clone_tag, checkout_tag
 
 AttributeDictType = Dict[str, List[str]]
 
@@ -29,23 +32,6 @@ class MatchSource(Enum):
     ISSUE = "ISSUE"
     ISSUE_COMMENT = "ISSUE_COMMENT"
     CODE_COMMENT = "CODE_COMMENT"
-
-
-class Credentials(Dict):
-    author: str
-    repo: str
-    version: str
-
-    @property
-    def repo_path(self) -> str:
-        return f"{self['author']}/{self['repo']}"
-
-    @property
-    def repo_name(self) -> str:
-        return f"{self['author']}.{self['repo']}"
-
-    def get_ref(self, delimiter="/") -> str:
-        return f"{self['author']}{delimiter}{self['repo']}{delimiter}{self['version']}"
 
 
 class FullMatch(TextMatch, Credentials):
@@ -155,17 +141,22 @@ def save_to_file(records: List[FullMatch], source: MatchSource, creds: Credentia
 
 
 if __name__ == "__main__":
-    creds = Credentials(author="scverse", repo="scanpy", version="1.10.2")
-    wiki_url = "scanpy.readthedocs.io/en"
-    protocol = "https://"
     docs_path = Path(".tmp/docs")
     source_code_path = Path(".tmp/source")
-    matches_wiki = parse_wiki(str(docs_path / f'{creds.repo_path}/{wiki_url}'), creds, quality_attributes,
-                              f'{protocol}{wiki_url}')
-    save_to_file(matches_wiki, MatchSource.WIKI, creds)
 
-    matches_code_comments = parse_comments(str(source_code_path / creds.get_ref()), creds, quality_attributes)
-    save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds)
+    # creds = Credentials(author="scverse", repo="scanpy", version="1.10.2", wiki="scanpy.readthedocs.io/en")
 
-    matches_docs = parse_docs(str(source_code_path / creds.get_ref()), creds, quality_attributes)
-    save_to_file(matches_docs, MatchSource.DOCS, creds)
+    for creds in credential_list:
+        print(f"Checking out {creds.get_ref()}")
+        checkout_tag(creds['author'], creds['repo'], creds['version'])
+
+        # if creds.has_wiki():
+        #     matches_wiki = parse_wiki(str(docs_path / f'{creds.repo_path}/{creds.wiki_dir}'), creds, quality_attributes,
+        #                           creds['wiki'])
+        #     save_to_file(matches_wiki, MatchSource.WIKI, creds)
+        #
+        # matches_code_comments = parse_comments(str(source_code_path / creds.get_ref()), creds, quality_attributes)
+        # save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds)
+        #
+        # matches_docs = parse_docs(str(source_code_path / creds.get_ref()), creds, quality_attributes)
+        # save_to_file(matches_docs, MatchSource.DOCS, creds)

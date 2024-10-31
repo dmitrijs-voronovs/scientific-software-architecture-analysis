@@ -17,8 +17,10 @@ from pymongo.collection import Collection
 from pymongo.command_cursor import CommandCursor
 from tqdm import tqdm
 
-from extract_quality_attribs_from_docs import Credentials, get_keyword_matching_pattern, \
+from extract_quality_attribs_from_docs import get_keyword_matching_pattern, \
     FullMatch, MatchSource, save_to_file
+from metadata.repo_info.repo_info import credential_list
+from model.Credentials import Credentials
 from quality_attributes import quality_attributes_sample, QualityAttributesMap, quality_attributes
 from services.MongoDBConnection import MongoDBConnection
 
@@ -114,6 +116,12 @@ class ReleaseDTO:
         return self._id
 
 
+@dataclass
+class RepoInfoDTO:
+    latest_version: str
+    homepage: str
+
+
 class GitHubDataFetcher:
     def __init__(self, token: str, creds: Credentials):
         """
@@ -125,9 +133,9 @@ class GitHubDataFetcher:
         self.github = Github(token)
         self.creds = creds
 
-    def get_latest_version(self) -> str:
+    def get_repo_info(self) -> RepoInfoDTO:
         repo = self.github.get_repo(self.creds.repo_path)
-        return repo.get_latest_release().tag_name
+        return RepoInfoDTO(latest_version=repo.get_latest_release().tag_name, homepage=repo.homepage)
 
     def get_issues(self, batch_size: int = 10) -> Iterator[List[IssueDTO]]:
         assert batch_size > 0, "Batch size must be greater than 0"
@@ -147,7 +155,6 @@ class GitHubDataFetcher:
                     batch.append(self._map_issue_to_dto(issue))
 
                     if len(batch) == batch_size:
-                        tqdm.write(f"Yielding batch of {len(batch)} issues")
                         yield batch
                         db["since"] = issue.created_at
                         batch.clear()
@@ -161,7 +168,6 @@ class GitHubDataFetcher:
                     continue
 
             if len(batch) > 0:
-                tqdm.write(f"Yielding batch of {len(batch)} issues")
                 yield batch
 
     def _map_issue_to_dto(self, issue: Issue) -> IssueDTO:
@@ -256,7 +262,6 @@ class GitHubDataFetcher:
                 )
                 batch.append(release_data)
                 if len(batch) == batch_size:
-                    tqdm.write(f"Yielding batch of {len(batch)} releases")
                     yield batch
                     batch.clear()
 
@@ -265,7 +270,6 @@ class GitHubDataFetcher:
                 continue
 
         if len(batch) > 0:
-            tqdm.write(f"Yielding batch of {len(batch)} releases")
             yield batch
 
 
@@ -284,6 +288,7 @@ class MongoMatch(TypedDict):
     text: str
     html_url: str
     text_match: MongoTextMatch
+
 
 class DB:
     def __init__(self, creds: Credentials):
@@ -470,53 +475,9 @@ def save_matched_keywords(creds, db, quality_attributes_map: QualityAttributesMa
 
 
 def main():
-    # creds = Credentials(author="scverse", repo="scanpy", version="1.10.2") # parsed, old version
-    # creds = Credentials({'author': 'scverse', 'repo': 'scanpy', 'version': '1.10.3'}) # not parsed, new version
-    # creds = Credentials(author="allenai", repo="scispacy", version="v0.5.5")
-    # creds = Credentials(**{'author': 'google', 'repo': 'deepvariant', 'version': 'v1.6.1'})
-    # creds = Credentials({'author': 'OpenGene', 'repo': 'fastp', 'version': 'v0.23.4'})
-
-    # creds = Credentials({'author': 'root-project', 'repo': 'root', 'version': 'v6-32-06'})
-    # creds = Credentials({'author': 'broadinstitute', 'repo': 'gatk', 'version': '4.6.0.0'})
-    # creds = Credentials({'author': 'qutip', 'repo': 'qutip', 'version': 'v5.0.4'})
-    # creds = Credentials({'author': 'soedinglab', 'repo': 'MMseqs2', 'version': '15-6f452'})
-    # creds = Credentials({'author': 'su2code', 'repo': 'SU2', 'version': 'v8.1.0'})
-    # creds = Credentials({'author': 'tum-pbs', 'repo': 'PhiFlow', 'version': '3.1.0'})
-    # creds = Credentials({'author': 'scipipe', 'repo': 'scipipe', 'version': 'v0.12.0'})
-    # creds = Credentials({'author': 'openbabel', 'repo': 'openbabel', 'version': 'openbabel-3-1-1'})
-    # creds = Credentials({'author': 'qupath', 'repo': 'qupath', 'version': 'v0.5.1'})
-    # creds = Credentials({'author': 'broadinstitute', 'repo': 'cromwell', 'version': '87'})
-    # creds = Credentials({'author': 'hail-is', 'repo': 'hail', 'version': '0.2.133'})
-    # creds = Credentials({'author': 'psi4', 'repo': 'psi4', 'version': 'v1.9.1'})
-    # creds = Credentials({'author': 'CliMA', 'repo': 'Oceananigans.jl', 'version': 'v0.93.1'})
-    # creds = Credentials({'author': 'sofa-framework', 'repo': 'sofa', 'version': 'v24.06.00'})
-    # creds = Credentials({'author': 'stardist', 'repo': 'stardist', 'version': '0.9.1'})
-    # creds = Credentials({'author': 'COMBINE-lab', 'repo': 'salmon', 'version': 'v1.10.1'})
-    #
-
-    cr = [
-        Credentials({'author': 'qutip', 'repo': 'qutip', 'version': 'v5.0.4'}),
-        Credentials({'author': 'broadinstitute', 'repo': 'gatk', 'version': '4.6.0.0'}),
-        Credentials({'author': 'soedinglab', 'repo': 'MMseqs2', 'version': '15-6f452'}),
-        Credentials({'author': 'su2code', 'repo': 'SU2', 'version': 'v8.1.0'}),
-        Credentials({'author': 'tum-pbs', 'repo': 'PhiFlow', 'version': '3.1.0'}),
-        Credentials({'author': 'scipipe', 'repo': 'scipipe', 'version': 'v0.12.0'}),
-        Credentials({'author': 'openbabel', 'repo': 'openbabel', 'version': 'openbabel-3-1-1'}),
-        Credentials({'author': 'qupath', 'repo': 'qupath', 'version': 'v0.5.1'}),
-        Credentials({'author': 'broadinstitute', 'repo': 'cromwell', 'version': '87'}),
-        Credentials({'author': 'hail-is', 'repo': 'hail', 'version': '0.2.133'}),
-        Credentials({'author': 'psi4', 'repo': 'psi4', 'version': 'v1.9.1'}),
-        Credentials({'author': 'CliMA', 'repo': 'Oceananigans.jl', 'version': 'v0.93.1'}),
-        Credentials({'author': 'sofa-framework', 'repo': 'sofa', 'version': 'v24.06.00'}),
-        Credentials({'author': 'stardist', 'repo': 'stardist', 'version': '0.9.1'}),
-        Credentials({'author': 'COMBINE-lab', 'repo': 'salmon', 'version': 'v1.10.1'}),
-        Credentials({'author': 'root-project', 'repo': 'root', 'version': 'v6-32-06'}),
-    ]
-
-
     token = os.getenv('GITHUB_TOKEN')
-    for creds in tqdm(cr, "fetching repositories"):
-        tqdm.write(f"For {creds}")
+    for creds in credential_list:
+        print(f"Parsing github metadata for {creds}")
         fetcher = GitHubDataFetcher(token, creds)
         db = DB(creds)
 

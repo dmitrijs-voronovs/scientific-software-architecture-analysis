@@ -20,20 +20,20 @@ def clone_repo(author, repo_name, postfix: Optional[str] = "master"):
 
 
 def clone_tag(author, repo_name, repo_path, tag1):
-    path1 = f"./.tmp/source/{author}/{repo_name}/{tag1}"
-    if not os.path.exists(path1) or not os.listdir(path1):
-        Repo.clone_from(repo_path, path1).git.checkout(tag1)
-    return path1
+    path = f"./.tmp/source/{author}/{repo_name}/{tag1}"
+    if not os.path.exists(path) or not os.listdir(path):
+        Repo.clone_from(repo_path, path).git.checkout(tag1)
+    return path
 
 
 def checkout_tag(author, repo_name, tag) -> str:
-    path1 = get_repo_base_path(author, repo_name)
-    if not os.path.exists(path1) or not os.listdir(path1):
-        clone_repo(author, repo_name)
+    path = get_repo_base_path(author, repo_name, tag)
+    if not os.path.exists(path) or not os.listdir(path):
+        clone_repo(author, repo_name, tag)
 
-    Repo(path1).git.checkout(tag)
+    Repo(path).git.checkout(tag)
 
-    return path1
+    return path
 
 
 def get_abs_parent_dir():
