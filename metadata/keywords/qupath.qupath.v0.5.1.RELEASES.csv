@@ -1,0 +1,16 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
+Usability,learn,learn,* New extension to add a new *Help &rarr; QuPath Tour* command to learn the user interface,MatchSource.RELEASES,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/releases/tag/v0.6.0-rc3
+Usability,guid,guide,om/en-gb/guide/mac-help/mchleab3a043/15.,MatchSource.RELEASES,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/releases/tag/v0.6.0-rc3
+Usability,guid,guide,om/en-gb/guide/mac-help/mchleab3a043/15.,MatchSource.RELEASES,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/releases/tag/v0.6.0-rc2
+Usability,learn,learning-based,"om/instanseg/instanseg) is a new, deep learning-based method for nucleus & cell segmentation that aims to be fast, accurate & easy to use.",MatchSource.RELEASES,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/releases/tag/v0.6.0-rc1
+Usability,feedback,feedback,">  It's available for early feedback, to help us find & fix any bugs before the final release.",MatchSource.RELEASES,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/releases/tag/v0.5.0-rc2
+Usability,feedback,feedback,">  It's available for early feedback and the [QuPath workshop in San Diego, October 2023](https://forum.",MatchSource.RELEASES,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/releases/tag/v0.5.0-rc1
+Usability,simpl,simpler,* Now much simpler and more maintainable (using Ops),MatchSource.RELEASES,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/releases/tag/v0.2.0-m11
+Usability,simpl,simplifying,* The code has changed _a lot_ with the goal of simplifying it & making new features possible.,MatchSource.RELEASES,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/releases/tag/v0.2.0-m3
+Usability,guid,guides,"* **For tips to get started, see the [Step-by-step guides](https://github.",MatchSource.RELEASES,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/releases/tag/v0.1.2
+Usability,feedback,feedback,therefore feedback would be welcome if you find it useful.,MatchSource.RELEASES,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/releases/tag/v0.1.2
+Usability,feedback,feedback,"- Added 'Analyze -> Cell analysis -> Subcellular detection' command (still experimental, for early testing & feedback)",MatchSource.RELEASES,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/releases/tag/v0.1.2
+Usability,simpl,simplify,setIntensityClassifications) to simplify (sub-)classifying cells according to staining intensity,MatchSource.RELEASES,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/releases/tag/v0.1.2
+Usability,simpl,simply,"In particular, QuPath is now much better at handling images that are not simply 2D and RGB.",MatchSource.RELEASES,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/releases/tag/v0.0.6
+Usability,undo,undo,It's not as good as a comprehensive 'undo' system.,MatchSource.RELEASES,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/releases/tag/v0.0.4
+Usability,feedback,feedback,"This is the first publicly-available version of QuPath, for testing and early feedback.",MatchSource.RELEASES,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/releases/tag/v0.0.1-beta

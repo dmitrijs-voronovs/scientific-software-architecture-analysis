@@ -1,0 +1,6 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
+Usability,simpl,simple,"It also now has support for go modules (a simple change, as scipipe has zero dependencies :)).",MatchSource.RELEASES,scipipe,scipipe,v0.12.0,https://github.com/scipipe/scipipe/releases/tag/v0.9.7
+Usability,simpl,simplified,## A simplified API,MatchSource.RELEASES,scipipe,scipipe,v0.12.0,https://github.com/scipipe/scipipe/releases/tag/v0.8.0
+Usability,clear,clearer,"mp` file, for clearer behavior and error messages (57ddb33b836a3f09a9f839073e26b34163745a62)",MatchSource.RELEASES,scipipe,scipipe,v0.12.0,https://github.com/scipipe/scipipe/releases/tag/v0.6.1
+Usability,simpl,simplicity,"unMergeInputs() on all input ports, which contains code that will merge from multiple inputs into the ports `InChan` channel, which can still be used to do range operations on, for simplicity.",MatchSource.RELEASES,scipipe,scipipe,v0.12.0,https://github.com/scipipe/scipipe/releases/tag/v0.3.0-alpha
+Usability,simpl,simply,onnectStrings() for simply sending one or more strings,MatchSource.RELEASES,scipipe,scipipe,v0.12.0,https://github.com/scipipe/scipipe/releases/tag/v0.3.0-alpha

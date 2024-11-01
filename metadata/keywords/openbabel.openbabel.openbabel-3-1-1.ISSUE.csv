@@ -1,0 +1,10 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
+Usability,clear,cleared,ExtensionTable cleared,MatchSource.ISSUE,openbabel,openbabel,openbabel-3-1-1,https://github.com/openbabel/openbabel/issues/395
+Usability,simpl,simple,Canon failure for very simple case of two ions,MatchSource.ISSUE,openbabel,openbabel,openbabel-3-1-1,https://github.com/openbabel/openbabel/issues/1166
+Usability,simpl,simple,SMILES parsing failure for a simple case,MatchSource.ISSUE,openbabel,openbabel,openbabel-3-1-1,https://github.com/openbabel/openbabel/issues/1570
+Usability,learn,learn,Possible conflict with scikit-learn in pip version of pybel,MatchSource.ISSUE,openbabel,openbabel,openbabel-3-1-1,https://github.com/openbabel/openbabel/issues/1702
+Usability,clear,clear,lear() to allow wrapped std::vectors to be reused,MatchSource.ISSUE,openbabel,openbabel,openbabel-3-1-1,https://github.com/openbabel/openbabel/pull/1834
+Usability,usab,usable,Openbabel fails to create usable png image of adenosine,MatchSource.ISSUE,openbabel,openbabel,openbabel-3-1-1,https://github.com/openbabel/openbabel/issues/2195
+Usability,guid,guidance,Seeking guidance for GSoC 2021,MatchSource.ISSUE,openbabel,openbabel,openbabel-3-1-1,https://github.com/openbabel/openbabel/issues/2334
+Usability,simpl,simple,"Error reading simple CIF file generated with VESTA with space group ""P 1""",MatchSource.ISSUE,openbabel,openbabel,openbabel-3-1-1,https://github.com/openbabel/openbabel/issues/2414
+Usability,simpl,simple,use simple cube format for molecules with single grid,MatchSource.ISSUE,openbabel,openbabel,openbabel-3-1-1,https://github.com/openbabel/openbabel/pull/2580

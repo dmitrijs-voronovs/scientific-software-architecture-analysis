@@ -1,0 +1,2 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
+Usability,simpl,simplified,"- PHP bindings: BaPHPel, a simplified interface (Maciej Wójcikowski)",MatchSource.RELEASES,openbabel,openbabel,openbabel-3-1-1,https://github.com/openbabel/openbabel/releases/tag/openbabel-2-4-0
