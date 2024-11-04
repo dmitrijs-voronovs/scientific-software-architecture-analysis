@@ -1,0 +1,171 @@
+quality_attribute,project,count
+Integrability,tum-pbs/PhiFlow/3.1.0,102
+Deployability,tum-pbs/PhiFlow/3.1.0,91
+Usability,tum-pbs/PhiFlow/3.1.0,78
+Modifiability,tum-pbs/PhiFlow/3.1.0,66
+Testability,tum-pbs/PhiFlow/3.1.0,66
+Availability,tum-pbs/PhiFlow/3.1.0,60
+Performance,tum-pbs/PhiFlow/3.1.0,30
+Energy Efficiency,tum-pbs/PhiFlow/3.1.0,10
+Safety,tum-pbs/PhiFlow/3.1.0,7
+Security,tum-pbs/PhiFlow/3.1.0,7
+Usability,su2code/SU2/v8.1.0,655
+Modifiability,su2code/SU2/v8.1.0,260
+Integrability,su2code/SU2/v8.1.0,116
+Performance,su2code/SU2/v8.1.0,106
+Deployability,su2code/SU2/v8.1.0,79
+Testability,su2code/SU2/v8.1.0,66
+Safety,su2code/SU2/v8.1.0,52
+Availability,su2code/SU2/v8.1.0,51
+Security,su2code/SU2/v8.1.0,37
+Energy Efficiency,su2code/SU2/v8.1.0,11
+Deployability,stardist/stardist/0.9.1,85
+Safety,stardist/stardist/0.9.1,79
+Modifiability,stardist/stardist/0.9.1,76
+Availability,stardist/stardist/0.9.1,75
+Testability,stardist/stardist/0.9.1,56
+Integrability,stardist/stardist/0.9.1,34
+Performance,stardist/stardist/0.9.1,23
+Usability,stardist/stardist/0.9.1,22
+Energy Efficiency,stardist/stardist/0.9.1,16
+Security,stardist/stardist/0.9.1,16
+Testability,sofa-framework/sofa/v24.06.00,22
+Availability,sofa-framework/sofa/v24.06.00,5
+Deployability,sofa-framework/sofa/v24.06.00,4
+Modifiability,sofa-framework/sofa/v24.06.00,4
+Performance,sofa-framework/sofa/v24.06.00,4
+Integrability,sofa-framework/sofa/v24.06.00,3
+Usability,sofa-framework/sofa/v24.06.00,3
+Security,sofa-framework/sofa/v24.06.00,2
+Testability,soedinglab/MMseqs2/15-6f452,233
+Usability,soedinglab/MMseqs2/15-6f452,233
+Availability,soedinglab/MMseqs2/15-6f452,143
+Deployability,soedinglab/MMseqs2/15-6f452,103
+Energy Efficiency,soedinglab/MMseqs2/15-6f452,102
+Performance,soedinglab/MMseqs2/15-6f452,102
+Security,soedinglab/MMseqs2/15-6f452,100
+Integrability,soedinglab/MMseqs2/15-6f452,95
+Modifiability,soedinglab/MMseqs2/15-6f452,84
+Safety,soedinglab/MMseqs2/15-6f452,30
+Testability,scverse/scanpy/1.10.2,1901
+Usability,scverse/scanpy/1.10.2,1467
+Deployability,scverse/scanpy/1.10.2,1162
+Performance,scverse/scanpy/1.10.2,575
+Modifiability,scverse/scanpy/1.10.2,478
+Security,scverse/scanpy/1.10.2,395
+Availability,scverse/scanpy/1.10.2,295
+Integrability,scverse/scanpy/1.10.2,253
+Safety,scverse/scanpy/1.10.2,143
+Energy Efficiency,scverse/scanpy/1.10.2,103
+Usability,scipipe/scipipe/v0.12.0,67
+Deployability,scipipe/scipipe/v0.12.0,57
+Security,scipipe/scipipe/v0.12.0,53
+Availability,scipipe/scipipe/v0.12.0,51
+Testability,scipipe/scipipe/v0.12.0,27
+Integrability,scipipe/scipipe/v0.12.0,26
+Modifiability,scipipe/scipipe/v0.12.0,19
+Performance,scipipe/scipipe/v0.12.0,12
+Energy Efficiency,scipipe/scipipe/v0.12.0,8
+Safety,scipipe/scipipe/v0.12.0,4
+Usability,qutip/qutip/v5.0.4,1188
+Testability,qutip/qutip/v5.0.4,582
+Integrability,qutip/qutip/v5.0.4,522
+Deployability,qutip/qutip/v5.0.4,518
+Availability,qutip/qutip/v5.0.4,429
+Modifiability,qutip/qutip/v5.0.4,271
+Energy Efficiency,qutip/qutip/v5.0.4,204
+Safety,qutip/qutip/v5.0.4,152
+Performance,qutip/qutip/v5.0.4,149
+Security,qutip/qutip/v5.0.4,52
+Usability,qupath/qupath/v0.5.1,626
+Deployability,qupath/qupath/v0.5.1,129
+Availability,qupath/qupath/v0.5.1,118
+Integrability,qupath/qupath/v0.5.1,115
+Energy Efficiency,qupath/qupath/v0.5.1,79
+Safety,qupath/qupath/v0.5.1,66
+Security,qupath/qupath/v0.5.1,56
+Performance,qupath/qupath/v0.5.1,51
+Modifiability,qupath/qupath/v0.5.1,47
+Testability,qupath/qupath/v0.5.1,44
+Energy Efficiency,psi4/psi4/v1.9.1,3114
+Availability,psi4/psi4/v1.9.1,1511
+Integrability,psi4/psi4/v1.9.1,953
+Deployability,psi4/psi4/v1.9.1,910
+Testability,psi4/psi4/v1.9.1,895
+Modifiability,psi4/psi4/v1.9.1,873
+Performance,psi4/psi4/v1.9.1,691
+Usability,psi4/psi4/v1.9.1,282
+Safety,psi4/psi4/v1.9.1,248
+Security,psi4/psi4/v1.9.1,201
+Usability,openbabel/openbabel/openbabel-3-1-1,434
+Testability,openbabel/openbabel/openbabel-3-1-1,287
+Deployability,openbabel/openbabel/openbabel-3-1-1,94
+Integrability,openbabel/openbabel/openbabel-3-1-1,93
+Availability,openbabel/openbabel/openbabel-3-1-1,87
+Energy Efficiency,openbabel/openbabel/openbabel-3-1-1,76
+Modifiability,openbabel/openbabel/openbabel-3-1-1,68
+Security,openbabel/openbabel/openbabel-3-1-1,31
+Performance,openbabel/openbabel/openbabel-3-1-1,27
+Safety,openbabel/openbabel/openbabel-3-1-1,11
+Deployability,hail-is/hail/0.2.133,699
+Availability,hail-is/hail/0.2.133,588
+Testability,hail-is/hail/0.2.133,576
+Modifiability,hail-is/hail/0.2.133,478
+Security,hail-is/hail/0.2.133,377
+Performance,hail-is/hail/0.2.133,356
+Integrability,hail-is/hail/0.2.133,303
+Energy Efficiency,hail-is/hail/0.2.133,169
+Safety,hail-is/hail/0.2.133,146
+Usability,hail-is/hail/0.2.133,101
+Usability,google/deepvariant/v1.6.1,686
+Testability,google/deepvariant/v1.6.1,533
+Deployability,google/deepvariant/v1.6.1,215
+Availability,google/deepvariant/v1.6.1,201
+Modifiability,google/deepvariant/v1.6.1,190
+Integrability,google/deepvariant/v1.6.1,138
+Safety,google/deepvariant/v1.6.1,130
+Performance,google/deepvariant/v1.6.1,128
+Security,google/deepvariant/v1.6.1,40
+Energy Efficiency,google/deepvariant/v1.6.1,38
+Usability,broadinstitute/gatk/4.6.0.0,1760
+Usability,broadinstitute/cromwell/87,680
+Usability,allenai/scispacy/v0.5.5,105
+Deployability,allenai/scispacy/v0.5.5,85
+Performance,allenai/scispacy/v0.5.5,38
+Modifiability,allenai/scispacy/v0.5.5,23
+Availability,allenai/scispacy/v0.5.5,22
+Safety,allenai/scispacy/v0.5.5,15
+Testability,allenai/scispacy/v0.5.5,15
+Integrability,allenai/scispacy/v0.5.5,10
+Security,allenai/scispacy/v0.5.5,10
+Energy Efficiency,allenai/scispacy/v0.5.5,8
+Usability,OpenGene/fastp/v0.23.4,51
+Integrability,OpenGene/fastp/v0.23.4,38
+Modifiability,OpenGene/fastp/v0.23.4,36
+Energy Efficiency,OpenGene/fastp/v0.23.4,35
+Safety,OpenGene/fastp/v0.23.4,24
+Availability,OpenGene/fastp/v0.23.4,20
+Deployability,OpenGene/fastp/v0.23.4,12
+Performance,OpenGene/fastp/v0.23.4,5
+Security,OpenGene/fastp/v0.23.4,4
+Testability,OpenGene/fastp/v0.23.4,1
+Modifiability,CliMA/Oceananigans.jl/v0.93.2,95
+Integrability,CliMA/Oceananigans.jl/v0.93.2,86
+Testability,CliMA/Oceananigans.jl/v0.93.2,83
+Availability,CliMA/Oceananigans.jl/v0.93.2,74
+Usability,CliMA/Oceananigans.jl/v0.93.2,57
+Energy Efficiency,CliMA/Oceananigans.jl/v0.93.2,52
+Performance,CliMA/Oceananigans.jl/v0.93.2,42
+Deployability,CliMA/Oceananigans.jl/v0.93.2,40
+Security,CliMA/Oceananigans.jl/v0.93.2,24
+Safety,CliMA/Oceananigans.jl/v0.93.2,22
+Deployability,COMBINE-lab/salmon/v1.10.1,137
+Integrability,COMBINE-lab/salmon/v1.10.1,123
+Availability,COMBINE-lab/salmon/v1.10.1,46
+Usability,COMBINE-lab/salmon/v1.10.1,33
+Modifiability,COMBINE-lab/salmon/v1.10.1,30
+Performance,COMBINE-lab/salmon/v1.10.1,25
+Testability,COMBINE-lab/salmon/v1.10.1,24
+Security,COMBINE-lab/salmon/v1.10.1,22
+Energy Efficiency,COMBINE-lab/salmon/v1.10.1,13
+Safety,COMBINE-lab/salmon/v1.10.1,12
