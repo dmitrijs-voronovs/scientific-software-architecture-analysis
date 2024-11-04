@@ -1,0 +1,10 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
+Usability,simpl,simple,"om/psi4/psi4/pull/2982): Adds the ability to construct basis sets from combinations of two constituent basis sets, via either a simple combination or through the Complementary Auxiliary Basis Set (CABS) method",MatchSource.RELEASES,psi4,psi4,v1.9.1,https://github.com/psi4/psi4/releases/tag/v1.9
+Usability,clear,clearly,y to more clearly explain the function,MatchSource.RELEASES,psi4,psi4,v1.9.1,https://github.com/psi4/psi4/releases/tag/v1.9
+Usability,simpl,simple,at for simple convergence/step info and output.,MatchSource.RELEASES,psi4,psi4,v1.9.1,https://github.com/psi4/psi4/releases/tag/v1.7
+Usability,clear,clearing,* Syntax modernization and removing unused and clearing memory leaks.,MatchSource.RELEASES,psi4,psi4,v1.9.1,https://github.com/psi4/psi4/releases/tag/v1.7
+Usability,guid,guidance,Running old inputs will trigger update guidance.,MatchSource.RELEASES,psi4,psi4,v1.9.1,https://github.com/psi4/psi4/releases/tag/v1.6
+Usability,simpl,simplified,* A new logging file is added and default output file naming simplified at edge cases.,MatchSource.RELEASES,psi4,psi4,v1.9.1,https://github.com/psi4/psi4/releases/tag/v1.6
+Usability,clear,clear,- Fix a bug where MOM could clear all electrons (#2270).,MatchSource.RELEASES,psi4,psi4,v1.9.1,https://github.com/psi4/psi4/releases/tag/v1.5
+Usability,simpl,simpler,- Basis PyParsing is now simpler and code duplication has been removed (#734 ),MatchSource.RELEASES,psi4,psi4,v1.9.1,https://github.com/psi4/psi4/releases/tag/v1.2
+Usability,guid,guidance,Now one should call CMake directly using options and guidance in the first ~115 lines of top-level CMakeLists.,MatchSource.RELEASES,psi4,psi4,v1.9.1,https://github.com/psi4/psi4/releases/tag/v1.1

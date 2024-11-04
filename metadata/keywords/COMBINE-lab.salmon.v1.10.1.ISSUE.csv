@@ -1,0 +1,6 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
+Usability,guid,guide,Full length cDNA distribution as a guide to abundances?,MatchSource.ISSUE,COMBINE-lab,salmon,v1.10.1,https://github.com/COMBINE-lab/salmon/issues/56
+Usability,pause,pause,Broken linked files cause salmon indexing to pause (indefinitely) without throwing an error,MatchSource.ISSUE,COMBINE-lab,salmon,v1.10.1,https://github.com/COMBINE-lab/salmon/issues/134
+Usability,undo,undocumented,salmon --writeUnmappedNames produced undocumented result,MatchSource.ISSUE,COMBINE-lab,salmon,v1.10.1,https://github.com/COMBINE-lab/salmon/issues/657
+Usability,simpl,simple,A simple question about strand bias,MatchSource.ISSUE,COMBINE-lab,salmon,v1.10.1,https://github.com/COMBINE-lab/salmon/issues/762
+Usability,simpl,simply,No bug - How to explain Salmon workflow simply ?,MatchSource.ISSUE,COMBINE-lab,salmon,v1.10.1,https://github.com/COMBINE-lab/salmon/issues/926

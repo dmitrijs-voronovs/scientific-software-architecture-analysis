@@ -1,0 +1,20 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
+Usability,simpl,simplify,Data update: simplify Data tracking,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/pull/80
+Usability,UX,UX,[UX] Handle dependencies between data field.,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/issues/235
+Usability,UX,UX,[UX] Default values for DataFileName,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/issues/321
+Usability,clear,clear,Error Messages in SOFA_Python are not clear,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/issues/333
+Usability,simpl,simpler,[SofaCore] Add new (simpler) DataEngine implementation,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/pull/760
+Usability,simpl,simplefem,[SofaSimpleFem] Stc clean simplefem,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/pull/826
+Usability,guid,guiding,[image] Add warning guiding users regarding pluginization of DiffusionSolver,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/pull/1067
+Usability,clear,clear,[SofaBaseLinearSolver][FullMatrix]  Restore fast clear function,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/pull/1128
+Usability,simpl,simple,[SofaHaptics] Add simple tests on LCPForceFeedback component,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/pull/1576
+Usability,clear,clear,[SofaCore] FIX SingleLink clear/set behavior,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/pull/1749
+Usability,UX,UX,[SofaGuiQt] UX: graph is easier to read,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/pull/2356
+Usability,simpl,simple,Create simple videos for SOFA,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/issues/2370
+Usability,guid,guidelines,Update guidelines with sofa::type,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/pull/2506
+Usability,clear,clear,[SofaBaseMechanics] Use directly clear() when resetting force in MechanicalObject,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/pull/2518
+Usability,simpl,simplest,[All] Removing the simplest bwdInit functions,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/pull/2851
+Usability,guid,guidelines,[SofaGuiQt] Rename attributes to follow SOFA guidelines.,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/pull/2944
+Usability,clear,clearer,[Helper] Make clearer from where plugins are loaded,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/pull/3109
+Usability,simpl,simple,[all] Remove some simple uses of bwdInit(),MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/pull/4075
+Usability,progress bar,progress bar,[BatchGUI] Show progress bar,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://github.com/sofa-framework/sofa/pull/4168

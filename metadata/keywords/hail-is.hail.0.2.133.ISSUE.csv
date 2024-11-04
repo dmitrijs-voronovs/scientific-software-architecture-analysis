@@ -1,0 +1,161 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
+Usability,clear,clear,Help not clear for alternate allele,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/433
+Usability,simpl,simplify,Clean up and simplify subgenerator code.,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/467
+Usability,simpl,simple,Style: spaces in simple one line statements.,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/513
+Usability,guid,guide,Updated style guide.,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/562
+Usability,simpl,simplify,simplify scalar types in expression language,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/614
+Usability,guid,guide,add command reference to doc style guide,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/647
+Usability,simpl,simple,Added simple string escape.,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/782
+Usability,feedback,feedback,python version doesn't give as much feedback,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/1123
+Usability,guid,guide,Add doctest instructions to the style-guide,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/1394
+Usability,guid,guide,updated style guide,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/1395
+Usability,guid,guide,Update style-guide.,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/1738
+Usability,simpl,simplification,First stage of RegUtil simplification,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/1839
+Usability,simpl,simplify,simplify error handling logic,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/1888
+Usability,clear,clearly,"In Getting Started from Source, clearly suggest the 0.",MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/2201
+Usability,simpl,simplest,Add simplest hash functions,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/2303
+Usability,simpl,simple,Add simple- and twisted-tabulation hashes,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/2304
+Usability,feedback,feedback,feedback on generic VEP,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/2460
+Usability,simpl,simplified,simplified python normalization logic in pca,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/2529
+Usability,simpl,simplified,simplified IRM toHailBlockMatrix,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/2542
+Usability,guid,guide,style guide is very out of date,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/3067
+Usability,progress bar,progress bar,turn back on progress bar,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/3142
+Usability,progress bar,progress bar,Add back progress bar,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3143
+Usability,feedback,feedback,"Autodoc from type hints [broken intermediate, meant for feedback]",MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3156
+Usability,simpl,simplified,simplified compiler interface,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3157
+Usability,guid,guides,"create separate and complete style guides for python, scala, and c++",MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/3224
+Usability,clear,clearing,Not clearing the region in persist triggers a bug in LDPrune,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/3398
+Usability,simpl,simplify,Improve simplify,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3429
+Usability,clear,clear,Not clear what makes them reset to missing.,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/3472
+Usability,clear,clearing,fix not clearing per item,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3509
+Usability,clear,clears,Add some missing clears to aggregations,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3514
+Usability,clear,clear,lear.,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3523
+Usability,simpl,simplification,Add a few more simplification rules,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3550
+Usability,clear,clear,clear in block matrix write,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3555
+Usability,simpl,simplify,simplify aggregators,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3570
+Usability,clear,clears,add clears to restrictToPKInterval,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3572
+Usability,clear,clear,add missing clear in sampleqc,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3589
+Usability,simpl,simple,Load less data in simple cases,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3626
+Usability,simpl,simplify,A few more rules for simplify,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3679
+Usability,simpl,simplify,simplify type checking of entry_fields,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3778
+Usability,simpl,simpler,"IR for chisq, fet, ctt, hwe with simpler chisq implementation",MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3833
+Usability,simpl,simplify,More simplify rules,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3868
+Usability,simpl,simplify,Add rules to simplify statically missing IR nodes.,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3909
+Usability,simpl,simplified,removed action and simplified rrm and grm,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/3944
+Usability,guid,guides,add how-to guides to documentation,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/4089
+Usability,simpl,simpler,A much simpler fix for literals problem,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/4173
+Usability,simpl,simplification,Add TableKeyBy simplification,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/4471
+Usability,simpl,simple,prefer IR over ApplyIR for simple functions,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/4499
+Usability,simpl,simple,[batch][dag14] Add simple UI for batch,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/4823
+Usability,simpl,simplify,Fix TableKeyByAndAggregate simplify bug,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/4904
+Usability,simpl,simple,[stacked] implement a simple left join right distinct on a partition's worth of data?,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/4998
+Usability,simpl,simplification,Add simplification for mt.,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/5068
+Usability,simpl,simple,flesh out SparkBackend and add some simple tests,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/5127
+Usability,simpl,simplify,Things to simplify when renaming fields is free,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/5202
+Usability,guid,guide,Adding how to guide for liftover,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/5328
+Usability,simpl,simplify,Add simplify rules to push filter into key_by and repartition,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/5349
+Usability,simpl,simplification,add simplification rule for positive array index,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/5359
+Usability,simpl,simply,Auth gateway: simply adds project deps,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/5362
+Usability,feedback,feedback,[combiner] update combiner format in response to feedback,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/5495
+Usability,simpl,simplify,[batch] simplify batch api.,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/5797
+Usability,simpl,simplify,[ci] simplify local tests,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/5803
+Usability,simpl,simplify,Add two more simplify rules,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/5804
+Usability,simpl,simplification,Fix invalid simplification rule (can't take ArrayLen of set),MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/5889
+Usability,simpl,simplify,Inline small ApplyIR nodes in simplify,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/5899
+Usability,clear,clear,lear() should clear underlying region instead of asking for a new one,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/5968
+Usability,clear,clear,lear() should clear underlying region instead of asking for a new one,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/5968
+Usability,simpl,simplify,simplify index.,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/6047
+Usability,simpl,simplify,[c++] simplify deforesting for NDArrayReindex,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/6135
+Usability,simpl,simplify,[hail] Fix simplify rule with TableHead(MatrixColsTable),MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/6167
+Usability,simpl,simplify,[hail] Add simplify rules for TableDistinct,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/6227
+Usability,clear,clear,add ability to get and clear sub-regions by index,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/6499
+Usability,simpl,simple,[benchmark] Add argument to filter simple patterns,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/6528
+Usability,simpl,simple,[benchmark] Add simple range_table write benchmarks,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/6529
+Usability,usab,usability,[batch] miscellaneous usability improvements,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/6557
+Usability,simpl,simpler,"[hail] Introduce ptypes to BGEN, refactor pruning logic to be simpler",MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/6576
+Usability,simpl,simple,[wip] perform simple CSE during python IR serialization,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/6688
+Usability,simpl,simplify,"[docs] move Expressions, simplify",MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/6744
+Usability,simpl,simple,[notebook] fix some simple problems,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/6834
+Usability,simpl,simplification,[hail] Fix overflow caused by TableCount(TableUnion) simplification.,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/6958
+Usability,simpl,simplification,[hail] Improve simplification of nested struct insertions,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/7082
+Usability,simpl,simplify,[hail] Add TableAggregate simplify rules,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/7141
+Usability,simpl,simplify,[hail] Add simplify rule to invert order_by and collect,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/7175
+Usability,simpl,simplify,[hail] simplify region value fromBytes code,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/7259
+Usability,simpl,simplify,"[www/docs] simplify section rule, enable scrollto functions",MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/7288
+Usability,undo,undocumented,[www/docs] remove undocumented methods,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/7292
+Usability,simpl,simplify,[hail] Disable currently-invalid simplify rule,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/7515
+Usability,simpl,simplify,[hail] Fix simplify rewrite of ArrayLen(TableCollect),MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/7539
+Usability,simpl,simplify,"[hail/ptypes] simplify clearMissingBits, setAllMissing",MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/7822
+Usability,clear,clearMissingBits,"[hail/ptypes] simplify clearMissingBits, setAllMissing",MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/7822
+Usability,clear,clear,Make laziness clear in GWAS tutorial,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/7828
+Usability,progress bar,progress bars,[batch] insertion progress bars,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/7876
+Usability,simpl,simple,Segfault and incorrect results for simple aggregation,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/8076
+Usability,undo,undocumented,[hail] write undocumented function for passing expr to sparsify_row_intervals,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/8120
+Usability,undo,undocumented,df is undocumented,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/8215
+Usability,simpl,simplify,[query/ptypes] simplify isOfType,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/8261
+Usability,simpl,simplify,[query] simplify fs interface,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/8388
+Usability,simpl,simplify,[www] simplify templates,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/8455
+Usability,usab,usability,[query service] usability,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/8585
+Usability,learn,learn,remove learn more,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/8851
+Usability,clear,clear,[query][bugfix] clear region in rvd.,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/9009
+Usability,simpl,simplify,[query] Fix simplify rule for nested TableFilterIntervals,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/9114
+Usability,simpl,simplify,[query] Add simplify rule for repartition(range),MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/9158
+Usability,simpl,simplify,[query] Fix simplify rules related to interval filter pushdown,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/9179
+Usability,simpl,simplify,[query] Drastically simplify binding-based computation/rewrite code,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/9247
+Usability,simpl,simple,[memory] add simple read-only cache,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/9349
+Usability,simpl,simplify,[query/lir] simplify Classx.,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/9491
+Usability,undo,undoing,[query Start undoing value misuse related to ndarrays,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/9708
+Usability,guid,guidelines,Update contributing guidelines,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/9752
+Usability,simpl,simplifying,[query] Begin simplifying EmitCode constructors.,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10009
+Usability,simpl,simplify,[query] simplify strange stdev formula,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10132
+Usability,simpl,simple,[libhail] Add simple testing infrastructure,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10231
+Usability,simpl,simplification,[query] pca simplification/optimization,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10264
+Usability,simpl,simplify,atch] simplify BPE implementation,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10322
+Usability,clear,clear,[batch] Fix UI to make user errors clear,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10329
+Usability,simpl,simplify,[shuffler] Refactor/simplify codegen interfaces,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10421
+Usability,simpl,simplify,[query] Added simplify rules for nested ndarray maps and for ndarray shape,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10433
+Usability,simpl,simplify,[query] Fixed BlockMatrixToValueApply simplify rule,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10481
+Usability,guid,guide,[dev-docs] Add rudimentary tool guide,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10499
+Usability,simpl,simplify,[compiler] Add simplify rule to push maps inside flat maps,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10525
+Usability,clear,clearer,[batch] Make error messages clearer in the UI and formatted correctly,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10545
+Usability,simpl,simplify,[query] simplify ndarray coiterate interface,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10622
+Usability,progress bar,progress bar,[batch] Job progress bar,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10687
+Usability,simpl,simplify,[query] ArraySlice simplify rules,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10755
+Usability,simpl,simplify,[query] ArraySlice simplify,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10759
+Usability,simpl,simple,[query/compiler] Update simple dependencies,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10830
+Usability,simpl,simple,[devbin] Add simple function for switching hail GCP projects,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10846
+Usability,progress bar,progress bars,opy about tqdm progress bars,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/10937
+Usability,simpl,simple,[compiler] add simple copy propagation,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/11004
+Usability,simpl,simplify,[query] Fix insert fields simplify bug,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/11198
+Usability,simpl,simplify,[query] Fixed simplify InsertFields bug and added appropriate test,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/11340
+Usability,user-friendly,user-friendly,[query/service] use error id to raise user-friendly errors,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/11624
+Usability,simpl,simplify,[query/service] simplify ServiceBackend by abstracting over ExecuteContext,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/11646
+Usability,progress bar,progress bar,[batch]progress bar color change,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/11661
+Usability,simpl,simplification,[query] add simplification for TableFilterIntervals with empty intervals,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/11693
+Usability,progress bar,progress bar,[copy] make --verbose show a progress bar,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/11776
+Usability,simpl,simplify,[query] import_table: simplify code and improve speed,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/11782
+Usability,simpl,simplify,[hailtop][batch] unify & simplify docker transient error handling,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/11943
+Usability,clear,clear,[fs] Dont clear the buffer when seeking within bounds,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/12061
+Usability,simpl,simplify,[query] Fix FilterIntervals simplify rule,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/12179
+Usability,simpl,simple,[batch] simple & understandable metrics,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/12253
+Usability,simpl,simplify,[query][qob] simplify QoB error handling and fix flaky test,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/12470
+Usability,progress bar,progress bars,[batch] Omit setup progress bars on small batch submission,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/12554
+Usability,simpl,simplifier,[compiler] extend + fix simplifier for integral types,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/12754
+Usability,simpl,simple,"[batch] it is not simple and straightforward to write a Python script that uses Python jobs which need: Hail, a set of local Python files, and third party dependencies.",MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/13161
+Usability,simpl,simplify,[query] always allow simplify to repartition,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/13218
+Usability,simpl,simplify,[batch] maybe simplify jobs_after_update,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/13372
+Usability,simpl,simplify,[jvm-fs] simplify use of URLs,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/13650
+Usability,progress bar,progress bar,[batch] disable bunch submission progress bar when fewer than 100,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/13668
+Usability,progress bar,progress bar,[batch] disable bunch submission progress bar when fewer than 100,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/13669
+Usability,progress bar,progress bars,[fs] improve copy tool progress bars,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/13832
+Usability,feedback,feedback,[website] add a link to the community feedback survey to website,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/13986
+Usability,responsiv,responsive,[batch] reproduce Ben's non-responsive worker issue and convert to a test,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/13992
+Usability,clear,clearly,c_relate should more clearly indicate and provide better defaults for calculating PC scores,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/14008
+Usability,clear,clear,"[query] The VDS docs need to be crystal clear about ""dense"" and ""sparse""",MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/issues/14009
+Usability,guid,guide-analysis,[guide-analysis] Host guide browser in hail-vdc,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/14078
+Usability,guid,guide,[guide-analysis] Host guide browser in hail-vdc,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/14078
+Usability,progress bar,progress bar,tils] Add Batch monitor and custom multi-state progress bar,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/14100
+Usability,simpl,simplify,[gear] simplify database retry logic,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/14369
+Usability,simpl,simplification,[compiler] PruneDeadFields simplification,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/14455
+Usability,simpl,simplify,[compiler] simplify PruneDeadFields,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/14509
+Usability,simpl,simplify,[compiler] simplify NormalizeNames,MatchSource.ISSUE,hail-is,hail,0.2.133,https://github.com/hail-is/hail/pull/14514

@@ -1,0 +1,10 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
+Usability,clear,clear,Error logging while localizing a DRS URI should now be more clear especially when there is a Requester Pays bucket involved.,MatchSource.RELEASES,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/releases/tag/54
+Usability,usab,usable,Cromwell will not be usable during the time the Liquibase migration for this refactor is running.,MatchSource.RELEASES,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/releases/tag/49
+Usability,usab,usable,Cromwell will not be usable during the time the Liquibase migration for this refactor is running.,MatchSource.RELEASES,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/releases/tag/43
+Usability,simpl,simply,"Because Cromwell's AWS backend auto-sizes disks, the size specification is simply discarded.",MatchSource.RELEASES,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/releases/tag/41
+Usability,simpl,simpler,The HealthMonitor configuration has been refactored to provide a simpler interface:,MatchSource.RELEASES,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/releases/tag/40
+Usability,simpl,simple,The load controller is currently a simple on/off switch controlling the job start rate.,MatchSource.RELEASES,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/releases/tag/31
+Usability,simpl,simple,"The `hit` boolean is a simple indication of whether or not it was a hit, with no additional information.",MatchSource.RELEASES,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/releases/tag/25
+Usability,undo,undocumented,There is also an undocumented config key,MatchSource.RELEASES,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/releases/tag/0.21
+Usability,simpl,simply,- Changed the JES runtime attributes `defaultDisks` and `defaultZones` to be simply `disks` and `zones` respectively.,MatchSource.RELEASES,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/releases/tag/0.18
