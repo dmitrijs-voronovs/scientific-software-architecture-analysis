@@ -43,3 +43,4 @@ Usability,guid,guide,Improve setting explanation in the guide,MatchSource.ISSUE,
 Usability,feedback,feedback,Ensure feedback work for all trajectories,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/2424
 Usability,progress bar,progress bar,HTML progress bar is broken in Jupyter notebooks,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/2475
 Usability,guid,guide,un_from_experiement` in the guide.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/2479
+Usability,usab,usable,Parfor is not usable,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/2551
