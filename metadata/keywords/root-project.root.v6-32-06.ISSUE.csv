@@ -1,0 +1,141 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
+Usability,guid,guide,[TDF] Update user guide,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/418
+Usability,guid,guide,[TDF] Add ranges to user guide + a little bit of code formatting,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/449
+Usability,undo,undoing,Support undoing of #undef preprocessor tokens.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/645
+Usability,guid,guide,[TDF] Update user guide,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/764
+Usability,simpl,simple,Add a simple contributing file.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/839
+Usability,clear,clear,In TClingCallFunc use new TMutex::Reset/Restore() to clear any and all locks active before entering user code.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/1192
+Usability,simpl,simplify,Fix compiler warnings and simplify function,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/1209
+Usability,guid,guide,[DOC] Fix Alias example usage in TDF user guide,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/1542
+Usability,usab,usability,[TMVA] Enhance usability of CVResults and Envelope interfaces,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/1694
+Usability,simpl,simple,"[TDF][TO REVERT] Disable dataframe_{interface,simple} tests",MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/1906
+Usability,simpl,simplification,TLine simplification,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/1926
+Usability,simpl,simple,"[RDF] Re-enable all of dataframe_{cache,simple,interface}",MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/2066
+Usability,simpl,simple,"[RDF] Re-enable dataframe_{interface,simple}",MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/2083
+Usability,guid,guide,[DF][DOC] Small amendments to user guide,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/2105
+Usability,guid,guide,[DF][DOC] Small amendments to user guide,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/2109
+Usability,clear,clear,[DF] Use auto instead of auto* when it's clear type is a pointer,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/2126
+Usability,guid,guidelines,Document current coding style guidelines.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/2298
+Usability,simpl,simpler,[DF] Simplify internals now that lifetimes are simpler,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/2536
+Usability,simpl,simpler,[DF] Simplify logic now that lifetimes are simpler,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/2594
+Usability,simpl,simply,"webgui: simply ignore Show() in batch, update most of tutorials",MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/2655
+Usability,clear,clearer,Add clearer wrt ownership interface to produce TInterpreterValue,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/2795
+Usability,guid,guide,[DF][NFC] Mention conversion to RNode in user guide,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/2974
+Usability,learn,learning,Fix TTreeCache issue related to learning from ROOT-9773.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/3007
+Usability,learn,learning,Fix TTreeCache issue related to learning from ROOT-9773.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/3014
+Usability,learn,learning,Fix TTreeCache issue related to learning from ROOT-9773.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/3015
+Usability,simpl,simply,"[R] #undef Free, simply because.",MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/3053
+Usability,simpl,simplify,Eve7: simplify generation of composite shape,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/3148
+Usability,guid,guide,[NFC][TMVA] Users guide -- update instructions for randomised trees,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/3256
+Usability,simpl,simple,[Core] 1MB less RSS at root startup with simple optimisations,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/3383
+Usability,simpl,simplification,[TMVA] Optimizer choice simplification,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/3414
+Usability,clear,clearly,Fixing notfn a bit more clearly,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/3432
+Usability,simpl,simplification,[TMVA] Optimizer choice simplification (Update of #3414),MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/3493
+Usability,simpl,simplification,TMVA regression output code simplification,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/3694
+Usability,simpl,simplify,"Revert ""Further simplify the code.",MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/3734
+Usability,simpl,simplify,Reland simplify loadpcm,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/3747
+Usability,simpl,simplify,Cxxmodules simplify lib registration,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/3798
+Usability,guid,guides,[Doc] Resolving grammatical errors and spellings in user-guides,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/3816
+Usability,clear,clearly,[tcling] Use more variables to denote clearly the state and intent.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/3896
+Usability,simpl,simple,[webgui] introduce simple RWebWindow tutorial,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/4022
+Usability,guid,guide,"elp"" command, modified to open the online reference guide (generat…",MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/4203
+Usability,simpl,simplify,"[RDrawable] change drawable identifier logic, simplify painting",MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/4469
+Usability,undo,undo,undo fix to remove extra ///,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/5433
+Usability,learn,learning,Add 3 new tutorials for TMVA deep learning:,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/5441
+Usability,simpl,simplify,[cmake] simplify include dirs handling in ROOT_GENERATE_DICTIONARY,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/5573
+Usability,simpl,simplify,[ntuple] WIP simplify offset column indexing,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/5714
+Usability,guid,guide,Ref guide version changer,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/5863
+Usability,simpl,simplify,[DF][ntuple] simplify RNTupleDS construction with new fields iterator,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/5910
+Usability,guid,guide,[DF][NFC] Fix error in user guide image,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/6032
+Usability,usab,usability,[RF] Speed improvement and a little usability,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/6090
+Usability,usab,usable,[Core] Attempt to make TThreadExecutor usable even if (build option) IMT=OFF,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/6298
+Usability,guid,guide,TTree users guide,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/6358
+Usability,usab,usability,"[webgui] adoption of jsroot v6, improve usability with ROOT6 classes",MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/6739
+Usability,clear,clear,[VecOps] Interaction between memory adoption and `clear` yields wrong results,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/6796
+Usability,guid,guidelines,"[README] Remove link to removed ""Bug reporting guidelines"":",MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/6834
+Usability,guid,guide,[DF] Section of RDF reference guide about RDF+RVec,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/7086
+Usability,guid,guide,Make the web gui doc visible in the ref guide,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/7138
+Usability,guid,guide,RFitPanel missing from reference guide,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/7304
+Usability,clear,clear,Make clear THtml is legacy code,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/7312
+Usability,clear,clearing,[RF] Avoid clearing full RunContext after each NLL evaluation,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/7344
+Usability,guid,guide,[DF][skip-ci] Revise user guide,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/7388
+Usability,simpl,simplify,Fix and simplify copy_headers for Travis,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/7434
+Usability,simpl,simplify,[clingutils] simplify TMetaUtils::GetCppName,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/7463
+Usability,usab,usability,Improve usability of root-config.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/7663
+Usability,guid,guide,Fixing user guide markdown issues,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/7756
+Usability,guid,guide,[DF][skip-ci] Minor updates to RDF user guide,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/7797
+Usability,usab,usability,[RF] Documentation and usability improvements,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/7997
+Usability,guid,guide,fix opening reference guide with .,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/8025
+Usability,guid,guide,Update links of the ref guide main page,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/8062
+Usability,usab,usability,[RF] Improve some documentation and usability,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/8070
+Usability,guid,guide,Implement json output for v7 tutorials in the reference guide.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/8122
+Usability,guid,guide,Tutorials order in the reference guide,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/8342
+Usability,guid,guide,Preserve JSROOT when generating reference guide,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/8599
+Usability,progress bar,progress bar,[RDF] Add progress bar + event statistics,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/8675
+Usability,progress bar,progress bar,RDF progress bar,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/8685
+Usability,guid,guide,Update the ref guide main page,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/8887
+Usability,guid,guide,[doc] CMake flag for building Doxygen reference guide,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/8950
+Usability,simpl,simply,Try to simply update xrootd version (by M.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/8963
+Usability,simpl,simple,[DF] Add two simple tutorials in C++ and Python,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/8990
+Usability,simpl,simple,[DF] Trigger the creation of notebooks for RDF simple tutorials,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/9002
+Usability,guid,guide,[skip-ci] Import the old user's guide into the reference Guide.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/9059
+Usability,guid,guide,[skip-ci] remove reference to the old user's guide,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/9063
+Usability,simpl,simplify,Update and simplify some code for C++14,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/9071
+Usability,guid,guide,[skip-ci] improve the cleanup after the ref guide build,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/9076
+Usability,guid,guide,Some tutorials did not show correctly in the ref guide.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/9125
+Usability,clear,clearer,"[DF] Add a missing include, make some code slightly clearer",MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/9190
+Usability,usab,usability,[RF] Refactor RooFitHS3 to solve various bugs and improve usability,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/9482
+Usability,simpl,simple,Eve-7 Add simple window management and improve message log,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/9515
+Usability,guid,guide,[DF][NFC] Change RDF reference guide,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/9606
+Usability,simpl,simplify,[cmake] simplify copies of misc files into build directory,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/9834
+Usability,simpl,simplify,"Revert ""[cmake] simplify copies of misc files into build directory""",MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/9872
+Usability,usab,usable,Make TFile usable as context manager,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/9947
+Usability,clear,clear,Capture CTRL+L in ROOT prompt to clear,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/10057
+Usability,undo,undo,[cling] crash / compilation exception after undo,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/10178
+Usability,undo,undo,[textinput] Clear undo buffer after taking an input line,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/10192
+Usability,guid,guide,TMVA Errors while building the reference guide.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/10461
+Usability,simpl,simplify,Remove VariationsNode and simplify node creation,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/10565
+Usability,guid,guides,[TGL] Add scaling factor for TGLViewer axis guides.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/10573
+Usability,clear,clearly,[TCanvas] How to set the size for Canvas to show more histograms clearly when using THttpServer?,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/10657
+Usability,clear,cleared,[RF] Change buffer management in BatchMode such that queues get cleared,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/10736
+Usability,simpl,simplify,"Protect `strlen(nullptr)` in gpad and graf classes, improve/simplify TMultiGraph ""pads"" drawing",MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/10855
+Usability,simpl,simple,[GL] Add scaling factors for width and bounding-box size used when drawing simple axes in TGLViewer,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/11180
+Usability,guid,guide,[skip=-ci] \ was not displayed in ref guide.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/11184
+Usability,clear,clearer,[DF] Make API clearer w.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/11471
+Usability,simpl,simply,[cmake] Xcode 14 warns about `-undefined dynamic_lookup`; simply suppress,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/11691
+Usability,simpl,simply,[v626][cmake] Xcode 14 warns about `-undefined dynamic_lookup`; simply suppress:,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/11693
+Usability,simpl,simplify,[RF] remove RooGradMinimizerFcn and simplify RooMinimizer configuration,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/11716
+Usability,simpl,simply,"Revert ""[cmake] Xcode 14 warns about -undefined dynamic_lookup; simply suppress:""",MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/12045
+Usability,guid,guide,Mention RDatasetSpec in the user guide,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/12191
+Usability,simpl,simplify,[cling] Set up TargetMachine for JITLink and simplify its creation,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/12218
+Usability,simpl,simplify,[math] Add virtual HasGradient() to ROOT::Math function base classes and simplify them,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/12257
+Usability,guid,guide,[skip-ci] fix ref guide build for non master branch,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/12382
+Usability,guid,guide,User guide: remove contradiciton on STL splitting,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/12551
+Usability,guid,guides,REve: Add option to draw axis guides,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/12634
+Usability,simpl,simplify,"[skip-ci][NFC][DF] Fix doxygen formatting, simplify wording",MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/13148
+Usability,user experience,user experience,Improve documentation/user experience when using globbing with remote paths,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/13258
+Usability,simpl,simple,[ntuple] Speed up reading/writing of simple vectors,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/13590
+Usability,clear,clear,[RF] Add function to clear Minuit status history in RooMinimizer,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/13610
+Usability,pause,pause,"[PyROOT, Graphics] Cannot pause pyROOT script with `input()` and see canvases",MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/13744
+Usability,progress bar,progress bar,[DF] Improve progress bar finalization,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/13855
+Usability,guid,guides,[cling] Use deduction guides for llvm::ArrayRef,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/14219
+Usability,guid,guides,[cling] Use deduction guides for llvm::ArrayRef,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14221
+Usability,guid,guidelines,[NFC][CONTRIBUTING] Extend contribution guidelines,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14410
+Usability,simpl,simple,TTreeFormula give the wrong result in case of renaming rule (both simple and complex),MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/14493
+Usability,clear,clear,[ROOT-10802] We need a clear explanation of cycle numbers in our docs,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/14584
+Usability,simpl,simplify,[ntuple] simplify REntry implementation,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14756
+Usability,learn,learn,) of scikit-learn,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14977
+Usability,progress bar,progress bar,[RDataFrame] Inaccurate example of progress bar from documentation,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/15040
+Usability,progress bar,progress bar,[skip-CI][DF][NFC] Mention AsRNode in the progress bar documentation,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/15041
+Usability,learn,learn,[CI] Add `xgboost` and `scikit-learn` to requirements,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/15183
+Usability,learn,learn,[v628][CI] Add `xgboost` and `scikit-learn` to requirements,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/15237
+Usability,learn,learn,[v630][CI] Add `xgboost` and `scikit-learn` to requirements,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/15238
+Usability,simpl,simple,[Web Graphics] Two failures with one simple PyROOT plotter,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/15474
+Usability,clear,clearer,and make the year labels clearer | simplify timeonaxis examples.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/15674
+Usability,simpl,simplify,and make the year labels clearer | simplify timeonaxis examples.,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/15674
+Usability,guid,guide,[skip-ci][ci][docu] Generate ref guide with Makefile and Github Actions,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/15769
+Usability,simpl,simple,[ntuple] remove parameter from simple SealPage overload,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/15849
+Usability,usab,usable,[RF] Make Offset(“bin”) usable for CLs method,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/15959
+Usability,guid,guide,Update build guide for cling,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/15972
+Usability,clear,clear,Doc for `RInterface::Take` isn't clear about `column` parameter,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/issues/16487
+Usability,simpl,simple,[df] Avoid lock to check simple typeids,MatchSource.ISSUE,root-project,root,v6-32-06,https://github.com/root-project/root/pull/16528

@@ -52,7 +52,7 @@ class KeywordParser:
         sentences = re.split(r'(\r?\n|\.)', text)
         for quality_attr, keywords in self.attributes.items():
             for sentence in sentences:
-                pattern = self._get_keyword_matching_pattern(keywords)
+                pattern = self.get_keyword_matching_pattern(keywords)
                 match = re.search(pattern, sentence)
                 if match:
                     full_match, keyword = match.group(), match.group(1)
@@ -64,7 +64,7 @@ class KeywordParser:
                                         sentence=sentence.strip())
 
     @staticmethod
-    def _get_keyword_matching_pattern(keywords):
+    def get_keyword_matching_pattern(keywords):
         return re.compile(rf'\b({"|".join(keywords)})[A-Za-z-]*\b')
 
     @staticmethod

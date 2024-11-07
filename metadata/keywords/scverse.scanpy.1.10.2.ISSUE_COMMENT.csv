@@ -1243,3 +1243,4 @@ Usability,feedback,feedback,See visual diffs & provide feedback on Jupyter Noteb
 Usability,feedback,feedback,See visual diffs & provide feedback on Jupyter Notebooks.,MatchSource.ISSUE_COMMENT,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/3222#issuecomment-2324014303
 Usability,learn,learn-intelex,@kaushalprasadhial We internal discussed adding `scikit-learn-intelex` as a dependency.,MatchSource.ISSUE_COMMENT,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/3279#issuecomment-2429335571
 Usability,simpl,simply,> Am I right that you simply,MatchSource.ISSUE_COMMENT,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/3307#issuecomment-2437524080
+Usability,clear,clear,"If I replace the `warn` with a `print`, it’s clear that the correct (non-parallel) function is called from Dask’s thread.",MatchSource.ISSUE_COMMENT,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/3335#issuecomment-2457625478

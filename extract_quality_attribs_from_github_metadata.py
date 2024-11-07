@@ -17,7 +17,7 @@ from pymongo.collection import Collection
 from pymongo.command_cursor import CommandCursor
 from tqdm import tqdm
 
-from extract_quality_attribs_from_docs import get_keyword_matching_pattern, \
+from extract_quality_attribs_from_docs import KeywordParser, \
     FullMatch, MatchSource, save_to_file
 from metadata.repo_info.repo_info import credential_list
 from model.Credentials import Credentials
@@ -453,7 +453,7 @@ def save_matched_keywords(creds, db, quality_attributes_map: QualityAttributesMa
         db.extract_release_body_keywords: MatchSource.RELEASES
     }
     for quality_attr, keywords in quality_attributes_map.items():
-        pattern = get_keyword_matching_pattern(keywords)
+        pattern = KeywordParser.get_keyword_matching_pattern(keywords)
         for gen, source in generators_to_sources.items():
             matches = []
             for match in tqdm(gen(pattern), desc=f"Processing {quality_attr} / {source.value}"):
