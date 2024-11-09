@@ -1599,3 +1599,803 @@ Output your response as a JSON object in the following format:
   ""reasoning"": ""<str>""
 }
 ",True,"While 'learn' is related to usability, the sentence focuses on the technical implementation of 'transfer learning' within the project, not on the ease of learning for the users. The sentence lacks any indication of user experience or learning related to usability."
+ISSUE_COMMENT,Usability,702,clear,clear,"it's not clear what the problem here sorry, can you copy the error and report a reproducible example?",,scverse,scanpy,1.10.2,,https://github.com/scverse/scanpy/issues/1220#issuecomment-702374437,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Matched Word: clear
+Sentence: it's not clear what the problem here sorry, can you copy the error and report a reproducible example?
+Source: ISSUE_COMMENT
+Keyword: clear
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While 'clear' is related to understanding, it doesn't directly address usability in the context of the sentence. The sentence focuses on the clarity of the error message, which is more related to 'understandability' or 'informativeness', both of which are aspects of usability but not the core focus of the quality attribute definition. 'Clear' here doesn't specifically relate to the ease of use or efficiency of the system, which are central to usability."
+ISSUE_COMMENT,Usability,12,clear,clearing,After I circumvented the bug above by clearing `README.,,scverse,scanpy,1.10.2,,https://github.com/scverse/scanpy/issues/43#issuecomment-342897102,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Matched Word: clearing
+Sentence: After I circumvented the bug above by clearing `README.
+Source: ISSUE_COMMENT
+Keyword: clear
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While 'clearing' could be related to usability in some scenarios, in this context, it simply refers to the act of removing content from a file. This action doesn't directly relate to ease of learning, efficient usage, or adaptability to user needs, which are core aspects of usability."
+WIKI,Availability,2181,avail,available,Standardized and expanded available arguments to the sc,stable/release-notes/index.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/release-notes/index.html#:~:text=Standardized%20and%20expanded%20available%20arguments%20to%20the%20sc,"The system's readiness to perform its function when required, focusing on reliability and recovery. It involves fault masking or repair to prevent failures, ensuring minimal cumulative downtime.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Availability
+Attribute Description: The system's readiness to perform its function when required, focusing on reliability and recovery. It involves fault masking or repair to prevent failures, ensuring minimal cumulative downtime.
+Matched Word: available
+Sentence: Standardized and expanded available arguments to the sc
+Source: WIKI
+Keyword: avail
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While 'available' is related to availability, the sentence does not discuss the system's readiness or ability to handle failures. It mentions expanding arguments, which is unrelated to the attribute description."
+WIKI,Availability,3605,down,download,"Alternatively, download the whole scanpy-tutorial repository",stable/tutorials/basics/clustering-2017.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/tutorials/basics/clustering-2017.html#:~:text=Alternatively%2C%20download%20the%20whole%20scanpy-tutorial%20repository,"The system's readiness to perform its function when required, focusing on reliability and recovery. It involves fault masking or repair to prevent failures, ensuring minimal cumulative downtime.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Availability
+Attribute Description: The system's readiness to perform its function when required, focusing on reliability and recovery. It involves fault masking or repair to prevent failures, ensuring minimal cumulative downtime.
+Matched Word: download
+Sentence: Alternatively, download the whole scanpy-tutorial repository
+Source: WIKI
+Keyword: down
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The word 'down' in the sentence refers to downloading a file, which is unrelated to the system's availability. The sentence doesn't mention anything about system failures, fault tolerance, or recovery mechanisms."
+WIKI,Availability,2190,error,errored,normalize_total() errored if the passed object was a view pr1200 I Virshup,stable/release-notes/index.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/release-notes/index.html#:~:text=normalize_total%28%29%20errored%20if%20the%20passed%20object%20was%20a%20view%20pr1200%20I%20Virshup,"The system's readiness to perform its function when required, focusing on reliability and recovery. It involves fault masking or repair to prevent failures, ensuring minimal cumulative downtime.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Availability
+Attribute Description: The system's readiness to perform its function when required, focusing on reliability and recovery. It involves fault masking or repair to prevent failures, ensuring minimal cumulative downtime.
+Matched Word: errored
+Sentence: normalize_total() errored if the passed object was a view pr1200 I Virshup
+Source: WIKI
+Keyword: error
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While 'error' is related to system failures, it doesn't directly address the system's ability to recover or remain functional. The sentence describes a specific code error during a function call, not the overall availability of the system."
+WIKI,Deployability,347,pipeline,pipelines,Viewing plots from failed tests on Azure pipelines#,stable/dev/ci.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/dev/ci.html#:~:text=Viewing%20plots%20from%20failed%20tests%20on%20Azure%20pipelines%23,"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Deployability
+Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
+Matched Word: pipelines
+Sentence: Viewing plots from failed tests on Azure pipelines#
+Source: WIKI
+Keyword: pipeline
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While pipelines are often associated with deployment, the sentence focuses on visualizing test failures within the pipeline, not the deployment process itself. This is more related to testability rather than deployability."
+WIKI,Deployability,2204,install,installation,Update conda installation instructions pr1974 L Heumos,stable/release-notes/index.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/release-notes/index.html#:~:text=Update%20conda%20installation%20instructions%20pr1974%20L%20Heumos,"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Deployability
+Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
+Matched Word: installation
+Sentence: Update conda installation instructions pr1974 L Heumos
+Source: WIKI
+Keyword: install
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While 'install' is related to deployment, it focuses on the initial setup of software rather than the ongoing process of deploying updates or changes to an operational environment. Deployability emphasizes the speed, automation, and granularity of deploying updates and rollbacks, which are not directly addressed by 'installation' in this context."
+WIKI,Deployability,851,continuous,continuous,"sort_order bool (default: True)For continuous annotations used as color parameter, plot data points",stable/generated/scanpy.external.pl.phate.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/generated/scanpy.external.pl.phate.html#:~:text=sort_order%20bool%20%28default%3A%20True%29For%20continuous%20annotations%20used%20as%20color%20parameter%2C%20plot%20data%20points,"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Deployability
+Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
+Matched Word: continuous
+Sentence: sort_order bool (default: True)For continuous annotations used as color parameter, plot data points
+Source: WIKI
+Keyword: continuous
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The sentence describes a feature of data visualization, specifically regarding continuous annotations and plotting. This has no relation to the deployability of the software. The word 'continuous' here refers to data characteristics, not deployment aspects."
+WIKI,Energy Efficiency,66,efficient,efficiently,The Python-based implementation efficiently deals with,stable/index-2.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/index-2.html#:~:text=The%20Python-based%20implementation%20efficiently%20deals%20with,"The system’s ability to optimize resource use and minimize energy consumption while achieving required performance. This involves monitoring, allocation, and adaptation of resources.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Energy Efficiency
+Attribute Description: The system’s ability to optimize resource use and minimize energy consumption while achieving required performance. This involves monitoring, allocation, and adaptation of resources.
+Matched Word: efficiently
+Sentence: The Python-based implementation efficiently deals with
+Source: WIKI
+Keyword: efficient
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While 'efficiently' implies some level of optimization, it doesn't directly relate to energy consumption, which is the core of the Energy Efficiency quality attribute. The sentence simply indicates the implementation's effectiveness, not its resource use or energy minimization."
+WIKI,Energy Efficiency,3799,reduce,reduce,We now reduce the dimensionality of the data by running PCA on the Pearson residuals,stable/tutorials/experimental/pearson_residuals.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/tutorials/experimental/pearson_residuals.html#:~:text=We%20now%20reduce%20the%20dimensionality%20of%20the%20data%20by%20running%20PCA%20on%20the%20Pearson%20residuals,"The system’s ability to optimize resource use and minimize energy consumption while achieving required performance. This involves monitoring, allocation, and adaptation of resources.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Energy Efficiency
+Attribute Description: The system’s ability to optimize resource use and minimize energy consumption while achieving required performance. This involves monitoring, allocation, and adaptation of resources.
+Matched Word: reduce
+Sentence: We now reduce the dimensionality of the data by running PCA on the Pearson residuals
+Source: WIKI
+Keyword: reduce
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While 'reduce' can be associated with energy consumption, the context of the sentence focuses on data dimensionality reduction using PCA. This is unrelated to energy optimization, which is the core of the Energy Efficiency quality attribute."
+WIKI,Energy Efficiency,3752,reduce,reduce,"As this is a still a significant increase in memory usage per chunk, we will need to reduce the number of observations present in each chunk",stable/tutorials/experimental/dask.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/tutorials/experimental/dask.html#:~:text=As%20this%20is%20a%20still%20a%20significant%20increase%20in%20memory%20usage%20per%20chunk%2C%20we%20will%20need%20to%20reduce%20the%20number%20of%20observations%20present%20in%20each%20chunk,"The system’s ability to optimize resource use and minimize energy consumption while achieving required performance. This involves monitoring, allocation, and adaptation of resources.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Energy Efficiency
+Attribute Description: The system’s ability to optimize resource use and minimize energy consumption while achieving required performance. This involves monitoring, allocation, and adaptation of resources.
+Matched Word: reduce
+Sentence: As this is a still a significant increase in memory usage per chunk, we will need to reduce the number of observations present in each chunk
+Source: WIKI
+Keyword: reduce
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While reducing the number of observations in each chunk might indirectly lead to less memory usage, it does not directly relate to energy efficiency. The sentence focuses on memory optimization, not energy consumption. Energy efficiency involves minimizing power consumption, which can be achieved through techniques like using low-power components, efficient algorithms, and idle state management.  The sentence does not address these aspects."
+WIKI,Integrability,4012,integrat,integration,Data integration and label transfer from scRNA-seq dataset,stable/tutorials/spatial/integration-scanorama.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/tutorials/spatial/integration-scanorama.html#:~:text=Data%20integration%20and%20label%20transfer%20from%20scRNA-seq%20dataset,"The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Integrability
+Attribute Description: The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.
+Matched Word: integration
+Sentence: Data integration and label transfer from scRNA-seq dataset
+Source: WIKI
+Keyword: integrat
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While the sentence mentions 'integration,' it's not in the context of combining systems or components, which is the core of Integrability. The sentence refers to data integration within a specific context (scRNA-seq dataset), not system-level integration."
+WIKI,Integrability,153,interface,interface,Spring: a kinetic interface for visualizing high dimensional single-cell expression data,stable/references.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/references.html#:~:text=Spring%3A%20a%20kinetic%20interface%20for%20visualizing%20high%20dimensional%20single-cell%20expression%20data,"The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Integrability
+Attribute Description: The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.
+Matched Word: interface
+Sentence: Spring: a kinetic interface for visualizing high dimensional single-cell expression data
+Source: WIKI
+Keyword: interface
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While 'interface' is a relevant term in software engineering, in this context it refers to a graphical user interface (GUI) for visualizing data. It doesn't directly relate to the ease of combining systems or components, which is the core of integrability."
+WIKI,Integrability,3725,integrat,integration,which have been used in the seminal papers on single-cell dataset integration [Butler et al,stable/tutorials/basics/integrating-data-using-ingest.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/tutorials/basics/integrating-data-using-ingest.html#:~:text=which%20have%20been%20used%20in%20the%20seminal%20papers%20on%20single-cell%20dataset%20integration%20%5BButler%20et%20al,"The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Integrability
+Attribute Description: The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.
+Matched Word: integration
+Sentence: which have been used in the seminal papers on single-cell dataset integration [Butler et al
+Source: WIKI
+Keyword: integrat
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",False,"The sentence refers to the combination of single-cell datasets, which directly relates to the definition of Integrability as the ease of combining systems or components.  The word 'integration' accurately reflects the concept of combining datasets, aligning with the quality attribute."
+WIKI,Modifiability,697,variab,variable,# use gene symbols for the variable names (variables-axis index),stable/generated/scanpy.datasets.pbmc3k.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/generated/scanpy.datasets.pbmc3k.html#:~:text=%23%20use%20gene%20symbols%20for%20the%20variable%20names%20%28variables-axis%20index%29,"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Matched Word: variable
+Sentence: # use gene symbols for the variable names (variables-axis index)
+Source: WIKI
+Keyword: variab
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While 'variable' is a term related to programming, this sentence discusses the use of gene symbols in naming variables, which relates to coding style or readability rather than the ease of modifying the system. Modifiability focuses on how easily features can be added, removed, or changed, not on how variables are named."
+WIKI,Modifiability,1439,variab,variable,n_top_genes int | None (default: None)Number of highly-variable genes to keep,stable/generated/scanpy.pp.highly_variable_genes.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.highly_variable_genes.html#:~:text=n_top_genes%20int%20%7C%20None%20%28default%3A%20None%29Number%20of%20highly-variable%20genes%20to%20keep,"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Matched Word: variable
+Sentence: n_top_genes int | None (default: None)Number of highly-variable genes to keep
+Source: WIKI
+Keyword: variab
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While the sentence mentions ""highly-variable genes"", it's focused on data analysis and feature selection, not on the system's ease of modification. 'Variable' here refers to data variability, not to the modifiability of the software itself."
+WIKI,Modifiability,1486,layers,layers,"05, key_added=None, layer=None, layers=None, layer_norm=None, inplace=True, copy=False)[source]#",stable/generated/scanpy.pp.normalize_total.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.normalize_total.html#:~:text=05%2C%20key_added%3DNone%2C%20layer%3DNone%2C%20layers%3DNone%2C%20layer_norm%3DNone%2C%20inplace%3DTrue%2C%20copy%3DFalse%29%5Bsource%5D%23,"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Matched Word: layers
+Sentence: 05, key_added=None, layer=None, layers=None, layer_norm=None, inplace=True, copy=False)[source]#
+Source: WIKI
+Keyword: layers
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The word 'layers' in this sentence refers to a software architectural concept (like layers in an onion). While layered architectures can potentially impact modifiability, the sentence itself provides no context about how these 'layers' relate to the ease of adding, removing, or modifying features. It's a false positive because the sentence focuses on a technical detail (layers) without connecting it to the modifiability of the software system."
+WIKI,Performance,995,perform,performed,cos_norm_out bool (default: True)Whether cosine normalization should be performed prior to computing corrected expression values,stable/generated/scanpy.external.pp.mnn_correct.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/generated/scanpy.external.pp.mnn_correct.html#:~:text=cos_norm_out%20bool%20%28default%3A%20True%29Whether%20cosine%20normalization%20should%20be%20performed%20prior%20to%20computing%20corrected%20expression%20values,"The system’s capacity to meet its timing requirements, managing event handling and response times effectively. Performance focuses on reducing blocked time from resource contention and optimizing resource utilization under varying load conditions.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Performance
+Attribute Description: The system’s capacity to meet its timing requirements, managing event handling and response times effectively. Performance focuses on reducing blocked time from resource contention and optimizing resource utilization under varying load conditions.
+Matched Word: performed
+Sentence: cos_norm_out bool (default: True)Whether cosine normalization should be performed prior to computing corrected expression values
+Source: WIKI
+Keyword: perform
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While the word 'perform' is related to the concept of action, it doesn't directly relate to the performance attribute's focus on timing requirements, response times, or resource utilization. The sentence discusses a specific operation (cosine normalization) within the software, not the system's overall performance characteristics."
+WIKI,Performance,3621,cache,cache,reading from cache file cache/data-filtered_gene_bc_matrices-hg19-matrix,stable/tutorials/basics/clustering-2017.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/tutorials/basics/clustering-2017.html#:~:text=reading%20from%20cache%20file%20cache/data-filtered_gene_bc_matrices-hg19-matrix,"The system’s capacity to meet its timing requirements, managing event handling and response times effectively. Performance focuses on reducing blocked time from resource contention and optimizing resource utilization under varying load conditions.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Performance
+Attribute Description: The system’s capacity to meet its timing requirements, managing event handling and response times effectively. Performance focuses on reducing blocked time from resource contention and optimizing resource utilization under varying load conditions.
+Matched Word: cache
+Sentence: reading from cache file cache/data-filtered_gene_bc_matrices-hg19-matrix
+Source: WIKI
+Keyword: cache
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",False,"The sentence references reading from a 'cache file', which directly relates to optimizing resource utilization by storing data for faster access. This aligns with the Performance attribute's focus on managing event handling and response times effectively."
+WIKI,Performance,994,perform,performed,cos_norm_in bool (default: True)Whether cosine normalization should be performed on the input data prior,stable/generated/scanpy.external.pp.mnn_correct.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/generated/scanpy.external.pp.mnn_correct.html#:~:text=cos_norm_in%20bool%20%28default%3A%20True%29Whether%20cosine%20normalization%20should%20be%20performed%20on%20the%20input%20data%20prior,"The system’s capacity to meet its timing requirements, managing event handling and response times effectively. Performance focuses on reducing blocked time from resource contention and optimizing resource utilization under varying load conditions.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Performance
+Attribute Description: The system’s capacity to meet its timing requirements, managing event handling and response times effectively. Performance focuses on reducing blocked time from resource contention and optimizing resource utilization under varying load conditions.
+Matched Word: performed
+Sentence: cos_norm_in bool (default: True)Whether cosine normalization should be performed on the input data prior
+Source: WIKI
+Keyword: perform
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While the word 'perform' is related to the concept of action and execution, it doesn't directly relate to the performance of the system in terms of timing requirements, resource utilization, or responsiveness. The sentence is describing a boolean flag for a specific data processing step (cosine normalization) and not the overall performance of the system."
+WIKI,Safety,3848,avoid,avoid,"To avoid memory problems, we recommend that you reduce the size of your count matrix by gene selection, before running normalize_pearson_residuals(adata) on the reduced data",stable/tutorials/experimental/pearson_residuals.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/tutorials/experimental/pearson_residuals.html#:~:text=To%20avoid%20memory%20problems%2C%20we%20recommend%20that%20you%20reduce%20the%20size%20of%20your%20count%20matrix%20by%20gene%20selection%2C%20before%20running%20normalize_pearson_residuals%28adata%29%20on%20the%20reduced%20data,"The system’s ability to avoid states that could lead to harm or damage. Safety encompasses detection and handling of errors (e.g., omissions, timing, incorrect values) to prevent hazardous outcomes or mitigate potential damage.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Safety
+Attribute Description: The system’s ability to avoid states that could lead to harm or damage. Safety encompasses detection and handling of errors (e.g., omissions, timing, incorrect values) to prevent hazardous outcomes or mitigate potential damage.
+Matched Word: avoid
+Sentence: To avoid memory problems, we recommend that you reduce the size of your count matrix by gene selection, before running normalize_pearson_residuals(adata) on the reduced data
+Source: WIKI
+Keyword: avoid
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While the sentence uses the word 'avoid', it refers to avoiding memory problems, which is related to performance and resource efficiency, not safety. The sentence doesn't discuss potential harm or damage, which are key aspects of the safety attribute."
+WIKI,Safety,3479,predict,prediction,Calculates scores for each observation and each phase and assigns prediction,stable/external/generated/scanpy.external.tl.cyclone.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/external/generated/scanpy.external.tl.cyclone.html#:~:text=Calculates%20scores%20for%20each%20observation%20and%20each%20phase%20and%20assigns%20prediction,"The system’s ability to avoid states that could lead to harm or damage. Safety encompasses detection and handling of errors (e.g., omissions, timing, incorrect values) to prevent hazardous outcomes or mitigate potential damage.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Safety
+Attribute Description: The system’s ability to avoid states that could lead to harm or damage. Safety encompasses detection and handling of errors (e.g., omissions, timing, incorrect values) to prevent hazardous outcomes or mitigate potential damage.
+Matched Word: prediction
+Sentence: Calculates scores for each observation and each phase and assigns prediction
+Source: WIKI
+Keyword: predict
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While prediction can be a part of safety mechanisms (e.g., predicting potential failures), the sentence simply mentions assigning a prediction without any relation to preventing harm or damage. The sentence lacks context about the system's ability to handle errors or mitigate risks."
+WIKI,Safety,1448,detect,detected,"Series (dtype int)If batch_key is given, this denotes in how many batches genes are detected as HVG",stable/generated/scanpy.pp.highly_variable_genes.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.highly_variable_genes.html#:~:text=Series%20%28dtype%20int%29If%20batch_key%20is%20given%2C%20this%20denotes%20in%20how%20many%20batches%20genes%20are%20detected%20as%20HVG,"The system’s ability to avoid states that could lead to harm or damage. Safety encompasses detection and handling of errors (e.g., omissions, timing, incorrect values) to prevent hazardous outcomes or mitigate potential damage.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Safety
+Attribute Description: The system’s ability to avoid states that could lead to harm or damage. Safety encompasses detection and handling of errors (e.g., omissions, timing, incorrect values) to prevent hazardous outcomes or mitigate potential damage.
+Matched Word: detected
+Sentence: Series (dtype int)If batch_key is given, this denotes in how many batches genes are detected as HVG
+Source: WIKI
+Keyword: detect
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While the sentence uses the word 'detect,' it refers to the identification of genes as 'highly variable,' which is not directly related to safety. The sentence doesn't discuss any potential harm or damage that could result from the identification of these genes.  Therefore, the match is a false positive."
+WIKI,Security,577,hash,hash,"dev0, with a commit hash optionally appended as a local version identifier (e",stable/dev/versioning.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/dev/versioning.html#:~:text=dev0%2C%20with%20a%20commit%20hash%20optionally%20appended%20as%20a%20local%20version%20identifier%20%28e,"The system’s ability to safeguard information against unauthorized access, while permitting authorized access. Security emphasizes confidentiality, integrity, and availability, using tactics to detect, prevent, and respond to attacks.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Security
+Attribute Description: The system’s ability to safeguard information against unauthorized access, while permitting authorized access. Security emphasizes confidentiality, integrity, and availability, using tactics to detect, prevent, and respond to attacks.
+Matched Word: hash
+Sentence: dev0, with a commit hash optionally appended as a local version identifier (e
+Source: WIKI
+Keyword: hash
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While hashing is a common technique used in security to ensure data integrity, the sentence merely mentions a commit hash as a version identifier. This is unrelated to protecting information against unauthorized access, which is the core of the security attribute."
+WIKI,Security,660,access,accession,The atlas can be browsed online to find the accession you want,stable/generated/scanpy.datasets.ebi_expression_atlas.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/generated/scanpy.datasets.ebi_expression_atlas.html#:~:text=The%20atlas%20can%20be%20browsed%20online%20to%20find%20the%20accession%20you%20want,"The system’s ability to safeguard information against unauthorized access, while permitting authorized access. Security emphasizes confidentiality, integrity, and availability, using tactics to detect, prevent, and respond to attacks.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Security
+Attribute Description: The system’s ability to safeguard information against unauthorized access, while permitting authorized access. Security emphasizes confidentiality, integrity, and availability, using tactics to detect, prevent, and respond to attacks.
+Matched Word: accession
+Sentence: The atlas can be browsed online to find the accession you want
+Source: WIKI
+Keyword: access
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While 'accession' does relate to access, it is not a direct synonym and doesn't relate to the security aspects of access. The sentence discusses accessing information in a catalog, not security measures."
+WIKI,Security,2285,hash,hashsolo,hashsolo() where default value was set improperly pr2190 B Reiz,stable/release-notes/index.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/release-notes/index.html#:~:text=hashsolo%28%29%20where%20default%20value%20was%20set%20improperly%20pr2190%20B%20Reiz,"The system’s ability to safeguard information against unauthorized access, while permitting authorized access. Security emphasizes confidentiality, integrity, and availability, using tactics to detect, prevent, and respond to attacks.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Security
+Attribute Description: The system’s ability to safeguard information against unauthorized access, while permitting authorized access. Security emphasizes confidentiality, integrity, and availability, using tactics to detect, prevent, and respond to attacks.
+Matched Word: hashsolo
+Sentence: hashsolo() where default value was set improperly pr2190 B Reiz
+Source: WIKI
+Keyword: hash
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",False,"The keyword 'hash' is directly related to cryptographic hashing, which is a fundamental technique used to ensure data integrity and security. Hashing is crucial for protecting information against unauthorized modification and verifying data authenticity. Therefore, the match between 'hash' and 'Security' is accurate."
+WIKI,Testability,2620,log,log,"scale_hist_sim Union[Literal['linear', 'log', 'symlog', 'logit'], str] (default: 'linear')Set y axis scale transformation in matplotlib for the plot of simulated doublets",stable/api/generated/scanpy.pl.scrublet_score_distribution.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/api/generated/scanpy.pl.scrublet_score_distribution.html#:~:text=scale_hist_sim%20Union%5BLiteral%5B%27linear%27%2C%20%27log%27%2C%20%27symlog%27%2C%20%27logit%27%5D%2C%20str%5D%20%28default%3A%20%27linear%27%29Set%20y%20axis%20scale%20transformation%20in%20matplotlib%20for%20the%20plot%20of%20simulated%20doublets,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Matched Word: log
+Sentence: scale_hist_sim Union[Literal['linear', 'log', 'symlog', 'logit'], str] (default: 'linear')Set y axis scale transformation in matplotlib for the plot of simulated doublets
+Source: WIKI
+Keyword: log
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While 'log' is related to the concept of logging in software, which can aid in debugging and testing, it doesn't directly contribute to the ease of validating functionality or facilitating test case creation. In this context, 'log' refers to a logarithmic scale for a plot, which is a visualization choice and not related to testability."
+WIKI,Testability,521,test,test,Possibly the most important part of contributing to any open source package is the test suite,stable/dev/testing.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/dev/testing.html#:~:text=Possibly%20the%20most%20important%20part%20of%20contributing%20to%20any%20open%20source%20package%20is%20the%20test%20suite,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Matched Word: test
+Sentence: Possibly the most important part of contributing to any open source package is the test suite
+Source: WIKI
+Keyword: test
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",False,"The sentence discusses the importance of test suites, which directly relates to the ease of validating software functionality through testing. This aligns with the definition of Testability, as test suites are fundamental for enabling fault detection and facilitating the creation of test cases."
+WIKI,Testability,3646,test,test,"With the exceptions of IL7R, which is only found by the t-test and FCER1A, which is only found by the other two appraoches, all marker genes are recovered in all approaches",stable/tutorials/basics/clustering-2017.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/tutorials/basics/clustering-2017.html#:~:text=With%20the%20exceptions%20of%20IL7R%2C%20which%20is%20only%20found%20by%20the%20t-test%20and%20FCER1A%2C%20which%20is%20only%20found%20by%20the%20other%20two%20appraoches%2C%20all%20marker%20genes%20are%20recovered%20in%20all%20approaches,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Matched Word: test
+Sentence: With the exceptions of IL7R, which is only found by the t-test and FCER1A, which is only found by the other two appraoches, all marker genes are recovered in all approaches
+Source: WIKI
+Keyword: test
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While the sentence mentions 't-test', it refers to a statistical test used to compare means, not to software testing in the context of testability. The sentence focuses on data analysis and marker genes rather than software functionality and ease of testing."
+WIKI,Usability,4034,clear,clearly,"From the clusters, we can clearly see the stratification of the cortical layer in both of the tissues (see the Allen brain atlas for reference)",stable/tutorials/spatial/integration-scanorama.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/tutorials/spatial/integration-scanorama.html#:~:text=From%20the%20clusters%2C%20we%20can%20clearly%20see%20the%20stratification%20of%20the%20cortical%20layer%20in%20both%20of%20the%20tissues%20%28see%20the%20Allen%20brain%20atlas%20for%20reference%29,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Matched Word: clearly
+Sentence: From the clusters, we can clearly see the stratification of the cortical layer in both of the tissues (see the Allen brain atlas for reference)
+Source: WIKI
+Keyword: clear
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While 'clear' suggests ease of understanding, it doesn't directly relate to the core aspects of usability like efficiency, error recovery, or user satisfaction. The sentence focuses on visual clarity in data analysis, not the user experience of a software system."
+WIKI,Usability,166,learn,learning,A discriminative learning approach to differential expression analysis for single-cell rna-seq,stable/references.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/references.html#:~:text=A%20discriminative%20learning%20approach%20to%20differential%20expression%20analysis%20for%20single-cell%20rna-seq,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Matched Word: learning
+Sentence: A discriminative learning approach to differential expression analysis for single-cell rna-seq
+Source: WIKI
+Keyword: learn
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The sentence discusses a 'discriminative learning approach' in the context of RNA sequencing analysis.  This refers to machine learning techniques, not the ease of learning how to use a software system, which is the relevant aspect of usability. The sentence is not related to the usability of software."
+WIKI,Usability,1907,learn,learning,minimum increasing the learning rate helps sometimes,stable/generated/scanpy.tl.tsne.html,scverse,scanpy,1.10.2,,https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.tsne.html#:~:text=minimum%20increasing%20the%20learning%20rate%20helps%20sometimes,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the matched keyword accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the match makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Matched Word: learning
+Sentence: minimum increasing the learning rate helps sometimes
+Source: WIKI
+Keyword: learn
+
+Instructions: 
+1. Analyze the sentence, the matched word, and the attribute description.
+2. Determine if the matched word accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"While 'learning' is related to usability, the sentence focuses on the 'learning rate' in a machine learning context, not user learning. Therefore, the keyword is not accurate in relation to the provided context."
