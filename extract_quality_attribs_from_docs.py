@@ -162,7 +162,7 @@ if __name__ == "__main__":
         try:
             # checkout_tag(creds['author'], creds['repo'], creds['version'])
 
-            append_full_text = True
+            append_full_text = False
             parser = KeywordParser(quality_attributes, creds, append_full_text=append_full_text)
 
             if creds.has_wiki():
