@@ -82,13 +82,7 @@ class KeywordParser:
         return soup.get_text()
 
     @staticmethod
-    def _generate_text_fragment_link(base_url: str, text: str, page: str = "") -> str:
-        full_url = f"{base_url}/{page}" if page else base_url
-        encoded_text = urllib.parse.quote(text)
-        return f"{full_url}#:~:text={encoded_text}"
-
-    @staticmethod
-    def _generate_wiki_link(base_url: str, text: str, page: str = "") -> str:
+    def _generate_link(base_url: str, page: str = "") -> str:
         full_url = f"{base_url}/{page}" if page else base_url
         return full_url
 
@@ -103,7 +97,7 @@ class KeywordParser:
             text_content = self._strip_html_tags(documentation_raw)
             matches.extend(
                 [FullMatch(**match, source=MatchSource.WIKI, filename=rel_path, **self.creds,
-                           url=self._generate_wiki_link(self.creds['wiki'], match.get("sentence"), rel_path)) for
+                           url=self._generate_link(self.creds['wiki'], rel_path)) for
                  match in
                  self._text_keyword_iterator(text_content)])
 
@@ -155,7 +149,7 @@ class KeywordParser:
                 text_content = self._strip_html_tags(documentation_raw) if ext in ".html" else documentation_raw
                 matches.extend(
                     [FullMatch(**match, source=MatchSource.DOCS, filename=rel_path, **self.creds,
-                               url=self._generate_text_fragment_link(repo_url, match.get("sentence"), rel_path)) for
+                               url=self._generate_link(repo_url, rel_path)) for
                      match in
                      self._text_keyword_iterator(text_content)])
 
@@ -177,7 +171,7 @@ class KeywordParser:
                     text_content = "\n".join(get_comments(abs_path))
                     matches.extend(
                         [FullMatch(**match, source=MatchSource.CODE_COMMENT, filename=rel_path, **self.creds,
-                                   url=self._generate_text_fragment_link(repo_url, match.get("sentence"), rel_path)) for
+                                   url=self._generate_link(repo_url, rel_path)) for
                          match in
                          self._text_keyword_iterator(text_content)])
 
@@ -215,10 +209,10 @@ if __name__ == "__main__":
                 matches_wiki = parser.parse_wiki(str(docs_path / f'{creds.repo_path}/{creds.wiki_dir}'))
                 save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
 
-            # matches_code_comments = parser.parse_comments(str(source_code_path / creds.get_ref()))
-            # save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
-            #
-            # matches_docs = parser.parse_docs(str(source_code_path / creds.get_ref()))
-            # save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
+            matches_code_comments = parser.parse_comments(str(source_code_path / creds.get_ref()))
+            save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
+
+            matches_docs = parser.parse_docs(str(source_code_path / creds.get_ref()))
+            save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
         except Exception as e:
             print(f"Error processing {creds.get_ref()}: {str(e)}")
