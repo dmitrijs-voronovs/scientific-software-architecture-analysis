@@ -85,7 +85,6 @@ def main():
     res = []
     res_filename = "sample_with_responses_ailab_all2"
     for index, row in tqdm(df.iterrows(), total=df.shape[0]):
-        # r = get_resp(index, row)
         try:
             r = request_google_ailab(model, row["prompt"])
             res.append(r)

@@ -5,8 +5,7 @@ import shelve
 import time
 from dataclasses import dataclass
 from datetime import datetime
-from pathlib import Path
-from typing import Dict, List, Iterator, ClassVar, Literal, cast, TypeGuard, Generator, TypedDict
+from typing import Dict, List, Iterator, ClassVar, Literal, cast, TypeGuard, TypedDict
 
 import dotenv
 from github import Github
@@ -21,7 +20,7 @@ from extract_quality_attribs_from_docs import KeywordParser, \
     FullMatch, MatchSource, save_to_file
 from metadata.repo_info.repo_info import credential_list
 from model.Credentials import Credentials
-from quality_attributes import quality_attributes_sample, QualityAttributesMap, quality_attributes
+from quality_attributes import QualityAttributesMap, quality_attributes
 from services.MongoDBConnection import MongoDBConnection
 
 dotenv.load_dotenv()
@@ -327,9 +326,36 @@ class DB:
             },
             {
                 "$addFields": {
-                    "text": "$comments_data.body",
-                    "text_match": {
-                        "$regexFindAll": {"input": "$comments_data.body", "regex": pattern}},
+                    "text": {
+                        "$replaceAll": {
+                            "input": "$comments_data.body",
+                            "find": "\r\n",
+                            "replacement": " "
+                        }
+                    }
+                }
+            },
+            {
+                "$addFields": {
+                    "text": {
+                        "$replaceAll": {
+                            "input": "$text",
+                            "find": "\n",
+                            "replacement": ""
+                        }
+                    }
+                }
+            },
+            {
+                "$addFields": {
+                    "text": {
+                        "$trim": {"input": "$text"}
+                    }
+                }
+            },
+            {
+                "$addFields": {
+                    "text_match": {"$regexFindAll": {"input": "$text", "regex": pattern}},
                 }
             },
             {
@@ -353,7 +379,35 @@ class DB:
         return self._issue_collection().aggregate([
             {
                 "$addFields": {
-                    "text": "$body",
+                    "text": {
+                        "$replaceAll": {
+                            "input": "$body",
+                            "find": "\r\n",
+                            "replacement": " "
+                        }
+                    }
+                }
+            },
+            {
+                "$addFields": {
+                    "text": {
+                        "$replaceAll": {
+                            "input": "$text",
+                            "find": "\n",
+                            "replacement": ""
+                        }
+                    }
+                }
+            },
+            {
+                "$addFields": {
+                    "text": {
+                        "$trim": {"input": "$text"}
+                    }
+                }
+            },
+            {
+                "$addFields": {
                     "text_match": {"$regexFindAll": {"input": "$body", "regex": pattern}},
                 }
             },
@@ -401,8 +455,36 @@ class DB:
         return self._releases_collection().aggregate([
             {
                 "$addFields": {
-                    "text": "$body",
-                    "text_match": {"$regexFindAll": {"input": "$body", "regex": pattern}},
+                    "text": {
+                        "$replaceAll": {
+                            "input": "$body",
+                            "find": "\r\n",
+                            "replacement": " "
+                        }
+                    }
+                }
+            },
+            {
+                "$addFields": {
+                    "text": {
+                        "$replaceAll": {
+                            "input": "$text",
+                            "find": "\n",
+                            "replacement": ""
+                        }
+                    }
+                }
+            },
+            {
+                "$addFields": {
+                    "text": {
+                        "$trim": {"input": "$text"}
+                    }
+                }
+            },
+            {
+                "$addFields": {
+                    "text_match": {"$regexFindAll": {"input": "$text", "regex": pattern}},
                 }
             },
             {

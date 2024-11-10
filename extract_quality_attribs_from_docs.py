@@ -3,7 +3,7 @@ import re
 import urllib.parse
 from enum import Enum
 from pathlib import Path
-from typing import List, Dict, Generator, Optional
+from typing import List, Dict, Generator, Optional, Tuple
 
 import pandas as pd
 from bs4 import BeautifulSoup
@@ -43,25 +43,34 @@ BASE_GITHUB_URL = "https://github.com"
 
 
 class KeywordParser:
+    context_length = 2000
+
     def __init__(self, attributes: AttributeDictType, creds: Credentials, *, append_full_text: bool = False):
         self.attributes = attributes
         self.creds = creds
         self.append_full_text = append_full_text
 
     def _text_keyword_iterator(self, text: str) -> Generator[TextMatch, None, None]:
-        sentences = re.split(r'(\r?\n|\.)', text)
+        text = self._clean_text(text)
         for quality_attr, keywords in self.attributes.items():
-            for sentence in sentences:
-                pattern = self.get_keyword_matching_pattern(keywords)
-                match = re.search(pattern, sentence)
-                if match:
-                    full_match, keyword = match.group(), match.group(1)
-                    if self.append_full_text:
-                        yield TextMatch(quality_attribute=quality_attr, keyword=keyword, matched_word=full_match,
-                                        sentence=sentence.strip(), text=text if self.append_full_text else None)
-                    else:
-                        yield TextMatch(quality_attribute=quality_attr, keyword=keyword, matched_word=full_match,
-                                        sentence=sentence.strip())
+            pattern = self.get_keyword_matching_pattern(keywords)
+            match = re.search(pattern, text)
+            if match:
+                full_match, keyword = match.group(), match.group(1)
+                context = self._get_match_context(text, match)
+                if self.append_full_text:
+                    yield TextMatch(quality_attribute=quality_attr, keyword=keyword, matched_word=full_match,
+                                    sentence=context, text=text if self.append_full_text else None)
+                else:
+                    yield TextMatch(quality_attribute=quality_attr, keyword=keyword, matched_word=full_match,
+                                    sentence=context)
+
+    @staticmethod
+    def _clean_text(text: str):
+        text = re.sub(r'\.?(?:\r?\n){2,}', ". ", text)
+        text = re.sub(r'\r?\n', "; ", text)
+        text = re.sub(r' {2,}', " ", text)
+        return text
 
     @staticmethod
     def get_keyword_matching_pattern(keywords):
@@ -78,6 +87,11 @@ class KeywordParser:
         encoded_text = urllib.parse.quote(text)
         return f"{full_url}#:~:text={encoded_text}"
 
+    @staticmethod
+    def _generate_wiki_link(base_url: str, text: str, page: str = "") -> str:
+        full_url = f"{base_url}/{page}" if page else base_url
+        return full_url
+
     def parse_wiki(self, wiki_path: str) -> List[FullMatch]:
         matches = []
         files = Path(wiki_path).glob("**/*.html")
@@ -89,11 +103,43 @@ class KeywordParser:
             text_content = self._strip_html_tags(documentation_raw)
             matches.extend(
                 [FullMatch(**match, source=MatchSource.WIKI, filename=rel_path, **self.creds,
-                           url=self._generate_text_fragment_link(self.creds['wiki'], match.get("sentence"), rel_path)) for
+                           url=self._generate_wiki_link(self.creds['wiki'], match.get("sentence"), rel_path)) for
                  match in
                  self._text_keyword_iterator(text_content)])
 
         return matches
+
+    @staticmethod
+    def _get_match_context(text: str, match: re.Match) -> str:
+        if len(text) < KeywordParser.context_length:
+            return text
+
+        sentence_start, sentence_end = KeywordParser._get_match_sentence(match, text)
+        sentence_len = sentence_end - sentence_start
+        left_context = KeywordParser.context_length - sentence_len
+        delta_side = abs(left_context) // 2
+        if left_context < 0:
+            return text[sentence_start + delta_side: sentence_end - delta_side + 1]
+
+        left_side = sentence_start - delta_side
+        right_side = sentence_end + delta_side
+        if left_side < 0:
+            return text[:KeywordParser.context_length + 1]
+        if right_side > len(text):
+            return text[-KeywordParser.context_length:]
+        return text[left_side: right_side + 1]
+
+    @staticmethod
+    def _get_match_sentence(match, text) -> Tuple[int, int]:
+        sentence_start, sentence_end = match.start(), match.end()
+        while sentence_start >= 0 and text[sentence_start] != '.':
+            sentence_start -= 1
+        if sentence_start > 0:
+            sentence_start += 1
+        while sentence_end < len(text) and text[sentence_end] != '.':
+            sentence_end += 1
+
+        return sentence_start, sentence_end
 
     def parse_docs(self, docs_path: str) -> List[FullMatch]:
         repo_url = self._get_github_repo_url()
@@ -169,10 +215,10 @@ if __name__ == "__main__":
                 matches_wiki = parser.parse_wiki(str(docs_path / f'{creds.repo_path}/{creds.wiki_dir}'))
                 save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
 
-            matches_code_comments = parser.parse_comments(str(source_code_path / creds.get_ref()))
-            save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
-
-            matches_docs = parser.parse_docs(str(source_code_path / creds.get_ref()))
-            save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
+            # matches_code_comments = parser.parse_comments(str(source_code_path / creds.get_ref()))
+            # save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
+            #
+            # matches_docs = parser.parse_docs(str(source_code_path / creds.get_ref()))
+            # save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
         except Exception as e:
             print(f"Error processing {creds.get_ref()}: {str(e)}")
