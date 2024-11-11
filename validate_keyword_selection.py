@@ -63,7 +63,7 @@ def get_resp(index, row):
 
 @retry(
     stop=stop_after_attempt(8),
-    wait=wait_incrementing(5, 10),
+    wait=wait_incrementing(10, 10),
     before_sleep=lambda retry_state: print(retry_state),
 )
 def request_google_ailab(model, prompt):
