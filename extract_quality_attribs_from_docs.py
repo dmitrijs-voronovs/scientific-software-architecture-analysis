@@ -34,7 +34,7 @@ class MatchSource(Enum):
 
 
 class FullMatch(TextMatch, Credentials):
-    filename: str
+    filename: Optional[str]
     source: MatchSource
     url: str
 
@@ -50,14 +50,14 @@ class KeywordParser:
         self.creds = creds
         self.append_full_text = append_full_text
 
-    def _text_keyword_iterator(self, text: str) -> Generator[TextMatch, None, None]:
-        text = self._clean_text(text)
+    def matched_keyword_iterator(self, text: str) -> Generator[TextMatch, None, None]:
+        text = KeywordParser._clean_text(text)
         for quality_attr, keywords in self.attributes.items():
-            pattern = self.get_keyword_matching_pattern(keywords)
+            pattern = KeywordParser.get_keyword_matching_pattern(keywords)
             match = re.search(pattern, text)
             if match:
                 full_match, keyword = match.group(), match.group(1)
-                context = self._get_match_context(text, match)
+                context = KeywordParser.get_match_context(text, match.start(), match.end())
                 if self.append_full_text:
                     yield TextMatch(quality_attribute=quality_attr, keyword=keyword, matched_word=full_match,
                                     sentence=context, text=text if self.append_full_text else None)
@@ -99,16 +99,16 @@ class KeywordParser:
                 [FullMatch(**match, source=MatchSource.WIKI, filename=rel_path, **self.creds,
                            url=self._generate_link(self.creds['wiki'], rel_path)) for
                  match in
-                 self._text_keyword_iterator(text_content)])
+                 self.matched_keyword_iterator(text_content)])
 
         return matches
 
     @staticmethod
-    def _get_match_context(text: str, match: re.Match) -> str:
+    def get_match_context(text: str, match_start: int, match_end: int) -> str:
         if len(text) < KeywordParser.context_length:
             return text
 
-        sentence_start, sentence_end = KeywordParser._get_match_sentence(match, text)
+        sentence_start, sentence_end = KeywordParser._get_match_sentence(text, match_start, match_end)
         sentence_len = sentence_end - sentence_start
         left_context = KeywordParser.context_length - sentence_len
         delta_side = abs(left_context) // 2
@@ -124,8 +124,8 @@ class KeywordParser:
         return text[left_side: right_side + 1]
 
     @staticmethod
-    def _get_match_sentence(match, text) -> Tuple[int, int]:
-        sentence_start, sentence_end = match.start(), match.end()
+    def _get_match_sentence(text: str, match_start: int, match_end: int) -> Tuple[int, int]:
+        sentence_start, sentence_end = match_start, match_end
         while sentence_start >= 0 and text[sentence_start] != '.':
             sentence_start -= 1
         if sentence_start > 0:
@@ -151,7 +151,7 @@ class KeywordParser:
                     [FullMatch(**match, source=MatchSource.DOCS, filename=rel_path, **self.creds,
                                url=self._generate_link(repo_url, rel_path)) for
                      match in
-                     self._text_keyword_iterator(text_content)])
+                     self.matched_keyword_iterator(text_content)])
 
         return matches
 
@@ -173,7 +173,7 @@ class KeywordParser:
                         [FullMatch(**match, source=MatchSource.CODE_COMMENT, filename=rel_path, **self.creds,
                                    url=self._generate_link(repo_url, rel_path)) for
                          match in
-                         self._text_keyword_iterator(text_content)])
+                         self.matched_keyword_iterator(text_content)])
 
         return matches
 

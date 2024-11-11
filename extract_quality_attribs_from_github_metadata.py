@@ -327,44 +327,19 @@ class DB:
             {
                 "$addFields": {
                     "text": {
-                        "$replaceAll": {
-                            "input": "$comments_data.body",
-                            "find": "\r\n",
-                            "replacement": " "
-                        }
+                        "$trim": {"input": "$comments_data.body"}
                     }
                 }
             },
             {
                 "$addFields": {
-                    "text": {
-                        "$replaceAll": {
-                            "input": "$text",
-                            "find": "\n",
-                            "replacement": ""
-                        }
-                    }
-                }
-            },
-            {
-                "$addFields": {
-                    "text": {
-                        "$trim": {"input": "$text"}
-                    }
-                }
-            },
-            {
-                "$addFields": {
-                    "text_match": {"$regexFindAll": {"input": "$text", "regex": pattern}},
+                    "text_match": {"$regexFind": {"input": "$text", "regex": pattern}},
                 }
             },
             {
                 "$match": {
                     "text_match.match": {"$exists": True}
                 }
-            },
-            {
-                "$unwind": "$text_match"
             },
             {
                 "$project": {
@@ -380,66 +355,43 @@ class DB:
             {
                 "$addFields": {
                     "text": {
-                        "$replaceAll": {
-                            "input": "$body",
-                            "find": "\r\n",
-                            "replacement": " "
-                        }
+                        "$trim": {"input": "$body"}
                     }
                 }
             },
             {
                 "$addFields": {
-                    "text": {
-                        "$replaceAll": {
-                            "input": "$text",
-                            "find": "\n",
-                            "replacement": ""
-                        }
-                    }
-                }
-            },
-            {
-                "$addFields": {
-                    "text": {
-                        "$trim": {"input": "$text"}
-                    }
-                }
-            },
-            {
-                "$addFields": {
-                    "text_match": {"$regexFindAll": {"input": "$body", "regex": pattern}},
+                    "text_match": {"$regexFind": {"input": "$body", "regex": pattern}},
                 }
             },
             {
                 "$match": {"text_match.match": {"$exists": True}}
-            },
-            {
-                "$unwind": "$text_match"
             },
             {
                 "$project": {
                     "text": 1,
                     "html_url": 1,
-                    "text_match": 1
+                    "text_match": 1,
                 }
             }
-        ]
-        )
+        ])
 
     def extract_issue_title_keywords(self, pattern: re.Pattern) -> CommandCursor[MongoMatch]:
         return self._issue_collection().aggregate([
             {
                 "$addFields": {
-                    "text": "$title",
-                    "text_match": {"$regexFindAll": {"input": "$title", "regex": pattern}},
+                    "text": {
+                        "$trim": {"input": "$title"}
+                    }
+                }
+            },
+            {
+                "$addFields": {
+                    "text_match": {"$regexFind": {"input": "$text", "regex": pattern}},
                 }
             },
             {
                 "$match": {"text_match.match": {"$exists": True}}
-            },
-            {
-                "$unwind": "$text_match"
             },
             {
                 "$project": {
@@ -456,42 +408,17 @@ class DB:
             {
                 "$addFields": {
                     "text": {
-                        "$replaceAll": {
-                            "input": "$body",
-                            "find": "\r\n",
-                            "replacement": " "
-                        }
+                        "$trim": {"input": "$body"}
                     }
                 }
             },
             {
                 "$addFields": {
-                    "text": {
-                        "$replaceAll": {
-                            "input": "$text",
-                            "find": "\n",
-                            "replacement": ""
-                        }
-                    }
-                }
-            },
-            {
-                "$addFields": {
-                    "text": {
-                        "$trim": {"input": "$text"}
-                    }
-                }
-            },
-            {
-                "$addFields": {
-                    "text_match": {"$regexFindAll": {"input": "$text", "regex": pattern}},
+                    "text_match": {"$regexFind": {"input": "$text", "regex": pattern}},
                 }
             },
             {
                 "$match": {"text_match.match": {"$exists": True}}
-            },
-            {
-                "$unwind": "$text_match"
             },
             {
                 "$project": {
@@ -503,55 +430,24 @@ class DB:
         ])
 
 
-def find_sentence_boundaries(text, match_idx):
-    sentence_endings = re.compile(r'[.!?\n]')
-
-    # Find the start of the sentence
-    start = match_idx
-    while start > 0 and not sentence_endings.match(text[start - 1]):
-        start -= 1
-    # Adjust start to skip past any punctuation or line break
-    if start > 0 and text[start - 1] != '\n':
-        start += 1  # Skip past the punctuation mark if it isn't a line break
-
-    # Find the end of the sentence
-    end = match_idx
-    while end < len(text) and not sentence_endings.match(text[end]):
-        end += 1
-    # Adjust end to include the punctuation or line break
-    if end < len(text):
-        end += 1  # Include the punctuation mark or line break
-
-    # Extract the sentence and remove extra whitespace
-    sentence = text[start:end].strip()
-    return sentence
-
-
 def save_matched_keywords(creds, db, quality_attributes_map: QualityAttributesMap):
-    generators_to_sources = {
+    generators_to_sources_map = {
         db.extract_comment_body_keywords: MatchSource.ISSUE_COMMENT,
         db.extract_issue_body_keywords: MatchSource.ISSUE,
         db.extract_issue_title_keywords: MatchSource.ISSUE,
         db.extract_release_body_keywords: MatchSource.RELEASES
     }
+    keyword_parser = KeywordParser(quality_attributes_map, creds)
     for quality_attr, keywords in quality_attributes_map.items():
         pattern = KeywordParser.get_keyword_matching_pattern(keywords)
-        for gen, source in generators_to_sources.items():
+        for gen, source in generators_to_sources_map.items():
             matches = []
             for match in tqdm(gen(pattern), desc=f"Processing {quality_attr} / {source.value}"):
-                # text_match > : captures[0] is keyword, full match is match
-                sentence = find_sentence_boundaries(match["text"], match["text_match"]["idx"])
-                matches.append(FullMatch(
-                    quality_attribute=quality_attr,
-                    keyword=match["text_match"]["captures"][0],
-                    matched_word=match["text_match"]["match"],
-                    sentence=sentence,
-                    source=source,
-                    author=creds['author'],
-                    repo=creds['repo'],
-                    version=creds['version'],
-                    url=match["html_url"],
-                ))
+                matches.extend(
+                    [FullMatch(**text_match, source=source, **creds,
+                               url=match["html_url"]) for
+                     text_match in
+                     keyword_parser.matched_keyword_iterator(match["text"])])
 
             save_to_file(matches, source, creds)
 
@@ -563,13 +459,13 @@ def main():
         fetcher = GitHubDataFetcher(token, creds)
         db = DB(creds)
 
-        print("Fetching issues...")
-        for issues in fetcher.get_issues():
-            db.insert_issues(issues)
-
-        print("Fetching releases...")
-        for releases in fetcher.get_releases(20):
-            db.insert_releases(releases)
+        # print("Fetching issues...")
+        # for issues in fetcher.get_issues():
+        #     db.insert_issues(issues)
+        #
+        # print("Fetching releases...")
+        # for releases in fetcher.get_releases(20):
+        #     db.insert_releases(releases)
 
         save_matched_keywords(creds, db, quality_attributes)
 
