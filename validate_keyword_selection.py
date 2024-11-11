@@ -62,7 +62,7 @@ def get_resp(index, row):
 
 
 @retry(
-    stop=stop_after_attempt(5),
+    stop=stop_after_attempt(8),
     wait=wait_incrementing(5, 10),
     before_sleep=lambda retry_state: print(retry_state),
 )
@@ -75,7 +75,7 @@ def request_google_ailab(model, prompt):
 
 
 def main():
-    file_path = Path("./metadata/keywords/verification/sample.csv")
+    file_path = Path("./metadata/keywords/verification/big_sample.csv")
 
     genai.configure(api_key=os.getenv("GOOGLE_AI_STUDIO_KEY"))
     model = genai.GenerativeModel("gemini-1.5-flash")
@@ -83,7 +83,7 @@ def main():
     # df = pd.read_csv(file_path).sample(10)
     df = pd.read_csv(file_path)
     res = []
-    res_filename = "sample_with_responses_ailab_all2"
+    res_filename = "big_sample_with_responses"
     for index, row in tqdm(df.iterrows(), total=df.shape[0]):
         try:
             r = request_google_ailab(model, row["prompt"])
