@@ -9,6 +9,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from tqdm import tqdm
 
+from metadata.repo_info.repo_info import credential_list
 from model.Credentials import Credentials
 from quality_attributes import quality_attributes
 from services.ast_extractor import ext_to_lang, get_comments
@@ -89,17 +90,19 @@ class KeywordParser:
     def parse_wiki(self, wiki_path: str) -> List[FullMatch]:
         matches = []
         files = Path(wiki_path).glob("**/*.html")
-        for file in tqdm(files, desc="Parsing wiki"):
-            tqdm.write(str(file))
+        for file in tqdm(files, desc=f"Parsing wiki {wiki_path}"):
             abs_path = file
             rel_path = os.path.normpath(os.path.relpath(abs_path, start=wiki_path)).replace("\\", "/")
-            documentation_raw = open(abs_path, "r", encoding="utf-8").read()
-            text_content = self._strip_html_tags(documentation_raw)
-            matches.extend(
-                [FullMatch(**match, source=MatchSource.WIKI, filename=rel_path, **self.creds,
-                           url=self._generate_link(self.creds['wiki'], rel_path)) for
-                 match in
-                 self.matched_keyword_iterator(text_content)])
+            try:
+                documentation_raw = open(abs_path, "r", encoding="utf-8").read()
+                text_content = self._strip_html_tags(documentation_raw)
+                matches.extend(
+                    [FullMatch(**match, source=MatchSource.WIKI, filename=rel_path, **self.creds,
+                               url=self._generate_link(self.creds['wiki'], rel_path)) for
+                     match in
+                     self.matched_keyword_iterator(text_content)])
+            except Exception as e:
+                print(f"Error in {abs_path}, {e}")
 
         return matches
 
@@ -112,8 +115,9 @@ class KeywordParser:
         sentence_len = sentence_end - sentence_start
         left_context = KeywordParser.context_length - sentence_len
         delta_side = abs(left_context) // 2
+
         if left_context < 0:
-            return text[sentence_start + delta_side: sentence_end - delta_side + 1]
+            return KeywordParser._extract_sentence_segment(text, match_end, match_start, sentence_start, sentence_end)
 
         left_side = sentence_start - delta_side
         right_side = sentence_end + delta_side
@@ -122,6 +126,19 @@ class KeywordParser:
         if right_side > len(text):
             return text[-KeywordParser.context_length:]
         return text[left_side: right_side + 1]
+
+    @staticmethod
+    def _extract_sentence_segment(text, match_end, match_start, sentence_start, sentence_end):
+        match_len = match_end - match_start
+        to_fill = KeywordParser.context_length - match_len
+        to_fill_side = to_fill // 2
+        segment_from_beginning_end, segment_from_end_start = sentence_start + to_fill_side, sentence_end - to_fill_side
+        if match_start < segment_from_beginning_end:
+            return text[sentence_start: KeywordParser.context_length + 1]
+        elif match_end > segment_from_end_start:
+            return text[sentence_end - KeywordParser.context_length: sentence_end + 1]
+        else:
+            return text[match_start - to_fill_side: match_end + to_fill_side + 1]
 
     @staticmethod
     def _get_match_sentence(text: str, match_start: int, match_end: int) -> Tuple[int, int]:
@@ -195,9 +212,11 @@ if __name__ == "__main__":
     source_code_path = Path(".tmp/source")
 
     creds = Credentials(author="scverse", repo="scanpy", version="1.10.2", wiki="scanpy.readthedocs.io/en")
-    credential_list = [creds]
+    # creds = Credentials({'author': 'root-project', 'repo': 'root', 'version': 'v6-32-06', 'wiki': 'https://root.cern'})
 
-    for creds in credential_list:
+    credential_list2 = [creds]
+
+    for creds in credential_list2:
         print(f"Checking out {creds.get_ref()}")
         try:
             # checkout_tag(creds['author'], creds['repo'], creds['version'])
@@ -206,13 +225,13 @@ if __name__ == "__main__":
             parser = KeywordParser(quality_attributes, creds, append_full_text=append_full_text)
 
             if creds.has_wiki():
-                matches_wiki = parser.parse_wiki(str(docs_path / f'{creds.repo_path}/{creds.wiki_dir}'))
+                matches_wiki = parser.parse_wiki(str(docs_path / creds.wiki_dir))
                 save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
 
-            matches_code_comments = parser.parse_comments(str(source_code_path / creds.get_ref()))
-            save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
-
-            matches_docs = parser.parse_docs(str(source_code_path / creds.get_ref()))
-            save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
+            # matches_code_comments = parser.parse_comments(str(source_code_path / creds.get_ref()))
+            # save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
+            #
+            # matches_docs = parser.parse_docs(str(source_code_path / creds.get_ref()))
+            # save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
         except Exception as e:
             print(f"Error processing {creds.get_ref()}: {str(e)}")
