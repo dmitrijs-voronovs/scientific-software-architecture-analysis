@@ -75,7 +75,7 @@ def request_google_ailab(model, prompt):
 
 
 def main():
-    file_path = Path("./metadata/keywords/verification/big_sample.csv")
+    file_path = Path("./metadata/keywords/verification/big_sample2.csv")
 
     genai.configure(api_key=os.getenv("GOOGLE_AI_STUDIO_KEY"))
     model = genai.GenerativeModel("gemini-1.5-flash")
@@ -83,7 +83,7 @@ def main():
     # df = pd.read_csv(file_path).sample(10)
     df = pd.read_csv(file_path)
     res = []
-    res_filename = "big_sample_with_responses"
+    res_filename = "big_sample2_with_responses"
     for index, row in tqdm(df.iterrows(), total=df.shape[0]):
         try:
             r = request_google_ailab(model, row["prompt"])
