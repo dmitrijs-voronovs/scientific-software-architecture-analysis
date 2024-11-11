@@ -1,8 +1,11 @@
-quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
-Usability,learn,learning,Transfer learning of specialised NER model,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/335
-Usability,guid,guidance,any guidance on ontonotes prep?,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/421
-Usability,progress bar,progress bar,Add progress bar for installation downloading,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/490
-Usability,guid,guide,Updating nmslib hyperparameters guide url,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/493
-Usability,progress bar,progress bar,add progress bar to http_get,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/496
-Usability,progress bar,progress bar,add progress bar to http_get,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/499
-Usability,guid,guide,installation guide of nmslib on Apple M2 Chip using Python 3.,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/528
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,wiki,url
+Usability,learn,learning,Transfer learning of specialised NER model,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/335
+Usability,guid,guidance,any guidance on ontonotes prep?,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/421
+Availability,down,downloading,Add progress bar for installation downloading,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/490
+Deployability,install,installation,Add progress bar for installation downloading,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/490
+Usability,progress bar,progress bar,Add progress bar for installation downloading,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/490
+Usability,guid,guide,Updating nmslib hyperparameters guide url,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/pull/493
+Usability,progress bar,progress bar,add progress bar to http_get,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/pull/496
+Usability,progress bar,progress bar,add progress bar to http_get,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/pull/499
+Deployability,install,installation,installation guide of nmslib on Apple M2 Chip using Python 3.9,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/528
+Usability,guid,guide,installation guide of nmslib on Apple M2 Chip using Python 3.9,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/528

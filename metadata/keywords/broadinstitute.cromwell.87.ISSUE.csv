@@ -1,43 +1,49 @@
-quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
-Usability,feedback,feedback,PR feedback,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/58
-Usability,feedback,feedback,PR feedback.,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/60
-Usability,resume,resume,Restart / resume support with pluggable backends,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/435
-Usability,resume,resume,Add support for restart / resume a workflow,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/437
-Usability,resume,resume,Move resume to Backend.,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/485
-Usability,resume,resume,Move execute and resume off BackendCall.,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/561
-Usability,responsiv,responsive,Lightweight and responsive workflow creation by moving heavy lifting to pollable future states,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/564
-Usability,resume,resume,Move + generalize DB access for restart / resume,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/581
-Usability,clear,clearly,"defaultRuntimeOptions in workflow options gives warnings, not clearly named either.",MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/595
-Usability,simpl,simpletons,Job Store should use simpletons just like Call Cache,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/1280
-Usability,guid,guide,A beginners guide to making a Cromwell backend,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/1553
-Usability,clear,clear,Encrypt / clear workflow options in DB,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/1638
-Usability,clear,clearing,Encrypting and clearing workflow options.,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/1647
-Usability,clear,clearing,Encrypting and clearing workflow options for 0.,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/1648
-Usability,clear,clearing,Encrypting and clearing workflow options.,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/1650
-Usability,usab,usable,Bring in a usable version of prefix,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/1879
-Usability,resume,resume,Adding resume to API,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/2023
-Usability,clear,clearly,Color-code logs to clearly show output,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/2036
-Usability,simpl,simple,Demonstrate simple passthrough capability to Cromwell,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/2130
-Usability,simpl,simpletons,Handle nullable outputs in job store simpletons.,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/2140
-Usability,simpl,simpletons,handling nullable job store simpletons,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/2151
-Usability,simpl,simpleton,Batching Job Store simpleton writes.,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/2224
-Usability,simpl,simpletons,Batch call caching hash entries and simpletons,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/2227
-Usability,usab,usable,make console usable again,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/2437
-Usability,usab,usability,Check full dev CaaS usability,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/2596
-Usability,simpl,simple,Allow simple string containment checks,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/2634
-Usability,simpl,simple,Reinstate simple conditionals,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/2803
-Usability,guid,guidelines,Add guidelines for contributing to docs,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/2863
-Usability,clear,clearer,Made imports docs clearer (no imports/ directory req'd),MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/3164
-Usability,guid,guidelines,Contribution guidelines in Docs,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/3199
-Usability,UX,UX,"""No collection for Workflow X"" is a horrible UX",MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/3224
-Usability,simpl,simple,Feature request: Dirt simple error message,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/3226
-Usability,simpl,simple,Adding simple scatter to WOM conversions,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/3374
-Usability,simpl,simpletonization,Memory coercion and coproduct simpletonization,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/3422
-Usability,feedback,feedback,"Early feedback requested, not a real PR",MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/3451
-Usability,simpl,simpleton,CWL restart problem when reading from cache -- unrecognized simpleton WOM type: Long,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/issues/4023
-Usability,guid,guide,Contributing guide - draft,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/4922
-Usability,simpl,simply,AWS-EFS pass-thro output fix where lone output is simply the input,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/5807
-Usability,learn,learnings,Cromwell publish learnings [BT-207],MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/6313
-Usability,simpl,simple,Add simple token metrics [BW-968],MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/6642
-Usability,feedback,feedback,Address feedback,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/6997
-Usability,feedback,feedback,Address additional feedback,MatchSource.ISSUE,broadinstitute,cromwell,87,https://github.com/broadinstitute/cromwell/pull/7000
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,wiki,url
+Usability,feedback,feedback,PR feedback,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/58
+Usability,feedback,feedback,PR feedback.,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/60
+Usability,resume,resume,Restart / resume support with pluggable backends,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/435
+Usability,resume,resume,Add support for restart / resume a workflow,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/437
+Usability,resume,resume,Move resume to Backend. Closes #484,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/485
+Usability,resume,resume,Move execute and resume off BackendCall. Closes #484. Closes #485.,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/561
+Usability,responsiv,responsive,Lightweight and responsive workflow creation by moving heavy lifting to pollable future states,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/564
+Security,access,access,Move + generalize DB access for restart / resume,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/581
+Usability,resume,resume,Move + generalize DB access for restart / resume,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/581
+Usability,clear,clearly,"defaultRuntimeOptions in workflow options gives warnings, not clearly named either.",MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/595
+Usability,simpl,simpletons,Job Store should use simpletons just like Call Cache,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/1280
+Usability,guid,guide,A beginners guide to making a Cromwell backend,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/1553
+Usability,clear,clear,Encrypt / clear workflow options in DB,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/1638
+Usability,clear,clearing,Encrypting and clearing workflow options.,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/1647
+Usability,clear,clearing,Encrypting and clearing workflow options for 0.22.,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/1648
+Usability,clear,clearing,Encrypting and clearing workflow options. Closes #1638,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/1650
+Usability,usab,usable,Bring in a usable version of prefix,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/1879
+Usability,resume,resume,Adding resume to API,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/2023
+Testability,log,logs,Color-code logs to clearly show output,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/2036
+Usability,clear,clearly,Color-code logs to clearly show output,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/2036
+Usability,simpl,simple,Demonstrate simple passthrough capability to Cromwell,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/2130
+Usability,simpl,simpletons,Handle nullable outputs in job store simpletons.,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/2140
+Usability,simpl,simpletons,handling nullable job store simpletons,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/2151
+Usability,simpl,simpleton,Batching Job Store simpleton writes. Closes #2085,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/2224
+Security,hash,hash,Batch call caching hash entries and simpletons,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/2227
+Usability,simpl,simpletons,Batch call caching hash entries and simpletons,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/2227
+Usability,usab,usable,make console usable again,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/2437
+Usability,usab,usability,Check full dev CaaS usability,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/2596
+Usability,simpl,simple,Allow simple string containment checks,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/2634
+Usability,simpl,simple,Reinstate simple conditionals,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/2803
+Usability,guid,guidelines,Add guidelines for contributing to docs,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/2863
+Usability,clear,clearer,Made imports docs clearer (no imports/ directory req'd),MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/3164
+Usability,guid,guidelines,Contribution guidelines in Docs,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/3199
+Usability,UX,UX,"""No collection for Workflow X"" is a horrible UX",MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/3224
+Availability,error,error,Feature request: Dirt simple error message,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/3226
+Integrability,message,message,Feature request: Dirt simple error message,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/3226
+Usability,simpl,simple,Feature request: Dirt simple error message,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/3226
+Usability,simpl,simple,Adding simple scatter to WOM conversions,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/3374
+Usability,simpl,simpletonization,Memory coercion and coproduct simpletonization,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/3422
+Usability,feedback,feedback,"Early feedback requested, not a real PR",MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/3451
+Performance,cache,cache,CWL restart problem when reading from cache -- unrecognized simpleton WOM type: Long,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/4023
+Usability,simpl,simpleton,CWL restart problem when reading from cache -- unrecognized simpleton WOM type: Long,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/issues/4023
+Usability,guid,guide,Contributing guide - draft,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/4922
+Usability,simpl,simply,AWS-EFS pass-thro output fix where lone output is simply the input,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/5807
+Usability,learn,learnings,Cromwell publish learnings [BT-207],MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/6313
+Usability,simpl,simple,Add simple token metrics [BW-968],MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/6642
+Usability,feedback,feedback,Address feedback,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/6997
+Usability,feedback,feedback,Address additional feedback,MatchSource.ISSUE,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/7000

@@ -1,4 +1,5 @@
-quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
-Usability,guid,guide,user guide error and unknown output format,MatchSource.ISSUE,soedinglab,MMseqs2,15-6f452,https://github.com/soedinglab/MMseqs2/issues/2
-Usability,guid,guide,The user guide and the cli disagree on the range of the sensitivity parameter,MatchSource.ISSUE,soedinglab,MMseqs2,15-6f452,https://github.com/soedinglab/MMseqs2/issues/240
-Usability,simpl,simplify,"simplify comparisons in DBReader::Index, DBReader::LookupEntry",MatchSource.ISSUE,soedinglab,MMseqs2,15-6f452,https://github.com/soedinglab/MMseqs2/pull/894
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,wiki,url
+Availability,error,error,user guide error and unknown output format,MatchSource.ISSUE,soedinglab,MMseqs2,15-6f452,https://mmseqs.com,https://github.com/soedinglab/MMseqs2/issues/2
+Usability,guid,guide,user guide error and unknown output format,MatchSource.ISSUE,soedinglab,MMseqs2,15-6f452,https://mmseqs.com,https://github.com/soedinglab/MMseqs2/issues/2
+Usability,guid,guide,The user guide and the cli disagree on the range of the sensitivity parameter,MatchSource.ISSUE,soedinglab,MMseqs2,15-6f452,https://mmseqs.com,https://github.com/soedinglab/MMseqs2/issues/240
+Usability,simpl,simplify,"simplify comparisons in DBReader::Index, DBReader::LookupEntry",MatchSource.ISSUE,soedinglab,MMseqs2,15-6f452,https://mmseqs.com,https://github.com/soedinglab/MMseqs2/pull/894

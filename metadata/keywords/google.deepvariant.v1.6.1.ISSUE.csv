@@ -1,5 +1,5 @@
-quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
-Usability,guid,guide,A quick start guide issue,MatchSource.ISSUE,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/issues/44
-Usability,clear,clear,Deepvariant fails without clear reason - with PacBio data,MatchSource.ISSUE,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/issues/614
-Usability,clear,clear,Filtering clear false positives / low-confidence sites,MatchSource.ISSUE,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/issues/645
-Usability,learn,learning,I am confusion about your deep learning architecture.,MatchSource.ISSUE,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/issues/801
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,wiki,url
+Usability,guid,guide,A quick start guide issue,MatchSource.ISSUE,google,deepvariant,v1.6.1,,https://github.com/google/deepvariant/issues/44
+Usability,clear,clear,Deepvariant fails without clear reason - with PacBio data,MatchSource.ISSUE,google,deepvariant,v1.6.1,,https://github.com/google/deepvariant/issues/614
+Usability,clear,clear,Filtering clear false positives / low-confidence sites,MatchSource.ISSUE,google,deepvariant,v1.6.1,,https://github.com/google/deepvariant/issues/645
+Usability,learn,learning,I am confusion about your deep learning architecture.,MatchSource.ISSUE,google,deepvariant,v1.6.1,,https://github.com/google/deepvariant/issues/801

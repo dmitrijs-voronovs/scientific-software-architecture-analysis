@@ -1,46 +1,51 @@
-quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
-Usability,simpl,simplified,"Added CSIGN, SWAPalpha and Berkeley gates and simplified base case of other gates",MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/136
-Usability,simpl,simplified,simplified setup.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/191
-Usability,progress bar,progress bar,made the use of progress bar in mcsolve optional.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/220
-Usability,progress bar,progress bar,Web-based progress bar.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/255
-Usability,progress bar,progress bar,restore the old text based progress bar as default,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/256
-Usability,clear,cleared,Control amplitudes are now cleared when initialize_controls is called,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/281
-Usability,progress bar,progress bars,Documentation for progress bars,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/1517
-Usability,simpl,simple,expm() fails on simple Qobjs,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/508
-Usability,guid,guidelines,ENH: Ensure PEP8 style guidelines are applied in docstrings,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/1527
-Usability,guid,guidelines,qutip/qutip wiki duplicates qutip-doc development guidelines,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/1135
-Usability,simpl,simplify,Automate or simplify documentation release,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/1533
-Usability,guid,guide,"Building the documentation guide, dynamics-monte takes minutes",MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/1534
-Usability,clear,clear,Prefix variable names with _ to clear Travis CI warnings,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/1213
-Usability,guid,guide,QuTiP developers' guide (including the new data layer),MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/1359
-Usability,guid,guide-states,Correct typo in guide-states.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/1567
-Usability,feedback,feedback,Iterable access to solver results and possibility of feedback to solvers,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/1571
-Usability,guid,guide,Improve description of random number generation in mcsolve guide.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/1677
-Usability,guid,guide,Minor updates to guide overview and guide basic operations,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/1757
-Usability,guid,guide,Minor updates to guide overview and guide basic operations,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/1757
-Usability,guid,guide,Details of QuTiP user's guide,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/1759
-Usability,guid,guide,Clarification of user's guide,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/1770
-Usability,guid,guide,Dynamics section of user's guide needs an introduction,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/1774
-Usability,guid,guide-settings,Fix typo in guide-settings,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/1786
-Usability,guid,guide,add Krylovsolve guide,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/1862
-Usability,guid,guide,Update user guide content of documentation to QuTiP 5,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/1898
-Usability,progress bar,progress bar,HEOMSolver return states and progress bar,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/1908
-Usability,clear,clear,Reset and clear up figures more correctly in dynamics-time guide.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/1931
-Usability,guid,guide,Reset and clear up figures more correctly in dynamics-time guide.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/1931
-Usability,clear,clear,Time dynamics documentation doesn't clear plots and so repeats them.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/2007
-Usability,guid,guide-random,Update guide-random/basic for v5,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/2024
-Usability,guid,guide-settings,Update `guide-settings` with v5's options,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/2025
-Usability,guid,guide,Remove string coefficient comment in brmesolve's guide.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/2033
-Usability,progress bar,progress bar,Add a test for progress bar,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/2150
-Usability,simpl,simple,A simple question about Stochastic Solver,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/2194
-Usability,feedback,feedback,Restore feedback for solver,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/2210
-Usability,guid,guide,Review guide section of documentation.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/2279
-Usability,clear,clear,lear` breaking `point_color`,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/2336
-Usability,guid,guide,Add equation in the guide for open mcsolve evolution,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/2373
-Usability,progress bar,progress bars,Ensure progress bars don't break on too many update,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/2374
-Usability,guid,guide,Update the release guide to use readthedocs,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/2399
-Usability,guid,guide,Improve setting explanation in the guide,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/2403
-Usability,feedback,feedback,Ensure feedback work for all trajectories,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/2424
-Usability,progress bar,progress bar,HTML progress bar is broken in Jupyter notebooks,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/2475
-Usability,guid,guide,un_from_experiement` in the guide.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/pull/2479
-Usability,usab,usable,Parfor is not usable,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://github.com/qutip/qutip/issues/2551
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,wiki,url
+Usability,simpl,simplified,"Added CSIGN, SWAPalpha and Berkeley gates and simplified base case of other gates",MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/136
+Usability,simpl,simplified,simplified setup.py by only supporting cythonizing pyx and not shipping ...,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/191
+Usability,progress bar,progress bar,made the use of progress bar in mcsolve optional. closes #219,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/220
+Usability,progress bar,progress bar,Web-based progress bar.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/255
+Usability,progress bar,progress bar,restore the old text based progress bar as default,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/256
+Usability,clear,cleared,Control amplitudes are now cleared when initialize_controls is called,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/281
+Usability,progress bar,progress bars,Documentation for progress bars,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/1517
+Usability,simpl,simple,expm() fails on simple Qobjs,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/508
+Usability,guid,guidelines,ENH: Ensure PEP8 style guidelines are applied in docstrings,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/1527
+Usability,guid,guidelines,qutip/qutip wiki duplicates qutip-doc development guidelines,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/1135
+Deployability,release,release,Automate or simplify documentation release,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/1533
+Usability,simpl,simplify,Automate or simplify documentation release,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/1533
+Usability,guid,guide,"Building the documentation guide, dynamics-monte takes minutes",MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/1534
+Modifiability,variab,variable,Prefix variable names with _ to clear Travis CI warnings,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/1213
+Usability,clear,clear,Prefix variable names with _ to clear Travis CI warnings,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/1213
+Usability,guid,guide,QuTiP developers' guide (including the new data layer),MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/1359
+Usability,guid,guide-states,Correct typo in guide-states.rst,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/1567
+Security,access,access,Iterable access to solver results and possibility of feedback to solvers,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/1571
+Usability,feedback,feedback,Iterable access to solver results and possibility of feedback to solvers,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/1571
+Usability,guid,guide,Improve description of random number generation in mcsolve guide.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/1677
+Deployability,update,updates,Minor updates to guide overview and guide basic operations,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/1757
+Usability,guid,guide,Minor updates to guide overview and guide basic operations,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/1757
+Usability,guid,guide,Details of QuTiP user's guide,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/1759
+Usability,guid,guide,Clarification of user's guide,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/1770
+Usability,guid,guide,Dynamics section of user's guide needs an introduction,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/1774
+Usability,guid,guide-settings,Fix typo in guide-settings,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/1786
+Usability,guid,guide,add Krylovsolve guide,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/1862
+Usability,guid,guide,Update user guide content of documentation to QuTiP 5,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/1898
+Usability,progress bar,progress bar,HEOMSolver return states and progress bar,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/1908
+Usability,clear,clear,Reset and clear up figures more correctly in dynamics-time guide.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/1931
+Usability,clear,clear,Time dynamics documentation doesn't clear plots and so repeats them.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/2007
+Usability,guid,guide-random,Update guide-random/basic for v5,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/2024
+Usability,guid,guide-settings,Update `guide-settings` with v5's options,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/2025
+Usability,guid,guide,Remove string coefficient comment in brmesolve's guide.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/2033
+Testability,test,test,Add a test for progress bar,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/2150
+Usability,progress bar,progress bar,Add a test for progress bar,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/2150
+Usability,simpl,simple,A simple question about Stochastic Solver,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/2194
+Usability,feedback,feedback,Restore feedback for solver,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/2210
+Usability,guid,guide,Review guide section of documentation.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/2279
+Usability,clear,clear,Fix `bloch.clear` breaking `point_color`,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/2336
+Usability,guid,guide,Add equation in the guide for open mcsolve evolution,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/2373
+Deployability,update,update,Ensure progress bars don't break on too many update,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/2374
+Usability,progress bar,progress bars,Ensure progress bars don't break on too many update,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/2374
+Deployability,release,release,Update the release guide to use readthedocs,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/2399
+Usability,guid,guide,Update the release guide to use readthedocs,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/2399
+Usability,guid,guide,Improve setting explanation in the guide,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/2403
+Usability,feedback,feedback,Ensure feedback work for all trajectories,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/2424
+Usability,progress bar,progress bar,HTML progress bar is broken in Jupyter notebooks,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/2475
+Usability,guid,guide,Add example of `SMESolver.run_from_experiement` in the guide.,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/pull/2479
+Usability,usab,usable,Parfor is not usable,MatchSource.ISSUE,qutip,qutip,v5.0.4,https://qutip.org,https://github.com/qutip/qutip/issues/2551

@@ -1,18 +1,22 @@
-quality_attribute,keyword,matched_word,sentence,source,author,repo,version,url
-Usability,simpl,simple,"simple tissue detection cannot be trimmed by ""Alt+Brush""  - bug",MatchSource.ISSUE,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/issues/82
-Usability,simpl,simple,"Positive Pixel count does not work after simple tissue detection if checkbox ""single annotation"" is deactivated",MatchSource.ISSUE,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/issues/111
-Usability,simpl,simple,simple tissue detection on ndpi and tiffs generates artefacts in image corners,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/issues/124
-Usability,usab,usable,"If system command call QuPath, Bioformats Extension was not usable",MatchSource.ISSUE,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/issues/260
-Usability,clear,cleared,RAM not cleared before opening next file --> error after opening a few files,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/issues/393
-Usability,UX,UX,Minor fixes and UX improvements,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/pull/735
-Usability,simpl,simple,Avoid exceptions when calling simple Dialogs without UI,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/pull/854
-Usability,UX,UX,Improved UX in Find command,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/pull/892
-Usability,clear,clearDetections,clearDetections() does not reset TMA isEditable to true,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/issues/1021
-Usability,responsiv,responsiveness,Improve drag & drop responsiveness,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/pull/1054
-Usability,intuit,intuitive,Replace MeasurementList with Map for more intuitive scripting,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/issues/1085
-Usability,undo,undockable,Make analysis pane tabs undockable,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/pull/1127
-Usability,simpl,simplify,"Fix B/C settings for multiple channels, simplify build.",MatchSource.ISSUE,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/pull/1383
-Usability,UX,UX,UX - Export measurements resizable UI,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/pull/1510
-Usability,UX,UX,UX - Classifier image select resizable UI,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/pull/1512
-Usability,simpl,simplify,Streamline PathObject and simplify working with classifications,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/pull/1593
-Usability,simpl,simplification,Improved point simplification in viewer,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://github.com/qupath/qupath/pull/1681
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,wiki,url
+Safety,detect,detection,"simple tissue detection cannot be trimmed by ""Alt+Brush"" - bug",MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/82
+Usability,simpl,simple,"simple tissue detection cannot be trimmed by ""Alt+Brush"" - bug",MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/82
+Safety,detect,detection,"Positive Pixel count does not work after simple tissue detection if checkbox ""single annotation"" is deactivated",MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/111
+Usability,simpl,simple,"Positive Pixel count does not work after simple tissue detection if checkbox ""single annotation"" is deactivated",MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/111
+Safety,detect,detection,simple tissue detection on ndpi and tiffs generates artefacts in image corners,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/124
+Usability,simpl,simple,simple tissue detection on ndpi and tiffs generates artefacts in image corners,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/124
+Usability,usab,usable,"If system command call QuPath, Bioformats Extension was not usable",MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/260
+Availability,error,error,RAM not cleared before opening next file --> error after opening a few files,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/393
+Usability,clear,cleared,RAM not cleared before opening next file --> error after opening a few files,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/393
+Usability,UX,UX,Minor fixes and UX improvements,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/735
+Usability,simpl,simple,Avoid exceptions when calling simple Dialogs without UI,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/854
+Usability,UX,UX,Improved UX in Find command,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/892
+Usability,clear,clearDetections,clearDetections() does not reset TMA isEditable to true,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/1021
+Usability,responsiv,responsiveness,Improve drag & drop responsiveness,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/1054
+Usability,intuit,intuitive,Replace MeasurementList with Map for more intuitive scripting,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/1085
+Usability,undo,undockable,Make analysis pane tabs undockable,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/1127
+Usability,simpl,simplify,"Fix B/C settings for multiple channels, simplify build.gradle",MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/1383
+Usability,UX,UX,UX - Export measurements resizable UI,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/1510
+Usability,UX,UX,UX - Classifier image select resizable UI,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/1512
+Usability,simpl,simplify,Streamline PathObject and simplify working with classifications,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/1593
+Usability,simpl,simplification,Improved point simplification in viewer,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/1681
