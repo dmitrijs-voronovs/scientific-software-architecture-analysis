@@ -5,7 +5,7 @@ from pathlib import Path
 import pandas as pd
 from tqdm import tqdm
 
-MAX_FILE_SIZE_BYTES = 90 * 1000 * 1000
+MAX_FILE_SIZE_BYTES = 5 * 1000 * 1000
 
 
 def split_file(path: str | Path, size_bytes=MAX_FILE_SIZE_BYTES):
@@ -36,6 +36,6 @@ def grouper_ranges(total_size, chunk_size):
 
 
 if __name__ == "__main__":
-    # check_file_sizes()
-    print(list(grouper_ranges(98, 10)))
-    split_file("metadata/keywords/broadinstitute.cromwell.87.ISSUE_COMMENT.csv", 500_000)
+    check_file_sizes()
+    # print(list(grouper_ranges(98, 10)))
+    # split_file("metadata/keywords/broadinstitute.cromwell.87.ISSUE_COMMENT.csv", 500_000)
