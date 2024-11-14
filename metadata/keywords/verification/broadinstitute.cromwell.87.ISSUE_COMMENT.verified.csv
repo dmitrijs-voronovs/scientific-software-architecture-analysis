@@ -22,7 +22,7 @@ Output your response as a JSON object in the following format:
   ""false_positive"": <boolean>,
   ""reasoning"": ""<str>""
 }
-",True,"The content discusses technical implementation details related to asynchronous calls and parallelism, rather than focusing on user-centered aspects of usability as defined by the attribute description."
+",True,"The content discusses technical implementation details (parallelism and asynchronous calls) rather than user-centered aspects of usability, which focuses on ease of learning, efficient usage, and adaptability to user needs."
 Integrability,message,message,"This should incorporate PR feedback delta:; 1. Scott's suggestion for input expression storage and evaluation.; 2. Jeff's suggestions for eliminating the `CheckExecutionStatus` message and handler case.; 3. My suggestion for putting mutable workflow state behind an actor. I'll try to address 2 and 3 in the time remaining in the sprint, 1 will have to wait for motivating user stories.",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/20#issuecomment-104351643,"The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.","
 You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
 
@@ -46,7 +46,7 @@ Output your response as a JSON object in the following format:
   ""false_positive"": <boolean>,
   ""reasoning"": ""<str>""
 }
-",True,"The provided content discusses code-level changes related to input handling, messaging, and workflow state management. While these changes may improve internal cohesion, they do not directly address the quality attribute of integrability, which concerns the ease of combining the system with other systems or components."
+",True,"The content discusses specific technical suggestions related to input handling, messaging, and workflow state management, which are not directly related to the concept of integrability as defined by the attribute description."
 Usability,feedback,feedback,"This should incorporate PR feedback delta:; 1. Scott's suggestion for input expression storage and evaluation.; 2. Jeff's suggestions for eliminating the `CheckExecutionStatus` message and handler case.; 3. My suggestion for putting mutable workflow state behind an actor. I'll try to address 2 and 3 in the time remaining in the sprint, 1 will have to wait for motivating user stories.",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/20#issuecomment-104351643,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
 You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
 
@@ -70,7 +70,7 @@ Output your response as a JSON object in the following format:
   ""false_positive"": <boolean>,
   ""reasoning"": ""<str>""
 }
-",True,"The content discusses technical implementation details related to input handling, messaging, and workflow state management. These are not directly related to the intended quality attribute of usability, which focuses on user-centric aspects like ease of learning and efficiency."
+",False,"The content aligns with the Usability quality attribute by addressing user-related issues like input expression storage, error handling, and workflow state management, thereby enhancing ease of learning, efficient usage, and adaptability to user needs."
 Usability,clear,clear,"The work just started, it's not particularly clear at the moment what changes we'll have to make in the first place, much less to sync w/ this. This will need to wait until that work is complete.",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/44#issuecomment-113509547,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
 You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
 
@@ -94,7 +94,7 @@ Output your response as a JSON object in the following format:
   ""false_positive"": <boolean>,
   ""reasoning"": ""<str>""
 }
-",True,"The content refers to incomplete work and lack of clarity, which is not directly related to the intended quality attribute of usability, which concerns user effectiveness and efficiency."
+",True,"The content discusses logistical challenges related to project initiation rather than aspects of usability such as ease of learning, efficiency, or user satisfaction."
 Security,access,access,"This isn't due to the IDE, it's a readability thing for some definition of readability. These functions are effectively methods on `AstNode` but we can't write them as methods because we don't have (easy) access to the underlying class. In this case the implicit class is merely a vector to insert those methods so we aren't calling them as functions. This way it's clear that `foo` is acting on `a` when you say `a.foo(x)` instead of `foo(a, x)`",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/50#issuecomment-112552200,"The system’s ability to safeguard information against unauthorized access, while permitting authorized access. Security emphasizes confidentiality, integrity, and availability, using tactics to detect, prevent, and respond to attacks.","
 You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
 
@@ -118,7 +118,7 @@ Output your response as a JSON object in the following format:
   ""false_positive"": <boolean>,
   ""reasoning"": ""<str>""
 }
-",True,"The provided content does not relate to the quality attribute of Security, which emphasizes confidentiality, integrity, and availability."
+",True,"The content does not relate to the quality attribute 'Security', which concerns safeguarding information against unauthorized access."
 Usability,clear,clear,"This isn't due to the IDE, it's a readability thing for some definition of readability. These functions are effectively methods on `AstNode` but we can't write them as methods because we don't have (easy) access to the underlying class. In this case the implicit class is merely a vector to insert those methods so we aren't calling them as functions. This way it's clear that `foo` is acting on `a` when you say `a.foo(x)` instead of `foo(a, x)`",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/50#issuecomment-112552200,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
 You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
 
@@ -142,7 +142,7 @@ Output your response as a JSON object in the following format:
   ""false_positive"": <boolean>,
   ""reasoning"": ""<str>""
 }
-",True,"The content discusses readability and access to underlying classes, which is not directly related to the quality attribute of Usability, which concerns user effectiveness and efficiency."
+",True,"The content discusses readability and accessibility of code, which is relevant to readability but not directly related to the quality attribute of Usability, which focuses on user effectiveness and efficiency."
 Usability,feedback,feedback,Coveralls seems happy with the latest changes. Ready for feedback.,MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/78#issuecomment-118239642,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
 You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
 
@@ -166,7 +166,7 @@ Output your response as a JSON object in the following format:
   ""false_positive"": <boolean>,
   ""reasoning"": ""<str>""
 }
-",True,The content provides general feedback and does not specifically address the usability quality attribute or its associated characteristics.
+",True,"The provided content is unrelated to the given quality attribute. It refers to user feedback, not usability characteristics."
 Usability,clear,clear,"Updated everything that I had a clear fix for. Open to other suggestions, etc.",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/78#issuecomment-118435565,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
 You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
 
@@ -190,7 +190,7 @@ Output your response as a JSON object in the following format:
   ""false_positive"": <boolean>,
   ""reasoning"": ""<str>""
 }
-",True,"The content refers to fixing existing issues, while usability is about ease of learning, efficient usage, and adaptability to user needs."
+",True,"The content talks about fixing existing issues but does not address the broader aspects of usability, such as ease of learning, efficient usage, or adaptability to user needs as defined in the attribute description."
 Usability,simpl,simply,"@mcovarr Most of your comments have been referencing original code/comments which has simply been moved around. While I agree w/ them the question is if those should be fixed up here or not. I think so unless they end up larger, which I haven't seen - thoughts?",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/88#issuecomment-121002228,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
 You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
 
@@ -214,7 +214,7 @@ Output your response as a JSON object in the following format:
   ""false_positive"": <boolean>,
   ""reasoning"": ""<str>""
 }
-",True,The content does not relate to usability as it concerns code refactoring rather than user-related aspects.
+",True,"The content discusses code reorganization and comment updates, which are not directly related to usability as defined by the attribute description."
 Usability,undo,undocumented,"Updated per @kshakir's AC above. :smile: . The ""produces"" content type is not 100% right in the Swagger annotations here and probably in other APIs. This API is documented as producing application/json which it will for successful requests, but for failed requests text/plain is produced instead. Given the way the ""Try it out!""s are built, they will fail with undocumented 406s if the underlying request fails with a documented status.",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/114#issuecomment-126404896,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
 You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
 
@@ -238,244 +238,4 @@ Output your response as a JSON object in the following format:
   ""false_positive"": <boolean>,
   ""reasoning"": ""<str>""
 }
-",True,"The provided content discusses API documentation and response handling, which is not directly related to usability as defined by the attribute description."
-Usability,guid,guide,"@scottfrazer I've told you before that I've been barking about this since day one, I've just become increasingly vocal about it over the last month+. I change them when I see them, and for old ones if they're close enough to a diffed line in a PR I ask someone to change it, but they're mostly new instances being pointed out. As for changing existing code, sure. I could do that. But every PR you submit about 50% of your calls are using the bad style, so do I then make a new PR every sprint to go back and fix them? Or do I point out that they should be changed as I did on this one and you get upset again? . TBH what really catches my eye and leads me to closer scrutiny in the first place is that you consistently bounce between multiple styles of calling these things, often within the same larger block of code. Unlike the style guide, I don't have a preference between the two primary modes people use (admittedly it's because I prefer the one they don't, although I begrudgingly use their favorite) as long as they're generally self-consistent (and/or there's a reason to deviate for a particular one, it happens). Similarly little things like is it `case (k, v)` or `case (k,v)`. I don't care, but I'd rather not see it bouncing back and forth all over the place over 50 lines of code. Pick one and be consistent. Is it `foo: Type`",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/135#issuecomment-132193021,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
-You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
-
-Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
-
-Data:
-
-Quality Attribute: Usability
-Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
-Content: @scottfrazer I've told you before that I've been barking about this since day one, I've just become increasingly vocal about it over the last month+. I change them when I see them, and for old ones if they're close enough to a diffed line in a PR I ask someone to change it, but they're mostly new instances being pointed out. As for changing existing code, sure. I could do that. But every PR you submit about 50% of your calls are using the bad style, so do I then make a new PR every sprint to go back and fix them? Or do I point out that they should be changed as I did on this one and you get upset again? . TBH what really catches my eye and leads me to closer scrutiny in the first place is that you consistently bounce between multiple styles of calling these things, often within the same larger block of code. Unlike the style guide, I don't have a preference between the two primary modes people use (admittedly it's because I prefer the one they don't, although I begrudgingly use their favorite) as long as they're generally self-consistent (and/or there's a reason to deviate for a particular one, it happens). Similarly little things like is it `case (k, v)` or `case (k,v)`. I don't care, but I'd rather not see it bouncing back and forth all over the place over 50 lines of code. Pick one and be consistent. Is it `foo: Type`
-
-Instructions: 
-1. Analyze the content and the attribute description.
-2. Determine if the content accurately reflects the intended quality attribute in this context.
-3. If it does, label it as an accurate match; if not, mark it as a false positive.
-4. Output only the JSON object in response, without any additional explanation.
-5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
-
-Output your response as a JSON object in the following format:
-{
-  ""false_positive"": <boolean>,
-  ""reasoning"": ""<str>""
-}
-",True,"The content is primarily focused on code style and consistency issues, rather than usability as defined by the attribute description. The discussion of different calling styles and code formatting preferences does not align with the quality attribute of usability."
-Usability,guid,guide,"@scottfrazer actually people do care about these things and I know for a fact we've lost a would be user over general code quality (read: not functionality) reasons. Like it or not people look at the code when they're going to assess if it's worth using. I don't think ""try to follow the official guide and be self consistent"" is a high bar",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/135#issuecomment-132202963,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
-You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
-
-Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
-
-Data:
-
-Quality Attribute: Usability
-Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
-Content: @scottfrazer actually people do care about these things and I know for a fact we've lost a would be user over general code quality (read: not functionality) reasons. Like it or not people look at the code when they're going to assess if it's worth using. I don't think ""try to follow the official guide and be self consistent"" is a high bar
-
-Instructions: 
-1. Analyze the content and the attribute description.
-2. Determine if the content accurately reflects the intended quality attribute in this context.
-3. If it does, label it as an accurate match; if not, mark it as a false positive.
-4. Output only the JSON object in response, without any additional explanation.
-5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
-
-Output your response as a JSON object in the following format:
-{
-  ""false_positive"": <boolean>,
-  ""reasoning"": ""<str>""
-}
-",False,"The content aligns with the attribute description by highlighting the importance of code quality (general) for usability, which includes user satisfaction and ease of use."
-Usability,guid,guide,"> I don't think ""try to follow the official guide and be self consistent"" is a high bar. But you know what IS a high bar? Having to change all your coding style, which previously was perfectly acceptable by the whole team (regards to `.map{`, whitespace semantics), on a whim because Jeff's attitude about something suddenly shifted.",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/135#issuecomment-132206454,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
-You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
-
-Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
-
-Data:
-
-Quality Attribute: Usability
-Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
-Content: > I don't think ""try to follow the official guide and be self consistent"" is a high bar. But you know what IS a high bar? Having to change all your coding style, which previously was perfectly acceptable by the whole team (regards to `.map{`, whitespace semantics), on a whim because Jeff's attitude about something suddenly shifted.
-
-Instructions: 
-1. Analyze the content and the attribute description.
-2. Determine if the content accurately reflects the intended quality attribute in this context.
-3. If it does, label it as an accurate match; if not, mark it as a false positive.
-4. Output only the JSON object in response, without any additional explanation.
-5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
-
-Output your response as a JSON object in the following format:
-{
-  ""false_positive"": <boolean>,
-  ""reasoning"": ""<str>""
-}
-",True,"The content talks about coding style changes due to shifting preferences, which is not directly related to the quality attribute of Usability, which focuses on user effectiveness and satisfaction."
-Usability,simpl,simple,"@mcovarr I thought you were captain multi-line HOF? . re: reviewers I was just going to wait until the end of the sprint in order to make sure it doesn't cause any rebase, even though initially it was such a simple change that it'd seem unlikely. Call yourself a reviewer and then designate one tomorrow or thursday :)",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/140#issuecomment-132375040,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
-You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
-
-Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
-
-Data:
-
-Quality Attribute: Usability
-Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
-Content: @mcovarr I thought you were captain multi-line HOF? . re: reviewers I was just going to wait until the end of the sprint in order to make sure it doesn't cause any rebase, even though initially it was such a simple change that it'd seem unlikely. Call yourself a reviewer and then designate one tomorrow or thursday :)
-
-Instructions: 
-1. Analyze the content and the attribute description.
-2. Determine if the content accurately reflects the intended quality attribute in this context.
-3. If it does, label it as an accurate match; if not, mark it as a false positive.
-4. Output only the JSON object in response, without any additional explanation.
-5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
-
-Output your response as a JSON object in the following format:
-{
-  ""false_positive"": <boolean>,
-  ""reasoning"": ""<str>""
-}
-",True,"The content does not relate to usability as it discusses personal interactions and conflicts between team members, rather than aspects related to the ease of use or effectiveness of the software."
-Usability,guid,guide,@scottfrazer In order to save people's diffs I'll make a general comment to please try to conform to the snazzy new style guide,MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/145#issuecomment-134728173,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
-You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
-
-Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
-
-Data:
-
-Quality Attribute: Usability
-Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
-Content: @scottfrazer In order to save people's diffs I'll make a general comment to please try to conform to the snazzy new style guide
-
-Instructions: 
-1. Analyze the content and the attribute description.
-2. Determine if the content accurately reflects the intended quality attribute in this context.
-3. If it does, label it as an accurate match; if not, mark it as a false positive.
-4. Output only the JSON object in response, without any additional explanation.
-5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
-
-Output your response as a JSON object in the following format:
-{
-  ""false_positive"": <boolean>,
-  ""reasoning"": ""<str>""
-}
-",True,"The content does not relate to usability as it concerns stylistic preferences rather than the ease of use, efficiency, or user satisfaction."
-Deployability,release,release,"Unsurprisingly I had a handful of stylistic requests (although 2 I noted as being of the ""I'd appreciate you trying"" variety) as I realize they were largely c&p and need refactoring anyways). And there was the one comment I made about the general adherence to the guide - whitespace, HOF syntax, etc. I like the general structure of this though. . In terms of path to release my main concerns were addressed in separate line items, but were a) To what extent has this been tested on JES and b) What is necessary from this branch for s/g (i.e. beyond ""it'll suck to rebase after it"")",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/145#issuecomment-134736397,"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
-You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
-
-Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
-
-Data:
-
-Quality Attribute: Deployability
-Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
-Content: Unsurprisingly I had a handful of stylistic requests (although 2 I noted as being of the ""I'd appreciate you trying"" variety) as I realize they were largely c&p and need refactoring anyways). And there was the one comment I made about the general adherence to the guide - whitespace, HOF syntax, etc. I like the general structure of this though. . In terms of path to release my main concerns were addressed in separate line items, but were a) To what extent has this been tested on JES and b) What is necessary from this branch for s/g (i.e. beyond ""it'll suck to rebase after it"")
-
-Instructions: 
-1. Analyze the content and the attribute description.
-2. Determine if the content accurately reflects the intended quality attribute in this context.
-3. If it does, label it as an accurate match; if not, mark it as a false positive.
-4. Output only the JSON object in response, without any additional explanation.
-5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
-
-Output your response as a JSON object in the following format:
-{
-  ""false_positive"": <boolean>,
-  ""reasoning"": ""<str>""
-}
-",True,"The content focuses on stylistic issues and code refactoring, which are not directly related to the quality attribute of Deployability."
-Modifiability,refactor,refactoring,"Unsurprisingly I had a handful of stylistic requests (although 2 I noted as being of the ""I'd appreciate you trying"" variety) as I realize they were largely c&p and need refactoring anyways). And there was the one comment I made about the general adherence to the guide - whitespace, HOF syntax, etc. I like the general structure of this though. . In terms of path to release my main concerns were addressed in separate line items, but were a) To what extent has this been tested on JES and b) What is necessary from this branch for s/g (i.e. beyond ""it'll suck to rebase after it"")",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/145#issuecomment-134736397,"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
-You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
-
-Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
-
-Data:
-
-Quality Attribute: Modifiability
-Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
-Content: Unsurprisingly I had a handful of stylistic requests (although 2 I noted as being of the ""I'd appreciate you trying"" variety) as I realize they were largely c&p and need refactoring anyways). And there was the one comment I made about the general adherence to the guide - whitespace, HOF syntax, etc. I like the general structure of this though. . In terms of path to release my main concerns were addressed in separate line items, but were a) To what extent has this been tested on JES and b) What is necessary from this branch for s/g (i.e. beyond ""it'll suck to rebase after it"")
-
-Instructions: 
-1. Analyze the content and the attribute description.
-2. Determine if the content accurately reflects the intended quality attribute in this context.
-3. If it does, label it as an accurate match; if not, mark it as a false positive.
-4. Output only the JSON object in response, without any additional explanation.
-5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
-
-Output your response as a JSON object in the following format:
-{
-  ""false_positive"": <boolean>,
-  ""reasoning"": ""<str>""
-}
-",True,"The content primarily discusses stylistic issues, code refactoring, and testing concerns, which are not directly related to the quality attribute of modifiability."
-Testability,test,tested,"Unsurprisingly I had a handful of stylistic requests (although 2 I noted as being of the ""I'd appreciate you trying"" variety) as I realize they were largely c&p and need refactoring anyways). And there was the one comment I made about the general adherence to the guide - whitespace, HOF syntax, etc. I like the general structure of this though. . In terms of path to release my main concerns were addressed in separate line items, but were a) To what extent has this been tested on JES and b) What is necessary from this branch for s/g (i.e. beyond ""it'll suck to rebase after it"")",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/145#issuecomment-134736397,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
-You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
-
-Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
-
-Data:
-
-Quality Attribute: Testability
-Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
-Content: Unsurprisingly I had a handful of stylistic requests (although 2 I noted as being of the ""I'd appreciate you trying"" variety) as I realize they were largely c&p and need refactoring anyways). And there was the one comment I made about the general adherence to the guide - whitespace, HOF syntax, etc. I like the general structure of this though. . In terms of path to release my main concerns were addressed in separate line items, but were a) To what extent has this been tested on JES and b) What is necessary from this branch for s/g (i.e. beyond ""it'll suck to rebase after it"")
-
-Instructions: 
-1. Analyze the content and the attribute description.
-2. Determine if the content accurately reflects the intended quality attribute in this context.
-3. If it does, label it as an accurate match; if not, mark it as a false positive.
-4. Output only the JSON object in response, without any additional explanation.
-5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
-
-Output your response as a JSON object in the following format:
-{
-  ""false_positive"": <boolean>,
-  ""reasoning"": ""<str>""
-}
-",True,The provided content does not explicitly address the quality attribute of Testability. It concerns stylistic issues and code concerns that are not directly related to the ease of testing or validating the software functionality.
-Usability,guid,guide,"Unsurprisingly I had a handful of stylistic requests (although 2 I noted as being of the ""I'd appreciate you trying"" variety) as I realize they were largely c&p and need refactoring anyways). And there was the one comment I made about the general adherence to the guide - whitespace, HOF syntax, etc. I like the general structure of this though. . In terms of path to release my main concerns were addressed in separate line items, but were a) To what extent has this been tested on JES and b) What is necessary from this branch for s/g (i.e. beyond ""it'll suck to rebase after it"")",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/145#issuecomment-134736397,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
-You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
-
-Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
-
-Data:
-
-Quality Attribute: Usability
-Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
-Content: Unsurprisingly I had a handful of stylistic requests (although 2 I noted as being of the ""I'd appreciate you trying"" variety) as I realize they were largely c&p and need refactoring anyways). And there was the one comment I made about the general adherence to the guide - whitespace, HOF syntax, etc. I like the general structure of this though. . In terms of path to release my main concerns were addressed in separate line items, but were a) To what extent has this been tested on JES and b) What is necessary from this branch for s/g (i.e. beyond ""it'll suck to rebase after it"")
-
-Instructions: 
-1. Analyze the content and the attribute description.
-2. Determine if the content accurately reflects the intended quality attribute in this context.
-3. If it does, label it as an accurate match; if not, mark it as a false positive.
-4. Output only the JSON object in response, without any additional explanation.
-5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
-
-Output your response as a JSON object in the following format:
-{
-  ""false_positive"": <boolean>,
-  ""reasoning"": ""<str>""
-}
-",True,"The content primarily focuses on stylistic and technical concerns, rather than user-related aspects of usability."
-Usability,clear,clear,"While a `Set` with that implementation of `equals` should provide equivalent behavior and wouldn't obviously break anything internal to Cromwell, as a client of this API I wouldn't expect that the compiler-written `equals` of `case class WorkflowInput` had been manually overridden that way. I think most of the problem here was a violation of principle of least surprise: the Rawls consumers of this API reasonably assumed that since the Cromwell API returned workflow inputs in an ordered collection, that order was important. Both `Set` and `Map` make it clear that order is actually not important, but `Map` makes it unmistakable that the String keys must be unique without the consumer of the API having to dig into the implementation of `WorkflowInput#equals`.",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/164#issuecomment-136129605,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
-You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
-
-Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
-
-Data:
-
-Quality Attribute: Usability
-Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
-Content: While a `Set` with that implementation of `equals` should provide equivalent behavior and wouldn't obviously break anything internal to Cromwell, as a client of this API I wouldn't expect that the compiler-written `equals` of `case class WorkflowInput` had been manually overridden that way. I think most of the problem here was a violation of principle of least surprise: the Rawls consumers of this API reasonably assumed that since the Cromwell API returned workflow inputs in an ordered collection, that order was important. Both `Set` and `Map` make it clear that order is actually not important, but `Map` makes it unmistakable that the String keys must be unique without the consumer of the API having to dig into the implementation of `WorkflowInput#equals`.
-
-Instructions: 
-1. Analyze the content and the attribute description.
-2. Determine if the content accurately reflects the intended quality attribute in this context.
-3. If it does, label it as an accurate match; if not, mark it as a false positive.
-4. Output only the JSON object in response, without any additional explanation.
-5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
-
-Output your response as a JSON object in the following format:
-{
-  ""false_positive"": <boolean>,
-  ""reasoning"": ""<str>""
-}
-",True,"The content discusses issues related to API design and contract violation, rather than directly addressing usability as defined by the attribute description."
+",True,"The content discusses API documentation and response types, which is relevant to technical aspects of the API but does not directly relate to usability as a quality attribute."

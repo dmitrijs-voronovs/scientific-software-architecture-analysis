@@ -1,0 +1,481 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,wiki,url,attribute_desc,prompt,false_positive,reasoning
+Usability,guid,guide,"@scottfrazer I've told you before that I've been barking about this since day one, I've just become increasingly vocal about it over the last month+. I change them when I see them, and for old ones if they're close enough to a diffed line in a PR I ask someone to change it, but they're mostly new instances being pointed out. As for changing existing code, sure. I could do that. But every PR you submit about 50% of your calls are using the bad style, so do I then make a new PR every sprint to go back and fix them? Or do I point out that they should be changed as I did on this one and you get upset again? . TBH what really catches my eye and leads me to closer scrutiny in the first place is that you consistently bounce between multiple styles of calling these things, often within the same larger block of code. Unlike the style guide, I don't have a preference between the two primary modes people use (admittedly it's because I prefer the one they don't, although I begrudgingly use their favorite) as long as they're generally self-consistent (and/or there's a reason to deviate for a particular one, it happens). Similarly little things like is it `case (k, v)` or `case (k,v)`. I don't care, but I'd rather not see it bouncing back and forth all over the place over 50 lines of code. Pick one and be consistent. Is it `foo: Type`",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/135#issuecomment-132193021,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: @scottfrazer I've told you before that I've been barking about this since day one, I've just become increasingly vocal about it over the last month+. I change them when I see them, and for old ones if they're close enough to a diffed line in a PR I ask someone to change it, but they're mostly new instances being pointed out. As for changing existing code, sure. I could do that. But every PR you submit about 50% of your calls are using the bad style, so do I then make a new PR every sprint to go back and fix them? Or do I point out that they should be changed as I did on this one and you get upset again? . TBH what really catches my eye and leads me to closer scrutiny in the first place is that you consistently bounce between multiple styles of calling these things, often within the same larger block of code. Unlike the style guide, I don't have a preference between the two primary modes people use (admittedly it's because I prefer the one they don't, although I begrudgingly use their favorite) as long as they're generally self-consistent (and/or there's a reason to deviate for a particular one, it happens). Similarly little things like is it `case (k, v)` or `case (k,v)`. I don't care, but I'd rather not see it bouncing back and forth all over the place over 50 lines of code. Pick one and be consistent. Is it `foo: Type`
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content discusses stylistic preferences and inconsistencies in code formatting, rather than the usability of the software."
+Usability,guid,guide,"@scottfrazer actually people do care about these things and I know for a fact we've lost a would be user over general code quality (read: not functionality) reasons. Like it or not people look at the code when they're going to assess if it's worth using. I don't think ""try to follow the official guide and be self consistent"" is a high bar",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/135#issuecomment-132202963,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: @scottfrazer actually people do care about these things and I know for a fact we've lost a would be user over general code quality (read: not functionality) reasons. Like it or not people look at the code when they're going to assess if it's worth using. I don't think ""try to follow the official guide and be self consistent"" is a high bar
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content discusses code quality and readability, which while relevant to usability, does not directly address the ease of learning, efficient usage, or adaptability to user needs as specified in the attribute description."
+Usability,guid,guide,"> I don't think ""try to follow the official guide and be self consistent"" is a high bar. But you know what IS a high bar? Having to change all your coding style, which previously was perfectly acceptable by the whole team (regards to `.map{`, whitespace semantics), on a whim because Jeff's attitude about something suddenly shifted.",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/135#issuecomment-132206454,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: > I don't think ""try to follow the official guide and be self consistent"" is a high bar. But you know what IS a high bar? Having to change all your coding style, which previously was perfectly acceptable by the whole team (regards to `.map{`, whitespace semantics), on a whim because Jeff's attitude about something suddenly shifted.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content discusses frustration caused by arbitrary stylistic changes, not usability as defined by the attribute description."
+Usability,simpl,simple,"@mcovarr I thought you were captain multi-line HOF? . re: reviewers I was just going to wait until the end of the sprint in order to make sure it doesn't cause any rebase, even though initially it was such a simple change that it'd seem unlikely. Call yourself a reviewer and then designate one tomorrow or thursday :)",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/140#issuecomment-132375040,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: @mcovarr I thought you were captain multi-line HOF? . re: reviewers I was just going to wait until the end of the sprint in order to make sure it doesn't cause any rebase, even though initially it was such a simple change that it'd seem unlikely. Call yourself a reviewer and then designate one tomorrow or thursday :)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content is unrelated to usability, which concerns user effectiveness and efficiency."
+Usability,guid,guide,@scottfrazer In order to save people's diffs I'll make a general comment to please try to conform to the snazzy new style guide,MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/145#issuecomment-134728173,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: @scottfrazer In order to save people's diffs I'll make a general comment to please try to conform to the snazzy new style guide
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content does not relate to usability as it is concerned with stylistic changes rather than user-related factors such as ease of learning, efficiency, or user satisfaction."
+Deployability,release,release,"Unsurprisingly I had a handful of stylistic requests (although 2 I noted as being of the ""I'd appreciate you trying"" variety) as I realize they were largely c&p and need refactoring anyways). And there was the one comment I made about the general adherence to the guide - whitespace, HOF syntax, etc. I like the general structure of this though. . In terms of path to release my main concerns were addressed in separate line items, but were a) To what extent has this been tested on JES and b) What is necessary from this branch for s/g (i.e. beyond ""it'll suck to rebase after it"")",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/145#issuecomment-134736397,"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Deployability
+Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
+Content: Unsurprisingly I had a handful of stylistic requests (although 2 I noted as being of the ""I'd appreciate you trying"" variety) as I realize they were largely c&p and need refactoring anyways). And there was the one comment I made about the general adherence to the guide - whitespace, HOF syntax, etc. I like the general structure of this though. . In terms of path to release my main concerns were addressed in separate line items, but were a) To what extent has this been tested on JES and b) What is necessary from this branch for s/g (i.e. beyond ""it'll suck to rebase after it"")
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content discusses stylistic concerns, code refactoring, and testing, which are not directly related to the quality attribute of Deployability."
+Modifiability,refactor,refactoring,"Unsurprisingly I had a handful of stylistic requests (although 2 I noted as being of the ""I'd appreciate you trying"" variety) as I realize they were largely c&p and need refactoring anyways). And there was the one comment I made about the general adherence to the guide - whitespace, HOF syntax, etc. I like the general structure of this though. . In terms of path to release my main concerns were addressed in separate line items, but were a) To what extent has this been tested on JES and b) What is necessary from this branch for s/g (i.e. beyond ""it'll suck to rebase after it"")",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/145#issuecomment-134736397,"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: Unsurprisingly I had a handful of stylistic requests (although 2 I noted as being of the ""I'd appreciate you trying"" variety) as I realize they were largely c&p and need refactoring anyways). And there was the one comment I made about the general adherence to the guide - whitespace, HOF syntax, etc. I like the general structure of this though. . In terms of path to release my main concerns were addressed in separate line items, but were a) To what extent has this been tested on JES and b) What is necessary from this branch for s/g (i.e. beyond ""it'll suck to rebase after it"")
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content focuses on stylistic concerns and code refactoring, which are not directly related to the quality attribute of modifiability."
+Testability,test,tested,"Unsurprisingly I had a handful of stylistic requests (although 2 I noted as being of the ""I'd appreciate you trying"" variety) as I realize they were largely c&p and need refactoring anyways). And there was the one comment I made about the general adherence to the guide - whitespace, HOF syntax, etc. I like the general structure of this though. . In terms of path to release my main concerns were addressed in separate line items, but were a) To what extent has this been tested on JES and b) What is necessary from this branch for s/g (i.e. beyond ""it'll suck to rebase after it"")",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/145#issuecomment-134736397,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Unsurprisingly I had a handful of stylistic requests (although 2 I noted as being of the ""I'd appreciate you trying"" variety) as I realize they were largely c&p and need refactoring anyways). And there was the one comment I made about the general adherence to the guide - whitespace, HOF syntax, etc. I like the general structure of this though. . In terms of path to release my main concerns were addressed in separate line items, but were a) To what extent has this been tested on JES and b) What is necessary from this branch for s/g (i.e. beyond ""it'll suck to rebase after it"")
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content primarily addresses stylistic concerns and does not relate to the quality attribute of Testability, which concerns the ease of validating software functionality through testing."
+Usability,guid,guide,"Unsurprisingly I had a handful of stylistic requests (although 2 I noted as being of the ""I'd appreciate you trying"" variety) as I realize they were largely c&p and need refactoring anyways). And there was the one comment I made about the general adherence to the guide - whitespace, HOF syntax, etc. I like the general structure of this though. . In terms of path to release my main concerns were addressed in separate line items, but were a) To what extent has this been tested on JES and b) What is necessary from this branch for s/g (i.e. beyond ""it'll suck to rebase after it"")",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/145#issuecomment-134736397,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Unsurprisingly I had a handful of stylistic requests (although 2 I noted as being of the ""I'd appreciate you trying"" variety) as I realize they were largely c&p and need refactoring anyways). And there was the one comment I made about the general adherence to the guide - whitespace, HOF syntax, etc. I like the general structure of this though. . In terms of path to release my main concerns were addressed in separate line items, but were a) To what extent has this been tested on JES and b) What is necessary from this branch for s/g (i.e. beyond ""it'll suck to rebase after it"")
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content primarily discusses stylistic and technical concerns, rather than aspects related to usability such as ease of learning, efficiency, or user satisfaction."
+Usability,clear,clear,"While a `Set` with that implementation of `equals` should provide equivalent behavior and wouldn't obviously break anything internal to Cromwell, as a client of this API I wouldn't expect that the compiler-written `equals` of `case class WorkflowInput` had been manually overridden that way. I think most of the problem here was a violation of principle of least surprise: the Rawls consumers of this API reasonably assumed that since the Cromwell API returned workflow inputs in an ordered collection, that order was important. Both `Set` and `Map` make it clear that order is actually not important, but `Map` makes it unmistakable that the String keys must be unique without the consumer of the API having to dig into the implementation of `WorkflowInput#equals`.",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/164#issuecomment-136129605,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: While a `Set` with that implementation of `equals` should provide equivalent behavior and wouldn't obviously break anything internal to Cromwell, as a client of this API I wouldn't expect that the compiler-written `equals` of `case class WorkflowInput` had been manually overridden that way. I think most of the problem here was a violation of principle of least surprise: the Rawls consumers of this API reasonably assumed that since the Cromwell API returned workflow inputs in an ordered collection, that order was important. Both `Set` and `Map` make it clear that order is actually not important, but `Map` makes it unmistakable that the String keys must be unique without the consumer of the API having to dig into the implementation of `WorkflowInput#equals`.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content discusses the violation of the principle of least surprise related to the order of elements in a collection, which aligns with the description of usability but is not directly related to the quality attribute of usability itself."
+Usability,simpl,simpler,https://github.com/scottfrazer/hermes/pull/52 was spawned from discussion Miguel and I had about allowing the parser to specify imports so the grammar file was simpler and could utilize library code.,MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/173#issuecomment-141495429,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: https://github.com/scottfrazer/hermes/pull/52 was spawned from discussion Miguel and I had about allowing the parser to specify imports so the grammar file was simpler and could utilize library code.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,The provided content does not relate to usability as it concerns technical details about grammar file modifications and library code usage.
+Usability,learn,learning-scalaz,Or maybe `UnionTypes`?. http://eed3si9n.com/learning-scalaz/Coproducts.html,MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/192#issuecomment-141792771,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Or maybe `UnionTypes`?. http://eed3si9n.com/learning-scalaz/Coproducts.html
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,The provided content does not relate to usability. It refers to a specific data type called `UnionTypes` and an article about Coproducts in Scalaz.
+Usability,simpl,simplest,"Yes, the simplest way I can think of would be having . ```; object DataAccessObject {; lazy val dataAccess = DataAccess(); }; ```. And then just do . ```; import DataAccessObject._; ```. whenever needed",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/195#issuecomment-142314130,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Yes, the simplest way I can think of would be having . ```; object DataAccessObject {; lazy val dataAccess = DataAccess(); }; ```. And then just do . ```; import DataAccessObject._; ```. whenever needed
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided code snippet does not directly relate to the quality attribute of usability, which concerns user effectiveness, efficiency, and ease of learning."
+Availability,failure,failures,"Sorry all. I was WAY off base about that ""scalability"" thing. It turns out, if one shutdowns one's database pool, the database doesn't allow you to open any new connections. :blush:. Perhaps someday, someone will run `ab` against cromwell and see where it really does fall over, but today wasn't that day. Based on the exceptions I saw, I mistakenly thought it was an internal pool being starved, but when I actually attached a debugger, found out it was because the pool wasn't really _there_ anymore. So I closed the #199 with more extensive refactoring. Currently, even with simpler refactoring to remove calling `DataAccess.instance.shutdown()`, there seems to be something else weird in `data_access_singleton` that I need to figure out. I'm getting repeatable test failures on `WorkflowManagerActorSpec`'s ""should Try to restart workflows when there are workflows in restartable states"". Still debugging…",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/198#issuecomment-143084495,"The system's readiness to perform its function when required, focusing on reliability and recovery. It involves fault masking or repair to prevent failures, ensuring minimal cumulative downtime.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Availability
+Attribute Description: The system's readiness to perform its function when required, focusing on reliability and recovery. It involves fault masking or repair to prevent failures, ensuring minimal cumulative downtime.
+Content: Sorry all. I was WAY off base about that ""scalability"" thing. It turns out, if one shutdowns one's database pool, the database doesn't allow you to open any new connections. :blush:. Perhaps someday, someone will run `ab` against cromwell and see where it really does fall over, but today wasn't that day. Based on the exceptions I saw, I mistakenly thought it was an internal pool being starved, but when I actually attached a debugger, found out it was because the pool wasn't really _there_ anymore. So I closed the #199 with more extensive refactoring. Currently, even with simpler refactoring to remove calling `DataAccess.instance.shutdown()`, there seems to be something else weird in `data_access_singleton` that I need to figure out. I'm getting repeatable test failures on `WorkflowManagerActorSpec`'s ""should Try to restart workflows when there are workflows in restartable states"". Still debugging…
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content discusses issues related to database pool availability and debugging test failures, which are not directly related to the quality attribute of Availability, which focuses on system readiness and recovery from failures."
+Modifiability,refactor,refactoring,"Sorry all. I was WAY off base about that ""scalability"" thing. It turns out, if one shutdowns one's database pool, the database doesn't allow you to open any new connections. :blush:. Perhaps someday, someone will run `ab` against cromwell and see where it really does fall over, but today wasn't that day. Based on the exceptions I saw, I mistakenly thought it was an internal pool being starved, but when I actually attached a debugger, found out it was because the pool wasn't really _there_ anymore. So I closed the #199 with more extensive refactoring. Currently, even with simpler refactoring to remove calling `DataAccess.instance.shutdown()`, there seems to be something else weird in `data_access_singleton` that I need to figure out. I'm getting repeatable test failures on `WorkflowManagerActorSpec`'s ""should Try to restart workflows when there are workflows in restartable states"". Still debugging…",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/198#issuecomment-143084495,"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: Sorry all. I was WAY off base about that ""scalability"" thing. It turns out, if one shutdowns one's database pool, the database doesn't allow you to open any new connections. :blush:. Perhaps someday, someone will run `ab` against cromwell and see where it really does fall over, but today wasn't that day. Based on the exceptions I saw, I mistakenly thought it was an internal pool being starved, but when I actually attached a debugger, found out it was because the pool wasn't really _there_ anymore. So I closed the #199 with more extensive refactoring. Currently, even with simpler refactoring to remove calling `DataAccess.instance.shutdown()`, there seems to be something else weird in `data_access_singleton` that I need to figure out. I'm getting repeatable test failures on `WorkflowManagerActorSpec`'s ""should Try to restart workflows when there are workflows in restartable states"". Still debugging…
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content discusses database pool issues and refactoring, which are not directly related to the quality attribute of modifiability."
+Performance,scalab,scalability,"Sorry all. I was WAY off base about that ""scalability"" thing. It turns out, if one shutdowns one's database pool, the database doesn't allow you to open any new connections. :blush:. Perhaps someday, someone will run `ab` against cromwell and see where it really does fall over, but today wasn't that day. Based on the exceptions I saw, I mistakenly thought it was an internal pool being starved, but when I actually attached a debugger, found out it was because the pool wasn't really _there_ anymore. So I closed the #199 with more extensive refactoring. Currently, even with simpler refactoring to remove calling `DataAccess.instance.shutdown()`, there seems to be something else weird in `data_access_singleton` that I need to figure out. I'm getting repeatable test failures on `WorkflowManagerActorSpec`'s ""should Try to restart workflows when there are workflows in restartable states"". Still debugging…",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/198#issuecomment-143084495,"The system’s capacity to meet its timing requirements, managing event handling and response times effectively. Performance focuses on reducing blocked time from resource contention and optimizing resource utilization under varying load conditions.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Performance
+Attribute Description: The system’s capacity to meet its timing requirements, managing event handling and response times effectively. Performance focuses on reducing blocked time from resource contention and optimizing resource utilization under varying load conditions.
+Content: Sorry all. I was WAY off base about that ""scalability"" thing. It turns out, if one shutdowns one's database pool, the database doesn't allow you to open any new connections. :blush:. Perhaps someday, someone will run `ab` against cromwell and see where it really does fall over, but today wasn't that day. Based on the exceptions I saw, I mistakenly thought it was an internal pool being starved, but when I actually attached a debugger, found out it was because the pool wasn't really _there_ anymore. So I closed the #199 with more extensive refactoring. Currently, even with simpler refactoring to remove calling `DataAccess.instance.shutdown()`, there seems to be something else weird in `data_access_singleton` that I need to figure out. I'm getting repeatable test failures on `WorkflowManagerActorSpec`'s ""should Try to restart workflows when there are workflows in restartable states"". Still debugging…
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content discusses database connection issues and debugging test failures, which are not directly related to the quality attribute of Performance."
+Testability,test,test,"Sorry all. I was WAY off base about that ""scalability"" thing. It turns out, if one shutdowns one's database pool, the database doesn't allow you to open any new connections. :blush:. Perhaps someday, someone will run `ab` against cromwell and see where it really does fall over, but today wasn't that day. Based on the exceptions I saw, I mistakenly thought it was an internal pool being starved, but when I actually attached a debugger, found out it was because the pool wasn't really _there_ anymore. So I closed the #199 with more extensive refactoring. Currently, even with simpler refactoring to remove calling `DataAccess.instance.shutdown()`, there seems to be something else weird in `data_access_singleton` that I need to figure out. I'm getting repeatable test failures on `WorkflowManagerActorSpec`'s ""should Try to restart workflows when there are workflows in restartable states"". Still debugging…",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/198#issuecomment-143084495,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Sorry all. I was WAY off base about that ""scalability"" thing. It turns out, if one shutdowns one's database pool, the database doesn't allow you to open any new connections. :blush:. Perhaps someday, someone will run `ab` against cromwell and see where it really does fall over, but today wasn't that day. Based on the exceptions I saw, I mistakenly thought it was an internal pool being starved, but when I actually attached a debugger, found out it was because the pool wasn't really _there_ anymore. So I closed the #199 with more extensive refactoring. Currently, even with simpler refactoring to remove calling `DataAccess.instance.shutdown()`, there seems to be something else weird in `data_access_singleton` that I need to figure out. I'm getting repeatable test failures on `WorkflowManagerActorSpec`'s ""should Try to restart workflows when there are workflows in restartable states"". Still debugging…
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content discusses debugging and refactoring issues related to database pool management and test failures, which are not directly related to the quality attribute of Testability."
+Usability,simpl,simpler,"Sorry all. I was WAY off base about that ""scalability"" thing. It turns out, if one shutdowns one's database pool, the database doesn't allow you to open any new connections. :blush:. Perhaps someday, someone will run `ab` against cromwell and see where it really does fall over, but today wasn't that day. Based on the exceptions I saw, I mistakenly thought it was an internal pool being starved, but when I actually attached a debugger, found out it was because the pool wasn't really _there_ anymore. So I closed the #199 with more extensive refactoring. Currently, even with simpler refactoring to remove calling `DataAccess.instance.shutdown()`, there seems to be something else weird in `data_access_singleton` that I need to figure out. I'm getting repeatable test failures on `WorkflowManagerActorSpec`'s ""should Try to restart workflows when there are workflows in restartable states"". Still debugging…",MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/198#issuecomment-143084495,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Sorry all. I was WAY off base about that ""scalability"" thing. It turns out, if one shutdowns one's database pool, the database doesn't allow you to open any new connections. :blush:. Perhaps someday, someone will run `ab` against cromwell and see where it really does fall over, but today wasn't that day. Based on the exceptions I saw, I mistakenly thought it was an internal pool being starved, but when I actually attached a debugger, found out it was because the pool wasn't really _there_ anymore. So I closed the #199 with more extensive refactoring. Currently, even with simpler refactoring to remove calling `DataAccess.instance.shutdown()`, there seems to be something else weird in `data_access_singleton` that I need to figure out. I'm getting repeatable test failures on `WorkflowManagerActorSpec`'s ""should Try to restart workflows when there are workflows in restartable states"". Still debugging…
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content discusses database scalability issues, which is not directly related to the quality attribute of Usability, which focuses on user-related aspects."
+Testability,test,tests,Please don't merge this PR yet. I believe the changes I've made are okay but tests are failing pretty consistently for reasons that aren't clear yet.,MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/233#issuecomment-146951243,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Please don't merge this PR yet. I believe the changes I've made are okay but tests are failing pretty consistently for reasons that aren't clear yet.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content refers to ongoing testing issues rather than the ease of validating software functionality through testing, which aligns with the definition of testability."
+Usability,clear,clear,Please don't merge this PR yet. I believe the changes I've made are okay but tests are failing pretty consistently for reasons that aren't clear yet.,MatchSource.ISSUE_COMMENT,broadinstitute,cromwell,87,http://cromwell.readthedocs.io/,https://github.com/broadinstitute/cromwell/pull/233#issuecomment-146951243,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Please don't merge this PR yet. I believe the changes I've made are okay but tests are failing pretty consistently for reasons that aren't clear yet.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content talks about failing tests and unclear reasons, which is related to technical issues rather than usability as defined by the attribute description."

@@ -127,15 +127,13 @@ Output your response as a JSON object in the following format:
 """
 
 
-def verify_file(file_path, res_filepath, batch_size=10):
+def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
     os.makedirs(".cache/verification", exist_ok=True)
-    with shelve.open(f".cache/verification/{file_path.stem}", writeback=True) as db:
-        if 'processed' not in db:
-            db["processed"] = set()
-
-        if file_path.stem in db["processed"]:
+    with shelve.open(f".cache/verification/{file_path.stem}") as db:
+        if db.get("processed", False):
             logger.info(f"File {file_path.stem} already processed")
             return
+        logger.info(f"Processing {file_path.stem}")
 
         # genai.configure(api_key=os.getenv("GOOGLE_AI_STUDIO_KEY"))
         # model = genai.GenerativeModel("gemini-1.5-flash")
@@ -145,6 +143,12 @@ def verify_file(file_path, res_filepath, batch_size=10):
         except Exception as e:
             logger.info(e)
             return
+
+        last_idx = db.get("idx", 0)
+        df = df.iloc[last_idx:].copy()
+        if last_idx > 0:
+            logger.info(f"Continuing from {last_idx}")
+            res_filepath = res_filepath.with_suffix(f".from_{last_idx}.csv")
 
         df["attribute_desc"] = df["quality_attribute"].apply(lambda x: quality_attribs[x]["desc"])
         df['prompt'] = df.apply(lambda x: to_prompt(x), axis=1)
@@ -163,18 +167,21 @@ def verify_file(file_path, res_filepath, batch_size=10):
                     df_to_save = df.iloc[0:i + 1].copy()
                     df_to_save['false_positive'], df_to_save['reasoning'] = zip(*res)
                     df_to_save.to_csv(res_filepath, index=False)
+                    db["idx"] = i + 1
+
             except RetryError as e:
-                print(f"Error in row {i}, {e}")
+                print(f"Error in row {i + 1}, {e}")
                 exit(1)
         df['false_positive'], df['reasoning'] = zip(*res)
         df.to_csv(res_filepath, index=False)
 
-        db['processed'].add(file_path.stem)
+        db['processed'] = True
+        logger.info(f"Processed {file_path.stem}")
 
 
 def main():
     # os.makedirs(".logs", exist_ok=True)
-    logger.add(f".logs/verification.{datetime.now().isoformat()}.log", mode="w")
+    logger.add(f".logs/verification.{datetime.now().strftime('%Y-%m-%dT%H-%M-%S')}.log", mode="w")
     # file_path = Path("./metadata/keywords/verification/big_sample2.csv")
     try:
         file_folder = Path("metadata/keywords/")
