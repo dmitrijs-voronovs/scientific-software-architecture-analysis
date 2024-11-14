@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyword analysis</title>
+</head>
+<body>
+
+<h1>Keyword analysis</h1>
+<p>This page contains the charts with analysis of the keyword matches.</p>
+
+<div id="containter" style="display: flex; flex-direction: column; justify-content: space-around"></div>
+<script>
+    const files = [
+        "all_comparative_histogram_quality_attr_to_sources.html",
+        "all_histogram_of_keyword_matches_by_quality_attribute.html",
+        "all_histogram_of_keyword_matches_by_source.html",
+        "all_histogram_of_keyword_matches_by_source_animated.html",
+        "all_parallel_sets_diagram_quality_attr_to_keywords.html",
+        "all_parallel_sets_diagram_quality_attr_to_keywords_with_matched_words.html",
+        "all_parallel_sets_diagram_quality_attr_to_matched_words.html",
+        "all_radar_chart_quality_attr.html",
+        "all_sankey_quality_attr_to_sources.html",
+        "all_sankey_quality_attr_to_sources_and_keywords.html",
+        "all_sankey_quality_attr_to_sources_and_matched_words.html",
+        "all_source_vs_quality_attr_matrix.html",
+        "all_stacked_bar_chart_quality_attr_to_sources.html",
+        "all_treemap_quality_attr_to_matched_words.html",
+        "all_treemap_quality_attr_to_matched_words_by_project.html",
+        "all_treemap_quality_attr_to_matched_words_with_source.html",
+        "comparative_histogram_quality_attr_to_sources.html",
+        "histogram_of_keyword_matches_by_quality_attribute.html",
+        "histogram_of_keyword_matches_by_source.html",
+        "parallel_sets_diagram_quality_attr_to_keywords.html",
+        "parallel_sets_diagram_quality_attr_to_keywords_with_matched_words.html",
+        "parallel_sets_diagram_quality_attr_to_matched_words.html",
+        "radar_chart_quality_attr.html",
+        "sankey_quality_attr_to_sources.html",
+        "sankey_quality_attr_to_sources_and_keywords.html",
+        "sankey_quality_attr_to_sources_and_matched_words.html",
+        "source_vs_quality_attr_matrix.html",
+        "stacked_bar_chart_quality_attr_to_sources.html",
+        "treemap_quality_attr_to_matched_words.html",
+        "treemap_quality_attr_to_matched_words_with_source.html",
+        "treemap_quality_attr_to_matched_words_with_source_and_sentences.html",
+    ]
+    const prefix = "keyword_analysis/"
+
+    const container = document.getElementById("containter");
+    for (const file of files) {
+        const linkNode = document.createElement("a");
+        linkNode.href = `${prefix}/${file}`;
+        linkNode.innerText = file;
+        container.appendChild(linkNode)
+    }
+</script>
+</body>
+</html>
