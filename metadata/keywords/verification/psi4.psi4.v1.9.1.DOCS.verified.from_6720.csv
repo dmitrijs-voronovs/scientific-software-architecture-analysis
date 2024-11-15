@@ -1,0 +1,241 @@
+quality_attribute,keyword,matched_word,sentence,source,filename,author,repo,version,wiki,url,attribute_desc,prompt,false_positive,reasoning
+Testability,test,testsuite,testsuite,MatchSource.DOCS,doc/sphinxman/CMakeLists.txt,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/tree/v1.9.1/doc/sphinxman/CMakeLists.txt#:~:text=testsuite,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: testsuite
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,The content 'testsuite' is too generic and does not provide specific information regarding the ease of validating software functionality through testing.
+Testability,test,test,# Autodoc test cases,MatchSource.DOCS,doc/sphinxman/CMakeLists.txt,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/tree/v1.9.1/doc/sphinxman/CMakeLists.txt#:~:text=%23%20Autodoc%20test%20cases,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: # Autodoc test cases
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content refers to automated documentation of test cases, which is not directly related to the quality attribute of testability, which concerns the ease of validating software functionality through testing."
+Testability,test,tests,"$<IF:$<STREQUAL:${CMAKE_GENERATOR},""Unix Makefiles"">,${psi4_SOURCE_DIR}/tests/*/input",MatchSource.DOCS,doc/sphinxman/CMakeLists.txt,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/tree/v1.9.1/doc/sphinxman/CMakeLists.txt#:~:text=%24%3CIF%3A%24%3CSTREQUAL%3A%24%7BCMAKE_GENERATOR%7D%2C%22Unix%20Makefiles%22%3E%2C%24%7Bpsi4_SOURCE_DIR%7D/tests/%2A/input,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: $<IF:$<STREQUAL:${CMAKE_GENERATOR},""Unix Makefiles"">,${psi4_SOURCE_DIR}/tests/*/input
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content is related to the location of test files, rather than the ease of validating software functionality through testing, which is the definition of the Testability quality attribute."
+Testability,test,tests,"dat,${psi4_SOURCE_DIR}/tests/ghosts/input",MatchSource.DOCS,doc/sphinxman/CMakeLists.txt,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/tree/v1.9.1/doc/sphinxman/CMakeLists.txt#:~:text=dat%2C%24%7Bpsi4_SOURCE_DIR%7D/tests/ghosts/input,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: dat,${psi4_SOURCE_DIR}/tests/ghosts/input
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content 'dat,${psi4_SOURCE_DIR}/tests/ghosts/input' does not relate to the quality attribute of Testability. It appears to be a file path or directory reference, which is not relevant to the concept of testability."
+Testability,test,tests,"$<IF:$<STREQUAL:${CMAKE_GENERATOR},""Unix Makefiles"">,${psi4_SOURCE_DIR}/tests/*/*/input",MatchSource.DOCS,doc/sphinxman/CMakeLists.txt,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/tree/v1.9.1/doc/sphinxman/CMakeLists.txt#:~:text=%24%3CIF%3A%24%3CSTREQUAL%3A%24%7BCMAKE_GENERATOR%7D%2C%22Unix%20Makefiles%22%3E%2C%24%7Bpsi4_SOURCE_DIR%7D/tests/%2A/%2A/input,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: $<IF:$<STREQUAL:${CMAKE_GENERATOR},""Unix Makefiles"">,${psi4_SOURCE_DIR}/tests/*/*/input
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content refers to the location of test files rather than the ease of validating software functionality through testing, which is the definition of Testability."
+Testability,test,tests,"dat,${psi4_SOURCE_DIR}/tests/dftd3/energy/input",MatchSource.DOCS,doc/sphinxman/CMakeLists.txt,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/tree/v1.9.1/doc/sphinxman/CMakeLists.txt#:~:text=dat%2C%24%7Bpsi4_SOURCE_DIR%7D/tests/dftd3/energy/input,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: dat,${psi4_SOURCE_DIR}/tests/dftd3/energy/input
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content 'dat,${psi4_SOURCE_DIR}/tests/dftd3/energy/input' does not relate to the concept of testability as described in the attribute description."
+Testability,test,test,"COMMENT ""Autodoc test cases"")",MatchSource.DOCS,doc/sphinxman/CMakeLists.txt,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/tree/v1.9.1/doc/sphinxman/CMakeLists.txt#:~:text=COMMENT%20%22Autodoc%20test%20cases%22%29,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: COMMENT ""Autodoc test cases"")
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content simply comments on the existence of test cases, which is not directly related to the quality attribute of testability, which concerns the ease of validating software functionality through testing."
+Testability,stub,stubs,# Autodoc stubs,MatchSource.DOCS,doc/sphinxman/CMakeLists.txt,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/tree/v1.9.1/doc/sphinxman/CMakeLists.txt#:~:text=%23%20Autodoc%20stubs,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: # Autodoc stubs
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"Autodoc stubs are not directly related to the quality attribute of Testability, which refers to the ease of validating software functionality through testing."
+Testability,stub,stubs,"COMMENT ""Autodoc stubs"")",MatchSource.DOCS,doc/sphinxman/CMakeLists.txt,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/tree/v1.9.1/doc/sphinxman/CMakeLists.txt#:~:text=COMMENT%20%22Autodoc%20stubs%22%29,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: COMMENT ""Autodoc stubs"")
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,The comment 'Autodoc stubs' does not provide any information related to the quality attribute 'Testability'.
+Testability,test,tests,#        COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_BINARY_DIR}/tests/docs-psimod/autodoc_psimod,MatchSource.DOCS,doc/sphinxman/CMakeLists.txt,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/tree/v1.9.1/doc/sphinxman/CMakeLists.txt#:~:text=%23%20%20%20%20%20%20%20%20COMMAND%20%24%7BCMAKE_COMMAND%7D%20-E%20copy_if_different%20%24%7BCMAKE_BINARY_DIR%7D/tests/docs-psimod/autodoc_psimod,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: #        COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_BINARY_DIR}/tests/docs-psimod/autodoc_psimod
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,The content does not directly relate to the quality attribute of Testability. It appears to be a command related to copying files during the build process.

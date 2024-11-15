@@ -161,17 +161,19 @@ def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
                     res.append(r)
                 except Exception as e:
                     logger.error(e)
+                    if "HTTPConnectionPool" in str(e):
+                        logger.error("HTTPConnectionPool error, exiting")
+                        exit(1)
                     res.append((None, str(e)))
 
                 if (i + 1) % batch_size == 0:
                     df_to_save = df.iloc[0:i + 1].copy()
                     df_to_save['false_positive'], df_to_save['reasoning'] = zip(*res)
                     df_to_save.to_csv(res_filepath, index=False)
-                    db["idx"] = i + 1
+                    db["idx"] = last_idx + i + 1
 
-            except RetryError as e:
+            except Exception as e:
                 print(f"Error in row {i + 1}, {e}")
-                exit(1)
         df['false_positive'], df['reasoning'] = zip(*res)
         df.to_csv(res_filepath, index=False)
 
@@ -182,6 +184,9 @@ def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
 def main():
     # os.makedirs(".logs", exist_ok=True)
     logger.add(f".logs/verification.{datetime.now().strftime('%Y-%m-%dT%H-%M-%S')}.log", mode="w")
+    # with shelve.open(f".cache/verification/psi4.psi4.v1.9.1.DOCS") as db:
+    #     db['idx'] = 6720
+
     # file_path = Path("./metadata/keywords/verification/big_sample2.csv")
     try:
         file_folder = Path("metadata/keywords/")

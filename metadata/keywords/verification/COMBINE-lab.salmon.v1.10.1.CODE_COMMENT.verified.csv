@@ -1,0 +1,409 @@
+quality_attribute,keyword,matched_word,sentence,source,filename,author,repo,version,wiki,url,attribute_desc,prompt,false_positive,reasoning
+Availability,avail,available,"For a list of options available for each theme, see the",MatchSource.CODE_COMMENT,doc/source/conf.py,COMBINE-lab,salmon,v1.10.1,https://combine-lab.github.io/salmon,https://github.com/COMBINE-lab/salmon/tree/v1.10.1/doc/source/conf.py#:~:text=For%20a%20list%20of%20options%20available%20for%20each%20theme%2C%20see%20the,"The system's readiness to perform its function when required, focusing on reliability and recovery. It involves fault masking or repair to prevent failures, ensuring minimal cumulative downtime.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Availability
+Attribute Description: The system's readiness to perform its function when required, focusing on reliability and recovery. It involves fault masking or repair to prevent failures, ensuring minimal cumulative downtime.
+Content: For a list of options available for each theme, see the
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not address the concept of availability as defined by the attribute description. It lacks information related to fault masking, repair, or measures to minimize downtime."
+Deployability,configurat,configuration,"# Salmon documentation build configuration file, created by",MatchSource.CODE_COMMENT,doc/source/conf.py,COMBINE-lab,salmon,v1.10.1,https://combine-lab.github.io/salmon,https://github.com/COMBINE-lab/salmon/tree/v1.10.1/doc/source/conf.py#:~:text=%23%20Salmon%20documentation%20build%20configuration%20file%2C%20created%20by,"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Deployability
+Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
+Content: # Salmon documentation build configuration file, created by
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content refers to a documentation build configuration file, which is not directly related to the quality attribute of Deployability, which concerns the software itself."
+Deployability,configurat,configuration,# Note that not all possible configuration values are present in this,MatchSource.CODE_COMMENT,doc/source/conf.py,COMBINE-lab,salmon,v1.10.1,https://combine-lab.github.io/salmon,https://github.com/COMBINE-lab/salmon/tree/v1.10.1/doc/source/conf.py#:~:text=%23%20Note%20that%20not%20all%20possible%20configuration%20values%20are%20present%20in%20this,"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Deployability
+Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
+Content: # Note that not all possible configuration values are present in this
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content does not address the key aspects of deployability mentioned in the attribute description, such as automation, deployment speed, and deployment granularity."
+Deployability,configurat,configuration,# All configuration values have a default; values that are commented out,MatchSource.CODE_COMMENT,doc/source/conf.py,COMBINE-lab,salmon,v1.10.1,https://combine-lab.github.io/salmon,https://github.com/COMBINE-lab/salmon/tree/v1.10.1/doc/source/conf.py#:~:text=%23%20All%20configuration%20values%20have%20a%20default%3B%20values%20that%20are%20commented%20out,"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Deployability
+Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
+Content: # All configuration values have a default; values that are commented out
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content concerns default configuration values, which is not directly related to the quality attribute of Deployability, which focuses on deployment speed, automation, and granularity."
+Deployability,configurat,configuration,# -- General configuration ------------------------------------------------,MatchSource.CODE_COMMENT,doc/source/conf.py,COMBINE-lab,salmon,v1.10.1,https://combine-lab.github.io/salmon,https://github.com/COMBINE-lab/salmon/tree/v1.10.1/doc/source/conf.py#:~:text=%23%20--%20General%20configuration%20------------------------------------------------,"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Deployability
+Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
+Content: # -- General configuration ------------------------------------------------
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not relate to the quality attribute of Deployability, which concerns deployment into an operational environment."
+Deployability,release,release,"# |version| and |release|, also used in various other places throughout the",MatchSource.CODE_COMMENT,doc/source/conf.py,COMBINE-lab,salmon,v1.10.1,https://combine-lab.github.io/salmon,https://github.com/COMBINE-lab/salmon/tree/v1.10.1/doc/source/conf.py#:~:text=%23%20%7Cversion%7C%20and%20%7Crelease%7C%2C%20also%20used%20in%20various%20other%20places%20throughout%20the,"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Deployability
+Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
+Content: # |version| and |release|, also used in various other places throughout the
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content refers to versioning and release management practices, which are not directly related to the quality attribute of Deployability."
+Deployability,release,release,"# ""<project> v<release> documentation""",MatchSource.CODE_COMMENT,doc/source/conf.py,COMBINE-lab,salmon,v1.10.1,https://combine-lab.github.io/salmon,https://github.com/COMBINE-lab/salmon/tree/v1.10.1/doc/source/conf.py#:~:text=%23%20%22%3Cproject%3E%20v%3Crelease%3E%20documentation%22,"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Deployability
+Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
+Content: # ""<project> v<release> documentation""
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content refers to project documentation, which is not directly related to the quality attribute of Deployability, which concerns the software's deployment process and characteristics."
+Deployability,update,updated,"# If not '', a 'Last updated on:' timestamp is inserted at every page bottom,",MatchSource.CODE_COMMENT,doc/source/conf.py,COMBINE-lab,salmon,v1.10.1,https://combine-lab.github.io/salmon,https://github.com/COMBINE-lab/salmon/tree/v1.10.1/doc/source/conf.py#:~:text=%23%20If%20not%20%27%27%2C%20a%20%27Last%20updated%20on%3A%27%20timestamp%20is%20inserted%20at%20every%20page%20bottom%2C,"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Deployability
+Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
+Content: # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not relate to the described quality attribute of Deployability, which concerns deployment process aspects like automation, speed, and granularity."
+Integrability,message,message,"# If true, keep warnings as ""system message"" paragraphs in the built documents",MatchSource.CODE_COMMENT,doc/source/conf.py,COMBINE-lab,salmon,v1.10.1,https://combine-lab.github.io/salmon,https://github.com/COMBINE-lab/salmon/tree/v1.10.1/doc/source/conf.py#:~:text=%23%20If%20true%2C%20keep%20warnings%20as%20%22system%20message%22%20paragraphs%20in%20the%20built%20documents,"The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Integrability
+Attribute Description: The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.
+Content: # If true, keep warnings as ""system message"" paragraphs in the built documents
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not relate to the description of integrability, which focuses on the ease of combining systems, while the content is about handling warnings in built documents."
+Modifiability,config,configuration,"# Salmon documentation build configuration file, created by",MatchSource.CODE_COMMENT,doc/source/conf.py,COMBINE-lab,salmon,v1.10.1,https://combine-lab.github.io/salmon,https://github.com/COMBINE-lab/salmon/tree/v1.10.1/doc/source/conf.py#:~:text=%23%20Salmon%20documentation%20build%20configuration%20file%2C%20created%20by,"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: # Salmon documentation build configuration file, created by
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,The provided content refers to a documentation file rather than the actual code or design elements that influence modifiability.
+Modifiability,config,configuration,# Note that not all possible configuration values are present in this,MatchSource.CODE_COMMENT,doc/source/conf.py,COMBINE-lab,salmon,v1.10.1,https://combine-lab.github.io/salmon,https://github.com/COMBINE-lab/salmon/tree/v1.10.1/doc/source/conf.py#:~:text=%23%20Note%20that%20not%20all%20possible%20configuration%20values%20are%20present%20in%20this,"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: # Note that not all possible configuration values are present in this
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content refers to configuration values, which is not directly related to the modifiability quality attribute. Modifiability involves the ease of adapting the system itself, not configuration settings."
+Modifiability,config,configuration,# All configuration values have a default; values that are commented out,MatchSource.CODE_COMMENT,doc/source/conf.py,COMBINE-lab,salmon,v1.10.1,https://combine-lab.github.io/salmon,https://github.com/COMBINE-lab/salmon/tree/v1.10.1/doc/source/conf.py#:~:text=%23%20All%20configuration%20values%20have%20a%20default%3B%20values%20that%20are%20commented%20out,"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: # All configuration values have a default; values that are commented out
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content refers to configuration values having default or commented-out states, which is unrelated to the quality attribute of modifiability, which involves the ease of adapting the system by modifying features or adjusting to new environments."
+Modifiability,config,configuration,# -- General configuration ------------------------------------------------,MatchSource.CODE_COMMENT,doc/source/conf.py,COMBINE-lab,salmon,v1.10.1,https://combine-lab.github.io/salmon,https://github.com/COMBINE-lab/salmon/tree/v1.10.1/doc/source/conf.py#:~:text=%23%20--%20General%20configuration%20------------------------------------------------,"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: # -- General configuration ------------------------------------------------
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,The provided content does not relate to modifiability as it refers to general configuration settings rather than the ability to adapt the system through modifications.
+Usability,simpl,simplify,"#Rename to ""source_folder"" is a convention to simplify later steps",MatchSource.CODE_COMMENT,include/parallel_hashmap/conanfile.py,COMBINE-lab,salmon,v1.10.1,https://combine-lab.github.io/salmon,https://github.com/COMBINE-lab/salmon/tree/v1.10.1/include/parallel_hashmap/conanfile.py#:~:text=%23Rename%20to%20%22source_folder%22%20is%20a%20convention%20to%20simplify%20later%20steps,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: #Rename to ""source_folder"" is a convention to simplify later steps
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,The content does not relate to usability as it refers to a technical convention for file naming and does not address user-related factors such as ease of learning or efficiency.
+Integrability,message,message,-h --help               Show this message,MatchSource.CODE_COMMENT,scripts/ComputeMutationRate.py,COMBINE-lab,salmon,v1.10.1,https://combine-lab.github.io/salmon,https://github.com/COMBINE-lab/salmon/tree/v1.10.1/scripts/ComputeMutationRate.py#:~:text=-h%20--help%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Show%20this%20message,"The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Integrability
+Attribute Description: The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.
+Content: -h --help               Show this message
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content (`-h --help`) is related to command-line interface (CLI) usage and does not directly relate to the quality attribute of integrability, which concerns the ease of combining systems or components."
+Integrability,message,message,-h --help               Show this message,MatchSource.CODE_COMMENT,scripts/MutateReference.py,COMBINE-lab,salmon,v1.10.1,https://combine-lab.github.io/salmon,https://github.com/COMBINE-lab/salmon/tree/v1.10.1/scripts/MutateReference.py#:~:text=-h%20--help%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Show%20this%20message,"The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Integrability
+Attribute Description: The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.
+Content: -h --help               Show this message
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,The provided content simply displays a command-line help message and does not relate to the concept of integrability as defined by the attribute description.
+Testability,assert,assert,#assert(len(o) == len(x)),MatchSource.CODE_COMMENT,scripts/MutateReference.py,COMBINE-lab,salmon,v1.10.1,https://combine-lab.github.io/salmon,https://github.com/COMBINE-lab/salmon/tree/v1.10.1/scripts/MutateReference.py#:~:text=%23assert%28len%28o%29%20%3D%3D%20len%28x%29%29,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: #assert(len(o) == len(x))
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,The provided code snippet (#assert(len(o) == len(x))) does not directly relate to the concept of testability as described in the attribute description. It suggests assertion logic rather than the ease of testing or validation of software functionality.
