@@ -211,12 +211,13 @@ if __name__ == "__main__":
     docs_path = Path(".tmp/docs")
     source_code_path = Path(".tmp/source")
 
-    creds = Credentials(author="scverse", repo="scanpy", version="1.10.2", wiki="scanpy.readthedocs.io/en")
+    # creds = Credentials(author="scverse", repo="scanpy", version="1.10.2", wiki="scanpy.readthedocs.io/en")
     # creds = Credentials({'author': 'root-project', 'repo': 'root', 'version': 'v6-32-06', 'wiki': 'https://root.cern'})
+    # creds = Credentials(
+    #     {'author': 'allenai', 'repo': 'scispacy', 'version': 'v0.5.5', 'wiki': 'https://allenai.github.io/scispacy/'})
 
-    credential_list2 = [creds]
-
-    for creds in credential_list2:
+    # credential_list2 = [creds]
+    for creds in credential_list:
         print(f"Checking out {creds.get_ref()}")
         try:
             # checkout_tag(creds['author'], creds['repo'], creds['version'])
@@ -228,10 +229,10 @@ if __name__ == "__main__":
                 matches_wiki = parser.parse_wiki(str(docs_path / creds.wiki_dir))
                 save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
 
-            # matches_code_comments = parser.parse_comments(str(source_code_path / creds.get_ref()))
-            # save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
-            #
-            # matches_docs = parser.parse_docs(str(source_code_path / creds.get_ref()))
-            # save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
+            matches_code_comments = parser.parse_comments(str(source_code_path / creds.get_ref()))
+            save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
+
+            matches_docs = parser.parse_docs(str(source_code_path / creds.get_ref()))
+            save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
         except Exception as e:
             print(f"Error processing {creds.get_ref()}: {str(e)}")

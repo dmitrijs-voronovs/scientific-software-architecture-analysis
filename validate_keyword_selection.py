@@ -12,6 +12,8 @@ from loguru import logger
 from tenacity import retry, stop_after_attempt, RetryError, wait_incrementing, wait_fixed
 from tqdm import tqdm
 
+from model.Credentials import Credentials
+
 # Load environment variables from .env file
 dotenv.load_dotenv()
 
@@ -126,10 +128,11 @@ Output your response as a JSON object in the following format:
 }}
 """
 
+verification_dir = "verification_it2"
 
 def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
-    os.makedirs(".cache/verification", exist_ok=True)
-    with shelve.open(f".cache/verification/{file_path.stem}") as db:
+    os.makedirs(f".cache/{verification_dir}/", exist_ok=True)
+    with shelve.open(f".cache/{verification_dir}/{file_path.stem}") as db:
         if db.get("processed", False):
             logger.info(f"File {file_path.stem} already processed")
             return
@@ -159,6 +162,8 @@ def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
                 try:
                     r = request_gemma(row["prompt"])
                     res.append(r)
+                except RetryError as error:
+                    logger.error(f"Retry error, current_element={last_idx + i + 1}, {row=}, {error}")
                 except Exception as e:
                     logger.error(e)
                     if "HTTPConnectionPool" in str(e):
@@ -182,17 +187,30 @@ def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
 
 
 def main():
-    # os.makedirs(".logs", exist_ok=True)
-    logger.add(f".logs/verification.{datetime.now().strftime('%Y-%m-%dT%H-%M-%S')}.log", mode="w")
+    keyword_folder = Path("metadata/keywords/")
+    os.makedirs(".logs", exist_ok=True)
+    os.makedirs(keyword_folder / verification_dir, exist_ok=True)
+    logger.add(f".logs/{verification_dir}.{datetime.now().strftime('%Y-%m-%dT%H-%M-%S')}.log", mode="w")
+
     # with shelve.open(f".cache/verification/psi4.psi4.v1.9.1.DOCS") as db:
     #     db['idx'] = 6720
 
     # file_path = Path("./metadata/keywords/verification/big_sample2.csv")
+
+    creds = [
+        Credentials(
+            {'author': 'scverse', 'repo': 'scanpy', 'version': '1.10.2', 'wiki': 'https://scanpy.readthedocs.io'}),
+        Credentials({'author': 'allenai', 'repo': 'scispacy', 'version': 'v0.5.5',
+                     'wiki': 'https://allenai.github.io/scispacy/'}),
+        Credentials({'author': 'qutip', 'repo': 'qutip', 'version': 'v5.0.4', 'wiki': 'https://qutip.org'}),
+        Credentials({'author': 'hail-is', 'repo': 'hail', 'version': '0.2.133', 'wiki': 'https://hail.is'}),
+    ]
+
     try:
-        file_folder = Path("metadata/keywords/")
-        for file_path in file_folder.glob("*.csv"):
-            res_filepath = file_path.parent / f"verification/{file_path.stem}.verified.csv"
-            verify_file(file_path, res_filepath)  # res_filepath = file_path.with_stem("test123")
+        for file_path in keyword_folder.glob("*.csv"):
+            if any(cred.get_ref(".") in file_path.stem for cred in creds):
+                res_filepath = file_path.parent / f"{verification_dir}/{file_path.stem}.verified.csv"
+                verify_file(file_path, res_filepath)  # res_filepath = file_path.with_stem("test123")
     except Exception as e:
         logger.error(e)
 

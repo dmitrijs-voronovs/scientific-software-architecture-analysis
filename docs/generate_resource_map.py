@@ -5,7 +5,7 @@ def generate_resource_map():
     current_dir = Path(__file__).parent
     csvFiles = list(x.name for x in (current_dir / "csv").glob("*.csv"))
     charts = list(x.name for x in (current_dir / "keyword_analysis").glob("*.html"))
-    validationCharts = list(x.name for x in (current_dir / "keyword_analysis" / "validation").glob("*.html"))
+    validationCharts = list(x.name for x in (current_dir / "keyword_analysis" / "verification").glob("*.html"))
     map = f'''
 const csvFiles = {csvFiles}  
 const charts = {charts} 
