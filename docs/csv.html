@@ -23,7 +23,7 @@
     }
 
     const container = document.getElementById("container");
-    for (const file of csvFiles) {
+    for (const file of csv_files) {
         const buttonNode = document.createElement("button");
         buttonNode.onclick = () => updateSelectedFile(file);
         buttonNode.innerText = file;
