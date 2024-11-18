@@ -1,0 +1,49 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,wiki,url,attribute_desc,prompt,false_positive,reasoning
+Usability,progress bar,progress bar,Update for spacy 3.7.x. ## What's Changed; * Fixes #485 Project Page URL in setup.py by @sajedjalil in https://github.com/allenai/scispacy/pull/495; * add progress bar to http_get by @WeixiongLin in https://github.com/allenai/scispacy/pull/499; * Update for spacy 3.7 compatibility by @dakinggg in https://github.com/allenai/scispacy/pull/507; * Update publish workflow to trusted publisher by @dakinggg in https://github.com/allenai/scispacy/pull/508. ## New Contributors; * @sajedjalil made their first contribution in https://github.com/allenai/scispacy/pull/495; * @WeixiongLin made their first contribution in https://github.com/allenai/scispacy/pull/499. **Full Changelog**: https://github.com/allenai/scispacy/compare/v0.5.3...v0.5.4,MatchSource.RELEASES,allenai,scispacy,v0.5.5,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/releases/tag/v0.5.4,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Update for spacy 3.7.x. ## What's Changed; * Fixes #485 Project Page URL in setup.py by @sajedjalil in https://github.com/allenai/scispacy/pull/495; * add progress bar to http_get by @WeixiongLin in https://github.com/allenai/scispacy/pull/499; * Update for spacy 3.7 compatibility by @dakinggg in https://github.com/allenai/scispacy/pull/507; * Update publish workflow to trusted publisher by @dakinggg in https://github.com/allenai/scispacy/pull/508. ## New Contributors; * @sajedjalil made their first contribution in https://github.com/allenai/scispacy/pull/495; * @WeixiongLin made their first contribution in https://github.com/allenai/scispacy/pull/499. **Full Changelog**: https://github.com/allenai/scispacy/compare/v0.5.3...v0.5.4
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content describes technical updates and new contributors to the scispacy project, which is not directly related to the quality attribute of Usability."
+Usability,guid,guide,Retrains the models with spacy 3.6.x to be compatible with the latest spacy version. ## What's Changed; * Update README.md by @dakinggg in https://github.com/allenai/scispacy/pull/476; * Update EntityLinker docstring by @andyjessen in https://github.com/allenai/scispacy/pull/472; * Support UMLS filtering by language (Solves #477) by @nachollorca in https://github.com/allenai/scispacy/pull/478; * Add a note about make_serializable argument by @JohnGiorgi in https://github.com/allenai/scispacy/pull/484; * Drop umls and umls_ents attributes in linker by @JohnGiorgi in https://github.com/allenai/scispacy/pull/489; * Updating nmslib hyperparameters guide url by @kaushikacharya in https://github.com/allenai/scispacy/pull/493; * Update to latest spacy version by @dakinggg in https://github.com/allenai/scispacy/pull/494. ## New Contributors; * @nachollorca made their first contribution in https://github.com/allenai/scispacy/pull/478; * @JohnGiorgi made their first contribution in https://github.com/allenai/scispacy/pull/484. **Full Changelog**: https://github.com/allenai/scispacy/compare/v0.5.2...v0.5.3,MatchSource.RELEASES,allenai,scispacy,v0.5.5,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/releases/tag/v0.5.3,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Retrains the models with spacy 3.6.x to be compatible with the latest spacy version. ## What's Changed; * Update README.md by @dakinggg in https://github.com/allenai/scispacy/pull/476; * Update EntityLinker docstring by @andyjessen in https://github.com/allenai/scispacy/pull/472; * Support UMLS filtering by language (Solves #477) by @nachollorca in https://github.com/allenai/scispacy/pull/478; * Add a note about make_serializable argument by @JohnGiorgi in https://github.com/allenai/scispacy/pull/484; * Drop umls and umls_ents attributes in linker by @JohnGiorgi in https://github.com/allenai/scispacy/pull/489; * Updating nmslib hyperparameters guide url by @kaushikacharya in https://github.com/allenai/scispacy/pull/493; * Update to latest spacy version by @dakinggg in https://github.com/allenai/scispacy/pull/494. ## New Contributors; * @nachollorca made their first contribution in https://github.com/allenai/scispacy/pull/478; * @JohnGiorgi made their first contribution in https://github.com/allenai/scispacy/pull/484. **Full Changelog**: https://github.com/allenai/scispacy/compare/v0.5.2...v0.5.3
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,The provided content does not relate to usability as it describes technical updates and changes to the scispacy library.
