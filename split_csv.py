@@ -1,33 +1,34 @@
 import math
+import os
 from itertools import islice
 from pathlib import Path
 
 import pandas as pd
 from tqdm import tqdm
 
-MAX_FILE_SIZE_BYTES = 5 * 1000 * 1000
+MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024
 
 
-def split_file(path: str | Path, size_bytes=MAX_FILE_SIZE_BYTES):
-    file_path = Path(path)
+def split_file(file_path: Path, size_bytes=MAX_FILE_SIZE_BYTES / 2):
     content = pd.read_csv(file_path)
     file_size = file_path.stat().st_size
     num_rows = content.shape[0]
     num_chunks = math.ceil(file_size / size_bytes)
-    print(f"Splitting file {path} of size {file_size} into {num_chunks} chunks")
+    print(f"Splitting file {file_path} of size {file_size} into {num_chunks} chunks")
     chunk_size_rows = math.ceil(num_rows / num_chunks)
-    chunks = [content.iloc[ran] for ran in tqdm(grouper_ranges(num_rows, chunk_size_rows), desc=f"Splitting chunks of {file_path}")]
-    print(chunks)
+    chunks = [content.iloc[ran] for ran in grouper_ranges(num_rows, chunk_size_rows)]
     for i, chunk in enumerate(chunks):
         chunk.to_csv(file_path.with_stem(f"{file_path.stem}.{i}"), index=False)
 
 
 def check_file_sizes():
-    for file_path in Path("metadata/keywords/").glob("*.csv"):
+    for file_path in Path("metadata/keywords/").glob("*[A-Z].csv"):
         size = file_path.stat().st_size
         if size > MAX_FILE_SIZE_BYTES:
             print(f"File size: {file_path} | {size}")
             split_file(file_path)
+            file_path.rename(file_path.with_stem(f"_{file_path.stem}"))
+
 
 
 def grouper_ranges(total_size, chunk_size):
