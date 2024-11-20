@@ -16,6 +16,7 @@ from pandas import DataFrame
 from tenacity import retry, stop_after_attempt, RetryError, wait_fixed
 from tqdm import tqdm
 
+from extract_quality_attribs_from_docs import KeywordParser
 from model.Credentials import Credentials
 
 
@@ -479,19 +480,23 @@ class FileType(Enum):
     FILE = "file"
 
 
-def extract_patterns(creds: Credentials):
+def pattern_extractor_iterator(creds: Credentials):
+    repo_url = KeywordParser.get_github_repo_url(creds)
     source_code_dir = Path(".tmp") / "source" / creds.get_ref()
     for root, dirs, files in os.walk(source_code_dir, topdown=False):
         file_patterns = []
         for file in tqdm(files, desc=f"Extracting patterns from {root}"):
             abs_path = os.path.join(root, file)
+            rel_path = os.path.normpath(os.path.relpath(abs_path, source_code_dir)).replace("\\", "/")
             with open(abs_path, "r", encoding="utf-8") as f:
                 try:
                     source_code = f.read()
                     prompt = to_file_prompt(abs_path, source_code)
                     result = request_gemma(prompt)
                     file_patterns.append(result)
-                    yield dict(filename=abs_path, type=FileType.FILE, patterns=result["patterns"],
+                    # rel_path = os.path.normpath(os.path.relpath(abs_path, source_code_path)).replace("\\", "/")
+                    yield dict(filename=rel_path, type=FileType.FILE, **creds,
+                               url=KeywordParser.generate_link(repo_url, rel_path), patterns=result["patterns"],
                                **result["description"])
                 except RetryError as e:
                     logger.error(f"Retry error, current_element={abs_path}, {prompt=}, {e=}")
@@ -499,7 +504,9 @@ def extract_patterns(creds: Credentials):
         aggregated_prompt = to_directory_prompt(root, file_patterns)
         try:
             folder_result = request_gemma(aggregated_prompt)
-            yield dict(filename=root, type=FileType.DIR, patterns=folder_result["patterns"],
+            rel_folder_path = os.path.normpath(os.path.relpath(root, source_code_dir)).replace("\\", "/")
+            yield dict(filename=rel_folder_path, type=FileType.DIR, **creds,
+                       url=KeywordParser.generate_link(repo_url, rel_folder_path), patterns=folder_result["patterns"],
                        **folder_result["description"])
         except RetryError as e:
             logger.error(f"Retry error, current_element={root}, {prompt=}, {e=}")
@@ -565,6 +572,21 @@ def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
         logger.info(f"Processed {file_path.stem}")
 
 
+def extract_patterns(cred: Credentials, batch_size=2):
+    save_destination = Path("metadata/patterns") / cred.get_ref(".")
+    os.makedirs(save_destination, exist_ok=True)
+    batch = []
+    for i, pattern in enumerate(pattern_extractor_iterator(cred)):
+        batch.append(pattern)
+        if (i + 1) % batch_size == 0:
+            df = DataFrame(batch)
+            df.to_csv(save_destination / f"patterns.{i:04d}.csv", index=False)
+            batch.clear()
+    if len(batch) > 0:
+        df = DataFrame(batch)
+        df.to_csv(save_destination / f"patterns.-1.csv", index=False)
+
+
 def main():
     keyword_folder = Path("metadata/keywords/")
     os.makedirs(Path("metadata/patterns"), exist_ok=True)
@@ -582,18 +604,7 @@ def main():
 
     try:
         for cred in creds:
-            save_destination = Path("metadata/patterns") / cred.get_ref(".")
-            os.makedirs(save_destination, exist_ok=True)
-            batch = []
-            for i, pattern in enumerate(extract_patterns(cred)):
-                batch.append(pattern)
-                if (i + 1) % 2 == 0:
-                    df = DataFrame(batch)
-                    df.to_csv(save_destination / f"patterns.{i:04d}.csv", index=False)
-                    batch.clear()
-            if len(batch) > 0:
-                df = DataFrame(batch)
-                df.to_csv(save_destination / f"patterns.-1.csv", index=False)
+            extract_patterns(cred)
     except Exception as e:
         logger.error(e)
 
