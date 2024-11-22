@@ -15,9 +15,12 @@
 <div id="container" style="display: flex; flex-direction: column; justify-content: space-around"></div>
 <h3>Validation charts</h3>
 <div id="validation-container" style="display: flex; flex-direction: column; justify-content: space-around"></div>
+<h3>Validation charts - subset</h3>
+<div id="validation-container2" style="display: flex; flex-direction: column; justify-content: space-around"></div>
 <script>
     const prefix = "keyword_analysis"
-    const validation_prefix = "keyword_analysis/validation"
+    const validation_prefix = "keyword_analysis/verification"
+    const validation_prefix2 = "keyword_analysis/verification_it2"
 
     const container = document.getElementById("container");
     for (const file of charts) {
@@ -33,6 +36,14 @@
         linkNode.href = `${validation_prefix}/${file}`;
         linkNode.innerText = file;
         validationContainer.appendChild(linkNode)
+    }
+
+    const validationContainer2 = document.getElementById("validation-container2");
+    for (const file of verification_charts) {
+        const linkNode = document.createElement("a");
+        linkNode.href = `${validation_prefix2}/${file}`;
+        linkNode.innerText = file;
+        validationContainer2.appendChild(linkNode)
     }
 </script>
 </body>

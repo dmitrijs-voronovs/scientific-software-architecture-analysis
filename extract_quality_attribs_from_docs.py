@@ -1,6 +1,5 @@
 import os
 import re
-import urllib.parse
 from enum import Enum
 from pathlib import Path
 from typing import List, Dict, Generator, Optional, Tuple
@@ -83,7 +82,7 @@ class KeywordParser:
         return soup.get_text()
 
     @staticmethod
-    def _generate_link(base_url: str, page: str = "") -> str:
+    def generate_link(base_url: str, page: str = "") -> str:
         full_url = f"{base_url}/{page}" if page else base_url
         return full_url
 
@@ -98,7 +97,7 @@ class KeywordParser:
                 text_content = self._strip_html_tags(documentation_raw)
                 matches.extend(
                     [FullMatch(**match, source=MatchSource.WIKI, filename=rel_path, **self.creds,
-                               url=self._generate_link(self.creds['wiki'], rel_path)) for
+                               url=self.generate_link(self.creds['wiki'], rel_path)) for
                      match in
                      self.matched_keyword_iterator(text_content)])
             except Exception as e:
@@ -153,7 +152,7 @@ class KeywordParser:
         return sentence_start, sentence_end
 
     def parse_docs(self, docs_path: str) -> List[FullMatch]:
-        repo_url = self._get_github_repo_url()
+        repo_url = self.get_github_repo_url(self.creds)
         matches = []
         docs_extensions = [".md", ".rst", ".txt", ".adoc", ".html"]
         for ext in docs_extensions:
@@ -166,17 +165,18 @@ class KeywordParser:
                 text_content = self._strip_html_tags(documentation_raw) if ext in ".html" else documentation_raw
                 matches.extend(
                     [FullMatch(**match, source=MatchSource.DOCS, filename=rel_path, **self.creds,
-                               url=self._generate_link(repo_url, rel_path)) for
+                               url=self.generate_link(repo_url, rel_path)) for
                      match in
                      self.matched_keyword_iterator(text_content)])
 
         return matches
 
-    def _get_github_repo_url(self) -> str:
-        return f"{BASE_GITHUB_URL}/{self.creds['author']}/{self.creds['repo']}/tree/{self.creds['version']}"
+    @staticmethod
+    def get_github_repo_url(creds: Credentials) -> str:
+        return f"{BASE_GITHUB_URL}/{creds['author']}/{creds['repo']}/tree/{creds['version']}"
 
     def parse_comments(self, source_code_path: str) -> List[FullMatch]:
-        repo_url = self._get_github_repo_url()
+        repo_url = self.get_github_repo_url(self.creds)
         matches = []
         for root, dirs, files in tqdm(os.walk(source_code_path), desc="Parsing code comments"):
             tqdm.write(str(root))
@@ -188,7 +188,7 @@ class KeywordParser:
                     text_content = "\n".join(get_comments(abs_path))
                     matches.extend(
                         [FullMatch(**match, source=MatchSource.CODE_COMMENT, filename=rel_path, **self.creds,
-                                   url=self._generate_link(repo_url, rel_path)) for
+                                   url=self.generate_link(repo_url, rel_path)) for
                          match in
                          self.matched_keyword_iterator(text_content)])
 

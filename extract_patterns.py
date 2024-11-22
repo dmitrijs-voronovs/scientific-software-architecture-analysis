@@ -483,96 +483,50 @@ class FileType(Enum):
 def pattern_extractor_iterator(creds: Credentials):
     repo_url = KeywordParser.get_github_repo_url(creds)
     source_code_dir = Path(".tmp") / "source" / creds.get_ref()
-    for root, dirs, files in os.walk(source_code_dir, topdown=False):
-        file_patterns = []
-        for file in tqdm(files, desc=f"Extracting patterns from {root}"):
-            abs_path = os.path.join(root, file)
-            rel_path = os.path.normpath(os.path.relpath(abs_path, source_code_dir)).replace("\\", "/")
-            with open(abs_path, "r", encoding="utf-8") as f:
-                try:
-                    source_code = f.read()
-                    prompt = to_file_prompt(abs_path, source_code)
-                    result = request_gemma(prompt)
-                    file_patterns.append(result)
-                    # rel_path = os.path.normpath(os.path.relpath(abs_path, source_code_path)).replace("\\", "/")
-                    yield dict(filename=rel_path, type=FileType.FILE, **creds,
-                               url=KeywordParser.generate_link(repo_url, rel_path), patterns=result["patterns"],
-                               **result["description"])
-                except RetryError as e:
-                    logger.error(f"Retry error, current_element={abs_path}, {prompt=}, {e=}")
+    cache_dir = Path(".cache/patterns")
+    os.makedirs(cache_dir, exist_ok=True)
+    with shelve.open(str(cache_dir / creds.dotted_ref)) as db:
+        last_processed_root = db.get('last')
+        for root, dirs, files in os.walk(source_code_dir, topdown=False):
+            if last_processed_root and root != last_processed_root:
+                continue
 
-        aggregated_prompt = to_directory_prompt(root, file_patterns)
-        try:
-            folder_result = request_gemma(aggregated_prompt)
-            rel_folder_path = os.path.normpath(os.path.relpath(root, source_code_dir)).replace("\\", "/")
-            yield dict(filename=rel_folder_path, type=FileType.DIR, **creds,
-                       url=KeywordParser.generate_link(repo_url, rel_folder_path), patterns=folder_result["patterns"],
-                       **folder_result["description"])
-        except RetryError as e:
-            logger.error(f"Retry error, current_element={root}, {prompt=}, {e=}")
-            continue
+            file_patterns = []
+            try:
+                for file in tqdm(files, desc=f"Extracting patterns from {root}"):
+                    abs_path = os.path.join(root, file)
+                    rel_path = os.path.normpath(os.path.relpath(abs_path, source_code_dir)).replace("\\", "/")
+                    with open(abs_path, "r", encoding="utf-8") as f:
+                        try:
+                            source_code = f.read()
+                            prompt = to_file_prompt(abs_path, source_code)
+                            result = request_gemma(prompt)
+                            file_patterns.append(result)
+                            # rel_path = os.path.normpath(os.path.relpath(abs_path, source_code_path)).replace("\\", "/")
+                            yield dict(filename=rel_path, type=FileType.FILE, **creds,
+                                       url=KeywordParser.generate_link(repo_url, rel_path), patterns=result["patterns"],
+                                       **result["description"])
+                        except Exception as e:
+                            logger.error(f"Retry error, current_element={abs_path}, {prompt=}, {e=}")
+            except Exception as e:
+                logger.error(e)
+
+            aggregated_prompt = to_directory_prompt(root, file_patterns)
+            try:
+                folder_result = request_gemma(aggregated_prompt)
+                rel_folder_path = os.path.normpath(os.path.relpath(root, source_code_dir)).replace("\\", "/")
+                yield dict(filename=rel_folder_path, type=FileType.DIR, **creds,
+                           url=KeywordParser.generate_link(repo_url, rel_folder_path), patterns=folder_result["patterns"],
+                           **folder_result["description"])
+                db['last'] = root
+            except Exception as e:
+                logger.error(f"Retry error, current_element={root}, {prompt=}, {e=}")
 
 
 pattern_extraction_dir = "pattern_extraction"
 
 
-def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
-    os.makedirs(f".cache/{pattern_extraction_dir}/", exist_ok=True)
-    with shelve.open(f".cache/{pattern_extraction_dir}/{file_path.stem}") as db:
-        if db.get("processed", False):
-            logger.info(f"File {file_path.stem} already processed")
-            return
-        logger.info(f"Processing {file_path.stem}")
-
-        # genai.configure(api_key=os.getenv("GOOGLE_AI_STUDIO_KEY"))
-        # model = genai.GenerativeModel("gemini-1.5-flash")
-
-        try:
-            df = pd.read_csv(file_path)
-        except Exception as e:
-            logger.info(e)
-            return
-
-        last_idx = db.get("idx", 0)
-        df = df.iloc[last_idx:].copy()
-        if last_idx > 0:
-            logger.info(f"Continuing from {last_idx}")
-            res_filepath = res_filepath.with_suffix(f".from_{last_idx}.csv")
-
-        # df["attribute_desc"] = df["quality_attribute"].apply(lambda x: quality_attribs[x]["desc"])
-        df['prompt'] = df.apply(lambda x: to_file_prompt(x), axis=1)
-        res = []
-        for i, (_idx, row) in tqdm(enumerate(df.iterrows()), total=df.shape[0], desc=f"Verifying {file_path.stem}"):
-            try:
-                # r = request_google_ailab(model, row["prompt"])
-                try:
-                    r = request_gemma(row["prompt"])
-                    res.append(r)
-                except RetryError as error:
-                    logger.error(f"Retry error, current_element={last_idx + i + 1}, {row=}, {error}")
-                except Exception as e:
-                    logger.error(e)
-                    if "HTTPConnectionPool" in str(e):
-                        logger.error("HTTPConnectionPool error, exiting")
-                        exit(1)
-                    res.append((None, str(e)))
-
-                if (i + 1) % batch_size == 0:
-                    df_to_save = df.iloc[0:i + 1].copy()
-                    df_to_save['false_positive'], df_to_save['reasoning'] = zip(*res)
-                    df_to_save.to_csv(res_filepath, index=False)
-                    db["idx"] = last_idx + i + 1
-
-            except Exception as e:
-                print(f"Error in row {i + 1}, {e}")
-        df['false_positive'], df['reasoning'] = zip(*res)
-        df.to_csv(res_filepath, index=False)
-
-        db['processed'] = True
-        logger.info(f"Processed {file_path.stem}")
-
-
-def extract_patterns(cred: Credentials, batch_size=2):
+def extract_patterns(cred: Credentials, batch_size=20):
     save_destination = Path("metadata/patterns") / cred.get_ref(".")
     os.makedirs(save_destination, exist_ok=True)
     batch = []

@@ -1,3 +1,4 @@
+import functools
 import re
 from typing import Dict, Optional
 
@@ -25,3 +26,7 @@ class Credentials(Dict):
 
     def get_ref(self, delimiter="/") -> str:
         return f"{self['author']}{delimiter}{self['repo']}{delimiter}{self['version']}"
+
+    @property
+    def dotted_ref(self) -> str:
+        return self.get_ref(".")
