@@ -1,0 +1,241 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,wiki,url,attribute_desc,prompt,false_positive,reasoning
+Availability,error,error,Change the wording in the error message if CGNS file doesn't exist in the current directory to make it more clear.,MatchSource.ISSUE,su2code,SU2,v8.1.0,https://su2code.github.io,https://github.com/su2code/SU2/issues/62,"The system's readiness to perform its function when required, focusing on reliability and recovery. It involves fault masking or repair to prevent failures, ensuring minimal cumulative downtime.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Availability
+Attribute Description: The system's readiness to perform its function when required, focusing on reliability and recovery. It involves fault masking or repair to prevent failures, ensuring minimal cumulative downtime.
+Content: Change the wording in the error message if CGNS file doesn't exist in the current directory to make it more clear.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content only deals with error message wording, which is not directly related to the quality attribute of Availability, which focuses on system readiness and fault handling."
+Integrability,message,message,Change the wording in the error message if CGNS file doesn't exist in the current directory to make it more clear.,MatchSource.ISSUE,su2code,SU2,v8.1.0,https://su2code.github.io,https://github.com/su2code/SU2/issues/62,"The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Integrability
+Attribute Description: The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.
+Content: Change the wording in the error message if CGNS file doesn't exist in the current directory to make it more clear.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not explicitly relate to the quality attribute of Integrability, which concerns the ease of combining systems or components."
+Usability,clear,clear,Change the wording in the error message if CGNS file doesn't exist in the current directory to make it more clear.,MatchSource.ISSUE,su2code,SU2,v8.1.0,https://su2code.github.io,https://github.com/su2code/SU2/issues/62,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Change the wording in the error message if CGNS file doesn't exist in the current directory to make it more clear.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content addresses error message clarity, which is related to usability only in the context of user satisfaction and usability recovery. The provided content does not relate to the broader aspects of usability encompassing ease of learning or efficient usage."
+Deployability,update,update,update style guide,MatchSource.ISSUE,su2code,SU2,v8.1.0,https://su2code.github.io,https://github.com/su2code/SU2/issues/89,"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Deployability
+Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
+Content: update style guide
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content ('update style guide') does not relate to the quality attribute of Deployability, which concerns the deployment of software into an operational environment."
+Usability,guid,guide,update style guide,MatchSource.ISSUE,su2code,SU2,v8.1.0,https://su2code.github.io,https://github.com/su2code/SU2/issues/89,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: update style guide
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content 'update style guide' does not directly relate to the quality attribute 'Usability', which concerns user effectiveness, ease of learning, and user satisfaction."
+Usability,intuit,intuitive,Remove the surface element area from the sensitivity map output for more intuitive visualization,MatchSource.ISSUE,su2code,SU2,v8.1.0,https://su2code.github.io,https://github.com/su2code/SU2/issues/123,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Remove the surface element area from the sensitivity map output for more intuitive visualization
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,The content does not relate to usability as it concerns manipulating the visual representation of data rather than enhancing user efficiency or effectiveness.
+Usability,simpl,simple,"Added Docker file, move the simple conf file into a different folder and...",MatchSource.ISSUE,su2code,SU2,v8.1.0,https://su2code.github.io,https://github.com/su2code/SU2/pull/169,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Added Docker file, move the simple conf file into a different folder and...
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content does not relate to usability as it describes changes related to the configuration file management, which is not directly related to the quality attribute of usability."
+Usability,simpl,simple,Periodic boundary conditions and simple timestepping don't combine well,MatchSource.ISSUE,su2code,SU2,v8.1.0,https://su2code.github.io,https://github.com/su2code/SU2/issues/763,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Periodic boundary conditions and simple timestepping don't combine well
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The mentioned content is primarily concerned with technical aspects of time stepping and boundary conditions, which are not directly related to the broader concept of usability as defined in the attribute description."
+Usability,simpl,simple,Add simple custom outputs (functions of other outputs) to all solvers,MatchSource.ISSUE,su2code,SU2,v8.1.0,https://su2code.github.io,https://github.com/su2code/SU2/pull/2020,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Add simple custom outputs (functions of other outputs) to all solvers
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content does not relate to usability as it describes adding custom outputs, which is primarily related to functionality rather than usability attributes such as ease of learning or user satisfaction."
+Usability,simpl,simple,Cannot solve a simple 3D transient model,MatchSource.ISSUE,su2code,SU2,v8.1.0,https://su2code.github.io,https://github.com/su2code/SU2/issues/2191,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Cannot solve a simple 3D transient model
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"Solving complex mathematical models is not directly related to usability, which focuses on user effectiveness, efficiency, and satisfaction."

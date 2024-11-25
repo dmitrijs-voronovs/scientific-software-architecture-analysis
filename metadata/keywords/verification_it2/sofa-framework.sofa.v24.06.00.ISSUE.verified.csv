@@ -1,0 +1,601 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,wiki,url,attribute_desc,prompt,false_positive,reasoning
+Deployability,update,update,Data update: simplify Data tracking,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/80,"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Deployability
+Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
+Content: Data update: simplify Data tracking
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"Data tracking simplification does not directly relate to deployability, which involves automation, deployment speed and granularity."
+Usability,simpl,simplify,Data update: simplify Data tracking,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/80,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Data update: simplify Data tracking
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"Data update: simplify Data tracking does not explicitly relate to usability attributes such as ease of learning, efficient usage, or adaptability to user needs."
+Integrability,depend,dependencies,[UX] Handle dependencies between data field.,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/issues/235,"The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Integrability
+Attribute Description: The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.
+Content: [UX] Handle dependencies between data field.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content refers to handling dependencies between data fields, which is related to user experience (UX), not integrability, which involves the ease of combining the system with other systems or components."
+Usability,UX,UX,[UX] Handle dependencies between data field.,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/issues/235,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: [UX] Handle dependencies between data field.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"Handling dependencies between data fields is not directly related to usability, which encompasses ease of learning, efficient usage, and adaptability to user needs."
+Usability,UX,UX,[UX] Default values for DataFileName,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/issues/321,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: [UX] Default values for DataFileName
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content refers to the default values of a data file name, which is not directly related to the quality attribute of usability."
+Usability,clear,clear,Error Messages in SOFA_Python are not clear,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/issues/333,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Error Messages in SOFA_Python are not clear
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"Error messages are not explicitly mentioned in the attribute description as relating to usability. The description focuses on user effectiveness, ease of learning, and adaptability, rather than clarity of error messages."
+Usability,simpl,simpler,[SofaCore] Add new (simpler) DataEngine implementation,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/760,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: [SofaCore] Add new (simpler) DataEngine implementation
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content refers to an implementation change related to data processing, rather than addressing aspects of usability such as ease of learning, efficiency, or user satisfaction."
+Usability,simpl,simplefem,[SofaSimpleFem] Stc clean simplefem,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/826,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: [SofaSimpleFem] Stc clean simplefem
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content is unrelated to the description of usability, which focuses on user effectiveness, ease of learning, and adaptability."
+Modifiability,plugin,pluginization,[image] Add warning guiding users regarding pluginization of DiffusionSolver,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/1067,"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: [image] Add warning guiding users regarding pluginization of DiffusionSolver
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content merely adds a warning about pluginization, which does not directly relate to the quality attribute of modifiability, which involves assessing the ease of adding, removing, or modifying features."
+Usability,guid,guiding,[image] Add warning guiding users regarding pluginization of DiffusionSolver,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/1067,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: [image] Add warning guiding users regarding pluginization of DiffusionSolver
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not directly relate to usability. It refers to adding a warning regarding pluginization, which is a technical action rather than an aspect of usability."
+Usability,clear,clear,[SofaBaseLinearSolver][FullMatrix] Restore fast clear function,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/1128,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: [SofaBaseLinearSolver][FullMatrix] Restore fast clear function
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not relate to usability as it refers to functions related to linear solvers and matrices, which are not directly associated with user-related aspects of usability."
+Testability,test,tests,[SofaHaptics] Add simple tests on LCPForceFeedback component,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/1576,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: [SofaHaptics] Add simple tests on LCPForceFeedback component
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",False,"The content explicitly mentions adding simple tests to the LCPForceFeedback component, which aligns with the attribute description's focus on facilitating fault detection through testing."
+Usability,simpl,simple,[SofaHaptics] Add simple tests on LCPForceFeedback component,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/1576,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: [SofaHaptics] Add simple tests on LCPForceFeedback component
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content does not relate to usability as it refers to adding tests related to a specific component (LCPForceFeedback), rather than addressing ease of use, efficiency, or user satisfaction."
+Usability,clear,clear,[SofaCore] FIX SingleLink clear/set behavior,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/1749,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: [SofaCore] FIX SingleLink clear/set behavior
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The referenced content concerns the FIX protocol's SingleLink behavior, which is unrelated to usability as defined in the attribute description."
+Usability,UX,UX,[SofaGuiQt] UX: graph is easier to read,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/2356,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: [SofaGuiQt] UX: graph is easier to read
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",False,"The content clearly aligns with the quality attribute description. The sentence highlights the ease of readability of the graph, which is an aspect of usability related to efficient usage and user satisfaction."
+Usability,simpl,simple,Create simple videos for SOFA,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/issues/2370,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Create simple videos for SOFA
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"Creating simple videos does not directly relate to enhancing usability as defined by the attribute description, which encompasses ease of learning, efficient usage, and adaptability to user needs."
+Usability,guid,guidelines,Update guidelines with sofa::type,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/2506,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Update guidelines with sofa::type
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content 'Update guidelines with sofa::type' does not relate to the quality attribute of Usability, which focuses on user effectiveness, efficiency, and ease of learning."
+Usability,clear,clear,[SofaBaseMechanics] Use directly clear() when resetting force in MechanicalObject,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/2518,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: [SofaBaseMechanics] Use directly clear() when resetting force in MechanicalObject
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not relate to the description of usability, which concerns user-related aspects of the software."
+Usability,simpl,simplest,[All] Removing the simplest bwdInit functions,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/2851,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: [All] Removing the simplest bwdInit functions
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"Removing the simplest bwdInit functions does not directly relate to improving usability, which encompasses ease of learning, efficient usage, and adaptability to user needs."
+Usability,guid,guidelines,[SofaGuiQt] Rename attributes to follow SOFA guidelines.,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/2944,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: [SofaGuiQt] Rename attributes to follow SOFA guidelines.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content refers to renaming attributes, which is not directly related to usability as defined by the attribute description."
+Modifiability,plugin,plugins,[Helper] Make clearer from where plugins are loaded,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/3109,"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: [Helper] Make clearer from where plugins are loaded
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content suggests an issue related to plugin loading, while the quality attribute description focuses on the ease of modifying the system itself."
+Performance,load,loaded,[Helper] Make clearer from where plugins are loaded,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/3109,"The system’s capacity to meet its timing requirements, managing event handling and response times effectively. Performance focuses on reducing blocked time from resource contention and optimizing resource utilization under varying load conditions.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Performance
+Attribute Description: The system’s capacity to meet its timing requirements, managing event handling and response times effectively. Performance focuses on reducing blocked time from resource contention and optimizing resource utilization under varying load conditions.
+Content: [Helper] Make clearer from where plugins are loaded
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content does not relate to performance as it concerns plugin loading, which is unrelated to timing requirements, event handling, or resource utilization."
+Usability,clear,clearer,[Helper] Make clearer from where plugins are loaded,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/3109,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: [Helper] Make clearer from where plugins are loaded
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not directly address usability as it relates to plugin loading clarity, rather than overall ease of use or user experience."
+Usability,simpl,simple,[all] Remove some simple uses of bwdInit(),MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/4075,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: [all] Remove some simple uses of bwdInit()
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content simply removes redundant function calls and does not address usability-related aspects such as ease of learning, efficient usage, or adaptability to user needs."
+Usability,progress bar,progress bar,[BatchGUI] Show progress bar,MatchSource.ISSUE,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/pull/4168,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: [BatchGUI] Show progress bar
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content only mentions the display of a progress bar, which is not directly related to usability as defined by the attribute description."

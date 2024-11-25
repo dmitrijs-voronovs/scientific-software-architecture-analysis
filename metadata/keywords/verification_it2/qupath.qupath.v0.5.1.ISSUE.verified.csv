@@ -1,0 +1,505 @@
+quality_attribute,keyword,matched_word,sentence,source,author,repo,version,wiki,url,attribute_desc,prompt,false_positive,reasoning
+Safety,detect,detection,"simple tissue detection cannot be trimmed by ""Alt+Brush"" - bug",MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/82,"The system’s ability to avoid states that could lead to harm or damage. Safety encompasses detection and handling of errors (e.g., omissions, timing, incorrect values) to prevent hazardous outcomes or mitigate potential damage.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Safety
+Attribute Description: The system’s ability to avoid states that could lead to harm or damage. Safety encompasses detection and handling of errors (e.g., omissions, timing, incorrect values) to prevent hazardous outcomes or mitigate potential damage.
+Content: simple tissue detection cannot be trimmed by ""Alt+Brush"" - bug
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content refers to an issue with tissue detection, while the quality attribute description pertains to the system's ability to avoid harmful states."
+Usability,simpl,simple,"simple tissue detection cannot be trimmed by ""Alt+Brush"" - bug",MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/82,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: simple tissue detection cannot be trimmed by ""Alt+Brush"" - bug
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The reported bug does not relate to the quality attribute of Usability, which concerns user effectiveness and efficiency."
+Safety,detect,detection,"Positive Pixel count does not work after simple tissue detection if checkbox ""single annotation"" is deactivated",MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/111,"The system’s ability to avoid states that could lead to harm or damage. Safety encompasses detection and handling of errors (e.g., omissions, timing, incorrect values) to prevent hazardous outcomes or mitigate potential damage.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Safety
+Attribute Description: The system’s ability to avoid states that could lead to harm or damage. Safety encompasses detection and handling of errors (e.g., omissions, timing, incorrect values) to prevent hazardous outcomes or mitigate potential damage.
+Content: Positive Pixel count does not work after simple tissue detection if checkbox ""single annotation"" is deactivated
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not relate to the safety quality attribute, as it describes an issue with pixel count and tissue detection, which is not directly related to preventing harm or damage."
+Usability,simpl,simple,"Positive Pixel count does not work after simple tissue detection if checkbox ""single annotation"" is deactivated",MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/111,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Positive Pixel count does not work after simple tissue detection if checkbox ""single annotation"" is deactivated
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content does not relate to usability as it describes an issue with tissue detection rather than user-related aspects such as ease of learning, efficiency, or adaptability."
+Safety,detect,detection,simple tissue detection on ndpi and tiffs generates artefacts in image corners,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/124,"The system’s ability to avoid states that could lead to harm or damage. Safety encompasses detection and handling of errors (e.g., omissions, timing, incorrect values) to prevent hazardous outcomes or mitigate potential damage.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Safety
+Attribute Description: The system’s ability to avoid states that could lead to harm or damage. Safety encompasses detection and handling of errors (e.g., omissions, timing, incorrect values) to prevent hazardous outcomes or mitigate potential damage.
+Content: simple tissue detection on ndpi and tiffs generates artefacts in image corners
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content describes image corner artefacts caused by tissue detection, which is not directly related to the quality attribute of safety, which involves preventing harm or damage."
+Usability,simpl,simple,simple tissue detection on ndpi and tiffs generates artefacts in image corners,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/124,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: simple tissue detection on ndpi and tiffs generates artefacts in image corners
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content refers to image corner artefacts caused by tissue detection, which is not directly related to usability as defined by the attribute description."
+Usability,usab,usable,"If system command call QuPath, Bioformats Extension was not usable",MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/260,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: If system command call QuPath, Bioformats Extension was not usable
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content indicates an issue with the usability of a system command call, but it does not provide further details about the ease of learning, efficiency, or adaptability to user needs, which are key aspects of the Usability quality attribute."
+Availability,error,error,RAM not cleared before opening next file --> error after opening a few files,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/393,"The system's readiness to perform its function when required, focusing on reliability and recovery. It involves fault masking or repair to prevent failures, ensuring minimal cumulative downtime.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Availability
+Attribute Description: The system's readiness to perform its function when required, focusing on reliability and recovery. It involves fault masking or repair to prevent failures, ensuring minimal cumulative downtime.
+Content: RAM not cleared before opening next file --> error after opening a few files
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not relate to the quality attribute of Availability, which focuses on system readiness and fault recovery, rather than memory management issues related to RAM clearing."
+Usability,clear,cleared,RAM not cleared before opening next file --> error after opening a few files,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/393,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: RAM not cleared before opening next file --> error after opening a few files
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,The provided content is unrelated to usability as it describes a technical issue concerning memory management.
+Usability,UX,UX,Minor fixes and UX improvements,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/735,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Minor fixes and UX improvements
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"Minor fixes and UX improvements are too general to be directly related to usability, which encompasses ease of learning, efficient usage, and adaptability to user needs."
+Usability,simpl,simple,Avoid exceptions when calling simple Dialogs without UI,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/854,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Avoid exceptions when calling simple Dialogs without UI
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content focuses on avoiding exceptions related to dialogs without UI, which is a technical implementation detail rather than a quality attribute related to usability, which encompasses ease of learning, efficient usage, and adaptability to user needs."
+Usability,UX,UX,Improved UX in Find command,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/892,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Improved UX in Find command
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",False,"Improved UX in Find command aligns with usability as it enhances the ease of use and efficiency of task completion, specifically in relation to the command interface."
+Usability,clear,clearDetections,clearDetections() does not reset TMA isEditable to true,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/1021,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: clearDetections() does not reset TMA isEditable to true
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,The provided content does not relate to usability as it concerns the resetting of a specific variable rather than user-related aspects like ease of use or efficiency.
+Usability,responsiv,responsiveness,Improve drag & drop responsiveness,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/1054,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Improve drag & drop responsiveness
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"Drag & drop responsiveness is related to technical functionality, not usability which encompasses user-centric aspects like ease of learning and satisfaction."
+Usability,intuit,intuitive,Replace MeasurementList with Map for more intuitive scripting,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/issues/1085,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Replace MeasurementList with Map for more intuitive scripting
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,The content does not directly relate to usability as it concerns the replacement of a data structure rather than user-related aspects like ease of learning or efficiency.
+Usability,undo,undockable,Make analysis pane tabs undockable,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/1127,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Make analysis pane tabs undockable
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"Undockable analysis pane tabs does not directly relate to usability, which encompasses ease of learning, efficient usage, and adaptability to user needs."
+Usability,simpl,simplify,"Fix B/C settings for multiple channels, simplify build.gradle",MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/1383,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Fix B/C settings for multiple channels, simplify build.gradle
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content focuses on technical changes related to build configuration and channel settings, which are not directly related to improving usability as defined by the attribute description."
+Usability,UX,UX,UX - Export measurements resizable UI,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/1510,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: UX - Export measurements resizable UI
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"UX - Export measurements resizable UI does not explicitly relate to usability attributes such as ease of learning, efficient usage, or adaptability to user needs."
+Usability,UX,UX,UX - Classifier image select resizable UI,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/1512,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: UX - Classifier image select resizable UI
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content refers to visual interface elements (classifier image select resizable UI) which are not directly related to the quality attribute of Usability, which focuses on user effectiveness, ease of learning, and overall satisfaction."
+Usability,simpl,simplify,Streamline PathObject and simplify working with classifications,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/1593,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Streamline PathObject and simplify working with classifications
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content focuses on streamlining workflow and classification, which are related to efficiency but do not directly address the broader aspects of usability, such as ease of learning, user satisfaction, or adaptability to user needs."
+Usability,simpl,simplification,Improved point simplification in viewer,MatchSource.ISSUE,qupath,qupath,v0.5.1,https://qupath.github.io,https://github.com/qupath/qupath/pull/1681,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Improved point simplification in viewer
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"Point simplification is not directly related to usability, which encompasses ease of learning, efficient usage, and adaptability to user needs."

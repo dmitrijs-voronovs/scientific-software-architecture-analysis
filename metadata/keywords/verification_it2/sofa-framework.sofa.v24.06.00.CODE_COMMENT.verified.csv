@@ -1,0 +1,625 @@
+quality_attribute,keyword,matched_word,sentence,source,filename,author,repo,version,wiki,url,attribute_desc,prompt,false_positive,reasoning
+Modifiability,inherit,inheritance,"# be sure that the cache path exists; # automatic generation when s-t changed; """""" Used with insertImageCache; """"""; """""" Returns dim, voxelsize and rigid position of an image given an .mhd header image file; a scaleFactor can be given to normalize image length units (usually in mm); """"""; """""" Returns type of an image given an .mhd header image file; """"""; """""" Returns a transform, formatted to sofa data given voxelsize, rigid position (offset), time and camera parameters; """"""; # controller you must derived from and instanciate in the same context than your ImageViewer if you want to define actions to manually add / remove point from an image plane; # return a dictionary of id -> point: {id0 : point0, idn : pointn, ...}; # a point is defined as follows: {'position': [x, y, z], 'color': [r, g, b], ...custom parameters... }; # simpler python script controllers based on SofaPython.script; # TODO maybe this should be double Inherited from both ImagePlaneController and SofaPython.script.Controller; # not to copy code. But then testing inheritance against ImagePlaneController has to be checked.; """"""; :param filename: you may have to define it (at least once) to create; a controller for which the class is defined in an external; file. Be aware the file will then be read several times.; """"""; # if this fails, you need to call; # Controller.onLoaded(self, node) in derived classes",MatchSource.CODE_COMMENT,applications/plugins/image/python/SofaImage/Tools.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/applications/plugins/image/python/SofaImage/Tools.py,"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: # be sure that the cache path exists; # automatic generation when s-t changed; """""" Used with insertImageCache; """"""; """""" Returns dim, voxelsize and rigid position of an image given an .mhd header image file; a scaleFactor can be given to normalize image length units (usually in mm); """"""; """""" Returns type of an image given an .mhd header image file; """"""; """""" Returns a transform, formatted to sofa data given voxelsize, rigid position (offset), time and camera parameters; """"""; # controller you must derived from and instanciate in the same context than your ImageViewer if you want to define actions to manually add / remove point from an image plane; # return a dictionary of id -> point: {id0 : point0, idn : pointn, ...}; # a point is defined as follows: {'position': [x, y, z], 'color': [r, g, b], ...custom parameters... }; # simpler python script controllers based on SofaPython.script; # TODO maybe this should be double Inherited from both ImagePlaneController and SofaPython.script.Controller; # not to copy code. But then testing inheritance against ImagePlaneController has to be checked.; """"""; :param filename: you may have to define it (at least once) to create; a controller for which the class is defined in an external; file. Be aware the file will then be read several times.; """"""; # if this fails, you need to call; # Controller.onLoaded(self, node) in derived classes
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not explicitly relate to the quality attribute 'Modifiability', which concerns the ease of adapting a system by modifying features or adjusting to new environments."
+Performance,cache,cache,"# be sure that the cache path exists; # automatic generation when s-t changed; """""" Used with insertImageCache; """"""; """""" Returns dim, voxelsize and rigid position of an image given an .mhd header image file; a scaleFactor can be given to normalize image length units (usually in mm); """"""; """""" Returns type of an image given an .mhd header image file; """"""; """""" Returns a transform, formatted to sofa data given voxelsize, rigid position (offset), time and camera parameters; """"""; # controller you must derived from and instanciate in the same context than your ImageViewer if you want to define actions to manually add / remove point from an image plane; # return a dictionary of id -> point: {id0 : point0, idn : pointn, ...}; # a point is defined as follows: {'position': [x, y, z], 'color': [r, g, b], ...custom parameters... }; # simpler python script controllers based on SofaPython.script; # TODO maybe this should be double Inherited from both ImagePlaneController and SofaPython.script.Controller; # not to copy code. But then testing inheritance against ImagePlaneController has to be checked.; """"""; :param filename: you may have to define it (at least once) to create; a controller for which the class is defined in an external; file. Be aware the file will then be read several times.; """"""; # if this fails, you need to call; # Controller.onLoaded(self, node) in derived classes",MatchSource.CODE_COMMENT,applications/plugins/image/python/SofaImage/Tools.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/applications/plugins/image/python/SofaImage/Tools.py,"The system’s capacity to meet its timing requirements, managing event handling and response times effectively. Performance focuses on reducing blocked time from resource contention and optimizing resource utilization under varying load conditions.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Performance
+Attribute Description: The system’s capacity to meet its timing requirements, managing event handling and response times effectively. Performance focuses on reducing blocked time from resource contention and optimizing resource utilization under varying load conditions.
+Content: # be sure that the cache path exists; # automatic generation when s-t changed; """""" Used with insertImageCache; """"""; """""" Returns dim, voxelsize and rigid position of an image given an .mhd header image file; a scaleFactor can be given to normalize image length units (usually in mm); """"""; """""" Returns type of an image given an .mhd header image file; """"""; """""" Returns a transform, formatted to sofa data given voxelsize, rigid position (offset), time and camera parameters; """"""; # controller you must derived from and instanciate in the same context than your ImageViewer if you want to define actions to manually add / remove point from an image plane; # return a dictionary of id -> point: {id0 : point0, idn : pointn, ...}; # a point is defined as follows: {'position': [x, y, z], 'color': [r, g, b], ...custom parameters... }; # simpler python script controllers based on SofaPython.script; # TODO maybe this should be double Inherited from both ImagePlaneController and SofaPython.script.Controller; # not to copy code. But then testing inheritance against ImagePlaneController has to be checked.; """"""; :param filename: you may have to define it (at least once) to create; a controller for which the class is defined in an external; file. Be aware the file will then be read several times.; """"""; # if this fails, you need to call; # Controller.onLoaded(self, node) in derived classes
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not relate to the quality attribute 'Performance,' which concerns system timing requirements and resource utilization."
+Testability,test,testing,"# be sure that the cache path exists; # automatic generation when s-t changed; """""" Used with insertImageCache; """"""; """""" Returns dim, voxelsize and rigid position of an image given an .mhd header image file; a scaleFactor can be given to normalize image length units (usually in mm); """"""; """""" Returns type of an image given an .mhd header image file; """"""; """""" Returns a transform, formatted to sofa data given voxelsize, rigid position (offset), time and camera parameters; """"""; # controller you must derived from and instanciate in the same context than your ImageViewer if you want to define actions to manually add / remove point from an image plane; # return a dictionary of id -> point: {id0 : point0, idn : pointn, ...}; # a point is defined as follows: {'position': [x, y, z], 'color': [r, g, b], ...custom parameters... }; # simpler python script controllers based on SofaPython.script; # TODO maybe this should be double Inherited from both ImagePlaneController and SofaPython.script.Controller; # not to copy code. But then testing inheritance against ImagePlaneController has to be checked.; """"""; :param filename: you may have to define it (at least once) to create; a controller for which the class is defined in an external; file. Be aware the file will then be read several times.; """"""; # if this fails, you need to call; # Controller.onLoaded(self, node) in derived classes",MatchSource.CODE_COMMENT,applications/plugins/image/python/SofaImage/Tools.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/applications/plugins/image/python/SofaImage/Tools.py,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: # be sure that the cache path exists; # automatic generation when s-t changed; """""" Used with insertImageCache; """"""; """""" Returns dim, voxelsize and rigid position of an image given an .mhd header image file; a scaleFactor can be given to normalize image length units (usually in mm); """"""; """""" Returns type of an image given an .mhd header image file; """"""; """""" Returns a transform, formatted to sofa data given voxelsize, rigid position (offset), time and camera parameters; """"""; # controller you must derived from and instanciate in the same context than your ImageViewer if you want to define actions to manually add / remove point from an image plane; # return a dictionary of id -> point: {id0 : point0, idn : pointn, ...}; # a point is defined as follows: {'position': [x, y, z], 'color': [r, g, b], ...custom parameters... }; # simpler python script controllers based on SofaPython.script; # TODO maybe this should be double Inherited from both ImagePlaneController and SofaPython.script.Controller; # not to copy code. But then testing inheritance against ImagePlaneController has to be checked.; """"""; :param filename: you may have to define it (at least once) to create; a controller for which the class is defined in an external; file. Be aware the file will then be read several times.; """"""; # if this fails, you need to call; # Controller.onLoaded(self, node) in derived classes
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not explicitly relate to the quality attribute 'Testability'. It concerns code structure, class inheritance, and controller functionality."
+Usability,simpl,simpler,"# be sure that the cache path exists; # automatic generation when s-t changed; """""" Used with insertImageCache; """"""; """""" Returns dim, voxelsize and rigid position of an image given an .mhd header image file; a scaleFactor can be given to normalize image length units (usually in mm); """"""; """""" Returns type of an image given an .mhd header image file; """"""; """""" Returns a transform, formatted to sofa data given voxelsize, rigid position (offset), time and camera parameters; """"""; # controller you must derived from and instanciate in the same context than your ImageViewer if you want to define actions to manually add / remove point from an image plane; # return a dictionary of id -> point: {id0 : point0, idn : pointn, ...}; # a point is defined as follows: {'position': [x, y, z], 'color': [r, g, b], ...custom parameters... }; # simpler python script controllers based on SofaPython.script; # TODO maybe this should be double Inherited from both ImagePlaneController and SofaPython.script.Controller; # not to copy code. But then testing inheritance against ImagePlaneController has to be checked.; """"""; :param filename: you may have to define it (at least once) to create; a controller for which the class is defined in an external; file. Be aware the file will then be read several times.; """"""; # if this fails, you need to call; # Controller.onLoaded(self, node) in derived classes",MatchSource.CODE_COMMENT,applications/plugins/image/python/SofaImage/Tools.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/applications/plugins/image/python/SofaImage/Tools.py,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: # be sure that the cache path exists; # automatic generation when s-t changed; """""" Used with insertImageCache; """"""; """""" Returns dim, voxelsize and rigid position of an image given an .mhd header image file; a scaleFactor can be given to normalize image length units (usually in mm); """"""; """""" Returns type of an image given an .mhd header image file; """"""; """""" Returns a transform, formatted to sofa data given voxelsize, rigid position (offset), time and camera parameters; """"""; # controller you must derived from and instanciate in the same context than your ImageViewer if you want to define actions to manually add / remove point from an image plane; # return a dictionary of id -> point: {id0 : point0, idn : pointn, ...}; # a point is defined as follows: {'position': [x, y, z], 'color': [r, g, b], ...custom parameters... }; # simpler python script controllers based on SofaPython.script; # TODO maybe this should be double Inherited from both ImagePlaneController and SofaPython.script.Controller; # not to copy code. But then testing inheritance against ImagePlaneController has to be checked.; """"""; :param filename: you may have to define it (at least once) to create; a controller for which the class is defined in an external; file. Be aware the file will then be read several times.; """"""; # if this fails, you need to call; # Controller.onLoaded(self, node) in derived classes
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content discusses technical implementation details and controller development, which are not directly related to the quality attribute of Usability."
+Testability,assert,assert,"'''maps image content as a list of numpy arrays with shared memory'''; # assert( index < len(ptrs) ); # numpy is not mandatory",MatchSource.CODE_COMMENT,applications/plugins/image/python/SofaImage/__init__.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/applications/plugins/image/python/SofaImage/__init__.py,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: '''maps image content as a list of numpy arrays with shared memory'''; # assert( index < len(ptrs) ); # numpy is not mandatory
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not relate to the concept of testability as it describes technical implementation details related to image processing and numpy arrays, which are not directly relevant to the quality attribute of testability."
+Modifiability,plugin,plugins,"# simulation parameters; # plugins; # visual style; # scene node; # character (currently we use a fixed box); # clothes; #createBox(parent); #parent.createObject('ConstantForceField', force='9.81 -9.81 9.81', points='0') #0 24 599 623; #parent.createObject('ConstantForceField', force='-9.81 -9.81 9.81', points='24'); #parent.createObject('ConstantForceField', force='9.81 -9.81 -9.81', points='599'); #parent.createObject('ConstantForceField', force='-9.81 -9.81 -9.81', points='623'); #parent.createObject('MeshSpringForceField', linesStiffness='1.e+4', linesDamping='0.1') // spring version; # fem; #createCompliantClothes(parent) # another spring version; # bending springs; # try qr instead of svd",MatchSource.CODE_COMMENT,applications/plugins/SofaAssimp/examples/character_clothes.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/applications/plugins/SofaAssimp/examples/character_clothes.py,"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: # simulation parameters; # plugins; # visual style; # scene node; # character (currently we use a fixed box); # clothes; #createBox(parent); #parent.createObject('ConstantForceField', force='9.81 -9.81 9.81', points='0') #0 24 599 623; #parent.createObject('ConstantForceField', force='-9.81 -9.81 9.81', points='24'); #parent.createObject('ConstantForceField', force='9.81 -9.81 -9.81', points='599'); #parent.createObject('ConstantForceField', force='-9.81 -9.81 -9.81', points='623'); #parent.createObject('MeshSpringForceField', linesStiffness='1.e+4', linesDamping='0.1') // spring version; # fem; #createCompliantClothes(parent) # another spring version; # bending springs; # try qr instead of svd
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content relates to scene manipulation and physics simulation, rather than the modifiability of the software system as described in the quality attribute description."
+Deployability,pipeline,pipeline,"# This scene demonstrate how the use the CarvingManager component to perform carving operations (deleting topological element like triangle/tetrahedron) between a tool and a target object on a target object. ; # The tool performing the carving as well as the object to be carved need to be represented by collision models.; # Load required plugins; # Add main scene pipeline components; # Add the CarvingManger object, linking the collision pipeline, as well as the collision model of the tool used to carve. The collisions models to be carved are found using the tags: CarvingSurface.; # the carvingDistance need to be lower than the contactDistance of the collision pipeline. ; # Add Volume mechanical object to be carved; # Add corresponding surface topology; # Add instrument object; #Function used only if this script is called from a python environment",MatchSource.CODE_COMMENT,applications/plugins/SofaCarving/examples/SimpleCarving.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/applications/plugins/SofaCarving/examples/SimpleCarving.py,"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Deployability
+Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
+Content: # This scene demonstrate how the use the CarvingManager component to perform carving operations (deleting topological element like triangle/tetrahedron) between a tool and a target object on a target object. ; # The tool performing the carving as well as the object to be carved need to be represented by collision models.; # Load required plugins; # Add main scene pipeline components; # Add the CarvingManger object, linking the collision pipeline, as well as the collision model of the tool used to carve. The collisions models to be carved are found using the tags: CarvingSurface.; # the carvingDistance need to be lower than the contactDistance of the collision pipeline. ; # Add Volume mechanical object to be carved; # Add corresponding surface topology; # Add instrument object; #Function used only if this script is called from a python environment
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content is unrelated to the quality attribute 'Deployability', which concerns the ease and predictability of software deployment."
+Modifiability,plugin,plugins,"# This scene demonstrate how the use the CarvingManager component to perform carving operations (deleting topological element like triangle/tetrahedron) between a tool and a target object on a target object. ; # The tool performing the carving as well as the object to be carved need to be represented by collision models.; # Load required plugins; # Add main scene pipeline components; # Add the CarvingManger object, linking the collision pipeline, as well as the collision model of the tool used to carve. The collisions models to be carved are found using the tags: CarvingSurface.; # the carvingDistance need to be lower than the contactDistance of the collision pipeline. ; # Add Volume mechanical object to be carved; # Add corresponding surface topology; # Add instrument object; #Function used only if this script is called from a python environment",MatchSource.CODE_COMMENT,applications/plugins/SofaCarving/examples/SimpleCarving.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/applications/plugins/SofaCarving/examples/SimpleCarving.py,"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: # This scene demonstrate how the use the CarvingManager component to perform carving operations (deleting topological element like triangle/tetrahedron) between a tool and a target object on a target object. ; # The tool performing the carving as well as the object to be carved need to be represented by collision models.; # Load required plugins; # Add main scene pipeline components; # Add the CarvingManger object, linking the collision pipeline, as well as the collision model of the tool used to carve. The collisions models to be carved are found using the tags: CarvingSurface.; # the carvingDistance need to be lower than the contactDistance of the collision pipeline. ; # Add Volume mechanical object to be carved; # Add corresponding surface topology; # Add instrument object; #Function used only if this script is called from a python environment
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content discusses scene manipulation and object representation using collision models, which is unrelated to the quality attribute of modifiability."
+Performance,perform,perform,"# This scene demonstrate how the use the CarvingManager component to perform carving operations (deleting topological element like triangle/tetrahedron) between a tool and a target object on a target object. ; # The tool performing the carving as well as the object to be carved need to be represented by collision models.; # Load required plugins; # Add main scene pipeline components; # Add the CarvingManger object, linking the collision pipeline, as well as the collision model of the tool used to carve. The collisions models to be carved are found using the tags: CarvingSurface.; # the carvingDistance need to be lower than the contactDistance of the collision pipeline. ; # Add Volume mechanical object to be carved; # Add corresponding surface topology; # Add instrument object; #Function used only if this script is called from a python environment",MatchSource.CODE_COMMENT,applications/plugins/SofaCarving/examples/SimpleCarving.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/applications/plugins/SofaCarving/examples/SimpleCarving.py,"The system’s capacity to meet its timing requirements, managing event handling and response times effectively. Performance focuses on reducing blocked time from resource contention and optimizing resource utilization under varying load conditions.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Performance
+Attribute Description: The system’s capacity to meet its timing requirements, managing event handling and response times effectively. Performance focuses on reducing blocked time from resource contention and optimizing resource utilization under varying load conditions.
+Content: # This scene demonstrate how the use the CarvingManager component to perform carving operations (deleting topological element like triangle/tetrahedron) between a tool and a target object on a target object. ; # The tool performing the carving as well as the object to be carved need to be represented by collision models.; # Load required plugins; # Add main scene pipeline components; # Add the CarvingManger object, linking the collision pipeline, as well as the collision model of the tool used to carve. The collisions models to be carved are found using the tags: CarvingSurface.; # the carvingDistance need to be lower than the contactDistance of the collision pipeline. ; # Add Volume mechanical object to be carved; # Add corresponding surface topology; # Add instrument object; #Function used only if this script is called from a python environment
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not relate to the quality attribute of Performance, which focuses on timing requirements and resource utilization."
+Testability,test,tests,"# arguments are an option in python tests; # a pure python function to test; # the python test MUST have a ""run"" function with no arguments that returns the test result; # here it tests if the first argument is null and the second is not; # a very small value",MatchSource.CODE_COMMENT,applications/plugins/SofaTest/SofaTest_test/python_tests/python_test_test.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/applications/plugins/SofaTest/SofaTest_test/python_tests/python_test_test.py,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: # arguments are an option in python tests; # a pure python function to test; # the python test MUST have a ""run"" function with no arguments that returns the test result; # here it tests if the first argument is null and the second is not; # a very small value
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",False,"The content discusses testability in the context of Python testing, aligning with the attribute description's emphasis on controlling and observing system state, facilitating test case creation, and reducing complexity."
+Availability,error,error,"#--------------------------------------------------------------------------------------------; # manual; # the error is increasing with both the damping coef and the initial velocity; # a ball; # the error is decreasing when the mass (-> inertia) increases; # the error is decreasing when the radius (-> inertia) increases; #--------------------------------------------------------------------------------------------; # auto; #--------------------------------------------------------------------------------------------; # theoretical velocity; # theoretical velocity; # test check; #print str(rotationtheory)+"" ""+str(translationtheory); #print str(self.rotationmax)+"" ""+str(self.translationmax)+"" ""+str(ACCEPTABLE_ERROR); #rotation error; # simulated velocity; #translation error; # simulated velocity; #print str(translationmeasure)+"" ""+str(translationtheory)+"" ""+str(translationerror)+"" ""+str(self.translationmax); #print str(rotationmeasure)+"" ""+str(rotationtheory)+"" ""+str(rotationerror)+"" ""+str(self.rotationmax); #------------------------------------------------------------------------------------------------------------------------------------------------; # create a rigid file to give a correct inertia matrix; #node.createObject('EulerExplicitSolver',name='odesolver'); #node.createObject('RequiredPlugin', pluginName = 'Compliant'); #node.createObject('CompliantImplicitSolver',name='odesolver',stabilization='0'); #node.createObject('LDLTSolver',name = 'numsolver'); # angular damping test; #angularNode.createObject('PartialFixedProjectiveConstraint', indices='0', fixedDirections=""1 1 1 0 1 1""); # translation damping test; #translationNode.createObject('PartialFixedProjectiveConstraint', indices='0', fixedDirections=""0 1 1 1 1 1"")",MatchSource.CODE_COMMENT,applications/plugins/SofaTest/SofaTest_test/scenes/damping.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/applications/plugins/SofaTest/SofaTest_test/scenes/damping.py,"The system's readiness to perform its function when required, focusing on reliability and recovery. It involves fault masking or repair to prevent failures, ensuring minimal cumulative downtime.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Availability
+Attribute Description: The system's readiness to perform its function when required, focusing on reliability and recovery. It involves fault masking or repair to prevent failures, ensuring minimal cumulative downtime.
+Content: #--------------------------------------------------------------------------------------------; # manual; # the error is increasing with both the damping coef and the initial velocity; # a ball; # the error is decreasing when the mass (-> inertia) increases; # the error is decreasing when the radius (-> inertia) increases; #--------------------------------------------------------------------------------------------; # auto; #--------------------------------------------------------------------------------------------; # theoretical velocity; # theoretical velocity; # test check; #print str(rotationtheory)+"" ""+str(translationtheory); #print str(self.rotationmax)+"" ""+str(self.translationmax)+"" ""+str(ACCEPTABLE_ERROR); #rotation error; # simulated velocity; #translation error; # simulated velocity; #print str(translationmeasure)+"" ""+str(translationtheory)+"" ""+str(translationerror)+"" ""+str(self.translationmax); #print str(rotationmeasure)+"" ""+str(rotationtheory)+"" ""+str(rotationerror)+"" ""+str(self.rotationmax); #------------------------------------------------------------------------------------------------------------------------------------------------; # create a rigid file to give a correct inertia matrix; #node.createObject('EulerExplicitSolver',name='odesolver'); #node.createObject('RequiredPlugin', pluginName = 'Compliant'); #node.createObject('CompliantImplicitSolver',name='odesolver',stabilization='0'); #node.createObject('LDLTSolver',name = 'numsolver'); # angular damping test; #angularNode.createObject('PartialFixedProjectiveConstraint', indices='0', fixedDirections=""1 1 1 0 1 1""); # translation damping test; #translationNode.createObject('PartialFixedProjectiveConstraint', indices='0', fixedDirections=""0 1 1 1 1 1"")
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not relate to the quality attribute of Availability, which focuses on system readiness and fault handling."
+Modifiability,plugin,pluginName,"#--------------------------------------------------------------------------------------------; # manual; # the error is increasing with both the damping coef and the initial velocity; # a ball; # the error is decreasing when the mass (-> inertia) increases; # the error is decreasing when the radius (-> inertia) increases; #--------------------------------------------------------------------------------------------; # auto; #--------------------------------------------------------------------------------------------; # theoretical velocity; # theoretical velocity; # test check; #print str(rotationtheory)+"" ""+str(translationtheory); #print str(self.rotationmax)+"" ""+str(self.translationmax)+"" ""+str(ACCEPTABLE_ERROR); #rotation error; # simulated velocity; #translation error; # simulated velocity; #print str(translationmeasure)+"" ""+str(translationtheory)+"" ""+str(translationerror)+"" ""+str(self.translationmax); #print str(rotationmeasure)+"" ""+str(rotationtheory)+"" ""+str(rotationerror)+"" ""+str(self.rotationmax); #------------------------------------------------------------------------------------------------------------------------------------------------; # create a rigid file to give a correct inertia matrix; #node.createObject('EulerExplicitSolver',name='odesolver'); #node.createObject('RequiredPlugin', pluginName = 'Compliant'); #node.createObject('CompliantImplicitSolver',name='odesolver',stabilization='0'); #node.createObject('LDLTSolver',name = 'numsolver'); # angular damping test; #angularNode.createObject('PartialFixedProjectiveConstraint', indices='0', fixedDirections=""1 1 1 0 1 1""); # translation damping test; #translationNode.createObject('PartialFixedProjectiveConstraint', indices='0', fixedDirections=""0 1 1 1 1 1"")",MatchSource.CODE_COMMENT,applications/plugins/SofaTest/SofaTest_test/scenes/damping.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/applications/plugins/SofaTest/SofaTest_test/scenes/damping.py,"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: #--------------------------------------------------------------------------------------------; # manual; # the error is increasing with both the damping coef and the initial velocity; # a ball; # the error is decreasing when the mass (-> inertia) increases; # the error is decreasing when the radius (-> inertia) increases; #--------------------------------------------------------------------------------------------; # auto; #--------------------------------------------------------------------------------------------; # theoretical velocity; # theoretical velocity; # test check; #print str(rotationtheory)+"" ""+str(translationtheory); #print str(self.rotationmax)+"" ""+str(self.translationmax)+"" ""+str(ACCEPTABLE_ERROR); #rotation error; # simulated velocity; #translation error; # simulated velocity; #print str(translationmeasure)+"" ""+str(translationtheory)+"" ""+str(translationerror)+"" ""+str(self.translationmax); #print str(rotationmeasure)+"" ""+str(rotationtheory)+"" ""+str(rotationerror)+"" ""+str(self.rotationmax); #------------------------------------------------------------------------------------------------------------------------------------------------; # create a rigid file to give a correct inertia matrix; #node.createObject('EulerExplicitSolver',name='odesolver'); #node.createObject('RequiredPlugin', pluginName = 'Compliant'); #node.createObject('CompliantImplicitSolver',name='odesolver',stabilization='0'); #node.createObject('LDLTSolver',name = 'numsolver'); # angular damping test; #angularNode.createObject('PartialFixedProjectiveConstraint', indices='0', fixedDirections=""1 1 1 0 1 1""); # translation damping test; #translationNode.createObject('PartialFixedProjectiveConstraint', indices='0', fixedDirections=""0 1 1 1 1 1"")
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content relates to dynamics and stiffness analysis of a ball, rather than the modifiability quality attribute."
+Testability,test,test,"#--------------------------------------------------------------------------------------------; # manual; # the error is increasing with both the damping coef and the initial velocity; # a ball; # the error is decreasing when the mass (-> inertia) increases; # the error is decreasing when the radius (-> inertia) increases; #--------------------------------------------------------------------------------------------; # auto; #--------------------------------------------------------------------------------------------; # theoretical velocity; # theoretical velocity; # test check; #print str(rotationtheory)+"" ""+str(translationtheory); #print str(self.rotationmax)+"" ""+str(self.translationmax)+"" ""+str(ACCEPTABLE_ERROR); #rotation error; # simulated velocity; #translation error; # simulated velocity; #print str(translationmeasure)+"" ""+str(translationtheory)+"" ""+str(translationerror)+"" ""+str(self.translationmax); #print str(rotationmeasure)+"" ""+str(rotationtheory)+"" ""+str(rotationerror)+"" ""+str(self.rotationmax); #------------------------------------------------------------------------------------------------------------------------------------------------; # create a rigid file to give a correct inertia matrix; #node.createObject('EulerExplicitSolver',name='odesolver'); #node.createObject('RequiredPlugin', pluginName = 'Compliant'); #node.createObject('CompliantImplicitSolver',name='odesolver',stabilization='0'); #node.createObject('LDLTSolver',name = 'numsolver'); # angular damping test; #angularNode.createObject('PartialFixedProjectiveConstraint', indices='0', fixedDirections=""1 1 1 0 1 1""); # translation damping test; #translationNode.createObject('PartialFixedProjectiveConstraint', indices='0', fixedDirections=""0 1 1 1 1 1"")",MatchSource.CODE_COMMENT,applications/plugins/SofaTest/SofaTest_test/scenes/damping.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/applications/plugins/SofaTest/SofaTest_test/scenes/damping.py,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: #--------------------------------------------------------------------------------------------; # manual; # the error is increasing with both the damping coef and the initial velocity; # a ball; # the error is decreasing when the mass (-> inertia) increases; # the error is decreasing when the radius (-> inertia) increases; #--------------------------------------------------------------------------------------------; # auto; #--------------------------------------------------------------------------------------------; # theoretical velocity; # theoretical velocity; # test check; #print str(rotationtheory)+"" ""+str(translationtheory); #print str(self.rotationmax)+"" ""+str(self.translationmax)+"" ""+str(ACCEPTABLE_ERROR); #rotation error; # simulated velocity; #translation error; # simulated velocity; #print str(translationmeasure)+"" ""+str(translationtheory)+"" ""+str(translationerror)+"" ""+str(self.translationmax); #print str(rotationmeasure)+"" ""+str(rotationtheory)+"" ""+str(rotationerror)+"" ""+str(self.rotationmax); #------------------------------------------------------------------------------------------------------------------------------------------------; # create a rigid file to give a correct inertia matrix; #node.createObject('EulerExplicitSolver',name='odesolver'); #node.createObject('RequiredPlugin', pluginName = 'Compliant'); #node.createObject('CompliantImplicitSolver',name='odesolver',stabilization='0'); #node.createObject('LDLTSolver',name = 'numsolver'); # angular damping test; #angularNode.createObject('PartialFixedProjectiveConstraint', indices='0', fixedDirections=""1 1 1 0 1 1""); # translation damping test; #translationNode.createObject('PartialFixedProjectiveConstraint', indices='0', fixedDirections=""0 1 1 1 1 1"")
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content relates to concepts of physics and numerical analysis, rather than software testability as defined by the attribute description."
+Deployability,install,install,"#!python; # DEPENDENCIES; # python3 -m pip install python-graphql-client; #Ref : Action in python https://www.python-engineer.com/posts/run-python-github-actions/; # List of the repository to scan; # Format the reference date (with which the last reply will be compared); # Today; # warning delay = 2-month delay for warning; # closing delay = 2+2.5-month delay for closing; # List of reviewers on GitHub Discussions; # Check if the ""createdAt"" is older than the ""date_reference""; # Format date of creation YYYY-MM-DD; # Returns true of the date ""createdAt"" is more than the warning delay; # Returns true of the date ""createdAt"" is more than the closing delay; # Trigger the query on discussions; # Process each discussion; # Save original author of the discussion; # Detect the last comment; # Pass to the next discussion item if :; # no comment in the discussion OR discussion is answered OR closed; # No replies on the last comment; # Select the last reply of the last comment; # Check if author is indeed a reviewer; #Check dates; # save if request has another page to browse and its cursor pointers; # Query to access all discussions; """"""; query {; repository(owner: ""%s"" name: ""%s"") {; discussions(answered: false, first: 10, after:AFTER) {; totalCount; pageInfo {; hasNextPage; endCursor; }; nodes {; id; number; isAnswered; closed; author {; login; }; comments (first: 100) {; nodes {; createdAt; author {; login; }; replies (first: 100) {; nodes {; createdAt; author {; login; }; }; }; }; }; }; }; }; }""""""; """"""; mutation {; addDiscussionComment(input: {body: ""%s"", discussionId: ""%s""}) {; comment {; id; }; }; }; """"""; """"""; mutation {; addDiscussionComment(input: {body: ""%s"", discussionId: ""%s""}) {; comment {; id; }; }; }; """"""; """"""; mutation {; closeDiscussion(input: {discussionId: ""%s""}) {; discussion {; id; }; }; }; """"""; #==========================================================; # STEPS computed by the script; #==========================================================; # 1 - get th",MatchSource.CODE_COMMENT,scripts/comment-close-old-discussions.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/scripts/comment-close-old-discussions.py,"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Deployability
+Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
+Content: #!python; # DEPENDENCIES; # python3 -m pip install python-graphql-client; #Ref : Action in python https://www.python-engineer.com/posts/run-python-github-actions/; # List of the repository to scan; # Format the reference date (with which the last reply will be compared); # Today; # warning delay = 2-month delay for warning; # closing delay = 2+2.5-month delay for closing; # List of reviewers on GitHub Discussions; # Check if the ""createdAt"" is older than the ""date_reference""; # Format date of creation YYYY-MM-DD; # Returns true of the date ""createdAt"" is more than the warning delay; # Returns true of the date ""createdAt"" is more than the closing delay; # Trigger the query on discussions; # Process each discussion; # Save original author of the discussion; # Detect the last comment; # Pass to the next discussion item if :; # no comment in the discussion OR discussion is answered OR closed; # No replies on the last comment; # Select the last reply of the last comment; # Check if author is indeed a reviewer; #Check dates; # save if request has another page to browse and its cursor pointers; # Query to access all discussions; """"""; query {; repository(owner: ""%s"" name: ""%s"") {; discussions(answered: false, first: 10, after:AFTER) {; totalCount; pageInfo {; hasNextPage; endCursor; }; nodes {; id; number; isAnswered; closed; author {; login; }; comments (first: 100) {; nodes {; createdAt; author {; login; }; replies (first: 100) {; nodes {; createdAt; author {; login; }; }; }; }; }; }; }; }; }""""""; """"""; mutation {; addDiscussionComment(input: {body: ""%s"", discussionId: ""%s""}) {; comment {; id; }; }; }; """"""; """"""; mutation {; addDiscussionComment(input: {body: ""%s"", discussionId: ""%s""}) {; comment {; id; }; }; }; """"""; """"""; mutation {; closeDiscussion(input: {discussionId: ""%s""}) {; discussion {; id; }; }; }; """"""; #==========================================================; # STEPS computed by the script; #==========================================================; # 1 - get th
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content relates to functionalities associated with discussion management in a GitHub repository, rather than aspects of deployability as defined by the quality attribute description."
+Security,access,access,"5-month delay for closing; # List of reviewers on GitHub Discussions; # Check if the ""createdAt"" is older than the ""date_reference""; # Format date of creation YYYY-MM-DD; # Returns true of the date ""createdAt"" is more than the warning delay; # Returns true of the date ""createdAt"" is more than the closing delay; # Trigger the query on discussions; # Process each discussion; # Save original author of the discussion; # Detect the last comment; # Pass to the next discussion item if :; # no comment in the discussion OR discussion is answered OR closed; # No replies on the last comment; # Select the last reply of the last comment; # Check if author is indeed a reviewer; #Check dates; # save if request has another page to browse and its cursor pointers; # Query to access all discussions; """"""; query {; repository(owner: ""%s"" name: ""%s"") {; discussions(answered: false, first: 10, after:AFTER) {; totalCount; pageInfo {; hasNextPage; endCursor; }; nodes {; id; number; isAnswered; closed; author {; login; }; comments (first: 100) {; nodes {; createdAt; author {; login; }; replies (first: 100) {; nodes {; createdAt; author {; login; }; }; }; }; }; }; }; }; }""""""; """"""; mutation {; addDiscussionComment(input: {body: ""%s"", discussionId: ""%s""}) {; comment {; id; }; }; }; """"""; """"""; mutation {; addDiscussionComment(input: {body: ""%s"", discussionId: ""%s""}) {; comment {; id; }; }; }; """"""; """"""; mutation {; closeDiscussion(input: {discussionId: ""%s""}) {; discussion {; id; }; }; }; """"""; #==========================================================; # STEPS computed by the script; #==========================================================; # 1 - get th",MatchSource.CODE_COMMENT,scripts/comment-close-old-discussions.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/scripts/comment-close-old-discussions.py,"The system’s ability to safeguard information against unauthorized access, while permitting authorized access. Security emphasizes confidentiality, integrity, and availability, using tactics to detect, prevent, and respond to attacks.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Security
+Attribute Description: The system’s ability to safeguard information against unauthorized access, while permitting authorized access. Security emphasizes confidentiality, integrity, and availability, using tactics to detect, prevent, and respond to attacks.
+Content: 5-month delay for closing; # List of reviewers on GitHub Discussions; # Check if the ""createdAt"" is older than the ""date_reference""; # Format date of creation YYYY-MM-DD; # Returns true of the date ""createdAt"" is more than the warning delay; # Returns true of the date ""createdAt"" is more than the closing delay; # Trigger the query on discussions; # Process each discussion; # Save original author of the discussion; # Detect the last comment; # Pass to the next discussion item if :; # no comment in the discussion OR discussion is answered OR closed; # No replies on the last comment; # Select the last reply of the last comment; # Check if author is indeed a reviewer; #Check dates; # save if request has another page to browse and its cursor pointers; # Query to access all discussions; """"""; query {; repository(owner: ""%s"" name: ""%s"") {; discussions(answered: false, first: 10, after:AFTER) {; totalCount; pageInfo {; hasNextPage; endCursor; }; nodes {; id; number; isAnswered; closed; author {; login; }; comments (first: 100) {; nodes {; createdAt; author {; login; }; replies (first: 100) {; nodes {; createdAt; author {; login; }; }; }; }; }; }; }; }; }""""""; """"""; mutation {; addDiscussionComment(input: {body: ""%s"", discussionId: ""%s""}) {; comment {; id; }; }; }; """"""; """"""; mutation {; addDiscussionComment(input: {body: ""%s"", discussionId: ""%s""}) {; comment {; id; }; }; }; """"""; """"""; mutation {; closeDiscussion(input: {discussionId: ""%s""}) {; discussion {; id; }; }; }; """"""; #==========================================================; # STEPS computed by the script; #==========================================================; # 1 - get th
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content relates to functionalities related to discussion management and comment handling, rather than security measures for safeguarding information."
+Testability,log,login,"th delay for closing; # List of reviewers on GitHub Discussions; # Check if the ""createdAt"" is older than the ""date_reference""; # Format date of creation YYYY-MM-DD; # Returns true of the date ""createdAt"" is more than the warning delay; # Returns true of the date ""createdAt"" is more than the closing delay; # Trigger the query on discussions; # Process each discussion; # Save original author of the discussion; # Detect the last comment; # Pass to the next discussion item if :; # no comment in the discussion OR discussion is answered OR closed; # No replies on the last comment; # Select the last reply of the last comment; # Check if author is indeed a reviewer; #Check dates; # save if request has another page to browse and its cursor pointers; # Query to access all discussions; """"""; query {; repository(owner: ""%s"" name: ""%s"") {; discussions(answered: false, first: 10, after:AFTER) {; totalCount; pageInfo {; hasNextPage; endCursor; }; nodes {; id; number; isAnswered; closed; author {; login; }; comments (first: 100) {; nodes {; createdAt; author {; login; }; replies (first: 100) {; nodes {; createdAt; author {; login; }; }; }; }; }; }; }; }; }""""""; """"""; mutation {; addDiscussionComment(input: {body: ""%s"", discussionId: ""%s""}) {; comment {; id; }; }; }; """"""; """"""; mutation {; addDiscussionComment(input: {body: ""%s"", discussionId: ""%s""}) {; comment {; id; }; }; }; """"""; """"""; mutation {; closeDiscussion(input: {discussionId: ""%s""}) {; discussion {; id; }; }; }; """"""; #==========================================================; # STEPS computed by the script; #==========================================================; # 1 - get the discussion to be warned and closed; #==========================================================; # 2- do it using github API; #==========================================================; # WARNING step; # Warning comment; #==========================================================; # CLOSING step; # Closing comment; # Close discussion; #===========",MatchSource.CODE_COMMENT,scripts/comment-close-old-discussions.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/scripts/comment-close-old-discussions.py,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: th delay for closing; # List of reviewers on GitHub Discussions; # Check if the ""createdAt"" is older than the ""date_reference""; # Format date of creation YYYY-MM-DD; # Returns true of the date ""createdAt"" is more than the warning delay; # Returns true of the date ""createdAt"" is more than the closing delay; # Trigger the query on discussions; # Process each discussion; # Save original author of the discussion; # Detect the last comment; # Pass to the next discussion item if :; # no comment in the discussion OR discussion is answered OR closed; # No replies on the last comment; # Select the last reply of the last comment; # Check if author is indeed a reviewer; #Check dates; # save if request has another page to browse and its cursor pointers; # Query to access all discussions; """"""; query {; repository(owner: ""%s"" name: ""%s"") {; discussions(answered: false, first: 10, after:AFTER) {; totalCount; pageInfo {; hasNextPage; endCursor; }; nodes {; id; number; isAnswered; closed; author {; login; }; comments (first: 100) {; nodes {; createdAt; author {; login; }; replies (first: 100) {; nodes {; createdAt; author {; login; }; }; }; }; }; }; }; }; }""""""; """"""; mutation {; addDiscussionComment(input: {body: ""%s"", discussionId: ""%s""}) {; comment {; id; }; }; }; """"""; """"""; mutation {; addDiscussionComment(input: {body: ""%s"", discussionId: ""%s""}) {; comment {; id; }; }; }; """"""; """"""; mutation {; closeDiscussion(input: {discussionId: ""%s""}) {; discussion {; id; }; }; }; """"""; #==========================================================; # STEPS computed by the script; #==========================================================; # 1 - get the discussion to be warned and closed; #==========================================================; # 2- do it using github API; #==========================================================; # WARNING step; # Warning comment; #==========================================================; # CLOSING step; # Closing comment; # Close discussion; #===========
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content relates to functionalities associated with discussion management on GitHub, rather than the quality attribute of Testability, which concerns the ease of validating software functionality through testing."
+Testability,log,log,"# extract imformations of a svn log (in xml format); # uses only the first logentry; # usage: svn-log-parse.py filename [revision|author|msg|date]; # use ""svn log -l 1 --xml > log.xml"" to have the infos about the last checkouted revision; #for node in xmldoc.getElementsByTagName('logentry'):; #print 'revision='+revision; #print 'author='+author; #print 'date='+date; #print 'msg='+msg",MatchSource.CODE_COMMENT,scripts/deprecated/svn-log-parse.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/scripts/deprecated/svn-log-parse.py,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: # extract imformations of a svn log (in xml format); # uses only the first logentry; # usage: svn-log-parse.py filename [revision|author|msg|date]; # use ""svn log -l 1 --xml > log.xml"" to have the infos about the last checkouted revision; #for node in xmldoc.getElementsByTagName('logentry'):; #print 'revision='+revision; #print 'author='+author; #print 'date='+date; #print 'msg='+msg
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content is related to command-line tools and XML parsing, which is not directly relevant to the quality attribute of Testability, which concerns the ease of validating software functionality through testing."
+Integrability,message,message,"#!python; # Recover all info as env var; # Format message; # Check whether an embed is expected. If not (empty title), enforce no embed using the ""flag""; # Send message to Discord",MatchSource.CODE_COMMENT,scripts/discord/post-discord-message.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/scripts/discord/post-discord-message.py,"The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Integrability
+Attribute Description: The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.
+Content: #!python; # Recover all info as env var; # Format message; # Check whether an embed is expected. If not (empty title), enforce no embed using the ""flag""; # Send message to Discord
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The content focuses on Python code and Discord integration, which is not directly related to the quality attribute of Integrability, which concerns the ease of combining systems or components."
+Integrability,message,message,"#!python; # List of the repository to scan; # List of reviewers on GitHub Discussions; # Trigger the query on discussions; # Process each discussion; # Exit if discussion is closed or answered; ##############################; # Detect the last comment; # No comment at all; # No reply on the last comment; # Select the last reply of the last comment; # Check if author is indeed a reviewer; # save if request has another page to browse and its cursor pointers; # Category has been covered; #print(Message); # Function posting a message on Discord; # Query to access all discussions; """"""; query {; repository(owner: ""%s"" name: ""%s"") {; discussions(answered: false, first: 10, after:AFTER) {; totalCount; pageInfo {; hasNextPage; endCursor; }; nodes {; number; isAnswered; closed; category {; name; }; comments (first: 100) {; nodes {; author {; login; }; replies (first: 100) {; nodes {; author {; login; }; }; }; }; }; }; }; }; }""""""; #==========================================================; # STEPS computed by the script; #==========================================================; # 1 - get the discussion to be warned and closed; #==========================================================",MatchSource.CODE_COMMENT,scripts/discord/post-pending-discussions.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/scripts/discord/post-pending-discussions.py,"The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Integrability
+Attribute Description: The ease of combining the system with other systems or components, measured by integration cost and technical risks. Integrability considers the complexity and compatibility of interfaces, including syntactic, semantic, behavioral, and temporal alignment.
+Content: #!python; # List of the repository to scan; # List of reviewers on GitHub Discussions; # Trigger the query on discussions; # Process each discussion; # Exit if discussion is closed or answered; ##############################; # Detect the last comment; # No comment at all; # No reply on the last comment; # Select the last reply of the last comment; # Check if author is indeed a reviewer; # save if request has another page to browse and its cursor pointers; # Category has been covered; #print(Message); # Function posting a message on Discord; # Query to access all discussions; """"""; query {; repository(owner: ""%s"" name: ""%s"") {; discussions(answered: false, first: 10, after:AFTER) {; totalCount; pageInfo {; hasNextPage; endCursor; }; nodes {; number; isAnswered; closed; category {; name; }; comments (first: 100) {; nodes {; author {; login; }; replies (first: 100) {; nodes {; author {; login; }; }; }; }; }; }; }; }; }""""""; #==========================================================; # STEPS computed by the script; #==========================================================; # 1 - get the discussion to be warned and closed; #==========================================================
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content is related to fetching discussions and comments from GitHub, and does not directly address the quality attribute of Integrability, which concerns the ease of combining systems."
+Security,access,access,"#!python; # List of the repository to scan; # List of reviewers on GitHub Discussions; # Trigger the query on discussions; # Process each discussion; # Exit if discussion is closed or answered; ##############################; # Detect the last comment; # No comment at all; # No reply on the last comment; # Select the last reply of the last comment; # Check if author is indeed a reviewer; # save if request has another page to browse and its cursor pointers; # Category has been covered; #print(Message); # Function posting a message on Discord; # Query to access all discussions; """"""; query {; repository(owner: ""%s"" name: ""%s"") {; discussions(answered: false, first: 10, after:AFTER) {; totalCount; pageInfo {; hasNextPage; endCursor; }; nodes {; number; isAnswered; closed; category {; name; }; comments (first: 100) {; nodes {; author {; login; }; replies (first: 100) {; nodes {; author {; login; }; }; }; }; }; }; }; }; }""""""; #==========================================================; # STEPS computed by the script; #==========================================================; # 1 - get the discussion to be warned and closed; #==========================================================",MatchSource.CODE_COMMENT,scripts/discord/post-pending-discussions.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/scripts/discord/post-pending-discussions.py,"The system’s ability to safeguard information against unauthorized access, while permitting authorized access. Security emphasizes confidentiality, integrity, and availability, using tactics to detect, prevent, and respond to attacks.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Security
+Attribute Description: The system’s ability to safeguard information against unauthorized access, while permitting authorized access. Security emphasizes confidentiality, integrity, and availability, using tactics to detect, prevent, and respond to attacks.
+Content: #!python; # List of the repository to scan; # List of reviewers on GitHub Discussions; # Trigger the query on discussions; # Process each discussion; # Exit if discussion is closed or answered; ##############################; # Detect the last comment; # No comment at all; # No reply on the last comment; # Select the last reply of the last comment; # Check if author is indeed a reviewer; # save if request has another page to browse and its cursor pointers; # Category has been covered; #print(Message); # Function posting a message on Discord; # Query to access all discussions; """"""; query {; repository(owner: ""%s"" name: ""%s"") {; discussions(answered: false, first: 10, after:AFTER) {; totalCount; pageInfo {; hasNextPage; endCursor; }; nodes {; number; isAnswered; closed; category {; name; }; comments (first: 100) {; nodes {; author {; login; }; replies (first: 100) {; nodes {; author {; login; }; }; }; }; }; }; }; }; }""""""; #==========================================================; # STEPS computed by the script; #==========================================================; # 1 - get the discussion to be warned and closed; #==========================================================
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content is related to data processing and automation rather than security, which involves confidentiality, integrity, and availability."
+Testability,log,login,"#!python; # List of the repository to scan; # List of reviewers on GitHub Discussions; # Trigger the query on discussions; # Process each discussion; # Exit if discussion is closed or answered; ##############################; # Detect the last comment; # No comment at all; # No reply on the last comment; # Select the last reply of the last comment; # Check if author is indeed a reviewer; # save if request has another page to browse and its cursor pointers; # Category has been covered; #print(Message); # Function posting a message on Discord; # Query to access all discussions; """"""; query {; repository(owner: ""%s"" name: ""%s"") {; discussions(answered: false, first: 10, after:AFTER) {; totalCount; pageInfo {; hasNextPage; endCursor; }; nodes {; number; isAnswered; closed; category {; name; }; comments (first: 100) {; nodes {; author {; login; }; replies (first: 100) {; nodes {; author {; login; }; }; }; }; }; }; }; }; }""""""; #==========================================================; # STEPS computed by the script; #==========================================================; # 1 - get the discussion to be warned and closed; #==========================================================",MatchSource.CODE_COMMENT,scripts/discord/post-pending-discussions.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/scripts/discord/post-pending-discussions.py,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: #!python; # List of the repository to scan; # List of reviewers on GitHub Discussions; # Trigger the query on discussions; # Process each discussion; # Exit if discussion is closed or answered; ##############################; # Detect the last comment; # No comment at all; # No reply on the last comment; # Select the last reply of the last comment; # Check if author is indeed a reviewer; # save if request has another page to browse and its cursor pointers; # Category has been covered; #print(Message); # Function posting a message on Discord; # Query to access all discussions; """"""; query {; repository(owner: ""%s"" name: ""%s"") {; discussions(answered: false, first: 10, after:AFTER) {; totalCount; pageInfo {; hasNextPage; endCursor; }; nodes {; number; isAnswered; closed; category {; name; }; comments (first: 100) {; nodes {; author {; login; }; replies (first: 100) {; nodes {; author {; login; }; }; }; }; }; }; }; }; }""""""; #==========================================================; # STEPS computed by the script; #==========================================================; # 1 - get the discussion to be warned and closed; #==========================================================
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content is related to GitHub Discussions and Discord messaging functionality, which is not directly related to the quality attribute of Testability, which concerns the ease of validating software functionality through testing."
+Performance,load,loaded,"############################################################################################; # this is a PythonScriptController example script; ############################################################################################; ############################################################################################; # following defs are used later in the script; ############################################################################################; # Node creation; #you can animate simulation directly by uncommenting the following line:; #node.animate=true; # Python version of the ""oneParticleSample"" in cpp located in applications/tutorials/oneParticle; ############################################################################################; # following defs are optionnal entry points, called by the PythonScriptController component;; ############################################################################################; # called once the script is loaded; # optionnally, script can create a graph...; #uncomment to create nodes; #testNodes(node); #uncomment to create the ""oneParticle"" sample; # called once graph is created, to init some stuff...; # called on each animation step; #print 'onBeginAnimatinStep (python) dt=%f total time=%f'%(dt,self.total_time); # called when necessary by Sofa framework... ; # called when a GUIEvent is received; # key and mouse events; use this to add some user interaction to your scripts ; # called at each draw (possibility to use PyOpenGL)",MatchSource.CODE_COMMENT,tools/sofa-launcher/example.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/tools/sofa-launcher/example.py,"The system’s capacity to meet its timing requirements, managing event handling and response times effectively. Performance focuses on reducing blocked time from resource contention and optimizing resource utilization under varying load conditions.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Performance
+Attribute Description: The system’s capacity to meet its timing requirements, managing event handling and response times effectively. Performance focuses on reducing blocked time from resource contention and optimizing resource utilization under varying load conditions.
+Content: ############################################################################################; # this is a PythonScriptController example script; ############################################################################################; ############################################################################################; # following defs are used later in the script; ############################################################################################; # Node creation; #you can animate simulation directly by uncommenting the following line:; #node.animate=true; # Python version of the ""oneParticleSample"" in cpp located in applications/tutorials/oneParticle; ############################################################################################; # following defs are optionnal entry points, called by the PythonScriptController component;; ############################################################################################; # called once the script is loaded; # optionnally, script can create a graph...; #uncomment to create nodes; #testNodes(node); #uncomment to create the ""oneParticle"" sample; # called once graph is created, to init some stuff...; # called on each animation step; #print 'onBeginAnimatinStep (python) dt=%f total time=%f'%(dt,self.total_time); # called when necessary by Sofa framework... ; # called when a GUIEvent is received; # key and mouse events; use this to add some user interaction to your scripts ; # called at each draw (possibility to use PyOpenGL)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content does not relate to performance as it describes actions related to node creation, animation, and event handling within a graphical application."
+Testability,test,testNodes,"############################################################################################; # this is a PythonScriptController example script; ############################################################################################; ############################################################################################; # following defs are used later in the script; ############################################################################################; # Node creation; #you can animate simulation directly by uncommenting the following line:; #node.animate=true; # Python version of the ""oneParticleSample"" in cpp located in applications/tutorials/oneParticle; ############################################################################################; # following defs are optionnal entry points, called by the PythonScriptController component;; ############################################################################################; # called once the script is loaded; # optionnally, script can create a graph...; #uncomment to create nodes; #testNodes(node); #uncomment to create the ""oneParticle"" sample; # called once graph is created, to init some stuff...; # called on each animation step; #print 'onBeginAnimatinStep (python) dt=%f total time=%f'%(dt,self.total_time); # called when necessary by Sofa framework... ; # called when a GUIEvent is received; # key and mouse events; use this to add some user interaction to your scripts ; # called at each draw (possibility to use PyOpenGL)",MatchSource.CODE_COMMENT,tools/sofa-launcher/example.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/tools/sofa-launcher/example.py,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: ############################################################################################; # this is a PythonScriptController example script; ############################################################################################; ############################################################################################; # following defs are used later in the script; ############################################################################################; # Node creation; #you can animate simulation directly by uncommenting the following line:; #node.animate=true; # Python version of the ""oneParticleSample"" in cpp located in applications/tutorials/oneParticle; ############################################################################################; # following defs are optionnal entry points, called by the PythonScriptController component;; ############################################################################################; # called once the script is loaded; # optionnally, script can create a graph...; #uncomment to create nodes; #testNodes(node); #uncomment to create the ""oneParticle"" sample; # called once graph is created, to init some stuff...; # called on each animation step; #print 'onBeginAnimatinStep (python) dt=%f total time=%f'%(dt,self.total_time); # called when necessary by Sofa framework... ; # called when a GUIEvent is received; # key and mouse events; use this to add some user interaction to your scripts ; # called at each draw (possibility to use PyOpenGL)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content is related to Python scripting and node animation, which is not directly relevant to the quality attribute of Testability."
+Usability,learn,learn,"#!/usr/bin/python; # coding: utf8 ; #############################################################################; # This file is part of Sofa Framework; #; # This script is showing how you can use the launcher.py API to start; # multiple runSofa instance and gather the results. ; # ; # You need the cheetha template engine to use this; # http://www.cheetahtemplate.org/learn.html; #; # Contributors:; # - damien.marchal@univ-lille.1; #############################################################################; ################## EXAMPLE USING THE SEQUENTIAL LAUNCHER #################################; ################## EXAMPLE USING THE PARALLEL LAUNCHER ################################# ; ################## EXAMPLE USING THE DISTRIBUTED LAUNCHER ################################# ; # Start sofa returns a dictionnary ",MatchSource.CODE_COMMENT,tools/sofa-launcher/integration_example.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/tools/sofa-launcher/integration_example.py,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: #!/usr/bin/python; # coding: utf8 ; #############################################################################; # This file is part of Sofa Framework; #; # This script is showing how you can use the launcher.py API to start; # multiple runSofa instance and gather the results. ; # ; # You need the cheetha template engine to use this; # http://www.cheetahtemplate.org/learn.html; #; # Contributors:; # - damien.marchal@univ-lille.1; #############################################################################; ################## EXAMPLE USING THE SEQUENTIAL LAUNCHER #################################; ################## EXAMPLE USING THE PARALLEL LAUNCHER ################################# ; ################## EXAMPLE USING THE DISTRIBUTED LAUNCHER ################################# ; # Start sofa returns a dictionnary 
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content is related to technical code implementation and does not relate to the description of usability, which focuses on user-related factors like ease of learning and efficiency."
+Testability,log,logfile,"#!/usr/bin/python; # coding: utf8 ; #############################################################################; # A small utility to launch multiple sofa in parallel.; #; # Need Cheetah template to work. ; # ; # Contributors:; # - damien.marchal@univ-lille.1; #############################################################################; # Create the threads; #logfile.write(""========== MATCH-LOG ===========\n""); #logfile.write(str(filtering(astdout))) ; # Create the threads",MatchSource.CODE_COMMENT,tools/sofa-launcher/launcher.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/tools/sofa-launcher/launcher.py,"The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: #!/usr/bin/python; # coding: utf8 ; #############################################################################; # A small utility to launch multiple sofa in parallel.; #; # Need Cheetah template to work. ; # ; # Contributors:; # - damien.marchal@univ-lille.1; #############################################################################; # Create the threads; #logfile.write(""========== MATCH-LOG ===========\n""); #logfile.write(str(filtering(astdout))) ; # Create the threads
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content is unrelated to the description of testability, which concerns the ease of validating software functionality through testing."
+Usability,learn,learn,"#!/usr/bin/python; # coding: utf8 ; #############################################################################; # This file is part of Sofa Framework; #; # Need Cheetah template engin to work (http://www.cheetahtemplate.org/learn.html) ; # ; # Contributors:; # - damien.marchal@univ-lille.1; #############################################################################; # Create the adequate launcher; # Prepare the files and the templates for processing. ; # Start the jobs... and print the results ",MatchSource.CODE_COMMENT,tools/sofa-launcher/sofa-launcher.py,sofa-framework,sofa,v24.06.00,https://www.sofa-framework.org,https://github.com/sofa-framework/sofa/tree/v24.06.00/tools/sofa-launcher/sofa-launcher.py,"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: #!/usr/bin/python; # coding: utf8 ; #############################################################################; # This file is part of Sofa Framework; #; # Need Cheetah template engin to work (http://www.cheetahtemplate.org/learn.html) ; # ; # Contributors:; # - damien.marchal@univ-lille.1; #############################################################################; # Create the adequate launcher; # Prepare the files and the templates for processing. ; # Start the jobs... and print the results 
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as an accurate match; if not, mark it as a false positive.
+4. Output only the JSON object in response, without any additional explanation.
+5. Ensure the JSON output is properly formatted. Escape any special characters or inner quotes in strings to ensure compatibility with JSON parsers. Within JSON strings use \"" to escape double quotes.
+
+Output your response as a JSON object in the following format:
+{
+  ""false_positive"": <boolean>,
+  ""reasoning"": ""<str>""
+}
+",True,"The provided content is unrelated to the quality attribute of Usability, which relates to user experience and ease of use."

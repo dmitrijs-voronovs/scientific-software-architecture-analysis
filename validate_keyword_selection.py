@@ -12,6 +12,7 @@ from loguru import logger
 from tenacity import retry, stop_after_attempt, RetryError, wait_incrementing, wait_fixed
 from tqdm import tqdm
 
+from metadata.repo_info.repo_info import credential_list
 from model.Credentials import Credentials
 
 # Load environment variables from .env file
@@ -197,14 +198,15 @@ def main():
 
     # file_path = Path("./metadata/keywords/verification/big_sample2.csv")
 
-    creds = [
-        Credentials(
-            {'author': 'scverse', 'repo': 'scanpy', 'version': '1.10.2', 'wiki': 'https://scanpy.readthedocs.io'}),
-        Credentials({'author': 'allenai', 'repo': 'scispacy', 'version': 'v0.5.5',
-                     'wiki': 'https://allenai.github.io/scispacy/'}),
-        Credentials({'author': 'qutip', 'repo': 'qutip', 'version': 'v5.0.4', 'wiki': 'https://qutip.org'}),
-        Credentials({'author': 'hail-is', 'repo': 'hail', 'version': '0.2.133', 'wiki': 'https://hail.is'}),
-    ]
+    # creds = [
+    #     Credentials(
+    #         {'author': 'scverse', 'repo': 'scanpy', 'version': '1.10.2', 'wiki': 'https://scanpy.readthedocs.io'}),
+    #     Credentials({'author': 'allenai', 'repo': 'scispacy', 'version': 'v0.5.5',
+    #                  'wiki': 'https://allenai.github.io/scispacy/'}),
+    #     Credentials({'author': 'qutip', 'repo': 'qutip', 'version': 'v5.0.4', 'wiki': 'https://qutip.org'}),
+    #     Credentials({'author': 'hail-is', 'repo': 'hail', 'version': '0.2.133', 'wiki': 'https://hail.is'}),
+    # ]
+    creds = credential_list
 
     try:
         for file_path in keyword_folder.glob("*.csv"):
