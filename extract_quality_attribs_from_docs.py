@@ -54,8 +54,7 @@ class KeywordParser:
         text = KeywordParser._clean_text(text)
         for quality_attr, keywords in self.attributes.items():
             pattern = KeywordParser.get_keyword_matching_pattern(keywords)
-            match = re.search(pattern, text)
-            if match:
+            for match in re.finditer(pattern, text):
                 full_match, keyword = match.group(), match.group(1)
                 context = KeywordParser.get_match_context(text, match.start(), match.end())
                 if self.append_full_text:
