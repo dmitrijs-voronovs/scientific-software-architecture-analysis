@@ -16,7 +16,7 @@
 <h3>Verification charts</h3>
 <div id="verification-container" style="display: flex; flex-direction: column; justify-content: space-around"></div>
 <h3>Verification charts - subset</h3>
-<div id="verification-container2" style="display: flex; flex-direction: column; justify-content: space-around"></div>
+<div id="verification-container_it2" style="display: flex; flex-direction: column; justify-content: space-around"></div>
 <script>
     const prefix = "keyword_analysis"
     const verification_prefix = "keyword_analysis/verification"
@@ -38,7 +38,7 @@
         verificationContainer.appendChild(linkNode)
     }
 
-    const verificationContainer2 = document.getElementById("verification-container2");
+    const verificationContainer2 = document.getElementById("verification-container_it2");
     for (const file of verification_it2_charts) {
         const linkNode = document.createElement("a");
         linkNode.href = `${verification_prefix2}/${file}`;
