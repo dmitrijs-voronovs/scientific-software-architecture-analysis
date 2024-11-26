@@ -5,4 +5,4 @@ repos:
         name: Generate Resource Map
         entry: python docs/generate_resource_map.py
         language: system
-        files: ^docs/[^resource-paths.js]$
+        files: ^docs/
