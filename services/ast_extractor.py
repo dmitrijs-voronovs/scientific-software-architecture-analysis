@@ -5,14 +5,16 @@ from typing import Generator, Dict
 import tree_sitter_python as tspython
 from tree_sitter import Language, Parser, Tree, Node
 
+
 class Lang(Enum):
     PYTHON = "python"
     JAVA = "java"
 
+
 ext_to_lang: Dict[str, Lang] = {"py": Lang.PYTHON,  # "java": "java"
-               }
+                                }
 Languages: dict[Lang, Language] = {Lang.PYTHON: Language(tspython.language()),  # Lang.JAVA: Language(tsjava.language())
-             }
+                                   }
 
 
 def extract_text_from_all_nodes(match):
@@ -26,10 +28,9 @@ def render_if_exists(object, field, prefix="", postfix="", orString="", render_f
     return prefix + render_field(object[field]) + postfix if field in object else orString
 
 
-Queries = {"python": {"class_field": {"handler": (lambda match: {
-    **(m := extract_text_from_all_nodes(match)),
-    "embedding": f"Class field: {render_if_exists(m, "class.instance_field", "[instance] ", render_field=lambda x: "")}{m["class.name"]}.{m["class.field"].replace('self.', '')}"
-}), "query": """
+Queries = {"python": {"class_field": {"handler": (lambda match: {**(m := extract_text_from_all_nodes(match)),
+    "embedding": f"Class field: {render_if_exists(m, "class.instance_field", "[instance] ", render_field=lambda x: "")}{m["class.name"]}.{m["class.field"].replace('self.', '')}"}),
+                                      "query": """
             (class_definition
                 name: (identifier) @class.name
                 body: (block
@@ -61,10 +62,9 @@ Queries = {"python": {"class_field": {"handler": (lambda match: {
                     ]
                 )
             )
-        """}, "class_method": {"handler": (lambda match: {
-    **(m := extract_text_from_all_nodes(match)),
-    "embedding": f"Class method: {render_if_exists(m, "method.decorator", "[", "] ")}{m["class.name"]}.{m["method.name"]}{m["method.parameters"]}{render_if_exists(m, "method.type", " -> ")}"
-}), "query": """
+        """}, "class_method": {"handler": (lambda match: {**(m := extract_text_from_all_nodes(match)),
+    "embedding": f"Class method: {render_if_exists(m, "method.decorator", "[", "] ")}{m["class.name"]}.{m["method.name"]}{m["method.parameters"]}{render_if_exists(m, "method.type", " -> ")}"}),
+                               "query": """
             (class_definition
                 name: (identifier) @class.name
                 body: (block 
@@ -85,20 +85,15 @@ Queries = {"python": {"class_field": {"handler": (lambda match: {
                     ]                        
                 )
             ) ;; @class_method
-        """},
-                      "class": {"handler": (lambda match: {
-                          **(m := extract_text_from_all_nodes(match)),
-                          "embedding": f"Class: {m["class.name"]}{render_if_exists(m, "class.base")}"
-                      }), "query": """
+        """}, "class": {"handler": (lambda match: {**(m := extract_text_from_all_nodes(match)),
+    "embedding": f"Class: {m["class.name"]}{render_if_exists(m, "class.base")}"}), "query": """
             (class_definition
                 name: (identifier) @class.name
                 superclasses: (argument_list)? @class.base
             ) ;; @class
-        """},
-                      "function": {"handler": (lambda match: {
-                          **(m := extract_text_from_all_nodes(match)),
-                          "embedding": f"Function: {m["function.name"]}{m["function.parameters"]}{render_if_exists(m, "function.type", " -> ")}"
-                      }), "query": """
+        """}, "function": {"handler": (lambda match: {**(m := extract_text_from_all_nodes(match)),
+    "embedding": f"Function: {m["function.name"]}{m["function.parameters"]}{render_if_exists(m, "function.type", " -> ")}"}),
+                           "query": """
             (module
                 (function_definition
                     name: (identifier) @function.name
@@ -107,23 +102,17 @@ Queries = {"python": {"class_field": {"handler": (lambda match: {
                     (comment)? @function.docstring
                 ) ;; @function
             )
-        """}, "module_type": {
-        "handler": (lambda match: {
-            **(m := extract_text_from_all_nodes(match)),
-            "embedding": f"Type: {m['type.name']} = {m['type.value']}"
-        }),
-        "query": """
+        """}, "module_type": {"handler": (lambda match: {**(m := extract_text_from_all_nodes(match)),
+    "embedding": f"Type: {m['type.name']} = {m['type.value']}"}), "query": """
             (module
                 (type_alias_statement
                     (type (identifier) @type.name)
                     (type (generic_type) @type.value)
                 ) @type
             )
-        """
-    }, "constant": {
-        "handler": (
-            lambda match: {**(m := extract_text_from_all_nodes(match)), "embedding": f"Constant: {m["constant"]}"}),
-        "query": """
+        """}, "constant": {
+    "handler": (lambda match: {**(m := extract_text_from_all_nodes(match)), "embedding": f"Constant: {m["constant"]}"}),
+    "query": """
             (module
                 (expression_statement
                     (assignment
@@ -132,12 +121,8 @@ Queries = {"python": {"class_field": {"handler": (lambda match: {
                     ) @constant
                 )
             )
-        """}, "import": {
-        "handler": (lambda match: {
-            **(m := extract_text_from_all_nodes(match)),
-            "embedding": f"Import: {m["import.name"]}{render_if_exists(m, "import.from", " from ")}"
-        }),
-        "query": """
+        """}, "import": {"handler": (lambda match: {**(m := extract_text_from_all_nodes(match)),
+    "embedding": f"Import: {m["import.name"]}{render_if_exists(m, "import.from", " from ")}"}), "query": """
             (module
                 (import_from_statement
                     module_name: (dotted_name) @import.from
@@ -156,12 +141,8 @@ Queries = {"python": {"class_field": {"handler": (lambda match: {
                     (aliased_import (dotted_name) @import.name)
                 ) @import
             )
-        """}, "local_import": {
-        "handler": (lambda match: {
-            **(m := extract_text_from_all_nodes(match)),
-            "embedding": f"Import: {m["import.name"]} from {m["import.from"]}"
-        }),
-        "query": """
+        """}, "local_import": {"handler": (lambda match: {**(m := extract_text_from_all_nodes(match)),
+    "embedding": f"Import: {m["import.name"]} from {m["import.from"]}"}), "query": """
             (module
                 (import_from_statement
                     (dotted_name
@@ -233,13 +214,13 @@ def ast_main_definitions_iterator(lang, tree) -> Generator[dict, None, None]:
 
 
 def ast_iterator(lang, tree, query) -> Generator[tuple[int, dict[str, list[Node]]], None, None]:
+    assert query is not None, "Query should be provided"
     tree_sitter_query = Languages[lang].query(query)
     for match in tree_sitter_query.matches(tree.root_node):
         yield match
 
 
-lang_to_comment_query_map: Dict[Lang, str] = {
-    Lang.PYTHON: """
+lang_to_comment_query_map: Dict[Lang, str] = {Lang.PYTHON: """
         (
           (string) @docstring
           (#match? @docstring "^(\\"\\"\\"|''')")
@@ -247,8 +228,7 @@ lang_to_comment_query_map: Dict[Lang, str] = {
         (
           (comment)+ @comment
         )
-        """
-}
+        """}
 
 
 def extract_text_from_comments_node(match):
@@ -257,12 +237,13 @@ def extract_text_from_comments_node(match):
 
 
 # TODO: add line number extraction
-def extract_comments(lang, tree):
-    return [extract_text_from_comments_node(match) for [_,match] in ast_iterator(lang, tree, lang_to_comment_query_map[lang])]
+def extract_comments(lang, tree) -> Generator[str, None, None]:
+    yield from (extract_text_from_comments_node(match) for [_, match] in
+                ast_iterator(lang, tree, lang_to_comment_query_map[lang]))
 
 
-def get_comments(file_path: str):
+def code_comments_iterator(file_path: str) -> Generator[str, None, None]:
     code, filename, lang = read_file(str(file_path))
     tree = parse_code(code, lang)
-    comments = extract_comments(lang, tree)
-    return comments
+    yield from extract_comments(lang, tree)
+

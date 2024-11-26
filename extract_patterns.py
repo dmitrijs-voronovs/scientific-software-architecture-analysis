@@ -9,15 +9,15 @@ from enum import Enum
 from pathlib import Path
 from typing import List, Dict
 
-import pandas as pd
 import requests
 from loguru import logger
 from pandas import DataFrame
-from tenacity import retry, stop_after_attempt, RetryError, wait_fixed
+from tenacity import retry, stop_after_attempt, wait_fixed
 from tqdm import tqdm
 
 from extract_quality_attribs_from_docs import KeywordParser
 from model.Credentials import Credentials
+from utils.utils import create_logger_path
 
 
 @dataclass
@@ -547,7 +547,7 @@ def main():
     os.makedirs(".logs", exist_ok=True)
 
     os.makedirs(keyword_folder / pattern_extraction_dir, exist_ok=True)
-    logger.add(f".logs/{pattern_extraction_dir}.{datetime.now().strftime('%Y-%m-%dT%H-%M-%S')}.log", mode="w")
+    logger.add(create_logger_path(pattern_extraction_dir), mode="w")
 
     creds = [Credentials(
         {'author': 'scverse', 'repo': 'scanpy', 'version': '1.10.2', 'wiki': 'https://scanpy.readthedocs.io'}),

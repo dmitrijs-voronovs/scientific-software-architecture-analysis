@@ -1,5 +1,5 @@
-quality_attribute,keyword,matched_word,sentence,source,author,repo,version,wiki,url
-Availability,error,error,user guide error and unknown output format,MatchSource.ISSUE,soedinglab,MMseqs2,15-6f452,https://mmseqs.com,https://github.com/soedinglab/MMseqs2/issues/2
-Usability,guid,guide,user guide error and unknown output format,MatchSource.ISSUE,soedinglab,MMseqs2,15-6f452,https://mmseqs.com,https://github.com/soedinglab/MMseqs2/issues/2
-Usability,guid,guide,The user guide and the cli disagree on the range of the sensitivity parameter,MatchSource.ISSUE,soedinglab,MMseqs2,15-6f452,https://mmseqs.com,https://github.com/soedinglab/MMseqs2/issues/240
-Usability,simpl,simplify,"simplify comparisons in DBReader::Index, DBReader::LookupEntry",MatchSource.ISSUE,soedinglab,MMseqs2,15-6f452,https://mmseqs.com,https://github.com/soedinglab/MMseqs2/pull/894
+id,quality_attribute,keyword,matched_word,match_idx,sentence,source,author,repo,version,wiki,url
+https://github.com/soedinglab/MMseqs2/issues/2:11,Availability,error,error,11,user guide error and unknown output format,MatchSource.ISSUE,soedinglab,MMseqs2,15-6f452,https://github.com/soedinglab/mmseqs2/wiki,https://github.com/soedinglab/MMseqs2/issues/2
+https://github.com/soedinglab/MMseqs2/issues/2:5,Usability,guid,guide,5,user guide error and unknown output format,MatchSource.ISSUE,soedinglab,MMseqs2,15-6f452,https://github.com/soedinglab/mmseqs2/wiki,https://github.com/soedinglab/MMseqs2/issues/2
+https://github.com/soedinglab/MMseqs2/issues/240:9,Usability,guid,guide,9,The user guide and the cli disagree on the range of the sensitivity parameter,MatchSource.ISSUE,soedinglab,MMseqs2,15-6f452,https://github.com/soedinglab/mmseqs2/wiki,https://github.com/soedinglab/MMseqs2/issues/240
+https://github.com/soedinglab/MMseqs2/pull/894:0,Usability,simpl,simplify,0,"simplify comparisons in DBReader::Index, DBReader::LookupEntry",MatchSource.ISSUE,soedinglab,MMseqs2,15-6f452,https://github.com/soedinglab/mmseqs2/wiki,https://github.com/soedinglab/MMseqs2/pull/894

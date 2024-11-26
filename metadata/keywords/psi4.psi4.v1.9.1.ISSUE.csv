@@ -1,17 +1,17 @@
-quality_attribute,keyword,matched_word,sentence,source,author,repo,version,wiki,url
-Usability,guid,guidelines,Added some rough guidelines to describe the new PR/commit workflow.,MatchSource.ISSUE,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/pull/254
-Usability,usab,usable,make DKH usable again,MatchSource.ISSUE,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/pull/572
-Usability,clear,clear,appease numpy and clear thermo,MatchSource.ISSUE,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/pull/985
-Usability,clear,clear,clear filesystem from FISAPT,MatchSource.ISSUE,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/pull/1098
-Usability,clear,clears,"Fixes #1309, clears DCT files correctly.",MatchSource.ISSUE,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/pull/1310
-Usability,simpl,simple,Add simple print statements for scratch directory,MatchSource.ISSUE,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/pull/1731
-Usability,clear,clear,"bump ambit, clear addons from azure",MatchSource.ISSUE,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/pull/2546
-Usability,clear,clears,`AtomicComputer` clears options state,MatchSource.ISSUE,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/issues/2733
-Usability,simpl,simple-,allow and prefer simple-dftd3 and mctc-gcp,MatchSource.ISSUE,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/pull/2791
-Usability,undo,undocumented,Do not use or suggest the undocumented -H option for CMake,MatchSource.ISSUE,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/pull/2797
-Usability,clear,clear,Actually clear vectors in Molecule,MatchSource.ISSUE,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/pull/2864
-Deployability,update,update,update the review guidance,MatchSource.ISSUE,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/pull/2917
-Usability,guid,guidance,update the review guidance,MatchSource.ISSUE,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/pull/2917
-Availability,error,error,Getting SIGSEGV error on cc-pvdz calculation of simple ethanol molecule,MatchSource.ISSUE,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/issues/2930
-Usability,simpl,simple,Getting SIGSEGV error on cc-pvdz calculation of simple ethanol molecule,MatchSource.ISSUE,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/issues/2930
-Usability,simpl,simplifying,Amend #3043 by allowing a longer hostname and simplifying the code.,MatchSource.ISSUE,psi4,psi4,v1.9.1,http://psicode.org,https://github.com/psi4/psi4/pull/3044
+id,quality_attribute,keyword,matched_word,match_idx,sentence,source,author,repo,version,wiki,url
+https://github.com/psi4/psi4/pull/254:17,Usability,guid,guidelines,17,Added some rough guidelines to describe the new PR/commit workflow.,MatchSource.ISSUE,psi4,psi4,v1.9.1,https://psicode.org,https://github.com/psi4/psi4/pull/254
+https://github.com/psi4/psi4/pull/572:9,Usability,usab,usable,9,make DKH usable again,MatchSource.ISSUE,psi4,psi4,v1.9.1,https://psicode.org,https://github.com/psi4/psi4/pull/572
+https://github.com/psi4/psi4/pull/985:18,Usability,clear,clear,18,appease numpy and clear thermo,MatchSource.ISSUE,psi4,psi4,v1.9.1,https://psicode.org,https://github.com/psi4/psi4/pull/985
+https://github.com/psi4/psi4/pull/1098:0,Usability,clear,clear,0,clear filesystem from FISAPT,MatchSource.ISSUE,psi4,psi4,v1.9.1,https://psicode.org,https://github.com/psi4/psi4/pull/1098
+https://github.com/psi4/psi4/pull/1310:13,Usability,clear,clears,13,"Fixes #1309, clears DCT files correctly.",MatchSource.ISSUE,psi4,psi4,v1.9.1,https://psicode.org,https://github.com/psi4/psi4/pull/1310
+https://github.com/psi4/psi4/pull/1731:4,Usability,simpl,simple,4,Add simple print statements for scratch directory,MatchSource.ISSUE,psi4,psi4,v1.9.1,https://psicode.org,https://github.com/psi4/psi4/pull/1731
+https://github.com/psi4/psi4/pull/2546:12,Usability,clear,clear,12,"bump ambit, clear addons from azure",MatchSource.ISSUE,psi4,psi4,v1.9.1,https://psicode.org,https://github.com/psi4/psi4/pull/2546
+https://github.com/psi4/psi4/issues/2733:17,Usability,clear,clears,17,`AtomicComputer` clears options state,MatchSource.ISSUE,psi4,psi4,v1.9.1,https://psicode.org,https://github.com/psi4/psi4/issues/2733
+https://github.com/psi4/psi4/pull/2791:17,Usability,simpl,simple-,17,allow and prefer simple-dftd3 and mctc-gcp,MatchSource.ISSUE,psi4,psi4,v1.9.1,https://psicode.org,https://github.com/psi4/psi4/pull/2791
+https://github.com/psi4/psi4/pull/2797:26,Usability,undo,undocumented,26,Do not use or suggest the undocumented -H option for CMake,MatchSource.ISSUE,psi4,psi4,v1.9.1,https://psicode.org,https://github.com/psi4/psi4/pull/2797
+https://github.com/psi4/psi4/pull/2864:9,Usability,clear,clear,9,Actually clear vectors in Molecule,MatchSource.ISSUE,psi4,psi4,v1.9.1,https://psicode.org,https://github.com/psi4/psi4/pull/2864
+https://github.com/psi4/psi4/pull/2917:0,Deployability,update,update,0,update the review guidance,MatchSource.ISSUE,psi4,psi4,v1.9.1,https://psicode.org,https://github.com/psi4/psi4/pull/2917
+https://github.com/psi4/psi4/pull/2917:18,Usability,guid,guidance,18,update the review guidance,MatchSource.ISSUE,psi4,psi4,v1.9.1,https://psicode.org,https://github.com/psi4/psi4/pull/2917
+https://github.com/psi4/psi4/issues/2930:16,Availability,error,error,16,Getting SIGSEGV error on cc-pvdz calculation of simple ethanol molecule,MatchSource.ISSUE,psi4,psi4,v1.9.1,https://psicode.org,https://github.com/psi4/psi4/issues/2930
+https://github.com/psi4/psi4/issues/2930:48,Usability,simpl,simple,48,Getting SIGSEGV error on cc-pvdz calculation of simple ethanol molecule,MatchSource.ISSUE,psi4,psi4,v1.9.1,https://psicode.org,https://github.com/psi4/psi4/issues/2930
+https://github.com/psi4/psi4/pull/3044:46,Usability,simpl,simplifying,46,Amend #3043 by allowing a longer hostname and simplifying the code.,MatchSource.ISSUE,psi4,psi4,v1.9.1,https://psicode.org,https://github.com/psi4/psi4/pull/3044

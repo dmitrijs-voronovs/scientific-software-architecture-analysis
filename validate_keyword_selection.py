@@ -14,6 +14,7 @@ from tqdm import tqdm
 
 from metadata.repo_info.repo_info import credential_list
 from model.Credentials import Credentials
+from utils.utils import create_logger_path
 
 # Load environment variables from .env file
 dotenv.load_dotenv()
@@ -191,7 +192,7 @@ def main():
     keyword_folder = Path("metadata/keywords/")
     os.makedirs(".logs", exist_ok=True)
     os.makedirs(keyword_folder / verification_dir, exist_ok=True)
-    logger.add(f".logs/{verification_dir}.{datetime.now().strftime('%Y-%m-%dT%H-%M-%S')}.log", mode="w")
+    logger.add(create_logger_path(verification_dir), mode="w")
 
     # with shelve.open(f".cache/verification/psi4.psi4.v1.9.1.DOCS") as db:
     #     db['idx'] = 6720
