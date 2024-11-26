@@ -13,14 +13,14 @@
 <a href="csv.html">CSV file viewer</a>
 <h3>Charts</h3>
 <div id="container" style="display: flex; flex-direction: column; justify-content: space-around"></div>
-<h3>Validation charts</h3>
-<div id="validation-container" style="display: flex; flex-direction: column; justify-content: space-around"></div>
-<h3>Validation charts - subset</h3>
-<div id="validation-container2" style="display: flex; flex-direction: column; justify-content: space-around"></div>
+<h3>Verification charts</h3>
+<div id="verification-container" style="display: flex; flex-direction: column; justify-content: space-around"></div>
+<h3>Verification charts - subset</h3>
+<div id="verification-container2" style="display: flex; flex-direction: column; justify-content: space-around"></div>
 <script>
     const prefix = "keyword_analysis"
-    const validation_prefix = "keyword_analysis/verification"
-    const validation_prefix2 = "keyword_analysis/verification_it2"
+    const verification_prefix = "keyword_analysis/verification"
+    const verification_prefix2 = "keyword_analysis/verification_it2"
 
     const container = document.getElementById("container");
     for (const file of charts) {
@@ -30,20 +30,20 @@
         container.appendChild(linkNode)
     }
 
-    const validationContainer = document.getElementById("validation-container");
+    const verificationContainer = document.getElementById("verification-container");
     for (const file of verification_charts) {
         const linkNode = document.createElement("a");
-        linkNode.href = `${validation_prefix}/${file}`;
+        linkNode.href = `${verification_prefix}/${file}`;
         linkNode.innerText = file;
-        validationContainer.appendChild(linkNode)
+        verificationContainer.appendChild(linkNode)
     }
 
-    const validationContainer2 = document.getElementById("validation-container2");
-    for (const file of verification_charts) {
+    const verificationContainer2 = document.getElementById("verification-container2");
+    for (const file of verification_it2_charts) {
         const linkNode = document.createElement("a");
-        linkNode.href = `${validation_prefix2}/${file}`;
+        linkNode.href = `${verification_prefix2}/${file}`;
         linkNode.innerText = file;
-        validationContainer2.appendChild(linkNode)
+        verificationContainer2.appendChild(linkNode)
     }
 </script>
 </body>
