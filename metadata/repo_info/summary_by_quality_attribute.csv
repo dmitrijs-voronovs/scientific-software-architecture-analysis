@@ -1,11 +1,11 @@
 quality_attribute,count
-Deployability,50521
-Availability,28194
-Usability,22881
-Modifiability,21490
-Integrability,19811
-Performance,16895
-Testability,16525
-Energy Efficiency,14543
-Security,11183
-Safety,7802
+Modifiability,150057
+Availability,141745
+Deployability,119902
+Performance,107686
+Integrability,105859
+Energy Efficiency,83501
+Testability,82837
+Usability,49300
+Security,37087
+Safety,29668
