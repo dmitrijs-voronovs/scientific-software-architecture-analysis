@@ -25,13 +25,14 @@ def get_data(keywords_dir, cred, source: 'MatchSource'):
 
 def transform_data(df):
     group_by_columns = ["quality_attribute", "sentence", "source", "author", "repo", "version"]
-    transformations = df.groupby(group_by_columns).agg(total_similar=("id", "count"),
+    transformations = df.groupby(group_by_columns).agg(
+        total_similar=("id", "count"),
         target_keywords=("keyword", lambda x: sorted(x.unique())),
-        target_matched_words=("matched_word", lambda x: sorted(x.unique())), )
-    df = df.groupby(group_by_columns).first().reset_index()
-    df = df.merge(transformations, on=group_by_columns)
+        target_matched_words=("matched_word", lambda x: sorted(x.unique())))
+    res = df.groupby(group_by_columns).first().reset_index()
+    res = res.merge(transformations, on=group_by_columns)
     # return df.sort_values(["total_similar", "sentence"], ascending=False)
-    return df
+    return res
 
 
 def save_data(df, target_dir, cred, source: 'MatchSource'):
