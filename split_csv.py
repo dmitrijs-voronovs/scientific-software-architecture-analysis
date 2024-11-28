@@ -21,8 +21,8 @@ def split_file(file_path: Path, size_bytes=MAX_FILE_SIZE_BYTES / 2):
         chunk.to_csv(file_path.with_stem(f"{file_path.stem}.{i}"), index=False)
 
 
-def check_file_sizes():
-    for file_path in Path("metadata/keywords/").glob("*[A-Z].csv"):
+def check_file_sizes(dir):
+    for file_path in Path(dir).glob("*[A-Z].csv"):
         size = file_path.stat().st_size
         if size > MAX_FILE_SIZE_BYTES:
             print(f"File size: {file_path} | {size}")
@@ -37,6 +37,6 @@ def grouper_ranges(total_size, chunk_size):
 
 
 if __name__ == "__main__":
-    check_file_sizes()
+    check_file_sizes("metadata/keywords/")
     # print(list(grouper_ranges(98, 10)))
     # split_file("metadata/keywords/broadinstitute.cromwell.87.ISSUE_COMMENT.csv", 500_000)

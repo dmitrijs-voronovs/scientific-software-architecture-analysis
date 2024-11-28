@@ -130,7 +130,7 @@ Output your response as a JSON object in the following format:
 }}
 """
 
-verification_dir = "verification_it2"
+verification_dir = "verification_it3"
 
 def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
     os.makedirs(f".cache/{verification_dir}/", exist_ok=True)
@@ -148,6 +148,8 @@ def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
         except Exception as e:
             logger.info(e)
             return
+
+        df = df.groupby(["quality_attribute", "sentence", "keyword"]).first().reset_index()
 
         last_idx = db.get("idx", 0)
         df = df.iloc[last_idx:].copy()
