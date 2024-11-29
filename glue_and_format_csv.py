@@ -8,13 +8,15 @@ from tqdm import tqdm
 
 from extract_quality_attribs_from_docs import MatchSource
 from metadata.repo_info.repo_info import credential_list
+from model.Credentials import Credentials
 from split_csv import check_file_sizes
 
 
 def get_data(keywords_dir, cred, source: 'MatchSource'):
     dfs = []
-    for file in keywords_dir.glob(f"{cred.dotted_ref}.{source.value}*.csv"):
+    for file in keywords_dir.glob(f"{cred.dotted_ref}.{source.value}.*csv"):
         try:
+            print(f"reading file {file}")
             df = pd.read_csv(file)
             dfs.append(df)
         except Exception as error:
@@ -42,8 +44,13 @@ def save_data(df, target_dir, cred, source: 'MatchSource'):
 
 def main():
     keywords_dir = Path("metadata/keywords")
-    target_dir = keywords_dir / "optimized"
+    target_dir = keywords_dir / "optimized_v2"
 
+    # credential_list = [
+    #     Credentials({'author': 'sofa-framework', 'repo': 'sofa', 'version': 'v24.06.00',
+    #                  'wiki': 'https://www.sofa-framework.org'}),
+    #
+    # ]
     for cred in tqdm(credential_list, desc="Processing keywords"):
         for source in MatchSource:
             tqdm.write(cred.dotted_ref)

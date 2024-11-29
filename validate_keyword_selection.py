@@ -192,6 +192,7 @@ def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
 
 def main():
     keyword_folder = Path("metadata/keywords/")
+    optimized_keyword_folder = keyword_folder / "optimized"
     os.makedirs(".logs", exist_ok=True)
     os.makedirs(keyword_folder / verification_dir, exist_ok=True)
     logger.add(create_logger_path(verification_dir), mode="w")
@@ -212,9 +213,10 @@ def main():
     creds = credential_list
 
     try:
-        for file_path in keyword_folder.glob("*.csv"):
+        # for file_path in keyword_folder.glob("*.csv"):
+        for file_path in optimized_keyword_folder.glob("*.csv"):
             if any(cred.get_ref(".") in file_path.stem for cred in creds):
-                res_filepath = file_path.parent / f"{verification_dir}/{file_path.stem}.verified.csv"
+                res_filepath = keyword_folder / f"{verification_dir}/{file_path.stem}.verified.csv"
                 verify_file(file_path, res_filepath)  # res_filepath = file_path.with_stem("test123")
     except Exception as e:
         logger.error(e)
