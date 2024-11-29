@@ -1,4 +1,5 @@
 import dataclasses
+import itertools
 import os
 import re
 import shelve
@@ -361,7 +362,7 @@ class DB:
             },
             {
                 "$addFields": {
-                    "text_match": {"$regexFind": {"input": "$body", "regex": pattern}},
+                    "text_match": {"$regexFind": {"input": "$text", "regex": pattern}},
                 }
             },
             {
@@ -430,26 +431,29 @@ class DB:
         ])
 
 
+def get_all_keywords_pattern(quality_attributes_map: QualityAttributesMap):
+    all_keywords = itertools.chain(*quality_attributes_map.values())
+    return KeywordParser.get_keyword_matching_pattern(all_keywords)
+
+
 def save_matched_keywords(creds, db, quality_attributes_map: QualityAttributesMap):
-    generators_to_sources_map = {
-        db.extract_comment_body_keywords: MatchSource.ISSUE_COMMENT,
-        db.extract_issue_body_keywords: MatchSource.ISSUE,
-        db.extract_issue_title_keywords: MatchSource.ISSUE,
-        db.extract_release_body_keywords: MatchSource.RELEASES
+    source_to_generator_map = {
+        MatchSource.ISSUE_COMMENT: db.extract_comment_body_keywords,
+        MatchSource.ISSUE: lambda pattern: itertools.chain(db.extract_issue_body_keywords(pattern), db.extract_issue_title_keywords(pattern)),
+        MatchSource.RELEASES: db.extract_release_body_keywords
     }
     keyword_parser = KeywordParser(quality_attributes_map, creds)
-    for quality_attr, keywords in quality_attributes_map.items():
-        pattern = KeywordParser.get_keyword_matching_pattern(keywords)
-        for gen, source in generators_to_sources_map.items():
-            matches = []
-            for match in tqdm(gen(pattern), desc=f"Processing {quality_attr} / {source.value}"):
-                matches.extend(
-                    [FullMatch(**text_match, source=source, **creds,
-                               url=match["html_url"]) for
-                     text_match in
-                     keyword_parser.matched_keyword_iterator(match["text"])])
+    all_keywords_pattern = get_all_keywords_pattern(quality_attributes_map)
+    for source, gen in source_to_generator_map.items():
+        matches = []
+        for match in tqdm(gen(all_keywords_pattern), desc=f"Processing {creds.dotted_ref} / {source.value}"):
+            matches.extend(
+                [FullMatch(**text_match, source=source, **creds,
+                           url=match["html_url"]) for
+                 text_match in
+                 keyword_parser.matched_keyword_iterator(match["text"])])
 
-            save_to_file(matches, source, creds)
+        save_to_file(matches, source, creds)
 
 
 def main():

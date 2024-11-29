@@ -80,7 +80,7 @@ class KeywordParser:
 
     @staticmethod
     def get_keyword_matching_pattern(keywords):
-        return re.compile(rf'\b({"|".join(keywords)})[A-Za-z-]*\b')
+        return re.compile(rf'\b({"|".join(keywords)})[a-z-]*\b', re.IGNORECASE)
 
     @staticmethod
     def _strip_html_tags(html_content: str) -> str:
