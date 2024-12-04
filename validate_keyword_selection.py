@@ -12,6 +12,7 @@ from loguru import logger
 from tenacity import retry, stop_after_attempt, RetryError, wait_incrementing, wait_fixed
 from tqdm import tqdm
 
+from extract_quality_attribs_from_docs import MatchSource
 from metadata.repo_info.repo_info import credential_list
 from model.Credentials import Credentials
 from utils.utils import create_logger_path
@@ -130,7 +131,7 @@ Output your response as a JSON object in the following format:
 }}
 """
 
-verification_dir = "verification_it3"
+verification_dir = "verification_v2"
 
 def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
     os.makedirs(f".cache/{verification_dir}/", exist_ok=True)
@@ -215,6 +216,9 @@ def main():
     try:
         # for file_path in keyword_folder.glob("*.csv"):
         for file_path in optimized_keyword_folder.glob("*.csv"):
+            if MatchSource.CODE_COMMENT.value in file_path.stem:
+                logger.info(f"Skipping CODE_COMMENTS for {file_path.stem}, as dataset is incomplete")
+                continue
             if any(cred.get_ref(".") in file_path.stem for cred in creds):
                 res_filepath = keyword_folder / f"{verification_dir}/{file_path.stem}.verified.csv"
                 verify_file(file_path, res_filepath)  # res_filepath = file_path.with_stem("test123")
