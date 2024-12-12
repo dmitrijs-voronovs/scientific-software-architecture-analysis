@@ -2,6 +2,8 @@ import json
 import os
 import re
 import shelve
+import signal
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -130,6 +132,13 @@ Output your response as a JSON object in the following format:
   "reasoning": "<str>"
 }}
 """
+
+def cleanup_and_exit(signal_num, frame):
+    print("Caught interrupt, cleaning up...")
+    sys.exit(0)  # Triggers the context manager's cleanup
+
+# Register the signal handler
+signal.signal(signal.SIGINT, cleanup_and_exit)
 
 verification_dir = "verification_v2"
 
