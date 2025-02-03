@@ -200,9 +200,11 @@ def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
         logger.info(f"Processed {file_path.stem}")
 
 
+OPTIMIZED_KEYWORD_FOLDER_NAME = "optimized"
+
 def main():
     keyword_folder = Path("metadata/keywords/")
-    optimized_keyword_folder = keyword_folder / "optimized"
+    optimized_keyword_folder = keyword_folder / OPTIMIZED_KEYWORD_FOLDER_NAME
     os.makedirs(".logs", exist_ok=True)
     os.makedirs(keyword_folder / verification_dir, exist_ok=True)
     logger.add(create_logger_path(verification_dir), mode="w")
