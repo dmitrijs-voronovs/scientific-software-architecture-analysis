@@ -12,6 +12,7 @@ from model.Credentials import Credentials
 from split_csv import check_file_sizes
 
 
+
 def get_data(keywords_dir, cred, source: 'MatchSource'):
     dfs = []
     for file in keywords_dir.glob(f"{cred.dotted_ref}.{source.value}.*csv"):
@@ -41,10 +42,11 @@ def save_data(df, target_dir, cred, source: 'MatchSource'):
     os.makedirs(target_dir, exist_ok=True)
     df.to_csv(target_dir / f"{cred.dotted_ref}.{source.value}.csv", index=False)
 
+OPTIMIZED_KEYWORD_FOLDER_NAME = "optimized_v2"
 
 def main():
     keywords_dir = Path("metadata/keywords")
-    target_dir = keywords_dir / "optimized_v2"
+    target_dir = keywords_dir / OPTIMIZED_KEYWORD_FOLDER_NAME
 
     # credential_list = [
     #     Credentials({'author': 'sofa-framework', 'repo': 'sofa', 'version': 'v24.06.00',
