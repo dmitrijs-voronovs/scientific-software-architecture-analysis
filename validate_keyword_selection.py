@@ -147,8 +147,9 @@ class OllamaResponse(BaseModel):
 def request_gemma_chain(prompts: List[str]) -> List[OllamaResponse]:
     url = "%s/api/generate" % LOCAL_LLM_HOST
     # model_name = "gemma"
-    model_name = "gemma2"
-    # model_name = "deepseek-r1:8b"
+    # model_name = "gemma2"
+    # model_name = "llama3.1"
+    model_name = "deepseek-r1:8b"
     model  = ChatOllama(model=model_name, base_url=LOCAL_LLM_HOST, format=OllamaResponse.model_json_schema())
     batch_answers = model.batch(prompts)
     return [OllamaResponse.model_validate_json(answer.content) for answer in batch_answers]
@@ -227,7 +228,7 @@ def cleanup_and_exit(signal_num, frame):
 # Register the signal handler
 signal.signal(signal.SIGINT, cleanup_and_exit)
 
-VERIFICATION_DIR = "verification_v3_gemma1"
+VERIFICATION_DIR = "verification_v3"
 
 def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
     os.makedirs(f".cache/{VERIFICATION_DIR}/", exist_ok=True)
@@ -326,7 +327,8 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
                 res.extend(responses)
             except Exception as e:
                 logger.error(e)
-                if "HTTPConnectionPool" in str(e):
+                errors_for_termination = ["HTTPConnectionPool", "No connection could be made because the target machine actively refused it"]
+                if any(error in str(e) for error in errors_for_termination):
                     logger.error("HTTPConnectionPool error, exiting")
                     exit(1)
                 responses = [(None, str(e))] * len(batch_df)
@@ -371,13 +373,13 @@ def main():
     try:
         # for file_path in keyword_folder.glob("*.csv"):
         for file_path in optimized_keyword_folder.glob("*.csv"):
-            if MatchSource.ISSUE_COMMENT.value in file_path.stem:
-                pass
-            else:
-                continue
-            # if MatchSource.CODE_COMMENT.value in file_path.stem:
-            #     logger.info(f"Skipping CODE_COMMENTS for {file_path.stem}, as dataset is incomplete")
+            # if MatchSource.ISSUE_COMMENT.value in file_path.stem:
+            #     pass
+            # else:
             #     continue
+            if MatchSource.CODE_COMMENT.value in file_path.stem:
+                logger.info(f"Skipping CODE_COMMENTS for {file_path.stem}, as dataset is incomplete")
+                continue
             if any(cred.get_ref(".") in file_path.stem for cred in creds):
                 res_filepath = keyword_folder / f"{VERIFICATION_DIR}/{file_path.stem}.verified.csv"
                 # Verifying
