@@ -6,6 +6,7 @@ from pathlib import Path
 import pandas as pd
 from tqdm import tqdm
 
+from constants.paths import Paths
 from extract_quality_attribs_from_docs import MatchSource
 from metadata.repo_info.repo_info import credential_list
 from model.Credentials import Credentials
@@ -42,11 +43,9 @@ def save_data(df, target_dir, cred, source: 'MatchSource'):
     os.makedirs(target_dir, exist_ok=True)
     df.to_csv(target_dir / f"{cred.dotted_ref}.{source.value}.csv", index=False)
 
-OPTIMIZED_KEYWORD_FOLDER_NAME = "optimized_v2"
-
 def main():
     keywords_dir = Path("metadata/keywords")
-    target_dir = keywords_dir / OPTIMIZED_KEYWORD_FOLDER_NAME
+    target_dir = keywords_dir / Paths.OPTIMIZED_KEYWORD_FOLDER_NAME
 
     # credential_list = [
     #     Credentials({'author': 'sofa-framework', 'repo': 'sofa', 'version': 'v24.06.00',

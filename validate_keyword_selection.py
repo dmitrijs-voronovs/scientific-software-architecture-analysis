@@ -4,29 +4,21 @@ import re
 import shelve
 import signal
 import sys
-from datetime import datetime
 from pathlib import Path
-from timeit import timeit
 from typing import List
 
 import dotenv
 import pandas as pd
 import requests
-from langchain import output_parsers
-from langchain_core.messages import HumanMessage
-from langchain_core.output_parsers import JsonOutputParser
-from langchain_core.output_parsers import ListOutputParser, CommaSeparatedListOutputParser
-from langchain_core.prompts import HumanMessagePromptTemplate
 from langchain_ollama import ChatOllama
 from loguru import logger
-from ollama import chat
 from pydantic import BaseModel
 from tenacity import retry, stop_after_attempt, RetryError, wait_incrementing, wait_fixed
 from tqdm import tqdm
 
+from constants.paths import Paths
 from extract_quality_attribs_from_docs import MatchSource
 from metadata.repo_info.repo_info import credential_list
-from model.Credentials import Credentials
 from utils.utils import create_logger_path
 
 # Load environment variables from .env file
@@ -228,11 +220,10 @@ def cleanup_and_exit(signal_num, frame):
 # Register the signal handler
 signal.signal(signal.SIGINT, cleanup_and_exit)
 
-VERIFICATION_DIR = "verification_v3"
 
 def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
-    os.makedirs(f".cache/{VERIFICATION_DIR}/", exist_ok=True)
-    with shelve.open(f".cache/{VERIFICATION_DIR}/{file_path.stem}") as db:
+    os.makedirs(f".cache/{Paths.VERIFICATION_DIR}/", exist_ok=True)
+    with shelve.open(f".cache/{Paths.VERIFICATION_DIR}/{file_path.stem}") as db:
         if db.get("processed", False):
             logger.info(f"File {file_path.stem} already processed")
             return
@@ -289,8 +280,8 @@ def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
 
 
 def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
-    os.makedirs(f".cache/{VERIFICATION_DIR}/", exist_ok=True)
-    with shelve.open(f".cache/{VERIFICATION_DIR}/{file_path.stem}") as db:
+    os.makedirs(f".cache/{Paths.VERIFICATION_DIR}/", exist_ok=True)
+    with shelve.open(f".cache/{Paths.VERIFICATION_DIR}/{file_path.stem}") as db:
         if db.get("processed", False):
             logger.info(f"File {file_path.stem} already processed")
             return
@@ -345,20 +336,12 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
         db['processed'] = True
         logger.info(f"Processed {file_path.stem}")
 
-
-OPTIMIZED_KEYWORD_FOLDER_NAME = "optimized_v2"
-
 def main():
     keyword_folder = Path("metadata/keywords/")
-    optimized_keyword_folder = keyword_folder / OPTIMIZED_KEYWORD_FOLDER_NAME
+    optimized_keyword_folder = keyword_folder / Paths.OPTIMIZED_KEYWORD_FOLDER_NAME
     os.makedirs(".logs", exist_ok=True)
-    os.makedirs(keyword_folder / VERIFICATION_DIR, exist_ok=True)
-    logger.add(create_logger_path(VERIFICATION_DIR), mode="w")
-
-    # with shelve.open(f".cache/verification/psi4.psi4.v1.9.1.DOCS") as db:
-    #     db['idx'] = 6720
-
-    # file_path = Path("./metadata/keywords/verification/big_sample2.csv")
+    os.makedirs(keyword_folder / Paths.VERIFICATION_DIR, exist_ok=True)
+    logger.add(create_logger_path(Paths.VERIFICATION_DIR), mode="w")
 
     # creds = [
     #     Credentials(
@@ -381,7 +364,7 @@ def main():
                 logger.info(f"Skipping CODE_COMMENTS for {file_path.stem}, as dataset is incomplete")
                 continue
             if any(cred.get_ref(".") in file_path.stem for cred in creds):
-                res_filepath = keyword_folder / f"{VERIFICATION_DIR}/{file_path.stem}.verified.csv"
+                res_filepath = keyword_folder / f"{Paths.VERIFICATION_DIR}/{file_path.stem}.verified.csv"
                 # Verifying
                 # allenai.scispacy.v0
                 # .5
