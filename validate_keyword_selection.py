@@ -16,7 +16,7 @@ from pydantic import BaseModel
 from tenacity import retry, stop_after_attempt, RetryError, wait_incrementing, wait_fixed
 from tqdm import tqdm
 
-from constants.paths import Paths
+from constants.foldernames import FolderNames
 from extract_quality_attribs_from_docs import MatchSource
 from metadata.repo_info.repo_info import credential_list
 from utils.utils import create_logger_path
@@ -222,8 +222,8 @@ signal.signal(signal.SIGINT, cleanup_and_exit)
 
 
 def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
-    os.makedirs(f".cache/{Paths.VERIFICATION_DIR}/", exist_ok=True)
-    with shelve.open(f".cache/{Paths.VERIFICATION_DIR}/{file_path.stem}") as db:
+    os.makedirs(f".cache/{FolderNames.VERIFICATION_DIR}/", exist_ok=True)
+    with shelve.open(f".cache/{FolderNames.VERIFICATION_DIR}/{file_path.stem}") as db:
         if db.get("processed", False):
             logger.info(f"File {file_path.stem} already processed")
             return
@@ -280,8 +280,8 @@ def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
 
 
 def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
-    os.makedirs(f".cache/{Paths.VERIFICATION_DIR}/", exist_ok=True)
-    with shelve.open(f".cache/{Paths.VERIFICATION_DIR}/{file_path.stem}") as db:
+    os.makedirs(f".cache/{FolderNames.VERIFICATION_DIR}/", exist_ok=True)
+    with shelve.open(f".cache/{FolderNames.VERIFICATION_DIR}/{file_path.stem}") as db:
         if db.get("processed", False):
             logger.info(f"File {file_path.stem} already processed")
             return
@@ -338,10 +338,10 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
 
 def main():
     keyword_folder = Path("metadata/keywords/")
-    optimized_keyword_folder = keyword_folder / Paths.OPTIMIZED_KEYWORD_FOLDER_NAME
+    optimized_keyword_folder = keyword_folder / FolderNames.OPTIMIZED_KEYWORD_DIR
     os.makedirs(".logs", exist_ok=True)
-    os.makedirs(keyword_folder / Paths.VERIFICATION_DIR, exist_ok=True)
-    logger.add(create_logger_path(Paths.VERIFICATION_DIR), mode="w")
+    os.makedirs(keyword_folder / FolderNames.VERIFICATION_DIR, exist_ok=True)
+    logger.add(create_logger_path(FolderNames.VERIFICATION_DIR), mode="w")
 
     # creds = [
     #     Credentials(
@@ -364,7 +364,7 @@ def main():
                 logger.info(f"Skipping CODE_COMMENTS for {file_path.stem}, as dataset is incomplete")
                 continue
             if any(cred.get_ref(".") in file_path.stem for cred in creds):
-                res_filepath = keyword_folder / f"{Paths.VERIFICATION_DIR}/{file_path.stem}.verified.csv"
+                res_filepath = keyword_folder / f"{FolderNames.VERIFICATION_DIR}/{file_path.stem}.verified.csv"
                 # Verifying
                 # allenai.scispacy.v0
                 # .5
