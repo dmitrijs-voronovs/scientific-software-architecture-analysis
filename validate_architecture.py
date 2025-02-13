@@ -141,7 +141,7 @@ Instructions:
 2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
 3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
 4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
-5. Provide `reasoning` explaining why the content is classified as a true or false positive.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
 """
 
 def cleanup_and_exit(signal_num, frame):
@@ -153,8 +153,8 @@ signal.signal(signal.SIGINT, cleanup_and_exit)
 
 
 def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
-    os.makedirs(f".cache/{FolderNames.VERIFICATION_DIR}/", exist_ok=True)
-    with shelve.open(f".cache/{FolderNames.VERIFICATION_DIR}/{file_path.stem}") as db:
+    os.makedirs(f".cache/{FolderNames.ARCHITECTURE_VERIFICATION_DIR}/", exist_ok=True)
+    with shelve.open(f".cache/{FolderNames.ARCHITECTURE_VERIFICATION_DIR}/{file_path.stem}") as db:
         if db.get("processed", False):
             logger.info(f"File {file_path.stem} already processed")
             return
@@ -173,13 +173,12 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
             logger.info(f"Continuing from {last_idx}")
             res_filepath = res_filepath.with_suffix(f".from_{last_idx}.csv")
 
-        df["attribute_desc"] = df["quality_attribute"].apply(lambda x: quality_attribs[x]["desc"])
-        df['prompt'] = df.apply(lambda x: to_prompt_about_architecture(x), axis=1)
+        df['arch_prompt'] = df.apply(lambda x: to_prompt_about_architecture(x), axis=1)
         res = []
 
         for i in tqdm(range(0, len(df), batch_size), total=len(df) // batch_size, desc=f"Verifying {file_path.stem} in batches of {batch_size}"):
             batch_df = df.iloc[i:i + batch_size]
-            prompts = batch_df['prompt'].tolist()
+            prompts = batch_df['arch_prompt'].tolist()
 
             try:
                 responses = request_gemma_chain(prompts)  # New batch query
@@ -191,7 +190,9 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
                 res.extend(responses)
             except Exception as e:
                 logger.error(e)
-                if "HTTPConnectionPool" in str(e):
+                errors_for_termination = ["HTTPConnectionPool",
+                                          "No connection could be made because the target machine actively refused it"]
+                if any(error in str(e) for error in errors_for_termination):
                     logger.error("HTTPConnectionPool error, exiting")
                     exit(1)
                 responses = [(None, str(e))] * len(batch_df)
@@ -211,11 +212,10 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
 
 def main():
     keyword_folder = Path("metadata/keywords/")
-    optimized_keyword_folder = keyword_folder / FolderNames.OPTIMIZED_KEYWORD_DIR
+    optimized_keyword_folder = keyword_folder / FolderNames.VERIFICATION_DIR
     os.makedirs(".logs", exist_ok=True)
-    os.makedirs(keyword_folder / FolderNames.VERIFICATION_DIR, exist_ok=True)
-    os.makedirs(keyword_folder / FolderNames.VERIFICATION_DIR, exist_ok=True)
-    logger.add(create_logger_path(FolderNames.VERIFICATION_DIR), mode="w")
+    os.makedirs(keyword_folder / FolderNames.ARCHITECTURE_VERIFICATION_DIR, exist_ok=True)
+    logger.add(create_logger_path(FolderNames.ARCHITECTURE_VERIFICATION_DIR), mode="w")
 
     # with shelve.open(f".cache/verification/psi4.psi4.v1.9.1.DOCS") as db:
     #     db['idx'] = 6720
@@ -233,7 +233,7 @@ def main():
     creds = credential_list
 
     try:
-        # for file_path in keyword_folder.glob("*.csv"):
+        # for file_path in verification_folder.glob("*.csv"):
         for file_path in optimized_keyword_folder.glob("*.csv"):
             if MatchSource.ISSUE_COMMENT.value in file_path.stem:
                 pass
@@ -243,7 +243,7 @@ def main():
             #     logger.info(f"Skipping CODE_COMMENTS for {file_path.stem}, as dataset is incomplete")
             #     continue
             if any(cred.get_ref(".") in file_path.stem for cred in creds):
-                res_filepath = keyword_folder / f"{FolderNames.VERIFICATION_DIR}/{file_path.stem}.verified.csv"
+                res_filepath = keyword_folder / f"{FolderNames.ARCHITECTURE_VERIFICATION_DIR}/{file_path.stem}.arch_verified.csv"
                 # Verifying
                 # allenai.scispacy.v0
                 # .5
@@ -252,7 +252,7 @@ def main():
                 # 10: 32
                 # it[07:51, 14.73
                 # s / it]
-                verify_file_batched_llm(file_path, res_filepath)  # res_filepath = file_path.with_stem("test123")
+                verify_file_batched_llm(file_path, res_filepath, 10)  # res_filepath = file_path.with_stem("test123")
     except Exception as e:
         logger.error(e)
 
