@@ -203,8 +203,9 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
             df_to_save.to_csv(res_filepath, index=False)
             db["idx"] = last_idx + i + batch_size
 
-        df['related_to_architecture'], df['related_to_architecture_reasoning'] = zip(*res)
-        df.to_csv(res_filepath, index=False)
+        if len(res) > 0:
+            df['related_to_architecture'], df['related_to_architecture_reasoning'] = zip(*res)
+            df.to_csv(res_filepath, index=False)
 
         db['processed'] = True
         logger.info(f"Processed {file_path.stem}")
@@ -255,6 +256,7 @@ def main():
                 verify_file_batched_llm(file_path, res_filepath, 10)  # res_filepath = file_path.with_stem("test123")
     except Exception as e:
         logger.error(e)
+        raise e
 
 
 if __name__ == "__main__":

@@ -1,0 +1,371 @@
+quality_attribute,sentence,keyword,source,author,repo,version,id,matched_word,match_idx,wiki,url,total_similar,target_keywords,target_matched_words,attribute_desc,prompt,true_positive,reasoning,arch_prompt,related_to_architecture,related_to_architecture_reasoning
+Testability,"## Test Results;     10 files      10 suites   1d 20h 7m 56s :stopwatch:;  2 635 tests  2 635 :white_check_mark: 0 :zzz: 0 :x:; 24 868 runs  24 868 :white_check_mark: 0 :zzz: 0 :x:. Results for commit b073cb55. [test-results]:data:application/gzip;base64,H4sIAAWxPGYC/2WMywrDIBQFfyW47kKjXrU/U9QYkCax+FiV/nuNpHnQ5cw5zBuNfnIJ3TuCbx1KxeeDhhJ19mFZmUspoLo65/XQA+U/fKRi7Z97+ld1eBej9tNFuBhD3EwsS6syCXLDvXpxR7XxKdr43LRhnn2ugAwW1BrOAZQlDCvHOAUNAngdBJHGSYyHXqHPF/M9LSQQAQAA. :recycle: This comment has been updated with latest results.",Test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/15464#issuecomment-2101733300:3,Test,3,https://root.cern,https://github.com/root-project/root/pull/15464#issuecomment-2101733300,3,"['Test', 'test']","['Test', 'test-results', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: ## Test Results;     10 files      10 suites   1d 20h 7m 56s :stopwatch:;  2 635 tests  2 635 :white_check_mark: 0 :zzz: 0 :x:; 24 868 runs  24 868 :white_check_mark: 0 :zzz: 0 :x:. Results for commit b073cb55. [test-results]:data:application/gzip;base64,H4sIAAWxPGYC/2WMywrDIBQFfyW47kKjXrU/U9QYkCax+FiV/nuNpHnQ5cw5zBuNfnIJ3TuCbx1KxeeDhhJ19mFZmUspoLo65/XQA+U/fKRi7Z97+ld1eBej9tNFuBhD3EwsS6syCXLDvXpxR7XxKdr43LRhnn2ugAwW1BrOAZQlDCvHOAUNAngdBJHGSYyHXqHPF/M9LSQQAQAA. :recycle: This comment has been updated with latest results.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided includes test results such as number of tests passed, failed, and total runs. This directly relates to testability by demonstrating how the software's functionality is validated through testing processes.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: ## Test Results;     10 files      10 suites   1d 20h 7m 56s :stopwatch:;  2 635 tests  2 635 :white_check_mark: 0 :zzz: 0 :x:; 24 868 runs  24 868 :white_check_mark: 0 :zzz: 0 :x:. Results for commit b073cb55. [test-results]:data:application/gzip;base64,H4sIAAWxPGYC/2WMywrDIBQFfyW47kKjXrU/U9QYkCax+FiV/nuNpHnQ5cw5zBuNfnIJ3TuCbx1KxeeDhhJ19mFZmUspoLo65/XQA+U/fKRi7Z97+ld1eBej9tNFuBhD3EwsS6syCXLDvXpxR7XxKdr43LRhnn2ugAwW1BrOAZQlDCvHOAUNAngdBJHGSYyHXqHPF/M9LSQQAQAA. :recycle: This comment has been updated with latest results.
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,[WinError 10054] An existing connection was forcibly closed by the remote host
+Testability,"## Test Results;     10 files      10 suites   1d 21h 14m 34s :stopwatch:;  2 635 tests  2 635 :white_check_mark: 0 :zzz: 0 :x:; 24 868 runs  24 868 :white_check_mark: 0 :zzz: 0 :x:. Results for commit 7c08b3fa. [test-results]:data:application/gzip;base64,H4sIAPu+RGYC/2WMyQrCMBRFf6Vk7eJlMAn+jMQM8LBtJMNK/HfTUDvg8px7OW8ScPSZ3AYKl4HkimUnV5MpGOeFJdNKNNfmshyY5Ncf3nO19s898dUcbCIYHE/CpxTTalKde1VoqVfcqie3Vzsfop2PTRunCUsDoizoBw8GgFLvlRIGqLdcUeeEC0YYbqkAx8jnC84mOHQQAQAA. :recycle: This comment has been updated with latest results.",Test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/15508#issuecomment-2110966981:3,Test,3,https://root.cern,https://github.com/root-project/root/pull/15508#issuecomment-2110966981,3,"['Test', 'test']","['Test', 'test-results', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: ## Test Results;     10 files      10 suites   1d 21h 14m 34s :stopwatch:;  2 635 tests  2 635 :white_check_mark: 0 :zzz: 0 :x:; 24 868 runs  24 868 :white_check_mark: 0 :zzz: 0 :x:. Results for commit 7c08b3fa. [test-results]:data:application/gzip;base64,H4sIAPu+RGYC/2WMyQrCMBRFf6Vk7eJlMAn+jMQM8LBtJMNK/HfTUDvg8px7OW8ScPSZ3AYKl4HkimUnV5MpGOeFJdNKNNfmshyY5Ncf3nO19s898dUcbCIYHE/CpxTTalKde1VoqVfcqie3Vzsfop2PTRunCUsDoizoBw8GgFLvlRIGqLdcUeeEC0YYbqkAx8jnC84mOHQQAQAA. :recycle: This comment has been updated with latest results.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided includes test results and metrics such as files, suites, tests, runs, pass/fail counts, and timestamps. This aligns with the concept of testability which involves collecting and presenting test data to validate software functionality. Therefore, this content accurately reflects the quality attribute of testability.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: ## Test Results;     10 files      10 suites   1d 21h 14m 34s :stopwatch:;  2 635 tests  2 635 :white_check_mark: 0 :zzz: 0 :x:; 24 868 runs  24 868 :white_check_mark: 0 :zzz: 0 :x:. Results for commit 7c08b3fa. [test-results]:data:application/gzip;base64,H4sIAPu+RGYC/2WMyQrCMBRFf6Vk7eJlMAn+jMQM8LBtJMNK/HfTUDvg8px7OW8ScPSZ3AYKl4HkimUnV5MpGOeFJdNKNNfmshyY5Ncf3nO19s898dUcbCIYHE/CpxTTalKde1VoqVfcqie3Vzsfop2PTRunCUsDoizoBw8GgFLvlRIGqLdcUeeEC0YYbqkAx8jnC84mOHQQAQAA. :recycle: This comment has been updated with latest results.
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,[WinError 10054] An existing connection was forcibly closed by the remote host
+Testability,"## Test Results;     10 files      10 suites   1d 21h 16m 2s :stopwatch:;  2 623 tests  2 623 :white_check_mark: 0 :zzz: 0 :x:; 24 498 runs  24 498 :white_check_mark: 0 :zzz: 0 :x:. Results for commit af357201. [test-results]:data:application/gzip;base64,H4sIAPIiHWYC/2WMyw7CIBBFf6Vh7WKYVrD+jBmgJMS2GB4r479LSe0jLs+5N+fNrBuHyO4Nh0vDYnZpJ5MDJefnhQX2Aosrc1oOKLD94SNmrf/c072Kg01YcuNJDCH4sJqQ51rtuv624lY9ub1a+RCtfGxqP00uFWBk26tE4EiGlOBGAKLmYJSVgASkqZVcGsU+XykYCQgQAQAA",Test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/15233#issuecomment-2056782090:3,Test,3,https://root.cern,https://github.com/root-project/root/pull/15233#issuecomment-2056782090,3,"['Test', 'test']","['Test', 'test-results', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: ## Test Results;     10 files      10 suites   1d 21h 16m 2s :stopwatch:;  2 623 tests  2 623 :white_check_mark: 0 :zzz: 0 :x:; 24 498 runs  24 498 :white_check_mark: 0 :zzz: 0 :x:. Results for commit af357201. [test-results]:data:application/gzip;base64,H4sIAPIiHWYC/2WMyw7CIBBFf6Vh7WKYVrD+jBmgJMS2GB4r479LSe0jLs+5N+fNrBuHyO4Nh0vDYnZpJ5MDJefnhQX2Aosrc1oOKLD94SNmrf/c072Kg01YcuNJDCH4sJqQ51rtuv624lY9ub1a+RCtfGxqP00uFWBk26tE4EiGlOBGAKLmYJSVgASkqZVcGsU+XykYCQgQAQAA
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided appears to be a log snippet from a testing framework, showing test results, including counts of tests and runs, along with their statuses. This aligns with Testability as it demonstrates the ability to execute and verify software functionality through automated testing processes.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: ## Test Results;     10 files      10 suites   1d 21h 16m 2s :stopwatch:;  2 623 tests  2 623 :white_check_mark: 0 :zzz: 0 :x:; 24 498 runs  24 498 :white_check_mark: 0 :zzz: 0 :x:. Results for commit af357201. [test-results]:data:application/gzip;base64,H4sIAPIiHWYC/2WMyw7CIBBFf6Vh7WKYVrD+jBmgJMS2GB4r479LSe0jLs+5N+fNrBuHyO4Nh0vDYnZpJ5MDJefnhQX2Aosrc1oOKLD94SNmrf/c072Kg01YcuNJDCH4sJqQ51rtuv624lY9ub1a+RCtfGxqP00uFWBk26tE4EiGlOBGAKLmYJSVgASkqZVcGsU+XykYCQgQAQAA
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,[WinError 10054] An existing connection was forcibly closed by the remote host
+Testability,"## Test Results;     10 files      10 suites   1d 21h 16m 49s :stopwatch:;  2 497 tests  2 497 :white_check_mark: 0 :zzz: 0 :x:; 23 867 runs  23 867 :white_check_mark: 0 :zzz: 0 :x:. Results for commit b66ae7ff. [test-results]:data:application/gzip;base64,H4sIAFWcs2UC/2WMyw6DIBQFf8Ww7uIiyqM/0yBcElKVBmHV9N+LxPpIlzPnZN7E+REXcm8o3BqyZJ8Osjnq5MO8MmcAqrgyp/XQdkr88LFkY/7c07+Kg1047ceLwBhD3EzMc60yycWGe/XijmrlU7TyuWnCNPlUgAycaxTOCSYsoGEds07yXrWSyd6C1nSwiI6SzxcmFGbLEAEAAA==. :recycle: This comment has been updated with latest results.",Test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14443#issuecomment-1911445295:3,Test,3,https://root.cern,https://github.com/root-project/root/pull/14443#issuecomment-1911445295,3,"['Test', 'test']","['Test', 'test-results', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: ## Test Results;     10 files      10 suites   1d 21h 16m 49s :stopwatch:;  2 497 tests  2 497 :white_check_mark: 0 :zzz: 0 :x:; 23 867 runs  23 867 :white_check_mark: 0 :zzz: 0 :x:. Results for commit b66ae7ff. [test-results]:data:application/gzip;base64,H4sIAFWcs2UC/2WMyw6DIBQFf8Ww7uIiyqM/0yBcElKVBmHV9N+LxPpIlzPnZN7E+REXcm8o3BqyZJ8Osjnq5MO8MmcAqrgyp/XQdkr88LFkY/7c07+Kg1047ceLwBhD3EzMc60yycWGe/XijmrlU7TyuWnCNPlUgAycaxTOCSYsoGEds07yXrWSyd6C1nSwiI6SzxcmFGbLEAEAAA==. :recycle: This comment has been updated with latest results.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided is test results which include metrics such as number of tests, passes, failures, and total runs. This directly relates to Testability as it shows the system's ability to be tested and the outcomes of those tests. The attribute description mentions controlling and observing the system’s state, reducing complexity, and facilitating test cases, which aligns with tracking test results and their outcomes.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: ## Test Results;     10 files      10 suites   1d 21h 16m 49s :stopwatch:;  2 497 tests  2 497 :white_check_mark: 0 :zzz: 0 :x:; 23 867 runs  23 867 :white_check_mark: 0 :zzz: 0 :x:. Results for commit b66ae7ff. [test-results]:data:application/gzip;base64,H4sIAFWcs2UC/2WMyw6DIBQFf8Ww7uIiyqM/0yBcElKVBmHV9N+LxPpIlzPnZN7E+REXcm8o3BqyZJ8Osjnq5MO8MmcAqrgyp/XQdkr88LFkY/7c07+Kg1047ceLwBhD3EzMc60yycWGe/XijmrlU7TyuWnCNPlUgAycaxTOCSYsoGEds07yXrWSyd6C1nSwiI6SzxcmFGbLEAEAAA==. :recycle: This comment has been updated with latest results.
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,[WinError 10054] An existing connection was forcibly closed by the remote host
+Testability,"## Test Results;     10 files      10 suites   1d 21h 21m 36s :stopwatch:;  2 635 tests  2 635 :white_check_mark: 0 :zzz: 0 :x:; 24 868 runs  24 868 :white_check_mark: 0 :zzz: 0 :x:. Results for commit da32e955. [test-results]:data:application/gzip;base64,H4sIAKDSPGYC/2WMyw6DIBQFf8Ww7gJ53EJ/pkG4JKQqDcLK9N+LxvpIlzPnZGbiQ48TeTQtvTVkKiEf5EoyOcRxYeBMQ3V1zsuBAZc/fE7F2j/3Cu/q6C68Cf1FYEoxbSaVca0KBWrDvXpxR3XlU3Tlc9PGYQi5AnGGM9RS3qGlTqJCLrBj0raeKjCoPDrBOg3k8wXB9OHiEAEAAA==",Test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/15467#issuecomment-2102688042:3,Test,3,https://root.cern,https://github.com/root-project/root/pull/15467#issuecomment-2102688042,3,"['Test', 'test']","['Test', 'test-results', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: ## Test Results;     10 files      10 suites   1d 21h 21m 36s :stopwatch:;  2 635 tests  2 635 :white_check_mark: 0 :zzz: 0 :x:; 24 868 runs  24 868 :white_check_mark: 0 :zzz: 0 :x:. Results for commit da32e955. [test-results]:data:application/gzip;base64,H4sIAKDSPGYC/2WMyw6DIBQFf8Ww7gJ53EJ/pkG4JKQqDcLK9N+LxvpIlzPnZGbiQ48TeTQtvTVkKiEf5EoyOcRxYeBMQ3V1zsuBAZc/fE7F2j/3Cu/q6C68Cf1FYEoxbSaVca0KBWrDvXpxR3XlU3Tlc9PGYQi5AnGGM9RS3qGlTqJCLrBj0raeKjCoPDrBOg3k8wXB9OHiEAEAAA==
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided is test results output which includes metrics like test counts and pass/fail statuses. This aligns with the definition of Testability as it shows the outcomes of testing, enabling validation of software functionality. The detailed test results indicate successful validations (marked by :white_check_mark:) and failed cases (indicated by :x:), thus supporting the Testability quality attribute.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: ## Test Results;     10 files      10 suites   1d 21h 21m 36s :stopwatch:;  2 635 tests  2 635 :white_check_mark: 0 :zzz: 0 :x:; 24 868 runs  24 868 :white_check_mark: 0 :zzz: 0 :x:. Results for commit da32e955. [test-results]:data:application/gzip;base64,H4sIAKDSPGYC/2WMyw6DIBQFf8Ww7gJ53EJ/pkG4JKQqDcLK9N+LxvpIlzPnZGbiQ48TeTQtvTVkKiEf5EoyOcRxYeBMQ3V1zsuBAZc/fE7F2j/3Cu/q6C68Cf1FYEoxbSaVca0KBWrDvXpxR3XlU3Tlc9PGYQi5AnGGM9RS3qGlTqJCLrBj0raeKjCoPDrBOg3k8wXB9OHiEAEAAA==
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,[WinError 10054] An existing connection was forcibly closed by the remote host
+Testability,"## Test Results;     10 files      10 suites   1d 21h 22m 55s :stopwatch:;  2 497 tests  2 496 :white_check_mark: 0 :zzz: 1 :x:; 23 867 runs  23 866 :white_check_mark: 0 :zzz: 1 :x:. For more details on these failures, see [this check](https://github.com/root-project/root/runs/20923934502). Results for commit 8e6036e3. [test-results]:data:application/gzip;base64,H4sIAGqJtGUC/02NzQ6DIBAGX8Vw7gFZC9iXafhNSFUahJPpuxeoBY8z+2X2QNYtZkePYcS3Ae3JxU46BRGd3wpTAHbPLp9jGZBpZn987kmpn6Pdvdw7O9yEFW4ppSZMCD6ck5C2WgVO2Ymtmh1trlcrX6KVr03l19XFDIgbioEaMIKrkVhpZ6wIljBrJmHUXE8W8heLPl9ezw19EAEAAA==",Test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14463#issuecomment-1912985335:3,Test,3,https://root.cern,https://github.com/root-project/root/pull/14463#issuecomment-1912985335,3,"['Test', 'test']","['Test', 'test-results', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: ## Test Results;     10 files      10 suites   1d 21h 22m 55s :stopwatch:;  2 497 tests  2 496 :white_check_mark: 0 :zzz: 1 :x:; 23 867 runs  23 866 :white_check_mark: 0 :zzz: 1 :x:. For more details on these failures, see [this check](https://github.com/root-project/root/runs/20923934502). Results for commit 8e6036e3. [test-results]:data:application/gzip;base64,H4sIAGqJtGUC/02NzQ6DIBAGX8Vw7gFZC9iXafhNSFUahJPpuxeoBY8z+2X2QNYtZkePYcS3Ae3JxU46BRGd3wpTAHbPLp9jGZBpZn987kmpn6Pdvdw7O9yEFW4ppSZMCD6ck5C2WgVO2Ymtmh1trlcrX6KVr03l19XFDIgbioEaMIKrkVhpZ6wIljBrJmHUXE8W8heLPl9ezw19EAEAAA==
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided seems to be a log snippet from a testing environment, detailing test results including counts of passed and failed tests, along with some metadata like duration and commit information. This directly relates to the concept of Testability as it provides evidence of how well the software can be tested, including failure counts that indicate the effectiveness of testing in validating functionality.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: ## Test Results;     10 files      10 suites   1d 21h 22m 55s :stopwatch:;  2 497 tests  2 496 :white_check_mark: 0 :zzz: 1 :x:; 23 867 runs  23 866 :white_check_mark: 0 :zzz: 1 :x:. For more details on these failures, see [this check](https://github.com/root-project/root/runs/20923934502). Results for commit 8e6036e3. [test-results]:data:application/gzip;base64,H4sIAGqJtGUC/02NzQ6DIBAGX8Vw7gFZC9iXafhNSFUahJPpuxeoBY8z+2X2QNYtZkePYcS3Ae3JxU46BRGd3wpTAHbPLp9jGZBpZn987kmpn6Pdvdw7O9yEFW4ppSZMCD6ck5C2WgVO2Ymtmh1trlcrX6KVr03l19XFDIgbioEaMIKrkVhpZ6wIljBrJmHUXE8W8heLPl9ezw19EAEAAA==
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,[WinError 10054] An existing connection was forcibly closed by the remote host
+Testability,"## Test Results;     10 files      10 suites   1d 21h 26m 18s :stopwatch:;  2 496 tests  2 496 :white_check_mark: 0 :zzz: 0 :x:; 23 859 runs  23 859 :white_check_mark: 0 :zzz: 0 :x:. Results for commit 58095523. [test-results]:data:application/gzip;base64,H4sIAOhJvWUC/2WMRw7CMBQFrxJ5zcIl34XLIMexpS9SkMsKcXecKKSI5cx7mjcJOPhE7g2jt4akgvmgvkSbcZ4WlgKUrq7OeTnw1sgfPlJx7s898VUd3UWwOFyEj3GOm4llWqtCg9lwr17cUV35FF353HTzOGKuQEBTA8CFbcEH3jFgTmslQpAt7ZTteiWZEd6Rzxddz0p2EAEAAA==",Test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14527#issuecomment-1924593576:3,Test,3,https://root.cern,https://github.com/root-project/root/pull/14527#issuecomment-1924593576,3,"['Test', 'test']","['Test', 'test-results', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: ## Test Results;     10 files      10 suites   1d 21h 26m 18s :stopwatch:;  2 496 tests  2 496 :white_check_mark: 0 :zzz: 0 :x:; 23 859 runs  23 859 :white_check_mark: 0 :zzz: 0 :x:. Results for commit 58095523. [test-results]:data:application/gzip;base64,H4sIAOhJvWUC/2WMRw7CMBQFrxJ5zcIl34XLIMexpS9SkMsKcXecKKSI5cx7mjcJOPhE7g2jt4akgvmgvkSbcZ4WlgKUrq7OeTnw1sgfPlJx7s898VUd3UWwOFyEj3GOm4llWqtCg9lwr17cUV35FF353HTzOGKuQEBTA8CFbcEH3jFgTmslQpAt7ZTteiWZEd6Rzxddz0p2EAEAAA==
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The provided content appears to be test result outputs from a testing tool, including counts of tests, passes, failures, and total runs. This aligns with the concept of Testability as it provides data that can be used to validate the software's functionality and identify areas needing attention. Thus, this is a true positive.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: ## Test Results;     10 files      10 suites   1d 21h 26m 18s :stopwatch:;  2 496 tests  2 496 :white_check_mark: 0 :zzz: 0 :x:; 23 859 runs  23 859 :white_check_mark: 0 :zzz: 0 :x:. Results for commit 58095523. [test-results]:data:application/gzip;base64,H4sIAOhJvWUC/2WMRw7CMBQFrxJ5zcIl34XLIMexpS9SkMsKcXecKKSI5cx7mjcJOPhE7g2jt4akgvmgvkSbcZ4WlgKUrq7OeTnw1sgfPlJx7s898VUd3UWwOFyEj3GOm4llWqtCg9lwr17cUV35FF353HTzOGKuQEBTA8CFbcEH3jFgTmslQpAt7ZTteiWZEd6Rzxddz0p2EAEAAA==
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,[WinError 10054] An existing connection was forcibly closed by the remote host
+Testability,"## Test Results;     10 files      10 suites   1d 21h 36m 41s :stopwatch:;  2 596 tests  2 569 :white_check_mark:  1 :zzz: 26 :x:; 25 324 runs  25 223 :white_check_mark: 16 :zzz: 85 :x:. For more details on these failures, see [this check](https://github.com/root-project/root/runs/24084440894). Results for commit 854ac073. [test-results]:data:application/gzip;base64,H4sIAD/gJWYC/02NSQ7DIAwAvxJx7oGYhJJ+pmKxJdQsFYFT1b8X2hB6nLE9fjHyM+7s1vX80rE9+djIpaCj39bCcgDeZ5fHsSzAOMmK9z1Z+3Vyau7hn+XwFKT9XJbaGYawhazKr5DWX1bAcGDLAojTHVlZxZFVYxX/Vbsti48ZmBoHbflVcItcGRKCnEGp0EkDSiOQIdAElr0/ekyVUhMBAAA=",Test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/15306#issuecomment-2068442159:3,Test,3,https://root.cern,https://github.com/root-project/root/pull/15306#issuecomment-2068442159,3,"['Test', 'test']","['Test', 'test-results', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: ## Test Results;     10 files      10 suites   1d 21h 36m 41s :stopwatch:;  2 596 tests  2 569 :white_check_mark:  1 :zzz: 26 :x:; 25 324 runs  25 223 :white_check_mark: 16 :zzz: 85 :x:. For more details on these failures, see [this check](https://github.com/root-project/root/runs/24084440894). Results for commit 854ac073. [test-results]:data:application/gzip;base64,H4sIAD/gJWYC/02NSQ7DIAwAvxJx7oGYhJJ+pmKxJdQsFYFT1b8X2hB6nLE9fjHyM+7s1vX80rE9+djIpaCj39bCcgDeZ5fHsSzAOMmK9z1Z+3Vyau7hn+XwFKT9XJbaGYawhazKr5DWX1bAcGDLAojTHVlZxZFVYxX/Vbsti48ZmBoHbflVcItcGRKCnEGp0EkDSiOQIdAElr0/ekyVUhMBAAA=
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The provided content includes test results such as the number of tests passed, failed, and their durations. This directly relates to the concept of Testability, which involves validating software functionality through testing. Therefore, this content accurately reflects the quality attribute of Testability.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: ## Test Results;     10 files      10 suites   1d 21h 36m 41s :stopwatch:;  2 596 tests  2 569 :white_check_mark:  1 :zzz: 26 :x:; 25 324 runs  25 223 :white_check_mark: 16 :zzz: 85 :x:. For more details on these failures, see [this check](https://github.com/root-project/root/runs/24084440894). Results for commit 854ac073. [test-results]:data:application/gzip;base64,H4sIAD/gJWYC/02NSQ7DIAwAvxJx7oGYhJJ+pmKxJdQsFYFT1b8X2hB6nLE9fjHyM+7s1vX80rE9+djIpaCj39bCcgDeZ5fHsSzAOMmK9z1Z+3Vyau7hn+XwFKT9XJbaGYawhazKr5DWX1bAcGDLAojTHVlZxZFVYxX/Vbsti48ZmBoHbflVcItcGRKCnEGp0EkDSiOQIdAElr0/ekyVUhMBAAA=
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,[WinError 10054] An existing connection was forcibly closed by the remote host
+Testability,"## Test Results;     10 files      10 suites   1d 21h 38m 33s :stopwatch:;  2 635 tests  2 634 :white_check_mark: 0 :zzz: 1 :x:; 24 868 runs  24 867 :white_check_mark: 0 :zzz: 1 :x:. For more details on these failures, see [this check](https://github.com/root-project/root/runs/24868153831). Results for commit 624c7b62. [test-results]:data:application/gzip;base64,H4sIAOm7QGYC/02Myw6DIBQFf8Ww7kLgCrQ/0/BMSFUaHivTfy9Yiy5nzslsyPnZJvQY8HgbUCo+n2RKlNmHtTEDiml1dc7tQBid/vhMReufg9O9/Lu6sQsn/dxKXdgYQzwusax7FQQTB/Zqdby7s7rzJbrztanDsvhcATECmitGFDdWUSWY4+AMlwTDBBJjoe9GUSvR5wu5k20WEAEAAA==",Test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/15489#issuecomment-2106237874:3,Test,3,https://root.cern,https://github.com/root-project/root/pull/15489#issuecomment-2106237874,3,"['Test', 'test']","['Test', 'test-results', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: ## Test Results;     10 files      10 suites   1d 21h 38m 33s :stopwatch:;  2 635 tests  2 634 :white_check_mark: 0 :zzz: 1 :x:; 24 868 runs  24 867 :white_check_mark: 0 :zzz: 1 :x:. For more details on these failures, see [this check](https://github.com/root-project/root/runs/24868153831). Results for commit 624c7b62. [test-results]:data:application/gzip;base64,H4sIAOm7QGYC/02Myw6DIBQFf8Ww7kLgCrQ/0/BMSFUaHivTfy9Yiy5nzslsyPnZJvQY8HgbUCo+n2RKlNmHtTEDiml1dc7tQBid/vhMReufg9O9/Lu6sQsn/dxKXdgYQzwusax7FQQTB/Zqdby7s7rzJbrztanDsvhcATECmitGFDdWUSWY4+AMlwTDBBJjoe9GUSvR5wu5k20WEAEAAA==
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided seems to be test results, including counts of tests, passes, and failures. This aligns with the concept of testability, as it involves executing and validating software functionality through testing processes.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: ## Test Results;     10 files      10 suites   1d 21h 38m 33s :stopwatch:;  2 635 tests  2 634 :white_check_mark: 0 :zzz: 1 :x:; 24 868 runs  24 867 :white_check_mark: 0 :zzz: 1 :x:. For more details on these failures, see [this check](https://github.com/root-project/root/runs/24868153831). Results for commit 624c7b62. [test-results]:data:application/gzip;base64,H4sIAOm7QGYC/02Myw6DIBQFf8Ww7kLgCrQ/0/BMSFUaHivTfy9Yiy5nzslsyPnZJvQY8HgbUCo+n2RKlNmHtTEDiml1dc7tQBid/vhMReufg9O9/Lu6sQsn/dxKXdgYQzwusax7FQQTB/Zqdby7s7rzJbrztanDsvhcATECmitGFDdWUSWY4+AMlwTDBBJjoe9GUSvR5wu5k20WEAEAAA==
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,[WinError 10054] An existing connection was forcibly closed by the remote host
+Testability,"## Test Results;     10 files      10 suites   1d 21h 3m 35s :stopwatch:;  2 498 tests  2 498 :white_check_mark: 0 :zzz: 0 :x:; 23 879 runs  23 879 :white_check_mark: 0 :zzz: 0 :x:. Results for commit 5236cf0a. [test-results]:data:application/gzip;base64,H4sIADVhw2UC/2XMRw7DIBCF4atYrLOAcWi5TIQpEoptIsrKyt2DkeOiLL9/Rm9Bzo82oUdH8K1Dqfh8yJSosg/zagZAaG31nNcHuEvx4zMVrf/ay79rw3twyo+XYGMMcSuxzG21F1xu3Fcv7VhtPo02nzd1mCafKxCFnmmHFTdUcbDCVBspMScDM4ZziUEQUAP6fAGIR7PiEAEAAA==",Test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14608#issuecomment-1931787217:3,Test,3,https://root.cern,https://github.com/root-project/root/pull/14608#issuecomment-1931787217,3,"['Test', 'test']","['Test', 'test-results', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: ## Test Results;     10 files      10 suites   1d 21h 3m 35s :stopwatch:;  2 498 tests  2 498 :white_check_mark: 0 :zzz: 0 :x:; 23 879 runs  23 879 :white_check_mark: 0 :zzz: 0 :x:. Results for commit 5236cf0a. [test-results]:data:application/gzip;base64,H4sIADVhw2UC/2XMRw7DIBCF4atYrLOAcWi5TIQpEoptIsrKyt2DkeOiLL9/Rm9Bzo82oUdH8K1Dqfh8yJSosg/zagZAaG31nNcHuEvx4zMVrf/ay79rw3twyo+XYGMMcSuxzG21F1xu3Fcv7VhtPo02nzd1mCafKxCFnmmHFTdUcbDCVBspMScDM4ZziUEQUAP6fAGIR7PiEAEAAA==
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided appears to be log output from a testing framework, such as JUnit or TestNG, detailing test results including counts of passed and failed tests along with timestamps. This aligns with the Testability quality attribute by providing data that can be used to verify software functionality.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: ## Test Results;     10 files      10 suites   1d 21h 3m 35s :stopwatch:;  2 498 tests  2 498 :white_check_mark: 0 :zzz: 0 :x:; 23 879 runs  23 879 :white_check_mark: 0 :zzz: 0 :x:. Results for commit 5236cf0a. [test-results]:data:application/gzip;base64,H4sIADVhw2UC/2XMRw7DIBCF4atYrLOAcWi5TIQpEoptIsrKyt2DkeOiLL9/Rm9Bzo82oUdH8K1Dqfh8yJSosg/zagZAaG31nNcHuEvx4zMVrf/ay79rw3twyo+XYGMMcSuxzG21F1xu3Fcv7VhtPo02nzd1mCafKxCFnmmHFTdUcbDCVBspMScDM4ZziUEQUAP6fAGIR7PiEAEAAA==
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,[WinError 10054] An existing connection was forcibly closed by the remote host

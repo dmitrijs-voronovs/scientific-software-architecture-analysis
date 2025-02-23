@@ -1,0 +1,1111 @@
+quality_attribute,sentence,keyword,source,author,repo,version,id,matched_word,match_idx,wiki,url,total_similar,target_keywords,target_matched_words,attribute_desc,prompt,true_positive,reasoning,arch_prompt,related_to_architecture,related_to_architecture_reasoning
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/191970/console).; ### Failing tests:; - [projectroot.core.metacling.test.gtest_core_metacling_test_TClingTest](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/191970/testReport/projectroot.core.metacling/test/gtest_core_metacling_test_TClingTest/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14287#issuecomment-1867375712:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14287#issuecomment-1867375712,4,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/191970/console).; ### Failing tests:; - [projectroot.core.metacling.test.gtest_core_metacling_test_TClingTest](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/191970/testReport/projectroot.core.metacling/test/gtest_core_metacling_test_TClingTest/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content describes a failed build and failing tests, which are directly related to software functionality validation through testing. This aligns with Testability as it involves identifying issues that prevent successful testing, thus affecting the ease of validating software functionality.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/191970/console).; ### Failing tests:; - [projectroot.core.metacling.test.gtest_core_metacling_test_TClingTest](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/191970/testReport/projectroot.core.metacling/test/gtest_core_metacling_test_TClingTest/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"The provided content describes a failed build process within a specific software project (ROOT). It includes details about the build environment, failing tests, and links to logs and test reports.  There is no mention of architectural patterns, design decisions, system structure, or other concepts directly related to software architecture."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192505/console).; ### Failing tests:; - [projectroot.test.test_stressgraphics_interpreted](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192505/testReport/projectroot/test/test_stressgraphics_interpreted/); - [projectroot.roottest.cling.controls.roottest_cling_controls_runLoopbreak](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192505/testReport/projectroot.roottest.cling/controls/roottest_cling_controls_runLoopbreak/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14267#issuecomment-1889361120:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14267#issuecomment-1889361120,5,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192505/console).; ### Failing tests:; - [projectroot.test.test_stressgraphics_interpreted](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192505/testReport/projectroot/test/test_stressgraphics_interpreted/); - [projectroot.roottest.cling.controls.roottest_cling_controls_runLoopbreak](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192505/testReport/projectroot.roottest.cling/controls/roottest_cling_controls_runLoopbreak/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content includes log information about build failures and failing tests. The attribute description focuses on testability, which involves the ease of testing. While the logs indicate that there are issues with tests failing, they don't directly demonstrate testability but rather indicate problems that may affect it. Therefore, this content is a true positive because it relates to test outcomes, which is part of testability.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192505/console).; ### Failing tests:; - [projectroot.test.test_stressgraphics_interpreted](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192505/testReport/projectroot/test/test_stressgraphics_interpreted/); - [projectroot.roottest.cling.controls.roottest_cling_controls_runLoopbreak](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192505/testReport/projectroot.roottest.cling/controls/roottest_cling_controls_runLoopbreak/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"This content focuses on a specific build failure within a software project. It lists failing tests and provides links to their reports. There are no mentions of architectural patterns, decisions, quality attributes, system structure, or any other concept related to software architecture."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192581/console).; ### Failing tests:; - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_numbadeclare](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192581/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_numbadeclare/); - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_rdf_filter_pyz](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192581/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_rdf_filter_pyz/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14340#issuecomment-1890748638:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14340#issuecomment-1890748638,7,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192581/console).; ### Failing tests:; - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_numbadeclare](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192581/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_numbadeclare/); - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_rdf_filter_pyz](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192581/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_rdf_filter_pyz/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content describes a failed build and failing tests, which relates to testability as it indicates issues in testing phases that could prevent validation of software functionality.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192581/console).; ### Failing tests:; - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_numbadeclare](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192581/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_numbadeclare/); - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_rdf_filter_pyz](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192581/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_rdf_filter_pyz/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"This content describes a failed build process and failing tests within a specific software project (ROOT). It focuses on technical details like the build environment, test failures, and links to logs and test reports.  There's no mention of architectural patterns, decisions, system structure, or any high-level design considerations that would classify it as related to software architecture."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192836/console).; ### Failing tests:; - [projectroot.core.metacling.test.gtest_core_metacling_test_TClingTest](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192836/testReport/projectroot.core.metacling/test/gtest_core_metacling_test_TClingTest/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14358#issuecomment-1893923930:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14358#issuecomment-1893923930,4,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192836/console).; ### Failing tests:; - [projectroot.core.metacling.test.gtest_core_metacling_test_TClingTest](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192836/testReport/projectroot.core.metacling/test/gtest_core_metacling_test_TClingTest/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content discusses test failures and provides a link to console output. This relates to testing validation, indicating an issue with testability.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192836/console).; ### Failing tests:; - [projectroot.core.metacling.test.gtest_core_metacling_test_TClingTest](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192836/testReport/projectroot.core.metacling/test/gtest_core_metacling_test_TClingTest/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"The provided content is a build failure report with details about failing tests within a specific software project (ROOT). It does not discuss any software architecture concepts, principles, or concerns. The information focuses on code-level issues and test failures, which are implementation details rather than architectural aspects."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192952/console).; ### Failing tests:; - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_dependency_versions](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192952/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_dependency_versions/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14371#issuecomment-1896492721:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14371#issuecomment-1896492721,4,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192952/console).; ### Failing tests:; - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_dependency_versions](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192952/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_dependency_versions/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,The content provided is a log entry indicating that a build has failed due to failing tests in the project. This relates to testability as it discusses test failures which is a key aspect of validating software functionality through testing.,"
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192952/console).; ### Failing tests:; - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_dependency_versions](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/192952/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_dependency_versions/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"The provided content is a build failure report with information about failing tests within a specific software project (ROOT). It focuses on technical details of the build process and test execution rather than architectural concepts like design patterns, system structure, or quality attributes. There's no discussion of high-level system interactions, dependencies, or architectural trade-offs."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193438/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Keras_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193438/testReport/projectroot.tmva.pymva/test/PyMVA_Keras_Regression/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14420#issuecomment-1908251236:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14420#issuecomment-1908251236,4,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193438/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Keras_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193438/testReport/projectroot.tmva.pymva/test/PyMVA_Keras_Regression/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content describes a failed build and failing tests, which are aspects related to testability. Test failures indicate that functionality is not being validated properly, directly linking to the ability to test (testability). Therefore, it accurately reflects the intended quality attribute.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193438/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Keras_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193438/testReport/projectroot.tmva.pymva/test/PyMVA_Keras_Regression/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"This content is focused on a failed build within a specific software project (ROOT). It highlights failing tests and provides links to logs and test reports. There is no mention of architectural patterns, decisions, system structure, or any other concepts directly related to software architecture. The content primarily deals with debugging and code-level issues rather than high-level design considerations."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193543/console).; ### Failing tests:; - [projectroot.roottest.python.cpp.roottest_python_cpp_advanced](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193543/testReport/projectroot.roottest.python/cpp/roottest_python_cpp_advanced/); - [projectroot.roottest.python.stl.roottest_python_stl_stl](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193543/testReport/projectroot.roottest.python/stl/roottest_python_stl_stl/); - [projectroot.roottest.python.distrdf.spark.roottest_python_distrdf_spark_test_all](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193543/testReport/projectroot.roottest.python.distrdf/spark/roottest_python_distrdf_spark_test_all/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14426#issuecomment-1910267730:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14426#issuecomment-1910267730,4,['test'],"['testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193543/console).; ### Failing tests:; - [projectroot.roottest.python.cpp.roottest_python_cpp_advanced](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193543/testReport/projectroot.roottest.python/cpp/roottest_python_cpp_advanced/); - [projectroot.roottest.python.stl.roottest_python_stl_stl](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193543/testReport/projectroot.roottest.python/stl/roottest_python_stl_stl/); - [projectroot.roottest.python.distrdf.spark.roottest_python_distrdf_spark_test_all](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193543/testReport/projectroot.roottest.python.distrdf/spark/roottest_python_distrdf_spark_test_all/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided describes a failed build and failing tests in a Jenkins pipeline. This indicates that there are issues with software functionality that need to be tested and validated. The attribute of testability refers to the ease of validation through testing, so this context aligns with it.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193543/console).; ### Failing tests:; - [projectroot.roottest.python.cpp.roottest_python_cpp_advanced](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193543/testReport/projectroot.roottest.python/cpp/roottest_python_cpp_advanced/); - [projectroot.roottest.python.stl.roottest_python_stl_stl](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193543/testReport/projectroot.roottest.python/stl/roottest_python_stl_stl/); - [projectroot.roottest.python.distrdf.spark.roottest_python_distrdf_spark_test_all](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193543/testReport/projectroot.roottest.python.distrdf/spark/roottest_python_distrdf_spark_test_all/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"The content focuses on a failed build and failing tests within a software development pipeline (likely for the ROOT project). It provides details about specific test failures, build environment, and links to logs and reports. There is no mention of architectural patterns, decisions, system structure, or any other concept related to software architecture."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193693/console).; ### Failing tests:; - [projectroot.roottest.python.cpp.roottest_python_cpp_cpp](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193693/testReport/projectroot.roottest.python/cpp/roottest_python_cpp_cpp/); - [projectroot.tmva.pymva.test.PyMVA_Keras_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193693/testReport/projectroot.tmva.pymva/test/PyMVA_Keras_Regression/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14450#issuecomment-1911921702:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14450#issuecomment-1911921702,5,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193693/console).; ### Failing tests:; - [projectroot.roottest.python.cpp.roottest_python_cpp_cpp](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193693/testReport/projectroot.roottest.python/cpp/roottest_python_cpp_cpp/); - [projectroot.tmva.pymva.test.PyMVA_Keras_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193693/testReport/projectroot.tmva.pymva/test/PyMVA_Keras_Regression/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided is a log entry indicating that a build failed due to failing tests. The attribute of Testability refers to the ease of testing and validation, which includes testing failures. Therefore, this content accurately relates to Testability as it reports on test failures.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193693/console).; ### Failing tests:; - [projectroot.roottest.python.cpp.roottest_python_cpp_cpp](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193693/testReport/projectroot.roottest.python/cpp/roottest_python_cpp_cpp/); - [projectroot.tmva.pymva.test.PyMVA_Keras_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193693/testReport/projectroot.tmva.pymva/test/PyMVA_Keras_Regression/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"This content focuses on a failed build and failing tests within a software project (ROOT). It provides details about the environment, specific failing tests, and links to logs and test reports. There is no discussion of architectural patterns, decisions, or high-level system structure."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193708/console).; ### Failing tests:; - [projectroot.roottest.python.cpp.roottest_python_cpp_cpp](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193708/testReport/projectroot.roottest.python/cpp/roottest_python_cpp_cpp/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14450#issuecomment-1911993673:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14450#issuecomment-1911993673,2,['test'],"['testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193708/console).; ### Failing tests:; - [projectroot.roottest.python.cpp.roottest_python_cpp_cpp](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193708/testReport/projectroot.roottest.python/cpp/roottest_python_cpp_cpp/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content describes a failed build and failing tests, which relates to testability as it indicates that testing is occurring and failing, contributing to validation.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193708/console).; ### Failing tests:; - [projectroot.roottest.python.cpp.roottest_python_cpp_cpp](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193708/testReport/projectroot.roottest.python/cpp/roottest_python_cpp_cpp/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"The content focuses on a failed build process within a specific software development environment (ROOT). It highlights failing tests and provides links to logs and test reports. There is no mention of architectural patterns, decisions, quality attributes, system structure, or interactions. The content is primarily concerned with debugging and resolving a build issue."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193738/console).; ### Failing tests:; - [projectroot.tmva.sofie.test.gtest_tmva_sofie_test_TestSofieModels](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193738/testReport/projectroot.tmva.sofie/test/gtest_tmva_sofie_test_TestSofieModels/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14426#issuecomment-1912197697:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14426#issuecomment-1912197697,4,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193738/console).; ### Failing tests:; - [projectroot.tmva.sofie.test.gtest_tmva_sofie_test_TestSofieModels](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193738/testReport/projectroot.tmva.sofie/test/gtest_tmva_sofie_test_TestSofieModels/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided describes a build failure with specific test failures, which is related to testability because it indicates that tests are failing. This suggests that there may be issues in how tests are designed or implemented, impacting the ability to validate software functionality. The mention of 'gtest_tmva_sofie_test_TestSofieModels' could relate to test cases, which ties into testability as described in the attribute.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193738/console).; ### Failing tests:; - [projectroot.tmva.sofie.test.gtest_tmva_sofie_test_TestSofieModels](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193738/testReport/projectroot.tmva.sofie/test/gtest_tmva_sofie_test_TestSofieModels/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"The provided content describes a failed build in a software development environment (ROOT). It mentions specific tests failing and provides links to logs and test reports.  There's no discussion of architectural patterns, decisions, system structure, or high-level design principles. The focus is entirely on debugging a failed build process and identifying problematic code units within a project."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193818/console).; ### Failing tests:; - [projectroot.roottest.python.ttree.roottest_python_ttree_ttree](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193818/testReport/projectroot.roottest.python/ttree/roottest_python_ttree_ttree/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14466#issuecomment-1913132087:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14466#issuecomment-1913132087,2,['test'],"['testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193818/console).; ### Failing tests:; - [projectroot.roottest.python.ttree.roottest_python_ttree_ttree](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193818/testReport/projectroot.roottest.python/ttree/roottest_python_ttree_ttree/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided is a log snippet indicating that a build failed due to failing tests. Testability refers to the ease of testing and validating functionality through controlled experiments. This failure suggests that certain aspects may be difficult to test, impacting testability.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193818/console).; ### Failing tests:; - [projectroot.roottest.python.ttree.roottest_python_ttree_ttree](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/193818/testReport/projectroot.roottest.python/ttree/roottest_python_ttree_ttree/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"The content focuses on a failed build process within a specific software project (ROOT). It highlights failing tests and provides links to logs and test reports. There's no mention of architectural patterns, decisions, system structure, or other concepts directly related to software architecture."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194238/console).; ### Failing tests:; - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_pyz_pretty_printing](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194238/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_pyz_pretty_printing/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14495#issuecomment-1919369421:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14495#issuecomment-1919369421,4,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194238/console).; ### Failing tests:; - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_pyz_pretty_printing](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194238/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_pyz_pretty_printing/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided is a log showing that a build failed and specific tests are failing. This indicates that testing (specifically unit tests) is failing, which relates to testability as it concerns validation of software functionality.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194238/console).; ### Failing tests:; - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_pyz_pretty_printing](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194238/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_pyz_pretty_printing/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"The provided content focuses on a failed build process within a specific software development environment (ROOT). It details failing tests and links to logs and test reports. There is no mention of architectural patterns, decisions, system structure, or any concepts related to software architecture."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194493/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Keras_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194493/testReport/projectroot.tmva.pymva/test/PyMVA_Keras_Regression/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14395#issuecomment-1924302878:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14395#issuecomment-1924302878,4,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194493/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Keras_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194493/testReport/projectroot.tmva.pymva/test/PyMVA_Keras_Regression/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content describes a failed build and failing tests, which relates to testability as it involves testing outcomes. This provides insight into whether the software can be validated through testing processes.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194493/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Keras_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194493/testReport/projectroot.tmva.pymva/test/PyMVA_Keras_Regression/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"This content describes a failed build in a Continuous Integration (CI) system for the ROOT software project. It includes details about the failing tests and logs, but doesn't discuss any architectural concepts, patterns, decisions, or quality attributes. The focus is on identifying and fixing the specific code issue causing the build failure, not on the broader structure or design of the ROOT system."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194508/console).; ### Failing tests:; - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_pyz_pretty_printing](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194508/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_pyz_pretty_printing/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14495#issuecomment-1925305587:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14495#issuecomment-1925305587,4,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194508/console).; ### Failing tests:; - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_pyz_pretty_printing](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194508/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_pyz_pretty_printing/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The provided content includes build and test failure information, which relates to the process of testing software. This ties into the concept of testability as it highlights issues that can be identified through testing.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194508/console).; ### Failing tests:; - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_pyz_pretty_printing](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/194508/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_pyz_pretty_printing/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"This content appears to be a build failure report for a software project. It focuses on failing tests within a specific module (`projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_pyz_pretty_printing`) and provides a link to the console output for debugging. There is no discussion of architectural concepts, patterns, decisions, or system structure."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195070/console).; ### Failing tests:; - [projectroot.roottest.python.basic.roottest_python_basic_overload](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195070/testReport/projectroot.roottest.python/basic/roottest_python_basic_overload/); - [projectroot.roottest.python.basic.roottest_python_basic_datatype](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195070/testReport/projectroot.roottest.python/basic/roottest_python_basic_datatype/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14655#issuecomment-1938128133:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14655#issuecomment-1938128133,3,['test'],"['testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195070/console).; ### Failing tests:; - [projectroot.roottest.python.basic.roottest_python_basic_overload](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195070/testReport/projectroot.roottest.python/basic/roottest_python_basic_overload/); - [projectroot.roottest.python.basic.roottest_python_basic_datatype](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195070/testReport/projectroot.roottest.python/basic/roottest_python_basic_datatype/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content includes log entries from a failed build and lists failing tests. This directly relates to testing outcomes, indicating issues with testability as tests are failing.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195070/console).; ### Failing tests:; - [projectroot.roottest.python.basic.roottest_python_basic_overload](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195070/testReport/projectroot.roottest.python/basic/roottest_python_basic_overload/); - [projectroot.roottest.python.basic.roottest_python_basic_datatype](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195070/testReport/projectroot.roottest.python/basic/roottest_python_basic_datatype/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"This content focuses on a failed build and specific failing tests within a software project (ROOT). It does not discuss architectural patterns, decisions, quality attributes, or high-level system structure. The information provided is primarily about code execution, testing failures, and build environment details."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195195/console).; ### Failing tests:; - [projectroot.tree.ntuple.v7.test.gtest_tree_ntuple_v7_test_rfield_vector](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195195/testReport/projectroot.tree.ntuple.v7/test/gtest_tree_ntuple_v7_test_rfield_vector/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14662#issuecomment-1940830498:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14662#issuecomment-1940830498,4,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195195/console).; ### Failing tests:; - [projectroot.tree.ntuple.v7.test.gtest_tree_ntuple_v7_test_rfield_vector](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195195/testReport/projectroot.tree.ntuple.v7/test/gtest_tree_ntuple_v7_test_rfield_vector/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The provided content includes test failure information which relates to the testing process and fault detection. This aligns with the concept of Testability as it discusses issues encountered during testing, thereby validating software functionality.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195195/console).; ### Failing tests:; - [projectroot.tree.ntuple.v7.test.gtest_tree_ntuple_v7_test_rfield_vector](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195195/testReport/projectroot.tree.ntuple.v7/test/gtest_tree_ntuple_v7_test_rfield_vector/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"The provided content describes a failed build process within a software development pipeline (likely for the ROOT framework). It highlights specific failing tests and provides links to logs and test reports.  There is no mention of architectural patterns, design decisions, system structure, or other concepts directly related to software architecture."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/console).; ### Failing tests:; - [projectroot.roottest.root.meta.genreflex.roottest_root_meta_genreflex_MyClass_v2_libgen_build](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta/genreflex/roottest_root_meta_genreflex_MyClass_v2_libgen_build/); - [projectroot.roottest.root.meta.genreflex.roottest_root_meta_genreflex_ioreadrulesfailonwarning](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta/genreflex/roottest_root_meta_genreflex_ioreadrulesfailonwarning/); - [projectroot.roottest.root.meta.genreflex.roottest_root_meta_genreflex_escapedQuotesreadTree](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta/genreflex/roottest_root_meta_genreflex_escapedQuotesreadTree/); - [projectroot.roottest.root.meta.genreflex.ROOT-5626.roottest_root_meta_genreflex_ROOT_5626_5626](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta.genreflex/ROOT-5626/roottest_root_meta_genreflex_ROOT_5626_5626/); - [projectroot.roottest.root.meta.genreflex.XMLParsing.roottest_root_meta_genreflex_XMLParsing_15](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta.genreflex/XMLParsing/roottest_root_meta_genreflex_XMLParsing_15/); - [projectroot.roottest.root.meta.genreflex.XMLParsing.roottest_root_meta_genreflex_XMLParsing_21](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta.genreflex/XMLParsing/roottest_root_meta_genreflex_XMLParsing_21/); - [project,test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14700#issuecomment-1942540023:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14700#issuecomment-1942540023,3,['test'],"['testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/console).; ### Failing tests:; - [projectroot.roottest.root.meta.genreflex.roottest_root_meta_genreflex_MyClass_v2_libgen_build](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta/genreflex/roottest_root_meta_genreflex_MyClass_v2_libgen_build/); - [projectroot.roottest.root.meta.genreflex.roottest_root_meta_genreflex_ioreadrulesfailonwarning](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta/genreflex/roottest_root_meta_genreflex_ioreadrulesfailonwarning/); - [projectroot.roottest.root.meta.genreflex.roottest_root_meta_genreflex_escapedQuotesreadTree](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta/genreflex/roottest_root_meta_genreflex_escapedQuotesreadTree/); - [projectroot.roottest.root.meta.genreflex.ROOT-5626.roottest_root_meta_genreflex_ROOT_5626_5626](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta.genreflex/ROOT-5626/roottest_root_meta_genreflex_ROOT_5626_5626/); - [projectroot.roottest.root.meta.genreflex.XMLParsing.roottest_root_meta_genreflex_XMLParsing_15](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta.genreflex/XMLParsing/roottest_root_meta_genreflex_XMLParsing_15/); - [projectroot.roottest.root.meta.genreflex.XMLParsing.roottest_root_meta_genreflex_XMLParsing_21](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta.genreflex/XMLParsing/roottest_root_meta_genreflex_XMLParsing_21/); - [project
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The provided content appears to be a log snippet indicating that a build failed and several tests are failing. This relates to testability because it shows issues in testing environments which can hinder validation of software functionality. The mention of 'roottest' and 'XMLParsing' suggests these are specific test cases, aligning with the attribute's focus on enabling fault detection and creation of test cases.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/console).; ### Failing tests:; - [projectroot.roottest.root.meta.genreflex.roottest_root_meta_genreflex_MyClass_v2_libgen_build](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta/genreflex/roottest_root_meta_genreflex_MyClass_v2_libgen_build/); - [projectroot.roottest.root.meta.genreflex.roottest_root_meta_genreflex_ioreadrulesfailonwarning](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta/genreflex/roottest_root_meta_genreflex_ioreadrulesfailonwarning/); - [projectroot.roottest.root.meta.genreflex.roottest_root_meta_genreflex_escapedQuotesreadTree](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta/genreflex/roottest_root_meta_genreflex_escapedQuotesreadTree/); - [projectroot.roottest.root.meta.genreflex.ROOT-5626.roottest_root_meta_genreflex_ROOT_5626_5626](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta.genreflex/ROOT-5626/roottest_root_meta_genreflex_ROOT_5626_5626/); - [projectroot.roottest.root.meta.genreflex.XMLParsing.roottest_root_meta_genreflex_XMLParsing_15](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta.genreflex/XMLParsing/roottest_root_meta_genreflex_XMLParsing_15/); - [projectroot.roottest.root.meta.genreflex.XMLParsing.roottest_root_meta_genreflex_XMLParsing_21](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195365/testReport/projectroot.roottest.root.meta.genreflex/XMLParsing/roottest_root_meta_genreflex_XMLParsing_21/); - [project
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"The content describes a failed build process for software project ROOT, including details about failing tests and their locations.  This is focused on the implementation and testing phases of development, not on architectural concepts like patterns, design decisions, or system structure."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195475/console).; ### Failing tests:; - [projectroot.tree.dataframe.test.gtest_tree_dataframe_test_dataframe_display](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195475/testReport/projectroot.tree.dataframe/test/gtest_tree_dataframe_test_dataframe_display/); - [projectroot.tree.dataframe.test.gtest_tree_dataframe_test_datasource_csv](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195475/testReport/projectroot.tree.dataframe/test/gtest_tree_dataframe_test_datasource_csv/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14692#issuecomment-1943675734:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14692#issuecomment-1943675734,7,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195475/console).; ### Failing tests:; - [projectroot.tree.dataframe.test.gtest_tree_dataframe_test_dataframe_display](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195475/testReport/projectroot.tree.dataframe/test/gtest_tree_dataframe_test_dataframe_display/); - [projectroot.tree.dataframe.test.gtest_tree_dataframe_test_datasource_csv](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195475/testReport/projectroot.tree.dataframe/test/gtest_tree_dataframe_test_datasource_csv/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided details about a failing build and specific test failures in a software project. This information aligns with Testability as it discusses validation through testing processes, thus reflecting the quality attribute.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195475/console).; ### Failing tests:; - [projectroot.tree.dataframe.test.gtest_tree_dataframe_test_dataframe_display](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195475/testReport/projectroot.tree.dataframe/test/gtest_tree_dataframe_test_dataframe_display/); - [projectroot.tree.dataframe.test.gtest_tree_dataframe_test_datasource_csv](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195475/testReport/projectroot.tree.dataframe/test/gtest_tree_dataframe_test_datasource_csv/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"This content appears to be a build failure report for software project Root (specifically a pull request build). It focuses on failing tests within the 'projectroot.tree.dataframe' module and provides links to the console output and test reports. There is no mention of architectural patterns, decisions, system structure, or any other concept directly related to software architecture."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195576/console).; ### Failing tests:; - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_rdf_define_pyz](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195576/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_rdf_define_pyz/); - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_pyz_rdataframe_asnumpy](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195576/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_pyz_rdataframe_asnumpy/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14717#issuecomment-1944332998:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14717#issuecomment-1944332998,7,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195576/console).; ### Failing tests:; - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_rdf_define_pyz](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195576/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_rdf_define_pyz/); - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_pyz_rdataframe_asnumpy](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195576/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_pyz_rdataframe_asnumpy/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The provided content is log output indicating test failures. Testability refers to the ease of testing and validation. Since the tests are failing, this could suggest issues with testability if not properly handled. The logs show specific failing tests which relate to functionality that should be tested. Therefore, this aligns with the concept of testability.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195576/console).; ### Failing tests:; - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_rdf_define_pyz](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195576/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_rdf_define_pyz/); - [projectroot.bindings.pyroot.pythonizations.test.pyunittests_pyroot_pyz_rdataframe_asnumpy](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195576/testReport/projectroot.bindings.pyroot.pythonizations/test/pyunittests_pyroot_pyz_rdataframe_asnumpy/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"The provided content appears to be a build failure report from a continuous integration (CI) system. It focuses on specific failing tests within a software project (`root-pullrequests-build`) and points to the location of relevant logs and test reports.  There is no mention of architectural patterns, decisions, quality attributes, or high-level system structure. The content primarily deals with code implementation and build process issues."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/console).; ### Failing tests:; - [projectroot.roottest.root.collection.roottest_root_collection_runtbits_auto](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root/collection/roottest_root_collection_runtbits_auto/); - [projectroot.roottest.root.roofitstats.roottest_root_roofitstats_RooDataSet_ASCII_in](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root/roofitstats/roottest_root_roofitstats_RooDataSet_ASCII_in/); - [projectroot.roottest.root.roofitstats.roottest_root_roofitstats_RooDataSet_ASCII_out](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root/roofitstats/roottest_root_roofitstats_RooDataSet_ASCII_out/); - [projectroot.roottest.root.io.complex.roottest_root_io_complex_readcomplex](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root.io/complex/roottest_root_io_complex_readcomplex/); - [projectroot.roottest.root.io.filemerger.roottest_root_io_filemerger_simple_lzma_compr_level9](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root.io/filemerger/roottest_root_io_filemerger_simple_lzma_compr_level9/); - [projectroot.roottest.root.io.filemerger.roottest_root_io_filemerger_simplek_default_compr_deflevel](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root.io/filemerger/roottest_root_io_filemerger_simplek_default_compr_deflevel/); - [projectroot.roottest.root.io.filemerger.roottest_root_io_filemerger_simplek_lzma_compr_level9](https://lcgapp-service,test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14702#issuecomment-1944405823:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14702#issuecomment-1944405823,4,['test'],"['testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/console).; ### Failing tests:; - [projectroot.roottest.root.collection.roottest_root_collection_runtbits_auto](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root/collection/roottest_root_collection_runtbits_auto/); - [projectroot.roottest.root.roofitstats.roottest_root_roofitstats_RooDataSet_ASCII_in](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root/roofitstats/roottest_root_roofitstats_RooDataSet_ASCII_in/); - [projectroot.roottest.root.roofitstats.roottest_root_roofitstats_RooDataSet_ASCII_out](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root/roofitstats/roottest_root_roofitstats_RooDataSet_ASCII_out/); - [projectroot.roottest.root.io.complex.roottest_root_io_complex_readcomplex](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root.io/complex/roottest_root_io_complex_readcomplex/); - [projectroot.roottest.root.io.filemerger.roottest_root_io_filemerger_simple_lzma_compr_level9](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root.io/filemerger/roottest_root_io_filemerger_simple_lzma_compr_level9/); - [projectroot.roottest.root.io.filemerger.roottest_root_io_filemerger_simplek_default_compr_deflevel](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root.io/filemerger/roottest_root_io_filemerger_simplek_default_compr_deflevel/); - [projectroot.roottest.root.io.filemerger.roottest_root_io_filemerger_simplek_lzma_compr_level9](https://lcgapp-service
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided is a log snippet indicating that a build failed due to failing tests. This directly relates to testability as it shows that tests are being run and are failing, which helps in identifying issues with the software's functionality. Therefore, this content accurately reflects the Testability quality attribute.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/console).; ### Failing tests:; - [projectroot.roottest.root.collection.roottest_root_collection_runtbits_auto](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root/collection/roottest_root_collection_runtbits_auto/); - [projectroot.roottest.root.roofitstats.roottest_root_roofitstats_RooDataSet_ASCII_in](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root/roofitstats/roottest_root_roofitstats_RooDataSet_ASCII_in/); - [projectroot.roottest.root.roofitstats.roottest_root_roofitstats_RooDataSet_ASCII_out](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root/roofitstats/roottest_root_roofitstats_RooDataSet_ASCII_out/); - [projectroot.roottest.root.io.complex.roottest_root_io_complex_readcomplex](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root.io/complex/roottest_root_io_complex_readcomplex/); - [projectroot.roottest.root.io.filemerger.roottest_root_io_filemerger_simple_lzma_compr_level9](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root.io/filemerger/roottest_root_io_filemerger_simple_lzma_compr_level9/); - [projectroot.roottest.root.io.filemerger.roottest_root_io_filemerger_simplek_default_compr_deflevel](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195591/testReport/projectroot.roottest.root.io/filemerger/roottest_root_io_filemerger_simplek_default_compr_deflevel/); - [projectroot.roottest.root.io.filemerger.roottest_root_io_filemerger_simplek_lzma_compr_level9](https://lcgapp-service
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"The provided content focuses on a failed build process for a software project (ROOT) and lists failing tests. It does not discuss any software architecture concepts, principles, or concerns. The information is primarily about code execution, testing results, and build environment details."
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195788/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195788/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195788/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195788/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195788/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14666#issuecomment-1948233328:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14666#issuecomment-1948233328,13,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195788/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195788/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195788/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195788/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195788/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content is log output from a Jenkins build that lists failing test cases. This aligns with Testability as it shows which tests are failing, which helps in identifying issues with the software's functionality and thus contributes to testing validation.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195788/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195788/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195788/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195788/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195788/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,"POST predict: Post ""http://127.0.0.1:39765/completion"": EOF (status code: -1)"
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195808/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195808/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195808/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195808/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195808/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14747#issuecomment-1948311035:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14747#issuecomment-1948311035,13,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195808/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195808/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195808/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195808/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195808/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,The content provided is a log entry indicating that a build has failed due to failing tests in PyMVA components. This aligns with Testability as it involves identifying issues through testing which helps in validating software functionality.,"
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195808/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195808/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195808/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195808/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195808/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,"POST predict: Post ""http://127.0.0.1:39765/completion"": EOF (status code: -1)"
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195838/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195838/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195838/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195838/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195838/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14752#issuecomment-1948617308:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14752#issuecomment-1948617308,13,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195838/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195838/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195838/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195838/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195838/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided is a log entry indicating that a build failed due to failing tests. This directly relates to testability as it highlights issues with testing. The tests mentioned are PyMVA_Torch_Regression, PyMVA_Torch_Classification, and others, which suggests that the software's functionality under test may be failing or not behaving as expected. By identifying these failures during testing, the development team can address them, thus ensuring higher testability in future builds. Therefore, this content accurately reflects the quality attribute of testability.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195838/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195838/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195838/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195838/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195838/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,"POST predict: Post ""http://127.0.0.1:39765/completion"": EOF (status code: -1)"
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195858/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195858/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195858/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195858/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195858/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14618#issuecomment-1948965969:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14618#issuecomment-1948965969,13,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195858/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195858/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195858/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195858/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195858/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided includes test failure information, specifically mentioning multiple test cases that are failing in the PyMVA_Torch_Classification, PyMVA_Torch_Regression, PyMVA_Torch_Multiclass, and gtest_tmva_pymva_test_TestRModelParserPyTorch categories. This directly relates to the ability of software to be tested effectively (Testability) as it highlights issues that prevent these tests from passing. The presence of failed tests indicates that testing is not succeeding, which ties into Testability by showing that the system may not be functioning as expected or may have underlying issues that need to be addressed.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195858/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195858/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195858/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195858/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195858/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,"POST predict: Post ""http://127.0.0.1:39765/completion"": EOF (status code: -1)"
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195928/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195928/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195928/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195928/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195928/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14756#issuecomment-1950140064:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14756#issuecomment-1950140064,13,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195928/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195928/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195928/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195928/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195928/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided is a log from a CI/CD pipeline, indicating that a build failed due to failing tests. This directly relates to the concept of testability because it shows that certain test cases are not passing, which implies issues in the software's functionality and thus impacts its testability.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195928/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195928/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195928/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195928/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195928/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,"POST predict: Post ""http://127.0.0.1:39765/completion"": EOF (status code: -1)"
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195948/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195948/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195948/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195948/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195948/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14628#issuecomment-1952129572:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14628#issuecomment-1952129572,13,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195948/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195948/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195948/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195948/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195948/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided is a log showing build failure and failing tests. This indicates that there is an issue with test cases not passing, which relates to testability as it involves the effectiveness of testing in revealing faults.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195948/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195948/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195948/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195948/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/195948/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,"POST predict: Post ""http://127.0.0.1:39765/completion"": EOF (status code: -1)"
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196008/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196008/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196008/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196008/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196008/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14764#issuecomment-1952774189:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14764#issuecomment-1952774189,13,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196008/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196008/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196008/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196008/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196008/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided is a log showing that multiple test cases are failing. Since Testability involves making software easy to validate through testing, this directly relates as failing tests indicate issues with the system's functionality and may require adjustments in testing approaches or system design.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196008/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196008/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196008/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196008/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196008/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,"POST predict: Post ""http://127.0.0.1:39765/completion"": EOF (status code: -1)"
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196013/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196013/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196013/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196013/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196013/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14712#issuecomment-1952830960:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14712#issuecomment-1952830960,13,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196013/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196013/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196013/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196013/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196013/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content discusses test failures for various test cases in PyMVA_Torch_Regression, PyMVA_Torch_Classification, and PyMVA_Torch_Multiclass. It indicates that these tests are failing, which suggests that there may be issues with the software's functionality or test setup. This aligns with Testability as it relates to validation through testing, enabling fault detection, and controlling/observing the system's state.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196013/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196013/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196013/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196013/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196013/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,"POST predict: Post ""http://127.0.0.1:39765/completion"": EOF (status code: -1)"
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196048/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196048/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196048/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196048/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196048/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14758#issuecomment-1952899145:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14758#issuecomment-1952899145,13,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196048/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196048/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196048/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196048/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196048/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content provided is a build failure log that lists failing test cases related to PyMVA_Torch_Regression, PyMVA_Torch_Classification, and PyMVA_Torch_Multiclass tests. These are specific test failures which can be used to identify issues in the software functionality, thereby aiding in validation through testing. This aligns with the definition of Testability as it involves detecting faults and validating functionality.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196048/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196048/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196048/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196048/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196048/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,"POST predict: Post ""http://127.0.0.1:39765/completion"": EOF (status code: -1)"
+Testability,Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196063/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196063/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196063/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196063/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196063/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/),test,MatchSource.ISSUE_COMMENT,root-project,root,v6-32-06,https://github.com/root-project/root/pull/14758#issuecomment-1952985098:263,tests,263,https://root.cern,https://github.com/root-project/root/pull/14758#issuecomment-1952985098,13,['test'],"['test', 'testReport', 'tests']","The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Testability
+Attribute Description: The ease of validating software functionality through testing, enabling fault detection. This includes controlling and observing the system’s state, reducing complexity, and facilitating the creation of test cases and oracles.
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196063/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196063/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196063/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196063/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196063/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content describes test failures which relates to testability as they indicate that tests are being run and failing, implying that testing is taking place.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Build failed on ROOT-ubuntu2204/nortcxxmod.; Running on root-ubuntu-2204-2.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196063/console).; ### Failing tests:; - [projectroot.tmva.pymva.test.PyMVA_Torch_Regression](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196063/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Regression/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Classification](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196063/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Classification/); - [projectroot.tmva.pymva.test.PyMVA_Torch_Multiclass](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196063/testReport/projectroot.tmva.pymva/test/PyMVA_Torch_Multiclass/); - [projectroot.tmva.pymva.test.gtest_tmva_pymva_test_TestRModelParserPyTorch](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/196063/testReport/projectroot.tmva.pymva/test/gtest_tmva_pymva_test_TestRModelParserPyTorch/)
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",,"POST predict: Post ""http://127.0.0.1:39765/completion"": EOF (status code: -1)"
