@@ -136,7 +136,7 @@ class OllamaResponse(BaseModel):
 
 # @retry(stop=stop_after_attempt(6), wait=wait_fixed(3), after=lambda retry_state: logger.warning(retry_state),
 #     reraise=True, )
-def request_gemma_chain(prompts: List[str]) -> List[OllamaResponse]:
+def request_ollama_chain(prompts: List[str]) -> List[OllamaResponse]:
     url = "%s/api/generate" % LOCAL_LLM_HOST
     # model_name = "gemma"
     # model_name = "gemma2"
@@ -309,7 +309,7 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
             prompts = batch_df['prompt'].tolist()
 
             try:
-                responses = request_gemma_chain(prompts)  # New batch query
+                responses = request_ollama_chain(prompts)  # New batch query
                 processed_responses = [(r.true_positive, r.reasoning) for r in responses]
                 res.extend(processed_responses)
             except RetryError as error:

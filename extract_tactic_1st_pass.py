@@ -96,11 +96,11 @@ class OllamaTacticSecondPass(BaseModel):
 
 # @retry(stop=stop_after_attempt(6), wait=wait_fixed(3), after=lambda retry_state: logger.warning(retry_state),
 #     reraise=True, )
-def request_gemma_chain(prompts: List[str]) -> List[OllamaTacticFirstPass]:
+def request_ollama_chain(prompts: List[str]) -> List[OllamaTacticFirstPass]:
     url = "%s/api/generate" % LOCAL_LLM_HOST
     # model_name = "gemma"
-    model_name = "gemma2"
-    # model_name = "deepseek-r1:8b"
+    # model_name = "gemma2"
+    model_name = "deepseek-r1:8b"
     model  = ChatOllama(model=model_name, base_url=LOCAL_LLM_HOST, format=OllamaTacticFirstPass.model_json_schema())
     batch_answers = model.batch(prompts)
     return [OllamaTacticFirstPass.model_validate_json(answer.content) for answer in batch_answers]
@@ -166,7 +166,7 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
             prompts = batch_df['first_pass_prompt'].tolist()
 
             try:
-                responses = request_gemma_chain(prompts)  # New batch query
+                responses = request_ollama_chain(prompts)  # New batch query
                 processed_responses = [(r.tactic, r.tactic_details) for r in responses]
                 res.extend(processed_responses)
             except RetryError as error:
