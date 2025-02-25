@@ -3,71 +3,68 @@ tactics:
     tactic_categories:
       - category_name: Detect Faults
         tactics:
-          - name: Ping / Echo
-            description: A mechanism to check the presence and responsiveness of a component.
+          - name: Ping/Echo
+            description: An asynchronous request/response message pair exchanged between nodes to determine reachability and responsiveness.
           - name: Monitor
-            description: Continuously observe the system to detect anomalies.
+            description: A component that monitors the state of health of various parts of the system such as processors, processes, I/O, and memory.
           - name: Heartbeat
-            description: Regular signals sent between components to confirm operation.
+            description: A fault detection mechanism that employs periodic message exchange between a system monitor and a process being monitored.
           - name: Timestamp
-            description: Use of timestamps to detect delays and failures.
+            description: Used to detect incorrect sequences of events by assigning the state of a local clock to events immediately after they occur.
           - name: Sanity Checking
-            description: Perform basic checks to ensure data or processes are within expected parameters.
+            description: Checks the validity or reasonableness of specific operations or outputs of a component.
           - name: Condition Monitoring
-            description: Assess system conditions to predict and detect failures.
+            description: Involves checking conditions in a process or device to prevent a system from producing faulty behavior.
           - name: Voting
-            description: Use multiple redundant components to decide correct operation.
+            description: Employs multiple components that do the same thing with identical inputs and forwards their output to voting logic to detect inconsistencies.
           - name: Exception Detection
-            description: Identify and handle exceptional conditions in the system.
+            description: The detection of a system condition that alters the normal flow of execution.
           - name: Self-Test
-            description: Components perform internal tests to check functionality.
-
+            description: Components can run procedures to test themselves for correct operation.
       - category_name: Recover from Faults_Preparation and Repair
         tactics:
           - name: Active Redundancy
-            description: Use multiple active components to take over in case of failure.
+            description: A configuration where all nodes receive and process identical inputs in parallel, allowing redundant spares to maintain synchronous state with active nodes.
           - name: Passive Redundancy
-            description: Standby components take over upon failure.
+            description: A configuration where only active members process input traffic and provide redundant spares with periodic state updates.
           - name: Spare
-            description: Extra resources are available to replace failed ones.
+            description: Cold sparing where redundant spares remain out of service until a fail-over occurs.
           - name: Exception Handling
-            description: Mechanism to handle unexpected errors.
+            description: Mechanisms employed to handle detected exceptions using information to mask the fault.
           - name: Rollback
-            description: Restore the system to a previous stable state.
+            description: Permits the system to revert to a previous known good state upon detection of a failure.
           - name: Software Upgrade
-            description: Replace software components without downtime.
+            description: Achieves in-service upgrades to executable code images in a non-service-affecting manner.
           - name: Retry
-            description: Reattempt a failed operation.
+            description: Assumes that the fault causing a failure is transient and retrying the operation may lead to success.
           - name: Ignore Faulty Behavior
-            description: Continue operating despite minor faults.
+            description: Calls for ignoring messages from a particular source when determined to be spurious.
           - name: Degradation
-            description: Reduce functionality but maintain partial operation.
+            description: Maintains critical system functions in the presence of component failures by dropping less critical functions.
           - name: Reconfiguration
-            description: Adjust system structure dynamically to bypass faults.
-
+            description: Recovers from component failures by reassigning responsibilities to remaining functional resources.
       - category_name: Recover from Faults_Reintroduction
         tactics:
           - name: Shadow
-            description: Run a duplicate process in parallel to compare outputs.
+            description: Operates a previously failed component in "shadow mode" for a predefined duration before reverting it to an active role.
           - name: State Resynchronization
-            description: Synchronize state between components after failure.
+            description: Ensures that failed components are brought back to a consistent state with active components.
           - name: Escalating Restart
-            description: Gradually restart components with increasing impact.
+            description: Allows system recovery by varying the granularity of components restarted while minimizing service impact.
           - name: Non-Stop Forwarding
-            description: Maintain data flow even when components fail.
-
+            description: Splits functionality into control and data planes to continue operations while recovering the supervisory information.
       - category_name: Prevent Faults
         tactics:
           - name: Removal from Service
-            description: Temporarily remove components to prevent faults.
+            description: Temporarily placing a system component in an out-of-service state to mitigate potential system failures.
           - name: Transactions
-            description: Ensure atomicity and consistency in operations.
+            description: Ensures that asynchronous messages exchanged between distributed components are atomic, consistent, isolated, and durable.
           - name: Predictive Model
-            description: Use predictive analytics to anticipate failures.
+            description: Used with monitors to ensure a system operates within nominal parameters and take corrective action for conditions predictive of future faults.
           - name: Exception Prevention
-            description: Design mechanisms to avoid common faults.
+            description: Techniques employed to prevent system exceptions from occurring.
           - name: Increase Competence Set
-            description: Improve system adaptability and self-healing capabilities.
+            description: Expanding the set of states in which a program is competent to operate to handle more cases as part of normal operation.
 
   - quality_attribute: Interoperability
     tactic_categories:
