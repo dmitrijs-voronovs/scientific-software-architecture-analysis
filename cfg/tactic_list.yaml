@@ -71,66 +71,69 @@ tactics:
       - category_name: Locate
         tactics:
           - name: Discover Service
-            description: Locate a service through searching a known directory service.
+            description: Locates a service through searching a known directory service at runtime.
       - category_name: Manage Interfaces
         tactics:
           - name: Orchestrate
-            description: Use a control mechanism to coordinate and manage and sequence the invocation of particular services.
+            description: Uses a control mechanism to coordinate, manage and sequence the invocation of particular services that could be ignorant of each other.
           - name: Tailor Interface
-            description: Add or remove capabilities to an interface.
+            description: Adds or removes capabilities to an interface, such as translation, buffering, or hiding particular functions from untrusted users.
 
   - quality_attribute: Modifiability
     tactic_categories:
       - category_name: Reduce Size of a Module
         tactics:
           - name: Split Module
-            description: Refining the module into several smaller modules should reduce the average cost of future changes.
+            description: Refining a module into several smaller modules to reduce the average cost of future changes.
+
       - category_name: Increase Cohesion
         tactics:
           - name: Increase Semantic Coherence
-            description: If the responsibilities A and B in a module do not serve the same purpose, they should be placed in different modules.
+            description: Moving responsibilities that don't serve the same purpose to different modules to reduce the likelihood of side effects.
+
       - category_name: Reduce Coupling
         tactics:
           - name: Encapsulate
-            description: Encapsulation introduces an explicit interface to a module.
+            description: Introducing an explicit interface to a module to reduce the probability that a change to one module propagates to other modules.
           - name: Use an Intermediary
-            description: Given a dependency between responsibility A and responsibility B, the dependency can be broken by using an intermediary.
+            description: Breaking a dependency between responsibilities by using an intermediary that depends on the type of dependency.
           - name: Restrict Dependencies
-            description: A tactic that restricts the modules that a given module interacts with or depends on.
+            description: Restricting the modules that a given module interacts with or depends on through visibility or authorization.
           - name: Refactor
-            description: Common responsibilities (and the code that implements them) are "factored out" of the modules where they exist and assigned an appropriate home of their own.
+            description: Factoring out common responsibilities from modules where they exist and assigning them an appropriate home to reduce duplication.
           - name: Abstract Common Services
-            description: In the case where two modules provide not-quite-the-same but similar services, it may be cost-effective to implement the services just once in a more general (abstract) form.
+            description: Implementing similar services once in a more general (abstract) form to reduce modification costs.
+
       - category_name: Defer Binding
         tactics:
           - name: Component Replacement
-            description: Enabling the replacement of components at build time, facilitating modifications without recompilation.
+            description: Binding values at compile time or build time through replacement in build scripts or makefiles.
           - name: Compile-time Parameterization
-            description: Using parameters to configure components at compile time, allowing customization without code changes.
+            description: Binding values at compile time through parameterization.
           - name: Aspects
-            description: Separating cross-cutting concerns into aspects, enabling modular modifications to system-wide behavior.
+            description: Binding values at compile time or build time using aspects.
           - name: Configuration-time Binding
-            description: Binding values at deployment time, allowing customization of the system without recompilation.
+            description: Binding values at deployment time through configuration.
           - name: Resource Files
-            description: Externalizing configuration data into resource files, enabling modifications without code changes.
+            description: Binding values at startup or initialization time using resource files.
           - name: Runtime Registration
-            description: Registering components or services at runtime, allowing dynamic modification of system behavior.
+            description: Binding values at runtime through registration.
           - name: Dynamic Lookup
-            description: Discovering and binding services or components at runtime, enabling flexible system reconfiguration.
+            description: Binding values at runtime through dynamic lookup for services.
           - name: Interpret Parameters
-            description: Interpreting parameters at runtime, allowing dynamic modification of system behavior.
+            description: Binding values at runtime by interpreting parameters.
           - name: Startup Time Binding
-            description: Binding values at system startup, allowing customization of the system without recompilation.
+            description: Binding values at runtime during startup.
           - name: Name Servers
-            description: Using name servers to manage service bindings, enabling dynamic reconfiguration of distributed systems.
+            description: Binding values at runtime using name servers.
           - name: Plug-ins
-            description: Supporting plug-ins to extend system functionality, enabling modifications without changing core code.
-          - name: Publish-subscribe
-            description: Using a publish-subscribe architecture, enabling decoupled communication and flexible system reconfiguration.
+            description: Binding values at runtime through plug-ins.
+          - name: Publish-Subscribe
+            description: Binding values at runtime using the publish-subscribe pattern.
           - name: Shared Repositories
-            description: Using shared repositories for configuration data, enabling modifications without code changes.
+            description: Binding values at runtime through shared repositories.
           - name: Polymorphism
-            description: Enabling polymorphic behavior, allowing modifications by adding new subtypes without changing existing code.
+            description: Binding values at runtime using polymorphism.
 
   - quality_attribute: Performance
     tactic_categories:
@@ -162,3 +165,4 @@ tactics:
             description: Control the maximum number of queued arrivals and consequently the resources used to process the arrivals.
           - name: Schedule Resources
             description: Understand the characteristics of each resource's use and choose the scheduling strategy that is compatible with it.
+
