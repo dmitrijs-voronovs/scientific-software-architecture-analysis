@@ -99,3 +99,56 @@ tactics:
             description: __sample description
           - name: Schedule Resources
             description: __sample description
+
+  - quality_attribute: Modifiability
+    tactic_categories:
+      - category_name: Reduce Size of a Module
+        tactics:
+          - name: Split Module
+            description: Refining the module into several smaller modules should reduce the average cost of future changes.
+      - category_name: Increase Cohesion
+        tactics:
+          - name: Increase Semantic Coherence
+            description: If the responsibilities A and B in a module do not serve the same purpose, they should be placed in different modules.
+      - category_name: Reduce Coupling
+        tactics:
+          - name: Encapsulate
+            description: Encapsulation introduces an explicit interface to a module.
+          - name: Use an Intermediary
+            description: Given a dependency between responsibility A and responsibility B, the dependency can be broken by using an intermediary.
+          - name: Restrict Dependencies
+            description: A tactic that restricts the modules that a given module interacts with or depends on.
+          - name: Refactor
+            description: Common responsibilities (and the code that implements them) are "factored out" of the modules where they exist and assigned an appropriate home of their own.
+          - name: Abstract Common Services
+            description: In the case where two modules provide not-quite-the-same but similar services, it may be cost-effective to implement the services just once in a more general (abstract) form.
+      - category_name: Defer Binding
+        tactics:
+          - name: Component Replacement
+            description: Enabling the replacement of components at build time, facilitating modifications without recompilation.
+          - name: Compile-time Parameterization
+            description: Using parameters to configure components at compile time, allowing customization without code changes.
+          - name: Aspects
+            description: Separating cross-cutting concerns into aspects, enabling modular modifications to system-wide behavior.
+          - name: Configuration-time Binding
+            description: Binding values at deployment time, allowing customization of the system without recompilation.
+          - name: Resource Files
+            description: Externalizing configuration data into resource files, enabling modifications without code changes.
+          - name: Runtime Registration
+            description: Registering components or services at runtime, allowing dynamic modification of system behavior.
+          - name: Dynamic Lookup
+            description: Discovering and binding services or components at runtime, enabling flexible system reconfiguration.
+          - name: Interpret Parameters
+            description: Interpreting parameters at runtime, allowing dynamic modification of system behavior.
+          - name: Startup Time Binding
+            description: Binding values at system startup, allowing customization of the system without recompilation.
+          - name: Name Servers
+            description: Using name servers to manage service bindings, enabling dynamic reconfiguration of distributed systems.
+          - name: Plug-ins
+            description: Supporting plug-ins to extend system functionality, enabling modifications without changing core code.
+          - name: Publish-subscribe
+            description: Using a publish-subscribe architecture, enabling decoupled communication and flexible system reconfiguration.
+          - name: Shared Repositories
+            description: Using shared repositories for configuration data, enabling modifications without code changes.
+          - name: Polymorphism
+            description: Enabling polymorphic behavior, allowing modifications by adding new subtypes without changing existing code.
