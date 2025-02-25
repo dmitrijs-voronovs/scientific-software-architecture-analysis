@@ -81,6 +81,7 @@ tactics:
             description: Use a control mechanism to coordinate and manage and sequence the invocation of particular services.
           - name: Tailor Interface
             description: Add or remove capabilities to an interface.
+
   - quality_attribute: Modifiability
     tactic_categories:
       - category_name: Reduce Size of a Module
@@ -133,3 +134,34 @@ tactics:
             description: Using shared repositories for configuration data, enabling modifications without code changes.
           - name: Polymorphism
             description: Enabling polymorphic behavior, allowing modifications by adding new subtypes without changing existing code.
+
+  - quality_attribute: Performance
+    tactic_categories:
+      - category_name: Control Resource Demand
+        tactics:
+          - name: Manage Sampling Rate
+            description: Reduce the frequency at which environmental data is captured to decrease demand, typically with some loss of fidelity.
+          - name: Limit Event Response
+            description: Process events only up to a set maximum rate to ensure more predictable processing when events are processed.
+          - name: Prioritize Events
+            description: Impose a priority scheme that ranks events according to how important it is to service them.
+          - name: Reduce Overhead
+            description: Reduce the resources consumed in processing an event stream by removing intermediaries.
+          - name: Bound Execution Times
+            description: Place a limit on how much execution time is used to respond to an event.
+          - name: Increase Resource Efficiency
+            description: Improve the algorithms used in critical areas to decrease latency.
+      - category_name: Manage Resources
+        tactics:
+          - name: Increase Resources
+            description: Use faster processors, additional processors, additional memory, and faster networks to reduce latency.
+          - name: Introduce Concurrency
+            description: Process requests in parallel to reduce the blocked time.
+          - name: Maintain Multiple Copies of Computations
+            description: Use multiple servers in a client-server pattern as replicas of computation to reduce the contention.
+          - name: Maintain Multiple Copies of Data
+            description: Keep copies of data on storage with different access speeds to reduce the contention from multiple simultaneous accesses.
+          - name: Bound Queue Sizes
+            description: Control the maximum number of queued arrivals and consequently the resources used to process the arrivals.
+          - name: Schedule Resources
+            description: Understand the characteristics of each resource's use and choose the scheduling strategy that is compatible with it.
