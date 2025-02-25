@@ -69,37 +69,18 @@ tactics:
           - name: Increase Competence Set
             description: Improve system adaptability and self-healing capabilities.
 
-  - quality_attribute: Performance
+  - quality_attribute: Interoperability
     tactic_categories:
-      - category_name: Control Resource Demand
+      - category_name: Locate
         tactics:
-          - name: Manage Sampling Rate
-            description: __sample description
-          - name: Limit Event Response
-            description: __sample description
-          - name: Prioritize Events
-            description: __sample description
-          - name: Reduce Overhead
-            description: __sample description
-          - name: Bound Execution Times
-            description: __sample description
-          - name: Increase Resource Efficiency
-            description: __sample description
-      - category_name: Manage Resources
+          - name: Discover Service
+            description: Locate a service through searching a known directory service.
+      - category_name: Manage Interfaces
         tactics:
-          - name: Increase Resources
-            description: __sample description
-          - name: Introduce Concurrency
-            description: __sample description
-          - name: Maintain Multiple Copies of Computations
-            description: __sample description
-          - name: Maintain Multiple Copies of Data
-            description: __sample description
-          - name: Bound Queue Sizes
-            description: __sample description
-          - name: Schedule Resources
-            description: __sample description
-
+          - name: Orchestrate
+            description: Use a control mechanism to coordinate and manage and sequence the invocation of particular services.
+          - name: Tailor Interface
+            description: Add or remove capabilities to an interface.
   - quality_attribute: Modifiability
     tactic_categories:
       - category_name: Reduce Size of a Module
