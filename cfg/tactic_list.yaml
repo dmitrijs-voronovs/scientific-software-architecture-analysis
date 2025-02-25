@@ -22,7 +22,7 @@ tactics:
           - name: Self-Test
             description: Components perform internal tests to check functionality.
 
-      - category_name: Recover from Faults; Preparation and Repair
+      - category_name: Recover from Faults_Preparation and Repair
         tactics:
           - name: Active Redundancy
             description: Use multiple active components to take over in case of failure.
@@ -45,7 +45,7 @@ tactics:
           - name: Reconfiguration
             description: Adjust system structure dynamically to bypass faults.
 
-      - category_name: Recover from Faults; Reintroduction
+      - category_name: Recover from Faults_Reintroduction
         tactics:
           - name: Shadow
             description: Run a duplicate process in parallel to compare outputs.
