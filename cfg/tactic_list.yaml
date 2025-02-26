@@ -166,3 +166,105 @@ tactics:
           - name: Schedule Resources
             description: Understand the characteristics of each resource's use and choose the scheduling strategy that is compatible with it.
 
+  - quality_attribute: Security
+    tactic_categories:
+      - category_name: Detect Attacks
+        tactics:
+          - name: Detect Intrusion
+            description: Comparison of network traffic or service request patterns within a system to a set of signatures or known patterns of malicious behavior stored in a database.
+          - name: Detect Service Denial
+            description: Comparison of the pattern or signature of network traffic coming into a system to historic profiles of known denial-of-service attacks.
+          - name: Verify Message Integrity
+            description: Employment of techniques such as checksums or hash values to verify the integrity of messages, resource files, deployment files, and configuration files.
+          - name: Detect Message Delay
+            description: Detection of potential man-in-the-middle attacks by checking the time that it takes to deliver a message to identify suspicious timing behavior.
+      - category_name: Resist Attacks
+        tactics:
+          - name: Identify Actors
+            description: Identifying the source of any external input to the system, typically through user IDs, access codes, IP addresses, protocols, and ports.
+          - name: Authenticate Actors
+            description: Ensuring that an actor is actually who or what it purports to be through passwords, one-time passwords, digital certificates, and biometric identification.
+          - name: Authorize Actors
+            description: Ensuring that an authenticated actor has the rights to access and modify either data or services through access control mechanisms.
+          - name: Limit Access
+            description: Limiting access to computing resources such as memory, network connections, or access points by using memory protection, blocking a host, closing a port, or rejecting a protocol.
+          - name: Limit Exposure
+            description: Minimizing the attack surface of a system by reducing the number of access points for resources, data, or services and connectors that may provide unanticipated exposure.
+          - name: Encrypt Data
+            description: Protecting data from unauthorized access by applying some form of encryption to data and to communication.
+          - name: Separate Entities
+            description: Separating different entities within the system through physical separation, virtual machines, air gaps, or separation of sensitive from nonsensitive data.
+          - name: Change Default Settings
+            description: Forcing users to change default settings to prevent attackers from gaining access to the system through publicly available settings.
+      - category_name: React to Attacks
+        tactics:
+          - name: Revoke Access
+            description: Severely limiting access to sensitive resources when the system or administrator believes that an attack is underway.
+          - name: Lock Computer
+            description: Limiting access from a particular computer if there are repeated failed attempts to access an account from that computer.
+          - name: Inform Actors
+            description: Notifying relevant personnel or cooperating systems when the system has detected an attack.
+      - category_name: Recover from Attacks
+        tactics:
+          - name: Maintain Audit Trail
+            description: Keeping a record of user and system actions and their effects to help trace the actions of, and to identify, an attacker.
+          - name: Restore
+            description: Restoration of services after an attack using tactics that deal with recovering from a failure.
+
+  - quality_attribute: Testability
+    tactic_categories:
+      - category_name: Control and Observe System State
+        tactics:
+          - name: Specialized Interfaces
+            description: Providing test-specific interfaces that allow testers to control or observe component variables and states that might otherwise be inaccessible.
+          - name: Record/Playback
+            description: Capturing the state when it crosses an interface to allow that state to be used to "play the system back" and re-create faults.
+          - name: Localize State Storage
+            description: Storing state in a single place to make it easier to set the system to an arbitrary state for testing.
+          - name: Abstract Data Sources
+            description: Designing interfaces to easily substitute test data without changing functional code.
+          - name: Sandbox
+            description: Isolating the system from the real world to enable experimentation without permanent consequences.
+          - name: Executable Assertions
+            description: Placing code at strategic locations to indicate when a program is in a faulty state.
+      - category_name: Limit Complexity
+        tactics:
+          - name: Limit Structural Complexity
+            description: Reducing dependencies between components, simplifying inheritance hierarchies, and increasing cohesion to make behavior more predictable and easier to test.
+          - name: Limit Nondeterminism
+            description: Finding and eliminating sources of unpredictable behavior to make testing more reliable.
+
+  - quality_attribute: Usability
+    tactic_categories:
+      - category_name: Separate the User Interface
+        tactics:
+          - name: Increase semantic coherence
+            description: Localizes user interface responsibilities to a single place.
+          - name: Encapsulate
+            description: Localizes user interface responsibilities to a single place.
+          - name: Co-locate related responsibilities
+            description: Localizes user interface responsibilities to a single place.
+          - name: Restrict dependencies
+            description: Minimizes the ripple effect to other software when the user interface changes.
+          - name: Defer binding
+            description: Lets you make critical user interface choices without having to recode.
+      - category_name: Support User Initiative
+        tactics:
+          - name: Cancel
+            description: Allows the user to terminate a command with appropriate resource management and notification.
+          - name: Undo
+            description: Maintains sufficient information about system state so that an earlier state may be restored at the user's request.
+          - name: Pause/resume
+            description: Provides the ability to temporarily free resources so they may be reallocated to other tasks.
+          - name: Aggregate
+            description: Allows operations to be applied to a group of objects, freeing the user from repetitive operations.
+      - category_name: Support System Initiative
+        tactics:
+          - name: Maintain task model
+            description: Determines context so the system can have some idea of what the user is attempting and provide assistance.
+          - name: Maintain user model
+            description: Explicitly represents the user's knowledge of the system to control response time and assistance.
+          - name: Maintain system model
+            description: Determines expected system behavior so that appropriate feedback can be given to the user.
+
+
