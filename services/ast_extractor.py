@@ -5,37 +5,42 @@ from typing import Generator, Dict
 import tree_sitter_python as tspython
 import tree_sitter_java as tsjava
 import tree_sitter_cpp as tscpp
-import tree_sitter_html as tshtml
 import tree_sitter_javascript as tsjavascript
+import tree_sitter_c as tsc
+import tree_sitter_c_sharp as tscsharp
 from tree_sitter_typescript import language_typescript as tstypescript
 from tree_sitter import Language, Parser, Tree, Node
 
 
 class Lang(Enum):
     PYTHON = "python"
-    JAVA = "java"
+    # JAVA = "java"
     CPP = "cpp"
-    HTML = "html"
+    C = "c"
+    CSHARP = "c#"
     JAVASCRIPT = "javascript"
     TYPESCRIPT = "typescript"
 
 # TODO: make sure that ext name is compared in lowercase
 ext_to_lang: Dict[str, Lang] = {"py": Lang.PYTHON,
-                                "java": Lang.JAVA,
+                                # "java": Lang.JAVA,
                                 "h": Lang.CPP,
                                 "cc": Lang.CPP,
+                                "c": Lang.C,
+                                "cs": Lang.CSHARP,
                                 "cpp": Lang.CPP,
                                 "cxx": Lang.CPP,
                                 "hxx": Lang.CPP,
-                                "html": Lang.HTML,
                                 "js": Lang.JAVASCRIPT,
+                                "mjs": Lang.JAVASCRIPT,
                                 "ts": Lang.TYPESCRIPT
                                 }
 
 Languages: dict[Lang, Language] = {Lang.PYTHON: Language(tspython.language()),
-                                   Lang.JAVA: Language(tsjava.language()),
+                                   # Lang.JAVA: Language(tsjava.language()),
                                    Lang.CPP: Language(tscpp.language()),
-                                   Lang.HTML: Language(tshtml.language()),
+                                   Lang.C: Language(tsc.language()),
+                                   Lang.CSHARP: Language(tscsharp.language()),
                                    Lang.JAVASCRIPT: Language(tsjavascript.language()),
                                    Lang.TYPESCRIPT: Language(tstypescript())
                                    }
@@ -264,6 +269,15 @@ lang_to_comment_query_map: Dict[Lang, str] = {
         )
     """,
 
+    Lang.C: """
+        (
+          (comment)+ @comment
+        )
+        (
+          (raw_string_literal) @docstring
+        )
+    """,
+
     Lang.JAVA: """
         (
           (block_comment) @comment
@@ -280,10 +294,23 @@ lang_to_comment_query_map: Dict[Lang, str] = {
         (
           (comment)+ @comment
         )
-        (
-          (jsdoc) @docstring
-        )
-    """
+    """,
+
+    Lang.CSHARP: """
+    (
+      (comment)+ @comment
+    )
+""",
+
+    Lang.TYPESCRIPT: """
+    (
+      (comment)+ @comment
+    )
+    (
+      (jsdoc) @docstring
+    )
+""",
+
 }
 
 
