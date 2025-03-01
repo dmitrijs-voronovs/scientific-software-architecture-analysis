@@ -3,17 +3,41 @@ from pathlib import Path
 from typing import Generator, Dict
 
 import tree_sitter_python as tspython
+import tree_sitter_java as tsjava
+import tree_sitter_cpp as tscpp
+import tree_sitter_html as tshtml
+import tree_sitter_javascript as tsjavascript
+from tree_sitter_typescript import language_typescript as tstypescript
 from tree_sitter import Language, Parser, Tree, Node
 
 
 class Lang(Enum):
     PYTHON = "python"
     JAVA = "java"
+    CPP = "cpp"
+    HTML = "html"
+    JAVASCRIPT = "javascript"
+    TYPESCRIPT = "typescript"
 
-
-ext_to_lang: Dict[str, Lang] = {"py": Lang.PYTHON,  # "java": "java"
+# TODO: make sure that ext name is compared in lowercase
+ext_to_lang: Dict[str, Lang] = {"py": Lang.PYTHON,
+                                "java": Lang.JAVA,
+                                "h": Lang.CPP,
+                                "cc": Lang.CPP,
+                                "cpp": Lang.CPP,
+                                "cxx": Lang.CPP,
+                                "hxx": Lang.CPP,
+                                "html": Lang.HTML,
+                                "js": Lang.JAVASCRIPT,
+                                "ts": Lang.TYPESCRIPT
                                 }
-Languages: dict[Lang, Language] = {Lang.PYTHON: Language(tspython.language()),  # Lang.JAVA: Language(tsjava.language())
+
+Languages: dict[Lang, Language] = {Lang.PYTHON: Language(tspython.language()),
+                                   Lang.JAVA: Language(tsjava.language()),
+                                   Lang.CPP: Language(tscpp.language()),
+                                   Lang.HTML: Language(tshtml.language()),
+                                   Lang.JAVASCRIPT: Language(tsjavascript.language()),
+                                   Lang.TYPESCRIPT: Language(tstypescript())
                                    }
 
 
@@ -220,7 +244,8 @@ def ast_iterator(lang, tree, query) -> Generator[tuple[int, dict[str, list[Node]
         yield match
 
 
-lang_to_comment_query_map: Dict[Lang, str] = {Lang.PYTHON: """
+lang_to_comment_query_map: Dict[Lang, str] = {
+    Lang.PYTHON: """
         (
           (string) @docstring
           (#match? @docstring "^(\\"\\"\\"|''')")
@@ -228,7 +253,38 @@ lang_to_comment_query_map: Dict[Lang, str] = {Lang.PYTHON: """
         (
           (comment)+ @comment
         )
-        """}
+    """,
+
+    Lang.CPP: """
+        (
+          (comment)+ @comment
+        )
+        (
+          (raw_string_literal) @docstring
+        )
+    """,
+
+    Lang.JAVA: """
+        (
+          (block_comment) @comment
+        )
+        (
+          (line_comment)+ @comment
+        )
+        (
+          (javadoc) @docstring
+        )
+    """,
+
+    Lang.JAVASCRIPT: """
+        (
+          (comment)+ @comment
+        )
+        (
+          (jsdoc) @docstring
+        )
+    """
+}
 
 
 def extract_text_from_comments_node(match):
