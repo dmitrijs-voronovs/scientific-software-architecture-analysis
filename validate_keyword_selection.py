@@ -321,7 +321,7 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
                 logger.error(e)
                 errors_for_termination = ["HTTPConnectionPool", "No connection could be made because the target machine actively refused it"]
                 if any(error in str(e) for error in errors_for_termination):
-                    logger.error(f"HTTPConnectionPool error, exiting,\n{traceback.format_exc()}")
+                    logger.error("HTTPConnectionPool error, exiting")
                     exit(1)
                 responses = [(None, str(e))] * len(batch_df)
                 res.extend(responses)
