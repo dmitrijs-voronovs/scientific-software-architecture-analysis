@@ -198,7 +198,7 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
 def main():
     keyword_folder = Path("metadata/keywords/")
     optimized_keyword_folder = keyword_folder / FolderNames.ARCHITECTURE_VERIFICATION_DIR
-    merged_arch_folder = keyword_folder / FolderNames.ARCHITECTURE_RELATED_MERGED_DIR
+    merged_arch_folder = keyword_folder / FolderNames.ARCHITECTURE_TACTICS
     categorization_folder = keyword_folder / FolderNames.CATEGORIZATION_DIR
     os.makedirs(".logs", exist_ok=True)
     os.makedirs(optimized_keyword_folder, exist_ok=True)

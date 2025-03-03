@@ -43,7 +43,7 @@ def save_data(df, target_dir, cred, source: 'MatchSource'):
     df.to_csv(target_dir / f"{cred.dotted_ref}.{source.value}.csv", index=False)
 
 def main():
-    keywords_dir = Path("metadata/keywords/original")
+    keywords_dir = Path(f"metadata/keywords/{FolderNames.KEYWORDS_RAW}")
     target_dir = keywords_dir / ".." / FolderNames.OPTIMIZED_KEYWORD_DIR
 
     # credential_list = [

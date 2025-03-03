@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 from loguru import logger
 from tqdm import tqdm
 
+from constants.foldernames import FolderNames
 from metadata.repo_info.repo_info import credential_list
 from model.Credentials import Credentials
 from quality_attributes import quality_attributes
@@ -200,7 +201,7 @@ class KeywordParser:
 
 
 def save_to_file(records: List[FullMatch], source: MatchSource, creds: Credentials, with_matched_text: bool = False):
-    base_dir = Path("metadata") / "keywords" / "original"
+    base_dir = Path("metadata") / "keywords" / FolderNames.KEYWORDS_RAW
     filename = f'{creds.get_ref(".")}.{source.value}.csv'
     if with_matched_text:
         resulting_filename = base_dir / "full" / filename

@@ -6,6 +6,8 @@ from pathlib import Path
 import pandas as pd
 from tqdm import tqdm
 
+from constants.foldernames import FolderNames
+
 MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024
 
 
@@ -38,6 +40,6 @@ def grouper_ranges(total_size, chunk_size):
 
 
 if __name__ == "__main__":
-    split_files_exceeding_max_limit("metadata/keywords/original")
+    split_files_exceeding_max_limit(f"metadata/keywords/{FolderNames.KEYWORDS_RAW}")
     # print(list(grouper_ranges(98, 10)))
     # split_file("metadata/keywords/broadinstitute.cromwell.87.ISSUE_COMMENT.csv", 500_000)
