@@ -44,7 +44,7 @@ def save_data(df, target_dir, cred, source: 'MatchSource'):
 
 def main():
     keywords_dir = Path("metadata/keywords/original")
-    target_dir = keywords_dir / FolderNames.OPTIMIZED_KEYWORD_DIR
+    target_dir = keywords_dir / ".." / FolderNames.OPTIMIZED_KEYWORD_DIR
 
     # credential_list = [
     #     Credentials({'author': 'sofa-framework', 'repo': 'sofa', 'version': 'v24.06.00',

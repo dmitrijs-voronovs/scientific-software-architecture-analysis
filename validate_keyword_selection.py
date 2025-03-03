@@ -4,6 +4,7 @@ import re
 import shelve
 import signal
 import sys
+import traceback
 from pathlib import Path
 from typing import List
 
@@ -235,7 +236,7 @@ def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
         try:
             df = pd.read_csv(file_path)
         except Exception as e:
-            logger.info(e)
+            logger.info(f"{e}, \n{traceback.format_exc()}")
             return
 
         df = df.groupby(["quality_attribute", "sentence", "keyword"]).first().reset_index()
@@ -320,7 +321,7 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
                 logger.error(e)
                 errors_for_termination = ["HTTPConnectionPool", "No connection could be made because the target machine actively refused it"]
                 if any(error in str(e) for error in errors_for_termination):
-                    logger.error("HTTPConnectionPool error, exiting")
+                    logger.error(f"HTTPConnectionPool error, exiting,\n{traceback.format_exc()}")
                     exit(1)
                 responses = [(None, str(e))] * len(batch_df)
                 res.extend(responses)
@@ -360,9 +361,11 @@ def main():
             #     pass
             # else:
             #     continue
-            if MatchSource.CODE_COMMENT.value in file_path.stem:
-                logger.info(f"Skipping CODE_COMMENTS for {file_path.stem}, as dataset is incomplete")
-                continue
+
+            # if MatchSource.CODE_COMMENT.value in file_path.stem:
+            #     logger.info(f"Skipping CODE_COMMENTS for {file_path.stem}, as dataset is incomplete")
+            #     continue
+
             if any(cred.get_ref(".") in file_path.stem for cred in creds):
                 res_filepath = keyword_folder / f"{FolderNames.VERIFICATION_DIR}/{file_path.stem}.verified.csv"
                 # Verifying
@@ -375,7 +378,7 @@ def main():
                 # s / it]
                 verify_file_batched_llm(file_path, res_filepath)  # res_filepath = file_path.with_stem("test123")
     except Exception as e:
-        logger.error(e)
+        logger.error(f"{e}, \n{traceback.format_exc()}")
 
 
 if __name__ == "__main__":
