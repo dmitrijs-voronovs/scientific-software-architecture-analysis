@@ -53,9 +53,9 @@ def main():
     # ]
     for cred in tqdm(credential_list, desc="Processing keywords"):
         for source in MatchSource:
-            # TODO: uncomment for all sources
-            if source != MatchSource.CODE_COMMENT:
-                continue
+            # # TODO: uncomment for all sources
+            # if source != MatchSource.CODE_COMMENT:
+            #     continue
             tqdm.write(cred.dotted_ref)
             try:
                 df = get_data(keywords_dir, cred, source)
