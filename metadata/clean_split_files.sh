@@ -1,1 +1,1 @@
-ls keywords | grep  [0-9].csv | xargs rm
+ls . | grep  CODE_COMMENT.[0-9].csv | xargs rm

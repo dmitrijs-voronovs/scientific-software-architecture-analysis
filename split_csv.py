@@ -17,8 +17,9 @@ def split_file(file_path: Path, size_bytes=MAX_FILE_SIZE_BYTES / 2):
     print(f"Splitting file {file_path} of size {file_size} into {num_chunks} chunks")
     chunk_size_rows = math.ceil(num_rows / num_chunks)
     chunks = [content.iloc[ran] for ran in grouper_ranges(num_rows, chunk_size_rows)]
+    n_chunks = len(chunks)
     for i, chunk in enumerate(chunks):
-        chunk.to_csv(file_path.with_stem(f"{file_path.stem}.{i:0{len(chunks) // 10}}"), index=False)
+        chunk.to_csv(file_path.with_stem(f"{file_path.stem}.{i:0{len(str(n_chunks))}}"), index=False)
 
 
 def split_files_exceeding_max_limit(dir):
