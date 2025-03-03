@@ -1,6 +1,5 @@
-import math
 import os
-from itertools import islice
+import traceback
 from pathlib import Path
 
 import pandas as pd
@@ -44,7 +43,7 @@ def save_data(df, target_dir, cred, source: 'MatchSource'):
     df.to_csv(target_dir / f"{cred.dotted_ref}.{source.value}.csv", index=False)
 
 def main():
-    keywords_dir = Path("metadata/keywords")
+    keywords_dir = Path("metadata/keywords/original")
     target_dir = keywords_dir / FolderNames.OPTIMIZED_KEYWORD_DIR
 
     # credential_list = [
@@ -54,13 +53,16 @@ def main():
     # ]
     for cred in tqdm(credential_list, desc="Processing keywords"):
         for source in MatchSource:
+            # TODO: uncomment for all sources
+            if source != MatchSource.CODE_COMMENT:
+                continue
             tqdm.write(cred.dotted_ref)
             try:
                 df = get_data(keywords_dir, cred, source)
                 df = transform_data(df)
                 save_data(df, target_dir, cred, source)
             except Exception as error:
-                print(f"Error processing {cred.get_ref()}, {error=}")
+                print(f"Error processing {cred.get_ref()}, {error=}\n{traceback.format_exc()}")
 
     split_files_exceeding_max_limit(target_dir)
 
