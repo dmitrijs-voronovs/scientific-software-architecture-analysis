@@ -26,7 +26,9 @@ ext_to_lang: Dict[str, Lang] = {"py": Lang.PYTHON,
                                 # "java": Lang.JAVA,
                                 "h": Lang.CPP,
                                 "cc": Lang.CPP,
-                                "c": Lang.C,
+                                # use CPP language grammar for C files,
+                                # as current C grammar is incompatible with latest version
+                                "c": Lang.CPP,
                                 "cs": Lang.CSHARP,
                                 "cpp": Lang.CPP,
                                 "cxx": Lang.CPP,
@@ -187,7 +189,7 @@ Queries = {"python": {"class_field": {"handler": (lambda match: {**(m := extract
 
 def get_file_params(file_path: str) -> [str, str]:
     path = Path(file_path)
-    return path.name, path.suffix
+    return path.name, path.suffix.lower()
 
 
 def read_file(file_path: str):
