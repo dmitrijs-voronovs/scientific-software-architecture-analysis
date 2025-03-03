@@ -10,7 +10,7 @@ from constants.foldernames import FolderNames
 from extract_quality_attribs_from_docs import MatchSource
 from metadata.repo_info.repo_info import credential_list
 from model.Credentials import Credentials
-from split_csv import check_file_sizes
+from split_csv import split_files_exceeding_max_limit
 
 
 
@@ -62,7 +62,7 @@ def main():
             except Exception as error:
                 print(f"Error processing {cred.get_ref()}, {error=}")
 
-    check_file_sizes(target_dir)
+    split_files_exceeding_max_limit(target_dir)
 
 
 if __name__ == "__main__":

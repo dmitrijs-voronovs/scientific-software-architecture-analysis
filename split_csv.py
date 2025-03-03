@@ -18,10 +18,10 @@ def split_file(file_path: Path, size_bytes=MAX_FILE_SIZE_BYTES / 2):
     chunk_size_rows = math.ceil(num_rows / num_chunks)
     chunks = [content.iloc[ran] for ran in grouper_ranges(num_rows, chunk_size_rows)]
     for i, chunk in enumerate(chunks):
-        chunk.to_csv(file_path.with_stem(f"{file_path.stem}.{i}"), index=False)
+        chunk.to_csv(file_path.with_stem(f"{file_path.stem}.{i:0{len(chunks) // 10}}"), index=False)
 
 
-def check_file_sizes(dir):
+def split_files_exceeding_max_limit(dir):
     for file_path in Path(dir).glob("*[A-Z].csv"):
         size = file_path.stat().st_size
         if size > MAX_FILE_SIZE_BYTES:
@@ -37,6 +37,6 @@ def grouper_ranges(total_size, chunk_size):
 
 
 if __name__ == "__main__":
-    check_file_sizes("metadata/keywords/")
+    split_files_exceeding_max_limit("metadata/keywords/original")
     # print(list(grouper_ranges(98, 10)))
     # split_file("metadata/keywords/broadinstitute.cromwell.87.ISSUE_COMMENT.csv", 500_000)

@@ -244,9 +244,13 @@ def ast_main_definitions_iterator(lang, tree) -> Generator[dict, None, None]:
 
 def ast_iterator(lang, tree, query) -> Generator[tuple[int, dict[str, list[Node]]], None, None]:
     assert query is not None, "Query should be provided"
-    tree_sitter_query = Languages[lang].query(query)
-    for match in tree_sitter_query.matches(tree.root_node):
-        yield match
+    try:
+        tree_sitter_query = Languages[lang].query(query)
+        for match in tree_sitter_query.matches(tree.root_node):
+            yield match
+    except Exception as e:
+        print(f"Error while parsing {lang} code: {query}, {e=}")
+        return
 
 
 lang_to_comment_query_map: Dict[Lang, str] = {
@@ -278,17 +282,17 @@ lang_to_comment_query_map: Dict[Lang, str] = {
         )
     """,
 
-    Lang.JAVA: """
-        (
-          (block_comment) @comment
-        )
-        (
-          (line_comment)+ @comment
-        )
-        (
-          (javadoc) @docstring
-        )
-    """,
+    # Lang.JAVA: """
+    #     (
+    #       (block_comment) @comment
+    #     )
+    #     (
+    #       (line_comment)+ @comment
+    #     )
+    #     (
+    #       (javadoc) @docstring
+    #     )
+    # """,
 
     Lang.JAVASCRIPT: """
         (

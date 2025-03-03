@@ -185,8 +185,8 @@ class KeywordParser:
         for root, dirs, files in tqdm(os.walk(source_code_path), desc="Parsing code comments"):
             tqdm.write(str(root))
             for file in files:
-                supported_languages = ext_to_lang.keys()
-                if any(file.endswith(ext) for ext in supported_languages):
+                supported_language_extensions = ext_to_lang.keys()
+                if Path(file).suffix[1:] in supported_language_extensions:
                     abs_path = os.path.join(root, file)
                     rel_path = os.path.normpath(os.path.relpath(abs_path, source_code_path)).replace("\\", "/")
                     try:
@@ -195,12 +195,12 @@ class KeywordParser:
                                                       **self.creds, url=self.generate_link(repo_url, rel_path)) for
                                             match in self.matched_keyword_iterator(text_content)])
                     except Exception as error:
-                        logger.error(f"Parse code comments failed for {self.creds.get_ref()}, {file=}: {error=}")
+                        logger.error(f"Parse code comments failed for {self.creds.get_ref()}, {file=}, {rel_path=}: {error=}")
         return matches
 
 
 def save_to_file(records: List[FullMatch], source: MatchSource, creds: Credentials, with_matched_text: bool = False):
-    base_dir = Path("metadata") / "keywords"
+    base_dir = Path("metadata") / "keywords" / "original"
     filename = f'{creds.get_ref(".")}.{source.value}.csv'
     if with_matched_text:
         resulting_filename = base_dir / "full" / filename
@@ -216,7 +216,8 @@ if __name__ == "__main__":
     docs_path = Path(".tmp/docs")
     source_code_path = Path(".tmp/source")
 
-    logger.add(create_logger_path("keyword_extraction"), mode="w")
+    run_id = "keyword_extraction_code_comments"
+    logger.add(create_logger_path(run_id), mode="w")
 
     # creds = Credentials(author="scverse", repo="scanpy", version="1.10.2", wiki="scanpy.readthedocs.io/en")
     # creds = Credentials({'author': 'root-project', 'repo': 'root', 'version': 'v6-32-06', 'wiki': 'https://root.cern'})
@@ -225,7 +226,7 @@ if __name__ == "__main__":
 
     # credential_list2 = [creds]
 
-    with shelve.open(".cache/keyword_extraction") as db:
+    with shelve.open(f".cache/{run_id}") as db:
         last_processed = db.get("last_processed", None)
         for creds in credential_list:
             if creds.get_ref() == last_processed:
@@ -239,15 +240,15 @@ if __name__ == "__main__":
                 append_full_text = False
                 parser = KeywordParser(quality_attributes, creds, append_full_text=append_full_text)
 
-                if creds.has_wiki():
-                    matches_wiki = parser.parse_wiki(str(docs_path / creds.wiki_dir))
-                    save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
+                # if creds.has_wiki():
+                #     matches_wiki = parser.parse_wiki(str(docs_path / creds.wiki_dir))
+                #     save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
 
                 matches_code_comments = parser.parse_comments(str(source_code_path / creds.get_ref()))
                 save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
 
-                matches_docs = parser.parse_docs(str(source_code_path / creds.get_ref()))
-                save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
+                # matches_docs = parser.parse_docs(str(source_code_path / creds.get_ref()))
+                # save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
             except Exception as e:
                 logger.error(f"Error processing {creds.get_ref()}: {str(e)}")
             finally:
