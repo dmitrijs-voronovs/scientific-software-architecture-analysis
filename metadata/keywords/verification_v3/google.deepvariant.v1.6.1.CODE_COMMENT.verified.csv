@@ -13489,3 +13489,573 @@ Instructions:
 4. If the content partially consists of logs, focus on analyzing remaining text. 
 5. Add `reasoning` why the content is a true or false positive.
 ",False,"The content provided consists entirely of copyright notices and license terms, which do not relate to modifiability. Modifiability concerns how easily a system can be changed, adapted, or modified, whereas this text pertains to software redistribution policies."
+Modifiability,"// -----------------------------------------------------------------------------; // Helper class for encoding VariantCall.info values in VCF FORMAT field values.; // This class is only intended for use with FORMAT fields that can be directly; // mapped between a VCF record and the FORMAT info dictionary, without special; // logic. Where special logic is needed (e.g. for GT, GL/PL, etc.), the lower; // level functions `ReadFormatValues` and `EncodeFormatValues` are called; // directly.; //; // The standard way to interact with this class is as follows.; //; // Create an adaptor for FORMAT field ""DP"" of integer type:; // VcfFormatFieldAdapter adapter(""DP"", BCF_HT_INT32);; //; // For each variant, we encode this format field into the vcf record:; // adapter.EncodeValues(variant, header, bcf_record);; //",adapt,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_conversion.h:577,adaptor,577,third_party/nucleus/io/vcf_conversion.h,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_conversion.h,3,['adapt'],"['adapter', 'adaptor']","The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // -----------------------------------------------------------------------------; // Helper class for encoding VariantCall.info values in VCF FORMAT field values.; // This class is only intended for use with FORMAT fields that can be directly; // mapped between a VCF record and the FORMAT info dictionary, without special; // logic. Where special logic is needed (e.g. for GT, GL/PL, etc.), the lower; // level functions `ReadFormatValues` and `EncodeFormatValues` are called; // directly.; //; // The standard way to interact with this class is as follows.; //; // Create an adaptor for FORMAT field ""DP"" of integer type:; // VcfFormatFieldAdapter adapter(""DP"", BCF_HT_INT32);; //; // For each variant, we encode this format field into the vcf record:; // adapter.EncodeValues(variant, header, bcf_record);; //
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,"The content describes a helper class for encoding VariantCall.info values in VCF FORMAT field values, which involves adapting the system by adding, removing, or modifying features. This relates to modifiability as it pertains to how well the system can be adapted and modified."
+Modifiability,"// A BED reader.; //; // BED files are flexible stores of information about a genome annotation track.; //; // https://genome.ucsc.edu/FAQ/FAQformat.html#format1; //; // This class provides a method to iterate through a BED file.; //; // The objects returned by iterate() are nucleus.genomics.v1.BedRecord; // objects parsed from the BED records in the file.; //; // Note: Only tab-delimited BED files are supported, for ease of future support; // for tabix-indexed BED file querying.; //",flexible,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/bed_reader.h:39,flexible,39,third_party/nucleus/io/bed_reader.h,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/bed_reader.h,1,['flexible'],['flexible'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // A BED reader.; //; // BED files are flexible stores of information about a genome annotation track.; //; // https://genome.ucsc.edu/FAQ/FAQformat.html#format1; //; // This class provides a method to iterate through a BED file.; //; // The objects returned by iterate() are nucleus.genomics.v1.BedRecord; // objects parsed from the BED records in the file.; //; // Note: Only tab-delimited BED files are supported, for ease of future support; // for tabix-indexed BED file querying.; //
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,"The content primarily consists of log statements and references to parsing BED files, which do not relate to modifiability. Modifiability concerns the ease of adapting a system to changes, whereas this content is about file handling and data parsing."
+Modifiability,"// A SAM/BAM/CRAM reader.; //; // SAM/BAM/CRAM files store information about next-generation DNA sequencing; // info:; //; // https://samtools.github.io/hts-specs/SAMv1.pdf; // https://samtools.github.io/hts-specs/CRAMv3.pdf; //; // These files are block-gzipped series of records. When aligned they are; // frequently sorted and indexed:; //; // http://www.htslib.org/doc/samtools.html; //; // This class provides methods to iterate through a BAM file or, if indexed,; // to also query() for only read overlapping a specific region on the genome.; //; // Uses the htslib C API for reading NGS reads (BAM, SAM, CRAM etc). For details; // of the API, see:; //; // https://github.com/samtools/htslib/tree/develop/htslib; //; // The objects returned by iterate() or query() are nucleus.genomics.v1.Read; // objects parsed from the SAM/BAM/CRAM records in the file. Currently all; // fields except the extended key/value maps in each BAM fields are parsed.; //",extend,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/sam_reader.h:898,extended,898,third_party/nucleus/io/sam_reader.h,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/sam_reader.h,1,['extend'],['extended'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // A SAM/BAM/CRAM reader.; //; // SAM/BAM/CRAM files store information about next-generation DNA sequencing; // info:; //; // https://samtools.github.io/hts-specs/SAMv1.pdf; // https://samtools.github.io/hts-specs/CRAMv3.pdf; //; // These files are block-gzipped series of records. When aligned they are; // frequently sorted and indexed:; //; // http://www.htslib.org/doc/samtools.html; //; // This class provides methods to iterate through a BAM file or, if indexed,; // to also query() for only read overlapping a specific region on the genome.; //; // Uses the htslib C API for reading NGS reads (BAM, SAM, CRAM etc). For details; // of the API, see:; //; // https://github.com/samtools/htslib/tree/develop/htslib; //; // The objects returned by iterate() or query() are nucleus.genomics.v1.Read; // objects parsed from the SAM/BAM/CRAM records in the file. Currently all; // fields except the extended key/value maps in each BAM fields are parsed.; //
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,"The provided content describes reading and parsing of SAM/BAM/CRAM files, which relates to data handling but does not directly address modifiability. Modifiability concerns how easily a system can be changed, such as adding or removing features. The content here is more about reading existing data rather than adapting or modifying the system."
+Modifiability,"// According to htslib docs, faidx_fetch_seq c_name is the contig name,; // start is the first base (zero-based) to include and end is the last base; // (zero-based) to include. Len is an output variable returning the length; // of the fetched region, -2 c_name not present, or -1 for a general error.; // The returned pointer must be freed. We need to subtract one from our end; // since end is exclusive in GenomeReference but faidx has an inclusive one.",variab,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/reference.cc:195,variable,195,third_party/nucleus/io/reference.cc,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/reference.cc,1,['variab'],['variable'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // According to htslib docs, faidx_fetch_seq c_name is the contig name,; // start is the first base (zero-based) to include and end is the last base; // (zero-based) to include. Len is an output variable returning the length; // of the fetched region, -2 c_name not present, or -1 for a general error.; // The returned pointer must be freed. We need to subtract one from our end; // since end is exclusive in GenomeReference but faidx has an inclusive one.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,"The content provided is purely log lines related to low-level implementation details in a library (htslib). It describes function parameters and return values, which are technical details rather than discussing how easily the system can be modified. There's no indication of modifiability such as ease of adapting the system or adjusting to new environments."
+Modifiability,"// Adapted from tensorflow/core/platform/default/integral_types.h; // TODO: replace this with inclusion of integral_types.h from absl,; // when it arrives.",Adapt,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/platform/types.h:3,Adapted,3,third_party/nucleus/platform/types.h,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/platform/types.h,1,['Adapt'],['Adapted'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Adapted from tensorflow/core/platform/default/integral_types.h; // TODO: replace this with inclusion of integral_types.h from absl,; // when it arrives.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The comment mentions 'TODO: replace this with inclusion of integral_types.h from absl,' which indicates that there's an intention to adapt or modify existing code, aligning with modifiability as the ease of adapting systems."
+Modifiability,"// Adapter to extract an iterable into a vector for examination in test code.",Adapt,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/testing/test_utils.h:3,Adapter,3,third_party/nucleus/testing/test_utils.h,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/testing/test_utils.h,1,['Adapt'],['Adapter'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Adapter to extract an iterable into a vector for examination in test code.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content discusses adapting a system to fit test code examination needs, which aligns with modifiability as it involves modifying systems for testing purposes."
+Modifiability,"// Adapter to extract an iterable into a vector for examination in test code; // from a StatusOr<std::shared_ptr<Iterable<Record>>>.",Adapt,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/testing/test_utils.h:3,Adapter,3,third_party/nucleus/testing/test_utils.h,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/testing/test_utils.h,1,['Adapt'],['Adapter'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Adapter to extract an iterable into a vector for examination in test code; // from a StatusOr<std::shared_ptr<Iterable<Record>>>.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,"The content discusses adapting an iterable into a vector for test code examination, which relates to modifying the system's features (modifying an iterable). However, while this does involve modifications, it is more about adapting existing components rather than assessing the broader modifiability of the system. The attribute description emphasizes factors like coupling and cohesion in determining costs and impacts of changes, but the content doesn't delve into these aspects; it focuses on a specific adaptation for test purposes."
+Modifiability,"// Allele support for each read. Map is keyed by read id. Alleles are sorted; // by position. This map allows to quickly query all alleles that a read; // supports. Boolean variable designates if read to allele support is; // low_quality. If true then read supports the allele with low quality.",variab,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/deepvariant/direct_phasing.h:173,variable,173,deepvariant/direct_phasing.h,,https://github.com/google/deepvariant/tree/v1.6.1/deepvariant/direct_phasing.h,1,['variab'],['variable'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Allele support for each read. Map is keyed by read id. Alleles are sorted; // by position. This map allows to quickly query all alleles that a read; // supports. Boolean variable designates if read to allele support is; // low_quality. If true then read supports the allele with low quality.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content discusses modifiability in terms of how the system's design allows for changes to be made effectively. It talks about how reads are keyed by IDs and alleles are sorted, which contributes to the modifiability by allowing quick modifications and queries."
+Modifiability,"// Check if configuration has disabled this FORMAT field.",config,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_conversion.cc:12,configuration,12,third_party/nucleus/io/vcf_conversion.cc,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_conversion.cc,1,['config'],['configuration'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Check if configuration has disabled this FORMAT field.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content '// Check if configuration has disabled this FORMAT field.' suggests checking configurations related to system features, which aligns with modifiability as it involves assessing how easily the system can be modified or adjusted. The mention of 'FORMAT field' could refer to a specific feature or setting that might need to be enabled or modified, tying into the attribute's focus on adaptability and change management in systems."
+Modifiability,"// Check if configuration has disabled this INFO field.",config,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_conversion.cc:12,configuration,12,third_party/nucleus/io/vcf_conversion.cc,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_conversion.cc,1,['config'],['configuration'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Check if configuration has disabled this INFO field.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content is related to system configuration, specifically checking if an INFO field is disabled. This relates to how easily the system can be modified by disabling certain features or fields, which ties into modifiability as it involves adjustments to the system's behavior."
+Modifiability,"// Configures a MessageDifferencer and DefaultFieldComparator to use the logic; // described in comp. The configured differencer is the output of this function,; // but a FieldComparator must be provided to keep ownership clear.",Config,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/testing/protocol-buffer-matchers.cc:3,Configures,3,third_party/nucleus/testing/protocol-buffer-matchers.cc,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/testing/protocol-buffer-matchers.cc,2,"['Config', 'config']","['Configures', 'configured']","The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Configures a MessageDifferencer and DefaultFieldComparator to use the logic; // described in comp. The configured differencer is the output of this function,; // but a FieldComparator must be provided to keep ownership clear.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,"The content discusses configuring components like MessageDifferencer and FieldComparator, which are about system customization and adaptation, aligning with modifiability."
+Modifiability,"// Copy input cigar into the local variable since it can be modified.",variab,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/deepvariant/allelecounter.cc:35,variable,35,deepvariant/allelecounter.cc,,https://github.com/google/deepvariant/tree/v1.6.1/deepvariant/allelecounter.cc,1,['variab'],['variable'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Copy input cigar into the local variable since it can be modified.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,"The content mentions 'copy input cigar into the local variable since it can be modified', which refers to copying data into a variable for potential modification. This indicates that the system is designed in a way that allows for easy changes, aligning with modifiability. However, without more context, it's unclear if this specific operation is part of a larger modifiable system or just a simple data handling task."
+Modifiability,"// Creates a new SamReader reading from the SAM/BAM/CRAM file reads_path.; //; // reads_path must point to an existing SAM/BAM/CRAM formatted file (text SAM,; // compressed or uncompressed BAM file, CRAM files in all sorts of flavors).; //; // ref_path can be """", in which case the argument is ignored, or must point; // to an existing FASTA file. If not """" and the reads_path points to a CRAM; // file, the CRAM_OPT_REFERNECE field will be set to this path so that the; // CRAM decoder uses ref_path to decode the reference-compressed read; // sequences in the CRAM file. Because many low-level IO routines (e.g. stat); // are currently directly used in the CRAM implementation in htslib, ref_path; // must be on a local (e.g., POSIX accessible) mount point. File system access; // provided by htslib plugins (e.g., S3) won't work.; //; // If the filetype is BAM/CRAM, this constructor will attempt to load a BAI or; // CRAI index from file reads_path + '.bai' or reads_path (without the .bam; // extension) + '.bai'; if the index is not found, attempts to Query will; // fail.; //; // Returns a StatusOr that is OK if the SamReader could be successfully; // created or an error code indicating the error that occurred.",plugin,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/sam_reader.h:802,plugins,802,third_party/nucleus/io/sam_reader.h,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/sam_reader.h,1,['plugin'],['plugins'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Creates a new SamReader reading from the SAM/BAM/CRAM file reads_path.; //; // reads_path must point to an existing SAM/BAM/CRAM formatted file (text SAM,; // compressed or uncompressed BAM file, CRAM files in all sorts of flavors).; //; // ref_path can be """", in which case the argument is ignored, or must point; // to an existing FASTA file. If not """" and the reads_path points to a CRAM; // file, the CRAM_OPT_REFERNECE field will be set to this path so that the; // CRAM decoder uses ref_path to decode the reference-compressed read; // sequences in the CRAM file. Because many low-level IO routines (e.g. stat); // are currently directly used in the CRAM implementation in htslib, ref_path; // must be on a local (e.g., POSIX accessible) mount point. File system access; // provided by htslib plugins (e.g., S3) won't work.; //; // If the filetype is BAM/CRAM, this constructor will attempt to load a BAI or; // CRAI index from file reads_path + '.bai' or reads_path (without the .bam; // extension) + '.bai'; if the index is not found, attempts to Query will; // fail.; //; // Returns a StatusOr that is OK if the SamReader could be successfully; // created or an error code indicating the error that occurred.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,"The provided code snippet discusses file reading and handling for SAM/BAM/CRAM files, including error checking and configuration settings. This context pertains to data input/output management rather than system modifiability, which involves adaptability to changes or new environments. The content does not address how the system can be easily adapted, modified, or adjusted in response to new requirements or changes, nor does it discuss the impact of modifications on the system's performance or maintainability. Instead, it focuses on file handling specifics and error states, which are related to data management rather than modifiability."
+Modifiability,"// Creates a new adapter for a field name field_name.",adapt,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_conversion.h:17,adapter,17,third_party/nucleus/io/vcf_conversion.h,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_conversion.h,2,['adapt'],['adapter'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Creates a new adapter for a field name field_name.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The creation of an adapter suggests that the system can be modified to accommodate new field name requirements, which aligns with modifiability."
+Modifiability,"// Creates a polymorphic matcher that matches a 2-tuple where; // first.Equivalent(second) is true.",polymorphi,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/testing/protocol-buffer-matchers.h:13,polymorphic,13,third_party/nucleus/testing/protocol-buffer-matchers.h,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/testing/protocol-buffer-matchers.h,1,['polymorphi'],['polymorphic'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Creates a polymorphic matcher that matches a 2-tuple where; // first.Equivalent(second) is true.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,"The provided code snippet refers to creating a polymorphic matcher using a 2-tuple where first.Equivalent(second) is true. This discusses the implementation of a specific functionality (matcher creation) rather than addressing modifiability, which involves adapting or modifying existing features. The term 'polymorphic' relates more to design aspects like flexibility in behavior based on different types, but it doesn't directly tie to ease of modification or system adaptability."
+Modifiability,"// Gets the basepairs in the FASTA file from Range range.; //; // This follows the Range convention of getting bases from start; // (inclusive) to end (exclusive), both 0-based. That is,; // GetBases(Range(""chr1"", 2, 4)) gets a string starting with the *3rd* base on; // chr1 and extending through the *4th* base (excluding 4 as an offset).; // If chr isn't present in this reference, start is invalid or end is beyond; // the length of chr, returns a value whose status is not ok().",extend,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/reference.h:280,extending,280,third_party/nucleus/io/reference.h,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/reference.h,1,['extend'],['extending'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Gets the basepairs in the FASTA file from Range range.; //; // This follows the Range convention of getting bases from start; // (inclusive) to end (exclusive), both 0-based. That is,; // GetBases(Range(""chr1"", 2, 4)) gets a string starting with the *3rd* base on; // chr1 and extending through the *4th* base (excluding 4 as an offset).; // If chr isn't present in this reference, start is invalid or end is beyond; // the length of chr, returns a value whose status is not ok().
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content discusses how to extract specific ranges of data from a FASTA file, which relates to modifiability as it involves adapting and accessing parts of the system (i.e., DNA sequences). Modifying or adjusting these accesses can be seen as part of adapting the system."
+Modifiability,"// Helper method to update other member variables when |header_| is changed.; // This can happen during initialization or when a new header field is; // encountered while reading.",variab,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_reader.h:40,variables,40,third_party/nucleus/io/vcf_reader.h,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_reader.h,1,['variab'],['variables'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Helper method to update other member variables when |header_| is changed.; // This can happen during initialization or when a new header field is; // encountered while reading.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content describes a helper method for updating other member variables when a header field is changed. This suggests that the system allows modifications to be made, fitting the definition of modifiability which includes adapting systems by making changes."
+Modifiability,"// Install adapters for FORMAT fields.",adapt,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_conversion.cc:11,adapters,11,third_party/nucleus/io/vcf_conversion.cc,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_conversion.cc,1,['adapt'],['adapters'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Install adapters for FORMAT fields.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content refers to installing adapters for FORMAT fields, which suggests that the system can be modified by adding components (adapters) without significantly impacting other parts of the system, aligning with modifiability."
+Modifiability,"// Install adapters for INFO fields.",adapt,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_conversion.cc:11,adapters,11,third_party/nucleus/io/vcf_conversion.cc,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_conversion.cc,1,['adapt'],['adapters'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Install adapters for INFO fields.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,"The content mentions installing adapters for INFO fields but does not discuss how this affects modifiability. Modifiability involves ease of adapting the system to changes, which may involve factors like adding/removing features, costs of changes, etc. The content provided does not address these aspects and seems more related to system configuration or setup rather than the ability to modify the system itself."
+Modifiability,"// Lookup table for genotype FORMAT field adapters by VCF tag name.; // The order of adapter definitions here determines the order of the fields; // in a written VCF.",adapt,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_conversion.h:42,adapters,42,third_party/nucleus/io/vcf_conversion.h,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_conversion.h,2,['adapt'],"['adapter', 'adapters']","The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Lookup table for genotype FORMAT field adapters by VCF tag name.; // The order of adapter definitions here determines the order of the fields; // in a written VCF.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,"The content appears to be related to VCF (Variant Call Format) file handling, specifically adapter definitions for genotype formatting. This context focuses on data processing and structural aspects of handling genetic variant data rather than the modifiable nature of a system or its adaptability to changes. The description mentions lookup tables and ordering of adapters, which are more about implementation details rather than the ease of modification or adaptation."
+Modifiability,"// Lookup table for variant INFO fields adapters by VCF tag name.; // The order of adapter definitions here determines the order of the fields; // in a written VCF.",adapt,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_conversion.h:40,adapters,40,third_party/nucleus/io/vcf_conversion.h,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_conversion.h,2,['adapt'],"['adapter', 'adapters']","The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Lookup table for variant INFO fields adapters by VCF tag name.; // The order of adapter definitions here determines the order of the fields; // in a written VCF.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content refers to variant adapters in VCF format, which relates to system modifications and adaptability."
+Modifiability,"// Peeks into the GFF file to extract the header.; // TODO: refactor header reading",refactor,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/gff_reader.cc:60,refactor,60,third_party/nucleus/io/gff_reader.cc,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/gff_reader.cc,1,['refactor'],['refactor'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Peeks into the GFF file to extract the header.; // TODO: refactor header reading
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,"The content appears to be code-related comments and a TODO, which are more related to technical implementation details rather than modifiability. Modifiability focuses on how easily a system can be adapted or modified, considering factors like coupling and cohesion. These comments do not directly address such aspects; they instead deal with specific tasks (like refactoring) that contribute indirectly to modifiability but are not direct evidence of the attribute."
+Modifiability,"// Returns true if the current site should be emited, even if it's a reference; // site. This function is used to return reference site samples if the; // member variable fraction_reference_sites_to_emit >= 0.0 by pulling draws; // from a random number and returning true if the number <= the threshold.",variab,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/deepvariant/variant_calling.cc:162,variable,162,deepvariant/variant_calling.cc,,https://github.com/google/deepvariant/tree/v1.6.1/deepvariant/variant_calling.cc,2,['variab'],['variable'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Returns true if the current site should be emited, even if it's a reference; // site. This function is used to return reference site samples if the; // member variable fraction_reference_sites_to_emit >= 0.0 by pulling draws; // from a random number and returning true if the number <= the threshold.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,"The content appears to be code comments or log statements (e.g., '// Returns true if...'). These typically do not directly discuss modifiability but rather describe function behavior. Modifiability concerns how easily the system can be altered, which is not addressed here."
+Modifiability,"// Tests are parameterized by: reader factory, cache size.",parameteriz,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/reference_test.cc:13,parameterized,13,third_party/nucleus/io/reference_test.cc,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/reference_test.cc,1,['parameteriz'],['parameterized'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // Tests are parameterized by: reader factory, cache size.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,"The content describes tests being parameterized by specific factors, which relates to how easily the system can be modified or adapted through test parameters rather than directly modifying the code. However, this does not directly address the modifiability of the system itself but rather focuses on testing mechanisms. Modifiability concerns changes in the system's design and implementation, such as adding features or adjusting to new environments. The content discusses parameterization of tests, which is more about testability than modifiability."
+Modifiability,"// The maximum value that we will consider for fragment length.; // TODO: make this value configurable as a flag",config,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/deepvariant/pileup_channel_lib.h:90,configurable,90,deepvariant/pileup_channel_lib.h,,https://github.com/google/deepvariant/tree/v1.6.1/deepvariant/pileup_channel_lib.h,1,['config'],['configurable'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // The maximum value that we will consider for fragment length.; // TODO: make this value configurable as a flag
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content discusses the need to make a value configurable as a flag, which relates to modifiability because it involves adjusting system components to accommodate changes without impacting other parts of the system. This adjustment can be done efficiently by making configuration parameters mutable and easily changeable, thereby enhancing the system's ability to adapt to new requirements."
+Modifiability,"// There are two reads that don't have a MAPQ60. The 0 MAPQ is flagged as; // unmapped, and there is another with MAPQ of 37. We test below that we get; // the right number of reads for each configuration of requirements.",config,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/sam_reader_test.cc:191,configuration,191,third_party/nucleus/io/sam_reader_test.cc,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/sam_reader_test.cc,1,['config'],['configuration'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // There are two reads that don't have a MAPQ60. The 0 MAPQ is flagged as; // unmapped, and there is another with MAPQ of 37. We test below that we get; // the right number of reads for each configuration of requirements.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content discusses system configurations and testing for specific requirements, which relates to how well the system can adapt to changes in requirements. It mentions 'requirements configuration' and testing, indicating considerations around modifiability by ensuring proper handling of different requirement setups."
+Modifiability,"// These API extends Write() method to enable somatic processing.",extend,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_writer.h:13,extends,13,third_party/nucleus/io/vcf_writer.h,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/vcf_writer.h,1,['extend'],['extends'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // These API extends Write() method to enable somatic processing.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,The content is only a comment and does not provide any meaningful information about modifiability.
+Modifiability,"// This algorithm is simple and fast, but it isn't the most straightforward; // implementation so it merits a few comments.; //; // Suppose I have the following data:; //; // offset: 01234567; // bases: ACGTAACC; // bad? : 00010000; // k_ : 2 <= using a kmer size of 2; //; // The algorithm below loops over positions (variable `i`), pulling kmers of; // length k from positions `i` and `i + 1` to add as edges. The key; // calculation is NextBadPosition that searches from the current `i` position; // for the next position that is bad. In the above example, this would be the; // 3 position. We then loop from i until `next_bad_position - k`, to create; // our edges, since we know that everything from i to next_bad_position is; // good but we cannot construct a valid kmer that overlaps next_bad_position; // so it invalidates all kmer starts from `next_bad_position - k`. Finally, we; // set i to `next_bad_position + 1`, which is the very next starting position; // after the last bad position, and the algorithm repeats.; //; // This algorithm has many important properties for performance:; //; // * It doesn't allocate any data structures to support the calculation.; // * It only examines whether a given position is good/bad once.; // * The loop to add edges is streamlined, without any unnecessary checks.; //",variab,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/deepvariant/realigner/debruijn_graph.cc:319,variable,319,deepvariant/realigner/debruijn_graph.cc,,https://github.com/google/deepvariant/tree/v1.6.1/deepvariant/realigner/debruijn_graph.cc,1,['variab'],['variable'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // This algorithm is simple and fast, but it isn't the most straightforward; // implementation so it merits a few comments.; //; // Suppose I have the following data:; //; // offset: 01234567; // bases: ACGTAACC; // bad? : 00010000; // k_ : 2 <= using a kmer size of 2; //; // The algorithm below loops over positions (variable `i`), pulling kmers of; // length k from positions `i` and `i + 1` to add as edges. The key; // calculation is NextBadPosition that searches from the current `i` position; // for the next position that is bad. In the above example, this would be the; // 3 position. We then loop from i until `next_bad_position - k`, to create; // our edges, since we know that everything from i to next_bad_position is; // good but we cannot construct a valid kmer that overlaps next_bad_position; // so it invalidates all kmer starts from `next_bad_position - k`. Finally, we; // set i to `next_bad_position + 1`, which is the very next starting position; // after the last bad position, and the algorithm repeats.; //; // This algorithm has many important properties for performance:; //; // * It doesn't allocate any data structures to support the calculation.; // * It only examines whether a given position is good/bad once.; // * The loop to add edges is streamlined, without any unnecessary checks.; //
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,"The provided content discusses an algorithm's implementation details and performance properties, such as not allocating data structures and efficiency in checks. While this relates to software quality by focusing on performance, it does not specifically address modifiability. Modifiability concerns the ease of adapting a system to changes or additions, which involves factors like coupling and cohesion. The content does not mention any aspects related to modifying or adjusting features; instead, it details technical implementation aspects that are more about efficiency than adaptability."
+Modifiability,"// This is the base class that client code should extend.",extend,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/reader_base.h:50,extend,50,third_party/nucleus/io/reader_base.h,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/io/reader_base.h,1,['extend'],['extend'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // This is the base class that client code should extend.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,"The content only contains '// This is the base class that client code should extend.' and no other text. Since it's only a comment, there’s no relevant information about modifiability. Therefore, this doesn't relate to the quality attribute."
+Modifiability,"// namespace internal; // Creates a polymorphic matcher that matches a 2-tuple where; // first.Equals(second) is true.",polymorphi,MatchSource.CODE_COMMENT,google,deepvariant,v1.6.1,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/testing/protocol-buffer-matchers.h:36,polymorphic,36,third_party/nucleus/testing/protocol-buffer-matchers.h,,https://github.com/google/deepvariant/tree/v1.6.1/third_party/nucleus/testing/protocol-buffer-matchers.h,1,['polymorphi'],['polymorphic'],"The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Modifiability
+Attribute Description: The ease with which the system can be adapted by adding, removing, or modifying features, or adjusting to new environments. This attribute involves assessing the time, cost, and impact of changes, considering factors like coupling, cohesion, and the scope of modifications.
+Content: // namespace internal; // Creates a polymorphic matcher that matches a 2-tuple where; // first.Equals(second) is true.
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",False,The provided content is log statements and does not contain any text that directly relates to modifiability.
