@@ -24,24 +24,6 @@ from utils.utils import create_logger_path
 # Load environment variables from .env file
 dotenv.load_dotenv()
 
-LOCAL_LLM_HOST = "http://localhost:11434"
-
-@retry(stop=stop_after_attempt(6), wait=wait_fixed(3), after=lambda retry_state: logger.warning(retry_state),
-    reraise=True, )
-def request_gemma(prompt):
-    url = "%s/api/generate" % LOCAL_LLM_HOST
-
-    payload = json.dumps({"model": "gemma", "prompt": prompt, "stream": False})
-    response = requests.request("POST", url, headers={'Content-Type': 'application/json'}, data=payload).json()
-
-    try:
-        text_resp = re.sub(r'```json|```', "", response['response'])
-        json_resp = json.loads(text_resp)
-        return json_resp['false_positive'], json_resp['reasoning']
-    except Exception as e:
-        raise Exception(f"Error in response: {response['response']}", e)
-
-
 false_positive_prompt = """
 You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
 
@@ -96,12 +78,11 @@ class OllamaTacticSecondPass(BaseModel):
 
 # @retry(stop=stop_after_attempt(6), wait=wait_fixed(3), after=lambda retry_state: logger.warning(retry_state),
 #     reraise=True, )
-def request_ollama_chain(prompts: List[str]) -> List[OllamaTacticFirstPass]:
-    url = "%s/api/generate" % LOCAL_LLM_HOST
+def request_ollama_chain(prompts: List[str], base_url: str) -> List[OllamaTacticFirstPass]:
     # model_name = "gemma"
     # model_name = "gemma2"
     model_name = "deepseek-r1:8b"
-    model  = ChatOllama(model=model_name, base_url=LOCAL_LLM_HOST, format=OllamaTacticFirstPass.model_json_schema())
+    model  = ChatOllama(model=model_name, base_url=base_url, format=OllamaTacticFirstPass.model_json_schema())
     batch_answers = model.batch(prompts)
     return [OllamaTacticFirstPass.model_validate_json(answer.content) for answer in batch_answers]
 
@@ -137,9 +118,9 @@ def cleanup_and_exit(signal_num, frame):
 signal.signal(signal.SIGINT, cleanup_and_exit)
 
 
-def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
-    os.makedirs(f".cache/{FolderNames.CATEGORIZATION_DIR}/", exist_ok=True)
-    with shelve.open(f".cache/{FolderNames.CATEGORIZATION_DIR}/{file_path.stem}") as db:
+def verify_file_batched_llm(file_path: Path, res_filepath: Path, host: str,  batch_size=10):
+    os.makedirs(f".cache/{FolderNames.ARCHITECTURE_TACTICS}/", exist_ok=True)
+    with shelve.open(f".cache/{FolderNames.ARCHITECTURE_TACTICS}/{file_path.stem}") as db:
         if db.get("processed", False):
             logger.info(f"File {file_path.stem} already processed")
             return
@@ -166,7 +147,7 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
             prompts = batch_df['first_pass_prompt'].tolist()
 
             try:
-                responses = request_ollama_chain(prompts)  # New batch query
+                responses = request_ollama_chain(prompts, host)  # New batch query
                 processed_responses = [(r.tactic, r.tactic_details) for r in responses]
                 res.extend(processed_responses)
             except RetryError as error:
@@ -195,53 +176,26 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
         logger.info(f"Processed {file_path.stem}")
 
 
-def main():
+def extract_tactics(host, only_files_containing_text: List[str] = [], reverse: bool = False):
     keyword_folder = Path("metadata/keywords/")
     optimized_keyword_folder = keyword_folder / FolderNames.ARCHITECTURE_VERIFICATION_DIR
-    merged_arch_folder = keyword_folder / FolderNames.ARCHITECTURE_TACTICS
-    categorization_folder = keyword_folder / FolderNames.CATEGORIZATION_DIR
     os.makedirs(".logs", exist_ok=True)
-    os.makedirs(optimized_keyword_folder, exist_ok=True)
-    os.makedirs(merged_arch_folder, exist_ok=True)
-    os.makedirs(categorization_folder, exist_ok=True)
-    logger.add(create_logger_path(FolderNames.ARCHITECTURE_VERIFICATION_DIR), mode="w")
-
-
-
-    # with shelve.open(f".cache/verification/psi4.psi4.v1.9.1.DOCS") as db:
-    #     db['idx'] = 6720
-
-    # file_path = Path("./metadata/keywords/verification/big_sample2.csv")
-
-    # creds = [
-    #     Credentials(
-    #         {'author': 'scverse', 'repo': 'scanpy', 'version': '1.10.2', 'wiki': 'https://scanpy.readthedocs.io'}),
-    #     Credentials({'author': 'allenai', 'repo': 'scispacy', 'version': 'v0.5.5',
-    #                  'wiki': 'https://allenai.github.io/scispacy/'}),
-    #     Credentials({'author': 'qutip', 'repo': 'qutip', 'version': 'v5.0.4', 'wiki': 'https://qutip.org'}),
-    #     Credentials({'author': 'hail-is', 'repo': 'hail', 'version': '0.2.133', 'wiki': 'https://hail.is'}),
-    # ]
-    creds = credential_list
+    os.makedirs(keyword_folder / FolderNames.ARCHITECTURE_TACTICS, exist_ok=True)
+    logger.add(create_logger_path(FolderNames.ARCHITECTURE_TACTICS), mode="w")
 
     try:
-        file_path = Path("metadata/results/architecture_verification_analysis_TRUE.csv")
-        res_filepath = keyword_folder / f"{FolderNames.CATEGORIZATION_DIR}/{file_path.stem}.categorized.csv"
-        verify_file_batched_llm(file_path, res_filepath, 10)  # res_filepath = file_path.with_stem("test123")
-        # # for file_path in verification_folder.glob("*.csv"):
-        # for file_path in optimized_keyword_folder.glob("*.csv"):
-        #     if MatchSource.ISSUE_COMMENT.value in file_path.stem:
-        #         pass
-        #     else:
-        #         continue
-        #     # if MatchSource.CODE_COMMENT.value in file_path.stem:
-        #     #     logger.info(f"Skipping CODE_COMMENTS for {file_path.stem}, as dataset is incomplete")
-        #     #     continue
-        #     if any(cred.get_ref(".") in file_path.stem for cred in creds):
-        #         res_filepath = keyword_folder / f"{FolderNames.ARCHITECTURE_VERIFICATION_DIR}/{file_path.stem}.arch_verified.csv"
-        #         verify_file_batched_llm(file_path, res_filepath, 10)  # res_filepath = file_path.with_stem("test123")
+        for file_path in optimized_keyword_folder.glob("*.csv"):
+            if any(cred.get_ref(".") in file_path.stem for cred in (credential_list)):
+                keep_processing = any(text_to_test in file_path.stem for text_to_test in only_files_containing_text)
+                if keep_processing == reverse:
+                    continue
+
+                res_filepath = keyword_folder / f"{FolderNames.ARCHITECTURE_VERIFICATION_DIR}/{file_path.stem}.tactics.csv"
+                verify_file_batched_llm(file_path, res_filepath, 10)  # res_filepath = file_path.with_stem("test123")
     except Exception as e:
         logger.error(e)
 
+LOCAL_LLM_HOST = "http://localhost:11434"
 
 if __name__ == "__main__":
-    main()
+    extract_tactics(LOCAL_LLM_HOST)
