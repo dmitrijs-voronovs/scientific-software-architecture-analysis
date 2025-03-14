@@ -267,4 +267,32 @@ tactics:
           - name: Maintain system model
             description: Determines expected system behavior so that appropriate feedback can be given to the user.
 
+  - quality_attribute: Energy Efficiency
+    tactic_categories:
+      - category_name: Resource Monitoring
+        tactics:
+          - name: Metering
+            description: Collecting data about the energy consumption of computational devices via a sensor infrastructure in real time.
+          - name: Static Classification
+            description: Statically classifying devices and computational resources based on benchmarking or reported device characteristics when real-time data collection is infeasible.
+          - name: Dynamic Classification
+            description: Using dynamic models that take into consideration transient conditions to determine energy consumption when real-time data collection is infeasible.
+      - category_name: Resource Allocation
+        tactics:
+          - name: Vertical Scaling
+            description: Adding or activating resources to meet processing demands, or removing/deactivating resources when demands no longer require them.
+          - name: Horizontal Scaling
+            description: Adding additional servers, VMs, or resources to an existing pool for scaling up, or removing/idling such resources for energy efficiency.
+          - name: Scheduling
+            description: Allocating tasks to computational resources to optimize energy usage while respecting task constraints and priorities.
+          - name: Brokering
+            description: Matching service requests with service providers based on energy information to allow choosing providers based on their energy characteristics.
+      - category_name: Resource Adaptation
+        tactics:
+          - name: Service Adaptation
+            description: Dynamically switching computational resources to ones that offer better energy efficiency or lower energy costs.
+          - name: Increase Efficiency
+            description: Improving the time or memory performance of critical algorithms to enhance energy efficiency, or matching service requests to hardware best suited for those requests.
+          - name: Reduce Overhead
+            description: Co-locating resources and removing intermediaries and abstractions to reduce computational overhead and energy demands.
 

@@ -43,7 +43,7 @@ class TacticsModel(BaseModel):
 """
 
 def to_camel_case(s: str, suffix: str = 'Model'):
-    components = [f"{item[0].upper()}{item[1:].lower()}" for item in re.split(r'(?: \W?)+|-', s)]
+    components = [f"{item[0].upper()}{item[1:].lower()}" for item in re.split(r'(?: \W?)+|-|/', s)]
     return ''.join(components) + suffix
 
 def generate_tactic_class(x: TacticDefinition):
