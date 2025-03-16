@@ -1,3 +1,4 @@
+import math
 import os
 import shelve
 import signal
@@ -30,10 +31,12 @@ def request_ollama_chain(prompts: List[str], base_url: str) -> List[TacticSimpli
     model_name = "deepseek-r1:8b"
     model = ChatOllama(model=model_name, base_url=base_url, format=TacticSimplifiedModel.model_json_schema())
     batch_answers = model.batch(prompts)
-    print(batch_answers)
     return [TacticSimplifiedModel.model_validate_json(answer.content) for answer in batch_answers]
 
-tactic_descriptions_list = "\n".join(f"- {tactic}: (quality attribute '{details["quality_attribute"]}', category '{details["tactic_category"]}') {details["description"]}" for tactic, details in tactic_descriptions_full.items())
+
+tactic_descriptions_list = "\n".join(
+    f"- {tactic}: (quality attribute '{details["quality_attribute"]}', category '{details["tactic_category"]}') {details["description"]}"
+    for tactic, details in tactic_descriptions_full.items())
 
 tactic_prompt = lambda x: f"""
 You are an expert in evaluating and categorizing architecture tactics in software engineering. You possess the necessary skills to categorize text according to software architecture tactics, quality attributes, and responses.
@@ -43,7 +46,7 @@ Given a piece of text related to software architecture, your task is to:
 2. Provide a clear "response" which in the context of software architecture refers to the activity undertaken by the system (for runtime qualities) or the developers (for development-time qualities) as a result of the arrival of a stimulus
 
 Analyze the following text:
-{x}
+{x["sentence"]}
 
 Concept of Tactic, Quality Attribute, and Response:
 - An architectural tactic is a design decision that directly affects a system's response to a stimulus, influencing the achievement of a quality attribute. The primary purpose of tactics is to achieve desired quality attributes by imparting specific qualities to a design.
@@ -130,18 +133,20 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, host: str, batc
         df['tactic_prompt'] = df.apply(lambda x: tactic_prompt(x), axis=1)
         res = []
 
-        for i in tqdm(range(0, len(df), batch_size), total=len(df) // batch_size,
+        for i in tqdm(range(0, len(df), batch_size), total=math.ceil(len(df) / batch_size),
                       desc=f"Verifying {file_path.stem} in batches of {batch_size}"):
             batch_df = df.iloc[i:i + batch_size]
             prompts = batch_df['tactic_prompt'].tolist()
 
             try:
                 responses = request_ollama_chain(prompts, host)  # New batch query
-                processed_responses = [(r.tactic, r.response) for r in responses]
+                processed_responses = [((full_tactic := tactic_descriptions_full[r.tactic])["quality_attribute"],
+                                        full_tactic["tactic_category"], r.tactic, full_tactic["description"],
+                                        r.response) for r in responses]
                 res.extend(processed_responses)
             except RetryError as error:
                 logger.error(f"Retry error at batch starting index {last_idx + i}, {error}")
-                responses = [(None, str(error))] * len(batch_df)
+                responses = [(None, None, None, None, str(error))] * len(batch_df)
                 res.extend(responses)
             except Exception as e:
                 logger.error(e)
@@ -150,24 +155,21 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, host: str, batc
                 if any(error in str(e) for error in errors_for_termination):
                     logger.error("HTTPConnectionPool error, exiting")
                     exit(1)
-                responses = [(None, str(e))] * len(batch_df)
+                responses = [(None, None, None, None, str(e))] * len(batch_df)
                 res.extend(responses)
 
             df_to_save = df.iloc[:i + batch_size].copy()
             df_to_save['arch_quality_attribute'], df_to_save['arch_tactic_category'], df_to_save['arch_tactic'], \
-                df_to_save['arch_response'] = zip(*res)
+            df_to_save['arch_tactic_description'], df_to_save['arch_response'] = zip(*res)
             df_to_save.to_csv(res_filepath, index=False)
             db["idx"] = last_idx + i + batch_size
-
-        df_to_save['arch_quality_attribute'], df_to_save['arch_tactic_category'], df_to_save['arch_tactic'], df_to_save[
-            'arch_response'] = zip(*res)
-        df.to_csv(res_filepath, index=False)
 
         db['processed'] = True
         logger.info(f"Processed {file_path.stem}")
 
 
-def extract_tactics(host, only_files_containing_text: List[str] = [], reverse: bool = False):
+def extract_tactics(host, only_files_containing_text: List[str] | None = None, reverse: bool = False):
+    only_files_containing_text = only_files_containing_text or []
     keyword_folder = Path("metadata/keywords/")
     optimized_keyword_folder = keyword_folder / FolderNames.ARCHITECTURE_VERIFICATION_DIR
     os.makedirs(".logs", exist_ok=True)
@@ -182,7 +184,7 @@ def extract_tactics(host, only_files_containing_text: List[str] = [], reverse: b
                 if keep_processing == reverse:
                     continue
 
-                res_filepath = keyword_folder / f"{FolderNames.ARCHITECTURE_VERIFICATION_DIR}/{file_path.stem}.tactics.csv"
+                res_filepath = keyword_folder / f"{FolderNames.ARCHITECTURE_TACTICS}/{file_path.stem}.tactics.csv"
                 verify_file_batched_llm(file_path, res_filepath, host,
                                         10)  # res_filepath = file_path.with_stem("test123")
     except Exception as e:
@@ -192,4 +194,4 @@ def extract_tactics(host, only_files_containing_text: List[str] = [], reverse: b
 LOCAL_LLM_HOST = "http://localhost:11435"
 
 if __name__ == "__main__":
-    extract_tactics(LOCAL_LLM_HOST)
+    extract_tactics(LOCAL_LLM_HOST, ["root-project.root.v6-32-06."])

@@ -1,4 +1,5 @@
 import json
+import math
 import os
 import re
 import shelve
@@ -305,7 +306,7 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
         df['prompt'] = df.apply(lambda x: to_prompt_for_chain(x), axis=1)
         res = []
 
-        for i in tqdm(range(0, len(df), batch_size), total=len(df) // batch_size, desc=f"Verifying {file_path.stem} in batches of {batch_size}"):
+        for i in tqdm(range(0, len(df), batch_size), total=math.ceil(len(df) / batch_size), desc=f"Verifying {file_path.stem} in batches of {batch_size}"):
             batch_df = df.iloc[i:i + batch_size]
             prompts = batch_df['prompt'].tolist()
 

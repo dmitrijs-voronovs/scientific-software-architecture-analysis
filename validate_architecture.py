@@ -1,4 +1,5 @@
 import json
+import math
 import os
 import re
 import shelve
@@ -158,7 +159,7 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, host: str, batc
         df['arch_prompt'] = df.apply(lambda x: to_prompt_about_architecture(x), axis=1)
         res = []
 
-        for i in tqdm(range(0, len(df), batch_size), total=len(df) // batch_size, desc=f"Verifying {file_path.stem} in batches of {batch_size}"):
+        for i in tqdm(range(0, len(df), batch_size), total=math.ceil(len(df) / batch_size), desc=f"Verifying {file_path.stem} in batches of {batch_size}"):
             batch_df = df.iloc[i:i + batch_size]
             prompts = batch_df['arch_prompt'].tolist()
 
@@ -193,7 +194,8 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, host: str, batc
         logger.info(f"Processed {file_path.stem}")
 
 
-def validate_arch(host, only_files_containing_text: List[str] = [], reverse: bool = False):
+def validate_arch(host, only_files_containing_text: List[str] | None = None, reverse: bool = False):
+    only_files_containing_text = only_files_containing_text or []
     keyword_folder = Path("metadata/keywords/")
     optimized_keyword_folder = keyword_folder / FolderNames.VERIFICATION_DIR
     os.makedirs(".logs", exist_ok=True)
