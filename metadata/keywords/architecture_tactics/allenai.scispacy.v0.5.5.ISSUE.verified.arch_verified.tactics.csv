@@ -202,7 +202,7 @@ Instructions:
 1. Carefully analyze the text to determine which quality attribute, tactic category it most closely relates to.
 2. Determine the specific tactic being described.
 3. Provide a clear description of the system's response to the stimulus described in the text.
-",Security,Recover from Attacks,Maintain Audit Trail,"Keeping a record of user and system actions and their effects to help trace the actions of, and to identify, an attacker.","Record attempted modification, and send alert to security personnel for review."
+",Security,Detect Attacks,Detect Service Denial,Comparison of the pattern or signature of network traffic coming into a system to historic profiles of known denial-of-service attacks.,The system detects that a service is not responding and takes corrective action.
 Usability,add progress bar to http_get,progress bar,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/496:4,progress bar,4,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/pull/496,2,['progress bar'],['progress bar'],"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
 You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
 
