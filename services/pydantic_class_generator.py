@@ -98,6 +98,9 @@ def tactic_description_iterator(tactics: TacticListDTO) -> Generator[TacticDefin
 def get_descriptions(tactics: TacticListDTO):
     return {tactic["tactic"]: tactic["description"] for tactic in tactic_description_iterator(tactics)}
 
+def get_full_descriptions(tactics: TacticListDTO):
+    return {tactic["tactic"]: {**tactic} for tactic in tactic_description_iterator(tactics)}
+
 def main():
     with open("../cfg/tactic_list.yaml", "r") as f:
         tactics: TacticListDTO = yaml.safe_load(f)
@@ -109,6 +112,10 @@ def main():
     descriptions = get_descriptions(tactics)
     with open("../cfg/tactic_description.py", "w") as f:
         f.write("tactic_descriptions = " + json.dumps(descriptions))
+
+    descriptions = get_full_descriptions(tactics)
+    with open("../cfg/tactic_description_full.py", "w") as f:
+        f.write("tactic_descriptions_full = " + json.dumps(descriptions))
 
 if __name__ == "__main__":
     main()

@@ -1,6 +1,4 @@
-import json
 import os
-import re
 import shelve
 import signal
 import sys
@@ -10,48 +8,42 @@ from typing import List
 
 import dotenv
 import pandas as pd
-import requests
 from langchain_ollama import ChatOllama
 from loguru import logger
-from pydantic import BaseModel
-from tenacity import retry, stop_after_attempt, RetryError, wait_fixed
+from tenacity import RetryError
 from tqdm import tqdm
 
 from cfg.tactic_description import tactic_descriptions
-from cfg.tactic_list import TacticModel
+from cfg.tactic_description_full import tactic_descriptions_full
+from cfg.tactic_list_simplified import TacticSimplifiedModel
 from constants.foldernames import FolderNames
-from extract_quality_attribs_from_docs import MatchSource
 from metadata.repo_info.repo_info import credential_list
 from utils.utils import create_logger_path
 
 # Load environment variables from .env file
 dotenv.load_dotenv()
 
-# @retry(stop=stop_after_attempt(6), wait=wait_fixed(3), after=lambda retry_state: logger.warning(retry_state),
-#     reraise=True, )
-def request_ollama_chain(prompts: List[str], base_url: str) -> List[TacticModel]:
+
+def request_ollama_chain(prompts: List[str], base_url: str) -> List[TacticSimplifiedModel]:
     # model_name = "gemma"
     # model_name = "gemma2"
     model_name = "deepseek-r1:8b"
-    model  = ChatOllama(model=model_name, base_url=base_url, format=TacticModel.model_json_schema())
+    model = ChatOllama(model=model_name, base_url=base_url, format=TacticSimplifiedModel.model_json_schema())
     batch_answers = model.batch(prompts)
     print(batch_answers)
-    return [TacticModel.model_validate_json(answer.content) for answer in batch_answers]
+    return [TacticSimplifiedModel.model_validate_json(answer.content) for answer in batch_answers]
 
-
-tactic_descriptions_list = "\n".join(f"- {tactic}: {description}" for tactic, description in tactic_descriptions.items())
+tactic_descriptions_list = "\n".join(f"- {tactic}: (quality attribute '{details["quality_attribute"]}', category '{details["tactic_category"]}') {details["description"]}" for tactic, details in tactic_descriptions_full.items())
 
 tactic_prompt = lambda x: f"""
 You are an expert in evaluating and categorizing architecture tactics in software engineering. You possess the necessary skills to categorize text according to software architecture tactics, quality attributes, and responses.
 
 Given a piece of text related to software architecture, your task is to:
-1. Identify the quality attribute it relates to
-2. Identify the tactic category within that quality attribute
-3. Identify the specific tactic being described
-4. Provide a clear "response" which in the context of software architecture refers to the activity undertaken by the system (for runtime qualities) or the developers (for development-time qualities) as a result of the arrival of a stimulus
+1. Identify the specific tactic being described
+2. Provide a clear "response" which in the context of software architecture refers to the activity undertaken by the system (for runtime qualities) or the developers (for development-time qualities) as a result of the arrival of a stimulus
 
 Analyze the following text:
-{x['sentence']}
+{x}
 
 Concept of Tactic, Quality Attribute, and Response:
 - An architectural tactic is a design decision that directly affects a system's response to a stimulus, influencing the achievement of a quality attribute. The primary purpose of tactics is to achieve desired quality attributes by imparting specific qualities to a design.
@@ -71,23 +63,50 @@ Available Quality Attributes:
 Tactic descriptions:
 {tactic_descriptions_list}
 
+Examples:
+- Availability:
+    Stimulus: Server becomes unresponsive.
+    Tactic: Heartbeat Monitor (Detect Faults).
+    Response: Inform Operator, Continue to Operate.
+    Response Measure: No Downtime.
+- Performance:
+    Stimulus: Users initiate transactions.
+    Tactic: Increase Resources (Manage Resources).
+    Response: Transactions Are Processed.
+    Response Measure: Average Latency of Two Seconds.
+- Security:
+    Stimulus: Disgruntled employee attempts to modify the pay rate table.
+    Tactic: Maintain Audit Trail (React to Attacks).
+    Response: Record attempted modification.
+    Response Measure: Time taken to restore data.
+- Testability:
+    Stimulus: Need to test a specific unit of code.
+    Tactic: Specialized Interfaces (Control and Observe System State).
+    Response: System can be controlled to perform desired tests and results can be observed.
+    Response Measure: Effort involved in finding a fault.
+- Usability:
+    Stimulus: User interacts with the system and makes an error.
+    Tactic: Undo (Support User Initiative).
+    Response: Ability to reverse the incorrect action.
+    Response Measure: Number of errors made by the user, amount of time or data lost when an error occurs.
+
 Instructions:
-1. Carefully analyze the text to determine which quality attribute it most closely relates to.
-2. Identify the tactic category within that quality attribute.
-3. Determine the specific tactic being described.
-4. Provide a clear description of the system's response to the stimulus described in the text.
-5. Output your analysis in the specified JSON format below without additional data and thinking.
+1. Carefully analyze the text to determine which quality attribute, tactic category it most closely relates to.
+2. Determine the specific tactic being described.
+3. Provide a clear description of the system's response to the stimulus described in the text.
 """
+
 
 def cleanup_and_exit(signal_num, frame):
     print("Caught interrupt, cleaning up...")
     sys.exit(0)  # Triggers the context manager's cleanup
 
+
 # Register the signal handler
 signal.signal(signal.SIGINT, cleanup_and_exit)
 
 
-def verify_file_batched_llm(file_path: Path, res_filepath: Path, host: str,  batch_size=10):
+def verify_file_batched_llm(file_path: Path, res_filepath: Path, host: str, batch_size=10):
     os.makedirs(f".cache/{FolderNames.ARCHITECTURE_TACTICS}/", exist_ok=True)
     with shelve.open(f".cache/{FolderNames.ARCHITECTURE_TACTICS}/{file_path.stem}") as db:
         if db.get("processed", False):
@@ -111,18 +130,14 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, host: str,  bat
         df['tactic_prompt'] = df.apply(lambda x: tactic_prompt(x), axis=1)
         res = []
 
-        for i in tqdm(range(0, len(df), batch_size), total=len(df) // batch_size, desc=f"Verifying {file_path.stem} in batches of {batch_size}"):
+        for i in tqdm(range(0, len(df), batch_size), total=len(df) // batch_size,
+                      desc=f"Verifying {file_path.stem} in batches of {batch_size}"):
             batch_df = df.iloc[i:i + batch_size]
             prompts = batch_df['tactic_prompt'].tolist()
 
             try:
                 responses = request_ollama_chain(prompts, host)  # New batch query
-                processed_responses = [(
-                    r.architecture_tactic.quality_attribute,
-                    r.architecture_tactic.tactic_category,
-                    r.architecture_tactic.tactic,
-                    r.architecture_tactic.response,
-                ) for r in responses]
+                processed_responses = [(r.tactic, r.response) for r in responses]
                 res.extend(processed_responses)
             except RetryError as error:
                 logger.error(f"Retry error at batch starting index {last_idx + i}, {error}")
@@ -139,17 +154,13 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, host: str,  bat
                 res.extend(responses)
 
             df_to_save = df.iloc[:i + batch_size].copy()
-            df_to_save['arch_quality_attribute'],\
-                df_to_save['arch_tactic_category'],\
-                df_to_save['arch_tactic'],\
+            df_to_save['arch_quality_attribute'], df_to_save['arch_tactic_category'], df_to_save['arch_tactic'], \
                 df_to_save['arch_response'] = zip(*res)
             df_to_save.to_csv(res_filepath, index=False)
             db["idx"] = last_idx + i + batch_size
 
-        df_to_save['arch_quality_attribute'], \
-            df_to_save['arch_tactic_category'], \
-            df_to_save['arch_tactic'], \
-            df_to_save['arch_response'] = zip(*res)
+        df_to_save['arch_quality_attribute'], df_to_save['arch_tactic_category'], df_to_save['arch_tactic'], df_to_save[
+            'arch_response'] = zip(*res)
         df.to_csv(res_filepath, index=False)
 
         db['processed'] = True
@@ -166,14 +177,17 @@ def extract_tactics(host, only_files_containing_text: List[str] = [], reverse: b
     try:
         for file_path in optimized_keyword_folder.glob("*.csv"):
             if any(cred.get_ref(".") in file_path.stem for cred in (credential_list)):
-                keep_processing = len(only_files_containing_text) == 0 or any(text_to_test in file_path.stem for text_to_test in only_files_containing_text)
+                keep_processing = len(only_files_containing_text) == 0 or any(
+                    text_to_test in file_path.stem for text_to_test in only_files_containing_text)
                 if keep_processing == reverse:
                     continue
 
                 res_filepath = keyword_folder / f"{FolderNames.ARCHITECTURE_VERIFICATION_DIR}/{file_path.stem}.tactics.csv"
-                verify_file_batched_llm(file_path, res_filepath, host, 10)  # res_filepath = file_path.with_stem("test123")
+                verify_file_batched_llm(file_path, res_filepath, host,
+                                        10)  # res_filepath = file_path.with_stem("test123")
     except Exception as e:
         logger.error(f"{e}, \n{traceback.format_exc()}")
+
 
 LOCAL_LLM_HOST = "http://localhost:11435"
 
