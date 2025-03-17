@@ -38,7 +38,11 @@ tactic_descriptions_list = "\n".join(
     f"- {tactic}: (quality attribute '{details["quality_attribute"]}', category '{details["tactic_category"]}') {details["description"]}"
     for tactic, details in tactic_descriptions_full.items())
 
-tactic_prompt = lambda x: f"""
+tactic_descriptions_list_simplified = "\n".join(
+    f"- {tactic}: {details["description"]}"
+    for tactic, details in tactic_descriptions_full.items())
+
+tactic_prompt_v1 = lambda x: f"""
 You are an expert in evaluating and categorizing architecture tactics in software engineering. You possess the necessary skills to categorize text according to software architecture tactics, quality attributes, and responses.
 
 Given a piece of text related to software architecture, your task is to:
@@ -99,6 +103,106 @@ Instructions:
 3. Provide a clear description of the system's response to the stimulus described in the text.
 """
 
+
+tactic_prompt_v2 = lambda x: f"""
+You are an expert in software architecture tactics. Your task is to analyze the given text and categorize it according to software architecture tactics, quality attributes, and system responses.
+
+### **Key Concepts**
+- **Tactics**: Design decisions that influence system responses to achieve quality attributes.
+- **Quality Attributes**: Characteristics such as performance, security, modifiability, etc.
+- **Response**: The system's reaction to a stimulus, either at runtime or development time.
+
+### **Available Quality Attributes**
+- **Availability**: Minimizing service outages by masking or repairing faults.
+- **Interoperability**: Enabling seamless data exchange between systems.
+- **Modifiability**: Facilitating easy changes for new features, bug fixes, or adaptations.
+- **Performance**: Ensuring the system meets timing and throughput requirements.
+- **Security**: Protecting data from unauthorized access and ensuring confidentiality.
+- **Testability**: Making software easy to test and debug.
+- **Usability**: Enhancing user experience and reducing operational errors.
+- **Energy Efficiency**: Reducing energy consumption in software and hardware.
+
+### **Your Task**
+For the given text:
+1. Identify the **quality attribute** it addresses.
+2. Determine the **specific tactic** from the list below.
+3. Describe the **system's response** to the stimulus.
+
+### **Examples**
+- **Availability**  
+  - **Stimulus**: Server becomes unresponsive.  
+  - **Tactic**: Heartbeat Monitor (Detect Faults).  
+  - **Response**: Inform Operator, Continue to Operate.  
+  - **Response Measure**: No Downtime.  
+
+- **Performance**  
+  - **Stimulus**: Users initiate transactions.  
+  - **Tactic**: Increase Resources (Manage Resources).  
+  - **Response**: Transactions Are Processed.  
+  - **Response Measure**: Average Latency of Two Seconds.  
+
+- **Security**  
+  - **Stimulus**: Disgruntled employee attempts to modify the pay rate table.  
+  - **Tactic**: Maintain Audit Trail (React to Attacks).  
+  - **Response**: Record attempted modification.  
+  - **Response Measure**: Time taken to restore data.  
+
+### **Available Tactics**
+{tactic_descriptions_list}
+
+### **Analyze the Following Text**
+"{x['sentence']}"
+"""
+
+tactic_prompt = lambda x: f"""
+You are an expert in software architecture tactics. Your task is to analyze the given text and categorize it according to software architecture tactics, quality attributes, and system responses.
+
+### **Key Concepts**
+- **Tactics**: Design decisions that influence system responses to achieve quality attributes.
+- **Quality Attributes**: Characteristics such as performance, security, modifiability, etc.
+- **Response**: The system's reaction to a stimulus, either at runtime or development time.
+
+### **Available Quality Attributes**
+- **Availability**: Minimizing service outages by masking or repairing faults.
+- **Interoperability**: Enabling seamless data exchange between systems.
+- **Modifiability**: Facilitating easy changes for new features, bug fixes, or adaptations.
+- **Performance**: Ensuring the system meets timing and throughput requirements.
+- **Security**: Protecting data from unauthorized access and ensuring confidentiality.
+- **Testability**: Making software easy to test and debug.
+- **Usability**: Enhancing user experience and reducing operational errors.
+- **Energy Efficiency**: Reducing energy consumption in software and hardware.
+
+### **Your Task**
+For the given text:
+1. Identify the **quality attribute** it addresses.
+2. Determine the **specific tactic** from the list below.
+3. Describe the **system's response** to the stimulus.
+
+### **Examples**
+- **Availability**  
+  - **Stimulus**: Server becomes unresponsive.  
+  - **Tactic**: Heartbeat Monitor (Detect Faults).  
+  - **Response**: Inform Operator, Continue to Operate.  
+  - **Response Measure**: No Downtime.  
+
+- **Performance**  
+  - **Stimulus**: Users initiate transactions.  
+  - **Tactic**: Increase Resources (Manage Resources).  
+  - **Response**: Transactions Are Processed.  
+  - **Response Measure**: Average Latency of Two Seconds.  
+
+- **Security**  
+  - **Stimulus**: Disgruntled employee attempts to modify the pay rate table.  
+  - **Tactic**: Maintain Audit Trail (React to Attacks).  
+  - **Response**: Record attempted modification.  
+  - **Response Measure**: Time taken to restore data.  
+
+### **Available Tactics**
+{tactic_descriptions_list_simplified}
+
+### **Analyze the Following Text**
+"{x['sentence']}"
+"""
 
 def cleanup_and_exit(signal_num, frame):
     print("Caught interrupt, cleaning up...")
@@ -194,4 +298,4 @@ def extract_tactics(host, only_files_containing_text: List[str] | None = None, r
 LOCAL_LLM_HOST = "http://localhost:11435"
 
 if __name__ == "__main__":
-    extract_tactics(LOCAL_LLM_HOST, ["root-project.root.v6-32-06.ISSUE_COMMENT."], True)
+    extract_tactics(LOCAL_LLM_HOST, ["root-project.root.v6-32-06"] )
