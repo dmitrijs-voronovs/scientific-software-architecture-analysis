@@ -194,4 +194,4 @@ def extract_tactics(host, only_files_containing_text: List[str] | None = None, r
 LOCAL_LLM_HOST = "http://localhost:11435"
 
 if __name__ == "__main__":
-    extract_tactics(LOCAL_LLM_HOST, ["root-project.root.v6-32-06."])
+    extract_tactics(LOCAL_LLM_HOST, ["root-project.root.v6-32-06.ISSUE_COMMENT."], True)
