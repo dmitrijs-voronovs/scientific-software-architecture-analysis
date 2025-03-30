@@ -186,10 +186,6 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, host: str, batc
             df_to_save.to_csv(res_filepath, index=False)
             db["idx"] = last_idx + i + batch_size
 
-        if len(res) > 0:
-            df['related_to_architecture'], df['related_to_architecture_reasoning'] = zip(*res)
-            df.to_csv(res_filepath, index=False)
-
         db['processed'] = True
         logger.info(f"Processed {file_path.stem}")
 
