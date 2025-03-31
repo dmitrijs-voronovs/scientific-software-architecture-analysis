@@ -8,3 +8,4 @@ data/
 git-repo-analysis/
 .tmp/
 /.logs
+/metadata/results/format_validation_sample.csv
