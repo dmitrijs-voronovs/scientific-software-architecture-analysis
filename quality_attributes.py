@@ -3,6 +3,12 @@ from typing import Dict, List
 QualityAttributesMap = Dict[str, List[str]]
 
 quality_attributes = {
+    "Energy Efficiency": ["energy", "power", "consump", "efficien", "battery", "charg", "drain", "watt", "joule",
+                          "green", "sustainab", "meter", "monitor", "reduc", "allocat", "adapt", "schedul", "sensor",
+                          ]}
+
+quality_attributes_all = {
+    **quality_attributes,
     "Availability": ["avail", "downtime", "outage", "reliab", "fault", "failure", "error", "robust", "toler",
                      "resilien", "recover", "repair", "failover", "fail-safe", "redundant", "mask", "degraded",
                      "mainten", "heartbeat", "ping", "echo", "rollback", "checkpoint", "reboot", "alive", "down",
@@ -11,9 +17,6 @@ quality_attributes = {
     "Deployability": ["deploy", "release", "update", "install", "rollout", "rollback", "upgrade", "integrat",
                       "continuous", "hotfix", "patch", "pipeline", "configurat", "rolling", "kill switch",
                       "feature toggle", "toggle", "canary", "A/B", ],
-    "Energy Efficiency": ["energy", "power", "consumption", "efficient", "battery", "charge", "drain", "watt", "joule",
-                          "green", "sustainab", "meter", "monitor", "reduce", "allocate", "adapt", "schedul", "sensor",
-                          ],
     "Integrability": ["integrat", "interoperab", "interface", "depend", "inject", "wrap", "bridg", "mediat", "adapter",
                       "contract", "protocol", "message", "synchroniz", "publish-subscribe", "pub-sub", "service bus",
                       "rout", ],
