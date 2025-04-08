@@ -1,7 +1,7 @@
 class FolderNames():
     KEYWORDS_RAW = "original"
     VERIFICATION_DIR = "verification_v3"
-    OPTIMIZED_KEYWORD_DIR = "optimized_v2"
+    OPTIMIZED_KEYWORD_DIR = "optimized"
     ARCHITECTURE_VERIFICATION_DIR = "verification_v3_architecture"
     FORMAT_VALIDATION_DIR = "validate_format"
     ARCHITECTURE_TACTICS = "architecture_tactics_v3"
