@@ -31,7 +31,7 @@ def save_data(df, target_filename: Path):
 
 def main():
     keywords_dir = Path(f"metadata/keywords/{FolderNames.FORMAT_VALIDATION_DIR}")
-    target_filename = Path(f"metadata/results/format_validation_sample.csv")
+    target_filename = Path(f"metadata/results/format_validation_v5.csv")
 
     try:
         df = get_data(keywords_dir)
