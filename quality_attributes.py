@@ -2,13 +2,13 @@ from typing import Dict, List
 
 QualityAttributesMap = Dict[str, List[str]]
 
-quality_attributes = {
+quality_attributes_ee = {
     "Energy Efficiency": ["energy", "power", "consump", "efficien", "battery", "charg", "drain", "watt", "joule",
                           "green", "sustainab", "meter", "monitor", "reduc", "allocat", "adapt", "schedul", "sensor",
                           ]}
 
-quality_attributes_all = {
-    **quality_attributes,
+quality_attributes = {
+    **quality_attributes_ee,
     "Availability": ["avail", "downtime", "outage", "reliab", "fault", "failure", "error", "robust", "toler",
                      "resilien", "recover", "repair", "failover", "fail-safe", "redundant", "mask", "degraded",
                      "mainten", "heartbeat", "ping", "echo", "rollback", "checkpoint", "reboot", "alive", "down",
