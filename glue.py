@@ -1,4 +1,6 @@
+import datetime
 import os
+import re
 import traceback
 from pathlib import Path
 
@@ -27,11 +29,12 @@ def get_data(keywords_dir):
 
 def save_data(df, target_filename: Path):
     os.makedirs(target_filename.parent, exist_ok=True)
-    df.to_csv(target_filename, index=False)
+    df.to_excel(target_filename, index=False)
 
 def main():
     keywords_dir = Path(f"metadata/keywords/{FolderNames.FORMAT_VALIDATION_DIR}")
-    target_filename = Path(f"metadata/results/format_validation_v5.csv")
+    # target_filename = Path(f"metadata/results/sample_{FolderNames.FORMAT_VALIDATION_DIR}.csv")
+    target_filename = Path(f"metadata/results/sample_{FolderNames.FORMAT_VALIDATION_DIR}__{re.sub(r"\W+", "_", str(datetime.datetime.now()))}.xlsx")
 
     try:
         df = get_data(keywords_dir)

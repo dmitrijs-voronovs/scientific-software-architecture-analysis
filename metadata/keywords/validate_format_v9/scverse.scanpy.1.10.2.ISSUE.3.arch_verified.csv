@@ -1,0 +1,811 @@
+quality_attribute,sentence,source,author,repo,version,id,keyword,matched_word,match_idx,wiki,url,total_similar,target_keywords,target_matched_words,format_prompt,to_eliminate,reason
+Safety,"### Please make sure these conditions are met. - [x] I have checked that this issue has not already been reported.; - [x] I have confirmed this bug exists on the latest version of scanpy.; - [ ] (optional) I have confirmed this bug exists on the main branch of scanpy. ### What happened?. There are a few instances where the input for `sc.get.obs_df` could be described better to avoid some edge cases that don't throw errors (or throw cryptic errors). . 1. The param descriptions say that `obsm_keys` expects a [Tuple of (key, column)](https://github.com/scverse/scanpy/blob/39c6532d276ca83cc0548546c3d73ebee6eec0c1/src/scanpy/get/get.py#L240-L241), but this gives an error:; ```py; adata = sc.datasets.pbmc3k_processed(); sc.get.obs_df(adata, obsm_keys = ('X_pca', 1)); ``` ; ```pytb; ---------------------------------------------------------------------------; ValueError Traceback (most recent call last); Cell In[15], line 1; ----> 1 sc.get.obs_df(adata, obsm_keys = ('X_pca', 1)). File /oak/stanford/groups/pritch/users/emma/miniforge3/envs/perturb-vs-tissue-env/lib/python3.10/site-packages/scanpy/get/get.py:328, in obs_df(adata, keys, obsm_keys, layer, gene_symbols, use_raw); 325 if keys:; 326 df = df[keys]; --> 328 for k, idx in obsm_keys:; 329 added_k = f""{k}-{idx}""; 330 val = adata.obsm[k]. ValueError: too many values to unpack (expected 2); ```; The function works if you pass a list of Tuples:; ```; sc.get.obs_df(adata, obsm_keys = [('X_pca', 1)]); ```; So perhaps the parameter descriptions should say `List of Tuples of (key, column)`? Or the case of extracting a single column should be handled. . 2. The input for the `keys` is described as [""keys""](https://github.com/scverse/scanpy/blob/39c6532d276ca83cc0548546c3d73ebee6eec0c1/src/scanpy/get/get.py#L238-L239), but if you pass only one key as a string, the function returns a `pd.Series` instead of a `pd.DataFrame`. This is not a massive problem, unless you also pass something to `obsm_keys`. When you do that, the function",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/3310:380,avoid,avoid,380,https://scanpy.readthedocs.io,https://github.com/scverse/scanpy/issues/3310,1,['avoid'],['avoid'],"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out, based on whether it consists of meaningful human-written prose or instead mainly contains programmatic or technical artifacts like logs or code.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+
+### Eliminate content that is not intended for human interpretation and consists primarily of:
+- Code snippets or program structure  
+  *(e.g., `if/else`, `for` loops, braces, language-specific syntax or keywords)*
+- Program output, logs, or error traces  
+  *(e.g., timestamps, error codes, stack traces, unit test results)*
+- Configuration files, scripts, or build system output  
+  *(e.g., YAML, JSON, Makefiles, shell scripts, compiler output)*
+- Version control metadata or commit messages  
+  *(e.g., git logs, diffs, merge info, file paths with change indicators)*
+- API documentation or technical interface definitions  
+  *(e.g., method signatures, parameter tables, annotations, formal docstrings)*
+
+### Keep content that:
+- Does **not** fall primarily into any of the elimination categories
+- Is written for human readers — including **natural language, explanation, commentary, or analysis**
+- Includes **scientific, academic, or technical discussions**, even if highly formal or specialized  
+  *(e.g., discussions of model architecture, training benchmarks, research outcomes, biological findings, or engineering analysis)*
+- May contain structured or technical vocabulary, **as long as it is not formatted primarily like code or machine output**
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, or critiques
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/console).; ### Failing tests:; - [projectroot.test.test_stressgraphics_interpreted](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/testReport/projectroot/test/test_stressgraphics_interpreted/)
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of logs and no other text.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``. If absent,; the format specifier defaults to ``%u``. For example:. .. code-block:: llvm. ; CHECK: mov r[[#REG:]], 0x[[#%.8X,ADDR:]]. would match ``mov r5, 0x0000FEFE`` and set ``REG`` to the value ``5`` and; ``ADDR`` to the value ``0xFEFE``. Note that due to the precision it would fail; to match ``mov r5, 0xFEFE``. As a result of the numeric variable definition being optional, it is possible; to only check that a numeric value is present in a given format. This can be; useful when the value itself is not useful, for instance:. .. code-block:: gas. ; CHECK-NOT: mov r0, r[[#]]. to check that a value is synthesized rather than moved around. The syntax of a numeric substitution is; ``[[#%<fmtspec>, <constraint> <expr>]]`` where:. * ``<fmtspec>`` is the same format specifier as for defining a variable but; in this context indicating how a numeric expression value should be matched; against. If absent, both components of the format specifier are inferred from; the matching format of the numeric variable(s) used by the expression; constraint if any, and defaults to ``%u`` if no numeric variable is used,; denoting that the value should be unsigned with no leading zeros. In case of; conflict between format specifiers of several numeric variables, the; conversion specifier becomes mandatory but the precision specifier remains; optional. * ``<constraint>`` is the constraint de
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of programmatic interface description and no other text.
+
+### Example 3
+**Content:** I've been testing the latest updates on our scientific computing framework, and I'm impressed by the improvements in performance. The new parallelization strategy has reduced our simulation times by about 30% on our cluster. However, I noticed that memory usage spikes significantly when handling large datasets. Perhaps we could explore more efficient data structures or caching mechanisms to mitigate this issue? @TeamLead, would it be possible to allocate some resources to investigate this further?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 4
+**Content:** I've been experimenting with the GPU acceleration patches in this PR, and the results are promising. We're seeing a significant boost in matrix operations, which is crucial for our machine learning models. However, I encountered some inconsistencies when running on different GPU architectures. It might be beneficial to add more comprehensive tests to ensure compatibility across various hardware configurations. @DevTeam, could we discuss implementing a more robust testing framework for this?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 5
+**Content:** I've been exploring the energy efficiency improvements in our latest scientific computing framework, and I'm excited about the potential savings. By implementing parallelization strategies and optimizing data structures, we've reduced energy consumption by approximately 25% on our cluster. However, I think we could further enhance this by integrating tools like EnergyMeter to monitor and optimize energy usage in real-time. Additionally, exploring autotuning frameworks like ytopt could help balance performance and energy efficiency across different hardware configurations. @DevTeam, would it be feasible to allocate resources for integrating these tools and conducting a comprehensive energy efficiency analysis?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 6
+**Content:** is relatively simple;; they ultimately form a linked list of every clobber that dominates the; ``MemoryAccess`` that you're trying to optimize. In other words, the; ``definingAccess`` of a ``MemoryDef`` is always the nearest dominating; ``MemoryDef`` or ``MemoryPhi`` of said ``MemoryDef``. Use and Def optimization; ------------------------. ``MemoryUse``\ s keep a single operand, which is their defining or optimized; access.; Traditionally ``MemorySSA`` optimized ``MemoryUse``\ s at build-time, up to a; given threshold.; Specifically, the operand of every ``MemoryUse`` was optimized to point to the; actual clobber of said ``MemoryUse``. This can be seen in the above example; the; second ``MemoryUse`` in ``if.end`` has an operand of ``1``, which is a; ``MemoryDef`` from the entry block. This is done to make walking,; value numbering, etc, faster and easier.; As of `this revision <https://reviews.llvm.org/D121381>`_, the default was; changed to not optimize uses at build time, in order to provide the option to; reduce compile-time if the walking is not necessary in a pass. Most users call; the new API ``ensureOptimizedUses()`` to keep the previous behavior and do a; one-time optimization of ``MemoryUse``\ s, if this was not done before.; New pass users are recommended to call ``ensureOptimizedUses()``. Initially it was not possible to optimize ``MemoryDef``\ s in the same way, as we; restricted ``MemorySSA`` to one operand per access.; This was changed and ``MemoryDef``\ s now keep two operands.; The first one, the defining access, is; always the previous ``MemoryDef`` or ``MemoryPhi`` in the same basic block, or; the last one in a dominating predecessor if the current block doesn't have any; other accesses writing to memory. This is needed for walking Def chains.; The second operand is the optimized access, if there was a previous call on the; walker's ``getClobberingMemoryAccess(MA)``. This API will cache information; as part of ``MA``.; Optimizing all ``MemoryDef``
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language discussing testing experiences
+and performance improvements.
+
+### Example 7
+**Content:** representations, but these models are targeted towards token- and sentence-level training objectives and do not leverage information on inter-document relatedness, which limits their document-level representation power.; For applications on scientific documents, such as classification and recommendation, the embeddings power strong performance on end tasks.; We propose SPECTER, a new method to generate document-level embedding of scientific documents based on pretraining a Transformer language model on a powerful signal of document-level relatedness: the citation graph.; Unlike existing pretrained language models, SPECTER can be easily applied to downstream applications without task-specific fine-tuning.;
+**Answer:**
+to_eliminate: false
+reasoning: The content discusses research on NLP applications in scientific document processing, including the introduction of new methods like SPECTER and SCIDOCS.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**  
+### Please make sure these conditions are met. - [x] I have checked that this issue has not already been reported.; - [x] I have confirmed this bug exists on the latest version of scanpy.; - [ ] (optional) I have confirmed this bug exists on the main branch of scanpy. ### What happened?. There are a few instances where the input for `sc.get.obs_df` could be described better to avoid some edge cases that don't throw errors (or throw cryptic errors). . 1. The param descriptions say that `obsm_keys` expects a [Tuple of (key, column)](https://github.com/scverse/scanpy/blob/39c6532d276ca83cc0548546c3d73ebee6eec0c1/src/scanpy/get/get.py#L240-L241), but this gives an error:; ```py; adata = sc.datasets.pbmc3k_processed(); sc.get.obs_df(adata, obsm_keys = ('X_pca', 1)); ``` ; ```pytb; ---------------------------------------------------------------------------; ValueError Traceback (most recent call last); Cell In[15], line 1; ----> 1 sc.get.obs_df(adata, obsm_keys = ('X_pca', 1)). File /oak/stanford/groups/pritch/users/emma/miniforge3/envs/perturb-vs-tissue-env/lib/python3.10/site-packages/scanpy/get/get.py:328, in obs_df(adata, keys, obsm_keys, layer, gene_symbols, use_raw); 325 if keys:; 326 df = df[keys]; --> 328 for k, idx in obsm_keys:; 329 added_k = f""{k}-{idx}""; 330 val = adata.obsm[k]. ValueError: too many values to unpack (expected 2); ```; The function works if you pass a list of Tuples:; ```; sc.get.obs_df(adata, obsm_keys = [('X_pca', 1)]); ```; So perhaps the parameter descriptions should say `List of Tuples of (key, column)`? Or the case of extracting a single column should be handled. . 2. The input for the `keys` is described as [""keys""](https://github.com/scverse/scanpy/blob/39c6532d276ca83cc0548546c3d73ebee6eec0c1/src/scanpy/get/get.py#L238-L239), but if you pass only one key as a string, the function returns a `pd.Series` instead of a `pd.DataFrame`. This is not a massive problem, unless you also pass something to `obsm_keys`. When you do that, the function
+",False,The content discusses issues with the scanpy library's functionality and suggests improvements for documentation.
+Safety,"### What kind of feature would you like to request?. Additional function parameters / changed functionality / changed defaults?. ### Please describe your wishes. The sc.tl.rank_gene_groups function needs additional arguments to filter some genes before running a test on them, just like Seurat's `FindMarkers` function. . 1. `minc_pct`: Only test genes detected in a minimum fraction of min_pct cells in either of the two comparison groups. It is beneficial for comparing cluster A to cluster B.; 2. `min_cells`: Minimum number of cells expressing the feature in at least one of the two comparison groups.; 3. `min_pct_difference`: Only test genes showing a minimum difference in the detection fraction between the two comparison groups. I will also try to implement these changes.",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/3159:353,detect,detected,353,https://scanpy.readthedocs.io,https://github.com/scverse/scanpy/issues/3159,2,['detect'],"['detected', 'detection']","
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out, based on whether it consists of meaningful human-written prose or instead mainly contains programmatic or technical artifacts like logs or code.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+
+### Eliminate content that is not intended for human interpretation and consists primarily of:
+- Code snippets or program structure  
+  *(e.g., `if/else`, `for` loops, braces, language-specific syntax or keywords)*
+- Program output, logs, or error traces  
+  *(e.g., timestamps, error codes, stack traces, unit test results)*
+- Configuration files, scripts, or build system output  
+  *(e.g., YAML, JSON, Makefiles, shell scripts, compiler output)*
+- Version control metadata or commit messages  
+  *(e.g., git logs, diffs, merge info, file paths with change indicators)*
+- API documentation or technical interface definitions  
+  *(e.g., method signatures, parameter tables, annotations, formal docstrings)*
+
+### Keep content that:
+- Does **not** fall primarily into any of the elimination categories
+- Is written for human readers — including **natural language, explanation, commentary, or analysis**
+- Includes **scientific, academic, or technical discussions**, even if highly formal or specialized  
+  *(e.g., discussions of model architecture, training benchmarks, research outcomes, biological findings, or engineering analysis)*
+- May contain structured or technical vocabulary, **as long as it is not formatted primarily like code or machine output**
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, or critiques
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/console).; ### Failing tests:; - [projectroot.test.test_stressgraphics_interpreted](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/testReport/projectroot/test/test_stressgraphics_interpreted/)
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of logs and no other text.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``. If absent,; the format specifier defaults to ``%u``. For example:. .. code-block:: llvm. ; CHECK: mov r[[#REG:]], 0x[[#%.8X,ADDR:]]. would match ``mov r5, 0x0000FEFE`` and set ``REG`` to the value ``5`` and; ``ADDR`` to the value ``0xFEFE``. Note that due to the precision it would fail; to match ``mov r5, 0xFEFE``. As a result of the numeric variable definition being optional, it is possible; to only check that a numeric value is present in a given format. This can be; useful when the value itself is not useful, for instance:. .. code-block:: gas. ; CHECK-NOT: mov r0, r[[#]]. to check that a value is synthesized rather than moved around. The syntax of a numeric substitution is; ``[[#%<fmtspec>, <constraint> <expr>]]`` where:. * ``<fmtspec>`` is the same format specifier as for defining a variable but; in this context indicating how a numeric expression value should be matched; against. If absent, both components of the format specifier are inferred from; the matching format of the numeric variable(s) used by the expression; constraint if any, and defaults to ``%u`` if no numeric variable is used,; denoting that the value should be unsigned with no leading zeros. In case of; conflict between format specifiers of several numeric variables, the; conversion specifier becomes mandatory but the precision specifier remains; optional. * ``<constraint>`` is the constraint de
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of programmatic interface description and no other text.
+
+### Example 3
+**Content:** I've been testing the latest updates on our scientific computing framework, and I'm impressed by the improvements in performance. The new parallelization strategy has reduced our simulation times by about 30% on our cluster. However, I noticed that memory usage spikes significantly when handling large datasets. Perhaps we could explore more efficient data structures or caching mechanisms to mitigate this issue? @TeamLead, would it be possible to allocate some resources to investigate this further?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 4
+**Content:** I've been experimenting with the GPU acceleration patches in this PR, and the results are promising. We're seeing a significant boost in matrix operations, which is crucial for our machine learning models. However, I encountered some inconsistencies when running on different GPU architectures. It might be beneficial to add more comprehensive tests to ensure compatibility across various hardware configurations. @DevTeam, could we discuss implementing a more robust testing framework for this?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 5
+**Content:** I've been exploring the energy efficiency improvements in our latest scientific computing framework, and I'm excited about the potential savings. By implementing parallelization strategies and optimizing data structures, we've reduced energy consumption by approximately 25% on our cluster. However, I think we could further enhance this by integrating tools like EnergyMeter to monitor and optimize energy usage in real-time. Additionally, exploring autotuning frameworks like ytopt could help balance performance and energy efficiency across different hardware configurations. @DevTeam, would it be feasible to allocate resources for integrating these tools and conducting a comprehensive energy efficiency analysis?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 6
+**Content:** is relatively simple;; they ultimately form a linked list of every clobber that dominates the; ``MemoryAccess`` that you're trying to optimize. In other words, the; ``definingAccess`` of a ``MemoryDef`` is always the nearest dominating; ``MemoryDef`` or ``MemoryPhi`` of said ``MemoryDef``. Use and Def optimization; ------------------------. ``MemoryUse``\ s keep a single operand, which is their defining or optimized; access.; Traditionally ``MemorySSA`` optimized ``MemoryUse``\ s at build-time, up to a; given threshold.; Specifically, the operand of every ``MemoryUse`` was optimized to point to the; actual clobber of said ``MemoryUse``. This can be seen in the above example; the; second ``MemoryUse`` in ``if.end`` has an operand of ``1``, which is a; ``MemoryDef`` from the entry block. This is done to make walking,; value numbering, etc, faster and easier.; As of `this revision <https://reviews.llvm.org/D121381>`_, the default was; changed to not optimize uses at build time, in order to provide the option to; reduce compile-time if the walking is not necessary in a pass. Most users call; the new API ``ensureOptimizedUses()`` to keep the previous behavior and do a; one-time optimization of ``MemoryUse``\ s, if this was not done before.; New pass users are recommended to call ``ensureOptimizedUses()``. Initially it was not possible to optimize ``MemoryDef``\ s in the same way, as we; restricted ``MemorySSA`` to one operand per access.; This was changed and ``MemoryDef``\ s now keep two operands.; The first one, the defining access, is; always the previous ``MemoryDef`` or ``MemoryPhi`` in the same basic block, or; the last one in a dominating predecessor if the current block doesn't have any; other accesses writing to memory. This is needed for walking Def chains.; The second operand is the optimized access, if there was a previous call on the; walker's ``getClobberingMemoryAccess(MA)``. This API will cache information; as part of ``MA``.; Optimizing all ``MemoryDef``
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language discussing testing experiences
+and performance improvements.
+
+### Example 7
+**Content:** representations, but these models are targeted towards token- and sentence-level training objectives and do not leverage information on inter-document relatedness, which limits their document-level representation power.; For applications on scientific documents, such as classification and recommendation, the embeddings power strong performance on end tasks.; We propose SPECTER, a new method to generate document-level embedding of scientific documents based on pretraining a Transformer language model on a powerful signal of document-level relatedness: the citation graph.; Unlike existing pretrained language models, SPECTER can be easily applied to downstream applications without task-specific fine-tuning.;
+**Answer:**
+to_eliminate: false
+reasoning: The content discusses research on NLP applications in scientific document processing, including the introduction of new methods like SPECTER and SCIDOCS.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**  
+### What kind of feature would you like to request?. Additional function parameters / changed functionality / changed defaults?. ### Please describe your wishes. The sc.tl.rank_gene_groups function needs additional arguments to filter some genes before running a test on them, just like Seurat's `FindMarkers` function. . 1. `minc_pct`: Only test genes detected in a minimum fraction of min_pct cells in either of the two comparison groups. It is beneficial for comparing cluster A to cluster B.; 2. `min_cells`: Minimum number of cells expressing the feature in at least one of the two comparison groups.; 3. `min_pct_difference`: Only test genes showing a minimum difference in the detection fraction between the two comparison groups. I will also try to implement these changes.
+",False,"The content discusses functional requests for a scientific computing tool, including specific feature additions similar to existing tools like Seurat."
+Safety,"(). ~/miniconda3/envs/scanpy-forge/lib/python3.8/site-packages/pandas/core/indexes/base.py in _isnan(self); 2172 """"""; 2173 if self._can_hold_na:; -> 2174 return isna(self); 2175 else:; 2176 # shouldn't reach to this condition by checking hasnans beforehand. ~/miniconda3/envs/scanpy-forge/lib/python3.8/site-packages/pandas/core/dtypes/missing.py in isna(obj); 125 Name: 1, dtype: bool; 126 """"""; --> 127 return _isna(obj); 128 ; 129 . ~/miniconda3/envs/scanpy-forge/lib/python3.8/site-packages/pandas/core/dtypes/missing.py in _isna(obj, inf_as_na); 154 # hack (for now) because MI registers as ndarray; 155 elif isinstance(obj, ABCMultiIndex):; --> 156 raise NotImplementedError(""isna is not defined for MultiIndex""); 157 elif isinstance(obj, type):; 158 return False. NotImplementedError: isna is not defined for MultiIndex; ```. </details>. I don't get an error from this on master, but I do get these warnings. ```; *c* argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with *x* & *y*. Please use the *color* keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.; *c* argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with *x* & *y*. Please use the *color* keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.; *c* argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with *x* & *y*. Please use the *color* keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.; ```. No differences between pandas, seaborn, or matplotlib versions between these environments. Seems like it's sorta fixed on mas",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/1885:5449,avoid,avoided,5449,https://scanpy.readthedocs.io,https://github.com/scverse/scanpy/issues/1885,1,['avoid'],['avoided'],"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out, based on whether it consists of meaningful human-written prose or instead mainly contains programmatic or technical artifacts like logs or code.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+
+### Eliminate content that is not intended for human interpretation and consists primarily of:
+- Code snippets or program structure  
+  *(e.g., `if/else`, `for` loops, braces, language-specific syntax or keywords)*
+- Program output, logs, or error traces  
+  *(e.g., timestamps, error codes, stack traces, unit test results)*
+- Configuration files, scripts, or build system output  
+  *(e.g., YAML, JSON, Makefiles, shell scripts, compiler output)*
+- Version control metadata or commit messages  
+  *(e.g., git logs, diffs, merge info, file paths with change indicators)*
+- API documentation or technical interface definitions  
+  *(e.g., method signatures, parameter tables, annotations, formal docstrings)*
+
+### Keep content that:
+- Does **not** fall primarily into any of the elimination categories
+- Is written for human readers — including **natural language, explanation, commentary, or analysis**
+- Includes **scientific, academic, or technical discussions**, even if highly formal or specialized  
+  *(e.g., discussions of model architecture, training benchmarks, research outcomes, biological findings, or engineering analysis)*
+- May contain structured or technical vocabulary, **as long as it is not formatted primarily like code or machine output**
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, or critiques
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/console).; ### Failing tests:; - [projectroot.test.test_stressgraphics_interpreted](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/testReport/projectroot/test/test_stressgraphics_interpreted/)
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of logs and no other text.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``. If absent,; the format specifier defaults to ``%u``. For example:. .. code-block:: llvm. ; CHECK: mov r[[#REG:]], 0x[[#%.8X,ADDR:]]. would match ``mov r5, 0x0000FEFE`` and set ``REG`` to the value ``5`` and; ``ADDR`` to the value ``0xFEFE``. Note that due to the precision it would fail; to match ``mov r5, 0xFEFE``. As a result of the numeric variable definition being optional, it is possible; to only check that a numeric value is present in a given format. This can be; useful when the value itself is not useful, for instance:. .. code-block:: gas. ; CHECK-NOT: mov r0, r[[#]]. to check that a value is synthesized rather than moved around. The syntax of a numeric substitution is; ``[[#%<fmtspec>, <constraint> <expr>]]`` where:. * ``<fmtspec>`` is the same format specifier as for defining a variable but; in this context indicating how a numeric expression value should be matched; against. If absent, both components of the format specifier are inferred from; the matching format of the numeric variable(s) used by the expression; constraint if any, and defaults to ``%u`` if no numeric variable is used,; denoting that the value should be unsigned with no leading zeros. In case of; conflict between format specifiers of several numeric variables, the; conversion specifier becomes mandatory but the precision specifier remains; optional. * ``<constraint>`` is the constraint de
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of programmatic interface description and no other text.
+
+### Example 3
+**Content:** I've been testing the latest updates on our scientific computing framework, and I'm impressed by the improvements in performance. The new parallelization strategy has reduced our simulation times by about 30% on our cluster. However, I noticed that memory usage spikes significantly when handling large datasets. Perhaps we could explore more efficient data structures or caching mechanisms to mitigate this issue? @TeamLead, would it be possible to allocate some resources to investigate this further?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 4
+**Content:** I've been experimenting with the GPU acceleration patches in this PR, and the results are promising. We're seeing a significant boost in matrix operations, which is crucial for our machine learning models. However, I encountered some inconsistencies when running on different GPU architectures. It might be beneficial to add more comprehensive tests to ensure compatibility across various hardware configurations. @DevTeam, could we discuss implementing a more robust testing framework for this?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 5
+**Content:** I've been exploring the energy efficiency improvements in our latest scientific computing framework, and I'm excited about the potential savings. By implementing parallelization strategies and optimizing data structures, we've reduced energy consumption by approximately 25% on our cluster. However, I think we could further enhance this by integrating tools like EnergyMeter to monitor and optimize energy usage in real-time. Additionally, exploring autotuning frameworks like ytopt could help balance performance and energy efficiency across different hardware configurations. @DevTeam, would it be feasible to allocate resources for integrating these tools and conducting a comprehensive energy efficiency analysis?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 6
+**Content:** is relatively simple;; they ultimately form a linked list of every clobber that dominates the; ``MemoryAccess`` that you're trying to optimize. In other words, the; ``definingAccess`` of a ``MemoryDef`` is always the nearest dominating; ``MemoryDef`` or ``MemoryPhi`` of said ``MemoryDef``. Use and Def optimization; ------------------------. ``MemoryUse``\ s keep a single operand, which is their defining or optimized; access.; Traditionally ``MemorySSA`` optimized ``MemoryUse``\ s at build-time, up to a; given threshold.; Specifically, the operand of every ``MemoryUse`` was optimized to point to the; actual clobber of said ``MemoryUse``. This can be seen in the above example; the; second ``MemoryUse`` in ``if.end`` has an operand of ``1``, which is a; ``MemoryDef`` from the entry block. This is done to make walking,; value numbering, etc, faster and easier.; As of `this revision <https://reviews.llvm.org/D121381>`_, the default was; changed to not optimize uses at build time, in order to provide the option to; reduce compile-time if the walking is not necessary in a pass. Most users call; the new API ``ensureOptimizedUses()`` to keep the previous behavior and do a; one-time optimization of ``MemoryUse``\ s, if this was not done before.; New pass users are recommended to call ``ensureOptimizedUses()``. Initially it was not possible to optimize ``MemoryDef``\ s in the same way, as we; restricted ``MemorySSA`` to one operand per access.; This was changed and ``MemoryDef``\ s now keep two operands.; The first one, the defining access, is; always the previous ``MemoryDef`` or ``MemoryPhi`` in the same basic block, or; the last one in a dominating predecessor if the current block doesn't have any; other accesses writing to memory. This is needed for walking Def chains.; The second operand is the optimized access, if there was a previous call on the; walker's ``getClobberingMemoryAccess(MA)``. This API will cache information; as part of ``MA``.; Optimizing all ``MemoryDef``
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language discussing testing experiences
+and performance improvements.
+
+### Example 7
+**Content:** representations, but these models are targeted towards token- and sentence-level training objectives and do not leverage information on inter-document relatedness, which limits their document-level representation power.; For applications on scientific documents, such as classification and recommendation, the embeddings power strong performance on end tasks.; We propose SPECTER, a new method to generate document-level embedding of scientific documents based on pretraining a Transformer language model on a powerful signal of document-level relatedness: the citation graph.; Unlike existing pretrained language models, SPECTER can be easily applied to downstream applications without task-specific fine-tuning.;
+**Answer:**
+to_eliminate: false
+reasoning: The content discusses research on NLP applications in scientific document processing, including the introduction of new methods like SPECTER and SCIDOCS.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**  
+(). ~/miniconda3/envs/scanpy-forge/lib/python3.8/site-packages/pandas/core/indexes/base.py in _isnan(self); 2172 """"""; 2173 if self._can_hold_na:; -> 2174 return isna(self); 2175 else:; 2176 # shouldn't reach to this condition by checking hasnans beforehand. ~/miniconda3/envs/scanpy-forge/lib/python3.8/site-packages/pandas/core/dtypes/missing.py in isna(obj); 125 Name: 1, dtype: bool; 126 """"""; --> 127 return _isna(obj); 128 ; 129 . ~/miniconda3/envs/scanpy-forge/lib/python3.8/site-packages/pandas/core/dtypes/missing.py in _isna(obj, inf_as_na); 154 # hack (for now) because MI registers as ndarray; 155 elif isinstance(obj, ABCMultiIndex):; --> 156 raise NotImplementedError(""isna is not defined for MultiIndex""); 157 elif isinstance(obj, type):; 158 return False. NotImplementedError: isna is not defined for MultiIndex; ```. </details>. I don't get an error from this on master, but I do get these warnings. ```; *c* argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with *x* & *y*. Please use the *color* keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.; *c* argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with *x* & *y*. Please use the *color* keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.; *c* argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with *x* & *y*. Please use the *color* keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.; ```. No differences between pandas, seaborn, or matplotlib versions between these environments. Seems like it's sorta fixed on mas
+",False,"The content discusses potential issues with using certain arguments in plotting functions, such as the *c* parameter in Matplotlib, which can lead to warnings about value-mapping and RGB/RGBA sequences. This is a common issue in data visualization and suggests that the user may need to adjust their code to avoid these warnings by properly formatting their color inputs."
+Safety,"([], [])), shape=(n_obs, 1)); --> 390 connectivities = fuzzy_simplicial_set(; 391 X,; 392 n_neighbors,. /hps/software/users/marioni/Leah/miniconda3/envs/scvelo/lib/python3.8/site-packages/umap/umap_.py in fuzzy_simplicial_set(X, n_neighbors, random_state, metric, metric_kwds, knn_indices, knn_dists, angular, set_op_mix_ratio, local_connectivity, apply_set_operations, verbose); 600 knn_dists = knn_dists.astype(np.float32); 601 ; --> 602 sigmas, rhos = smooth_knn_dist(; 603 knn_dists, float(n_neighbors), local_connectivity=float(local_connectivity),; 604 ). SystemError: CPUDispatcher(<function smooth_knn_dist at 0x14a113bac160>) returned a result with an error set. time: 4.73 s (started: 2021-08-18 11:47:40 +01:00); ```. #### Versions. <details>. ```pytb; WARNING: If you miss a compact list, please try `print_header`!; The `sinfo` package has changed name and is now called `session_info` to become more discoverable and self-explanatory. The `sinfo` PyPI package will be kept around to avoid breaking old installs and you can downgrade to 0.3.2 if you want to use it without seeing this message. For the latest features and bug fixes, please install `session_info` instead. The usage and defaults also changed slightly, so please review the latest README at https://gitlab.com/joelostblom/session_info.; -----; anndata 0.7.6; scanpy 1.8.1; sinfo 0.3.4; -----; PIL 8.3.1; autotime 0.3.1; backcall 0.2.0; bottleneck 1.3.2; cffi 1.14.6; cycler 0.10.0; cython_runtime NA; dateutil 2.8.2; decorator 5.0.9; defusedxml 0.7.1; h5py 2.10.0; igraph 0.9.6; ipykernel 6.0.3; ipython_genutils 0.2.0; jedi 0.18.0; joblib 1.0.1; kiwisolver 1.3.1; leidenalg 0.8.7; llvmlite 0.33.0; loompy 3.0.6; louvain 0.7.0; matplotlib 3.4.2; matplotlib_inline NA; mkl 2.4.0; mpl_toolkits NA; natsort 7.1.1; numba 0.50.1; numexpr 2.7.3; numpy 1.20.3; numpy_groupies 0.9.13; packaging 21.0; pandas 1.3.0; parso 0.8.2; pexpect 4.8.0; pickleshare 0.7.5; pkg_resources NA; prompt_toolkit 3.0.19; ptyprocess 0.7.0; pycparser",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/1983:3967,avoid,avoid,3967,https://scanpy.readthedocs.io,https://github.com/scverse/scanpy/issues/1983,1,['avoid'],['avoid'],"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out, based on whether it consists of meaningful human-written prose or instead mainly contains programmatic or technical artifacts like logs or code.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+
+### Eliminate content that is not intended for human interpretation and consists primarily of:
+- Code snippets or program structure  
+  *(e.g., `if/else`, `for` loops, braces, language-specific syntax or keywords)*
+- Program output, logs, or error traces  
+  *(e.g., timestamps, error codes, stack traces, unit test results)*
+- Configuration files, scripts, or build system output  
+  *(e.g., YAML, JSON, Makefiles, shell scripts, compiler output)*
+- Version control metadata or commit messages  
+  *(e.g., git logs, diffs, merge info, file paths with change indicators)*
+- API documentation or technical interface definitions  
+  *(e.g., method signatures, parameter tables, annotations, formal docstrings)*
+
+### Keep content that:
+- Does **not** fall primarily into any of the elimination categories
+- Is written for human readers — including **natural language, explanation, commentary, or analysis**
+- Includes **scientific, academic, or technical discussions**, even if highly formal or specialized  
+  *(e.g., discussions of model architecture, training benchmarks, research outcomes, biological findings, or engineering analysis)*
+- May contain structured or technical vocabulary, **as long as it is not formatted primarily like code or machine output**
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, or critiques
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/console).; ### Failing tests:; - [projectroot.test.test_stressgraphics_interpreted](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/testReport/projectroot/test/test_stressgraphics_interpreted/)
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of logs and no other text.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``. If absent,; the format specifier defaults to ``%u``. For example:. .. code-block:: llvm. ; CHECK: mov r[[#REG:]], 0x[[#%.8X,ADDR:]]. would match ``mov r5, 0x0000FEFE`` and set ``REG`` to the value ``5`` and; ``ADDR`` to the value ``0xFEFE``. Note that due to the precision it would fail; to match ``mov r5, 0xFEFE``. As a result of the numeric variable definition being optional, it is possible; to only check that a numeric value is present in a given format. This can be; useful when the value itself is not useful, for instance:. .. code-block:: gas. ; CHECK-NOT: mov r0, r[[#]]. to check that a value is synthesized rather than moved around. The syntax of a numeric substitution is; ``[[#%<fmtspec>, <constraint> <expr>]]`` where:. * ``<fmtspec>`` is the same format specifier as for defining a variable but; in this context indicating how a numeric expression value should be matched; against. If absent, both components of the format specifier are inferred from; the matching format of the numeric variable(s) used by the expression; constraint if any, and defaults to ``%u`` if no numeric variable is used,; denoting that the value should be unsigned with no leading zeros. In case of; conflict between format specifiers of several numeric variables, the; conversion specifier becomes mandatory but the precision specifier remains; optional. * ``<constraint>`` is the constraint de
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of programmatic interface description and no other text.
+
+### Example 3
+**Content:** I've been testing the latest updates on our scientific computing framework, and I'm impressed by the improvements in performance. The new parallelization strategy has reduced our simulation times by about 30% on our cluster. However, I noticed that memory usage spikes significantly when handling large datasets. Perhaps we could explore more efficient data structures or caching mechanisms to mitigate this issue? @TeamLead, would it be possible to allocate some resources to investigate this further?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 4
+**Content:** I've been experimenting with the GPU acceleration patches in this PR, and the results are promising. We're seeing a significant boost in matrix operations, which is crucial for our machine learning models. However, I encountered some inconsistencies when running on different GPU architectures. It might be beneficial to add more comprehensive tests to ensure compatibility across various hardware configurations. @DevTeam, could we discuss implementing a more robust testing framework for this?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 5
+**Content:** I've been exploring the energy efficiency improvements in our latest scientific computing framework, and I'm excited about the potential savings. By implementing parallelization strategies and optimizing data structures, we've reduced energy consumption by approximately 25% on our cluster. However, I think we could further enhance this by integrating tools like EnergyMeter to monitor and optimize energy usage in real-time. Additionally, exploring autotuning frameworks like ytopt could help balance performance and energy efficiency across different hardware configurations. @DevTeam, would it be feasible to allocate resources for integrating these tools and conducting a comprehensive energy efficiency analysis?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 6
+**Content:** is relatively simple;; they ultimately form a linked list of every clobber that dominates the; ``MemoryAccess`` that you're trying to optimize. In other words, the; ``definingAccess`` of a ``MemoryDef`` is always the nearest dominating; ``MemoryDef`` or ``MemoryPhi`` of said ``MemoryDef``. Use and Def optimization; ------------------------. ``MemoryUse``\ s keep a single operand, which is their defining or optimized; access.; Traditionally ``MemorySSA`` optimized ``MemoryUse``\ s at build-time, up to a; given threshold.; Specifically, the operand of every ``MemoryUse`` was optimized to point to the; actual clobber of said ``MemoryUse``. This can be seen in the above example; the; second ``MemoryUse`` in ``if.end`` has an operand of ``1``, which is a; ``MemoryDef`` from the entry block. This is done to make walking,; value numbering, etc, faster and easier.; As of `this revision <https://reviews.llvm.org/D121381>`_, the default was; changed to not optimize uses at build time, in order to provide the option to; reduce compile-time if the walking is not necessary in a pass. Most users call; the new API ``ensureOptimizedUses()`` to keep the previous behavior and do a; one-time optimization of ``MemoryUse``\ s, if this was not done before.; New pass users are recommended to call ``ensureOptimizedUses()``. Initially it was not possible to optimize ``MemoryDef``\ s in the same way, as we; restricted ``MemorySSA`` to one operand per access.; This was changed and ``MemoryDef``\ s now keep two operands.; The first one, the defining access, is; always the previous ``MemoryDef`` or ``MemoryPhi`` in the same basic block, or; the last one in a dominating predecessor if the current block doesn't have any; other accesses writing to memory. This is needed for walking Def chains.; The second operand is the optimized access, if there was a previous call on the; walker's ``getClobberingMemoryAccess(MA)``. This API will cache information; as part of ``MA``.; Optimizing all ``MemoryDef``
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language discussing testing experiences
+and performance improvements.
+
+### Example 7
+**Content:** representations, but these models are targeted towards token- and sentence-level training objectives and do not leverage information on inter-document relatedness, which limits their document-level representation power.; For applications on scientific documents, such as classification and recommendation, the embeddings power strong performance on end tasks.; We propose SPECTER, a new method to generate document-level embedding of scientific documents based on pretraining a Transformer language model on a powerful signal of document-level relatedness: the citation graph.; Unlike existing pretrained language models, SPECTER can be easily applied to downstream applications without task-specific fine-tuning.;
+**Answer:**
+to_eliminate: false
+reasoning: The content discusses research on NLP applications in scientific document processing, including the introduction of new methods like SPECTER and SCIDOCS.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**  
+([], [])), shape=(n_obs, 1)); --> 390 connectivities = fuzzy_simplicial_set(; 391 X,; 392 n_neighbors,. /hps/software/users/marioni/Leah/miniconda3/envs/scvelo/lib/python3.8/site-packages/umap/umap_.py in fuzzy_simplicial_set(X, n_neighbors, random_state, metric, metric_kwds, knn_indices, knn_dists, angular, set_op_mix_ratio, local_connectivity, apply_set_operations, verbose); 600 knn_dists = knn_dists.astype(np.float32); 601 ; --> 602 sigmas, rhos = smooth_knn_dist(; 603 knn_dists, float(n_neighbors), local_connectivity=float(local_connectivity),; 604 ). SystemError: CPUDispatcher(<function smooth_knn_dist at 0x14a113bac160>) returned a result with an error set. time: 4.73 s (started: 2021-08-18 11:47:40 +01:00); ```. #### Versions. <details>. ```pytb; WARNING: If you miss a compact list, please try `print_header`!; The `sinfo` package has changed name and is now called `session_info` to become more discoverable and self-explanatory. The `sinfo` PyPI package will be kept around to avoid breaking old installs and you can downgrade to 0.3.2 if you want to use it without seeing this message. For the latest features and bug fixes, please install `session_info` instead. The usage and defaults also changed slightly, so please review the latest README at https://gitlab.com/joelostblom/session_info.; -----; anndata 0.7.6; scanpy 1.8.1; sinfo 0.3.4; -----; PIL 8.3.1; autotime 0.3.1; backcall 0.2.0; bottleneck 1.3.2; cffi 1.14.6; cycler 0.10.0; cython_runtime NA; dateutil 2.8.2; decorator 5.0.9; defusedxml 0.7.1; h5py 2.10.0; igraph 0.9.6; ipykernel 6.0.3; ipython_genutils 0.2.0; jedi 0.18.0; joblib 1.0.1; kiwisolver 1.3.1; leidenalg 0.8.7; llvmlite 0.33.0; loompy 3.0.6; louvain 0.7.0; matplotlib 3.4.2; matplotlib_inline NA; mkl 2.4.0; mpl_toolkits NA; natsort 7.1.1; numba 0.50.1; numexpr 2.7.3; numpy 1.20.3; numpy_groupies 0.9.13; packaging 21.0; pandas 1.3.0; parso 0.8.2; pexpect 4.8.0; pickleshare 0.7.5; pkg_resources NA; prompt_toolkit 3.0.19; ptyprocess 0.7.0; pycparser
+",False,"The content includes error messages and package versions, which are technical details related to software installation and usage."
+Safety,(fix): conditional imports to avoid `anndata.io` warning,MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/3289:30,avoid,avoid,30,https://scanpy.readthedocs.io,https://github.com/scverse/scanpy/pull/3289,1,['avoid'],['avoid'],"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out, based on whether it consists of meaningful human-written prose or instead mainly contains programmatic or technical artifacts like logs or code.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+
+### Eliminate content that is not intended for human interpretation and consists primarily of:
+- Code snippets or program structure  
+  *(e.g., `if/else`, `for` loops, braces, language-specific syntax or keywords)*
+- Program output, logs, or error traces  
+  *(e.g., timestamps, error codes, stack traces, unit test results)*
+- Configuration files, scripts, or build system output  
+  *(e.g., YAML, JSON, Makefiles, shell scripts, compiler output)*
+- Version control metadata or commit messages  
+  *(e.g., git logs, diffs, merge info, file paths with change indicators)*
+- API documentation or technical interface definitions  
+  *(e.g., method signatures, parameter tables, annotations, formal docstrings)*
+
+### Keep content that:
+- Does **not** fall primarily into any of the elimination categories
+- Is written for human readers — including **natural language, explanation, commentary, or analysis**
+- Includes **scientific, academic, or technical discussions**, even if highly formal or specialized  
+  *(e.g., discussions of model architecture, training benchmarks, research outcomes, biological findings, or engineering analysis)*
+- May contain structured or technical vocabulary, **as long as it is not formatted primarily like code or machine output**
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, or critiques
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/console).; ### Failing tests:; - [projectroot.test.test_stressgraphics_interpreted](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/testReport/projectroot/test/test_stressgraphics_interpreted/)
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of logs and no other text.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``. If absent,; the format specifier defaults to ``%u``. For example:. .. code-block:: llvm. ; CHECK: mov r[[#REG:]], 0x[[#%.8X,ADDR:]]. would match ``mov r5, 0x0000FEFE`` and set ``REG`` to the value ``5`` and; ``ADDR`` to the value ``0xFEFE``. Note that due to the precision it would fail; to match ``mov r5, 0xFEFE``. As a result of the numeric variable definition being optional, it is possible; to only check that a numeric value is present in a given format. This can be; useful when the value itself is not useful, for instance:. .. code-block:: gas. ; CHECK-NOT: mov r0, r[[#]]. to check that a value is synthesized rather than moved around. The syntax of a numeric substitution is; ``[[#%<fmtspec>, <constraint> <expr>]]`` where:. * ``<fmtspec>`` is the same format specifier as for defining a variable but; in this context indicating how a numeric expression value should be matched; against. If absent, both components of the format specifier are inferred from; the matching format of the numeric variable(s) used by the expression; constraint if any, and defaults to ``%u`` if no numeric variable is used,; denoting that the value should be unsigned with no leading zeros. In case of; conflict between format specifiers of several numeric variables, the; conversion specifier becomes mandatory but the precision specifier remains; optional. * ``<constraint>`` is the constraint de
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of programmatic interface description and no other text.
+
+### Example 3
+**Content:** I've been testing the latest updates on our scientific computing framework, and I'm impressed by the improvements in performance. The new parallelization strategy has reduced our simulation times by about 30% on our cluster. However, I noticed that memory usage spikes significantly when handling large datasets. Perhaps we could explore more efficient data structures or caching mechanisms to mitigate this issue? @TeamLead, would it be possible to allocate some resources to investigate this further?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 4
+**Content:** I've been experimenting with the GPU acceleration patches in this PR, and the results are promising. We're seeing a significant boost in matrix operations, which is crucial for our machine learning models. However, I encountered some inconsistencies when running on different GPU architectures. It might be beneficial to add more comprehensive tests to ensure compatibility across various hardware configurations. @DevTeam, could we discuss implementing a more robust testing framework for this?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 5
+**Content:** I've been exploring the energy efficiency improvements in our latest scientific computing framework, and I'm excited about the potential savings. By implementing parallelization strategies and optimizing data structures, we've reduced energy consumption by approximately 25% on our cluster. However, I think we could further enhance this by integrating tools like EnergyMeter to monitor and optimize energy usage in real-time. Additionally, exploring autotuning frameworks like ytopt could help balance performance and energy efficiency across different hardware configurations. @DevTeam, would it be feasible to allocate resources for integrating these tools and conducting a comprehensive energy efficiency analysis?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 6
+**Content:** is relatively simple;; they ultimately form a linked list of every clobber that dominates the; ``MemoryAccess`` that you're trying to optimize. In other words, the; ``definingAccess`` of a ``MemoryDef`` is always the nearest dominating; ``MemoryDef`` or ``MemoryPhi`` of said ``MemoryDef``. Use and Def optimization; ------------------------. ``MemoryUse``\ s keep a single operand, which is their defining or optimized; access.; Traditionally ``MemorySSA`` optimized ``MemoryUse``\ s at build-time, up to a; given threshold.; Specifically, the operand of every ``MemoryUse`` was optimized to point to the; actual clobber of said ``MemoryUse``. This can be seen in the above example; the; second ``MemoryUse`` in ``if.end`` has an operand of ``1``, which is a; ``MemoryDef`` from the entry block. This is done to make walking,; value numbering, etc, faster and easier.; As of `this revision <https://reviews.llvm.org/D121381>`_, the default was; changed to not optimize uses at build time, in order to provide the option to; reduce compile-time if the walking is not necessary in a pass. Most users call; the new API ``ensureOptimizedUses()`` to keep the previous behavior and do a; one-time optimization of ``MemoryUse``\ s, if this was not done before.; New pass users are recommended to call ``ensureOptimizedUses()``. Initially it was not possible to optimize ``MemoryDef``\ s in the same way, as we; restricted ``MemorySSA`` to one operand per access.; This was changed and ``MemoryDef``\ s now keep two operands.; The first one, the defining access, is; always the previous ``MemoryDef`` or ``MemoryPhi`` in the same basic block, or; the last one in a dominating predecessor if the current block doesn't have any; other accesses writing to memory. This is needed for walking Def chains.; The second operand is the optimized access, if there was a previous call on the; walker's ``getClobberingMemoryAccess(MA)``. This API will cache information; as part of ``MA``.; Optimizing all ``MemoryDef``
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language discussing testing experiences
+and performance improvements.
+
+### Example 7
+**Content:** representations, but these models are targeted towards token- and sentence-level training objectives and do not leverage information on inter-document relatedness, which limits their document-level representation power.; For applications on scientific documents, such as classification and recommendation, the embeddings power strong performance on end tasks.; We propose SPECTER, a new method to generate document-level embedding of scientific documents based on pretraining a Transformer language model on a powerful signal of document-level relatedness: the citation graph.; Unlike existing pretrained language models, SPECTER can be easily applied to downstream applications without task-specific fine-tuning.;
+**Answer:**
+to_eliminate: false
+reasoning: The content discusses research on NLP applications in scientific document processing, including the introduction of new methods like SPECTER and SCIDOCS.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**  
+(fix): conditional imports to avoid `anndata.io` warning
+",False,The content contains meaningful human-written sentences in natural language discussing potential fixes for warnings or issues in code.
+Safety,"(sorry, I messed up my branch, so sending a new PR). I added a new batch_key option to HVG function. If specified, it runs the HVG selection in every batch separately and then merges the list in order to reduce the batch effects by avoiding the selection of batch-specific genes. This doesn't fully correct the batch effect but reduces it. Running the function for each batch is trivial but merging is trickier than I thought. How I do it now is as follows:. - hvg is run on each batch and resulting hvg lists are first concatenated into a single dataframe.; The data frame is grouped by genes. mean, dispersion and normalized dispersion values are aggregated via `np.nanmean`. Two new columns are created 1) ""in how many batches a gene is detected as hvg"". 2) intersection of all HVGs across batches. - if n_top_genes is given, combined hvg lists are sorted by 1) in how many batches a gene is detected as hvg 2) normalized dispersion. normalized dispersion is used to break the ties. Then top n genes are selected as the final hvg list. - if n_top_genes is not given, same mean and dispersion thresholds are applied to the combined hvg list. Here is the code to see the improvement of this approach:. ```python; import scanpy as sc; import numpy as np; import pandas as pd. ad = sc.read(""pancreas.h5ad"", backup_url=""https://goo.gl/V29FNk"") # adapted from scGen repo; ad.obs[""cell_type""] = ad.obs[""celltype""].tolist(). ad = sc.AnnData(ad.raw.X, var=ad.raw.var, obs=ad.obs); sc.pp.normalize_per_cell(ad); sc.pp.log1p(ad). sc.pp.highly_variable_genes(ad, batch_key='batch'); sc.pp.pca(ad); sc.pp.neighbors(ad); sc.tl.umap(ad); sc.pl.umap(ad, color=[""batch"", ""cell_type""]); ```",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/pull/622:232,avoid,avoiding,232,https://scanpy.readthedocs.io,https://github.com/scverse/scanpy/pull/622,3,"['avoid', 'detect']","['avoiding', 'detected']","
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out, based on whether it consists of meaningful human-written prose or instead mainly contains programmatic or technical artifacts like logs or code.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+
+### Eliminate content that is not intended for human interpretation and consists primarily of:
+- Code snippets or program structure  
+  *(e.g., `if/else`, `for` loops, braces, language-specific syntax or keywords)*
+- Program output, logs, or error traces  
+  *(e.g., timestamps, error codes, stack traces, unit test results)*
+- Configuration files, scripts, or build system output  
+  *(e.g., YAML, JSON, Makefiles, shell scripts, compiler output)*
+- Version control metadata or commit messages  
+  *(e.g., git logs, diffs, merge info, file paths with change indicators)*
+- API documentation or technical interface definitions  
+  *(e.g., method signatures, parameter tables, annotations, formal docstrings)*
+
+### Keep content that:
+- Does **not** fall primarily into any of the elimination categories
+- Is written for human readers — including **natural language, explanation, commentary, or analysis**
+- Includes **scientific, academic, or technical discussions**, even if highly formal or specialized  
+  *(e.g., discussions of model architecture, training benchmarks, research outcomes, biological findings, or engineering analysis)*
+- May contain structured or technical vocabulary, **as long as it is not formatted primarily like code or machine output**
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, or critiques
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/console).; ### Failing tests:; - [projectroot.test.test_stressgraphics_interpreted](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/testReport/projectroot/test/test_stressgraphics_interpreted/)
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of logs and no other text.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``. If absent,; the format specifier defaults to ``%u``. For example:. .. code-block:: llvm. ; CHECK: mov r[[#REG:]], 0x[[#%.8X,ADDR:]]. would match ``mov r5, 0x0000FEFE`` and set ``REG`` to the value ``5`` and; ``ADDR`` to the value ``0xFEFE``. Note that due to the precision it would fail; to match ``mov r5, 0xFEFE``. As a result of the numeric variable definition being optional, it is possible; to only check that a numeric value is present in a given format. This can be; useful when the value itself is not useful, for instance:. .. code-block:: gas. ; CHECK-NOT: mov r0, r[[#]]. to check that a value is synthesized rather than moved around. The syntax of a numeric substitution is; ``[[#%<fmtspec>, <constraint> <expr>]]`` where:. * ``<fmtspec>`` is the same format specifier as for defining a variable but; in this context indicating how a numeric expression value should be matched; against. If absent, both components of the format specifier are inferred from; the matching format of the numeric variable(s) used by the expression; constraint if any, and defaults to ``%u`` if no numeric variable is used,; denoting that the value should be unsigned with no leading zeros. In case of; conflict between format specifiers of several numeric variables, the; conversion specifier becomes mandatory but the precision specifier remains; optional. * ``<constraint>`` is the constraint de
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of programmatic interface description and no other text.
+
+### Example 3
+**Content:** I've been testing the latest updates on our scientific computing framework, and I'm impressed by the improvements in performance. The new parallelization strategy has reduced our simulation times by about 30% on our cluster. However, I noticed that memory usage spikes significantly when handling large datasets. Perhaps we could explore more efficient data structures or caching mechanisms to mitigate this issue? @TeamLead, would it be possible to allocate some resources to investigate this further?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 4
+**Content:** I've been experimenting with the GPU acceleration patches in this PR, and the results are promising. We're seeing a significant boost in matrix operations, which is crucial for our machine learning models. However, I encountered some inconsistencies when running on different GPU architectures. It might be beneficial to add more comprehensive tests to ensure compatibility across various hardware configurations. @DevTeam, could we discuss implementing a more robust testing framework for this?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 5
+**Content:** I've been exploring the energy efficiency improvements in our latest scientific computing framework, and I'm excited about the potential savings. By implementing parallelization strategies and optimizing data structures, we've reduced energy consumption by approximately 25% on our cluster. However, I think we could further enhance this by integrating tools like EnergyMeter to monitor and optimize energy usage in real-time. Additionally, exploring autotuning frameworks like ytopt could help balance performance and energy efficiency across different hardware configurations. @DevTeam, would it be feasible to allocate resources for integrating these tools and conducting a comprehensive energy efficiency analysis?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 6
+**Content:** is relatively simple;; they ultimately form a linked list of every clobber that dominates the; ``MemoryAccess`` that you're trying to optimize. In other words, the; ``definingAccess`` of a ``MemoryDef`` is always the nearest dominating; ``MemoryDef`` or ``MemoryPhi`` of said ``MemoryDef``. Use and Def optimization; ------------------------. ``MemoryUse``\ s keep a single operand, which is their defining or optimized; access.; Traditionally ``MemorySSA`` optimized ``MemoryUse``\ s at build-time, up to a; given threshold.; Specifically, the operand of every ``MemoryUse`` was optimized to point to the; actual clobber of said ``MemoryUse``. This can be seen in the above example; the; second ``MemoryUse`` in ``if.end`` has an operand of ``1``, which is a; ``MemoryDef`` from the entry block. This is done to make walking,; value numbering, etc, faster and easier.; As of `this revision <https://reviews.llvm.org/D121381>`_, the default was; changed to not optimize uses at build time, in order to provide the option to; reduce compile-time if the walking is not necessary in a pass. Most users call; the new API ``ensureOptimizedUses()`` to keep the previous behavior and do a; one-time optimization of ``MemoryUse``\ s, if this was not done before.; New pass users are recommended to call ``ensureOptimizedUses()``. Initially it was not possible to optimize ``MemoryDef``\ s in the same way, as we; restricted ``MemorySSA`` to one operand per access.; This was changed and ``MemoryDef``\ s now keep two operands.; The first one, the defining access, is; always the previous ``MemoryDef`` or ``MemoryPhi`` in the same basic block, or; the last one in a dominating predecessor if the current block doesn't have any; other accesses writing to memory. This is needed for walking Def chains.; The second operand is the optimized access, if there was a previous call on the; walker's ``getClobberingMemoryAccess(MA)``. This API will cache information; as part of ``MA``.; Optimizing all ``MemoryDef``
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language discussing testing experiences
+and performance improvements.
+
+### Example 7
+**Content:** representations, but these models are targeted towards token- and sentence-level training objectives and do not leverage information on inter-document relatedness, which limits their document-level representation power.; For applications on scientific documents, such as classification and recommendation, the embeddings power strong performance on end tasks.; We propose SPECTER, a new method to generate document-level embedding of scientific documents based on pretraining a Transformer language model on a powerful signal of document-level relatedness: the citation graph.; Unlike existing pretrained language models, SPECTER can be easily applied to downstream applications without task-specific fine-tuning.;
+**Answer:**
+to_eliminate: false
+reasoning: The content discusses research on NLP applications in scientific document processing, including the introduction of new methods like SPECTER and SCIDOCS.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**  
+(sorry, I messed up my branch, so sending a new PR). I added a new batch_key option to HVG function. If specified, it runs the HVG selection in every batch separately and then merges the list in order to reduce the batch effects by avoiding the selection of batch-specific genes. This doesn't fully correct the batch effect but reduces it. Running the function for each batch is trivial but merging is trickier than I thought. How I do it now is as follows:. - hvg is run on each batch and resulting hvg lists are first concatenated into a single dataframe.; The data frame is grouped by genes. mean, dispersion and normalized dispersion values are aggregated via `np.nanmean`. Two new columns are created 1) ""in how many batches a gene is detected as hvg"". 2) intersection of all HVGs across batches. - if n_top_genes is given, combined hvg lists are sorted by 1) in how many batches a gene is detected as hvg 2) normalized dispersion. normalized dispersion is used to break the ties. Then top n genes are selected as the final hvg list. - if n_top_genes is not given, same mean and dispersion thresholds are applied to the combined hvg list. Here is the code to see the improvement of this approach:. ```python; import scanpy as sc; import numpy as np; import pandas as pd. ad = sc.read(""pancreas.h5ad"", backup_url=""https://goo.gl/V29FNk"") # adapted from scGen repo; ad.obs[""cell_type""] = ad.obs[""celltype""].tolist(). ad = sc.AnnData(ad.raw.X, var=ad.raw.var, obs=ad.obs); sc.pp.normalize_per_cell(ad); sc.pp.log1p(ad). sc.pp.highly_variable_genes(ad, batch_key='batch'); sc.pp.pca(ad); sc.pp.neighbors(ad); sc.tl.umap(ad); sc.pl.umap(ad, color=[""batch"", ""cell_type""]); ```
+",False,The content discusses technical implementation details of a bioinformatics method for analyzing gene expression data with batch effects.
+Safety,"**The following is what this function does (we can see it with ?sc.pp.recipe_zheng17):**; ```; sc.pp.filter_genes(adata, min_counts=1) # only consider genes with more than 1 count; sc.pp.normalize_per_cell( # normalize with total UMI count per cell; adata, key_n_counts='n_counts_all'); filter_result = sc.pp.filter_genes_dispersion( # select highly-variable genes; adata.X, flavor='cell_ranger', n_top_genes=n_top_genes, log=False); adata = adata[:, filter_result.gene_subset] # subset the genes; sc.pp.normalize_per_cell(adata) # renormalize after filtering; if log: sc.pp.log1p(adata) # log transform: adata.X = log(adata.X + 1); sc.pp.scale(adata) # scale to unit variance and shift to zero mean; ```. **But in the original paper Zheng et al. (2017 (https://www.nature.com/articles/ncomms14049#Sec11), it said:**; Only genes with at least one UMI count detected in at least one cell are used. UMI normalization was performed by first dividing UMI counts by the total UMI counts in each cell, **followed by multiplication with the median of the total UMI counts across cells**. Then, we took the natural log of the UMI counts. Finally, each gene was normalized such that the mean signal for each gene is 0, and standard deviation is 1. **So, comparing these two pipelines, the pipeline implemented in scanpy is not the same with the method described in the original paper, in the paper, there is a step**: _multiplication with the median of the total UMI counts across cells_, but this step was skipped inside the function sc.pp.recipe_zheng17. **Is there anyone who can tell me why they are different?** @flying-sheep",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/905:857,detect,detected,857,https://scanpy.readthedocs.io,https://github.com/scverse/scanpy/issues/905,1,['detect'],['detected'],"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out, based on whether it consists of meaningful human-written prose or instead mainly contains programmatic or technical artifacts like logs or code.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+
+### Eliminate content that is not intended for human interpretation and consists primarily of:
+- Code snippets or program structure  
+  *(e.g., `if/else`, `for` loops, braces, language-specific syntax or keywords)*
+- Program output, logs, or error traces  
+  *(e.g., timestamps, error codes, stack traces, unit test results)*
+- Configuration files, scripts, or build system output  
+  *(e.g., YAML, JSON, Makefiles, shell scripts, compiler output)*
+- Version control metadata or commit messages  
+  *(e.g., git logs, diffs, merge info, file paths with change indicators)*
+- API documentation or technical interface definitions  
+  *(e.g., method signatures, parameter tables, annotations, formal docstrings)*
+
+### Keep content that:
+- Does **not** fall primarily into any of the elimination categories
+- Is written for human readers — including **natural language, explanation, commentary, or analysis**
+- Includes **scientific, academic, or technical discussions**, even if highly formal or specialized  
+  *(e.g., discussions of model architecture, training benchmarks, research outcomes, biological findings, or engineering analysis)*
+- May contain structured or technical vocabulary, **as long as it is not formatted primarily like code or machine output**
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, or critiques
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/console).; ### Failing tests:; - [projectroot.test.test_stressgraphics_interpreted](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/testReport/projectroot/test/test_stressgraphics_interpreted/)
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of logs and no other text.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``. If absent,; the format specifier defaults to ``%u``. For example:. .. code-block:: llvm. ; CHECK: mov r[[#REG:]], 0x[[#%.8X,ADDR:]]. would match ``mov r5, 0x0000FEFE`` and set ``REG`` to the value ``5`` and; ``ADDR`` to the value ``0xFEFE``. Note that due to the precision it would fail; to match ``mov r5, 0xFEFE``. As a result of the numeric variable definition being optional, it is possible; to only check that a numeric value is present in a given format. This can be; useful when the value itself is not useful, for instance:. .. code-block:: gas. ; CHECK-NOT: mov r0, r[[#]]. to check that a value is synthesized rather than moved around. The syntax of a numeric substitution is; ``[[#%<fmtspec>, <constraint> <expr>]]`` where:. * ``<fmtspec>`` is the same format specifier as for defining a variable but; in this context indicating how a numeric expression value should be matched; against. If absent, both components of the format specifier are inferred from; the matching format of the numeric variable(s) used by the expression; constraint if any, and defaults to ``%u`` if no numeric variable is used,; denoting that the value should be unsigned with no leading zeros. In case of; conflict between format specifiers of several numeric variables, the; conversion specifier becomes mandatory but the precision specifier remains; optional. * ``<constraint>`` is the constraint de
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of programmatic interface description and no other text.
+
+### Example 3
+**Content:** I've been testing the latest updates on our scientific computing framework, and I'm impressed by the improvements in performance. The new parallelization strategy has reduced our simulation times by about 30% on our cluster. However, I noticed that memory usage spikes significantly when handling large datasets. Perhaps we could explore more efficient data structures or caching mechanisms to mitigate this issue? @TeamLead, would it be possible to allocate some resources to investigate this further?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 4
+**Content:** I've been experimenting with the GPU acceleration patches in this PR, and the results are promising. We're seeing a significant boost in matrix operations, which is crucial for our machine learning models. However, I encountered some inconsistencies when running on different GPU architectures. It might be beneficial to add more comprehensive tests to ensure compatibility across various hardware configurations. @DevTeam, could we discuss implementing a more robust testing framework for this?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 5
+**Content:** I've been exploring the energy efficiency improvements in our latest scientific computing framework, and I'm excited about the potential savings. By implementing parallelization strategies and optimizing data structures, we've reduced energy consumption by approximately 25% on our cluster. However, I think we could further enhance this by integrating tools like EnergyMeter to monitor and optimize energy usage in real-time. Additionally, exploring autotuning frameworks like ytopt could help balance performance and energy efficiency across different hardware configurations. @DevTeam, would it be feasible to allocate resources for integrating these tools and conducting a comprehensive energy efficiency analysis?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 6
+**Content:** is relatively simple;; they ultimately form a linked list of every clobber that dominates the; ``MemoryAccess`` that you're trying to optimize. In other words, the; ``definingAccess`` of a ``MemoryDef`` is always the nearest dominating; ``MemoryDef`` or ``MemoryPhi`` of said ``MemoryDef``. Use and Def optimization; ------------------------. ``MemoryUse``\ s keep a single operand, which is their defining or optimized; access.; Traditionally ``MemorySSA`` optimized ``MemoryUse``\ s at build-time, up to a; given threshold.; Specifically, the operand of every ``MemoryUse`` was optimized to point to the; actual clobber of said ``MemoryUse``. This can be seen in the above example; the; second ``MemoryUse`` in ``if.end`` has an operand of ``1``, which is a; ``MemoryDef`` from the entry block. This is done to make walking,; value numbering, etc, faster and easier.; As of `this revision <https://reviews.llvm.org/D121381>`_, the default was; changed to not optimize uses at build time, in order to provide the option to; reduce compile-time if the walking is not necessary in a pass. Most users call; the new API ``ensureOptimizedUses()`` to keep the previous behavior and do a; one-time optimization of ``MemoryUse``\ s, if this was not done before.; New pass users are recommended to call ``ensureOptimizedUses()``. Initially it was not possible to optimize ``MemoryDef``\ s in the same way, as we; restricted ``MemorySSA`` to one operand per access.; This was changed and ``MemoryDef``\ s now keep two operands.; The first one, the defining access, is; always the previous ``MemoryDef`` or ``MemoryPhi`` in the same basic block, or; the last one in a dominating predecessor if the current block doesn't have any; other accesses writing to memory. This is needed for walking Def chains.; The second operand is the optimized access, if there was a previous call on the; walker's ``getClobberingMemoryAccess(MA)``. This API will cache information; as part of ``MA``.; Optimizing all ``MemoryDef``
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language discussing testing experiences
+and performance improvements.
+
+### Example 7
+**Content:** representations, but these models are targeted towards token- and sentence-level training objectives and do not leverage information on inter-document relatedness, which limits their document-level representation power.; For applications on scientific documents, such as classification and recommendation, the embeddings power strong performance on end tasks.; We propose SPECTER, a new method to generate document-level embedding of scientific documents based on pretraining a Transformer language model on a powerful signal of document-level relatedness: the citation graph.; Unlike existing pretrained language models, SPECTER can be easily applied to downstream applications without task-specific fine-tuning.;
+**Answer:**
+to_eliminate: false
+reasoning: The content discusses research on NLP applications in scientific document processing, including the introduction of new methods like SPECTER and SCIDOCS.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**  
+**The following is what this function does (we can see it with ?sc.pp.recipe_zheng17):**; ```; sc.pp.filter_genes(adata, min_counts=1) # only consider genes with more than 1 count; sc.pp.normalize_per_cell( # normalize with total UMI count per cell; adata, key_n_counts='n_counts_all'); filter_result = sc.pp.filter_genes_dispersion( # select highly-variable genes; adata.X, flavor='cell_ranger', n_top_genes=n_top_genes, log=False); adata = adata[:, filter_result.gene_subset] # subset the genes; sc.pp.normalize_per_cell(adata) # renormalize after filtering; if log: sc.pp.log1p(adata) # log transform: adata.X = log(adata.X + 1); sc.pp.scale(adata) # scale to unit variance and shift to zero mean; ```. **But in the original paper Zheng et al. (2017 (https://www.nature.com/articles/ncomms14049#Sec11), it said:**; Only genes with at least one UMI count detected in at least one cell are used. UMI normalization was performed by first dividing UMI counts by the total UMI counts in each cell, **followed by multiplication with the median of the total UMI counts across cells**. Then, we took the natural log of the UMI counts. Finally, each gene was normalized such that the mean signal for each gene is 0, and standard deviation is 1. **So, comparing these two pipelines, the pipeline implemented in scanpy is not the same with the method described in the original paper, in the paper, there is a step**: _multiplication with the median of the total UMI counts across cells_, but this step was skipped inside the function sc.pp.recipe_zheng17. **Is there anyone who can tell me why they are different?** @flying-sheep
+",False,"The content discusses technical aspects of data processing in bioinformatics, specifically comparing two pipelines for gene filtering and normalization."
+Safety,"- [X] I have checked that this issue has not already been reported.; - [X] I have confirmed this bug exists on the latest version of scanpy.; - [ ] (optional) I have confirmed this bug exists on the master branch of scanpy. This is probably a bug in my thinking, but naively I thought that `sc.pp.normalize_total()` normalizes counts per cell, thus allowing comparison of different cells by correcting for variable sequencing depth. However, the log transformation applied after normalisation seems to upset this relationship, example below. Why is this not problematic?. Incidentally, I first noticed this on my real biological dataset, not the toy example below. Edit: [relevant paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6215955/). > We can show, mathematically, that if we normalize expression profiles to have the same mean across cells, the mean after the equation [log] transformation used for RNA-Seq data will not be the same, and it will depend on the detection rate... And this [one](https://www.biorxiv.org/content/10.1101/404962v1.full):. > One issue of particular interest is that the mean of the log-counts is not generally the same as the log-mean count [1]. This is problematic in scRNA-seq contexts where the log-transformation is applied to normalized expression data. ---. ### Minimal code sample. ```python; >>> from anndata import AnnData; >>> import scanpy as sc; >>> import numpy as np; >>> adata = AnnData(np.array([[3, 3, 3, 6, 6],[1, 1, 1, 2, 2],[1, 22, 1, 2, 2], ])); >>> X_norm = sc.pp.normalize_total(adata, target_sum=1, inplace=False)['X']; >>> X_norm_log = np.log1p(X_norm); >>> X_norm_again = np.expm1(X_norm_log); >>> adata.X.sum(axis=1); array([21., 7., 28.], dtype=float32) # Different counts for each cell; >>> X_norm.sum(axis=1); array([1., 1., 1.], dtype=float32) # Normalisation means same counts for each cell; >>> X_norm_log.sum(axis=1); array([0.90322304, 0.90322304, 0.7879869 ], dtype=float32) # <<< Interested in this! Different counts for each ",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/1364:971,detect,detection,971,https://scanpy.readthedocs.io,https://github.com/scverse/scanpy/issues/1364,1,['detect'],['detection'],"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out, based on whether it consists of meaningful human-written prose or instead mainly contains programmatic or technical artifacts like logs or code.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+
+### Eliminate content that is not intended for human interpretation and consists primarily of:
+- Code snippets or program structure  
+  *(e.g., `if/else`, `for` loops, braces, language-specific syntax or keywords)*
+- Program output, logs, or error traces  
+  *(e.g., timestamps, error codes, stack traces, unit test results)*
+- Configuration files, scripts, or build system output  
+  *(e.g., YAML, JSON, Makefiles, shell scripts, compiler output)*
+- Version control metadata or commit messages  
+  *(e.g., git logs, diffs, merge info, file paths with change indicators)*
+- API documentation or technical interface definitions  
+  *(e.g., method signatures, parameter tables, annotations, formal docstrings)*
+
+### Keep content that:
+- Does **not** fall primarily into any of the elimination categories
+- Is written for human readers — including **natural language, explanation, commentary, or analysis**
+- Includes **scientific, academic, or technical discussions**, even if highly formal or specialized  
+  *(e.g., discussions of model architecture, training benchmarks, research outcomes, biological findings, or engineering analysis)*
+- May contain structured or technical vocabulary, **as long as it is not formatted primarily like code or machine output**
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, or critiques
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/console).; ### Failing tests:; - [projectroot.test.test_stressgraphics_interpreted](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/testReport/projectroot/test/test_stressgraphics_interpreted/)
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of logs and no other text.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``. If absent,; the format specifier defaults to ``%u``. For example:. .. code-block:: llvm. ; CHECK: mov r[[#REG:]], 0x[[#%.8X,ADDR:]]. would match ``mov r5, 0x0000FEFE`` and set ``REG`` to the value ``5`` and; ``ADDR`` to the value ``0xFEFE``. Note that due to the precision it would fail; to match ``mov r5, 0xFEFE``. As a result of the numeric variable definition being optional, it is possible; to only check that a numeric value is present in a given format. This can be; useful when the value itself is not useful, for instance:. .. code-block:: gas. ; CHECK-NOT: mov r0, r[[#]]. to check that a value is synthesized rather than moved around. The syntax of a numeric substitution is; ``[[#%<fmtspec>, <constraint> <expr>]]`` where:. * ``<fmtspec>`` is the same format specifier as for defining a variable but; in this context indicating how a numeric expression value should be matched; against. If absent, both components of the format specifier are inferred from; the matching format of the numeric variable(s) used by the expression; constraint if any, and defaults to ``%u`` if no numeric variable is used,; denoting that the value should be unsigned with no leading zeros. In case of; conflict between format specifiers of several numeric variables, the; conversion specifier becomes mandatory but the precision specifier remains; optional. * ``<constraint>`` is the constraint de
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of programmatic interface description and no other text.
+
+### Example 3
+**Content:** I've been testing the latest updates on our scientific computing framework, and I'm impressed by the improvements in performance. The new parallelization strategy has reduced our simulation times by about 30% on our cluster. However, I noticed that memory usage spikes significantly when handling large datasets. Perhaps we could explore more efficient data structures or caching mechanisms to mitigate this issue? @TeamLead, would it be possible to allocate some resources to investigate this further?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 4
+**Content:** I've been experimenting with the GPU acceleration patches in this PR, and the results are promising. We're seeing a significant boost in matrix operations, which is crucial for our machine learning models. However, I encountered some inconsistencies when running on different GPU architectures. It might be beneficial to add more comprehensive tests to ensure compatibility across various hardware configurations. @DevTeam, could we discuss implementing a more robust testing framework for this?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 5
+**Content:** I've been exploring the energy efficiency improvements in our latest scientific computing framework, and I'm excited about the potential savings. By implementing parallelization strategies and optimizing data structures, we've reduced energy consumption by approximately 25% on our cluster. However, I think we could further enhance this by integrating tools like EnergyMeter to monitor and optimize energy usage in real-time. Additionally, exploring autotuning frameworks like ytopt could help balance performance and energy efficiency across different hardware configurations. @DevTeam, would it be feasible to allocate resources for integrating these tools and conducting a comprehensive energy efficiency analysis?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 6
+**Content:** is relatively simple;; they ultimately form a linked list of every clobber that dominates the; ``MemoryAccess`` that you're trying to optimize. In other words, the; ``definingAccess`` of a ``MemoryDef`` is always the nearest dominating; ``MemoryDef`` or ``MemoryPhi`` of said ``MemoryDef``. Use and Def optimization; ------------------------. ``MemoryUse``\ s keep a single operand, which is their defining or optimized; access.; Traditionally ``MemorySSA`` optimized ``MemoryUse``\ s at build-time, up to a; given threshold.; Specifically, the operand of every ``MemoryUse`` was optimized to point to the; actual clobber of said ``MemoryUse``. This can be seen in the above example; the; second ``MemoryUse`` in ``if.end`` has an operand of ``1``, which is a; ``MemoryDef`` from the entry block. This is done to make walking,; value numbering, etc, faster and easier.; As of `this revision <https://reviews.llvm.org/D121381>`_, the default was; changed to not optimize uses at build time, in order to provide the option to; reduce compile-time if the walking is not necessary in a pass. Most users call; the new API ``ensureOptimizedUses()`` to keep the previous behavior and do a; one-time optimization of ``MemoryUse``\ s, if this was not done before.; New pass users are recommended to call ``ensureOptimizedUses()``. Initially it was not possible to optimize ``MemoryDef``\ s in the same way, as we; restricted ``MemorySSA`` to one operand per access.; This was changed and ``MemoryDef``\ s now keep two operands.; The first one, the defining access, is; always the previous ``MemoryDef`` or ``MemoryPhi`` in the same basic block, or; the last one in a dominating predecessor if the current block doesn't have any; other accesses writing to memory. This is needed for walking Def chains.; The second operand is the optimized access, if there was a previous call on the; walker's ``getClobberingMemoryAccess(MA)``. This API will cache information; as part of ``MA``.; Optimizing all ``MemoryDef``
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language discussing testing experiences
+and performance improvements.
+
+### Example 7
+**Content:** representations, but these models are targeted towards token- and sentence-level training objectives and do not leverage information on inter-document relatedness, which limits their document-level representation power.; For applications on scientific documents, such as classification and recommendation, the embeddings power strong performance on end tasks.; We propose SPECTER, a new method to generate document-level embedding of scientific documents based on pretraining a Transformer language model on a powerful signal of document-level relatedness: the citation graph.; Unlike existing pretrained language models, SPECTER can be easily applied to downstream applications without task-specific fine-tuning.;
+**Answer:**
+to_eliminate: false
+reasoning: The content discusses research on NLP applications in scientific document processing, including the introduction of new methods like SPECTER and SCIDOCS.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**  
+- [X] I have checked that this issue has not already been reported.; - [X] I have confirmed this bug exists on the latest version of scanpy.; - [ ] (optional) I have confirmed this bug exists on the master branch of scanpy. This is probably a bug in my thinking, but naively I thought that `sc.pp.normalize_total()` normalizes counts per cell, thus allowing comparison of different cells by correcting for variable sequencing depth. However, the log transformation applied after normalisation seems to upset this relationship, example below. Why is this not problematic?. Incidentally, I first noticed this on my real biological dataset, not the toy example below. Edit: [relevant paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6215955/). > We can show, mathematically, that if we normalize expression profiles to have the same mean across cells, the mean after the equation [log] transformation used for RNA-Seq data will not be the same, and it will depend on the detection rate... And this [one](https://www.biorxiv.org/content/10.1101/404962v1.full):. > One issue of particular interest is that the mean of the log-counts is not generally the same as the log-mean count [1]. This is problematic in scRNA-seq contexts where the log-transformation is applied to normalized expression data. ---. ### Minimal code sample. ```python; >>> from anndata import AnnData; >>> import scanpy as sc; >>> import numpy as np; >>> adata = AnnData(np.array([[3, 3, 3, 6, 6],[1, 1, 1, 2, 2],[1, 22, 1, 2, 2], ])); >>> X_norm = sc.pp.normalize_total(adata, target_sum=1, inplace=False)['X']; >>> X_norm_log = np.log1p(X_norm); >>> X_norm_again = np.expm1(X_norm_log); >>> adata.X.sum(axis=1); array([21., 7., 28.], dtype=float32) # Different counts for each cell; >>> X_norm.sum(axis=1); array([1., 1., 1.], dtype=float32) # Normalisation means same counts for each cell; >>> X_norm_log.sum(axis=1); array([0.90322304, 0.90322304, 0.7879869 ], dtype=float32) # <<< Interested in this! Different counts for each 
+",False,"The content discusses a bug report related to scRNA-seq analysis using scanpy, including code examples and references to relevant research papers."
+Safety,"- [x ] I have checked that this issue has not already been reported.; - [ x] I have confirmed this bug exists on the latest version of scanpy.; - [ ] (optional) I have confirmed this bug exists on the master branch of scanpy. ---. Selection of highly variable genes works fine in default settings, but I get an error when I try to use seurat_v3 flavor. ```python; adata2.layers[""counts""] = adata2.X.copy(); adata2.raw = adata2 # keep full dimension safe; sc.pp.normalize_total(adata2, target_sum=1e4); sc.pp.log1p(adata2); sc.pp.highly_variable_genes(; adata2,; flavor=""seurat_v3"",; n_top_genes=3000,; layer=""counts"",; batch_key=""Sample"",; subset=True; ); ```. ```pytb; ValueError Traceback (most recent call last); <ipython-input-18-64d280f5029c> in <module>; 3 sc.pp.normalize_total(adata2, target_sum=1e4); 4 sc.pp.log1p(adata2); ----> 5 sc.pp.highly_variable_genes(; 6 adata2,; 7 flavor=""seurat_v3"",. /data04/projects04/MarianaBoroni/lbbc_members/lib/conda_envs/diogoamb/lib/python3.9/site-packages/scanpy/preprocessing/_highly_variable_genes.py in highly_variable_genes(adata, layer, n_top_genes, min_disp, max_disp, min_mean, max_mean, span, n_bins, flavor, subset, inplace, batch_key, check_values); 417 ; 418 if flavor == 'seurat_v3':; --> 419 return _highly_variable_genes_seurat_v3(; 420 adata,; 421 layer=layer,. /data04/projects04/MarianaBoroni/lbbc_members/lib/conda_envs/diogoamb/lib/python3.9/site-packages/scanpy/preprocessing/_highly_variable_genes.py in _highly_variable_genes_seurat_v3(adata, layer, n_top_genes, batch_key, check_values, span, subset, inplace); 83 x = np.log10(mean[not_const]); 84 model = loess(x, y, span=span, degree=2); ---> 85 model.fit(); 86 estimat_var[not_const] = model.outputs.fitted_values; 87 reg_std = np.sqrt(10 ** estimat_var). _loess.pyx in _loess.loess.fit(). ValueError: b'svddc failed in l2fit.'; ```. #### Versions; 0.10.00",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/2034:449,safe,safe,449,https://scanpy.readthedocs.io,https://github.com/scverse/scanpy/issues/2034,1,['safe'],['safe'],"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out, based on whether it consists of meaningful human-written prose or instead mainly contains programmatic or technical artifacts like logs or code.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+
+### Eliminate content that is not intended for human interpretation and consists primarily of:
+- Code snippets or program structure  
+  *(e.g., `if/else`, `for` loops, braces, language-specific syntax or keywords)*
+- Program output, logs, or error traces  
+  *(e.g., timestamps, error codes, stack traces, unit test results)*
+- Configuration files, scripts, or build system output  
+  *(e.g., YAML, JSON, Makefiles, shell scripts, compiler output)*
+- Version control metadata or commit messages  
+  *(e.g., git logs, diffs, merge info, file paths with change indicators)*
+- API documentation or technical interface definitions  
+  *(e.g., method signatures, parameter tables, annotations, formal docstrings)*
+
+### Keep content that:
+- Does **not** fall primarily into any of the elimination categories
+- Is written for human readers — including **natural language, explanation, commentary, or analysis**
+- Includes **scientific, academic, or technical discussions**, even if highly formal or specialized  
+  *(e.g., discussions of model architecture, training benchmarks, research outcomes, biological findings, or engineering analysis)*
+- May contain structured or technical vocabulary, **as long as it is not formatted primarily like code or machine output**
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, or critiques
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/console).; ### Failing tests:; - [projectroot.test.test_stressgraphics_interpreted](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/testReport/projectroot/test/test_stressgraphics_interpreted/)
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of logs and no other text.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``. If absent,; the format specifier defaults to ``%u``. For example:. .. code-block:: llvm. ; CHECK: mov r[[#REG:]], 0x[[#%.8X,ADDR:]]. would match ``mov r5, 0x0000FEFE`` and set ``REG`` to the value ``5`` and; ``ADDR`` to the value ``0xFEFE``. Note that due to the precision it would fail; to match ``mov r5, 0xFEFE``. As a result of the numeric variable definition being optional, it is possible; to only check that a numeric value is present in a given format. This can be; useful when the value itself is not useful, for instance:. .. code-block:: gas. ; CHECK-NOT: mov r0, r[[#]]. to check that a value is synthesized rather than moved around. The syntax of a numeric substitution is; ``[[#%<fmtspec>, <constraint> <expr>]]`` where:. * ``<fmtspec>`` is the same format specifier as for defining a variable but; in this context indicating how a numeric expression value should be matched; against. If absent, both components of the format specifier are inferred from; the matching format of the numeric variable(s) used by the expression; constraint if any, and defaults to ``%u`` if no numeric variable is used,; denoting that the value should be unsigned with no leading zeros. In case of; conflict between format specifiers of several numeric variables, the; conversion specifier becomes mandatory but the precision specifier remains; optional. * ``<constraint>`` is the constraint de
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of programmatic interface description and no other text.
+
+### Example 3
+**Content:** I've been testing the latest updates on our scientific computing framework, and I'm impressed by the improvements in performance. The new parallelization strategy has reduced our simulation times by about 30% on our cluster. However, I noticed that memory usage spikes significantly when handling large datasets. Perhaps we could explore more efficient data structures or caching mechanisms to mitigate this issue? @TeamLead, would it be possible to allocate some resources to investigate this further?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 4
+**Content:** I've been experimenting with the GPU acceleration patches in this PR, and the results are promising. We're seeing a significant boost in matrix operations, which is crucial for our machine learning models. However, I encountered some inconsistencies when running on different GPU architectures. It might be beneficial to add more comprehensive tests to ensure compatibility across various hardware configurations. @DevTeam, could we discuss implementing a more robust testing framework for this?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 5
+**Content:** I've been exploring the energy efficiency improvements in our latest scientific computing framework, and I'm excited about the potential savings. By implementing parallelization strategies and optimizing data structures, we've reduced energy consumption by approximately 25% on our cluster. However, I think we could further enhance this by integrating tools like EnergyMeter to monitor and optimize energy usage in real-time. Additionally, exploring autotuning frameworks like ytopt could help balance performance and energy efficiency across different hardware configurations. @DevTeam, would it be feasible to allocate resources for integrating these tools and conducting a comprehensive energy efficiency analysis?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 6
+**Content:** is relatively simple;; they ultimately form a linked list of every clobber that dominates the; ``MemoryAccess`` that you're trying to optimize. In other words, the; ``definingAccess`` of a ``MemoryDef`` is always the nearest dominating; ``MemoryDef`` or ``MemoryPhi`` of said ``MemoryDef``. Use and Def optimization; ------------------------. ``MemoryUse``\ s keep a single operand, which is their defining or optimized; access.; Traditionally ``MemorySSA`` optimized ``MemoryUse``\ s at build-time, up to a; given threshold.; Specifically, the operand of every ``MemoryUse`` was optimized to point to the; actual clobber of said ``MemoryUse``. This can be seen in the above example; the; second ``MemoryUse`` in ``if.end`` has an operand of ``1``, which is a; ``MemoryDef`` from the entry block. This is done to make walking,; value numbering, etc, faster and easier.; As of `this revision <https://reviews.llvm.org/D121381>`_, the default was; changed to not optimize uses at build time, in order to provide the option to; reduce compile-time if the walking is not necessary in a pass. Most users call; the new API ``ensureOptimizedUses()`` to keep the previous behavior and do a; one-time optimization of ``MemoryUse``\ s, if this was not done before.; New pass users are recommended to call ``ensureOptimizedUses()``. Initially it was not possible to optimize ``MemoryDef``\ s in the same way, as we; restricted ``MemorySSA`` to one operand per access.; This was changed and ``MemoryDef``\ s now keep two operands.; The first one, the defining access, is; always the previous ``MemoryDef`` or ``MemoryPhi`` in the same basic block, or; the last one in a dominating predecessor if the current block doesn't have any; other accesses writing to memory. This is needed for walking Def chains.; The second operand is the optimized access, if there was a previous call on the; walker's ``getClobberingMemoryAccess(MA)``. This API will cache information; as part of ``MA``.; Optimizing all ``MemoryDef``
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language discussing testing experiences
+and performance improvements.
+
+### Example 7
+**Content:** representations, but these models are targeted towards token- and sentence-level training objectives and do not leverage information on inter-document relatedness, which limits their document-level representation power.; For applications on scientific documents, such as classification and recommendation, the embeddings power strong performance on end tasks.; We propose SPECTER, a new method to generate document-level embedding of scientific documents based on pretraining a Transformer language model on a powerful signal of document-level relatedness: the citation graph.; Unlike existing pretrained language models, SPECTER can be easily applied to downstream applications without task-specific fine-tuning.;
+**Answer:**
+to_eliminate: false
+reasoning: The content discusses research on NLP applications in scientific document processing, including the introduction of new methods like SPECTER and SCIDOCS.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**  
+- [x ] I have checked that this issue has not already been reported.; - [ x] I have confirmed this bug exists on the latest version of scanpy.; - [ ] (optional) I have confirmed this bug exists on the master branch of scanpy. ---. Selection of highly variable genes works fine in default settings, but I get an error when I try to use seurat_v3 flavor. ```python; adata2.layers[""counts""] = adata2.X.copy(); adata2.raw = adata2 # keep full dimension safe; sc.pp.normalize_total(adata2, target_sum=1e4); sc.pp.log1p(adata2); sc.pp.highly_variable_genes(; adata2,; flavor=""seurat_v3"",; n_top_genes=3000,; layer=""counts"",; batch_key=""Sample"",; subset=True; ); ```. ```pytb; ValueError Traceback (most recent call last); <ipython-input-18-64d280f5029c> in <module>; 3 sc.pp.normalize_total(adata2, target_sum=1e4); 4 sc.pp.log1p(adata2); ----> 5 sc.pp.highly_variable_genes(; 6 adata2,; 7 flavor=""seurat_v3"",. /data04/projects04/MarianaBoroni/lbbc_members/lib/conda_envs/diogoamb/lib/python3.9/site-packages/scanpy/preprocessing/_highly_variable_genes.py in highly_variable_genes(adata, layer, n_top_genes, min_disp, max_disp, min_mean, max_mean, span, n_bins, flavor, subset, inplace, batch_key, check_values); 417 ; 418 if flavor == 'seurat_v3':; --> 419 return _highly_variable_genes_seurat_v3(; 420 adata,; 421 layer=layer,. /data04/projects04/MarianaBoroni/lbbc_members/lib/conda_envs/diogoamb/lib/python3.9/site-packages/scanpy/preprocessing/_highly_variable_genes.py in _highly_variable_genes_seurat_v3(adata, layer, n_top_genes, batch_key, check_values, span, subset, inplace); 83 x = np.log10(mean[not_const]); 84 model = loess(x, y, span=span, degree=2); ---> 85 model.fit(); 86 estimat_var[not_const] = model.outputs.fitted_values; 87 reg_std = np.sqrt(10 ** estimat_var). _loess.pyx in _loess.loess.fit(). ValueError: b'svddc failed in l2fit.'; ```. #### Versions; 0.10.00
+",False,"The content describes a bug report with error logs and steps to reproduce, indicating an issue with scanpy functionality."
+Safety,"- [x ] I have checked that this issue has not already been reported.; - [x ] I have confirmed this bug exists on the latest version of scanpy.; - [ ] (optional) I have confirmed this bug exists on the master branch of scanpy. ---. **Note**: Please read [this guide](https://matthewrocklin.com/blog/work/2018/02/28/minimal-bug-reports) detailing how to provide the necessary information for us to reproduce your bug. ### Minimal code sample (that we can copy&paste without having any data). ```python; # create new env; conda install -c pytorch pytorch; conda install -c pytorch cudatoolkit=11.3. conda install -c bioconda scanpy; Collecting package metadata (current_repodata.json): done; Solving environment: failed with initial frozen solve. Retrying with flexible solve.; Solving environment: failed with repodata from current_repodata.json, will retry with next repodata source.; Collecting package metadata (repodata.json): done; Solving environment: failed with initial frozen solve. Retrying with flexible solve.; Solving environment: \; Found conflicts! Looking for incompatible packages.; This can take several minutes. Press CTRL-C to abort.; failed. UnsatisfiableError: The following specifications were found to be incompatible with each other:. Output in format: Requested package -> Available versionsThe following specifications were found to be incompatible with your system:. - feature:/linux-64::__glibc==2.31=0; - feature:|@/linux-64::__glibc==2.31=0. Your installed version is: 2.31; ```",MatchSource.ISSUE,scverse,scanpy,1.10.2,https://github.com/scverse/scanpy/issues/2282:1145,abort,abort,1145,https://scanpy.readthedocs.io,https://github.com/scverse/scanpy/issues/2282,1,['abort'],['abort'],"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out, based on whether it consists of meaningful human-written prose or instead mainly contains programmatic or technical artifacts like logs or code.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+
+### Eliminate content that is not intended for human interpretation and consists primarily of:
+- Code snippets or program structure  
+  *(e.g., `if/else`, `for` loops, braces, language-specific syntax or keywords)*
+- Program output, logs, or error traces  
+  *(e.g., timestamps, error codes, stack traces, unit test results)*
+- Configuration files, scripts, or build system output  
+  *(e.g., YAML, JSON, Makefiles, shell scripts, compiler output)*
+- Version control metadata or commit messages  
+  *(e.g., git logs, diffs, merge info, file paths with change indicators)*
+- API documentation or technical interface definitions  
+  *(e.g., method signatures, parameter tables, annotations, formal docstrings)*
+
+### Keep content that:
+- Does **not** fall primarily into any of the elimination categories
+- Is written for human readers — including **natural language, explanation, commentary, or analysis**
+- Includes **scientific, academic, or technical discussions**, even if highly formal or specialized  
+  *(e.g., discussions of model architecture, training benchmarks, research outcomes, biological findings, or engineering analysis)*
+- May contain structured or technical vocabulary, **as long as it is not formatted primarily like code or machine output**
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, or critiques
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/workspace/root-pullrequests-build; [See console output](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/console).; ### Failing tests:; - [projectroot.test.test_stressgraphics_interpreted](https://lcgapp-services.cern.ch/root-jenkins/job/root-pullrequests-build/183837/testReport/projectroot/test/test_stressgraphics_interpreted/)
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of logs and no other text.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``. If absent,; the format specifier defaults to ``%u``. For example:. .. code-block:: llvm. ; CHECK: mov r[[#REG:]], 0x[[#%.8X,ADDR:]]. would match ``mov r5, 0x0000FEFE`` and set ``REG`` to the value ``5`` and; ``ADDR`` to the value ``0xFEFE``. Note that due to the precision it would fail; to match ``mov r5, 0xFEFE``. As a result of the numeric variable definition being optional, it is possible; to only check that a numeric value is present in a given format. This can be; useful when the value itself is not useful, for instance:. .. code-block:: gas. ; CHECK-NOT: mov r0, r[[#]]. to check that a value is synthesized rather than moved around. The syntax of a numeric substitution is; ``[[#%<fmtspec>, <constraint> <expr>]]`` where:. * ``<fmtspec>`` is the same format specifier as for defining a variable but; in this context indicating how a numeric expression value should be matched; against. If absent, both components of the format specifier are inferred from; the matching format of the numeric variable(s) used by the expression; constraint if any, and defaults to ``%u`` if no numeric variable is used,; denoting that the value should be unsigned with no leading zeros. In case of; conflict between format specifiers of several numeric variables, the; conversion specifier becomes mandatory but the precision specifier remains; optional. * ``<constraint>`` is the constraint de
+**Answer:**
+to_eliminate: true
+reasoning: The content only consists of programmatic interface description and no other text.
+
+### Example 3
+**Content:** I've been testing the latest updates on our scientific computing framework, and I'm impressed by the improvements in performance. The new parallelization strategy has reduced our simulation times by about 30% on our cluster. However, I noticed that memory usage spikes significantly when handling large datasets. Perhaps we could explore more efficient data structures or caching mechanisms to mitigate this issue? @TeamLead, would it be possible to allocate some resources to investigate this further?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 4
+**Content:** I've been experimenting with the GPU acceleration patches in this PR, and the results are promising. We're seeing a significant boost in matrix operations, which is crucial for our machine learning models. However, I encountered some inconsistencies when running on different GPU architectures. It might be beneficial to add more comprehensive tests to ensure compatibility across various hardware configurations. @DevTeam, could we discuss implementing a more robust testing framework for this?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 5
+**Content:** I've been exploring the energy efficiency improvements in our latest scientific computing framework, and I'm excited about the potential savings. By implementing parallelization strategies and optimizing data structures, we've reduced energy consumption by approximately 25% on our cluster. However, I think we could further enhance this by integrating tools like EnergyMeter to monitor and optimize energy usage in real-time. Additionally, exploring autotuning frameworks like ytopt could help balance performance and energy efficiency across different hardware configurations. @DevTeam, would it be feasible to allocate resources for integrating these tools and conducting a comprehensive energy efficiency analysis?
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language
+
+### Example 6
+**Content:** is relatively simple;; they ultimately form a linked list of every clobber that dominates the; ``MemoryAccess`` that you're trying to optimize. In other words, the; ``definingAccess`` of a ``MemoryDef`` is always the nearest dominating; ``MemoryDef`` or ``MemoryPhi`` of said ``MemoryDef``. Use and Def optimization; ------------------------. ``MemoryUse``\ s keep a single operand, which is their defining or optimized; access.; Traditionally ``MemorySSA`` optimized ``MemoryUse``\ s at build-time, up to a; given threshold.; Specifically, the operand of every ``MemoryUse`` was optimized to point to the; actual clobber of said ``MemoryUse``. This can be seen in the above example; the; second ``MemoryUse`` in ``if.end`` has an operand of ``1``, which is a; ``MemoryDef`` from the entry block. This is done to make walking,; value numbering, etc, faster and easier.; As of `this revision <https://reviews.llvm.org/D121381>`_, the default was; changed to not optimize uses at build time, in order to provide the option to; reduce compile-time if the walking is not necessary in a pass. Most users call; the new API ``ensureOptimizedUses()`` to keep the previous behavior and do a; one-time optimization of ``MemoryUse``\ s, if this was not done before.; New pass users are recommended to call ``ensureOptimizedUses()``. Initially it was not possible to optimize ``MemoryDef``\ s in the same way, as we; restricted ``MemorySSA`` to one operand per access.; This was changed and ``MemoryDef``\ s now keep two operands.; The first one, the defining access, is; always the previous ``MemoryDef`` or ``MemoryPhi`` in the same basic block, or; the last one in a dominating predecessor if the current block doesn't have any; other accesses writing to memory. This is needed for walking Def chains.; The second operand is the optimized access, if there was a previous call on the; walker's ``getClobberingMemoryAccess(MA)``. This API will cache information; as part of ``MA``.; Optimizing all ``MemoryDef``
+**Answer:**
+to_eliminate: false
+reasoning: The content contains meaningful human-written sentences in natural language discussing testing experiences
+and performance improvements.
+
+### Example 7
+**Content:** representations, but these models are targeted towards token- and sentence-level training objectives and do not leverage information on inter-document relatedness, which limits their document-level representation power.; For applications on scientific documents, such as classification and recommendation, the embeddings power strong performance on end tasks.; We propose SPECTER, a new method to generate document-level embedding of scientific documents based on pretraining a Transformer language model on a powerful signal of document-level relatedness: the citation graph.; Unlike existing pretrained language models, SPECTER can be easily applied to downstream applications without task-specific fine-tuning.;
+**Answer:**
+to_eliminate: false
+reasoning: The content discusses research on NLP applications in scientific document processing, including the introduction of new methods like SPECTER and SCIDOCS.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**  
+- [x ] I have checked that this issue has not already been reported.; - [x ] I have confirmed this bug exists on the latest version of scanpy.; - [ ] (optional) I have confirmed this bug exists on the master branch of scanpy. ---. **Note**: Please read [this guide](https://matthewrocklin.com/blog/work/2018/02/28/minimal-bug-reports) detailing how to provide the necessary information for us to reproduce your bug. ### Minimal code sample (that we can copy&paste without having any data). ```python; # create new env; conda install -c pytorch pytorch; conda install -c pytorch cudatoolkit=11.3. conda install -c bioconda scanpy; Collecting package metadata (current_repodata.json): done; Solving environment: failed with initial frozen solve. Retrying with flexible solve.; Solving environment: failed with repodata from current_repodata.json, will retry with next repodata source.; Collecting package metadata (repodata.json): done; Solving environment: failed with initial frozen solve. Retrying with flexible solve.; Solving environment: \; Found conflicts! Looking for incompatible packages.; This can take several minutes. Press CTRL-C to abort.; failed. UnsatisfiableError: The following specifications were found to be incompatible with each other:. Output in format: Requested package -> Available versionsThe following specifications were found to be incompatible with your system:. - feature:/linux-64::__glibc==2.31=0; - feature:|@/linux-64::__glibc==2.31=0. Your installed version is: 2.31; ```
+",False,"The content discusses troubleshooting a conda environment setup issue when installing scanpy and related packages, which is a common technical problem."
