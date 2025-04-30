@@ -381,7 +381,7 @@ reasoning: The content discusses research on NLP applications in scientific docu
 {x['sentence']}
 """
 
-to_prompt = lambda x: \
+to_prompt_v9 = lambda x: \
 f"""
 You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out, based on whether it consists of meaningful human-written prose or instead mainly contains programmatic or technical artifacts like logs or code.
 
@@ -464,6 +464,217 @@ reasoning: The content discusses research on NLP applications in scientific docu
 {x['sentence']}
 """
 
+to_prompt_v10 = lambda x: \
+f"""
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out, based on whether it consists of meaningful human-written prose or instead mainly contains programmatic or technical artifacts like logs or code.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+
+### Eliminate content that is not intended for human interpretation and consists primarily of:
+- Code snippets or program structure  
+  *(e.g., `if/else`, `for` loops, braces, language-specific syntax or keywords)*
+- Program output, logs, or error traces  
+  *(e.g., timestamps, error codes, stack traces, unit test results)*
+- Configuration files, scripts, or build system output  
+  *(e.g., YAML, JSON, Makefiles, shell scripts, compiler output)*
+- Version control metadata or commit messages  
+  *(e.g., git logs, diffs, merge info, file paths with change indicators)*
+- API documentation or technical interface definitions  
+  *(e.g., method signatures, parameter tables, annotations, formal docstrings)*
+
+### Keep content that:
+- Does **not** fall primarily into any of the elimination categories
+- Is written for human readers — including **natural language, explanation, commentary, or analysis**
+- Includes **scientific, academic, or technical discussions**, even if highly formal or specialized  
+  *(e.g., discussions of model architecture, training benchmarks, research outcomes, biological findings, or engineering analysis)*
+- May contain structured or technical vocabulary, **as long as it is not formatted primarily like code or machine output**
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, or critiques
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: Consists entirely of build logs and test failures.
+
+### Example 2
+**Content:** [[#%<fmtspec>, <constraint> <expr>]] — describes syntax for matching values using format specifiers like %u, %d, or %x.
+**Answer:**
+to_eliminate: true
+reasoning: This is purely technical specification of syntax with no natural language explanation.
+
+### Example 3
+**Content:** I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: Natural language explanation of performance trade-offs.
+
+### Example 4
+**Content:** The MemoryDef structure now keeps two operands: the defining access and the optimized access. This change allows faster walking of Def chains and enables caching.
+**Answer:**
+to_eliminate: false
+reasoning: Explains technical design changes in natural language with rationale.
+
+### Example 5
+**Content:** We propose SPECTER, a document-level embedding model trained using citation graphs. It improves scientific document classification without task-specific fine-tuning.
+**Answer:**
+to_eliminate: false
+reasoning: Describes an academic NLP model in natural language.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**  
+{x['sentence']}
+"""
+
+to_prompt_v11 = lambda x: \
+f"""
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts intended mainly for machines or formal structure.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, critiques, or explanations of implementation/optimization strategies.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized (e.g., detailed explanations of model architecture, reasoning behind design choices, analysis of outcomes).
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, string literals in config files, documentation sections within code) **as long as the natural language prose component is substantial and provides meaningful human-readable context or explanation.**
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking significant natural language explanation or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations, pure boolean logic like `if (x > 5) {{ y = 1; }}` without explanation).
+ - **Program output, logs, or error traces** (e.g., timestamps, error codes, stack traces, unit test results - these are typically diagnostic and not explanatory prose).
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data structures, simple Makefile rules, compiler flags lists without descriptive text).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, merge conflict markers, simple file path changes without a descriptive commit message).
+ - **Formal API signatures or technical interface definitions without accompanying prose** (e.g., `def my_function(param1: int) -> str:` without a docstring explaining *what* the function does or *why*).
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: Consists entirely of build logs and test failures, which are diagnostic artifacts, not human-readable prose explaining a concept.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``.
+**Answer:**
+to_eliminate: true
+reasoning: Primarily a formal technical specification of syntax with only minimal natural language labeling, not a substantial explanation.
+
+### Example 3
+**Content:** I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: Natural language explanation and analysis of performance trade-offs and future steps.
+
+### Example 4
+**Content:** The MemoryDef structure now keeps two operands: the defining access and the optimized access. This change allows faster walking of Def chains and enables caching.
+**Answer:**
+to_eliminate: false
+reasoning: Explains technical design changes in natural language with rationale.
+
+### Example 5
+**Content:** We propose SPECTER, a document-level embedding model trained using citation graphs. It improves scientific document classification without task-specific fine-tuning.
+**Answer:**
+to_eliminate: false
+reasoning: Describes an academic NLP model and its benefits in natural language.
+
+### Example 6
+**Content:** # Configure the learning rate using an exponential decay.
+**Answer:**
+to_eliminate: false
+reasoning: Although formatted as a code comment, the content is natural language providing a meaningful explanation of a technical strategy and its purpose.
+
+ ---
+
+ ## Now analyze ONLY the following content:
+
+ **Content to evaluate:**
+{x['sentence']}
+"""
+
+to_prompt = lambda x: \
+f"""
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts intended mainly for machines or formal structure.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, critiques, or explanations of implementation/optimization strategies.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized (e.g., detailed explanations of model architecture, reasoning behind design choices, analysis of outcomes).
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, string literals in config files, documentation sections within code) **as long as the natural language prose component is substantial and provides meaningful human-readable context or explanation.**
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking significant natural language explanation or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations, pure boolean logic like `if (x > 5) {{ y = 1; }}` without explanation).
+ - **Program output, logs, or error traces:** Content generated by programs (like build tools, compilers, runtime environments) for diagnostic or reporting purposes, characterized by structured formats, timestamps, error codes, etc., and **distinguished by the absence of substantial human-authored explanations or narrative.**
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data structures, simple Makefile rules, compiler flags lists without descriptive text).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, merge conflict markers, simple file path changes without a descriptive commit message).
+ - **Formal API signatures or technical interface definitions without accompanying prose** (e.g., `def my_function(param1: int) -> str:` without a docstring explaining *what* the function does or *why*).
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: Consists entirely of build logs and test failures, which are diagnostic artifacts, not human-readable prose explaining a concept.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``.
+**Answer:**
+to_eliminate: true
+reasoning: Primarily a formal technical specification of syntax with only minimal natural language labeling, not a substantial explanation.
+
+### Example 3
+**Content:** I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: Natural language explanation of performance trade-offs.
+
+### Example 4
+**Content:** The MemoryDef structure now keeps two operands: the defining access and the optimized access. This change allows faster walking of Def chains and enables caching.
+**Answer:**
+to_eliminate: false
+reasoning: Explains technical design changes in natural language with rationale.
+
+### Example 5
+**Content:** We propose SPECTER, a document-level embedding model trained using citation graphs. It improves scientific document classification without task-specific fine-tuning.
+**Answer:**
+to_eliminate: false
+reasoning: Describes an academic NLP model in natural language.
+
+### Example 6
+**Content:** # Configure the learning rate using an exponential decay.
+**Answer:**
+to_eliminate: false
+reasoning: Although formatted as a code comment, the content is natural language providing a meaningful explanation of a technical strategy and its purpose.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**
+{x['sentence']}
+"""
+
+
 def cleanup_and_exit(signal_num, frame):
     print("Caught interrupt, cleaning up...")
     sys.exit(0)  # Triggers the context manager's cleanup
@@ -510,23 +721,7 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, host: str, batc
             batch_df = df.iloc[i:i + batch_size]
             prompts = batch_df['format_prompt'].tolist()
 
-            try:
-                responses = request_ollama_chain(prompts, host)  # New batch query
-                processed_responses = [(r.to_eliminate, r.reason) for r in responses]
-                res.extend(processed_responses)
-            except RetryError as error:
-                logger.error(f"Retry error at batch starting index {last_idx + i}, {error}")
-                responses = [(None, str(error))] * len(batch_df)
-                res.extend(responses)
-            except Exception as e:
-                logger.error(e)
-                errors_for_termination = ["HTTPConnectionPool",
-                                          "No connection could be made because the target machine actively refused it"]
-                if any(error in str(e) for error in errors_for_termination):
-                    logger.error("HTTPConnectionPool error, exiting")
-                    exit(1)
-                responses = [(None, str(e))] * len(batch_df)
-                res.extend(responses)
+            res.extend(process_batch(batch_df, host, i, last_idx, prompts))
 
             df_to_save = df.iloc[:i + batch_size].copy()
             df_to_save['to_eliminate'], df_to_save['reason'] = zip(*res)
@@ -535,6 +730,28 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, host: str, batc
 
         db['processed'] = True
         logger.info(f"Processed {file_path.stem}")
+
+
+# TODO: RetryError does not exist anymore. Refactor. Think about the correct way to handle errors.
+#  What should happen if batch fails? Should we continue with the next file or something else?
+def process_batch(batch_df, host, i, last_idx, prompts):
+    try:
+        responses = request_ollama_chain(prompts, host)  # New batch query
+        processed_responses = [(r.to_eliminate, r.reason) for r in responses]
+        return processed_responses
+    except RetryError as error:
+        logger.error(f"Retry error at batch starting index {last_idx + i}, {error}")
+        responses = [(None, str(error))] * len(batch_df)
+        return responses
+    except Exception as e:
+        logger.error(e)
+        errors_for_termination = ["HTTPConnectionPool",
+                                  "No connection could be made because the target machine actively refused it"]
+        if any(error in str(e) for error in errors_for_termination):
+            logger.error("HTTPConnectionPool error, exiting")
+            exit(1)
+        responses = [(None, str(e))] * len(batch_df)
+        return responses
 
 
 def validate_arch(host, only_files_containing_text: List[str] | None = None, reverse: bool = False):
