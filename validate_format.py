@@ -734,6 +734,7 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, host: str, batc
 
 # TODO: RetryError does not exist anymore. Refactor. Think about the correct way to handle errors.
 #  What should happen if batch fails? Should we continue with the next file or something else?
+# When it fails it is likely not a problem with the file, but with the connection, thus no need to retry, just stop processing (after 3 more tries??)
 def process_batch(batch_df, host, i, last_idx, prompts):
     try:
         responses = request_ollama_chain(prompts, host)  # New batch query
