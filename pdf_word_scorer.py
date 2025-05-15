@@ -15,39 +15,31 @@
 import PyPDF2
 import nltk
 from nltk.corpus import stopwords, wordnet
-from nltk.stem import PorterStemmer # Using PorterStemmer as in the example
-# from nltk.stem import WordNetLemmatizer # Alternative: Lemmatization
+from nltk.stem import PorterStemmer
+from nltk import WordNetLemmatizer, ngrams as nltk_ngrams
 from nltk.collocations import BigramAssocMeasures, BigramCollocationFinder
 from nltk.probability import FreqDist
-from nltk import ngrams as nltk_ngrams, WordNetLemmatizer  # Avoid name clash with our function
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
 import re
-import os
-from collections import Counter
+from collections import defaultdict # For stem_to_raw_map
 
 # --- Configuration ---
-# Define seed keywords relevant to your QAs (use stemmed/lemmatized form if preprocessing includes it)
-# Example seed keywords (remember to stem/lemmatize them if your preprocessing does)
 SEED_KEYWORDS_RAW = [
-    "perform", "latency", "throughput", "response", "load", "scalab", "bottleneck",
-    "avail", "downtime", "reliab", "fault", "failure", "resilien", "recover",
-    "secur", "attack", "vulnerab", "encrypt", "authoriz", "authenticat",
-    # Add more keywords relevant to your quality attributes
+    "performance", "latency", "throughput", "response", "load", "scalability", "bottleneck", # Corrected scalab
+    "availability", "downtime", "reliability", "fault", "failure", "resilience", "recovery", # Corrected reliab, resilien, recover
+    "security", "attack", "vulnerability", "encryption", "authorization", "authentication", # Corrected vulnerab, encrypt, authoriz, authentcat
 ]
 
-# Choose stemming or lemmatization
-USE_STEMMING = True # Set to False to use Lemmatization instead
-lemmatizer = WordNetLemmatizer() # Uncomment if USE_STEMMING = False
-stemmer = PorterStemmer()         # Used if USE_STEMMING = True
-
+USE_STEMMING = True
+lemmatizer = WordNetLemmatizer()
+stemmer = PorterStemmer()
 stop_words = set(stopwords.words('english'))
 
 # --- Helper Functions ---
 
 def extract_text_from_pdf(pdf_path):
-    """Extracts text from a PDF file."""
     text = ""
     try:
         with open(pdf_path, 'rb') as file:
@@ -72,281 +64,302 @@ def extract_text_from_pdf(pdf_path):
         return None
 
 def preprocess_text(text):
-    # 1. Handle line-ending hyphens (de-hyphenation)
-    #    Looks for a letter, a hyphen, a newline, and then another letter.
-    #    Replaces this pattern by joining the letters without the hyphen and newline.
+    """
+    Cleans and preprocesses text.
+    Returns:
+        - final_processed_tokens: list of stemmed/lemmatized tokens.
+        - stem_to_raw_map: dict mapping processed_token -> set of original raw_tokens.
+    """
+    if not text:
+        return [], defaultdict(set)
+
+    original_text_for_mapping = text # Keep a copy before lowercasing for accurate raw word mapping
+
     text = re.sub(r'([a-z])-\n([a-z])', r'\1\2', text, flags=re.IGNORECASE | re.MULTILINE)
-    #    Then, any remaining hyphens at the very end of a line followed by newline can be just removed
-    #    (e.g. if a word was hyphenated but the next line was empty or started with non-alpha)
     text = re.sub(r'-\n', '', text, flags=re.IGNORECASE | re.MULTILINE)
-
-
-    # 2. Lowercase
     text = text.lower()
+    text_for_tokenization = re.sub(r'[^a-z\s-]', '', text)
+    raw_tokens = nltk.word_tokenize(text_for_tokenization) # Tokenize before further cleaning for map
 
-    # 3. Preserve intra-word hyphens, remove other punctuation.
-    #    Keeps lowercase letters, spaces, and hyphens that are part of words.
-    #    A hyphen is considered "part of a word" if it's surrounded by letters,
-    #    or at the start/end of a word if it forms part of it (e.g., "e-mail").
-    #    This regex:
-    #    - keeps a-z
-    #    - keeps spaces \s
-    #    - keeps hyphens -
-    #    Then we'll clean up hyphens that are not part of words after tokenization.
-    text = re.sub(r'[^a-z\s-]', '', text) # Keep letters, spaces, and hyphens for now
+    processed_tokens_with_originals = [] # Stores tuples of (original_cleaned_token, processed_token)
+    stem_to_raw_map = defaultdict(set)
 
-    # 4. Tokenize
-    #    NLTK's word_tokenize is generally good at handling hyphenated words like "state-of-the-art" as single tokens.
-    tokens = nltk.word_tokenize(text)
+    for raw_token_idx, token in enumerate(raw_tokens):
+        original_cleaned_token = token.strip('-')
 
-    # 5. Post-tokenization hyphen cleaning and general processing
-    processed_tokens = []
-    for token in tokens:
-        # Remove leading/trailing hyphens that are not part of a valid word structure
-        # e.g. " -word- " becomes "word"
-        # A simple check: if a token is just hyphens, or starts/ends with one and isn't a valid hyphenated word
-        cleaned_token = token.strip('-')
-
-        # If stripping hyphens made the token empty, or if the original token was just hyphens, skip
-        if not cleaned_token or all(c == '-' for c in token):
+        if not original_cleaned_token or all(c == '-' for c in token):
             continue
 
-        # Check if the token should be kept (not a stop word, long enough)
-        if cleaned_token not in stop_words and len(cleaned_token) > 2:
-            # Ensure the token itself isn't just a hyphen after cleaning (though previous check should catch this)
-            # and isn't a stop word after cleaning.
-             if cleaned_token != '-' and cleaned_token not in stop_words: # Redundant check for stop_words, but safe
-                processed_tokens.append(cleaned_token)
+        if original_cleaned_token not in stop_words and len(original_cleaned_token) > 2:
+            if original_cleaned_token != '-': # Ensure it's not just a hyphen
+
+                if USE_STEMMING:
+                    processed_token = stemmer.stem(original_cleaned_token)
+                else:
+                    processed_token = lemmatizer.lemmatize(original_cleaned_token)
+
+                # Add to map: processed_token -> original_cleaned_token
+                # We use original_cleaned_token because it's the version before stemming/lemma
+                # and after initial cleaning (hyphens, lowercase)
+                stem_to_raw_map[processed_token].add(original_cleaned_token)
+                processed_tokens_with_originals.append(processed_token)
 
 
-    # 6. Apply Stemming or Lemmatization
-    final_tokens = []
-    if USE_STEMMING:
-        final_tokens = [stemmer.stem(word) for word in processed_tokens]
-    else: # Assuming Lemmatization
-        # final_tokens = [lemmatizer.lemmatize(word) for word in processed_tokens] # Make sure lemmatizer is defined
-        final_tokens = processed_tokens # Fallback if lemmatizer not set up for this example
-        if 'lemmatizer' in globals() or 'lemmatizer' in locals():
-             final_tokens = [lemmatizer.lemmatize(word) for word in processed_tokens]
-
-
-    # print(f"Preprocessing reduced text to {len(final_tokens)} tokens.") # Moved print for clarity
-    return final_tokens
+    final_processed_tokens = processed_tokens_with_originals # This is now just the list of processed tokens
+    # print(f"Preprocessing reduced text to {len(final_processed_tokens)} tokens.")
+    # print(f"Stem-to-raw map contains {len(stem_to_raw_map)} entries.")
+    return final_processed_tokens, stem_to_raw_map
 
 
 def get_synonyms_wordnet(word, pos=None, max_synonyms_per_pos=3):
-    """
-    Fetches synonyms for a given word using WordNet.
-    Tries common POS tags if 'pos' is None.
-    """
     synonyms = set()
-    # Define WordNet POS tags to try if specific POS is not given
     pos_tags_to_try = [wordnet.NOUN, wordnet.VERB, wordnet.ADJ, wordnet.ADV]
-    if pos: # If a specific POS tag is provided (e.g., wordnet.NOUN)
+    if pos:
         pos_tags_to_try = [pos]
-
     for wn_pos in pos_tags_to_try:
         synsets = wordnet.synsets(word, pos=wn_pos)
         count = 0
         for synset in synsets:
             for lemma in synset.lemmas():
-                synonym = lemma.name().replace('_', ' ') # Replace underscores with spaces for multi-word synonyms
-                if synonym.lower() != word.lower(): # Don't add the word itself
+                synonym = lemma.name().replace('_', ' ')
+                if synonym.lower() != word.lower():
                     synonyms.add(synonym)
                     count += 1
-                    if count >= max_synonyms_per_pos:
-                        break
-            if count >= max_synonyms_per_pos:
-                break
+                    if count >= max_synonyms_per_pos: break
+            if count >= max_synonyms_per_pos: break
     return list(synonyms)
 
 def process_seed_keywords(raw_keywords, expand_synonyms=False, max_synonyms_per_seed=3):
-    """
-    Processes seed keywords:
-    1. Expands the list with synonyms (if expand_synonyms is True).
-    2. Applies the same preprocessing (stemming/lemmatization) to all keywords.
-    """
-    all_keywords_to_process = set(k.lower() for k in raw_keywords) # Start with original keywords, lowercased
-
+    all_keywords_to_process = set(k.lower() for k in raw_keywords)
     if expand_synonyms:
-        print(f"Attempting to expand {len(raw_keywords)} raw seed keywords with synonyms...")
-        expanded_keywords = set(all_keywords_to_process) # Use a new set for expansion
-        for seed_word in raw_keywords: # Iterate over original raw keywords for synonym lookup
+        # print(f"Attempting to expand {len(raw_keywords)} raw seed keywords with synonyms...")
+        expanded_keywords = set(all_keywords_to_process)
+        for seed_word in raw_keywords:
             syns = get_synonyms_wordnet(seed_word.lower(), max_synonyms_per_pos=max_synonyms_per_seed)
             if syns:
-                # print(f"  Found synonyms for '{seed_word}': {syns}")
-                for syn in syns:
-                    expanded_keywords.add(syn.lower()) # Add synonyms in lowercase
-        print(f"  Expanded to {len(expanded_keywords)} unique terms (including originals) before processing.")
+                for syn in syns: expanded_keywords.add(syn.lower())
+        # print(f"  Expanded to {len(expanded_keywords)} unique terms (including originals) before processing.")
         all_keywords_to_process = expanded_keywords
-    else:
-        print("Synonym expansion skipped.")
+    # else:
+        # print("Synonym expansion skipped.")
 
-    # Now, preprocess ALL keywords (original + synonyms if any)
-    # Your original method of joining and then preprocessing works well here.
-    # This ensures multi-word synonyms are tokenized and processed correctly.
     if not all_keywords_to_process:
-        print("No keywords to process.")
-        return set()
+        # print("No keywords to process.")
+        return set(), defaultdict(set) # Return empty map as well
 
     text_of_all_keywords = " ".join(all_keywords_to_process)
-    processed_seeds = set(preprocess_text(text_of_all_keywords)) # preprocess_text handles tokenization, stemming/lemmatizing
+    # Since process_seed_keywords is about getting the *processed* seeds,
+    # we primarily care about the first return value of preprocess_text.
+    # The stem_to_raw_map for seeds isn't typically used downstream, but we can generate it.
+    processed_seed_tokens, seed_stem_to_raw_map = preprocess_text(text_of_all_keywords)
+    processed_seeds_set = set(processed_seed_tokens)
 
-    print(f"Processed {len(raw_keywords)} raw seed keywords (expanded to {len(all_keywords_to_process)} terms before processing) into {len(processed_seeds)} unique processed seed terms.")
-    return processed_seeds
+    # print(f"Processed {len(raw_keywords)} raw seed keywords (expanded to {len(all_keywords_to_process)} terms before processing) into {len(processed_seeds_set)} unique processed seed terms.")
+    return processed_seeds_set # Only return the set of processed seeds
 
+# --- Helper for formatting original words ---
+def format_original_words(original_set):
+    if not original_set:
+        return ""
+    if len(original_set) == 1:
+        return list(original_set)[0]
+    return f"({', '.join(sorted(list(original_set)))})"
 
 # --- Analysis Functions ---
-
-def calculate_tfidf(processed_tokens):
-    """
-    Calculates TF-IDF scores for tokens in the document.
-    Note: For a single document, IDF is constant, so this reflects term frequency adjusted
-          by how common the term is *if* more documents were present in the fit.
-          For finding important terms *within* a single doc, raw TF might be simpler,
-          but this shows the TF-IDF mechanic.
-    """
+def calculate_tfidf(processed_tokens, stem_to_raw_map):
     if not processed_tokens:
-        return pd.DataFrame(columns=['Term', 'TF-IDF Score'])
-
-    # TF-IDF requires strings; join tokens back. Treat the single doc as a corpus of one.
+        return pd.DataFrame(columns=['Term (Processed)', 'Original Word(s)', 'TF-IDF Score'])
     text_for_tfidf = [" ".join(processed_tokens)]
-
-    vectorizer = TfidfVectorizer(ngram_range=(1, 1)) # Use (1, 2) to include bigrams
+    vectorizer = TfidfVectorizer(ngram_range=(1, 1))
     try:
         tfidf_matrix = vectorizer.fit_transform(text_for_tfidf)
-        feature_names = vectorizer.get_feature_names_out()
+        feature_names = vectorizer.get_feature_names_out() # These are the processed terms
         scores = tfidf_matrix.toarray().flatten()
 
-        # Create DataFrame
-        df_tfidf = pd.DataFrame({'Term': feature_names, 'TF-IDF Score': scores})
+        df_tfidf = pd.DataFrame({'Term (Processed)': feature_names, 'TF-IDF Score': scores})
+        df_tfidf['Original Word(s)'] = df_tfidf['Term (Processed)'].apply(lambda term: format_original_words(stem_to_raw_map.get(term, set())))
         df_tfidf = df_tfidf.sort_values(by='TF-IDF Score', ascending=False).reset_index(drop=True)
-        print(f"Calculated TF-IDF for {len(df_tfidf)} terms.")
+        df_tfidf = df_tfidf[['Term (Processed)', 'Original Word(s)', 'TF-IDF Score']] # Reorder
+        # print(f"Calculated TF-IDF for {len(df_tfidf)} terms.")
         return df_tfidf
-
     except ValueError as e:
-        # Handle case where vocabulary might be empty after processing
-        print(f"Could not calculate TF-IDF. Reason: {e}")
-        if "empty vocabulary" in str(e):
-            print("This often happens if the text contains only stopwords or very short words after preprocessing.")
-        return pd.DataFrame(columns=['Term', 'TF-IDF Score'])
+        # print(f"Could not calculate TF-IDF. Reason: {e}")
+        return pd.DataFrame(columns=['Term (Processed)', 'Original Word(s)', 'TF-IDF Score'])
 
-
-def extract_ngrams(processed_tokens, n=2, num_top_ngrams=50):
-    """Extracts most frequent N-grams."""
+def extract_ngrams(processed_tokens, stem_to_raw_map, n=2, num_top_ngrams=50):
     if not processed_tokens or len(processed_tokens) < n:
-        return pd.DataFrame(columns=[f'{n}-gram', 'Frequency'])
+        return pd.DataFrame(columns=[f'{n}-gram (Processed)', f'Original {n}-gram(s)', 'Frequency'])
 
-    n_grams = list(nltk_ngrams(processed_tokens, n))
-    if not n_grams:
-         return pd.DataFrame(columns=[f'{n}-gram', 'Frequency'])
+    n_grams_tuples = list(nltk_ngrams(processed_tokens, n))
+    if not n_grams_tuples:
+         return pd.DataFrame(columns=[f'{n}-gram (Processed)', f'Original {n}-gram(s)', 'Frequency'])
 
-    freq_dist = FreqDist(n_grams)
+    freq_dist = FreqDist(n_grams_tuples)
     most_common = freq_dist.most_common(num_top_ngrams)
 
-    # Format for DataFrame
-    ngram_list = [" ".join(ngram) for ngram, freq in most_common]
-    freq_list = [freq for ngram, freq in most_common]
+    ngram_processed_list = []
+    ngram_original_list = []
+    freq_list = []
 
-    df_ngrams = pd.DataFrame({f'{n}-gram': ngram_list, 'Frequency': freq_list})
-    print(f"Extracted top {len(df_ngrams)} {n}-grams.")
+    for ngram_tuple, freq in most_common:
+        ngram_processed_list.append(" ".join(ngram_tuple))
+        # Reconstruct original n-gram possibilities
+        # This can get complex if each part has multiple originals. For simplicity,
+        # we'll show one common combination or list them per part.
+        # Let's show the most common form based on map, or list all if too complex
+        original_parts_list = []
+        for token_in_ngram in ngram_tuple:
+            originals = stem_to_raw_map.get(token_in_ngram, {token_in_ngram}) # Fallback to processed if not in map
+            original_parts_list.append(format_original_words(originals))
+        ngram_original_list.append(" ".join(original_parts_list))
+        freq_list.append(freq)
+
+    df_ngrams = pd.DataFrame({
+        f'{n}-gram (Processed)': ngram_processed_list,
+        f'Original {n}-gram(s)': ngram_original_list,
+        'Frequency': freq_list
+    })
+    # print(f"Extracted top {len(df_ngrams)} {n}-grams.")
     return df_ngrams
 
-
-def find_collocations(processed_tokens, processed_seed_keywords, num_collocations=50, window_size=5):
-    """
-    Finds words that frequently co-occur with seed keywords within a window.
-    Uses Pointwise Mutual Information (PMI) to score collocations (bigrams).
-    Filters results to show pairs containing at least one seed keyword.
-    """
-    if not processed_tokens or not processed_seed_keywords:
-         return pd.DataFrame(columns=['Collocation (Bigram)', 'PMI Score', 'Contains Seed'])
+def find_collocations_general(processed_tokens, stem_to_raw_map, num_collocations=50, window_size=5):
+    """Finds general word collocations (bigrams) based on PMI."""
+    if not processed_tokens:
+         return pd.DataFrame(columns=['Collocation (Processed)', 'Original Collocation(s)', 'PMI Score'])
 
     bigram_measures = BigramAssocMeasures()
-    # Consider words within 'window_size' distance
     finder = BigramCollocationFinder.from_words(processed_tokens, window_size=window_size)
+    # finder.apply_freq_filter(2) # Optional: filter low-frequency pairs
 
-    # Optional: Filter out low-frequency words/pairs early to speed up
-    # finder.apply_freq_filter(3)
+    try:
+        scored = finder.score_ngrams(bigram_measures.pmi)
+    except ZeroDivisionError: # Can happen if all words are unique or very sparse
+        print("Warning: ZeroDivisionError in collocation scoring (likely sparse data). Returning empty DataFrame.")
+        return pd.DataFrame(columns=['Collocation (Processed)', 'Original Collocation(s)', 'PMI Score'])
 
-    # Score based on PMI
-    # Other measures exist: bigram_measures.raw_freq, bigram_measures.chi_sq, etc.
-    scored = finder.score_ngrams(bigram_measures.pmi)
 
-    # Filter for collocations involving at least one seed keyword
-    collocations_with_seeds = []
-    for (w1, w2), score in scored:
-        if w1 in processed_seed_keywords or w2 in processed_seed_keywords:
-            collocations_with_seeds.append( (f"{w1} {w2}", score, True) )
+    if not scored:
+        # print("No general collocations found.")
+        return pd.DataFrame(columns=['Collocation (Processed)', 'Original Collocation(s)', 'PMI Score'])
 
-    # Create DataFrame
-    if not collocations_with_seeds:
-        print("No collocations found involving the seed keywords.")
-        return pd.DataFrame(columns=['Collocation (Bigram)', 'PMI Score', 'Contains Seed'])
+    processed_collocs = []
+    original_collocs = []
+    pmi_scores = []
 
-    df_collocations = pd.DataFrame(collocations_with_seeds, columns=['Collocation (Bigram)', 'PMI Score', 'Contains Seed'])
+    for (w1_proc, w2_proc), score in scored:
+        if len(processed_collocs) >= num_collocations:
+            break
+        processed_collocs.append(f"{w1_proc} {w2_proc}")
+        orig_w1 = format_original_words(stem_to_raw_map.get(w1_proc, {w1_proc}))
+        orig_w2 = format_original_words(stem_to_raw_map.get(w2_proc, {w2_proc}))
+        original_collocs.append(f"{orig_w1} {orig_w2}")
+        pmi_scores.append(score)
+
+    df_collocations = pd.DataFrame({
+        'Collocation (Processed)': processed_collocs,
+        'Original Collocation(s)': original_collocs,
+        'PMI Score': pmi_scores
+    })
     df_collocations = df_collocations.sort_values(by='PMI Score', ascending=False).reset_index(drop=True)
+    # print(f"Found top {len(df_collocations)} general collocations (PMI based).")
+    return df_collocations.head(num_collocations)
 
-    # Limit to top N
-    df_collocations = df_collocations.head(num_collocations)
-    print(f"Found {len(df_collocations)} collocations involving seed keywords (PMI based).")
-    return df_collocations
+
+def find_collocations_with_seeds(processed_tokens, stem_to_raw_map, processed_seed_keywords, num_collocations=50, window_size=5):
+    if not processed_tokens or not processed_seed_keywords:
+         return pd.DataFrame(columns=['Collocation (Processed)', 'Original Collocation(s)', 'PMI Score', 'Contains Seed'])
+    bigram_measures = BigramAssocMeasures()
+    finder = BigramCollocationFinder.from_words(processed_tokens, window_size=window_size)
+    # finder.apply_freq_filter(2)
+
+    try:
+        scored = finder.score_ngrams(bigram_measures.pmi)
+    except ZeroDivisionError:
+        print("Warning: ZeroDivisionError in seed collocation scoring (likely sparse data). Returning empty DataFrame.")
+        return pd.DataFrame(columns=['Collocation (Processed)', 'Original Collocation(s)', 'PMI Score', 'Contains Seed'])
+
+
+    collocations_data = []
+    for (w1_proc, w2_proc), score in scored:
+        if w1_proc in processed_seed_keywords or w2_proc in processed_seed_keywords:
+            orig_w1 = format_original_words(stem_to_raw_map.get(w1_proc, {w1_proc}))
+            orig_w2 = format_original_words(stem_to_raw_map.get(w2_proc, {w2_proc}))
+            collocations_data.append({
+                'Collocation (Processed)': f"{w1_proc} {w2_proc}",
+                'Original Collocation(s)': f"{orig_w1} {orig_w2}",
+                'PMI Score': score,
+                'Contains Seed': True
+            })
+
+    if not collocations_data:
+        # print("No collocations found involving the seed keywords.")
+        return pd.DataFrame(columns=['Collocation (Processed)', 'Original Collocation(s)', 'PMI Score', 'Contains Seed'])
+
+    df_collocations = pd.DataFrame(collocations_data)
+    df_collocations = df_collocations.sort_values(by='PMI Score', ascending=False).reset_index(drop=True)
+    # print(f"Found {len(df_collocations)} collocations involving seed keywords (PMI based).")
+    return df_collocations.head(num_collocations)
+
 
 def main():
-    # --- Configuration ---
     PDF_PATH = "metadata/papers/security/wellarchitected-security-pillar.pdf"  # <--- CHANGE THIS TO YOUR PDF FILE PATH
-    OUTPUT_EXCEL = "keyword_analysis_results2.xlsx"
+    OUTPUT_EXCEL = "keyword_analysis_results_final.xlsx"
     NUM_TOP_BIGRAMS = 100
     NUM_TOP_TRIGRAMS = 50
-    NUM_COLLOCATIONS = 100
-    COLLOCATION_WINDOW_SIZE = 5  # How many words apart can collocating words be?
+    NUM_COLLOCATIONS_GENERAL = 100
+    NUM_COLLOCATIONS_SEEDS = 100
+    COLLOCATION_WINDOW_SIZE = 5
+    EXPAND_SEED_SYNONYMS = False # Set to True to expand seed keywords with synonyms
 
     print("Starting keyword analysis...")
-
-    # 1. Extract Text
     raw_text = extract_text_from_pdf(PDF_PATH)
 
     if raw_text:
-        # 2. Preprocess Text
-        processed_seeds = process_seed_keywords(SEED_KEYWORDS_RAW)
-        processed_tokens = preprocess_text(raw_text)
+        processed_tokens, stem_to_raw_map = preprocess_text(raw_text)
+        print(f"Preprocessing completed. Total processed tokens: {len(processed_tokens)}. Stem-to-raw map size: {len(stem_to_raw_map)}.")
 
-        # 3. Run Analyses
+        processed_seeds = process_seed_keywords(SEED_KEYWORDS_RAW, expand_synonyms=EXPAND_SEED_SYNONYMS)
+        print(f"Seed keywords processed. Total unique processed seeds: {len(processed_seeds)}.")
+
+
         print("\n--- Running Analyses ---")
-        df_tfidf = calculate_tfidf(processed_tokens)
-        df_bigrams = extract_ngrams(processed_tokens, n=2, num_top_ngrams=NUM_TOP_BIGRAMS)
-        df_trigrams = extract_ngrams(processed_tokens, n=3, num_top_ngrams=NUM_TOP_TRIGRAMS)
-        df_collocations = find_collocations(processed_tokens, processed_seeds,
-                                            num_collocations=NUM_COLLOCATIONS,
-                                            window_size=COLLOCATION_WINDOW_SIZE)
+        df_tfidf = calculate_tfidf(processed_tokens, stem_to_raw_map)
+        df_bigrams = extract_ngrams(processed_tokens, stem_to_raw_map, n=2, num_top_ngrams=NUM_TOP_BIGRAMS)
+        df_trigrams = extract_ngrams(processed_tokens, stem_to_raw_map, n=3, num_top_ngrams=NUM_TOP_TRIGRAMS)
 
-        # 4. Save to Excel
+        df_collocations_general = find_collocations_general(
+            processed_tokens, stem_to_raw_map,
+            num_collocations=NUM_COLLOCATIONS_GENERAL,
+            window_size=COLLOCATION_WINDOW_SIZE
+        )
+        df_collocations_seeds = find_collocations_with_seeds(
+            processed_tokens, stem_to_raw_map, processed_seeds,
+            num_collocations=NUM_COLLOCATIONS_SEEDS,
+            window_size=COLLOCATION_WINDOW_SIZE
+        )
+
         print(f"\n--- Saving results to {OUTPUT_EXCEL} ---")
         try:
             with pd.ExcelWriter(OUTPUT_EXCEL, engine='openpyxl') as writer:
-                df_tfidf.to_excel(writer, sheet_name='TF-IDF', index=False)
-                df_bigrams.to_excel(writer, sheet_name='Top Bigrams', index=False)
-                df_trigrams.to_excel(writer, sheet_name='Top Trigrams', index=False)
-                df_collocations.to_excel(writer, sheet_name='Collocations (with Seeds)', index=False)
+                if not df_tfidf.empty: df_tfidf.to_excel(writer, sheet_name='TF-IDF', index=False)
+                if not df_bigrams.empty: df_bigrams.to_excel(writer, sheet_name='Top Bigrams', index=False)
+                if not df_trigrams.empty: df_trigrams.to_excel(writer, sheet_name='Top Trigrams', index=False)
+                if not df_collocations_general.empty: df_collocations_general.to_excel(writer, sheet_name='Collocations (General)', index=False)
+                if not df_collocations_seeds.empty: df_collocations_seeds.to_excel(writer, sheet_name='Collocations (with Seeds)', index=False)
             print("Successfully saved results to Excel.")
         except Exception as e:
             print(f"Error saving results to Excel: {e}")
-            print("Attempting to save as CSV files instead...")
-            try:
-                df_tfidf.to_csv("tfidf_results.csv", index=False)
-                df_bigrams.to_csv("bigram_results.csv", index=False)
-                df_trigrams.to_csv("trigram_results.csv", index=False)
-                df_collocations.to_csv("collocation_results.csv", index=False)
-                print("Successfully saved results as separate CSV files.")
-            except Exception as csve:
-                print(f"Could not save as CSV either: {csve}")
-
-
+            # Fallback to CSV can be added here if needed
     else:
         print("Could not extract text from PDF. Exiting.")
-
     print("\nAnalysis finished.")
 
-# --- Main Execution ---
 if __name__ == "__main__":
+    # Optional: Download NLTK resources if not present
+    # try: nltk.data.find('corpora/wordnet')
+    # except LookupError: nltk.download('wordnet')
+    # try: nltk.data.find('corpora/stopwords')
+    # except LookupError: nltk.download('stopwords')
+    # try: nltk.data.find('tokenizers/punkt')
+    # except LookupError: nltk.download('punkt')
     main()
