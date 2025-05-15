@@ -25,12 +25,16 @@ import pandas as pd
 import re
 from collections import defaultdict # For stem_to_raw_map
 
+from quality_attributes import quality_attributes
+
 # --- Configuration ---
-SEED_KEYWORDS_RAW = [
-    "performance", "latency", "throughput", "response", "load", "scalability", "bottleneck", # Corrected scalab
-    "availability", "downtime", "reliability", "fault", "failure", "resilience", "recovery", # Corrected reliab, resilien, recover
-    "security", "attack", "vulnerability", "encryption", "authorization", "authentication", # Corrected vulnerab, encrypt, authoriz, authentcat
-]
+# SEED_KEYWORDS_RAW = [
+#     "performance", "latency", "throughput", "response", "load", "scalability", "bottleneck", # Corrected scalab
+#     "availability", "downtime", "reliability", "fault", "failure", "resilience", "recovery", # Corrected reliab, resilien, recover
+#     "security", "attack", "vulnerability", "encryption", "authorization", "authentication", # Corrected vulnerab, encrypt, authoriz, authentcat
+# ]
+SEED_KEYWORDS_RAW = quality_attributes.get("security")
+
 
 USE_STEMMING = True
 lemmatizer = WordNetLemmatizer()
