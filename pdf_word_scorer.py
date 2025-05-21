@@ -1,18 +1,4 @@
-# import nltk
-# try:
-#     nltk.data.find('corpora/wordnet')
-# except nltk.downloader.DownloadError:
-#     nltk.download('wordnet')
-# try:
-#     nltk.data.find('corpora/stopwords')
-# except nltk.downloader.DownloadError:
-#     nltk.download('stopwords')
-# try:
-#     nltk.data.find('tokenizers/punkt')
-# except nltk.downloader.DownloadError:
-#     nltk.download('punkt')
 import os
-
 import PyPDF2
 import nltk
 from nltk.corpus import stopwords, wordnet
@@ -24,51 +10,74 @@ from nltk.probability import FreqDist
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
 import re
-from collections import defaultdict # For stem_to_raw_map
+from collections import defaultdict
+import shelve  # For caching
+import hashlib  # For content hashing
+from pathlib import Path  # For easier path manipulation
 
-from quality_attributes import quality_attributes
+from quality_attributes import quality_attributes  # Assuming this file exists and contains the map
 
 # --- Configuration ---
-# SEED_KEYWORDS_RAW = [
-#     "performance", "latency", "throughput", "response", "load", "scalability", "bottleneck", # Corrected scalab
-#     "availability", "downtime", "reliability", "fault", "failure", "resilience", "recovery", # Corrected reliab, resilien, recover
-#     "security", "attack", "vulnerability", "encryption", "authorization", "authentication", # Corrected vulnerab, encrypt, authoriz, authentcat
-# ]
-SEED_WORDS_RAW_MAP  = quality_attributes
+# SEED_WORDS_RAW_MAP will be loaded from quality_attributes.py
+# Example:
+# quality_attributes_map = {
+#     "Security": ["security", "attack", ...],
+#     "Performance": ["performance", "latency", ...],
+# }
+SEED_WORDS_RAW_MAP = quality_attributes
+
+USE_STEMMING = True  # True for Stemming, False for Lemmatization
+PREPROCESSING_VERSION = "v1.1"  # Increment if preprocess_text logic changes significantly
+
+# --- Caching Configuration ---
+CACHE_DIR = ".cache/pdf_cache"
+Path(CACHE_DIR).mkdir(parents=True, exist_ok=True)  # Ensure cache directory exists
 
 
-USE_STEMMING = True
-lemmatizer = WordNetLemmatizer()
-stemmer = PorterStemmer()
+# --- NLTK Resource Download (run once if needed) ---
+def ensure_nltk_resources():
+    resources = [('corpora/wordnet', 'wordnet'),
+                 ('corpora/stopwords', 'stopwords'),
+                 ('tokenizers/punkt', 'punkt')]
+    for path, name in resources:
+        try:
+            nltk.data.find(path)
+        except nltk.downloader.DownloadError:
+            print(f"Downloading NLTK resource: {name}")
+            nltk.download(name)
+
+
+# --- Global NLP Objects (initialize once) ---
+if USE_STEMMING:
+    stemmer = PorterStemmer()
+else:
+    lemmatizer = WordNetLemmatizer()
 stop_words = set(stopwords.words('english'))
 
-# --- Helper Functions ---
 
+# --- Helper Functions (find_pdfs_by_qa, extract_text_from_pdf, format_original_words, get_synonyms_wordnet are mostly the same) ---
 def find_pdfs_by_qa(base_dir):
-    """
-    Walks through the base_dir, finds PDFs in immediate subdirectories (QAs).
-    Returns a dictionary: {qa_name: [list_of_pdf_paths]}
-    """
     qa_to_pdfs = defaultdict(list)
     if not os.path.isdir(base_dir):
         print(f"Error: Base PDF directory '{base_dir}' not found.")
         return qa_to_pdfs
 
-    for qa_name in os.listdir(base_dir):
-        qa_path = os.path.join(base_dir, qa_name)
-        if os.path.isdir(qa_path):
-            # Check if this directory name is a key in our SEED_WORDS_RAW_MAP
-            # This ensures we only process directories we have seeds for (optional, but good for consistency)
-            if qa_name.lower() in (key.lower() for key in SEED_WORDS_RAW_MAP.keys()): # Case-insensitive match for dir name
-                print(f"Found QA directory: {qa_name}")
-                for root, _, files in os.walk(qa_path): # os.walk for nested PDFs within a QA dir
+    for dir_item_name in os.listdir(base_dir):
+        item_path = os.path.join(base_dir, dir_item_name)
+        if os.path.isdir(item_path):
+            # Match directory name (potential QA name) to SEED_WORDS_RAW_MAP keys
+            # We need to find the original casing of the key from SEED_WORDS_RAW_MAP
+            matched_qa_key = next((key_in_map for key_in_map in SEED_WORDS_RAW_MAP.keys() if key_in_map.lower() == dir_item_name.lower()), None)
+
+            if matched_qa_key:
+                print(f"Found QA directory: {dir_item_name} (mapped to key: '{matched_qa_key}')")
+                for root, _, files in os.walk(item_path):
                     for file in files:
                         if file.lower().endswith(".pdf"):
                             pdf_path = os.path.join(root, file)
-                            qa_to_pdfs[qa_name].append(pdf_path) # Use original qa_name from listdir
-                            # print(f"  - Found PDF: {pdf_path}")
+                            qa_to_pdfs[matched_qa_key].append(pdf_path)  # Use the matched_qa_key
             else:
-                print(f"Skipping directory '{qa_name}' as it's not in SEED_WORDS_RAW_MAP or doesn't match QA naming.")
+                print(f"Skipping directory '{dir_item_name}' as it's not a recognized QA in SEED_WORDS_RAW_MAP.")
     return qa_to_pdfs
 
 
@@ -78,69 +87,80 @@ def extract_text_from_pdf(pdf_path):
         with open(pdf_path, 'rb') as file:
             reader = PyPDF2.PdfReader(file)
             num_pages = len(reader.pages)
-            print(f"Reading {num_pages} pages from {pdf_path}...")
+            # print(f"Reading {num_pages} pages from {pdf_path}...") # Reduced verbosity
             for page_num in range(num_pages):
                 page = reader.pages[page_num]
                 try:
                     page_text = page.extract_text()
                     if page_text:
                         text += page_text + "\n"
-                except Exception as e:
-                    print(f"Warning: Could not extract text from page {page_num + 1}. Error: {e}")
-        print(f"Successfully extracted text (length: {len(text)} characters).")
+                except Exception:  # pylint: disable=broad-except
+                    # print(f"Warning: Could not extract text from page {page_num + 1} of {pdf_path}. Error: {e}")
+                    pass  # Be less verbose for errors here
+        # print(f"Successfully extracted text (length: {len(text)} characters) from {Path(pdf_path).name}.")
         return text
     except FileNotFoundError:
         print(f"Error: PDF file not found at {pdf_path}")
         return None
-    except Exception as e:
+    except Exception as e:  # pylint: disable=broad-except
         print(f"Error reading PDF {pdf_path}: {e}")
         return None
 
-def preprocess_text(text):
+
+def get_file_hash(filepath):
+    """Computes MD5 hash of a file."""
+    hasher = hashlib.md5()
+    try:
+        with open(filepath, 'rb') as f:
+            buf = f.read(65536)  # Read in 64k chunks
+            while len(buf) > 0:
+                hasher.update(buf)
+                buf = f.read(65536)
+        return hasher.hexdigest()
+    except FileNotFoundError:
+        return None
+
+
+def preprocess_text_and_map(text, pdf_path_for_log=""):
     """
-    Cleans and preprocesses text.
+    Cleans and preprocesses text for a single document.
     Returns:
         - final_processed_tokens: list of stemmed/lemmatized tokens.
-        - stem_to_raw_map: dict mapping processed_token -> set of original raw_tokens.
+        - stem_to_raw_map: dict mapping processed_token -> set of original raw_tokens from this doc.
     """
     if not text:
         return [], defaultdict(set)
 
-    original_text_for_mapping = text # Keep a copy before lowercasing for accurate raw word mapping
-
+    # Line-ending hyphens
     text = re.sub(r'([a-z])-\n([a-z])', r'\1\2', text, flags=re.IGNORECASE | re.MULTILINE)
     text = re.sub(r'-\n', '', text, flags=re.IGNORECASE | re.MULTILINE)
-    text = text.lower()
-    text_for_tokenization = re.sub(r'[^a-z\s-]', '', text)
-    raw_tokens = nltk.word_tokenize(text_for_tokenization) # Tokenize before further cleaning for map
 
-    processed_tokens_with_originals = [] # Stores tuples of (original_cleaned_token, processed_token)
+    text_lower = text.lower()
+    # Keep letters, spaces, and hyphens within words. Remove other punctuation/numbers.
+    text_for_tokenization = re.sub(r'[^a-z\s-]', '', text_lower)
+
+    raw_tokens = nltk.word_tokenize(text_for_tokenization)
+
+    final_processed_tokens = []
     stem_to_raw_map = defaultdict(set)
 
-    for raw_token_idx, token in enumerate(raw_tokens):
+    for token in raw_tokens:
         original_cleaned_token = token.strip('-')
 
-        if not original_cleaned_token or all(c == '-' for c in token):
+        if not original_cleaned_token or all(c == '-' for c in token) or \
+                original_cleaned_token in stop_words or len(original_cleaned_token) <= 2:
             continue
 
-        if original_cleaned_token not in stop_words and len(original_cleaned_token) > 2:
-            if original_cleaned_token != '-': # Ensure it's not just a hyphen
+        if USE_STEMMING:
+            processed_token = stemmer.stem(original_cleaned_token)
+        else:
+            processed_token = lemmatizer.lemmatize(original_cleaned_token)
 
-                if USE_STEMMING:
-                    processed_token = stemmer.stem(original_cleaned_token)
-                else:
-                    processed_token = lemmatizer.lemmatize(original_cleaned_token)
+        final_processed_tokens.append(processed_token)
+        stem_to_raw_map[processed_token].add(original_cleaned_token)
 
-                # Add to map: processed_token -> original_cleaned_token
-                # We use original_cleaned_token because it's the version before stemming/lemma
-                # and after initial cleaning (hyphens, lowercase)
-                stem_to_raw_map[processed_token].add(original_cleaned_token)
-                processed_tokens_with_originals.append(processed_token)
-
-
-    final_processed_tokens = processed_tokens_with_originals # This is now just the list of processed tokens
-    # print(f"Preprocessing reduced text to {len(final_processed_tokens)} tokens.")
-    # print(f"Stem-to-raw map contains {len(stem_to_raw_map)} entries.")
+    # if pdf_path_for_log: # Optional: for debugging
+    #     print(f"Preprocessed {Path(pdf_path_for_log).name}: {len(final_processed_tokens)} tokens, map size {len(stem_to_raw_map)}")
     return final_processed_tokens, stem_to_raw_map
 
 
@@ -162,193 +182,156 @@ def get_synonyms_wordnet(word, pos=None, max_synonyms_per_pos=3):
             if count >= max_synonyms_per_pos: break
     return list(synonyms)
 
+
 def process_seed_keywords(raw_keywords, expand_synonyms=False, max_synonyms_per_seed=3):
     all_keywords_to_process = set(k.lower() for k in raw_keywords)
     if expand_synonyms:
-        # print(f"Attempting to expand {len(raw_keywords)} raw seed keywords with synonyms...")
         expanded_keywords = set(all_keywords_to_process)
         for seed_word in raw_keywords:
             syns = get_synonyms_wordnet(seed_word.lower(), max_synonyms_per_pos=max_synonyms_per_seed)
             if syns:
                 for syn in syns: expanded_keywords.add(syn.lower())
-        # print(f"  Expanded to {len(expanded_keywords)} unique terms (including originals) before processing.")
         all_keywords_to_process = expanded_keywords
-    # else:
-        # print("Synonym expansion skipped.")
 
     if not all_keywords_to_process:
-        # print("No keywords to process.")
-        return set(), defaultdict(set) # Return empty map as well
+        return set()
 
     text_of_all_keywords = " ".join(all_keywords_to_process)
-    # Since process_seed_keywords is about getting the *processed* seeds,
-    # we primarily care about the first return value of preprocess_text.
-    # The stem_to_raw_map for seeds isn't typically used downstream, but we can generate it.
-    processed_seed_tokens, seed_stem_to_raw_map = preprocess_text(text_of_all_keywords)
-    processed_seeds_set = set(processed_seed_tokens)
+    # Use preprocess_text_and_map, but we only need the processed tokens for seeds
+    processed_seed_tokens, _ = preprocess_text_and_map(text_of_all_keywords)
+    return set(processed_seed_tokens)
 
-    # print(f"Processed {len(raw_keywords)} raw seed keywords (expanded to {len(all_keywords_to_process)} terms before processing) into {len(processed_seeds_set)} unique processed seed terms.")
-    return processed_seeds_set # Only return the set of processed seeds
 
-# --- Helper for formatting original words ---
 def format_original_words(original_set):
-    if not original_set:
-        return ""
-    if len(original_set) == 1:
-        return list(original_set)[0]
+    if not original_set: return ""
+    if len(original_set) == 1: return list(original_set)[0]
     return f"({', '.join(sorted(list(original_set)))})"
 
-# --- Analysis Functions ---
 
-def calculate_corpus_tfidf(all_processed_docs_texts, all_stem_to_raw_maps, target_doc_indices):
-    """
-    Calculates TF-IDF scores for target documents using a corpus-wide IDF.
-    Args:
-        all_processed_docs_texts: List of strings, where each string is a join of processed tokens for a doc.
-        all_stem_to_raw_maps: List of stem_to_raw_map dictionaries, one for each document in all_processed_docs_texts.
-                              The order must correspond to all_processed_docs_texts.
-        target_doc_indices: List of indices indicating which documents in all_processed_docs_texts
-                            are the ones we want to get TF-IDF scores for (e.g., docs for current QA).
-    Returns:
-        A list of DataFrames, one for each target document.
-    """
+# --- Analysis Functions (calculate_corpus_tfidf, extract_ngrams, find_collocations_general, find_collocations_with_seeds) ---
+# These are largely the same as your last version, ensure they use the passed stem_to_raw_map correctly.
+# The calculate_corpus_tfidf was already designed for corpus-wide IDF.
+
+def calculate_corpus_tfidf(all_processed_docs_texts, all_stem_to_raw_maps_list, target_doc_indices,
+                           fitted_vectorizer=None):
     if not all_processed_docs_texts:
-        return []
+        return [], None  # Return empty list and None for vectorizer if no docs
 
-    vectorizer = TfidfVectorizer(ngram_range=(1, 1)) # Can also do (1,2) for bigrams in TF-IDF
+    if fitted_vectorizer is None:
+        vectorizer = TfidfVectorizer(ngram_range=(1, 1), min_df=2)  # min_df to avoid rare terms dominating IDF too much
+        print(f"Fitting TF-IDF vectorizer on {len(all_processed_docs_texts)} documents from the entire corpus...")
+        try:
+            corpus_tfidf_matrix = vectorizer.fit_transform(all_processed_docs_texts)
+            fitted_vectorizer = vectorizer  # Store the fitted vectorizer
+        except ValueError as e:
+            print(f"Could not fit TF-IDF vectorizer. Reason: {e}")
+            return [pd.DataFrame(columns=['Term (Processed)', 'Original Word(s)', 'TF-IDF Score']) for _ in
+                    target_doc_indices], None
+    else:
+        # Use the pre-fitted vectorizer
+        print("Using pre-fitted TF-IDF vectorizer...")
+        vectorizer = fitted_vectorizer
+        try:
+            corpus_tfidf_matrix = vectorizer.transform(all_processed_docs_texts)  # Just transform
+        except ValueError as e:  # Should not happen if vectorizer was fit on compatible data
+            print(f"Error transforming with pre-fitted TF-IDF vectorizer: {e}")
+            return [pd.DataFrame(columns=['Term (Processed)', 'Original Word(s)', 'TF-IDF Score']) for _ in
+                    target_doc_indices], fitted_vectorizer
 
-    print(f"Fitting TF-IDF vectorizer on {len(all_processed_docs_texts)} documents from the entire corpus...")
-    try:
-        # Fit on ALL documents in the corpus to get global IDF values
-        corpus_tfidf_matrix = vectorizer.fit_transform(all_processed_docs_texts)
-        feature_names = vectorizer.get_feature_names_out() # These are the processed terms from the whole corpus
-    except ValueError as e:
-        print(f"Could not fit TF-IDF vectorizer. Reason: {e}")
-        return [pd.DataFrame(columns=['Term (Processed)', 'Original Word(s)', 'TF-IDF Score']) for _ in target_doc_indices]
-
+    feature_names = vectorizer.get_feature_names_out()
     results_dfs = []
-    for i, doc_idx in enumerate(target_doc_indices):
-        if doc_idx >= len(all_processed_docs_texts) or doc_idx >= corpus_tfidf_matrix.shape[0]:
-            print(f"Warning: Document index {doc_idx} out of bounds. Skipping TF-IDF for this doc.")
+
+    for i, doc_idx in enumerate(target_doc_indices):  # Iterate only over target_doc_indices for output
+        if doc_idx >= corpus_tfidf_matrix.shape[0]:
+            print(f"Warning: Document index {doc_idx} out of bounds for TF-IDF matrix. Skipping.")
             results_dfs.append(pd.DataFrame(columns=['Term (Processed)', 'Original Word(s)', 'TF-IDF Score']))
             continue
 
-        # Get the TF-IDF scores for the current target document
-        # `corpus_tfidf_matrix` is a sparse matrix. `doc_idx` row contains scores for that doc.
         doc_vector = corpus_tfidf_matrix[doc_idx]
-        # Create a mapping of feature index to score for this document
-        term_scores = {feature_names[col_idx]: doc_vector[0, col_idx]
-                       for col_idx in doc_vector.nonzero()[1]} # nonzero gets indices of terms present in doc
+        term_scores = {feature_names[col_idx]: doc_vector[0, col_idx] for col_idx in doc_vector.nonzero()[1]}
 
         if not term_scores:
             results_dfs.append(pd.DataFrame(columns=['Term (Processed)', 'Original Word(s)', 'TF-IDF Score']))
             continue
 
-        current_doc_stem_to_raw_map = all_stem_to_raw_maps[doc_idx]
-
+        current_doc_stem_to_raw_map = all_stem_to_raw_maps_list[doc_idx]
         df_tfidf = pd.DataFrame(list(term_scores.items()), columns=['Term (Processed)', 'TF-IDF Score'])
         df_tfidf['Original Word(s)'] = df_tfidf['Term (Processed)'].apply(
-            lambda term: format_original_words(current_doc_stem_to_raw_map.get(term, set()))
+            lambda term: format_original_words(current_doc_stem_to_raw_map.get(term, {term}))  # Fallback to term itself
         )
         df_tfidf = df_tfidf.sort_values(by='TF-IDF Score', ascending=False).reset_index(drop=True)
-        df_tfidf = df_tfidf[['Term (Processed)', 'Original Word(s)', 'TF-IDF Score']] # Reorder
-
+        df_tfidf = df_tfidf[['Term (Processed)', 'Original Word(s)', 'TF-IDF Score']]
         results_dfs.append(df_tfidf)
-        # print(f"  Calculated TF-IDF for document {i+1} of current QA (Original Index: {doc_idx}), {len(df_tfidf)} terms.")
-    return results_dfs
+
+    return results_dfs, fitted_vectorizer
+
 
 def extract_ngrams(processed_tokens, stem_to_raw_map, n=2, num_top_ngrams=50):
+    # (No significant changes needed from your provided code, assuming inputs are correct)
     if not processed_tokens or len(processed_tokens) < n:
         return pd.DataFrame(columns=[f'{n}-gram (Processed)', f'Original {n}-gram(s)', 'Frequency'])
-
     n_grams_tuples = list(nltk_ngrams(processed_tokens, n))
     if not n_grams_tuples:
-         return pd.DataFrame(columns=[f'{n}-gram (Processed)', f'Original {n}-gram(s)', 'Frequency'])
-
+        return pd.DataFrame(columns=[f'{n}-gram (Processed)', f'Original {n}-gram(s)', 'Frequency'])
     freq_dist = FreqDist(n_grams_tuples)
     most_common = freq_dist.most_common(num_top_ngrams)
-
-    ngram_processed_list = []
-    ngram_original_list = []
-    freq_list = []
-
+    ngram_processed_list, ngram_original_list, freq_list = [], [], []
     for ngram_tuple, freq in most_common:
         ngram_processed_list.append(" ".join(ngram_tuple))
-        # Reconstruct original n-gram possibilities
-        # This can get complex if each part has multiple originals. For simplicity,
-        # we'll show one common combination or list them per part.
-        # Let's show the most common form based on map, or list all if too complex
-        original_parts_list = []
-        for token_in_ngram in ngram_tuple:
-            originals = stem_to_raw_map.get(token_in_ngram, {token_in_ngram}) # Fallback to processed if not in map
-            original_parts_list.append(format_original_words(originals))
+        original_parts_list = [format_original_words(stem_to_raw_map.get(token, {token})) for token in ngram_tuple]
         ngram_original_list.append(" ".join(original_parts_list))
         freq_list.append(freq)
-
-    df_ngrams = pd.DataFrame({
+    return pd.DataFrame({
         f'{n}-gram (Processed)': ngram_processed_list,
         f'Original {n}-gram(s)': ngram_original_list,
         'Frequency': freq_list
     })
-    # print(f"Extracted top {len(df_ngrams)} {n}-grams.")
-    return df_ngrams
+
 
 def find_collocations_general(processed_tokens, stem_to_raw_map, num_collocations=50, window_size=5):
-    """Finds general word collocations (bigrams) based on PMI."""
-    if not processed_tokens:
-         return pd.DataFrame(columns=['Collocation (Processed)', 'Original Collocation(s)', 'PMI Score'])
-
+    # (No significant changes needed from your provided code)
+    if not processed_tokens or len(processed_tokens) < window_size:  # Check if enough tokens for finder
+        return pd.DataFrame(columns=['Collocation (Processed)', 'Original Collocation(s)', 'PMI Score'])
     bigram_measures = BigramAssocMeasures()
-    finder = BigramCollocationFinder.from_words(processed_tokens, window_size=window_size)
-    # finder.apply_freq_filter(2) # Optional: filter low-frequency pairs
-
     try:
+        finder = BigramCollocationFinder.from_words(processed_tokens, window_size=window_size)
+        # finder.apply_freq_filter(2) # Optional
         scored = finder.score_ngrams(bigram_measures.pmi)
-    except ZeroDivisionError: # Can happen if all words are unique or very sparse
-        print("Warning: ZeroDivisionError in collocation scoring (likely sparse data). Returning empty DataFrame.")
+    except (ValueError, ZeroDivisionError) as e:  # ValueError if not enough words for window
+        print(f"Warning: Error in general collocation scoring ({e}). Returning empty DataFrame.")
         return pd.DataFrame(columns=['Collocation (Processed)', 'Original Collocation(s)', 'PMI Score'])
-
-
     if not scored:
-        # print("No general collocations found.")
         return pd.DataFrame(columns=['Collocation (Processed)', 'Original Collocation(s)', 'PMI Score'])
-
-    processed_collocs = []
-    original_collocs = []
-    pmi_scores = []
-
+    processed_collocs, original_collocs, pmi_scores = [], [], []
     for (w1_proc, w2_proc), score in scored:
-        if len(processed_collocs) >= num_collocations:
-            break
+        if len(processed_collocs) >= num_collocations: break
         processed_collocs.append(f"{w1_proc} {w2_proc}")
         orig_w1 = format_original_words(stem_to_raw_map.get(w1_proc, {w1_proc}))
         orig_w2 = format_original_words(stem_to_raw_map.get(w2_proc, {w2_proc}))
         original_collocs.append(f"{orig_w1} {orig_w2}")
         pmi_scores.append(score)
-
     df_collocations = pd.DataFrame({
         'Collocation (Processed)': processed_collocs,
         'Original Collocation(s)': original_collocs,
         'PMI Score': pmi_scores
     })
-    df_collocations = df_collocations.sort_values(by='PMI Score', ascending=False).reset_index(drop=True)
-    # print(f"Found top {len(df_collocations)} general collocations (PMI based).")
-    return df_collocations.head(num_collocations)
+    return df_collocations.sort_values(by='PMI Score', ascending=False).reset_index(drop=True).head(num_collocations)
 
 
-def find_collocations_with_seeds(processed_tokens, stem_to_raw_map, processed_seed_keywords, num_collocations=50, window_size=5):
-    if not processed_tokens or not processed_seed_keywords:
-         return pd.DataFrame(columns=['Collocation (Processed)', 'Original Collocation(s)', 'PMI Score', 'Contains Seed'])
+def find_collocations_with_seeds(processed_tokens, stem_to_raw_map, processed_seed_keywords, num_collocations=50,
+                                 window_size=5):
+    # (No significant changes needed from your provided code)
+    if not processed_tokens or not processed_seed_keywords or len(processed_tokens) < window_size:
+        return pd.DataFrame(
+            columns=['Collocation (Processed)', 'Original Collocation(s)', 'PMI Score', 'Contains Seed'])
     bigram_measures = BigramAssocMeasures()
-    finder = BigramCollocationFinder.from_words(processed_tokens, window_size=window_size)
-    # finder.apply_freq_filter(2)
-
     try:
+        finder = BigramCollocationFinder.from_words(processed_tokens, window_size=window_size)
         scored = finder.score_ngrams(bigram_measures.pmi)
-    except ZeroDivisionError:
-        print("Warning: ZeroDivisionError in seed collocation scoring (likely sparse data). Returning empty DataFrame.")
-        return pd.DataFrame(columns=['Collocation (Processed)', 'Original Collocation(s)', 'PMI Score', 'Contains Seed'])
-
+    except (ValueError, ZeroDivisionError) as e:
+        print(f"Warning: Error in seed collocation scoring ({e}). Returning empty DataFrame.")
+        return pd.DataFrame(
+            columns=['Collocation (Processed)', 'Original Collocation(s)', 'PMI Score', 'Contains Seed'])
 
     collocations_data = []
     for (w1_proc, w2_proc), score in scored:
@@ -361,109 +344,177 @@ def find_collocations_with_seeds(processed_tokens, stem_to_raw_map, processed_se
                 'PMI Score': score,
                 'Contains Seed': True
             })
-
     if not collocations_data:
-        # print("No collocations found involving the seed keywords.")
-        return pd.DataFrame(columns=['Collocation (Processed)', 'Original Collocation(s)', 'PMI Score', 'Contains Seed'])
-
+        return pd.DataFrame(
+            columns=['Collocation (Processed)', 'Original Collocation(s)', 'PMI Score', 'Contains Seed'])
     df_collocations = pd.DataFrame(collocations_data)
-    df_collocations = df_collocations.sort_values(by='PMI Score', ascending=False).reset_index(drop=True)
-    # print(f"Found {len(df_collocations)} collocations involving seed keywords (PMI based).")
-    return df_collocations.head(num_collocations)
+    return df_collocations.sort_values(by='PMI Score', ascending=False).reset_index(drop=True).head(num_collocations)
 
 
-
+# --- Main Execution Logic ---
 def main():
-    # --- Configuration from global scope ---
-    BASE_PDF_DIR = "metadata/papers/"
+    # ensure_nltk_resources()  # Ensure NLTK resources are downloaded
+
+    BASE_PDF_DIR = "metadata/papers/"  # Main directory containing QA subfolders
     NUM_TOP_BIGRAMS = 100
     NUM_TOP_TRIGRAMS = 50
-    NUM_COLLOCATIONS_GENERAL = 100
+    NUM_COLLOCATIONS_GENERAL = 200
     NUM_COLLOCATIONS_SEEDS = 100
     COLLOCATION_WINDOW_SIZE = 5
-    EXPAND_SEED_SYNONYMS = False  # Set to True to expand seed keywords with synonyms
+    EXPAND_SEED_SYNONYMS = False
+    # Optional: Set to True to force reprocessing of all files, ignoring cache
+    FORCE_REPROCESS_ALL = False
+    # Optional: Set to True to re-fit TF-IDF vectorizer even if cached preprocessed data is used
+    FORCE_REFIT_TFIDF = False
 
     print("Starting CORPUS keyword analysis...")
-    qa_to_pdf_paths = find_pdfs_by_qa(BASE_PDF_DIR)
+    qa_to_pdf_paths_map = find_pdfs_by_qa(BASE_PDF_DIR)
 
-    if not qa_to_pdf_paths:
+    if not qa_to_pdf_paths_map:
         print("No PDFs found or QA directories configured. Exiting.")
         return
 
-    # --- Step 1: Preprocess ALL documents in the corpus to build global IDF for TF-IDF ---
-    all_docs_processed_tokens_list = []  # List of lists of tokens
-    all_docs_stem_to_raw_maps_list = []  # List of stem_to_raw_map dicts
-    all_docs_original_paths = []  # Keep track of original PDF paths
+    # --- Phase 0: Cache Management and Corpus Ingestion ---
+    all_docs_processed_tokens_list = []
+    all_docs_stem_to_raw_maps_list = []
+    all_docs_original_paths_list = []  # Stores original path for each entry in above lists
+    doc_metadata_for_tfidf_fitting = []  # Stores (path, qa_name) for documents included in TF-IDF
 
-    print("\n--- Preprocessing all documents for global TF-IDF fitting ---")
-    for qa_name, pdf_paths in qa_to_pdf_paths.items():
-        for pdf_path in pdf_paths:
-            print(f"Preprocessing for global IDF: {pdf_path}")
-            raw_text = extract_text_from_pdf(pdf_path)
-            if raw_text:
-                processed_tokens, stem_to_raw_map = preprocess_text(raw_text)
+    print("\n--- Phase 0: Ingesting and Preprocessing Documents (with Caching) ---")
+    for qa_name, pdf_paths in qa_to_pdf_paths_map.items():
+        for pdf_path_str in pdf_paths:
+            pdf_path = Path(pdf_path_str)
+            cache_file_key = f"{pdf_path.stem}_{get_file_hash(pdf_path_str)}"  # More robust key
+            cache_file_path = Path(CACHE_DIR) / f"{cache_file_key}.dat"  # .dat for shelve
+
+            processed_tokens = None
+            stem_to_raw_map = None
+            use_cache = False
+
+            if not FORCE_REPROCESS_ALL and cache_file_path.exists():
+                try:
+                    with shelve.open(str(cache_file_path), flag='r') as db:
+                        if db.get("preprocessing_version") == PREPROCESSING_VERSION and \
+                                db.get("file_hash") == get_file_hash(pdf_path_str):  # Double check hash
+                            print(f"Using cached data for: {pdf_path.name}")
+                            processed_tokens = db["processed_tokens"]
+                            stem_to_raw_map = db["stem_to_raw_map"]
+                            use_cache = True
+                        else:
+                            print(f"Cache stale (version or hash mismatch) for: {pdf_path.name}")
+                except Exception as e:  # pylint: disable=broad-except
+                    print(f"Error reading cache for {pdf_path.name}: {e}. Reprocessing.")
+
+            if not use_cache:
+                print(f"Processing: {pdf_path.name} (for QA: {qa_name})")
+                raw_text = extract_text_from_pdf(pdf_path_str)
+                if raw_text:
+                    current_file_hash = get_file_hash(pdf_path_str)
+                    processed_tokens, stem_to_raw_map = preprocess_text_and_map(raw_text, pdf_path_str)
+                    try:
+                        with shelve.open(str(cache_file_path), flag='c') as db:  # 'c' to create if not exists
+                            db["processed_tokens"] = processed_tokens
+                            db["stem_to_raw_map"] = stem_to_raw_map
+                            db["file_hash"] = current_file_hash
+                            db["original_path"] = pdf_path_str
+                            db["preprocessing_version"] = PREPROCESSING_VERSION
+                        print(f"Cached processed data for: {pdf_path.name}")
+                    except Exception as e:  # pylint: disable=broad-except
+                        print(f"Error writing cache for {pdf_path.name}: {e}")
+                else:
+                    processed_tokens = []
+                    stem_to_raw_map = defaultdict(set)
+
+            if processed_tokens is not None:  # Ensure it was either cached or processed
                 all_docs_processed_tokens_list.append(processed_tokens)
                 all_docs_stem_to_raw_maps_list.append(stem_to_raw_map)
-                all_docs_original_paths.append(pdf_path)
-            else:  # Add empty entries to keep lists aligned if a PDF fails
-                all_docs_processed_tokens_list.append([])
-                all_docs_stem_to_raw_maps_list.append(defaultdict(set))
-                all_docs_original_paths.append(pdf_path)  # Still add path for reference
+                all_docs_original_paths_list.append(pdf_path_str)
+                doc_metadata_for_tfidf_fitting.append(
+                    {'path': pdf_path_str, 'qa': qa_name, 'global_idx': len(all_docs_original_paths_list) - 1})
+
+    if not all_docs_processed_tokens_list:
+        print("No documents were successfully processed or loaded from cache. Exiting.")
+        return
 
     all_processed_docs_joined_texts = [" ".join(tokens) for tokens in all_docs_processed_tokens_list]
 
-    # --- Step 2: Process each QA separately ---
-    for qa_name_from_dir, pdf_paths_for_qa in qa_to_pdf_paths.items():
-        print(f"\n--- Processing Quality Attribute: {qa_name_from_dir} ---")
+    # --- Phase 2: TF-IDF Vectorizer Fitting (Global Scope) ---
+    # We can also cache the fitted vectorizer if the corpus is large and stable
+    fitted_vectorizer_cache_path = Path(CACHE_DIR) / "fitted_tfidf_vectorizer.shelf"
+    corpus_vocabulary_hash = hashlib.md5(" ".join(
+        sorted(list(set(token for doc_tokens in all_docs_processed_tokens_list for token in doc_tokens)))).encode(
+        'utf-8')).hexdigest()
 
-        # Match directory name to SEED_WORDS_RAW_MAP key (case-insensitive)
-        current_qa_seed_key = ""
-        for key_in_map in SEED_WORDS_RAW_MAP.keys():
-            if key_in_map.lower() == qa_name_from_dir.lower():
-                current_qa_seed_key = key_in_map
-                break
+    fitted_vectorizer = None
+    if not FORCE_REFIT_TFIDF and fitted_vectorizer_cache_path.exists():
+        try:
+            with shelve.open(str(fitted_vectorizer_cache_path), flag='r') as db:
+                if db.get("preprocessing_version") == PREPROCESSING_VERSION and \
+                        db.get("corpus_vocabulary_hash") == corpus_vocabulary_hash:
+                    print("Loading cached TF-IDF vectorizer.")
+                    fitted_vectorizer = db["vectorizer"]
+        except Exception as e:  # pylint: disable=broad-except
+            print(f"Could not load cached TF-IDF vectorizer: {e}. Will re-fit.")
 
-        if not current_qa_seed_key:
-            print(
-                f"Warning: No seed words found in SEED_WORDS_RAW_MAP for QA '{qa_name_from_dir}'. Skipping seed-based analysis for this QA.")
-            raw_seed_words_for_qa = []
+    if fitted_vectorizer is None:
+        # Pass None to calculate_corpus_tfidf so it fits a new one
+        _, temp_fitted_vectorizer = calculate_corpus_tfidf(all_processed_docs_joined_texts,
+                                                           all_docs_stem_to_raw_maps_list, [], fitted_vectorizer=None)
+        if temp_fitted_vectorizer:
+            fitted_vectorizer = temp_fitted_vectorizer
+            try:
+                with shelve.open(str(fitted_vectorizer_cache_path), flag='c') as db:
+                    db["vectorizer"] = fitted_vectorizer
+                    db["preprocessing_version"] = PREPROCESSING_VERSION
+                    db["corpus_vocabulary_hash"] = corpus_vocabulary_hash
+                print("Cached newly fitted TF-IDF vectorizer.")
+            except Exception as e:  # pylint: disable=broad-except
+                print(f"Error caching fitted TF-IDF vectorizer: {e}")
         else:
-            raw_seed_words_for_qa = SEED_WORDS_RAW_MAP[current_qa_seed_key]
+            print("Critical error: TF-IDF vectorizer could not be fitted. Cannot proceed with TF-IDF analysis.")
+            # Allow N-gram/Collocation to proceed if desired, or exit
+            # return
+
+    # --- Phase 3: Analysis and Output (Per QA) ---
+    for qa_name_key, pdf_paths_for_qa in qa_to_pdf_paths_map.items():
+        # qa_name_key is the original casing from SEED_WORDS_RAW_MAP
+        print(f"\n--- Processing Quality Attribute: {qa_name_key} ---")
+
+        raw_seed_words_for_qa = SEED_WORDS_RAW_MAP.get(qa_name_key, [])
+        if not raw_seed_words_for_qa:
+            print(f"Warning: No seed words retrieved from SEED_WORDS_RAW_MAP for QA '{qa_name_key}'. Check mapping.")
 
         processed_seeds_for_qa = process_seed_keywords(raw_seed_words_for_qa, expand_synonyms=EXPAND_SEED_SYNONYMS)
-        print(f"Seeds for {qa_name_from_dir}: {len(processed_seeds_for_qa)} processed seed terms.")
+        # print(f"Seeds for {qa_name_key}: {len(processed_seeds_for_qa)} processed seed terms.")
 
         # Identify indices of documents belonging to the current QA within the global lists
-        qa_doc_indices_global = [
-            i for i, path in enumerate(all_docs_original_paths) if path in pdf_paths_for_qa
+        qa_doc_global_indices = [
+            meta['global_idx'] for meta in doc_metadata_for_tfidf_fitting if meta['qa'] == qa_name_key
         ]
 
-        if not qa_doc_indices_global:
-            print(f"No successfully processed documents found for QA: {qa_name_from_dir}. Skipping analysis.")
+        if not qa_doc_global_indices:
+            print(f"No successfully processed documents found for QA: {qa_name_key}. Skipping analysis for this QA.")
             continue
 
-        # --- TF-IDF calculation for current QA's documents using global IDF ---
-        # This will return a list of DataFrames, one for each PDF in the current QA
-        qa_tfidf_dfs = calculate_corpus_tfidf(
+        # TF-IDF for current QA's documents using the globally (potentially cached) fitted vectorizer
+        qa_tfidf_dfs_list, _ = calculate_corpus_tfidf(  # We don't need to get the vectorizer back here
             all_processed_docs_joined_texts,
             all_docs_stem_to_raw_maps_list,
-            qa_doc_indices_global
+            qa_doc_global_indices,  # Pass only indices for this QA
+            fitted_vectorizer=fitted_vectorizer  # Pass the globally fitted one
         )
 
-        # For N-grams and Collocations, it's often more meaningful to analyze
-        # the combined text of all documents within a QA, or each doc individually.
-        # Here, we'll combine all tokens for the current QA for N-gram/Collocation.
+        # Aggregate tokens and maps for this QA for N-gram/Collocation
         qa_combined_processed_tokens = []
-        qa_combined_stem_to_raw_map = defaultdict(set)  # Aggregate map for the QA
-
-        for global_idx in qa_doc_indices_global:
+        qa_combined_stem_to_raw_map = defaultdict(set)
+        for global_idx in qa_doc_global_indices:
             qa_combined_processed_tokens.extend(all_docs_processed_tokens_list[global_idx])
             for stem, raw_set in all_docs_stem_to_raw_maps_list[global_idx].items():
                 qa_combined_stem_to_raw_map[stem].update(raw_set)
 
-        print(f"Total processed tokens for {qa_name_from_dir} (combined): {len(qa_combined_processed_tokens)}")
+        # print(f"Total processed tokens for {qa_name_key} (combined for Ngram/Colloc): {len(qa_combined_processed_tokens)}")
 
-        # N-gram and Collocation Analysis for the current QA (using combined tokens)
+        # N-gram and Collocation Analysis for the current QA
         df_bigrams_qa = extract_ngrams(qa_combined_processed_tokens, qa_combined_stem_to_raw_map, n=2,
                                        num_top_ngrams=NUM_TOP_BIGRAMS)
         df_trigrams_qa = extract_ngrams(qa_combined_processed_tokens, qa_combined_stem_to_raw_map, n=3,
@@ -477,51 +528,38 @@ def main():
             num_collocations=NUM_COLLOCATIONS_SEEDS, window_size=COLLOCATION_WINDOW_SIZE
         )
 
-        # --- Save results for the current QA to its own Excel file ---
-        # Sanitize qa_name_from_dir for use in filename
-        safe_qa_name = "".join(c if c.isalnum() else "_" for c in qa_name_from_dir)
-        output_excel_qa = f"keyword_analysis_{safe_qa_name}.xlsx"
-        print(f"\n--- Saving results for {qa_name_from_dir} to {output_excel_qa} ---")
+        # Save results for the current QA
+        safe_qa_name = "".join(c if c.isalnum() else "_" for c in qa_name_key)  # Use qa_name_key
+        output_excel_qa_path = f"keyword_analysis_{safe_qa_name}.xlsx"
+        print(f"--- Saving results for {qa_name_key} to {output_excel_qa_path} ---")
         try:
-            with pd.ExcelWriter(output_excel_qa, engine='openpyxl') as writer:
-                # TF-IDF: Save each PDF's TF-IDF to a separate sheet in the QA's Excel file
-                for i, df_doc_tfidf in enumerate(qa_tfidf_dfs):
+            with pd.ExcelWriter(output_excel_qa_path, engine='openpyxl') as writer:
+                for i, df_doc_tfidf in enumerate(qa_tfidf_dfs_list):
                     if not df_doc_tfidf.empty:
-                        # Get a short name for the sheet (e.g., PDF filename)
-                        pdf_original_path = all_docs_original_paths[qa_doc_indices_global[i]]
-                        sheet_name_pdf = os.path.basename(pdf_original_path)[:25]  # Max sheet name length ~31
-                        # Ensure sheet name is unique if multiple PDFs have same start
+                        original_pdf_path_for_sheet = all_docs_original_paths_list[qa_doc_global_indices[i]]
+                        sheet_name_pdf = Path(original_pdf_path_for_sheet).stem[:25]
                         unique_sheet_name_pdf = sheet_name_pdf
-                        count = 1
-                        while unique_sheet_name_pdf in writer.sheets:
-                            unique_sheet_name_pdf = f"{sheet_name_pdf}_{count}"
-                            count += 1
-                            if len(unique_sheet_name_pdf) > 30:  # too long
-                                unique_sheet_name_pdf = f"Doc{qa_doc_indices_global[i]}"  # fallback
+                        _count = 1
+                        while f"TFIDF_{unique_sheet_name_pdf}" in writer.sheets:
+                            unique_sheet_name_pdf = f"{sheet_name_pdf}_{_count}"
+                            _count += 1
+                            if len(unique_sheet_name_pdf) > 25:  # keep it short
+                                unique_sheet_name_pdf = f"Doc{qa_doc_global_indices[i]}"
                                 break
-
                         df_doc_tfidf.to_excel(writer, sheet_name=f"TFIDF_{unique_sheet_name_pdf}", index=False)
 
-                if not df_bigrams_qa.empty: df_bigrams_qa.to_excel(writer, sheet_name='QA Top Bigrams', index=False)
-                if not df_trigrams_qa.empty: df_trigrams_qa.to_excel(writer, sheet_name='QA Top Trigrams', index=False)
-                if not df_colloc_general_qa.empty: df_colloc_general_qa.to_excel(writer,
-                                                                                 sheet_name='QA Colloc (General)',
+                if not df_bigrams_qa.empty: df_bigrams_qa.to_excel(writer, sheet_name='QA_Top_Bigrams', index=False)
+                if not df_trigrams_qa.empty: df_trigrams_qa.to_excel(writer, sheet_name='QA_Top_Trigrams', index=False)
+                if not df_colloc_general_qa.empty: df_colloc_general_qa.to_excel(writer, sheet_name='QA_Colloc_General',
                                                                                  index=False)
-                if not df_colloc_seeds_qa.empty: df_colloc_seeds_qa.to_excel(writer, sheet_name='QA Colloc (Seeds)',
+                if not df_colloc_seeds_qa.empty: df_colloc_seeds_qa.to_excel(writer, sheet_name='QA_Colloc_Seeds',
                                                                              index=False)
-            print(f"Successfully saved results for {qa_name_from_dir} to Excel.")
-        except Exception as e:
-            print(f"Error saving results for {qa_name_from_dir} to Excel: {e}")
+            print(f"Successfully saved Excel for {qa_name_key}.")
+        except Exception as e:  # pylint: disable=broad-except
+            print(f"Error saving Excel for {qa_name_key}: {e}")
 
     print("\nCorpus analysis finished.")
 
 
 if __name__ == "__main__":
-    # Optional: Download NLTK resources if not present
-    # try: nltk.data.find('corpora/wordnet')
-    # except LookupError: nltk.download('wordnet')
-    # try: nltk.data.find('corpora/stopwords')
-    # except LookupError: nltk.download('stopwords')
-    # try: nltk.data.find('tokenizers/punkt')
-    # except LookupError: nltk.download('punkt')
     main()
