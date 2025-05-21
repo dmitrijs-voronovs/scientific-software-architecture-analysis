@@ -66,19 +66,6 @@ tactics:
           - name: Increase Competence Set
             description: Expanding the set of states in which a program is competent to operate to handle more cases as part of normal operation.
 
-  - quality_attribute: Interoperability
-    tactic_categories:
-      - category_name: Locate
-        tactics:
-          - name: Discover Service
-            description: Locates a service through searching a known directory service at runtime.
-      - category_name: Manage Interfaces
-        tactics:
-          - name: Orchestrate
-            description: Uses a control mechanism to coordinate, manage and sequence the invocation of particular services that could be ignorant of each other.
-          - name: Tailor Interface
-            description: Adds or removes capabilities to an interface, such as translation, buffering, or hiding particular functions from untrusted users.
-
   - quality_attribute: Modifiability
     tactic_categories:
       - category_name: Reduce Size of a Module
@@ -296,3 +283,15 @@ tactics:
           - name: Reduce Overhead
             description: Co-locating resources and removing intermediaries and abstractions to reduce computational overhead and energy demands.
 
+  - quality_attribute: Interoperability
+    tactic_categories:
+      - category_name: Locate
+        tactics:
+          - name: Discover Service
+            description: Locates a service through searching a known directory service at runtime.
+      - category_name: Manage Interfaces
+        tactics:
+          - name: Orchestrate
+            description: Uses a control mechanism to coordinate, manage and sequence the invocation of particular services that could be ignorant of each other.
+          - name: Tailor Interface
+            description: Adds or removes capabilities to an interface, such as translation, buffering, or hiding particular functions from untrusted users.
