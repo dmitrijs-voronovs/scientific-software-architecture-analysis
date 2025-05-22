@@ -5,7 +5,7 @@
 -.gitignore
 .idea/
 data/
-git-repo-analysis/
+.venv/
 .tmp/
 /.logs
 /metadata/results/format_validation_sample.csv
