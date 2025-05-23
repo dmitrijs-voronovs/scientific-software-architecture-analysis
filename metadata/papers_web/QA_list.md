@@ -1,0 +1,12 @@
+availability
+deployability
+energy%20efficiency
+integrability
+interoperability
+modifiability
+performance
+reliability
+safety
+security
+testability
+usability

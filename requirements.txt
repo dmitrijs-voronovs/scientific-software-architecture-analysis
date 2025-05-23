@@ -1,5 +1,6 @@
 annotated-types==0.7.0
 args==0.1.0
+beautifulsoup4==4.13.4
 blis==0.7.11
 catalogue==2.0.10
 certifi==2024.7.4
@@ -47,6 +48,7 @@ setuptools==70.2.0
 shellingham==1.5.4
 six==1.16.0
 smart-open==7.0.4
+soupsieve==2.7
 spacy==3.7.5
 spacy-legacy==3.0.12
 spacy-loggers==1.0.5
