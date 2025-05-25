@@ -1,0 +1,1750 @@
+Sustainability workload documentation - Microsoft Azure Well-Architected Framework | Microsoft Learn
+Skip to main content
+This browser is no longer supported.
+Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+Download Microsoft Edge
+More info about Internet Explorer and Microsoft Edge
+Table of contents
+Exit focus mode
+Read in English
+Table of contents
+Read in English
+Edit
+Share via
+Facebook
+x.com
+LinkedIn
+Email
+Table of contents
+Sustainability workload documentation
+In partnership with the Green Software Foundation, we've developed this set of recommendations for optimizing Azure workloads. This documentation helps you plan your path forward, improve your sustainability posture, and create new business value while reducing your operational footprint.
+Get started
+Overview
+What is sustainability?
+Design methodology
+Design principles
+Design areas
+Concept
+Application design
+Application platform
+Testing
+Operational procedures
+Networking and connectivity
+Storage
+Security
+Reference examples
+Architecture
+Example scenario - Measure Azure app sustainability by using the SCI score
+Learn
+Training
+The Principles of Sustainable Software Engineering
+Assessment
+How-To Guide
+Sustainability assessment tool
+Your Privacy Choices
+Theme
+Light
+Dark
+High contrast
+Previous Versions
+Blog
+Contribute
+Privacy
+Terms of Use
+Trademarks
+© Microsoft 2025
+Your Privacy Choices
+Theme
+Light
+Dark
+High contrast
+Previous Versions
+Blog
+Contribute
+Privacy
+Terms of Use
+Trademarks
+© Microsoft 2025
+Application design of sustainable workloads on Azure - Microsoft Azure Well-Architected Framework | Microsoft Learn
+Skip to main content
+Skip to Ask Learn chat experience
+This browser is no longer supported.
+Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+Download Microsoft Edge
+More info about Internet Explorer and Microsoft Edge
+Table of contents
+Exit focus mode
+Ask Learn
+Ask Learn
+Read in English
+Save
+Table of contents
+Read in English
+Add
+Add to plan
+Edit
+Share via
+Facebook
+x.com
+LinkedIn
+Email
+Print
+Note
+Access to this page requires authorization. You can try
+signing in
+or
+changing directories
+.
+Access to this page requires authorization. You can try
+changing directories
+.
+Application design of sustainable workloads on Azure
+Article
+2022-10-12
+7 contributors
+Feedback
+In this article
+When building new or updating existing applications, it's crucial to consider how the solution will impact the climate and if there are ways to improve and optimize. Learn about considerations and recommendations to optimize your code and applications for a more sustainable application design.
+Important
+This article is part of the
+Azure Well-Architected sustainable workload
+series. If you aren't familiar with this series, we recommend you start with
+what is a sustainable workload?
+Code efficiency
+Demands on applications can vary, and it's essential to consider ways to stabilize the utilization to prevent over- or underutilization of resources, which can lead to unnecessary energy spills.
+Evaluate moving monoliths to a microservice architecture
+Monolithic applications usually scale as a unit, leaving little room to scale only the individual components that may need it.
+Green Software Foundation alignment:
+Energy efficiency
+,
+Hardware efficiency
+Recommendation:
+Evaluate the
+microservice architecture
+guidance.
+A microservice architecture allows for scaling of only the necessary components during peak load; ensuring idle components are scaled down or in. Additionally, it may reduce the overhead and resources required for deploying monolithic applications.
+Consider this tradeoff: While reducing the compute resources required, you may increase the amount of traffic on the network, and the complexity of the application may increase significantly.
+Consider this other tradeoff: Moving to microservices can result in extra deployment overhead with numerous similarities in deployment pipelines. Carefully consider the required deployment resources for monolithic versus microservice architectures.
+Additionally, read about
+containerizing monolithic applications
+.
+Improve API efficiency
+Many modern cloud applications are designed to transact many messages between services and components asynchronously. Consider the format used to encode the payload data. How much information does your application need to communicate, and is there room to reduce the chattiness?
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+Learn about the
+chatty I/O antipattern
+to better understand how a large number of requests can impact performance and responsiveness.
+Improve the reliability and reduce unnecessary load to your systems. Implement
+advanced request throttling with API Management
+.
+Minimize the amount of data the application returns from requests by being selective and encoding the messages. See
+message encoding considerations
+.
+Cache responses to avoid reprocessing the same type of information from the backend system unless necessary. See
+caching in Azure API Management
+.
+Ensure backward software compatibility to ensure it works on legacy hardware
+Consider how applications render information. Does the application need to critically serve everything in the highest quality, resulting in higher bandwidth and processing? Is there room for reducing the quality of components in the UI to serve sustainability goals better?
+Green Software Foundation alignment:
+Hardware efficiency
+Recommendation:
+Support more end-user consumer devices, like older browsers and operating systems. This backward compatibility improves hardware efficiency by reusing existing hardware instead of requiring a hardware upgrade for the solution to work.
+Consider this tradeoff: If the most recent software updates have significant performance improvements, using older software versions may not be more efficient.
+Leverage cloud native design patterns
+Learning about cloud-native design patterns is helpful for building applications, whether they're hosted on Azure or running elsewhere. Optimizing the performance and cost of your cloud application will also reduce its resource utilization, hence its carbon emissions.
+Green Software Foundation alignment:
+Energy efficiency
+,
+Hardware efficiency
+Recommendation:
+Leverage
+cloud-native design patterns
+when writing or updating applications.
+Consider using circuit breaker patterns
+Consider evaluating and preventing applications from performing operations that are likely to fail. Repeated failures can lead to overhead and unnecessary processing that you can avoid with proper design patterns.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+A circuit breaker can act as a proxy for operations that might fail and should monitor the number of recent failures that have occurred and use that information to decide whether to proceed.
+Study the
+Circuit Breaker pattern
+, and then consider how you can
+implement the Circuit Breaker patterns
+to your applications.
+Consider using
+Azure Monitor
+to monitor failures and set up alerts.
+Optimize code for efficient resource usage
+Applications deployed using inefficient code may result in an inherent impact on sustainability.
+Green Software Foundation alignment:
+Energy efficiency
+,
+Hardware efficiency
+Recommendation:
+Reduce CPU cycles and the number of resources you need for your application.
+Use optimized and efficient algorithms and design patterns.
+Consider the
+Don't repeat yourself (DRY)
+principle.
+Optimize for async access patterns
+Demands on applications can vary, and it's essential to consider ways to stabilize the utilization to prevent over- or underutilization of resources, which can lead to unnecessary energy spills.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+Queue and buffer requests that don't require immediate processing, then process in batch. Designing your applications in this way helps achieve a stable utilization and helps flatten consumption to avoid spiky requests.
+Read about optimizing for
+async access patterns
+.
+Evaluate server-side vs. client-side rendering
+Determine whether to render on the server-side or client-side when building applications with a UI.
+Green Software Foundation alignment:
+Energy efficiency
+,
+Hardware efficiency
+Recommendation:
+Consider these benefits of server-side rendering:
+When the server's power comes from less-polluting alternatives than the client's locale.
+When the hardware on the server has better processing-energy ratios.
+Can use centralized caching to reduce multiple unnecessary renders.
+Reducing the number of browser-to-server round-trips can be particularly important when the client's device has a lossy link.
+When the client devices are older and have slower CPUs. Users don't need to upgrade their devices to support a modern browser.
+Consider these benefits of client-side rendering:
+When the end-user devices are more suitable, pushing the responsibility of rendering to the clients.
+It's more efficient only to render what's needed and as requested, as opposed to rendering everything at least once.
+There's no need for a server, as you can rely on static storage.
+Browser caching is used on the clients.
+Be aware of UX design for sustainability
+Consider how the UX design of a workload impacts sustainability and determine what options exist for improving energy efficiency and reducing unnecessary network load, data processing, and compute resources.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+Consider reducing the number of components to load and render on pages.
+Determine whether the application can render lower-resolution images and videos.
+Don't render full-size images as thumbnails where the browser is doing the resizing.
+Using full-size images as thumbnails or resized images will transfer more data, unnecessary network traffic, and additional client-side CPU usage due to image resizing and pre-rendering.
+Ensuring there are no unused pages will help minimize the UX design.
+Consider search and findability. Making it easier for users to find what they're looking for helps lower the amount of data stored and retrieved.
+Consider providing a lighter UI, using fewer resources and with a lower impact on sustainability, and provide users with an informed choice.
+Save energy by offering your apps and websites in dark mode, with dark backgrounds.
+Opt for using system fonts when possible to avoid forcing clients to download additional fonts, which causes more network load.
+Update legacy code
+Consider upgrading or deprecating legacy code if it's not running on modern cloud infrastructure or with the latest updates.
+Green Software Foundation alignment:
+Hardware efficiency
+Recommendation:
+Identify inefficient legacy code suited for modernization.
+Review if there are options to move to serverless or any of the optimized PaaS options.
+Consider this tradeoff: Updating old code that might end up being deprecated can consume valuable time.
+Next step
+Review the design considerations for the application platform.
+Application platform
+Feedback
+Was this page helpful?
+Yes
+No
+Additional resources
+Additional resources
+In this article
+en-us
+Your Privacy Choices
+Theme
+Light
+Dark
+High contrast
+Previous Versions
+Blog
+Contribute
+Privacy
+Terms of Use
+Trademarks
+© Microsoft 2025
+Application platform considerations for sustainable workloads on Azure - Microsoft Azure Well-Architected Framework | Microsoft Learn
+Skip to main content
+Skip to Ask Learn chat experience
+This browser is no longer supported.
+Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+Download Microsoft Edge
+More info about Internet Explorer and Microsoft Edge
+Table of contents
+Exit focus mode
+Ask Learn
+Ask Learn
+Read in English
+Save
+Table of contents
+Read in English
+Add
+Add to plan
+Edit
+Share via
+Facebook
+x.com
+LinkedIn
+Email
+Print
+Note
+Access to this page requires authorization. You can try
+signing in
+or
+changing directories
+.
+Access to this page requires authorization. You can try
+changing directories
+.
+Application platform considerations for sustainable workloads on Azure
+Article
+2023-02-21
+7 contributors
+Feedback
+In this article
+Designing and building sustainable workloads requires understanding the platform where you're deploying the applications. Review the considerations and recommendations in this section to know how to make better informed platform-related decisions around sustainability.
+Important
+This article is part of the
+Azure Well-Architected sustainable workload
+series. If you aren't familiar with this series, we recommend you start with
+what is a sustainable workload?
+Platform and service updates
+Keep platform and services up to date to leverage the latest performance improvements and energy optimizations.
+Review platform and service updates regularly
+Platform updates enable you to use the latest functionality and features to help increase efficiency. Running on outdated software can result in running a suboptimal workload with unnecessary performance issues. New software tends to be more efficient in general.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+Upgrade to newer and more efficient services as they become available.
+Consider backward compatibility and hardware reusability. An upgrade may not be the most efficient solution if the hardware or the OS isn't supported.
+Make use of
+Azure Automation Update Management
+to ensure software updates are deployed to Azure VMs.
+Regional differences
+The Microsoft Azure data centers are geographically spread across the planet and powered using different energy sources. Making decisions around where to deploy your workloads can significantly impact the emissions your solutions produce.
+Learn more about
+sustainability from the data center to the cloud with Azure
+. See region-specific sustainability information in the
+Microsoft data center sustainability fact sheets
+.
+Deploy to low-carbon regions
+Learn about what Azure regions have a lower carbon footprint than others to make better-informed decisions about where and how our workloads process data.
+Green Software Foundation alignment:
+Carbon efficiency
+Recommendation:
+Use less carbon because the data centers where you deploy the workload are more likely to be powered by renewable and low-carbon energy sources.
+Consider these potential tradeoffs:
+The effort and time it takes to move to a low-carbon region.
+Migrating data between data centers may not be carbon efficient.
+Consider the cost for new regions, including low-carbon regions, which may be more expensive.
+If the workloads are latency sensitive, moving to a lower carbon region may not be an option.
+Process when the carbon intensity is low
+Some regions on the planet are more carbon intense than others. Therefore it's essential to consider where we deploy our workloads and combine this with other business requirements.
+Green Software Foundation alignment:
+Carbon efficiency
+,
+Carbon awareness
+Recommendation:
+Where you have the data available, consider optimizing workloads when knowing that the energy mix comes mostly from renewable energy sources.
+If your application(s) allow it, consider moving workloads dynamically when the energy conditions change.
+For example, running specific workloads at night may be more beneficial when renewable sources are at their peak.
+Choose data centers close to the customer
+Deploying cloud workloads to data centers is easy. However, consider the distance from a data center to the customer. Network traversal increases if the data center is a greater distance from the consumer.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+Consider deploying to data centers close to the consumer.
+Run batch workloads during low-carbon intensity periods
+Proactively designing batch processing of workloads can help with scheduling intensive work during low-carbon periods.
+Green Software Foundation alignment:
+Carbon awareness
+Recommendation:
+Where you have the data available to you, plan your deployments to maximize compute utilization for running
+batch workloads
+during low-carbon intensity periods.
+Potential tradeoffs may include the effort and time it takes to move to a low-carbon region. Additionally, migrating data between data centers may not be carbon efficient, and the cost for new regions-including low—carbon regions—may be more expensive.
+Modernization
+Consider these platform design decisions when choosing how to operate workloads. Leveraging managed services and highly optimized platforms in Azure helps build cloud-native applications that inherently contribute to a better sustainability posture.
+Containerize workloads where applicable
+Consider options for containerizing workloads to reduce unnecessary resource allocation and to utilize the deployed resources better.
+Green Software Foundation alignment:
+Hardware efficiency
+Recommendation:
+Deploying apps as containers allows for bin packing and getting more out of a VM, ultimately reducing the need for duplication of libraries on the host OS.
+Removes the overhead of managing an entire VM, and allows deploying more apps per physical machine. Containerization also optimizes server utilization rates and improves service reliability, lowering operational costs. Fewer servers are needed, and the existing servers can be better utilized.
+Consider these tradeoffs: The benefit of containerization will only realize if the utilization is high. Additionally, provisioning an orchestrator such as
+Azure Kubernetes Services
+(AKS) or
+Azure Red Had OpenShift
+(ARO) for only a few containers would likely lead to higher emissions overall.
+Evaluate moving to PaaS and serverless workloads
+Managed services are highly optimized and operate on more efficient hardware than other options, contributing to a lower carbon impact.
+Green Software Foundation alignment:
+Hardware efficiency
+,
+Energy efficiency
+Recommendation:
+Build a cloud-native app without managing the infrastructure, using a fully managed and inherently optimized platform. The platform handles scaling, availability, and performance, ultimately optimizing the hardware efficiency.
+Review design principles for
+Platform as a Service (PaaS)
+workloads.
+Use Spot VMs where possible
+Think about the unused capacity in Azure data centers. Utilizing the otherwise wasted capacity—at significantly reduced prices—the workload contributes to a more sustainable platform design.
+Green Software Foundation alignment:
+Hardware efficiency
+Recommendation:
+By utilizing
+Spot VMs
+, you take advantage of unused capacity in Azure data centers while getting a significant discount on the VM.
+Consider the tradeoff: When Azure needs the capacity back, the VMs get evicted. Learn more about the Spot VM
+eviction policy
+.
+Right sizing
+Ensuring workloads use all the allocated resources helps deliver a more sustainable workload. Oversized services are a common cause of more carbon emissions.
+Turn off workloads outside of business hours
+Operating idle workloads wastes energy and contributes to added carbon emissions.
+Green Software Foundation alignment:
+Energy efficiency
+,
+Hardware efficiency
+Recommendation:
+Dev and testing workloads should be turned off or downsized when not used. Instead of leaving them running, consider shutting them off outside regular business hours.
+Learn more about
+starting/stopping VMs during off-hours
+.
+Utilize auto-scaling and bursting capabilities
+It's not uncommon with oversized compute workloads where much of the capacity is never utilized, ultimately leading to a waste of energy.
+Green Software Foundation alignment:
+Hardware efficiency
+Recommendation:
+Review
+auto-scaling
+guidance for Azure workloads.
+Review the
+B-series burstable virtual machine sizes
+.
+Consider that it may require tuning to prevent unnecessary scaling during short bursts of high demand, as opposed to a static increase in demand.
+Consider the application architecture as part of scaling considerations. For example,
+logical components should scale independently
+to match the demand of that component, as opposed to scaling the entire application if only a portion of the components needs scaling.
+Match the scalability needs
+Consider the platform and whether it meets the scalability needs of the solution. For example, having provisioned resources with a dedicated allocation may lead to unused or underutilized compute resources.
+Examples:
+Provisioning an Azure App Service Environment (ASE) over an App Service plan may lead to having provisioned compute, whether utilized or not.
+Choosing the Azure API Management Premium tier instead of the consumption tier leads to unused resources if you aren't utilizing it fully.
+Green Software Foundation alignment:
+Hardware efficiency
+Recommendation:
+Review the platform design decisions regarding scalability, and ensure the workload utilizes as much of the provisioned resources as possible.
+Consider this tradeoff: Some services require a higher tier to access certain features and capabilities regardless of resource utilization.
+Consider and prefer services that allow dynamic tier scaling where possible.
+Evaluate Ampere Altra Arm-based processors for Virtual Machines
+The Arm-based VMs represent a cost-effective and power-efficient option that doesn't compromise on the required performance.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+Evaluate if the Ampere Altra Arm-based VMs is a good option for your workloads.
+Read more about
+Azure Virtual Machines with Ampere Altra Arm–based processors
+on Azure.
+Delete zombie workloads
+Consider discovering unutilized workloads and resources and if there are any orphaned resources in your subscriptions.
+Green Software Foundation alignment:
+Hardware efficiency
+,
+Energy efficiency
+Recommendation:
+Delete any orphaned workloads or resources if they're no longer necessary.
+Next step
+Review the design considerations for deployment and testing.
+Deployment and testing
+Feedback
+Was this page helpful?
+Yes
+No
+Additional resources
+Additional resources
+In this article
+en-us
+Your Privacy Choices
+Theme
+Light
+Dark
+High contrast
+Previous Versions
+Blog
+Contribute
+Privacy
+Terms of Use
+Trademarks
+© Microsoft 2025
+Design methodology for sustainability workloads on Azure - Microsoft Azure Well-Architected Framework | Microsoft Learn
+Skip to main content
+Skip to Ask Learn chat experience
+This browser is no longer supported.
+Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+Download Microsoft Edge
+More info about Internet Explorer and Microsoft Edge
+Table of contents
+Exit focus mode
+Ask Learn
+Ask Learn
+Read in English
+Save
+Table of contents
+Read in English
+Add
+Add to plan
+Edit
+Share via
+Facebook
+x.com
+LinkedIn
+Email
+Print
+Note
+Access to this page requires authorization. You can try
+signing in
+or
+changing directories
+.
+Access to this page requires authorization. You can try
+changing directories
+.
+Design methodology for sustainable workloads on Azure
+Article
+2024-06-18
+10 contributors
+Feedback
+In this article
+Building a sustainable application on any cloud platform requires technical expertise and an understanding of sustainability guidelines in general and for your specific cloud platform.
+This design methodology aims to help establish an understanding about producing more carbon efficient solutions, measuring your carbon impact, and ultimately reducing unnecessary energy usage and emissions.
+1—Design for business requirements
+Businesses globally have different requirements. Expect that the review considerations and design recommendations provided by this design methodology will yield different design decisions and trade-offs for different scenarios and organizations.
+Establish your business requirements and priorities, then review the design methodologies in alignment with those requirements.
+2—Evaluate the design areas using the design principles
+Refer to the sustainability
+design principles
+and the design areas below for your sustainability workloads.
+Decisions made within each design area will echo across other design areas. Review the considerations and recommendations in each design area to understand the consequences and impact and any known trade-offs.
+Design areas:
+Application design
+Application platform
+Deployment and testing
+Operational procedures
+Storage
+Network and connectivity
+Security
+3—Understanding your emissions
+To lower your emissions, you need to understand how to measure your sustainability efforts.
+Briefly about emission scopes
+At Microsoft, we segment our greenhouse gas (GHG) emissions into three categories, consistent with the
+Greenhouse Gas Protocol
+.
+Scope 1 emissions
+: direct emissions that your activities create.
+Scope 2 emissions
+: indirect emissions that result from the production of the electricity or heat you use.
+Scope 3 emissions
+: indirect emissions from all other activities you're engaged in. For a business, these Scope 3 emissions can be extensive. They must be accounted for across its supply chain, materials in its buildings, employee business travel, and the life cycle of its products (including the electricity customers consume when using the products). A company's Scope 3 emissions are often far more significant than its Scope 1 and 2 emissions combined.
+As a customer, the context of Scope 3 emissions can be network configuration and delivery, power consumption, and devices outside the data center. If an application uses excess bandwidth or packet size, it will impact from when the traffic leaves the data center, through the various hops on the internet, down to the end-user device. Reducing network bandwidth, therefore, can have a significant impact throughout the delivery chain. The same considerations apply to compute resources, data storage, application platform decisions, application design, and more.
+Find more in-depth details and definitions in
+Azure's Scope 3 Methodology White Paper
+, published in 2021.
+Measure and track carbon impact
+Microsoft aligns with the
+Green Software Foundation
+, responsible for creating the
+Software Carbon Intensity
+(SCI) specification.
+To measure the carbon impact of an application, the GSF provided a scoring methodology called SCI, calculated as follows:
+SCI = ((E*I)+M) per R
+Where:
+E
+= Energy consumed by a software system. Measured in kWh.
+I
+= Location-based marginal carbon emissions. Carbon emitted per kWh of energy, gCO2/kWh.
+M
+= Embodied emissions of a software system. Carbon that is emitted through the hardware on which the software is running.
+R
+= Functional unit, which is how the application scales; per extra user, per API call, per service, etc.
+With this knowledge, it's essential to consider not only the application infrastructure and hardware but also the user devices and application scalability, as it can alter the environmental footprint considerably.
+Read the full
+SCI specification on GitHub
+.
+Azure carbon optimization
+Azure carbon optimization
+is an Azure service that helps you understand the carbon emissions of your cloud workloads. Carbon optimization provides insights into the carbon emissions of your Azure resources and helps you optimize your cloud workloads for sustainability.
+You get granular emissions data within Azure Portal for the last 12 months' usage of all your Azure products and services. You can also view the carbon emissions of your resources by region, subscription, and resource group.
+Carbon tracking and reporting with the Emissions Impact Dashboard
+Microsoft offers the
+Emissions Impact Dashboard
+for Azure and Microsoft 365, which helps you measure your cloud-based emissions and carbon savings potential.
+We recommend you use this tool to get the insights and transparency you need to understand your carbon footprint and to measure and track emissions over time.
+Download the
+Emissions Impact Dashboard Power BI app for Azure
+to get started.
+Leverage the Microsoft Sustainability Manager
+Customers using
+Microsoft Cloud for Sustainability
+can leverage
+Microsoft Sustainability Manager
+. This extensible solution unifies data intelligence and provides comprehensive, integrated, and automated sustainability management for organizations at any stage of their sustainability journey. It automates manual processes, enabling organizations to record, report, and reduce their emissions more efficiently.
+Use a proxy solution to measure emissions
+One way of estimating the carbon emissions from workloads is to design a proxy solution architecture based on the SCI model
+as described above
+.
+Defining the proxies for applications can be done in different ways. For example, using these variables:
+Any known carbon emission of the infrastructure
+The cost of the infrastructure
+Edge services and infrastructure carbon emissions
+The number of users that are concurrently using the application
+Metrics of the application to inform us about the performance over time
+By designing an equation using the above variables, you can estimate the carbon score (an approximation), helping you understand if you're building sustainable solutions.
+There's also the aspect of application performance. You can link performance to cost and carbon and assume this relationship yields a value. With this relation, you can simplify the view like this:
+Application performance
+Application cost
+Likely outcome
+High
+Unchanged
+Optimized app
+High
+Lower
+Optimized app
+Unchanged/Lower
+Higher
+According to the green principles, a higher energy cost can cause higher carbon emissions. Therefore, you can assume that the app produces unnecessary carbon emissions.
+High
+High
+The app may be producing unnecessary carbon
+Therefore, building a carbon score dashboard can make use of the following proxies:
+Cost
+Performance
+Carbon emissions of the infrastructure (if known/available)
+Usage over time (requests, users, API calls, etc.)
+Any extra measurement that is relevant to the application
+To learn more, see
+Measure Azure app sustainability by using the SCI score
+in the Azure Architecture Center.
+4—The shared responsibility model for sustainability
+Reducing emissions is a shared responsibility between the cloud provider and the customer designing and deploying applications on the platform.
+Ways to reduce emissions
+Reducing carbon emissions can happen with three possible solutions:
+Carbon neutralization; compensating carbon emissions
+Carbon avoidance; not emitting carbon in the first place
+Carbon removal; subtract carbon from the atmosphere
+The goal of green software is to avoid unnecessary emissions in the first place, hence actively working toward a more sustainable future. Further,
+carbon removal
+is the preferred goal for removing emissions from our atmosphere.
+Microsoft is committed to being
+carbon negative by 2030
+, and
+by 2050 to have removed all the carbon
+the company has emitted since it was founded in 1975.
+A shared responsibility
+As a cloud provider, Microsoft is responsible for the data centers hosting your applications.
+However, deploying an application in the Microsoft cloud doesn't automatically make it sustainable, even if the data centers are optimized for sustainability. Applications that aren't optimized may still emit more carbon than necessary.
+Let's take an example.
+You deploy an app to an Azure service, but you only utilize 10% of the allocated resources. The provisioned resources are underutilized, ultimately leading to unnecessary emissions.
+It would help if you considered scaling to an appropriate tier of the resource (rightsizing) or deploying more apps to the same provisioned resources.
+We recommend making applications more efficient to utilize the data center capacity in the best way possible. Sustainability is a shared responsibility goal that must combine the efforts of the cloud provider and the customers in designing and implementing applications.
+Next steps
+Review the design principles for sustainability.
+Design principles
+Feedback
+Was this page helpful?
+Yes
+No
+Additional resources
+Additional resources
+In this article
+en-us
+Your Privacy Choices
+Theme
+Light
+Dark
+High contrast
+Previous Versions
+Blog
+Contribute
+Privacy
+Terms of Use
+Trademarks
+© Microsoft 2025
+Design principles for sustainability workloads on Azure - Microsoft Azure Well-Architected Framework | Microsoft Learn
+Skip to main content
+Skip to Ask Learn chat experience
+This browser is no longer supported.
+Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+Download Microsoft Edge
+More info about Internet Explorer and Microsoft Edge
+Table of contents
+Exit focus mode
+Ask Learn
+Ask Learn
+Read in English
+Save
+Table of contents
+Read in English
+Add
+Add to plan
+Edit
+Share via
+Facebook
+x.com
+LinkedIn
+Email
+Print
+Note
+Access to this page requires authorization. You can try
+signing in
+or
+changing directories
+.
+Access to this page requires authorization. You can try
+changing directories
+.
+Design principles of a sustainable workload
+Article
+2022-10-12
+7 contributors
+Feedback
+In this article
+The sustainability design methodology provides a framework to record, report, and reduce or optimize the environmental impact of your workloads.
+To achieve an increase in carbon efficiency, consider how your workload, directly and indirectly, can reduce carbon emissions through:
+Using less physical and virtual resources
+Using less energy
+Using energy and resources more intelligently
+Supporting older devices
+It's important to effectively record, report, and reduce carbon emissions through actionable insights.
+Gain transparency into your current carbon impact
+Estimate savings
+Take action to accelerate progress
+These critical design principles for sustainability resonate and extend the quality pillars of the Azure Well-Architected Framework—
+Reliability
+,
+Security
+,
+Cost Optimization
+,
+Operational Excellence
+, and
+Performance Efficiency
+.
+Principles of green software
+Microsoft is actively working toward sustainability targets, and empowers every organization to help reduce emissions and improve our environmental health. The Azure Well-Architected Framework workload for sustainability aligns with the
+Green Software Principles
+from the
+Green Software Foundation
+.
+The principles of green software are the starting point to understand the
+SCI model
+and how this will be included in our framework.
+Carbon efficiency
+Principle:
+Emit the least amount of carbon possible.
+The application or software must emit the least amount of carbon possible. A carbon efficient cloud application is one that is optimized, and the starting point is the cost – streamlining the application infrastructure and cost will ensure that no unnecessary resources are wasted in the cloud to run the software. But this isn't enough, as you might have cost-optimized your application but still waste tons of resources that emit carbon for no reason.
+Read more about the
+Carbon Efficiency principle
+from the Green Software Foundation.
+Energy efficiency
+Principle:
+Use the least amount of energy possible.
+The goal of this principle is that you build applications that are energy-efficient. This is a common pattern for mobile applications, since they must rely on a battery powered device and are optimizing its consumption. It's less common, however, for desktop or web applications, since until now, developers have never been asked to optimize the electricity consumption of their software.
+Read more about the
+Energy Efficiency principle
+from the Green Software Foundation
+Carbon awareness
+Principle:
+Do more when the electricity is cleaner and do less when the electricity is dirtier.
+We need to make the application aware of how much carbon it's emitting. This way, we can react to specific conditions of energy supply using demand shifting and demand shaping techniques:
+Technique
+Description
+Demand shifting
+Demand shifting means moving the workloads and resources to regions or data centers, or a time in the data center where the energy supply is high and the demand is lower and can be met by renewable energy. Delaying running apps to a time when there's less demand should result in lower carbon intensity.
+Demand shaping
+Demand shaping means changing the application's behavior and appearance to match the energy supply in real-time. A good practice is to build an eco-version of the app and keep it as a benchmark for demand shaping and carbon optimization.
+Read more about the
+Carbon Awareness principle
+from the Green Software Foundation.
+Hardware efficiency
+Principle:
+Use the least amount of embodied carbon possible.
+Embodied carbon is the carbon that was emitted to build a device. Therefore, a sustainable application will make sure older devices are supported and will maximize the efficiency of each device.  The goal is to build hardware-efficient applications.
+Consider the tradeoff that older devices can have power inefficiencies, and may not always be suitable.
+Read more about the
+Hardware Efficiency principle
+from the Green Software Foundation.
+Measuring sustainability
+Principle:
+What you can't measure, you can't improve.
+Measuring carbon emissions of a cloud application is a complex task, as it involves the whole ecosystem of the software: from the cloud infrastructure (where we have the emissions dashboards to help us out), to the network path that is crossed, to the edge technology and user devices. With the SCI, we aren't targeting a discrete measurement of carbon emissions, but a score that will change over time and with our optimization techniques.
+Read more about the
+Measurement
+from the Green Software Foundation.
+Climate commitments
+Principle:
+Understand the exact mechanism of reduction.
+Many corporations and groups have made commitments to the climate. They actively work toward new sustainability goals with a primary objective to remove, reduce and prevent carbon emissions.
+There are several options for reducing the carbon footprint of any organization or entity. However, and aligned with the goal of the Green Software Foundation, our main direction should always be to avoid emitting carbon in the first place. This is what we call Abatement, or Carbon Elimination.
+Once we've pursued this goal, there will still be emissions that can't be avoided. All the remaining carbon reduction methodologies will help us do so, offsetting (either compensating or neutralizing carbon).
+Your company's strategy can be a mix of all the possible methodologies and, depending on the final result, can reach a Net Zero target when carbon emissions are eliminated where possible and the residual emissions compensated.
+The
+SCI equation
+aims to eliminate emissions, which should always be the primary goal of a sustainable workload, and the score can only be reduced with abatement.
+Read more about the
+Climate Commitments
+from the Green Software Foundation.
+Next steps
+Review the considerations for application design.
+Application design
+Feedback
+Was this page helpful?
+Yes
+No
+Additional resources
+Additional resources
+In this article
+en-us
+Your Privacy Choices
+Theme
+Light
+Dark
+High contrast
+Previous Versions
+Blog
+Contribute
+Privacy
+Terms of Use
+Trademarks
+© Microsoft 2025
+Sustainability workloads - Microsoft Azure Well-Architected Framework | Microsoft Learn
+Skip to main content
+Skip to Ask Learn chat experience
+This browser is no longer supported.
+Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+Download Microsoft Edge
+More info about Internet Explorer and Microsoft Edge
+Table of contents
+Exit focus mode
+Ask Learn
+Ask Learn
+Read in English
+Save
+Table of contents
+Read in English
+Add
+Add to plan
+Edit
+Share via
+Facebook
+x.com
+LinkedIn
+Email
+Print
+Note
+Access to this page requires authorization. You can try
+signing in
+or
+changing directories
+.
+Access to this page requires authorization. You can try
+changing directories
+.
+Sustainable workloads
+Article
+2022-10-12
+5 contributors
+Feedback
+In this article
+This section of the Microsoft Azure Well-Architected Framework aims to address the challenges of building sustainable workloads on Azure. Review the provided guidance that applies Well-Architected best practices as a technical foundation for building and operating sustainable solutions on Azure.
+We encourage you to also read more about the
+Microsoft Cloud for Sustainability
+for opportunities to leverage the capabilities of that platform as part of your solution architecture. However, guidance found in this article series is focused on
+any
+solutions you're building or operating on Azure.
+Additionally, read about
+The Carbon Benefits of Cloud Computing: a Study of the Microsoft Cloud
+to learn more about how Azure is more energy efficient and carbon efficient than on-premises solutions.
+What is a sustainable workload?
+The term
+workload
+refers to a collection of application resources that support a common business goal or the execution of a common business process, with multiple services, such as APIs and data stores, working together to deliver specific end-to-end functionality.
+With
+sustainability
+, we refer to the environmental impact of our workloads.
+A
+sustainable workload
+therefore describes the practice of designing solutions that maximize utilization while minimizing waste, ultimately reducing the footprint on the environment.
+Cloud efficiency overview
+Making workloads more cloud efficient requires combining efforts around cost optimization, reducing carbon emissions, and optimizing energy consumption. Optimizing the application's cost is the initial step in making workloads more sustainable.
+Here's a conceptual overview of cloud efficiency in this context:
+Scoring and
+measuring the cloud efficiency
+is essential to understand whether changes tracked over time have any impact.
+Learn about building more sustainable and efficient workloads by starting with the design area for sustainable
+Application Design
+.
+What are the common challenges?
+Building and designing sustainable workloads on Microsoft Azure can be challenging for these main reasons:
+Understanding if your workloads are in alignment with sustainability targets. It requires assessments of current workloads to determine if they're designed in a sustainable way.
+Designing workloads that are natively environmentally friendly and optimized.
+Measuring and tracking the emissions of your workloads.
+Is sustainability only about performance and cost?
+While
+performance efficiency
+and
+cost optimization
+are areas of strong focus for designing sustainable workloads, the other pillars of the Well-Architected Framework are equally important when building long-term sustainable workloads on Azure.
+Security
+: how the security appliances in a workload are optimized and designed to auto-scale will have an impact on the environment.
+Reliability
+: designing reliable workloads that meet sustainability guidelines from the Green Software Foundation can greatly reduce the workloads' carbon and electricity footprint.
+Operational Excellence
+: how a workload is able to effectively respond to operational issues can ultimately reduce carbon emissions.
+What are the key design areas?
+Sustainable guidance within this series is composed of architectural considerations and recommendations oriented around these key design areas.
+Decisions made in one design area can impact or influence decisions across the entire design. The focus is ultimately on building a sustainable solution to minimize the footprint and impact on the environment.
+Design area
+Description
+Application design
+Cloud application patterns that allow for designing sustainable workloads.
+Application platform
+Choices around hosting environment, dependencies, frameworks, and libraries.
+Testing
+Strategies for CI/CD pipelines and automation, and how to deliver more sustainable software testing.
+Operational procedures
+Processes related to sustainable operations.
+Storage
+Design choices for making the data storage options more sustainable.
+Network and connectivity
+Networking considerations that can help reduce traffic and amount of data transmitted to and from the application.
+Security
+Relevant recommendations to design more efficient security solutions on Azure.
+We recommend that readers familiarize themselves with these design areas, reviewing provided considerations and recommendations to better understand the consequences of encompassed decisions.
+Next step
+Review the sustainability design methodology.
+Design methodology
+Feedback
+Was this page helpful?
+Yes
+No
+Additional resources
+Additional resources
+In this article
+en-us
+Your Privacy Choices
+Theme
+Light
+Dark
+High contrast
+Previous Versions
+Blog
+Contribute
+Privacy
+Terms of Use
+Trademarks
+© Microsoft 2025
+Networking considerations for sustainable workloads on Azure - Microsoft Azure Well-Architected Framework | Microsoft Learn
+Skip to main content
+Skip to Ask Learn chat experience
+This browser is no longer supported.
+Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+Download Microsoft Edge
+More info about Internet Explorer and Microsoft Edge
+Table of contents
+Exit focus mode
+Ask Learn
+Ask Learn
+Read in English
+Save
+Table of contents
+Read in English
+Add
+Add to plan
+Edit
+Share via
+Facebook
+x.com
+LinkedIn
+Email
+Print
+Note
+Access to this page requires authorization. You can try
+signing in
+or
+changing directories
+.
+Access to this page requires authorization. You can try
+changing directories
+.
+Networking considerations for sustainable workloads on Azure
+Article
+2022-10-12
+7 contributors
+Feedback
+In this article
+Most workloads in the cloud rely heavily on networking to operate. Whether internal networking or public-facing workloads, the components and services used in provisioned solutions must consider the impact of carbon emissions. Consider that network equipment consumes electricity, including traffic between the data centers and end consumers. Learn about considerations and recommendations to enhance and optimize network efficiency to reduce unnecessary carbon emissions.
+Internet traversal between data centers and end consumers is a significant
+Scope 3 emission
+. Therefore, recommendations in this section are aligned with the Principles of Green Software
+Networking
+area to improve networking efficiency.
+Important
+This article is part of the
+Azure Well-Architected sustainable workload
+series. If you aren't familiar with this series, we recommend you start with
+what is a sustainable workload?
+Network efficiency
+Reduce unnecessary network traffic and lower bandwidth requirements where possible, allowing for a more optimized network efficiency with less carbon emission.
+Make use of a CDN
+Unnecessary traffic on the network should be avoided, as it's a cause for extra carbon emissions.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+A CDN helps minimize latency through storing frequently read static data closer to consumers, and helps reduce the network traversal and server load.
+Ensure to
+follow best practices
+for CDN.
+Follow caching best practices
+Minimizing the amount of data transferred is crucial.
+Green Software Foundation alignment:
+Energy efficiency
+,
+Hardware efficiency
+Recommendation:
+Caching is a well-understood design technique to improve performance and efficiency.
+A caching solution helps reduce network traversal and reduces the server load.
+Consider that it may require tuning of parameters to maximize the benefit and minimize the carbon drawbacks. For example, setting a Time to Live (TTL).
+Adding in-memory caching can help use idle compute resources, increasing the compute density of resources that are already allocated.
+Read
+caching best practices
+.
+Select Azure regions based on where the customer resides
+The location of an application's consumers can be disparate, and it can be challenging to serve requests with good performance and energy efficiency if the distance is too great.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+Deploy or
+move Azure resources across regions
+to better serve the applications from where most consumers reside.
+Use managed audio and video streaming services with built-in compression
+Applications making use of a media streaming service may have high requirements for bandwidth and compression, and can have a substantial carbon footprint if not designed carefully.
+Green Software Foundation alignment:
+Hardware efficiency
+Recommendation:
+By making use of a managed service for audio and video, applications can leverage built-in optimizations like encoding, compressions, and more.
+Read about
+managed audio and video streaming services
+.
+Enable network file compression
+Networks sending uncompressed data can have a higher requirement on bandwidth, the allocated resources, and the solution in general. Consider compressing data to optimize the workload and design for a more network efficient solution.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+Reduce the network payload by
+improving CDN performance
+.
+Maximize network utilization within the same cloud and region
+Operating solutions in multiple regions have a networking impact. Network traversals between components in Azure are optimized to stay within the Azure infrastructure. However, any network traffic destined for the internet or a component in another cloud involves the public internet's router resources, which you have no control over regarding resource impact measurement or utilization.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+Keeping resources in a single cloud gives you maximum control and allows the cloud provider to optimize the network routing.
+Maximize network utilization within the same cloud and, if possible, within the same region.
+Since the cost can be a proxy for sustainability, review the
+Azure regions
+documentation in the Cost Optimization pillar of the Azure Well-Architected Framework.
+Next step
+Review the design considerations for storage.
+Storage
+Feedback
+Was this page helpful?
+Yes
+No
+Additional resources
+Additional resources
+In this article
+en-us
+Your Privacy Choices
+Theme
+Light
+Dark
+High contrast
+Previous Versions
+Blog
+Contribute
+Privacy
+Terms of Use
+Trademarks
+© Microsoft 2025
+Operational procedure considerations for sustainable workloads on Azure - Microsoft Azure Well-Architected Framework | Microsoft Learn
+Skip to main content
+Skip to Ask Learn chat experience
+This browser is no longer supported.
+Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+Download Microsoft Edge
+More info about Internet Explorer and Microsoft Edge
+Table of contents
+Exit focus mode
+Ask Learn
+Ask Learn
+Read in English
+Save
+Table of contents
+Read in English
+Add
+Add to plan
+Edit
+Share via
+Facebook
+x.com
+LinkedIn
+Email
+Print
+Note
+Access to this page requires authorization. You can try
+signing in
+or
+changing directories
+.
+Access to this page requires authorization. You can try
+changing directories
+.
+Operational procedure considerations for sustainable workloads on Azure
+Article
+2022-10-12
+6 contributors
+Feedback
+In this article
+The discipline of green software and its implementation within cloud efficiency patterns is relatively recent, and no specific and universal standards have been agreed upon yet.
+The
+Green Software Foundation
+works on creating and standardizing ways of making green software. However, it's vital that everyone considers this aspect in their daily work and that when designing, planning, and deploying Azure workloads, we consider the best practices that are already available and prepare our environment to incorporate new standards when ready.
+This document will guide you through setting up an environment for measuring and continuously improving your Azure workloads' cost and carbon efficiency.
+Important
+This article is part of the
+Azure Well-Architected sustainable workload
+series. If you aren't familiar with this series, we recommend you start with
+what is a sustainable workload?
+Measure and track carbon impact
+To optimize or improve something, we first must decide what we want to change and how to measure it.
+In this section, you'll learn about best practices and guidelines to measure and track the sustainability impact of your workloads.
+The Emissions Impact Dashboard
+An essential aspect of working toward any sustainability goal is tracking and quantifying progress. If you can't track and measure the impact, you'll never be sure if the efforts are worthwhile. The Emissions Impact Dashboard is a Power BI dashboard that will give you a measure of the carbon impact of all your services and resource groups in your Azure subscription(s).
+The Emissions Impact Dashboards produce insights in various forms, and allows for a wide range of reporting capabilities:
+Series of visual representations in the dashboard itself.
+Snapshot export to Excel, Power Point and PDF.
+Continuous export to Microsoft Sustainability Manager
+and Dataverse.
+Green Software Foundation alignment:
+Measuring sustainability
+Recommendation:
+Use the
+Emissions Impact Dashboard
+to record current and future environmental impact.
+Identify and track metrics to quantify the achievement of technical, business, and sustainability outcomes.
+Rely on tooling to help measure the impact, and record any changes made to your workload.
+Learn more about the Sustainability and Dataverse API access in the Microsoft Learn module
+Access Microsoft Sustainability Manager data
+.
+Define emissions target
+The
+Software Carbon Intensity (SCI)
+is the score you're looking for to measure the carbon impact of your application(s) by adding the scalability and cost metrics to any carbon emissions measurement.
+If you aren't using the Emissions Impact Dashboard, there are still ways of building carbon proxies that allow you to measure your application's impact on emissions.
+It can be a challenge to build carbon proxies for existing applications. Therefore, we recommend planning for efficiency targets during the design phase of every workload. When adding new workloads to Azure, you should consider planning for costs and emissions that will add to your existing footprint. The main goal should always be not to emit carbon, so ideally, you should immediately find an optimization pattern to make up for the new emissions.
+The next step is to define your target emissions, either for a single application or for your entire set of cloud workloads. The target can also include cost constraints, making it even easier to build upon since shrinking costs will give you some budget to optimize emissions. Once you know your target, the cloud efficiency continuous optimization process can start.
+Green Software Foundation alignment:
+Measuring sustainability
+Recommendations:
+Calculate your new workload's minimum cost and carbon emissions (where applicable).
+Track progress with Service Level Objectives (SLO), Service Level Agreements (SLA), or other performance metrics.
+Provide optimization patterns to accommodate the new application to your overall cloud efficiency score.
+Identify the metrics and set improvement goals
+Once you've defined your target, you'll need to identify a few metrics that you can measure to prove your changes had a positive effect on efficiency.
+The metrics can, as an example, be derived from these categories:
+Application performance metrics.
+Cost optimization metrics.
+Carbon emissions metrics (or proxies).
+Green Software Foundation alignment:
+Measuring sustainability
+Recommendation:
+Discuss with every application owner since the impact of optimizing can vary and might affect many users.
+Make sure that any plan that impacts performance is agreed upon and communicated clearly to the app users so that they know that a lower performance may be necessary for the greater good of fewer carbon emissions.
+If you've connected the Microsoft Emissions Impact Dashboard (EID) to your Microsoft Sustainability Manager (MSM) instance, you can use the
+Goal Tracking feature in MSM
+to define and track your goals by linking them to live data from EID.
+Cost optimization as a proxy
+Sometimes the ease of deploying cloud resources makes us forget what is useful and what is simply a waste of resources, money, and carbon. The message here's that experiments in the cloud can sometimes be costly in terms of overall cloud efficiency, not purely cost, while bringing no innovation.
+Use cloud resources wisely, considering any extra workload's carbon footprint.
+When defining your SCI, you can use carbon proxies to compensate for the lack of specific standards and measurements. One of the safest and most potent proxies for carbon emissions are your application(s) cost. Reducing unnecessary spending lowers the number of excessive emissions from deployed workloads as you're using fewer cloud resources.
+Linking cost performance metrics to carbon efficiency can be a sound strategy because you won't necessarily need to compromise on your defined workload Key Performance Indicators (KPI) by optimizing cost and reducing carbon emissions. However, you might decide that you're prepared to sacrifice a KPI towards your carbon goal, which can also be part of your strategy.
+Green Software Foundation alignment:
+Measuring sustainability
+Recommendation:
+Review the concept of
+using a proxy solution to measure emissions
+.
+Leverage the guidance in the Azure Well-Architected Framework
+Cost Optimization pillar
+.
+Defining policies
+Azure Policy is a powerful tool that can make some decisions for your cloud efficiency easier to implement. Consider defining one of more policies to keep your Azure virtual data center continuously optimized.
+Green Software Foundation alignment:
+Climate commitments
+Recommendation:
+Incorporate and use the
+cost policies
+available in the Cloud Adoption Framework.
+Leverage
+built-in policies
+relevant to cost in Azure Policy, as they're technically closely tied to sustainability.
+Customize Azure Policy policies according to green software principles. For example, create a new
+Azure Policy initiative
+for "Sustainability".
+Consider this tradeoff: Enforcement of new policies must not impact any unplanned operational performance metric.
+Community and knowledge sharing
+Teams needs to be constantly aware of new advancements in sustainability, so they leverage these learnings when implementing workloads.
+Building a community around cloud efficiency and green software is a good starting point to foster cloud efficiency awareness and culture across your organization.
+Create a sustainability community
+Creating a sustainability community doesn't have to be a tedious task. Start with a small team that will invest some time in learning the sustainability status and the relevant information on green software. This team can also join the
+Green Software Foundation
+and be part of the teams that create rules, standards, and more.
+The Core cloud Efficiency team will have to be up to date with all the innovative tools and principles that drive your Azure workload's cost and carbon footprint.
+Green Software Foundation alignment:
+Climate commitments
+Recommendation:
+Define policies and targets, and communicate their efforts and goals with the rest of the organization.
+Learn more by reading
+how do I start a sustainability community in my organization?
+Plan for learning
+Make time for the core team to learn about advancements in sustainable operations. Meanwhile, ensure that your entire organization starts thinking about green software and how to contribute to the sustainability picture with their daily choices.
+Green Software Foundation alignment:
+Climate commitments
+Recommendation:
+Review these popular training and learning resources:
+Use the self-paced learning module to
+Learn about The Principles of Sustainable Software Engineering
+.
+Use the self-paced learning path to
+Get started with Microsoft Cloud for Sustainability
+.
+Find more resources in the
+Microsoft Sustainability Learning Center
+.
+Share best practices across teams
+Driving adoption of sustainability efforts requires input and work from across the organization.
+Green Software Foundation alignment:
+Climate commitments
+Recommendation:
+Let team members share their workload and company-specific best practices for sustainable operations.
+Set up a shared repository of best practices and guidance that have been tested in your environment with tangible results.
+Consider frequent knowledge-sharing sessions or internal webinars for getting everyone up to speed.
+Plan for incentives
+The quickest way of enforcing policies and creating the right culture is by setting incentives for improving the environmental sustainability of a workload by either putting sustainability as a core KPI or adding it to the overall efficiency of the applications.
+Many software partners already include green software in their best practices. Therefore, ensure that your efficiency targets are defined and accepted when discussing the workload.
+Green Software Foundation alignment:
+Climate commitments
+Recommendations:
+Promote carbon-aware applications. Reward application owners if the measured carbon footprint meets the KPI.
+Introduce gamification by creating a friendly culture of sustainability competition—track records to promote green workloads, SCI scoring, and any optimization or improvement on the score.
+Consider introducing loyalty programs, where participants get incentives when they can prove the cloud efficiency of their applications.
+Explore the opportunity to introduce badges like "Carbon Aware" and "Carbon Optimized".
+Next step
+Review the design considerations for networking and connectivity.
+Networking and connectivity
+Feedback
+Was this page helpful?
+Yes
+No
+Additional resources
+Additional resources
+In this article
+en-us
+Your Privacy Choices
+Theme
+Light
+Dark
+High contrast
+Previous Versions
+Blog
+Contribute
+Privacy
+Terms of Use
+Trademarks
+© Microsoft 2025
+Security considerations for sustainable workloads on Azure - Microsoft Azure Well-Architected Framework | Microsoft Learn
+Skip to main content
+Skip to Ask Learn chat experience
+This browser is no longer supported.
+Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+Download Microsoft Edge
+More info about Internet Explorer and Microsoft Edge
+Table of contents
+Exit focus mode
+Ask Learn
+Ask Learn
+Read in English
+Save
+Table of contents
+Read in English
+Add
+Add to plan
+Edit
+Share via
+Facebook
+x.com
+LinkedIn
+Email
+Print
+Note
+Access to this page requires authorization. You can try
+signing in
+or
+changing directories
+.
+Access to this page requires authorization. You can try
+changing directories
+.
+Security considerations for sustainable workloads on Azure
+Article
+2022-10-12
+4 contributors
+Feedback
+In this article
+Designing sustainable workloads on Azure must encompass security, which is a foundational principle through all phases of a project. Learn about considerations and recommendations leading to a more sustainable security posture.
+Important
+This article is part of the
+Azure Well-Architected sustainable workload
+series. If you aren't familiar with this series, we recommend you start with
+what is a sustainable workload?
+Security monitoring
+Use cloud native security monitoring solutions to optimize for sustainability.
+Use cloud native log collection methods where applicable
+Traditionally, log collection methods for ingestion to a Security Information and Event Management (SIEM) solution required the use of an intermediary resource to collect, parse, filter and transmit logs onward to the central collection system. Using this design can carry an overhead with more infrastructure and associated financial and carbon-related costs.
+Green Software Foundation alignment:
+Hardware efficiency
+,
+Energy efficiency
+Recommendation:
+Using cloud native
+service-to-service connectors
+simplify the integration between the services and the SIEM, and removes the overhead of extra infrastructure.
+It's possible to ingest log data from existing compute resources using previously deployed agents such as the Azure Monitor Analytics agent. Review how to
+migrate to Azure Monitor agent from Log Analytics agent
+.
+Consider this tradeoff: Deploying more monitoring agents will increase the overhead in processing as it needs more compute resources. Carefully design and plan for how much information is needed to cover the security requirements of the solution and find a suitable level of information to store and keep.
+A possible solution to reduce unnecessary data collection is to rely on the
+Azure Monitor Data Collection Rules (DCR)
+.
+Avoid transferring large unfiltered data sets from one cloud service provider to another
+Conventional SIEM solutions required all log data to be ingested and stored in a centralized location. In a multicloud environment, this solution can lead to a large amount of data being transferred out of a cloud service provide and into another, causing increased burden on the network and storage infrastructure.
+Green Software Foundation alignment:
+Carbon efficiency
+,
+Energy efficiency
+Recommendation:
+Cloud native security services can perform localized analysis on relevant security data source. This analysis allows the bulk of log data to remain within the source cloud service provider environment. Cloud native SIEM solutions can be
+connected via an API or connector
+to these security services to transmit only the relevant security incident or event data. This solution can greatly reduce the amount of data transferred while maintaining a high level of security information to respond to an incident.
+In time, using the described approach helps reduce data egress and storage costs, which inherently help reduce emissions.
+Filter or exclude log sources before transmission or ingestion into a SIEM
+Consider the complexity and cost of storing all logs from all possible sources. For instance, applications, servers, diagnostics and platform activity.
+Green Software Foundation alignment:
+Carbon efficiency
+,
+Energy efficiency
+Recommendation:
+When designing a log collection strategy for cloud native SIEM solutions, consider the use cases based on the
+Microsoft Sentinel analytics rules
+required for your environment and match up the required log sources to support those rules.
+This option can help remove the unnecessary transmission and storage of log data, reducing the carbon emissions on the  environment.
+Archive log data to long-term storage
+Many customers have a requirement to store log data for an extended period due to regulatory compliance reasons. In these cases, storing log data in the primary storage location of the SIEM system is a costly solution.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+Log data can be
+moved out to a cheaper long-term storage option
+which respects the retention policies of the customer, but lowers the cost by utilizing separate storage locations.
+Network architecture
+Increase the efficiency and avoid unnecessary traffic by following good practices for network security architectures.
+Use cloud native network security controls to eliminate unnecessary network traffic
+When you use a centralized routing- and firewall design, all network traffic is sent to the hub for inspection, filtering, and onward routing. While this approach centralizes policy enforcement, it can create an overhead on the network of unnecessary traffic from the source resources.
+Green Software Foundation alignment:
+Hardware efficiency
+,
+Energy efficiency
+Recommendation:
+Use
+Network security groups
+and
+Application security groups
+to help filter traffic at the source, and to remove the unnecessary data transmission. Using these capabilities can help reduce the burden on the cloud infrastructure, with lower bandwidth requirements and less infrastructure to own and manage.
+Minimize routing from endpoints to the destination
+In many customer environments, especially in hybrid deployments, all end user device network traffic is routed through on-premises systems before being allowed to reach the internet. Usually, this happens due to the requirement to inspect all internet traffic. Often, this requires higher capacity network security appliances within the on-premises environment, or more appliances within the cloud environment.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+Minimize routing from endpoints to the destination.
+Where possible, end user devices should be optimized to
+split out known traffic directly to cloud services
+while continuing to route and inspect traffic for all other destinations. Bringing these capabilities and policies closer to the end user device prevents unnecessary network traffic and its associated overhead.
+Use network security tools with auto-scaling capabilities
+Based on network traffic, there will be times when demand of the security appliance will be high, and other times where it will be lower. Many network security appliances are deployed to a scale to cope with the highest expected demand, leading to inefficiencies. Additionally, reconfiguration of these tools often requires a reboot leading to unacceptable downtime and management overhead.
+Green Software Foundation alignment:
+Hardware efficiency
+Recommendation:
+Making use of auto-scaling allows the rightsizing of the backend resources to meet demand without manual intervention.
+This approach will vastly reduce the time to react to network traffic changes, resulting in a reduced waste of unnecessary resources, and increases your sustainability effect.
+Learn more about relevant services by reading
+how to enable a Web Application Firewall (WAF) on an Application Gateway
+, and
+deploy and configure Azure Firewall Premium
+.
+Evaluate whether to use TLS termination
+Terminating and re-establishing TLS is CPU consumption that might be unnecessary in certain architectures.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+Consider if you can terminate TLS at your border gateway and continue with non-TLS to your workload load balancer and onwards to your workload.
+Review the information on
+TLS termination
+to better understand the performance and utilization impact it offers.
+Consider the tradeoff: A balanced level of security can offer a more sustainable and energy efficient workload while a higher level of security may increase the requirements on compute resources.
+Use DDoS protection
+Distributed Denial of Service (DDoS) attacks aim to disrupt operational systems by overwhelming them, creating a significant impact on the resources in the cloud. Successful attacks flood network and compute resources, leading to an unnecessary spike in usage and cost.
+Green Software Foundation alignment:
+Energy efficiency
+,
+Hardware efficiency
+Recommendation:
+DDoS protection seeks to
+mitigate attacks at an abstracted layer
+, so the attack is mitigated before reaching any customer operated services.
+Mitigating any malicious usage of compute and network services will ultimately help reduce unnecessary carbon emissions.
+Endpoint security
+It's imperative that we secure our workloads and solutions in the cloud. Understanding how we can optimize our mitigation tactics all the way down to the client devices can have a positive outcome for reducing emissions.
+Integrate Microsoft Defender for Endpoint
+Many attacks on cloud infrastructure seek to misuse deployed resources for the attacker's direct gain. Two such misuse cases are botnets and crypto mining.
+Both of these cases involve taking control of customer-operated compute resources and use them to either create new cryptocurrency coins, or as a network of resources from which to launch a secondary action like a DDoS attack, or mass e-mail spam campaigns.
+Green Software Foundation alignment:
+Hardware efficiency
+Recommendations:
+Integrate
+Microsoft Defender for Endpoint
+with Defender for Cloud to identify and shut down crypto mining and botnets.
+The EDR capabilities provide advanced attack detections and are able to take response actions to remediate those threats. The unnecessary resource usage created by these common attacks can quickly be discovered and remediated, often without the intervention of a security analyst.
+Reporting
+Getting the right information and insights at the right time is important for producing reports around emissions from your security appliances.
+Tag security resources
+It can be a challenge to quickly find and report on all security appliances in your tenant. Identifying the security resources can help when designing a strategy for a more sustainable operating model for your business.
+Green Software Foundation alignment:
+Measuring sustainability
+Recommendation:
+Tag security resources to record emissions impact of security resources.
+Next step
+Review the design principles for sustainability.
+Design principles
+Feedback
+Was this page helpful?
+Yes
+No
+Additional resources
+Additional resources
+In this article
+en-us
+Your Privacy Choices
+Theme
+Light
+Dark
+High contrast
+Previous Versions
+Blog
+Contribute
+Privacy
+Terms of Use
+Trademarks
+© Microsoft 2025
+Data and storage design considerations for sustainable workloads on Azure - Microsoft Azure Well-Architected Framework | Microsoft Learn
+Skip to main content
+Skip to Ask Learn chat experience
+This browser is no longer supported.
+Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+Download Microsoft Edge
+More info about Internet Explorer and Microsoft Edge
+Table of contents
+Exit focus mode
+Ask Learn
+Ask Learn
+Read in English
+Save
+Table of contents
+Read in English
+Add
+Add to plan
+Edit
+Share via
+Facebook
+x.com
+LinkedIn
+Email
+Print
+Note
+Access to this page requires authorization. You can try
+signing in
+or
+changing directories
+.
+Access to this page requires authorization. You can try
+changing directories
+.
+Data and storage design considerations for sustainable workloads on Azure
+Article
+2022-10-12
+5 contributors
+Feedback
+In this article
+Data storage in Azure is a crucial component of most provisioned workloads. Learn how to design for a more sustainable data storage architecture and optimize existing deployments.
+Important
+This article is part of the
+Azure Well-Architected sustainable workload
+series. If you aren't familiar with this series, we recommend you start with
+what is a sustainable workload?
+Storage efficiency
+Build solutions with efficient storage to increase performance, lower the required bandwidth, and minimize unnecessary storage design climate impact.
+Enable storage compression
+Storing much uncompressed data can result in unnecessary bandwidth waste and increase the storage capacity requirements.
+Green Software Foundation alignment:
+Hardware efficiency
+Recommendation:
+A solution to reduce the storage requirements, including both capacity and required bandwidth to write or retrieve data. For example,
+compressing files in Azure Front Door
+and
+compressing files in Azure CDN
+.
+Compression is a well-known design technique to improve network performance.
+Consider the tradeoff of compression: Does the benefit of compression outweigh the increased
+carbon
+cost in the resources (CPU, RAM) needed to perform the compression/decompression?
+Optimize database query performance
+Querying extensive databases or retrieving much information simultaneously can have a performance penalty. Ideally, apps should optimize for query performance.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+Reduces the latency of data retrieval while also reducing the load on the database.
+Understand the
+query performance for Azure SQL Databases
+There are many well-known ways to optimize data query performance, for example
+tuning apps and databases for performance in an Azure SQL database
+.
+Consider that it may require fine-tuning to achieve optimal results.
+Use the best suited storage access tier
+The carbon impact of data retrieved from hot storage can be higher than data from cold- or archive storage. Designing solutions with the correct data access pattern can enhance the application's carbon efficiency.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+Use
+storage best suited for the application's data access patterns
+.
+Make sure your most frequent data is stored in hot storage, making it easy to retrieve and doesn't require more processing to access.
+Infrequently used data should be stored in cold or offline archive storage, using less energy.
+Only store what is relevant
+Backup is a crucial part of reliability. However, storing backups indefinitely can quickly allocate much unnecessary disk space. Consider how you plan backup storage retention.
+Green Software Foundation alignment:
+Hardware efficiency
+Recommendation:
+Implement policies to streamline the process of storing and keeping relevant information.
+Microsoft Purview
+can help label data and add time-based purging to delete it after a retention period automatically. Additionally, this lets you stay in control of your data and reduces the amount of data to process and transfer.
+Workloads integrated with Azure Monitor can rely on
+Data Collection Rules (DCR)
+to specify what data should be collected, how to transform that data, and where to send the data.
+Determine the most suitable access tier for blob data
+Consider whether to store data in an online tier or an offline tier. Online tiers are optimized for storing data that is accessed or modified frequently. Offline tiers are optimized for storing data that is rarely accessed.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+Read
+Hot, Cool, and Archive access tiers for blob data
+.
+Reduce the number of recovery points for VM backups
+Recovery points aren't automatically cleaned up. Therefore, consider where
+soft delete
+is enabled for Azure Backup. The expired recovery points aren't cleaned up automatically.
+Green Software Foundation alignment:
+Hardware efficiency
+Recommendation:
+Read more about the
+impact of expired recovery points for items in soft deleted state
+.
+Revise backup and retention policies
+Consider reviewing backup policies and retention periods for backups to avoid storing unnecessary data.
+Green Software Foundation alignment:
+Hardware efficiency
+Recommendation:
+Review and revise backup and retention policies to minimize storage overhead.
+Actively review and delete backups that are no longer needed.
+Optimize the collection of logs
+Continuously collecting logs across workloads can quickly aggregate and store lots of unused data.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+Make sure you are logging and retaining only data that is relevant to your needs.
+Read more about the
+Cost optimization and Log Analytics
+.
+Next step
+Review the design considerations for security.
+Security
+Feedback
+Was this page helpful?
+Yes
+No
+Additional resources
+Additional resources
+In this article
+en-us
+Your Privacy Choices
+Theme
+Light
+Dark
+High contrast
+Previous Versions
+Blog
+Contribute
+Privacy
+Terms of Use
+Trademarks
+© Microsoft 2025
+Testing considerations for sustainable workloads on Azure - Microsoft Azure Well-Architected Framework | Microsoft Learn
+Skip to main content
+Skip to Ask Learn chat experience
+This browser is no longer supported.
+Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+Download Microsoft Edge
+More info about Internet Explorer and Microsoft Edge
+Table of contents
+Exit focus mode
+Ask Learn
+Ask Learn
+Read in English
+Save
+Table of contents
+Read in English
+Add
+Add to plan
+Edit
+Share via
+Facebook
+x.com
+LinkedIn
+Email
+Print
+Note
+Access to this page requires authorization. You can try
+signing in
+or
+changing directories
+.
+Access to this page requires authorization. You can try
+changing directories
+.
+Testing considerations for sustainable workloads on Azure
+Article
+2022-10-28
+6 contributors
+Feedback
+In this article
+Organizations developing and deploying solutions to the cloud also need reliable testing. Learn about the considerations and recommendations for running workload tests and how to optimize for a more sustainable testing model.
+Important
+This article is part of the
+Azure Well-Architected sustainable workload
+series. If you aren't familiar with this series, we recommend you start with
+what is a sustainable workload?
+Testing efficiency
+Run integration, performance, load, or any other intense testing during low-carbon periods
+Running integration, performance, load, or any other intense testing capability may result in much processing. A well-crafted design for testing the deployed workloads can help ensure full utilization of the available resources, reducing carbon emissions.
+Green Software Foundation alignment:
+Carbon awareness
+Recommendation:
+Where you have the data available to you, plan for running testing when the data center's energy mix primarily uses renewable energy. It may, for example, be more beneficial to run testing during the night in some regions.
+Automate CI/CD to scale worker agents as needed
+Running underutilized or inactive CI/CD agents results in more emissions.
+Green Software Foundation alignment:
+Hardware efficiency
+Recommendation:
+Keeps the compute utilization high, based on the current demand, avoiding unnecessary capacity allocation.
+Only scale out when necessary, and when not testing, scale in. Ultimately this ensures there's no idle compute resources in test environments.
+Consider optimized platform services like containers over testing in a VM, utilizing the platform to reduce maintenance.
+Consider caching when using CI/CD agents
+Using caching mechanisms during CI/CD can reduce compute time and, thus, carbon emissions.
+Green Software Foundation alignment:
+Energy Efficiency
+Recommendation:
+Store results from steps in a cache and re-use them between different CI/CD runs when possible: when there are steps that take CPU time to produce an artifact that does not often change between different runs, it is wise to save it for future usage so that CPU time is not wasted on every run producing the same artifact, over and over.
+If the CI/CD agent is self-hosted, use a cache local to the agent to further reduce data transfers and emissions. This ensures that the cache is not transferred over the network, which can be a significant source of emissions.
+Split large code repositories
+Splitting large repositories can help the CI/CD phases, where only the parts of the code that have changed are compiled. This reduces compute time, which ultimately lowers carbon emissions.
+Green Software Foundation alignment:
+Energy Efficiency
+Recommendation:
+Split large code repositories, separating main code from libraries and dependencies.
+Publish and re-use artifacts and libraries of code that are common across multiple repositories.
+Recommendation:
+Split large repositories of code into smaller ones, separating main code from libraries and dependencies.
+Publish and re-use artifacts and libraries of code that are common across multiple repositories.
+Profiling and measuring
+Measuring, profiling, and testing workloads are imperative to understanding how to best use allocated resources.
+Assess where parallelization is possible
+Without properly profiling and testing workloads, it's difficult to know if it's making the best use of the underlying platform and deployed resources.
+Green Software Foundation alignment:
+Measuring sustainability
+Recommendation:
+Test your applications to understand concurrent requests, simultaneous processing, and more.
+If you're running Machine Learning (ML) for tests, consider machines with a GPU for better efficiency gains.
+Identify if the workload is performance intensive and work toward optimization.
+Consider this tradeoff:
+Running GPU-based machines for ML tests may increase the cost.
+Assess with chaos engineering
+Running integration, performance and load tests increase the reliability of a workload. However, the introduction of chaos engineering can significantly help improve reliability and resilience and how the applications react to failures. In doing so, the workload can be optimized to handle failures gracefully and with less wasted resources.
+Green Software Foundation alignment:
+Measuring sustainability
+Recommendation:
+Use load testing or
+chaos engineering
+to assess how the workload handles platform outages and traffic spikes or dips. This helps increase service resilience and the ability to react to failures, allowing for a more optimized fault handling.
+Consider this tradeoff:
+Injecting fault during chaos engineering and increasing the load on any system also increases the emissions used for the testing resources. Evaluate how and when you can utilize chaos engineering to increase the workload reliability while considering the climate impact of running unnecessary testing sessions.
+Another angle to this is using chaos engineering to test energy faults or moments with higher carbon emissions: consider setting up tests that will challenge your application to consume the minimum possible energy. Define how the application will react to such conditions with a specific "eco" version informing users that they're emitting the minimum possible carbon by sacrificing some features and possibly some performance. This can also be your benchmark application for scoring its sustainability.
+Establish CPU and Memory thresholds in testing
+Help build tests for testing sustainability in your application. Consider having a baseline CPU utilization measurement, and detect abnormal changes to the CPU utilization baseline when tests run. With a baseline, suboptimal decisions made in recent code changes can be discovered earlier.
+Adding tests and quality gates into the deployment and testing pipeline helps avoid deploying non-sustainable solutions, contributing to lowered emissions.
+Green Software Foundation alignment:
+Energy efficiency
+Recommendation:
+Monitor CPU and memory allocations when running integration tests or unit tests.
+Find abnormally high resource consumption areas in the application code and focus on mitigating those first.
+Configure alerts or test failures if surpassing the established baseline values, helping avoid deploying non-sustainable workloads.
+Consider this tradeoff: As applications grow, the baseline may need to shift accordingly to avoid failing the tests when introducing new features.
+Next step
+Review the design considerations for operational procedures.
+Operational procedures
+Feedback
+Was this page helpful?
+Yes
+No
+Additional resources
+Additional resources
+In this article
+en-us
+Your Privacy Choices
+Theme
+Light
+Dark
+High contrast
+Previous Versions
+Blog
+Contribute
+Privacy
+Terms of Use
+Trademarks
+© Microsoft 2025
