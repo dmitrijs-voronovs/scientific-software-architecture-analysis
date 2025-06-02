@@ -56,6 +56,89 @@ stop_words = set(stopwords.words('english'))
 
 
 # --- Helper Functions (find_pdfs_by_qa, extract_text_from_pdf, format_original_words, get_synonyms_wordnet are mostly the same) ---
+def calculate_qa_level_tfidf_aggregates(list_of_doc_tfidf_dfs, qa_combined_stem_to_raw_map):
+    """
+    Calculates summed and averaged TF-IDF scores for all terms within a QA.
+    Args:
+        list_of_doc_tfidf_dfs: A list of pandas DataFrames, each being the TF-IDF
+                               output for a single document in the QA.
+                               Expected columns: 'Term (Processed)', 'TF-IDF Score'.
+        qa_combined_stem_to_raw_map: The aggregated stem_to_raw_map for the entire QA.
+    Returns:
+        A pandas DataFrame with 'Term (Processed)', 'Original Word(s)',
+        'Summed TF-IDF', 'Average TF-IDF', 'Document Frequency' for the QA.
+    """
+    if not list_of_doc_tfidf_dfs:
+        return pd.DataFrame(columns=['Term (Processed)', 'Original Word(s)',
+                                     'Summed TF-IDF', 'Average TF-IDF', 'Document Count'])
+
+    term_sum_tfidf = defaultdict(float)
+    term_doc_count = defaultdict(int)  # How many docs in this QA contain the term
+    all_terms_in_qa_docs = set()
+
+    num_docs_in_qa = len(list_of_doc_tfidf_dfs)
+
+    for df_doc in list_of_doc_tfidf_dfs:
+        if df_doc.empty or not all(col in df_doc.columns for col in ['Term (Processed)', 'TF-IDF Score']):
+            continue
+        # Get unique terms in this document to count document frequency correctly
+        unique_terms_in_this_doc = set()
+        for _, row in df_doc.iterrows():
+            term = row['Term (Processed)']
+            score = row['TF-IDF Score']
+
+            term_sum_tfidf[term] += score
+            all_terms_in_qa_docs.add(term)
+            unique_terms_in_this_doc.add(term)
+
+        for term in unique_terms_in_this_doc:
+            term_doc_count[term] += 1
+
+    if not all_terms_in_qa_docs:
+        return pd.DataFrame(columns=['Term (Processed)', 'Original Word(s)',
+                                     'Summed TF-IDF', 'Average TF-IDF', 'Document Count'])
+
+    aggregated_data = []
+    for term in sorted(list(all_terms_in_qa_docs)):  # Sort for consistent output
+        sum_score = term_sum_tfidf[term]
+        doc_count = term_doc_count[term]
+        # Average TF-IDF score *only across documents where the term appears within the QA*
+        # Or, if you want average across all QA docs (many zeros), divide by num_docs_in_qa
+        avg_score = sum_score / doc_count if doc_count > 0 else 0.0
+
+        original_words = format_original_words(qa_combined_stem_to_raw_map.get(term, {term}))
+
+        aggregated_data.append({
+            'Term (Processed)': term,
+            'Original Word(s)': original_words,
+            'Summed TF-IDF': sum_score,
+            'Average TF-IDF (in docs with term)': avg_score,  # Clarified average calculation
+            'Document Count (in QA)': doc_count
+        })
+
+    df_aggregated = pd.DataFrame(aggregated_data)
+    # Sort by Summed TF-IDF primarily, then by Average TF-IDF
+    df_aggregated = df_aggregated.sort_values(
+        by=['Summed TF-IDF', 'Average TF-IDF (in docs with term)'],
+        ascending=[False, False]
+    ).reset_index(drop=True)
+
+    return df_aggregated
+
+# --- Modified Helper Function for Preparing Seed Keywords Sheet Data (from previous step) ---
+def prepare_seed_keywords_sheet_data(raw_seed_keywords_list):
+    sheet_data = []
+    if not raw_seed_keywords_list:
+        return sheet_data
+    for raw_seed in raw_seed_keywords_list:
+        processed_tokens, _ = preprocess_text_and_map(raw_seed.lower())
+        processed_seed_display = " ".join(processed_tokens) if processed_tokens else raw_seed.lower() # Fallback
+        sheet_data.append({
+            'Raw Seed Keyword': raw_seed,
+            'Processed Seed Keyword': processed_seed_display
+        })
+    return sheet_data
+
 def find_pdfs_by_qa(base_dir):
     qa_to_pdfs = defaultdict(list)
     if not os.path.isdir(base_dir):
@@ -477,17 +560,11 @@ def main():
 
     # --- Phase 3: Analysis and Output (Per QA) ---
     for qa_name_key, pdf_paths_for_qa in qa_to_pdf_paths_map.items():
-        # qa_name_key is the original casing from SEED_WORDS_RAW_MAP
         print(f"\n--- Processing Quality Attribute: {qa_name_key} ---")
 
-        raw_seed_words_for_qa = SEED_WORDS_RAW_MAP.get(qa_name_key, [])
-        if not raw_seed_words_for_qa:
-            print(f"Warning: No seed words retrieved from SEED_WORDS_RAW_MAP for QA '{qa_name_key}'. Check mapping.")
+        raw_seed_words_for_qa = SEED_WORDS_RAW_MAP.get(qa_name_key, [])  # Get seeds for current QA
+        # ... (processed_seeds_for_qa = process_seed_keywords(...) ) ...
 
-        processed_seeds_for_qa = process_seed_keywords(raw_seed_words_for_qa, expand_synonyms=EXPAND_SEED_SYNONYMS)
-        # print(f"Seeds for {qa_name_key}: {len(processed_seeds_for_qa)} processed seed terms.")
-
-        # Identify indices of documents belonging to the current QA within the global lists
         qa_doc_global_indices = [
             meta['global_idx'] for meta in doc_metadata_for_tfidf_fitting if meta['qa'] == qa_name_key
         ]
@@ -496,15 +573,15 @@ def main():
             print(f"No successfully processed documents found for QA: {qa_name_key}. Skipping analysis for this QA.")
             continue
 
-        # TF-IDF for current QA's documents using the globally (potentially cached) fitted vectorizer
-        qa_tfidf_dfs_list, _ = calculate_corpus_tfidf(  # We don't need to get the vectorizer back here
+        # TF-IDF for current QA's documents
+        qa_tfidf_dfs_list, _ = calculate_corpus_tfidf(
             all_processed_docs_joined_texts,
             all_docs_stem_to_raw_maps_list,
-            qa_doc_global_indices,  # Pass only indices for this QA
-            fitted_vectorizer=fitted_vectorizer  # Pass the globally fitted one
+            qa_doc_global_indices,
+            fitted_vectorizer=fitted_vectorizer
         )
 
-        # Aggregate tokens and maps for this QA for N-gram/Collocation
+        # Aggregate tokens and maps for this QA (used for N-grams, Collocations, and QA TF-IDF aggregates)
         qa_combined_processed_tokens = []
         qa_combined_stem_to_raw_map = defaultdict(set)
         for global_idx in qa_doc_global_indices:
@@ -512,9 +589,16 @@ def main():
             for stem, raw_set in all_docs_stem_to_raw_maps_list[global_idx].items():
                 qa_combined_stem_to_raw_map[stem].update(raw_set)
 
-        # print(f"Total processed tokens for {qa_name_key} (combined for Ngram/Colloc): {len(qa_combined_processed_tokens)}")
+        # --- 1st Change: Calculate QA-level TF-IDF aggregates ---
+        df_qa_tfidf_aggregates = calculate_qa_level_tfidf_aggregates(
+            qa_tfidf_dfs_list,
+            qa_combined_stem_to_raw_map
+        )
 
-        # N-gram and Collocation Analysis for the current QA
+        # Process seeds for seed-based collocation (if not already done or if scope changed)
+        processed_seeds_for_qa = process_seed_keywords(raw_seed_words_for_qa, expand_synonyms=EXPAND_SEED_SYNONYMS)
+
+        # N-gram and Collocation Analysis (code remains the same)
         df_bigrams_qa = extract_ngrams(qa_combined_processed_tokens, qa_combined_stem_to_raw_map, n=2,
                                        num_top_ngrams=NUM_TOP_BIGRAMS)
         df_trigrams_qa = extract_ngrams(qa_combined_processed_tokens, qa_combined_stem_to_raw_map, n=3,
@@ -528,34 +612,53 @@ def main():
             num_collocations=NUM_COLLOCATIONS_SEEDS, window_size=COLLOCATION_WINDOW_SIZE
         )
 
+        # --- 2nd Change (from previous request): Prepare data for Seed Keywords sheet ---
+        seed_keywords_sheet_data = prepare_seed_keywords_sheet_data(raw_seed_words_for_qa)
+        df_seed_keywords_qa = pd.DataFrame(seed_keywords_sheet_data) if seed_keywords_sheet_data else pd.DataFrame()
+
         # Save results for the current QA
-        safe_qa_name = "".join(c if c.isalnum() else "_" for c in qa_name_key)  # Use qa_name_key
+        safe_qa_name = "".join(c if c.isalnum() else "_" for c in qa_name_key)
         output_excel_qa_path = f"keyword_analysis_{safe_qa_name}.xlsx"
         print(f"--- Saving results for {qa_name_key} to {output_excel_qa_path} ---")
         try:
             with pd.ExcelWriter(output_excel_qa_path, engine='openpyxl') as writer:
-                for i, df_doc_tfidf in enumerate(qa_tfidf_dfs_list):
+                # Add the new QA-level TF-IDF Aggregates sheet
+                if not df_qa_tfidf_aggregates.empty:
+                    df_qa_tfidf_aggregates.to_excel(writer, sheet_name='QA_TFIDF_Aggregates', index=False)
+
+                # Add the Seed Keywords sheet
+                if not df_seed_keywords_qa.empty:
+                    df_seed_keywords_qa.to_excel(writer, sheet_name='QA_Seed_Keywords', index=False)
+
+                # Save individual document TF-IDF sheets
+                for i, df_doc_tfidf in enumerate(qa_tfidf_dfs_list):  # Iterate through the list of DFs
                     if not df_doc_tfidf.empty:
+                        # ... (sheet naming logic for individual TF-IDF sheets - remains the same) ...
                         original_pdf_path_for_sheet = all_docs_original_paths_list[qa_doc_global_indices[i]]
-                        sheet_name_pdf = Path(original_pdf_path_for_sheet).stem[:25]
+                        sheet_name_base = Path(original_pdf_path_for_sheet).stem
+                        sheet_name_pdf = "".join(c if c.isalnum() else "_" for c in sheet_name_base)[:25]
                         unique_sheet_name_pdf = sheet_name_pdf
                         _count = 1
-                        while f"TFIDF_{unique_sheet_name_pdf}" in writer.sheets:
+                        while f"TFIDF_{unique_sheet_name_pdf}" in writer.sheets:  # Check actual sheet names in writer
                             unique_sheet_name_pdf = f"{sheet_name_pdf}_{_count}"
                             _count += 1
-                            if len(unique_sheet_name_pdf) > 25:  # keep it short
-                                unique_sheet_name_pdf = f"Doc{qa_doc_global_indices[i]}"
+                            if len(unique_sheet_name_pdf) > 20:
+                                unique_sheet_name_pdf = f"Doc{qa_doc_global_indices[i]}"  # Fallback
+                                if f"TFIDF_{unique_sheet_name_pdf}" in writer.sheets:  # Ensure even fallback is unique
+                                    unique_sheet_name_pdf = f"Doc{qa_doc_global_indices[i]}_{_count}"
                                 break
                         df_doc_tfidf.to_excel(writer, sheet_name=f"TFIDF_{unique_sheet_name_pdf}", index=False)
 
+                # Save other analysis sheets (N-grams, Collocations)
                 if not df_bigrams_qa.empty: df_bigrams_qa.to_excel(writer, sheet_name='QA_Top_Bigrams', index=False)
                 if not df_trigrams_qa.empty: df_trigrams_qa.to_excel(writer, sheet_name='QA_Top_Trigrams', index=False)
                 if not df_colloc_general_qa.empty: df_colloc_general_qa.to_excel(writer, sheet_name='QA_Colloc_General',
                                                                                  index=False)
                 if not df_colloc_seeds_qa.empty: df_colloc_seeds_qa.to_excel(writer, sheet_name='QA_Colloc_Seeds',
                                                                              index=False)
+
             print(f"Successfully saved Excel for {qa_name_key}.")
-        except Exception as e:  # pylint: disable=broad-except
+        except Exception as e:
             print(f"Error saving Excel for {qa_name_key}: {e}")
 
     print("\nCorpus analysis finished.")
