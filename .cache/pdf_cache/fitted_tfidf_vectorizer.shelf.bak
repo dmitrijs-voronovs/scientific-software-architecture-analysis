@@ -1,3 +1,5 @@
 'vectorizer', (307712, 351706)
 'preprocessing_version', (43008, 19)
 'corpus_vocabulary_hash', (43520, 47)
+'tfidf_vectorizer', (1003520, 2236177)
+'corpus_raw_text_hash', (1003008, 47)
