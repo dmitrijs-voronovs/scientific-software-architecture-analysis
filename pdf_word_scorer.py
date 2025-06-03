@@ -140,6 +140,58 @@ def prepare_seed_keywords_sheet_data(raw_seed_keywords_list):
         })
     return sheet_data
 
+def extract_text_from_document(doc_path):
+    """
+    Extracts text from a PDF or TXT file.
+    """
+    doc_path_lower = doc_path.lower()
+    if doc_path_lower.endswith(".pdf"):
+        return extract_text_from_pdf(doc_path) # Reuse existing PDF extraction
+    elif doc_path_lower.endswith(".txt"):
+        try:
+            with open(doc_path, 'r', encoding='utf-8', errors='ignore') as f: # Added errors='ignore' for robustness
+                text = f.read()
+            # print(f"Successfully extracted text (length: {len(text)} characters) from {Path(doc_path).name}.")
+            return text
+        except FileNotFoundError:
+            print(f"Error: TXT file not found at {doc_path}")
+            return None
+        except Exception as e:
+            print(f"Error reading TXT file {doc_path}: {e}")
+            return None
+    else:
+        print(f"Unsupported file type: {doc_path}. Skipping.")
+        return None
+
+def find_documents_by_qa(base_dir):
+    """
+    Walks through the base_dir, finds PDFs and TXTs in immediate subdirectories (QAs).
+    Returns a dictionary: {qa_name: [list_of_document_paths]}
+    """
+    qa_to_documents = defaultdict(list)  # Changed variable name
+    if not os.path.isdir(base_dir):
+        print(f"Error: Base document directory '{base_dir}' not found.")
+        return qa_to_documents
+
+    for dir_item_name in os.listdir(base_dir):
+        item_path = os.path.join(base_dir, dir_item_name)
+        if os.path.isdir(item_path):
+            matched_qa_key = next(
+                (key_in_map for key_in_map in SEED_WORDS_RAW_MAP.keys() if key_in_map.lower() == dir_item_name.lower()),
+                None)
+
+            if matched_qa_key:
+                print(f"Found QA directory: {dir_item_name} (mapped to key: '{matched_qa_key}')")
+                for root, _, files in os.walk(item_path):
+                    for file in files:
+                        file_lower = file.lower()
+                        if file_lower.endswith(".pdf") or file_lower.endswith(".txt"):  # Added .txt check
+                            doc_path = os.path.join(root, file)
+                            qa_to_documents[matched_qa_key].append(doc_path)
+            else:
+                print(f"Skipping directory '{dir_item_name}' as it's not a recognized QA in SEED_WORDS_RAW_MAP.")
+    return qa_to_documents
+
 def find_pdfs_by_qa(base_dir):
     qa_to_pdfs = defaultdict(list)
     if not os.path.isdir(base_dir):
@@ -590,9 +642,9 @@ def main():
     FORCE_REFIT_TFIDF = False
 
     print("Starting CORPUS keyword analysis...")
-    qa_to_pdf_paths_map = find_pdfs_by_qa(BASE_PDF_DIR)
+    qa_to_doc_paths_map  = find_documents_by_qa(BASE_PDF_DIR)
 
-    if not qa_to_pdf_paths_map:
+    if not qa_to_doc_paths_map :
         print("No PDFs found or QA directories configured. Exiting.")
         return
 
@@ -603,8 +655,8 @@ def main():
     doc_metadata_for_tfidf_fitting = []  # Stores (path, qa_name) for documents included in TF-IDF
 
     print("\n--- Phase 0: Ingesting and Preprocessing Documents (with Caching) ---")
-    for qa_name, pdf_paths in qa_to_pdf_paths_map.items():
-        for pdf_path_str in pdf_paths:
+    for qa_name, doc_paths in qa_to_doc_paths_map .items():
+        for pdf_path_str in doc_paths:
             pdf_path = Path(pdf_path_str)
             cache_file_key = f"{pdf_path.stem}_{get_file_hash(pdf_path_str)}"  # More robust key
             cache_file_path = Path(CACHE_DIR) / f"{cache_file_key}.dat"  # .dat for shelve
@@ -629,7 +681,7 @@ def main():
 
             if not use_cache:
                 print(f"Processing: {pdf_path.name} (for QA: {qa_name})")
-                raw_text = extract_text_from_pdf(pdf_path_str)
+                raw_text = extract_text_from_document(pdf_path_str)
                 if raw_text:
                     current_file_hash = get_file_hash(pdf_path_str)
                     processed_tokens, stem_to_raw_map = preprocess_text_and_map(raw_text, pdf_path_str)
@@ -771,7 +823,7 @@ def main():
         # return
 
     # --- Phase 3: Analysis and Output (Per QA) ---
-    for qa_name_key, pdf_paths_for_qa in qa_to_pdf_paths_map.items():
+    for qa_name_key, pdf_paths_for_qa in qa_to_doc_paths_map .items():
         print(f"\n--- Processing Quality Attribute: {qa_name_key} ---")
 
         raw_seed_words_for_qa = SEED_WORDS_RAW_MAP.get(qa_name_key, [])
