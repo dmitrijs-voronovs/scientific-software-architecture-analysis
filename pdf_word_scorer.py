@@ -58,6 +58,61 @@ stop_words = set(stopwords.words('english'))
 #                      with TXT file support already integrated in find_documents_by_qa and extract_text_from_document)
 #                     I will redefine find_documents_by_qa and extract_text_from_document for completeness.
 
+def find_keyword_matches(term_series, seed_keyword_series):
+    """
+    Finds which seed keywords are contained within terms and vice-versa.
+
+    Args:
+        term_series (pd.Series): Series of processed terms (e.g., from QA_Refined_cTFIDF).
+        seed_keyword_series (pd.Series): Series of processed seed keywords.
+
+    Returns:
+        tuple: (
+            term_to_seed_matches (pd.DataFrame): DataFrame with 'Term (Processed)',
+                                                 'Matching Seed Count', 'Matching Seeds'.
+            seed_to_term_matches (dict): Dictionary mapping seed keywords to a list of
+                                         terms they were found in.
+        )
+    """
+    # Ensure seed keywords are unique and non-empty for efficient processing
+    unique_seeds = seed_keyword_series.dropna().unique()
+    unique_seeds = [s for s in unique_seeds if s.strip()]  # Filter out empty strings
+
+    term_matches_data = []
+    seed_to_term_lookup = defaultdict(set)  # Using set to avoid duplicate terms per seed
+
+    if not unique_seeds:  # No seeds to match against
+        for term in term_series.dropna().unique():
+            term_matches_data.append({
+                'Term (Processed)': term,
+                'Matching Seed Count': 0,
+                'Matching Seeds': ""
+            })
+        return pd.DataFrame(term_matches_data), {}
+
+    for term in term_series.dropna().unique():  # Iterate unique terms to avoid redundant calculations
+        current_matching_seeds = []
+        if not term.strip():  # Skip empty terms
+            continue
+        for seed in unique_seeds:
+            if seed in term:  # Check if seed is a substring of term
+                current_matching_seeds.append(seed)
+                seed_to_term_lookup[seed].add(term)
+
+        term_matches_data.append({
+            'Term (Processed)': term,
+            'Matching Seed Count': len(current_matching_seeds),
+            'Matching Seeds': ", ".join(sorted(list(set(current_matching_seeds))))  # Ensure unique, sorted seeds
+        })
+
+    # Convert the set of terms in seed_to_term_lookup to sorted comma-separated strings
+    final_seed_to_term_lookup = {
+        seed: ", ".join(sorted(list(terms)))
+        for seed, terms in seed_to_term_lookup.items()
+    }
+
+    return pd.DataFrame(term_matches_data), final_seed_to_term_lookup
+
 def find_documents_by_qa(base_dir):
     qa_to_documents = defaultdict(list)
     if not os.path.isdir(base_dir):
@@ -145,7 +200,7 @@ def format_original_words(original_set):  # Copied
 
 
 def get_term_frequencies(processed_doc_text_list):  # Copied
-    tf_vectorizer = CountVectorizer(ngram_range=(1, 1))
+    tf_vectorizer = CountVectorizer(ngram_range=(1, 1), tokenizer=lambda x: x.split())
     tf_matrix = tf_vectorizer.fit_transform(processed_doc_text_list)
     return tf_matrix, tf_vectorizer
 
@@ -436,21 +491,10 @@ def find_collocations_with_seeds(processed_tokens, stem_to_raw_map, processed_se
 # --- New Function for Refined c-TF-IDF Calculation ---
 def calculate_refined_c_tfidf(
         qa_name_current,
-        all_qa_data,  # Dict: {qa_name: {'tokens': [list_of_tokens], 'stem_to_raw': map, 'num_docs': count}}
-        global_term_idf_map,  # From standard TfidfVectorizer (term -> global IDF score)
-        global_term_doc_count_map  # From CountVectorizer (term -> global document frequency)
+        all_qa_data,
+        global_term_idf_map,
+        global_term_doc_count_map
 ):
-    """
-    Calculates refined c-TF-IDF scores and other useful metrics for a specific QA.
-    Args:
-        qa_name_current: The name of the current QA.
-        all_qa_data: Dict mapping QA names to their aggregated data
-                     (importantly 'tokens', 'stem_to_raw', and 'num_docs' in this QA).
-        global_term_idf_map: Map of term to its global IDF score.
-        global_term_doc_count_map: Map of term to its global document frequency count.
-    Returns:
-        A pandas DataFrame with detailed scores for the given qa_name.
-    """
     if qa_name_current not in all_qa_data or not all_qa_data[qa_name_current]['tokens']:
         return pd.DataFrame()
 
@@ -459,77 +503,74 @@ def calculate_refined_c_tfidf(
     current_qa_stem_to_raw_map = current_qa_data['stem_to_raw']
     num_docs_in_current_qa = current_qa_data['num_docs']
 
-    sum_tf_tc = FreqDist(current_qa_total_tokens)  # Summed TF(t,c) for this QA
+    sum_tf_tc = FreqDist(current_qa_total_tokens)
 
     term_doc_count_in_qa = defaultdict(int)
-    if 'per_doc_token_sets' in current_qa_data:
+    if 'per_doc_token_sets' in current_qa_data and current_qa_data['per_doc_token_sets']:
         for doc_token_set in current_qa_data['per_doc_token_sets']:
-            for term in sum_tf_tc.keys():
-                if term in doc_token_set:
-                    term_doc_count_in_qa[term] += 1
+            for term_in_doc in doc_token_set:
+                if term_in_doc in sum_tf_tc:
+                    term_doc_count_in_qa[term_in_doc] += 1
     else:
         for term in sum_tf_tc.keys():
-            if sum_tf_tc[term] > 0: term_doc_count_in_qa[term] = max(1, term_doc_count_in_qa.get(term, 0))
+            if sum_tf_tc[term] > 0:
+                term_doc_count_in_qa[term] = max(1, term_doc_count_in_qa.get(term, 0))
 
     N_total_classes = len(all_qa_data)
     if N_total_classes == 0: return pd.DataFrame()
 
-    term_to_class_count_map = defaultdict(int)  # |C_t|
-    for term_in_current_qa in sum_tf_tc.keys():  # Only calculate |Ct| for terms present in current QA
-        for other_qa_name, data in all_qa_data.items():
-            # Check if term exists in the other QA's aggregated tokens (less precise but faster)
-            # or if 'per_doc_token_sets' is available for other QAs, check against those
-            if term_in_current_qa in set(data.get('tokens', [])):  # Check against unique tokens of other QAs
-                term_to_class_count_map[term_in_current_qa] += 1
-        if term_to_class_count_map.get(term_in_current_qa, 0) == 0:  # Ensure current class is counted
-            term_to_class_count_map[term_in_current_qa] = 1
+    unique_tokens_for_all_qas = {
+        qa_n: set(qa_d.get('tokens', []))
+        for qa_n, qa_d in all_qa_data.items()
+    }
+
+    term_to_class_count_map = defaultdict(int)
+    for term_in_current_qa in sum_tf_tc.keys():
+        count = 0
+        for qa_name_other in all_qa_data.keys():
+            if term_in_current_qa in unique_tokens_for_all_qas[qa_name_other]:
+                count += 1
+        term_to_class_count_map[term_in_current_qa] = count if count > 0 else 1
 
     output_data = []
     for term, total_tf_in_qa in sum_tf_tc.items():
-        doc_count_term_in_qa = term_doc_count_in_qa.get(term, 0)
-        avg_tf_in_qa_present_docs = total_tf_in_qa / doc_count_term_in_qa if doc_count_term_in_qa > 0 else 0.0
+        doc_count_term_in_qa_val = term_doc_count_in_qa.get(term, 0)
+
+        if total_tf_in_qa > 0 and doc_count_term_in_qa_val == 0:
+            doc_count_term_in_qa_val = 1 # Local consistency check for QA data
+
+        avg_tf_in_qa_present_docs = total_tf_in_qa / doc_count_term_in_qa_val if doc_count_term_in_qa_val > 0 else 0.0
         avg_tf_in_qa_all_docs = total_tf_in_qa / num_docs_in_current_qa if num_docs_in_current_qa > 0 else 0.0
 
         num_classes_containing_term = term_to_class_count_map.get(term, 1)
         class_idf_score = 0.0
-        # Using log(1 + N/|Ct|) for more stability and to avoid negative if N/|Ct| < 1 (though unlikely)
         if num_classes_containing_term > 0:
             class_idf_score = math.log(1 + (N_total_classes / num_classes_containing_term))
 
         c_tfidf_sum_tf = total_tf_in_qa * class_idf_score
+        c_tfidf_avg_tf_present = avg_tf_in_qa_present_docs * class_idf_score
+        c_tfidf_avg_tf_all_qa_docs = avg_tf_in_qa_all_docs * class_idf_score
 
+        # Get global values directly from the maps.
+        # With the fix in get_term_frequencies, these maps should now be accurate
+        # and contain all terms from your preprocessing.
         global_idf_val = global_term_idf_map.get(term, 0.0)
         global_doc_freq_val = global_term_doc_count_map.get(term, 0)
-        if global_doc_freq_val == 0 and total_tf_in_qa > 0:  # If term is in QA, GDF should be >=1
-            # This indicates a potential mismatch or error in GDF calculation.
-            # For robustness in this score, let's assume at least 1 if it's present in QA.
-            # A warning should be logged elsewhere if this happens frequently.
-            # print(f"Warning: Term '{term}' has SummedTF>0 in QA but GlobalDocFreq=0. Adjusting GDF to 1 for scoring.")
-            effective_global_doc_freq_for_score = 1
-        else:
-            effective_global_doc_freq_for_score = global_doc_freq_val
 
-        # New "Pervasive & Unique Score" (PUS)
-        # PUS_Factor = (Doc Count in QA / Total Docs in QA) / (Global Doc Freq / Total Corpus Docs)
-        # To avoid zero division and give some weight, add 1 to denominators.
-        # Also, if Doc Count in QA is 0, this factor should be 0.
-        pus_factor_numerator = doc_count_term_in_qa / num_docs_in_current_qa if num_docs_in_current_qa > 0 else 0
-        pus_factor_denominator = effective_global_doc_freq_for_score / total_corpus_docs if total_corpus_docs > 0 else 1  # Avoid div by zero
+        # If after the primary fix, global_doc_freq_val is STILL 0 for a term with total_tf_in_qa > 0,
+        # it would indicate a very subtle, remaining issue. However, the primary fix should prevent this.
+        # For the PUS factor, a GDF of 0 would cause division by 1 (GDF+1), which is fine.
+        # A GDF of 0 implies the term is unique to this QA or extremely rare and not picked up globally,
+        # which the PUS factor is designed to handle.
+        # If global_doc_freq_val is 0 BUT doc_count_term_in_qa_val > 0, this means the term
+        # was found in this QA, but not in the global count. This should now be extremely unlikely.
+        # The `+1` in PUS factor denominator handles GDF being 0.
 
-        # Ensure denominator isn't zero for the factor itself
-        pus_factor = 0
-        if pus_factor_denominator > 1e-9:  # Avoid division by very small number close to zero
-            pus_factor = pus_factor_numerator / pus_factor_denominator
-        else:  # If global doc freq is essentially zero relative to corpus size
-            if pus_factor_numerator > 0:  # If it's present in QA
-                pus_factor = pus_factor_numerator * 100  # Heavily boost if rare globally but present in QA (arbitrary boost)
-
-        # Let's use a simpler PUS factor directly from your intuition: DocCount_in_QA / (GlobalDocFreq + 1)
-        # This factor is simpler and more direct.
-        pus_factor_simple = doc_count_term_in_qa / (
-                    effective_global_doc_freq_for_score + 1)  # Add 1 to GDF for smoothing
+        pus_factor_simple = doc_count_term_in_qa_val / (global_doc_freq_val + 1)
 
         refined_score_sumtf_pus = c_tfidf_sum_tf * pus_factor_simple
+        refined_score_avgtf_present_pus = c_tfidf_avg_tf_present * pus_factor_simple
+        refined_score_avgtf_all_qa_pus = c_tfidf_avg_tf_all_qa_docs * pus_factor_simple
 
         original_words = format_original_words(current_qa_stem_to_raw_map.get(term, {term}))
 
@@ -538,25 +579,31 @@ def calculate_refined_c_tfidf(
             'Original Word(s)': original_words,
             'Summed TF (in QA)': total_tf_in_qa,
             'Avg TF (QA docs with term)': avg_tf_in_qa_present_docs,
-            # 'Avg TF (all QA docs)': avg_tf_in_qa_all_docs, # Can be re-added if needed
-            'Doc Count (in QA)': doc_count_term_in_qa,
+            'Avg TF (all QA docs)': avg_tf_in_qa_all_docs,
+            'Doc Count (in QA)': doc_count_term_in_qa_val,
             'N (Total QAs)': N_total_classes,
             '|Ct| (QAs with Term)': num_classes_containing_term,
-            'c-IDF (log(1+N/|Ct|))': class_idf_score,  # Modified c-IDF slightly
+            'c-IDF (log(1+N/|Ct|))': class_idf_score,
             'c-TF-IDF (SumTF)': c_tfidf_sum_tf,
-            # 'c-TF-IDF (AvgTF_present)': avg_tf_in_qa_present_docs * class_idf_score,
+            'c-TF-IDF (AvgTF_present)': c_tfidf_avg_tf_present,
+            'c-TF-IDF (AvgTF_all_QA_docs)': c_tfidf_avg_tf_all_qa_docs,
             'Global IDF': global_idf_val,
-            'Global Doc Freq': global_doc_freq_val,  # Report actual GDF
+            'Global Doc Freq': global_doc_freq_val, # Now reporting the direct value from the corrected map
             'PUS Factor (DC_QA / (GDF+1))': pus_factor_simple,
-            'Refined Score (cTFIDF_Sum * PUS_Factor)': refined_score_sumtf_pus
+            'Refined Score (cTFIDF_Sum * PUS)': refined_score_sumtf_pus,
+            'Refined Score (cTFIDF_AvgPresent * PUS)': refined_score_avgtf_present_pus,
+            'Refined Score (cTFIDF_AvgAllQA * PUS)': refined_score_avgtf_all_qa_pus
         })
 
     df_ctfidf = pd.DataFrame(output_data)
     if not df_ctfidf.empty:
-        df_ctfidf = df_ctfidf.sort_values(by='Refined Score (cTFIDF_Sum * PUS_Factor)', ascending=False).reset_index(
-            drop=True)
+        df_ctfidf = df_ctfidf.sort_values(
+            by=['Refined Score (cTFIDF_Sum * PUS)',
+                'Refined Score (cTFIDF_AvgPresent * PUS)',
+                'Refined Score (cTFIDF_AvgAllQA * PUS)'],
+            ascending=[False, False, False]
+        ).reset_index(drop=True)
     return df_ctfidf
-
 # --- Modified `main()` function ---
 def main():
     # ensure_nltk_resources()  # Call this to ensure NLTK data is present
@@ -586,8 +633,10 @@ def main():
 
     print("\n--- Phase 0: Ingesting and Preprocessing Documents (with Caching) ---")
     for qa_name, doc_paths in qa_to_doc_paths_map.items():
+        print("\n--- Processing Quality Attribute: {qa_name} ---")
         num_docs_processed_for_this_qa = 0
         for doc_path_str in doc_paths:
+            print(f"Processing {doc_path_str}")
             doc_path_obj = Path(doc_path_str)
             current_file_hash = get_file_hash(doc_path_str)
 
@@ -747,6 +796,7 @@ def main():
     for qa_name_key, doc_paths_for_qa in qa_to_doc_paths_map.items():
         print(f"\n--- Processing Quality Attribute: {qa_name_key} ---")
         raw_seed_words_for_qa = SEED_WORDS_RAW_MAP.get(qa_name_key, [])
+        df_seed_keywords_qa = pd.DataFrame(prepare_seed_keywords_sheet_data(raw_seed_words_for_qa))
         processed_seeds_for_qa = process_seed_keywords(raw_seed_words_for_qa, expand_synonyms=EXPAND_SEED_SYNONYMS)
 
         qa_doc_global_indices = [m['global_idx'] for m in doc_metadata_for_tfidf_fitting if m['qa'] == qa_name_key]
@@ -775,6 +825,53 @@ def main():
             global_term_doc_count_map or defaultdict(int)  # Provide default
         )
 
+        if not df_refined_ctfidf_qa.empty and not df_seed_keywords_qa.empty and \
+                'Term (Processed)' in df_refined_ctfidf_qa.columns and \
+                'Processed Seed Keyword' in df_seed_keywords_qa.columns:
+
+            print(f"Calculating keyword matches for QA: {qa_name_key}")
+            term_series_for_matching = df_refined_ctfidf_qa['Term (Processed)']
+            seed_series_for_matching = df_seed_keywords_qa['Processed Seed Keyword']
+
+            term_to_seed_matches_df, seed_to_term_lookup_for_qa = find_keyword_matches(
+                term_series_for_matching,
+                seed_series_for_matching
+            )
+
+            # Merge results into df_refined_ctfidf_qa
+            if not term_to_seed_matches_df.empty:
+                df_refined_ctfidf_qa = pd.merge(
+                    df_refined_ctfidf_qa,
+                    term_to_seed_matches_df,
+                    on='Term (Processed)',
+                    how='left'  # Keep all terms from df_refined_ctfidf_qa
+                )
+                # Fill NaN for terms that had no matches (if any, though find_keyword_matches should cover all)
+                df_refined_ctfidf_qa['Matching Seed Count'] = df_refined_ctfidf_qa['Matching Seed Count'].fillna(
+                    0).astype(int)
+                df_refined_ctfidf_qa['Matching Seeds'] = df_refined_ctfidf_qa['Matching Seeds'].fillna("")
+
+            # Prepare data to merge into df_seed_keywords_qa
+            if seed_to_term_lookup_for_qa:
+                seed_match_counts = {seed: len(terms.split(", ")) if terms else 0 for seed, terms in
+                                     seed_to_term_lookup_for_qa.items()}
+
+                df_seed_keywords_qa['Term Match Count'] = df_seed_keywords_qa['Processed Seed Keyword'].map(
+                    seed_match_counts).fillna(0).astype(int)
+                df_seed_keywords_qa['Matching Terms'] = df_seed_keywords_qa['Processed Seed Keyword'].map(
+                    seed_to_term_lookup_for_qa).fillna("")
+
+        else:
+            # If one of the DFs is empty or columns are missing, add empty columns to maintain structure
+            if not df_refined_ctfidf_qa.empty:
+                df_refined_ctfidf_qa['Matching Seed Count'] = 0
+                df_refined_ctfidf_qa['Matching Seeds'] = ""
+            if not df_seed_keywords_qa.empty:
+                df_seed_keywords_qa['Term Match Count'] = 0
+                df_seed_keywords_qa['Matching Terms'] = ""
+            print(f"Skipping keyword matching for QA: {qa_name_key} due to missing data or columns.")
+
+
         current_qa_tokens_for_ngram_colloc = all_qa_data_for_ctfidf[qa_name_key]['tokens']
         df_bigrams_qa = extract_ngrams(current_qa_tokens_for_ngram_colloc, current_qa_aggregated_stem_map, n=2,
                                        num_top_ngrams=NUM_TOP_BIGRAMS)
@@ -787,10 +884,11 @@ def main():
                                                           current_qa_aggregated_stem_map, processed_seeds_for_qa,
                                                           NUM_COLLOCATIONS_SEEDS, COLLOCATION_WINDOW_SIZE)
 
-        df_seed_keywords_qa = pd.DataFrame(prepare_seed_keywords_sheet_data(raw_seed_words_for_qa))
 
         safe_qa_name = "".join(c if c.isalnum() else "_" for c in qa_name_key)
-        output_excel_qa_path = f"keyword_analysis_refined_{safe_qa_name}.xlsx"
+        keyword_analysis_dir = "metadata/keyword_analysis"
+        os.makedirs(keyword_analysis_dir, exist_ok=True)
+        output_excel_qa_path = f"{keyword_analysis_dir}/keyword_analysis_{safe_qa_name}.xlsx"
         print(f"--- Saving results for {qa_name_key} to {output_excel_qa_path} ---")
         try:
             with pd.ExcelWriter(output_excel_qa_path, engine='openpyxl') as writer:
