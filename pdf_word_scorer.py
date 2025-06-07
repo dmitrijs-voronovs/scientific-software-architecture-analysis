@@ -199,8 +199,12 @@ def format_original_words(original_set):  # Copied
     return f"({', '.join(sorted(list(original_set)))})"
 
 
+def space_tokenizer(text):
+    return text.split()
+
+
 def get_term_frequencies(processed_doc_text_list):  # Copied
-    tf_vectorizer = CountVectorizer(ngram_range=(1, 1), tokenizer=lambda x: x.split())
+    tf_vectorizer = CountVectorizer(ngram_range=(1, 1), tokenizer=space_tokenizer)
     tf_matrix = tf_vectorizer.fit_transform(processed_doc_text_list)
     return tf_matrix, tf_vectorizer
 
@@ -886,9 +890,9 @@ def main():
 
 
         safe_qa_name = "".join(c if c.isalnum() else "_" for c in qa_name_key)
-        keyword_analysis_dir = "metadata/keyword_analysis"
-        os.makedirs(keyword_analysis_dir, exist_ok=True)
-        output_excel_qa_path = f"{keyword_analysis_dir}/keyword_analysis_{safe_qa_name}.xlsx"
+        keyword_scoring_dir = "metadata/keyword_scoring"
+        os.makedirs(keyword_scoring_dir, exist_ok=True)
+        output_excel_qa_path = f"{keyword_scoring_dir}/keyword_scoring_{safe_qa_name}.xlsx"
         print(f"--- Saving results for {qa_name_key} to {output_excel_qa_path} ---")
         try:
             with pd.ExcelWriter(output_excel_qa_path, engine='openpyxl') as writer:
