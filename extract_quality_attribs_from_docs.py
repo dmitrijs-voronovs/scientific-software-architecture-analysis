@@ -81,7 +81,11 @@ class KeywordParser:
 
     @staticmethod
     def get_keyword_matching_pattern(keywords):
-        return re.compile(rf'\b({"|".join(keywords)})[a-z-]*\b', re.IGNORECASE)
+        sorted_keywords = sorted(keywords, key=lambda x: (x[0], -len(x)))
+        end_pattern = re.compile(r'[a-z-]*\b')
+        separator = re.compile(rf"{end_pattern.pattern} \b")
+        composed_keywords_with_correct_delimiters = [separator.pattern.join(k.split(" ")) if " " in k else k for k in sorted_keywords]
+        return re.compile(rf'\b({"|".join(composed_keywords_with_correct_delimiters)}){end_pattern.pattern}', re.IGNORECASE)
 
     @staticmethod
     def _strip_html_tags(html_content: str) -> str:
