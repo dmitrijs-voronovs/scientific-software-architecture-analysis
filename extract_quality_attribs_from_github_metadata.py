@@ -436,7 +436,7 @@ class DB:
                 "_id": None,
                 "totalComments": {"$sum": "$comments_count"}
             }}
-        ])
+        ]).to_list()
 
 
 def get_all_keywords_pattern(quality_attributes_map: QualityAttributesMap):
@@ -470,7 +470,6 @@ def main():
         print(f"Parsing github metadata for {creds}")
         # fetcher = GitHubDataFetcher(token, creds)
         db = DB(creds)
-        print(db.count_comments())
 
         # print("Fetching issues...")
         # for issues in fetcher.get_issues():
