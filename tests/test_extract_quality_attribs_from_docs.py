@@ -1,6 +1,4 @@
-import pytest
-
-from extract_quality_attribs_from_docs import KeywordParser
+from processing_pipeline.keyword_matching.extract_quality_attribs_from_docs import KeywordParser
 
 
 def test_keyword_extraction_patter():
