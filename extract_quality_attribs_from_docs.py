@@ -193,8 +193,10 @@ def save_to_file(records: List[FullMatch], source: MatchSource, creds: Credentia
 if __name__ == "__main__":
     docs_path = Path(".tmp/docs")
     source_code_path = Path(".tmp/source")
+    cache_dir = Path(".cache/keyword_extraction")
+    os.makedirs(cache_dir, exist_ok=True)
 
-    run_id = "keyword_extraction_code_comments"
+    run_id = "23.06.2025"
     logger.add(create_logger_path(run_id), mode="w")
 
     # creds = Credentials(author="scverse", repo="scanpy", version="1.10.2", wiki="scanpy.readthedocs.io/en")
@@ -204,7 +206,7 @@ if __name__ == "__main__":
 
     # credential_list2 = [creds]
 
-    with shelve.open(f".cache/{run_id}") as db:
+    with shelve.open(f".cache/keyword_extraction/{run_id}") as db:
         last_processed = db.get("last_processed", None)
         for creds in credential_list:
             if creds.get_ref() == last_processed:
