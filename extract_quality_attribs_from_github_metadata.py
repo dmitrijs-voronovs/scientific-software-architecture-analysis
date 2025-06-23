@@ -19,7 +19,7 @@ from tqdm import tqdm
 
 from extract_quality_attribs_from_docs import KeywordParser, \
     FullMatch, MatchSource, save_to_file
-from metadata.repo_info.repo_info import credential_list
+from metadata.repo_info.repo_info import credential_list, all_credentials
 from model.Credentials import Credentials
 from quality_attributes import QualityAttributesMap, quality_attributes
 from services.MongoDBConnection import MongoDBConnection
@@ -430,6 +430,14 @@ class DB:
             }
         ])
 
+    def count_comments(self):
+        return self._issue_collection().aggregate([
+            {"$group": {
+                "_id": None,
+                "totalComments": {"$sum": "$comments_count"}
+            }}
+        ])
+
 
 def get_all_keywords_pattern(quality_attributes_map: QualityAttributesMap):
     all_keywords = itertools.chain(*quality_attributes_map.values())
@@ -458,10 +466,11 @@ def save_matched_keywords(creds, db, quality_attributes_map: QualityAttributesMa
 
 def main():
     token = os.getenv('GITHUB_TOKEN')
-    for creds in credential_list:
+    for creds in all_credentials:
         print(f"Parsing github metadata for {creds}")
-        fetcher = GitHubDataFetcher(token, creds)
+        # fetcher = GitHubDataFetcher(token, creds)
         db = DB(creds)
+        print(db.count_comments())
 
         # print("Fetching issues...")
         # for issues in fetcher.get_issues():
@@ -471,7 +480,7 @@ def main():
         # for releases in fetcher.get_releases(20):
         #     db.insert_releases(releases)
 
-        save_matched_keywords(creds, db, quality_attributes)
+        # save_matched_keywords(creds, db, quality_attributes)
 
     print("Done!")
 
