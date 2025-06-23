@@ -1,3 +1,4 @@
+import math
 import os
 import re
 import shelve
@@ -115,49 +116,21 @@ class KeywordParser:
 
     @staticmethod
     def get_match_context(text: str, match_start: int, match_end: int) -> str:
+        """ Returns a context string of length `KeywordParser.context_length` centered around the match. """
         if len(text) < KeywordParser.context_length:
             return text
 
-        sentence_start, sentence_end = KeywordParser._get_match_sentence(text, match_start, match_end)
-        sentence_len = sentence_end - sentence_start
-        left_context = KeywordParser.context_length - sentence_len
-        delta_side = abs(left_context) // 2
-
-        if left_context < 0:
-            return KeywordParser._extract_sentence_segment(text, match_end, match_start, sentence_start, sentence_end)
-
-        left_side = sentence_start - delta_side
-        right_side = sentence_end + delta_side
-        if left_side < 0:
-            return text[:KeywordParser.context_length + 1]
-        if right_side > len(text):
-            return text[-KeywordParser.context_length:]
-        return text[left_side: right_side + 1]
-
-    @staticmethod
-    def _extract_sentence_segment(text, match_end, match_start, sentence_start, sentence_end):
         match_len = match_end - match_start
-        to_fill = KeywordParser.context_length - match_len
-        to_fill_side = to_fill // 2
-        segment_from_beginning_end, segment_from_end_start = sentence_start + to_fill_side, sentence_end - to_fill_side
-        if match_start < segment_from_beginning_end:
-            return text[sentence_start: KeywordParser.context_length + 1]
-        elif match_end > segment_from_end_start:
-            return text[sentence_end - KeywordParser.context_length: sentence_end + 1]
-        else:
-            return text[match_start - to_fill_side: match_end + to_fill_side + 1]
+        remaining = KeywordParser.context_length - match_len
+        remaining_left = remaining // 2
+        remaining_right = remaining - remaining_left
 
-    @staticmethod
-    def _get_match_sentence(text: str, match_start: int, match_end: int) -> Tuple[int, int]:
-        sentence_start, sentence_end = match_start, match_end
-        while sentence_start >= 0 and text[sentence_start] != '.':
-            sentence_start -= 1
-        if sentence_start > 0:
-            sentence_start += 1
-        while sentence_end < len(text) and text[sentence_end] != '.':
-            sentence_end += 1
+        context_end = match_end + remaining_right
+        if context_end > len(text): return text[-KeywordParser.context_length:]
 
-        return sentence_start, sentence_end
+        context_start = match_start - remaining_left
+        if context_start < 0: return text[:KeywordParser.context_length]
+        return text[context_start: context_end]
 
     def parse_docs(self, docs_path: str) -> List[FullMatch]:
         repo_url = self.get_github_repo_url(self.creds)
