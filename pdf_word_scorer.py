@@ -890,7 +890,7 @@ def main():
 
 
         safe_qa_name = "".join(c if c.isalnum() else "_" for c in qa_name_key)
-        keyword_scoring_dir = "metadata/keyword_scoring"
+        keyword_scoring_dir = "data/keyword_scoring"
         os.makedirs(keyword_scoring_dir, exist_ok=True)
         output_excel_qa_path = f"{keyword_scoring_dir}/keyword_scoring_{safe_qa_name}.xlsx"
         print(f"--- Saving results for {qa_name_key} to {output_excel_qa_path} ---")

@@ -1,2 +1,0 @@
-quality_attribute,sentence,source,author,repo,version,id,keyword,matched_word,match_idx,wiki,url,total_similar,target_keywords,target_matched_words
-Usability,Support transfer learning,MatchSource.ISSUE,stardist,stardist,0.9.1,https://github.com/stardist/stardist/issues/126:17,learn,learning,17,,https://github.com/stardist/stardist/issues/126,1,['learn'],['learning']

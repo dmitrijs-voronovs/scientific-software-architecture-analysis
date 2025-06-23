@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSV viewer</title>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/vanillawc/wc-csv-table@1/index.js"></script>
+    <script src="./resource-paths.js"></script>
+</head>
+<body>
+
+<h1>CSV file viewer</h1>
+<h2 id="title"></h2>
+<div id="container"
+     style="display: flex; flex-direction: column; justify-content: space-around; max-width: 600px"></div>
+<wc-csv-table id="table"></wc-csv-table>
+
+<script>
+    function updateSelectedFile(file) {
+        const title = document.getElementById("title");
+        title.innerText = file;
+        const table = document.getElementById("table");
+        table.setAttribute('src', `csv/${file}`);
+    }
+
+    const container = document.getElementById("container");
+    for (const file of csv_files) {
+        const buttonNode = document.createElement("button");
+        buttonNode.onclick = () => updateSelectedFile(file);
+        buttonNode.innerText = file;
+        container.appendChild(buttonNode)
+    }
+</script>
+</body>
+</html>
