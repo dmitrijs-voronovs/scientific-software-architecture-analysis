@@ -1,0 +1,613 @@
+quality_attribute,sentence,source,author,repo,version,id,keyword,matched_word,match_idx,wiki,url,total_similar,target_keywords,target_matched_words,format_prompt,to_eliminate,reason
+Availability,Add progress bar for installation downloading,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/490:34,down,downloading,34,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/490,1,['down'],['downloading'],"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts intended mainly for machines or formal structure.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, critiques, or explanations of implementation/optimization strategies.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized (e.g., detailed explanations of model architecture, reasoning behind design choices, analysis of outcomes).
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, string literals in config files, documentation sections within code) **as long as the natural language prose component is substantial and provides meaningful human-readable context or explanation.**
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking significant natural language explanation or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations, pure boolean logic like `if (x > 5) { y = 1; }` without explanation).
+ - **Program output, logs, or error traces** (e.g., timestamps, error codes, stack traces, unit test results - these are typically diagnostic and not explanatory prose).
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data structures, simple Makefile rules, compiler flags lists without descriptive text).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, merge conflict markers, simple file path changes without a descriptive commit message).
+ - **Formal API signatures or technical interface definitions without accompanying prose** (e.g., `def my_function(param1: int) -> str:` without a docstring explaining *what* the function does or *why*).
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: Consists entirely of build logs and test failures, which are diagnostic artifacts, not human-readable prose explaining a concept.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``.
+**Answer:**
+to_eliminate: true
+reasoning: Primarily a formal technical specification of syntax with only minimal natural language labeling, not a substantial explanation.
+
+### Example 3
+**Content:** I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: Natural language explanation and analysis of performance trade-offs and future steps.
+
+### Example 4
+**Content:** The MemoryDef structure now keeps two operands: the defining access and the optimized access. This change allows faster walking of Def chains and enables caching.
+**Answer:**
+to_eliminate: false
+reasoning: Explains technical design changes in natural language with rationale.
+
+### Example 5
+**Content:** We propose SPECTER, a document-level embedding model trained using citation graphs. It improves scientific document classification without task-specific fine-tuning.
+**Answer:**
+to_eliminate: false
+reasoning: Describes an academic NLP model and its benefits in natural language.
+
+### Example 6
+**Content:** # Configure the learning rate using an exponential decay.
+**Answer:**
+to_eliminate: false
+reasoning: Although formatted as a code comment, the content is natural language providing a meaningful explanation of a technical strategy and its purpose.
+
+ ---
+
+ ## Now analyze ONLY the following content:
+
+ **Content to evaluate:**
+Add progress bar for installation downloading
+",False,"The content provides a clear instruction with a brief explanation, intended for human readers."
+Deployability,Add progress bar for installation downloading,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/490:21,install,installation,21,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/490,1,['install'],['installation'],"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts intended mainly for machines or formal structure.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, critiques, or explanations of implementation/optimization strategies.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized (e.g., detailed explanations of model architecture, reasoning behind design choices, analysis of outcomes).
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, string literals in config files, documentation sections within code) **as long as the natural language prose component is substantial and provides meaningful human-readable context or explanation.**
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking significant natural language explanation or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations, pure boolean logic like `if (x > 5) { y = 1; }` without explanation).
+ - **Program output, logs, or error traces** (e.g., timestamps, error codes, stack traces, unit test results - these are typically diagnostic and not explanatory prose).
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data structures, simple Makefile rules, compiler flags lists without descriptive text).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, merge conflict markers, simple file path changes without a descriptive commit message).
+ - **Formal API signatures or technical interface definitions without accompanying prose** (e.g., `def my_function(param1: int) -> str:` without a docstring explaining *what* the function does or *why*).
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: Consists entirely of build logs and test failures, which are diagnostic artifacts, not human-readable prose explaining a concept.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``.
+**Answer:**
+to_eliminate: true
+reasoning: Primarily a formal technical specification of syntax with only minimal natural language labeling, not a substantial explanation.
+
+### Example 3
+**Content:** I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: Natural language explanation and analysis of performance trade-offs and future steps.
+
+### Example 4
+**Content:** The MemoryDef structure now keeps two operands: the defining access and the optimized access. This change allows faster walking of Def chains and enables caching.
+**Answer:**
+to_eliminate: false
+reasoning: Explains technical design changes in natural language with rationale.
+
+### Example 5
+**Content:** We propose SPECTER, a document-level embedding model trained using citation graphs. It improves scientific document classification without task-specific fine-tuning.
+**Answer:**
+to_eliminate: false
+reasoning: Describes an academic NLP model and its benefits in natural language.
+
+### Example 6
+**Content:** # Configure the learning rate using an exponential decay.
+**Answer:**
+to_eliminate: false
+reasoning: Although formatted as a code comment, the content is natural language providing a meaningful explanation of a technical strategy and its purpose.
+
+ ---
+
+ ## Now analyze ONLY the following content:
+
+ **Content to evaluate:**
+Add progress bar for installation downloading
+",False,"The content provides a clear instruction with a brief explanation, intended for human readers."
+Deployability,installation guide of nmslib on Apple M2 Chip using Python 3.9,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/528:0,install,installation,0,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/528,1,['install'],['installation'],"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts intended mainly for machines or formal structure.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, critiques, or explanations of implementation/optimization strategies.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized (e.g., detailed explanations of model architecture, reasoning behind design choices, analysis of outcomes).
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, string literals in config files, documentation sections within code) **as long as the natural language prose component is substantial and provides meaningful human-readable context or explanation.**
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking significant natural language explanation or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations, pure boolean logic like `if (x > 5) { y = 1; }` without explanation).
+ - **Program output, logs, or error traces** (e.g., timestamps, error codes, stack traces, unit test results - these are typically diagnostic and not explanatory prose).
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data structures, simple Makefile rules, compiler flags lists without descriptive text).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, merge conflict markers, simple file path changes without a descriptive commit message).
+ - **Formal API signatures or technical interface definitions without accompanying prose** (e.g., `def my_function(param1: int) -> str:` without a docstring explaining *what* the function does or *why*).
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: Consists entirely of build logs and test failures, which are diagnostic artifacts, not human-readable prose explaining a concept.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``.
+**Answer:**
+to_eliminate: true
+reasoning: Primarily a formal technical specification of syntax with only minimal natural language labeling, not a substantial explanation.
+
+### Example 3
+**Content:** I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: Natural language explanation and analysis of performance trade-offs and future steps.
+
+### Example 4
+**Content:** The MemoryDef structure now keeps two operands: the defining access and the optimized access. This change allows faster walking of Def chains and enables caching.
+**Answer:**
+to_eliminate: false
+reasoning: Explains technical design changes in natural language with rationale.
+
+### Example 5
+**Content:** We propose SPECTER, a document-level embedding model trained using citation graphs. It improves scientific document classification without task-specific fine-tuning.
+**Answer:**
+to_eliminate: false
+reasoning: Describes an academic NLP model and its benefits in natural language.
+
+### Example 6
+**Content:** # Configure the learning rate using an exponential decay.
+**Answer:**
+to_eliminate: false
+reasoning: Although formatted as a code comment, the content is natural language providing a meaningful explanation of a technical strategy and its purpose.
+
+ ---
+
+ ## Now analyze ONLY the following content:
+
+ **Content to evaluate:**
+installation guide of nmslib on Apple M2 Chip using Python 3.9
+",False,"The content is a guide intended for human readers, providing instructions for installing a library on a specific hardware platform and Python version."
+Usability,Add progress bar for installation downloading,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/490:4,progress bar,progress bar,4,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/490,1,['progress bar'],['progress bar'],"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts intended mainly for machines or formal structure.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, critiques, or explanations of implementation/optimization strategies.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized (e.g., detailed explanations of model architecture, reasoning behind design choices, analysis of outcomes).
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, string literals in config files, documentation sections within code) **as long as the natural language prose component is substantial and provides meaningful human-readable context or explanation.**
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking significant natural language explanation or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations, pure boolean logic like `if (x > 5) { y = 1; }` without explanation).
+ - **Program output, logs, or error traces** (e.g., timestamps, error codes, stack traces, unit test results - these are typically diagnostic and not explanatory prose).
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data structures, simple Makefile rules, compiler flags lists without descriptive text).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, merge conflict markers, simple file path changes without a descriptive commit message).
+ - **Formal API signatures or technical interface definitions without accompanying prose** (e.g., `def my_function(param1: int) -> str:` without a docstring explaining *what* the function does or *why*).
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: Consists entirely of build logs and test failures, which are diagnostic artifacts, not human-readable prose explaining a concept.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``.
+**Answer:**
+to_eliminate: true
+reasoning: Primarily a formal technical specification of syntax with only minimal natural language labeling, not a substantial explanation.
+
+### Example 3
+**Content:** I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: Natural language explanation and analysis of performance trade-offs and future steps.
+
+### Example 4
+**Content:** The MemoryDef structure now keeps two operands: the defining access and the optimized access. This change allows faster walking of Def chains and enables caching.
+**Answer:**
+to_eliminate: false
+reasoning: Explains technical design changes in natural language with rationale.
+
+### Example 5
+**Content:** We propose SPECTER, a document-level embedding model trained using citation graphs. It improves scientific document classification without task-specific fine-tuning.
+**Answer:**
+to_eliminate: false
+reasoning: Describes an academic NLP model and its benefits in natural language.
+
+### Example 6
+**Content:** # Configure the learning rate using an exponential decay.
+**Answer:**
+to_eliminate: false
+reasoning: Although formatted as a code comment, the content is natural language providing a meaningful explanation of a technical strategy and its purpose.
+
+ ---
+
+ ## Now analyze ONLY the following content:
+
+ **Content to evaluate:**
+Add progress bar for installation downloading
+",False,"The content provides a clear instruction with a brief explanation, intended for human readers."
+Usability,Transfer learning of specialised NER model,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/335:9,learn,learning,9,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/335,1,['learn'],['learning'],"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts intended mainly for machines or formal structure.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, critiques, or explanations of implementation/optimization strategies.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized (e.g., detailed explanations of model architecture, reasoning behind design choices, analysis of outcomes).
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, string literals in config files, documentation sections within code) **as long as the natural language prose component is substantial and provides meaningful human-readable context or explanation.**
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking significant natural language explanation or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations, pure boolean logic like `if (x > 5) { y = 1; }` without explanation).
+ - **Program output, logs, or error traces** (e.g., timestamps, error codes, stack traces, unit test results - these are typically diagnostic and not explanatory prose).
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data structures, simple Makefile rules, compiler flags lists without descriptive text).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, merge conflict markers, simple file path changes without a descriptive commit message).
+ - **Formal API signatures or technical interface definitions without accompanying prose** (e.g., `def my_function(param1: int) -> str:` without a docstring explaining *what* the function does or *why*).
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: Consists entirely of build logs and test failures, which are diagnostic artifacts, not human-readable prose explaining a concept.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``.
+**Answer:**
+to_eliminate: true
+reasoning: Primarily a formal technical specification of syntax with only minimal natural language labeling, not a substantial explanation.
+
+### Example 3
+**Content:** I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: Natural language explanation and analysis of performance trade-offs and future steps.
+
+### Example 4
+**Content:** The MemoryDef structure now keeps two operands: the defining access and the optimized access. This change allows faster walking of Def chains and enables caching.
+**Answer:**
+to_eliminate: false
+reasoning: Explains technical design changes in natural language with rationale.
+
+### Example 5
+**Content:** We propose SPECTER, a document-level embedding model trained using citation graphs. It improves scientific document classification without task-specific fine-tuning.
+**Answer:**
+to_eliminate: false
+reasoning: Describes an academic NLP model and its benefits in natural language.
+
+### Example 6
+**Content:** # Configure the learning rate using an exponential decay.
+**Answer:**
+to_eliminate: false
+reasoning: Although formatted as a code comment, the content is natural language providing a meaningful explanation of a technical strategy and its purpose.
+
+ ---
+
+ ## Now analyze ONLY the following content:
+
+ **Content to evaluate:**
+Transfer learning of specialised NER model
+",True,The content is too brief and lacks substantial natural language explanation or analysis.
+Usability,Updating nmslib hyperparameters guide url,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/493:32,guid,guide,32,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/pull/493,1,['guid'],['guide'],"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts intended mainly for machines or formal structure.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, critiques, or explanations of implementation/optimization strategies.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized (e.g., detailed explanations of model architecture, reasoning behind design choices, analysis of outcomes).
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, string literals in config files, documentation sections within code) **as long as the natural language prose component is substantial and provides meaningful human-readable context or explanation.**
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking significant natural language explanation or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations, pure boolean logic like `if (x > 5) { y = 1; }` without explanation).
+ - **Program output, logs, or error traces** (e.g., timestamps, error codes, stack traces, unit test results - these are typically diagnostic and not explanatory prose).
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data structures, simple Makefile rules, compiler flags lists without descriptive text).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, merge conflict markers, simple file path changes without a descriptive commit message).
+ - **Formal API signatures or technical interface definitions without accompanying prose** (e.g., `def my_function(param1: int) -> str:` without a docstring explaining *what* the function does or *why*).
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: Consists entirely of build logs and test failures, which are diagnostic artifacts, not human-readable prose explaining a concept.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``.
+**Answer:**
+to_eliminate: true
+reasoning: Primarily a formal technical specification of syntax with only minimal natural language labeling, not a substantial explanation.
+
+### Example 3
+**Content:** I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: Natural language explanation and analysis of performance trade-offs and future steps.
+
+### Example 4
+**Content:** The MemoryDef structure now keeps two operands: the defining access and the optimized access. This change allows faster walking of Def chains and enables caching.
+**Answer:**
+to_eliminate: false
+reasoning: Explains technical design changes in natural language with rationale.
+
+### Example 5
+**Content:** We propose SPECTER, a document-level embedding model trained using citation graphs. It improves scientific document classification without task-specific fine-tuning.
+**Answer:**
+to_eliminate: false
+reasoning: Describes an academic NLP model and its benefits in natural language.
+
+### Example 6
+**Content:** # Configure the learning rate using an exponential decay.
+**Answer:**
+to_eliminate: false
+reasoning: Although formatted as a code comment, the content is natural language providing a meaningful explanation of a technical strategy and its purpose.
+
+ ---
+
+ ## Now analyze ONLY the following content:
+
+ **Content to evaluate:**
+Updating nmslib hyperparameters guide url
+",True,The content is a JSON object without any natural language explanation or context.
+Usability,add progress bar to http_get,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/496:4,progress bar,progress bar,4,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/pull/496,2,['progress bar'],['progress bar'],"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts intended mainly for machines or formal structure.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, critiques, or explanations of implementation/optimization strategies.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized (e.g., detailed explanations of model architecture, reasoning behind design choices, analysis of outcomes).
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, string literals in config files, documentation sections within code) **as long as the natural language prose component is substantial and provides meaningful human-readable context or explanation.**
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking significant natural language explanation or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations, pure boolean logic like `if (x > 5) { y = 1; }` without explanation).
+ - **Program output, logs, or error traces** (e.g., timestamps, error codes, stack traces, unit test results - these are typically diagnostic and not explanatory prose).
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data structures, simple Makefile rules, compiler flags lists without descriptive text).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, merge conflict markers, simple file path changes without a descriptive commit message).
+ - **Formal API signatures or technical interface definitions without accompanying prose** (e.g., `def my_function(param1: int) -> str:` without a docstring explaining *what* the function does or *why*).
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: Consists entirely of build logs and test failures, which are diagnostic artifacts, not human-readable prose explaining a concept.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``.
+**Answer:**
+to_eliminate: true
+reasoning: Primarily a formal technical specification of syntax with only minimal natural language labeling, not a substantial explanation.
+
+### Example 3
+**Content:** I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: Natural language explanation and analysis of performance trade-offs and future steps.
+
+### Example 4
+**Content:** The MemoryDef structure now keeps two operands: the defining access and the optimized access. This change allows faster walking of Def chains and enables caching.
+**Answer:**
+to_eliminate: false
+reasoning: Explains technical design changes in natural language with rationale.
+
+### Example 5
+**Content:** We propose SPECTER, a document-level embedding model trained using citation graphs. It improves scientific document classification without task-specific fine-tuning.
+**Answer:**
+to_eliminate: false
+reasoning: Describes an academic NLP model and its benefits in natural language.
+
+### Example 6
+**Content:** # Configure the learning rate using an exponential decay.
+**Answer:**
+to_eliminate: false
+reasoning: Although formatted as a code comment, the content is natural language providing a meaningful explanation of a technical strategy and its purpose.
+
+ ---
+
+ ## Now analyze ONLY the following content:
+
+ **Content to evaluate:**
+add progress bar to http_get
+",False,"The content suggests adding a feature (progress bar) to an existing function (http_get), which is a developer's discussion about implementation strategies."
+Usability,any guidance on ontonotes prep?,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/421:4,guid,guidance,4,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/421,1,['guid'],['guidance'],"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts intended mainly for machines or formal structure.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, critiques, or explanations of implementation/optimization strategies.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized (e.g., detailed explanations of model architecture, reasoning behind design choices, analysis of outcomes).
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, string literals in config files, documentation sections within code) **as long as the natural language prose component is substantial and provides meaningful human-readable context or explanation.**
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking significant natural language explanation or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations, pure boolean logic like `if (x > 5) { y = 1; }` without explanation).
+ - **Program output, logs, or error traces** (e.g., timestamps, error codes, stack traces, unit test results - these are typically diagnostic and not explanatory prose).
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data structures, simple Makefile rules, compiler flags lists without descriptive text).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, merge conflict markers, simple file path changes without a descriptive commit message).
+ - **Formal API signatures or technical interface definitions without accompanying prose** (e.g., `def my_function(param1: int) -> str:` without a docstring explaining *what* the function does or *why*).
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: Consists entirely of build logs and test failures, which are diagnostic artifacts, not human-readable prose explaining a concept.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``.
+**Answer:**
+to_eliminate: true
+reasoning: Primarily a formal technical specification of syntax with only minimal natural language labeling, not a substantial explanation.
+
+### Example 3
+**Content:** I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: Natural language explanation and analysis of performance trade-offs and future steps.
+
+### Example 4
+**Content:** The MemoryDef structure now keeps two operands: the defining access and the optimized access. This change allows faster walking of Def chains and enables caching.
+**Answer:**
+to_eliminate: false
+reasoning: Explains technical design changes in natural language with rationale.
+
+### Example 5
+**Content:** We propose SPECTER, a document-level embedding model trained using citation graphs. It improves scientific document classification without task-specific fine-tuning.
+**Answer:**
+to_eliminate: false
+reasoning: Describes an academic NLP model and its benefits in natural language.
+
+### Example 6
+**Content:** # Configure the learning rate using an exponential decay.
+**Answer:**
+to_eliminate: false
+reasoning: Although formatted as a code comment, the content is natural language providing a meaningful explanation of a technical strategy and its purpose.
+
+ ---
+
+ ## Now analyze ONLY the following content:
+
+ **Content to evaluate:**
+any guidance on ontonotes prep?
+",True,"The content is a casual query about preparation for a test, which may be intended for human readers but lacks substantial natural language explanation or analysis. It's more of a direct question without context."
+Usability,installation guide of nmslib on Apple M2 Chip using Python 3.9,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/528:13,guid,guide,13,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/528,1,['guid'],['guide'],"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts intended mainly for machines or formal structure.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, analysis, critiques, or explanations of implementation/optimization strategies.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized (e.g., detailed explanations of model architecture, reasoning behind design choices, analysis of outcomes).
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, string literals in config files, documentation sections within code) **as long as the natural language prose component is substantial and provides meaningful human-readable context or explanation.**
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking significant natural language explanation or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations, pure boolean logic like `if (x > 5) { y = 1; }` without explanation).
+ - **Program output, logs, or error traces** (e.g., timestamps, error codes, stack traces, unit test results - these are typically diagnostic and not explanatory prose).
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data structures, simple Makefile rules, compiler flags lists without descriptive text).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, merge conflict markers, simple file path changes without a descriptive commit message).
+ - **Formal API signatures or technical interface definitions without accompanying prose** (e.g., `def my_function(param1: int) -> str:` without a docstring explaining *what* the function does or *why*).
+
+## Examples (for reference only – do not analyze):
+
+### Example 1
+**Content:** Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: Consists entirely of build logs and test failures, which are diagnostic artifacts, not human-readable prose explaining a concept.
+
+### Example 2
+**Content:** recision><conversion specifier>`` where:. * ``#`` is an optional flag available for hex values (see; ``<conversion specifier>`` below) which requires the value matched to be; prefixed by ``0x``.; * ``.<precision>`` is an optional printf-style precision specifier in which; ``<precision>`` indicates the minimum number of digits that the value matched; must have, expecting leading zeros if needed. * ``<conversion specifier>`` is an optional scanf-style conversion specifier; to indicate what number format to match (e.g. hex number). Currently; accepted format specifiers are ``%u``, ``%d``, ``%x`` and ``%X``.
+**Answer:**
+to_eliminate: true
+reasoning: Primarily a formal technical specification of syntax with only minimal natural language labeling, not a substantial explanation.
+
+### Example 3
+**Content:** I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: Natural language explanation and analysis of performance trade-offs and future steps.
+
+### Example 4
+**Content:** The MemoryDef structure now keeps two operands: the defining access and the optimized access. This change allows faster walking of Def chains and enables caching.
+**Answer:**
+to_eliminate: false
+reasoning: Explains technical design changes in natural language with rationale.
+
+### Example 5
+**Content:** We propose SPECTER, a document-level embedding model trained using citation graphs. It improves scientific document classification without task-specific fine-tuning.
+**Answer:**
+to_eliminate: false
+reasoning: Describes an academic NLP model and its benefits in natural language.
+
+### Example 6
+**Content:** # Configure the learning rate using an exponential decay.
+**Answer:**
+to_eliminate: false
+reasoning: Although formatted as a code comment, the content is natural language providing a meaningful explanation of a technical strategy and its purpose.
+
+ ---
+
+ ## Now analyze ONLY the following content:
+
+ **Content to evaluate:**
+installation guide of nmslib on Apple M2 Chip using Python 3.9
+",False,"The content is a natural language installation guide intended for human readers, providing step-by-step instructions and explanation."

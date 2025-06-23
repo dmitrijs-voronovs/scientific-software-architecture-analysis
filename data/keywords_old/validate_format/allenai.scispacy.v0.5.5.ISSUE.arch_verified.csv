@@ -1,0 +1,190 @@
+quality_attribute,sentence,source,author,repo,version,id,keyword,matched_word,match_idx,wiki,url,total_similar,target_keywords,target_matched_words,format_prompt,to_eliminate,reason
+Availability,Add progress bar for installation downloading,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/490:34,down,downloading,34,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/490,1,['down'],['downloading'],"You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given text contains meaningful human-readable sentences or if it consists primarily of logs, code samples, or programmatic API description that should be filtered out.
+
+For each input text, analyze it and determine:
+1. Whether it should be eliminated (true/false)
+2. The reason for elimination (if applicable)
+
+Evaluation criteria:
+- Eliminate text that consists primarily of:
+  * Code snippets or samples (marked by syntax, keywords like ""if/else"", brackets, etc.)
+  * Program logs or error messages (timestamps, error codes, stack traces)
+  * API documentation or specifications (parameter lists, return types)
+  * Configuration files or build system output
+  * Version control metadata or comments
+  * Compiler/interpreter output or warnings
+- Keep text that contains:
+  * Complete, meaningful sentences in natural language
+  * Explanatory or descriptive content
+  * Human-written prose discussing concepts or ideas
+
+Content: Add progress bar for installation downloading
+",False,"The text is a brief instruction about adding a progress bar during the installation downloading process, which is a complete and meaningful human-readable sentence. It does not contain code snippets, logs, API documentation, or other programmatic content."
+Deployability,Add progress bar for installation downloading,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/490:21,install,installation,21,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/490,1,['install'],['installation'],"You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given text contains meaningful human-readable sentences or if it consists primarily of logs, code samples, or programmatic API description that should be filtered out.
+
+For each input text, analyze it and determine:
+1. Whether it should be eliminated (true/false)
+2. The reason for elimination (if applicable)
+
+Evaluation criteria:
+- Eliminate text that consists primarily of:
+  * Code snippets or samples (marked by syntax, keywords like ""if/else"", brackets, etc.)
+  * Program logs or error messages (timestamps, error codes, stack traces)
+  * API documentation or specifications (parameter lists, return types)
+  * Configuration files or build system output
+  * Version control metadata or comments
+  * Compiler/interpreter output or warnings
+- Keep text that contains:
+  * Complete, meaningful sentences in natural language
+  * Explanatory or descriptive content
+  * Human-written prose discussing concepts or ideas
+
+Content: Add progress bar for installation downloading
+",False,"The text is a complete and meaningful sentence that describes adding a progress bar for installation downloads. It does not consist of code snippets, logs, API documentation, or other programmatic content."
+Deployability,installation guide of nmslib on Apple M2 Chip using Python 3.9,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/528:0,install,installation,0,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/528,1,['install'],['installation'],"You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given text contains meaningful human-readable sentences or if it consists primarily of logs, code samples, or programmatic API description that should be filtered out.
+
+For each input text, analyze it and determine:
+1. Whether it should be eliminated (true/false)
+2. The reason for elimination (if applicable)
+
+Evaluation criteria:
+- Eliminate text that consists primarily of:
+  * Code snippets or samples (marked by syntax, keywords like ""if/else"", brackets, etc.)
+  * Program logs or error messages (timestamps, error codes, stack traces)
+  * API documentation or specifications (parameter lists, return types)
+  * Configuration files or build system output
+  * Version control metadata or comments
+  * Compiler/interpreter output or warnings
+- Keep text that contains:
+  * Complete, meaningful sentences in natural language
+  * Explanatory or descriptive content
+  * Human-written prose discussing concepts or ideas
+
+Content: installation guide of nmslib on Apple M2 Chip using Python 3.9
+",False,
+Usability,Add progress bar for installation downloading,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/490:4,progress bar,progress bar,4,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/490,1,['progress bar'],['progress bar'],"You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given text contains meaningful human-readable sentences or if it consists primarily of logs, code samples, or programmatic API description that should be filtered out.
+
+For each input text, analyze it and determine:
+1. Whether it should be eliminated (true/false)
+2. The reason for elimination (if applicable)
+
+Evaluation criteria:
+- Eliminate text that consists primarily of:
+  * Code snippets or samples (marked by syntax, keywords like ""if/else"", brackets, etc.)
+  * Program logs or error messages (timestamps, error codes, stack traces)
+  * API documentation or specifications (parameter lists, return types)
+  * Configuration files or build system output
+  * Version control metadata or comments
+  * Compiler/interpreter output or warnings
+- Keep text that contains:
+  * Complete, meaningful sentences in natural language
+  * Explanatory or descriptive content
+  * Human-written prose discussing concepts or ideas
+
+Content: Add progress bar for installation downloading
+",False,"Complete, meaningful sentence about adding a progress bar for installation downloading"
+Usability,Transfer learning of specialised NER model,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/335:9,learn,learning,9,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/335,1,['learn'],['learning'],"You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given text contains meaningful human-readable sentences or if it consists primarily of logs, code samples, or programmatic API description that should be filtered out.
+
+For each input text, analyze it and determine:
+1. Whether it should be eliminated (true/false)
+2. The reason for elimination (if applicable)
+
+Evaluation criteria:
+- Eliminate text that consists primarily of:
+  * Code snippets or samples (marked by syntax, keywords like ""if/else"", brackets, etc.)
+  * Program logs or error messages (timestamps, error codes, stack traces)
+  * API documentation or specifications (parameter lists, return types)
+  * Configuration files or build system output
+  * Version control metadata or comments
+  * Compiler/interpreter output or warnings
+- Keep text that contains:
+  * Complete, meaningful sentences in natural language
+  * Explanatory or descriptive content
+  * Human-written prose discussing concepts or ideas
+
+Content: Transfer learning of specialised NER model
+",False,
+Usability,Updating nmslib hyperparameters guide url,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/493:32,guid,guide,32,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/pull/493,1,['guid'],['guide'],"You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given text contains meaningful human-readable sentences or if it consists primarily of logs, code samples, or programmatic API description that should be filtered out.
+
+For each input text, analyze it and determine:
+1. Whether it should be eliminated (true/false)
+2. The reason for elimination (if applicable)
+
+Evaluation criteria:
+- Eliminate text that consists primarily of:
+  * Code snippets or samples (marked by syntax, keywords like ""if/else"", brackets, etc.)
+  * Program logs or error messages (timestamps, error codes, stack traces)
+  * API documentation or specifications (parameter lists, return types)
+  * Configuration files or build system output
+  * Version control metadata or comments
+  * Compiler/interpreter output or warnings
+- Keep text that contains:
+  * Complete, meaningful sentences in natural language
+  * Explanatory or descriptive content
+  * Human-written prose discussing concepts or ideas
+
+Content: Updating nmslib hyperparameters guide url
+",False,
+Usability,add progress bar to http_get,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/496:4,progress bar,progress bar,4,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/pull/496,2,['progress bar'],['progress bar'],"You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given text contains meaningful human-readable sentences or if it consists primarily of logs, code samples, or programmatic API description that should be filtered out.
+
+For each input text, analyze it and determine:
+1. Whether it should be eliminated (true/false)
+2. The reason for elimination (if applicable)
+
+Evaluation criteria:
+- Eliminate text that consists primarily of:
+  * Code snippets or samples (marked by syntax, keywords like ""if/else"", brackets, etc.)
+  * Program logs or error messages (timestamps, error codes, stack traces)
+  * API documentation or specifications (parameter lists, return types)
+  * Configuration files or build system output
+  * Version control metadata or comments
+  * Compiler/interpreter output or warnings
+- Keep text that contains:
+  * Complete, meaningful sentences in natural language
+  * Explanatory or descriptive content
+  * Human-written prose discussing concepts or ideas
+
+Content: add progress bar to http_get
+",False,
+Usability,any guidance on ontonotes prep?,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/421:4,guid,guidance,4,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/421,1,['guid'],['guidance'],"You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given text contains meaningful human-readable sentences or if it consists primarily of logs, code samples, or programmatic API description that should be filtered out.
+
+For each input text, analyze it and determine:
+1. Whether it should be eliminated (true/false)
+2. The reason for elimination (if applicable)
+
+Evaluation criteria:
+- Eliminate text that consists primarily of:
+  * Code snippets or samples (marked by syntax, keywords like ""if/else"", brackets, etc.)
+  * Program logs or error messages (timestamps, error codes, stack traces)
+  * API documentation or specifications (parameter lists, return types)
+  * Configuration files or build system output
+  * Version control metadata or comments
+  * Compiler/interpreter output or warnings
+- Keep text that contains:
+  * Complete, meaningful sentences in natural language
+  * Explanatory or descriptive content
+  * Human-written prose discussing concepts or ideas
+
+Content: any guidance on ontonotes prep?
+",False,
+Usability,installation guide of nmslib on Apple M2 Chip using Python 3.9,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/528:13,guid,guide,13,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/528,1,['guid'],['guide'],"You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given text contains meaningful human-readable sentences or if it consists primarily of logs, code samples, or programmatic API description that should be filtered out.
+
+For each input text, analyze it and determine:
+1. Whether it should be eliminated (true/false)
+2. The reason for elimination (if applicable)
+
+Evaluation criteria:
+- Eliminate text that consists primarily of:
+  * Code snippets or samples (marked by syntax, keywords like ""if/else"", brackets, etc.)
+  * Program logs or error messages (timestamps, error codes, stack traces)
+  * API documentation or specifications (parameter lists, return types)
+  * Configuration files or build system output
+  * Version control metadata or comments
+  * Compiler/interpreter output or warnings
+- Keep text that contains:
+  * Complete, meaningful sentences in natural language
+  * Explanatory or descriptive content
+  * Human-written prose discussing concepts or ideas
+
+Content: installation guide of nmslib on Apple M2 Chip using Python 3.9
+",False,"The text provided is a guide for installing a specific software (NMSLib) on a Apple M2 chip using Python 3.9. This type of content is helpful and informative, making it a meaningful human-readable sentence that should not be eliminated."

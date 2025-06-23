@@ -1,0 +1,260 @@
+quality_attribute,sentence,keyword,source,author,repo,version,id,matched_word,match_idx,wiki,url,total_similar,target_keywords,target_matched_words,attribute_desc,prompt,true_positive,reasoning,arch_prompt,related_to_architecture,related_to_architecture_reasoning
+Deployability,Add progress bar for installation downloading,install,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/490:21,installation,21,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/490,1,['install'],['installation'],"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Deployability
+Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
+Content: Add progress bar for installation downloading
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The progress bar for installation downloading enhances user experience by providing feedback on deployment progress, which aligns with deployability by making deployments more predictable and manageable. This feature supports automation and efficient deployment processes.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Add progress bar for installation downloading
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"The content describes adding a progress bar for installation downloading, which is an implementation detail related to user interface or client-side functionality. It does not discuss high-level system structure, architectural patterns, or make any architectural decisions."
+Deployability,installation guide of nmslib on Apple M2 Chip using Python 3.9,install,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/528:0,installation,0,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/528,1,['install'],['installation'],"The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Deployability
+Attribute Description: The capability of software to be deployed into an operational environment with predictable time and effort, including options for rollback if needed. Key aspects include automation, deployment speed, and deployment granularity.
+Content: installation guide of nmslib on Apple M2 Chip using Python 3.9
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content discusses an installation guide for nmslib on Apple M2 chips using Python 3.9. Deployability refers to the ability to deploy software with predictable effort and speed, including rollbacks. While this guide focuses on installing a specific library, it's related to deployment practices. Therefore, it aligns with deployability.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: installation guide of nmslib on Apple M2 Chip using Python 3.9
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",True,"The installation guide discusses how to install and configure nmslib on an Apple M2 chip using Python 3.9, which involves understanding the software architecture choices made for the tool, such as how it interacts with the hardware, the operating system, and Python environment."
+Usability,Add progress bar for installation downloading,progress bar,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/490:4,progress bar,4,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/490,1,['progress bar'],['progress bar'],"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Add progress bar for installation downloading
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The progress bar for installation downloading suggests that it is related to how users can track and manage their installations. This improves user understanding and efficiency, which aligns with usability as it relates to ease of use and effective task accomplishment.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Add progress bar for installation downloading
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"The content discusses adding a progress bar for installation downloading, which relates to user experience and interface design rather than software architecture."
+Usability,Transfer learning of specialised NER model,learn,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/335:9,learning,9,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/335,1,['learn'],['learning'],"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Transfer learning of specialised NER model
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content discusses transfer learning in specialized NER models which relates to how well a model can adapt to new tasks. This ties into the aspect of adaptability mentioned in the usability attribute description. Therefore, this should be considered a true positive.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Transfer learning of specialised NER model
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"The content discusses transfer learning of a specialized NER model, focusing on the training and application of the model rather than the system's architecture. It relates more to machine learning techniques and model optimization rather than software architectural concepts."
+Usability,Updating nmslib hyperparameters guide url,guid,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/493:32,guide,32,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/pull/493,1,['guid'],['guide'],"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: Updating nmslib hyperparameters guide url
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The content 'Updating nmslib hyperparameters guide url' refers to modifying or updating URLs in documentation related to the configuration of the NMSLIB (Network Management System Library), which pertains to the functionality and efficiency of system software. This activity contributes to the usability by ensuring that users can easily locate and access necessary information for managing network systems, thereby enhancing user satisfaction and efficiency in task completion.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: Updating nmslib hyperparameters guide url
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"The content mentions updating a guide URL, which relates to documentation and maintenance rather than software architecture principles or patterns."
+Usability,add progress bar to http_get,progress bar,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/pull/496:4,progress bar,4,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/pull/496,2,['progress bar'],['progress bar'],"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: add progress bar to http_get
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The progress bar indicates user feedback and task completion status, which directly relates to usability by providing clear, efficient, and adaptable information for users.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: add progress bar to http_get
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",True,"The task involves adding a progress bar to an HTTP GET function, which touches upon how different components of a system interact and how functionality is distributed across modules. This relates to software architecture as it discusses the structure of a system and how features are integrated."
+Usability,installation guide of nmslib on Apple M2 Chip using Python 3.9,guid,MatchSource.ISSUE,allenai,scispacy,v0.5.5,https://github.com/allenai/scispacy/issues/528:13,guide,13,https://allenai.github.io/scispacy/,https://github.com/allenai/scispacy/issues/528,1,['guid'],['guide'],"The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.","
+You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
+
+Evaluate whether the content accurately aligns with its associated quality attribute, given the context provided. Your goal is to determine if the content makes sense in relation to the quality attribute description or if it is a false positive.
+
+Data:
+
+Quality Attribute: Usability
+Attribute Description: The degree to which users can effectively and efficiently accomplish tasks, including support for error recovery and user satisfaction. Usability covers ease of learning, efficient usage, and adaptability to user needs.
+Content: installation guide of nmslib on Apple M2 Chip using Python 3.9
+
+Instructions: 
+1. Analyze the content and the attribute description.
+2. Determine if the content accurately reflects the intended quality attribute in this context.
+3. If it does, label it as `true_positive: true`; if not, mark it as a `true_positive: false`.
+4. If the content consists only of logs with no other text, mark it as a `true_positive: false`. 
+4. If the content partially consists of logs, focus on analyzing remaining text. 
+5. Add `reasoning` why the content is a true or false positive.
+",True,"The installation guide refers to setting up NMSlib on an Apple M2 chip using Python 3.9, which involves user guidance for effective task accomplishment (installing software). This supports usability by providing clear steps for users.","
+You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
+
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+
+Data:
+
+Content: installation guide of nmslib on Apple M2 Chip using Python 3.9
+Instructions:
+
+1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
+    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
+    * High-level system structure, interactions, dependencies, or constraints.
+2. If the content clearly pertains to software architecture, mark it as `related_to_architecture: true`.
+3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_architecture: false`.
+4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_architecture: true`.
+5. Provide `related_to_architecture_reasoning` explaining why the content is classified as related on unrelated.
+",False,"The content is an installation guide for a specific library (nmslib) on a particular hardware platform (Apple M2 Chip using Python 3.9). It focuses on steps to install and set up the software, including environment setup, dependency management, and basic usage instructions. While it may involve understanding how the software interacts with the hardware, it does not delve into architectural principles or higher-level system design. Instead, it is more about procedural instructions for installation and usage."
