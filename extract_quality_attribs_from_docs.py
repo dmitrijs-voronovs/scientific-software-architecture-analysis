@@ -1,10 +1,9 @@
-import math
 import os
 import re
 import shelve
 from enum import Enum
 from pathlib import Path
-from typing import List, Dict, Generator, Optional, Tuple
+from typing import List, Dict, Generator, Optional
 
 import pandas as pd
 from bs4 import BeautifulSoup
@@ -12,7 +11,7 @@ from loguru import logger
 from tqdm import tqdm
 
 from constants.foldernames import FolderNames
-from metadata.repo_info.repo_info import credential_list
+from cfg.repo_credentials import credential_list
 from model.Credentials import Credentials
 from quality_attributes import quality_attributes
 from services.ast_extractor import ext_to_lang, code_comments_iterator

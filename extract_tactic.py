@@ -14,11 +14,10 @@ from loguru import logger
 from tenacity import RetryError
 from tqdm import tqdm
 
-from cfg.tactic_description import tactic_descriptions
 from cfg.tactic_description_full import tactic_descriptions_full
 from cfg.tactic_list_simplified import TacticSimplifiedModel
 from constants.foldernames import FolderNames
-from metadata.repo_info.repo_info import credential_list
+from cfg.repo_credentials import credential_list
 from utils.utils import create_logger_path
 
 # Load environment variables from .env file

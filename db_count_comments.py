@@ -1,5 +1,5 @@
 from extract_quality_attribs_from_github_metadata import DB
-from metadata.repo_info.repo_info import all_credentials
+from cfg.repo_credentials import all_credentials
 
 
 def main():

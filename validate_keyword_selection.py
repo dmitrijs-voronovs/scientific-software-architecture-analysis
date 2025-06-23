@@ -19,8 +19,7 @@ from tenacity import retry, stop_after_attempt, RetryError, wait_incrementing, w
 from tqdm import tqdm
 
 from constants.foldernames import FolderNames
-from extract_quality_attribs_from_docs import MatchSource
-from metadata.repo_info.repo_info import credential_list
+from cfg.repo_credentials import credential_list
 from utils.utils import create_logger_path
 
 # Load environment variables from .env file

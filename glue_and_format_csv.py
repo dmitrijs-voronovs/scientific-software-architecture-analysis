@@ -7,8 +7,7 @@ from tqdm import tqdm
 
 from constants.foldernames import FolderNames
 from extract_quality_attribs_from_docs import MatchSource
-from metadata.repo_info.repo_info import credential_list
-from model.Credentials import Credentials
+from cfg.repo_credentials import credential_list
 from split_csv import split_files_exceeding_max_limit
 
 

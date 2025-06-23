@@ -61,7 +61,7 @@ def print_as_credentials(package_versions_path: Path, save_to: Path):
 
 
 def main():
-    package_versions_path = Path("metadata/repo_info/repo_info.csv")
+    package_versions_path = Path("data/repo_info/repo_info.csv")
     # query_and_save_versions(package_versions_path)
 
     print_as_credentials(package_versions_path, package_versions_path.with_suffix(".py"))

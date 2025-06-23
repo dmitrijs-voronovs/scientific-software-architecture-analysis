@@ -1,18 +1,8 @@
-import datetime
 import os
-import re
 import traceback
 from pathlib import Path
 
 import pandas as pd
-from tqdm import tqdm
-
-from constants.foldernames import FolderNames
-from extract_quality_attribs_from_docs import MatchSource
-from metadata.repo_info.repo_info import credential_list
-from model.Credentials import Credentials
-from split_csv import split_files_exceeding_max_limit
-
 
 
 def save_data(df, target_filename: Path):

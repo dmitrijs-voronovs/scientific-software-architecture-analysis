@@ -19,9 +19,9 @@ from tqdm import tqdm
 
 from extract_quality_attribs_from_docs import KeywordParser, \
     FullMatch, MatchSource, save_to_file
-from metadata.repo_info.repo_info import credential_list, all_credentials
+from cfg.repo_credentials import all_credentials
 from model.Credentials import Credentials
-from quality_attributes import QualityAttributesMap, quality_attributes
+from quality_attributes import QualityAttributesMap
 from services.MongoDBConnection import MongoDBConnection
 
 dotenv.load_dotenv()

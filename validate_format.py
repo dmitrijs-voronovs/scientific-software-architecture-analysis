@@ -1,4 +1,3 @@
-import json
 import math
 import os
 import re
@@ -10,16 +9,14 @@ from typing import List
 
 import dotenv
 import pandas as pd
-import requests
 from langchain_ollama import ChatOllama
 from loguru import logger
 from pydantic import BaseModel
-from tenacity import retry, stop_after_attempt, RetryError, wait_fixed
+from tenacity import RetryError
 from tqdm import tqdm
 
 from constants.foldernames import FolderNames
-from extract_quality_attribs_from_docs import MatchSource
-from metadata.repo_info.repo_info import credential_list
+from cfg.repo_credentials import credential_list
 from utils.utils import create_logger_path
 
 
