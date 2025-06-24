@@ -3,7 +3,7 @@ from typing import List
 from model.Credentials import Credentials
 
 '''Top 5 credentials based on number of stars'''
-credential_list: List[Credentials] = [
+selected_credentials: List[Credentials] = [
 Credentials({'author': 'google', 'repo': 'deepvariant', 'version': 'v1.6.1', 'wiki': None}),
 Credentials({'author': 'root-project', 'repo': 'root', 'version': 'v6-32-06', 'wiki': 'https://root.cern'}),
 Credentials({'author': 'OpenGene', 'repo': 'fastp', 'version': 'v0.23.4', 'wiki': None}),

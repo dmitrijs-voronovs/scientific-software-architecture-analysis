@@ -40,6 +40,6 @@ def grouper_ranges(total_size, chunk_size):
 
 
 if __name__ == "__main__":
-    split_files_exceeding_max_limit(f"metadata/keywords/{FolderNames.KEYWORDS_RAW}")
+    split_files_exceeding_max_limit(f"metadata/keywords/{FolderNames.KEYWORDS_MATCHING}")
     # print(list(grouper_ranges(98, 10)))
     # split_file("metadata/keywords/broadinstitute.cromwell.87.ISSUE_COMMENT.csv", 500_000)

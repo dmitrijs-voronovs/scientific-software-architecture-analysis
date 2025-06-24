@@ -1,4 +1,12 @@
 class FolderNames:
+    KEYWORDS_MATCHING_DIR = "matched"
+    OPTIMIZED_KEYWORD_DIR = "optimized"
+    NOISE_FILTERING_DIR = "noise_filtering"
+    QA_RELEVANCE_CHECK_DIR = "qa_relevance_check"
+    ARCH_RELEVANCE_CHECK_DIR = "arch_relevance_check"
+    TACTIC_EXTRACTION_DIR = "tactic_extraction"
+
+class FolderNamesOld:
     KEYWORDS_RAW = "original"
     VERIFICATION_DIR = "verification"
     OPTIMIZED_KEYWORD_DIR = "optimized"

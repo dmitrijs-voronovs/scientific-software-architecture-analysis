@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 from constants.foldernames import FolderNames
 from processing_pipeline.keyword_matching.extract_quality_attribs_from_docs import MatchSource
-from cfg.repo_credentials import credential_list
+from cfg.repo_credentials import selected_credentials
 from split_csv import split_files_exceeding_max_limit
 
 
@@ -42,15 +42,15 @@ def save_data(df, target_dir, cred, source: 'MatchSource'):
     df.to_csv(target_dir / f"{cred.dotted_ref}.{source.value}.csv", index=False)
 
 def main():
-    keywords_dir = Path(f"metadata/keywords/{FolderNames.KEYWORDS_RAW}")
-    target_dir = keywords_dir / ".." / FolderNames.OPTIMIZED_KEYWORD_DIR
+    keywords_dir = Path(f"metadata/keywords/{FolderNames.KEYWORDS_MATCHING}")
+    target_dir = keywords_dir / ".." / FolderNames.OPTIMIZED_KEYWORD
 
     # credential_list = [
     #     Credentials({'author': 'sofa-framework', 'repo': 'sofa', 'version': 'v24.06.00',
     #                  'wiki': 'https://www.sofa-framework.org'}),
     #
     # ]
-    for cred in tqdm(credential_list, desc="Processing keywords"):
+    for cred in tqdm(selected_credentials, desc="Processing keywords"):
         for source in MatchSource:
             # # TODO: uncomment for all sources
             # if source != MatchSource.CODE_COMMENT:

@@ -1,6 +1,9 @@
 from pathlib import Path
 import re
 
+from constants.abs_paths import AbsPaths
+
+
 def update_query(query: str):
     query = re.sub(r'db.getCollection\(".+"\).aggregate\(', '', query)
     query = re.sub(r'^]\)$', ']', query, flags=re.MULTILINE)
@@ -12,7 +15,7 @@ def update_query(query: str):
 
 
 def main():
-    queries = Path("../queries/mongo").glob("*.js")
+    queries = (AbsPaths.QUERIES / "mongo").glob("*.js")
     for query in queries:
         with open(query, "r") as f:
             content = f.read()

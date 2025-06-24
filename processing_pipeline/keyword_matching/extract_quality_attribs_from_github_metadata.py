@@ -17,11 +17,10 @@ from pymongo.collection import Collection
 from pymongo.command_cursor import CommandCursor
 from tqdm import tqdm
 
-from extract_quality_attribs_from_docs import KeywordParser, \
-    FullMatch, MatchSource, save_to_file
-from cfg.repo_credentials import all_credentials
+from cfg.quality_attributes import QualityAttributesMap, quality_attributes
+from cfg.repo_credentials import selected_credentials
+from extract_quality_attribs_from_docs import KeywordParser, FullMatch, MatchSource, save_to_file
 from model.Credentials import Credentials
-from cfg.quality_attributes import QualityAttributesMap
 from services.MongoDBConnection import MongoDBConnection
 
 dotenv.load_dotenv()
@@ -41,10 +40,7 @@ class ReactionDTO:
     rocket: int = 0
     eyes: int = 0
 
-    _name_map: ClassVar[Dict[ReactionKey, InternalReactionKey]] = {
-        '+1': 'thumbs_up',
-        '-1': 'thumbs_down',
-    }
+    _name_map: ClassVar[Dict[ReactionKey, InternalReactionKey]] = {'+1': 'thumbs_up', '-1': 'thumbs_down', }
 
     def _get_key(self, key: ReactionKey) -> InternalReactionKey:
         return self._name_map.get(key, cast(InternalReactionKey, key))
@@ -175,24 +171,15 @@ class GitHubDataFetcher:
         reactions = self._get_reactions(issue)
         # Get comments with their reactions
         comments_data = self._get_comments(issue)
-        issue_data = IssueDTO(
-            _id=issue.id,
-            html_url=issue.html_url,
-            number=issue.number,
-            pull_request_html_url=issue.pull_request.html_url if issue.pull_request else None,
-            title=issue.title,
-            body=issue.body,
-            state=issue.state,
-            created_at=issue.created_at,
-            updated_at=issue.updated_at,
-            closed_at=issue.closed_at,
-            labels=[label.name for label in issue.labels],
-            author=issue.user.login if issue.user else None,
-            assignees=[assignee.login for assignee in issue.assignees],
-            milestone=issue.milestone.title if issue.milestone else None,
-            comments_count=issue.comments,
-            comments_data=comments_data,
-            reactions=reactions)
+        issue_data = IssueDTO(_id=issue.id, html_url=issue.html_url, number=issue.number,
+                              pull_request_html_url=issue.pull_request.html_url if issue.pull_request else None,
+                              title=issue.title, body=issue.body, state=issue.state, created_at=issue.created_at,
+                              updated_at=issue.updated_at, closed_at=issue.closed_at,
+                              labels=[label.name for label in issue.labels],
+                              author=issue.user.login if issue.user else None,
+                              assignees=[assignee.login for assignee in issue.assignees],
+                              milestone=issue.milestone.title if issue.milestone else None,
+                              comments_count=issue.comments, comments_data=comments_data, reactions=reactions)
         return issue_data
 
     def _get_comments(self, issue: Issue) -> List[CommentDTO]:
@@ -203,16 +190,10 @@ class GitHubDataFetcher:
             try:
                 reactions = self._get_reactions(comment)
 
-                comment_data = CommentDTO(
-                    _id=comment.id,
-                    issue_id=issue.id,
-                    html_url=comment.html_url,
-                    body=comment.body,
-                    user=comment.user.login if comment.user else None,
-                    created_at=comment.created_at,
-                    updated_at=comment.updated_at,
-                    reactions=reactions
-                )
+                comment_data = CommentDTO(_id=comment.id, issue_id=issue.id, html_url=comment.html_url,
+                                          body=comment.body, user=comment.user.login if comment.user else None,
+                                          created_at=comment.created_at, updated_at=comment.updated_at,
+                                          reactions=reactions)
                 comments_data.append(comment_data)
 
             except Exception as e:
@@ -246,20 +227,12 @@ class GitHubDataFetcher:
         batch = []
         for release in tqdm(releases, total=total_releases, desc="Fetching releases"):
             try:
-                release_data = ReleaseDTO(
-                    _id=release.id,
-                    html_url=release.html_url,
-                    title=release.title,
-                    tag_name=release.tag_name,
-                    name=release.title,
-                    body=release.body,
-                    created_at=release.created_at,
-                    published_at=release.published_at,
-                    draft=release.draft,
-                    prerelease=release.prerelease,
-                    author=release.author.login if release.author else None,
-                    asset_count=release.get_assets().totalCount
-                )
+                release_data = ReleaseDTO(_id=release.id, html_url=release.html_url, title=release.title,
+                                          tag_name=release.tag_name, name=release.title, body=release.body,
+                                          created_at=release.created_at, published_at=release.published_at,
+                                          draft=release.draft, prerelease=release.prerelease,
+                                          author=release.author.login if release.author else None,
+                                          asset_count=release.get_assets().totalCount)
                 batch.append(release_data)
                 if len(batch) == batch_size:
                     yield batch
@@ -292,6 +265,8 @@ class MongoMatch(TypedDict):
 
 class DB:
     def __init__(self, creds: Credentials):
+        self.non_robot_users = ["olgabot", "hugtalbot", "arrogantrobot", "robot-chenwei", "Bot-Enigma-0"]
+        self.regex_omitting_bots = re.compile(r"bot\b", re.IGNORECASE)
         self.creds = creds
         self.client = MongoDBConnection().get_client()
 
@@ -320,157 +295,54 @@ class DB:
         except Exception as e:
             print(e)
 
-    def extract_comment_body_keywords(self, pattern: re.Pattern) -> CommandCursor[MongoMatch]:
-        return self._issue_collection().aggregate([
-            {
-                "$unwind": "$comments_data"
-            },
-            {
-                "$addFields": {
-                    "text": {
-                        "$trim": {"input": "$comments_data.body"}
-                    }
-                }
-            },
-            {
-                "$addFields": {
-                    "text_match": {"$regexFind": {"input": "$text", "regex": pattern}},
-                }
-            },
-            {
-                "$match": {
-                    "text_match.match": {"$exists": True}
-                }
-            },
-            {
-                "$project": {
-                    "text": 1,
-                    "html_url": "$comments_data.html_url",
-                    "text_match": 1
-                }
-            }
-        ])
+    def extract_comments(self) -> CommandCursor[MongoMatch]:
+        return self._issue_collection().aggregate(
+            [{"$unwind": "$comments_data"}, {"$addFields": {"text": "$comments_data.body"}}, {"$match": {
+                "$or": [{"comments_data.user": {"$not": {"$regex": self.regex_omitting_bots}}},
+                        {"comments_data.user": {"$in": self.non_robot_users}}]}},
+             {"$project": {"text": 1, "html_url": 1, }}])
 
-    def extract_issue_body_keywords(self, pattern: re.Pattern) -> CommandCursor[MongoMatch]:
-        return self._issue_collection().aggregate([
-            {
-                "$addFields": {
-                    "text": {
-                        "$trim": {"input": "$body"}
-                    }
-                }
-            },
-            {
-                "$addFields": {
-                    "text_match": {"$regexFind": {"input": "$text", "regex": pattern}},
-                }
-            },
-            {
-                "$match": {"text_match.match": {"$exists": True}}
-            },
-            {
-                "$project": {
-                    "text": 1,
-                    "html_url": 1,
-                    "text_match": 1,
-                }
-            }
-        ])
+    def extract_issues(self) -> CommandCursor[MongoMatch]:
+        return self._issue_collection().aggregate([{# 1. Concatenate 'title' and 'body' into a new field called 'text'
+            "$addFields": {"text": {"$concat": ["$title", "; ", "$body"]}}},
+            {"$match": {
+                "$or": [{"author": {"$not": {"$regex": self.regex_omitting_bots}}},
+                        {"author": {"$in": self.non_robot_users}}]}},
+            {"$project": {"text": 1, "html_url": 1, }}])
 
-    def extract_issue_title_keywords(self, pattern: re.Pattern) -> CommandCursor[MongoMatch]:
-        return self._issue_collection().aggregate([
-            {
-                "$addFields": {
-                    "text": {
-                        "$trim": {"input": "$title"}
-                    }
-                }
-            },
-            {
-                "$addFields": {
-                    "text_match": {"$regexFind": {"input": "$text", "regex": pattern}},
-                }
-            },
-            {
-                "$match": {"text_match.match": {"$exists": True}}
-            },
-            {
-                "$project": {
-                    "text": 1,
-                    "html_url": 1,
-                    "text_match": 1
-                }
-            }
-        ]
-        )
-
-    def extract_release_body_keywords(self, pattern: re.Pattern) -> CommandCursor[MongoMatch]:
-        return self._releases_collection().aggregate([
-            {
-                "$addFields": {
-                    "text": {
-                        "$trim": {"input": "$body"}
-                    }
-                }
-            },
-            {
-                "$addFields": {
-                    "text_match": {"$regexFind": {"input": "$text", "regex": pattern}},
-                }
-            },
-            {
-                "$match": {"text_match.match": {"$exists": True}}
-            },
-            {
-                "$project": {
-                    "text": 1,
-                    "html_url": 1,
-                    "text_match": 1
-                }
-            }
-        ])
+    def extract_releases(self) -> CommandCursor[MongoMatch]:
+        return self._releases_collection().aggregate(
+            [{"$addFields": {"text": {"$trim": {"input": "$body"}}}}, {"$project": {"text": 1, "html_url": 1}}])
 
     def count_comments(self):
-        return self._issue_collection().aggregate([
-            {"$group": {
-                "_id": None,
-                "totalComments": {"$sum": "$comments_count"}
-            }}
-        ]).to_list()
+        return self._issue_collection().aggregate(
+            [{"$group": {"_id": None, "totalComments": {"$sum": "$comments_count"}}}]).to_list()
 
+total_matches_per_source = {}
 
-def get_all_keywords_pattern(quality_attributes_map: QualityAttributesMap):
-    all_keywords = itertools.chain(*quality_attributes_map.values())
-    return KeywordParser.get_keyword_matching_pattern(all_keywords)
-
-
-def save_matched_keywords(creds, db, quality_attributes_map: QualityAttributesMap):
-    source_to_generator_map = {
-        MatchSource.ISSUE_COMMENT: db.extract_comment_body_keywords,
-        MatchSource.ISSUE: lambda pattern: itertools.chain(db.extract_issue_body_keywords(pattern), db.extract_issue_title_keywords(pattern)),
-        MatchSource.RELEASES: db.extract_release_body_keywords
-    }
+def save_matched_keywords(creds: Credentials, db, quality_attributes_map: QualityAttributesMap):
+    global total_matches_per_source
+    source_to_generator_map = {MatchSource.ISSUE_COMMENT: db.extract_comments,
+                               MatchSource.ISSUE: db.extract_issues,
+                               MatchSource.RELEASES: db.extract_releases}
     keyword_parser = KeywordParser(quality_attributes_map, creds)
-    all_keywords_pattern = get_all_keywords_pattern(quality_attributes_map)
     for source, gen in source_to_generator_map.items():
         matches = []
-        for match in tqdm(gen(all_keywords_pattern), desc=f"Processing {creds.dotted_ref} / {source.value}"):
-            matches.extend(
-                [FullMatch(**text_match, source=source, **creds,
-                           url=match["html_url"]) for
-                 text_match in
-                 keyword_parser.matched_keyword_iterator(match["text"])])
-
+        for match in tqdm(gen(), desc=f"Processing {creds.dotted_ref} / {source.value}"):
+            matches.extend([FullMatch(**text_match, source=source, **creds, url=match["html_url"]) for text_match in
+                            keyword_parser.matched_keyword_iterator(match["text"])])
         save_to_file(matches, source, creds)
+        total_matches_per_source[(creds.repo_name, source.value)] = len(matches)
 
 
 def main():
     token = os.getenv('GITHUB_TOKEN')
-    for creds in all_credentials:
+
+    # for creds in all_credentials:
+    for creds in selected_credentials:
         print(f"Parsing github metadata for {creds}")
         # fetcher = GitHubDataFetcher(token, creds)
         db = DB(creds)
-
         # print("Fetching issues...")
         # for issues in fetcher.get_issues():
         #     db.insert_issues(issues)
@@ -479,8 +351,9 @@ def main():
         # for releases in fetcher.get_releases(20):
         #     db.insert_releases(releases)
 
-        # save_matched_keywords(creds, db, quality_attributes)
+        save_matched_keywords(creds, db, quality_attributes)
 
+    print(f"Total matches: {total_matches_per_source}")
     print("Done!")
 
 

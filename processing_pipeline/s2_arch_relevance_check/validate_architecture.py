@@ -15,7 +15,7 @@ from tenacity import RetryError
 from tqdm import tqdm
 
 from constants.foldernames import FolderNames
-from cfg.repo_credentials import credential_list
+from cfg.repo_credentials import selected_credentials
 from utils.utils import create_logger_path
 
 # Load environment variables from .env file
@@ -196,7 +196,7 @@ def validate_arch(host, only_files_containing_text: List[str] | None = None, rev
 
     try:
         for file_path in optimized_keyword_folder.glob("*.csv"):
-            if any(cred.get_ref(".") in file_path.stem for cred in (credential_list)):
+            if any(cred.get_ref(".") in file_path.stem for cred in (selected_credentials)):
                 keep_processing = len(only_files_containing_text) == 0 or any(text_to_test in file_path.stem for text_to_test in only_files_containing_text)
                 if keep_processing == reverse:
                     continue

@@ -10,8 +10,9 @@ from bs4 import BeautifulSoup
 from loguru import logger
 from tqdm import tqdm
 
+from constants.abs_paths import AbsDirPath
 from constants.foldernames import FolderNames
-from cfg.repo_credentials import credential_list
+from cfg.repo_credentials import selected_credentials
 from model.Credentials import Credentials
 from cfg.quality_attributes import quality_attributes
 from services.ast_extractor import ext_to_lang, code_comments_iterator
@@ -54,15 +55,18 @@ BASE_GITHUB_URL = "https://github.com"
 class KeywordParser:
     context_length = 2000
 
-    def __init__(self, attributes: AttributeDictType, creds: Credentials, *, append_full_text: bool = False):
-        self.attributes = attributes
+    def __init__(self, QAs: AttributeDictType, creds: Credentials, *, append_full_text: bool = False):
+        self.attributes = QAs
         self.creds = creds
         self.append_full_text = append_full_text
+        self.qa_patterns = { qa: KeywordParser.get_keyword_matching_pattern(keywords) for qa, keywords in QAs.items()}
 
     def matched_keyword_iterator(self, text: str) -> Generator[TextMatch, None, None]:
+        if not text:
+            return
         text = KeywordParser._clean_text(text)
         for quality_attr, keywords in self.attributes.items():
-            pattern = KeywordParser.get_keyword_matching_pattern(keywords)
+            pattern = self.qa_patterns[quality_attr]
             for match in re.finditer(pattern, text):
                 full_match, keyword, match_idx = match.group(), match.group(1), match.start()
                 context = KeywordParser.get_match_context(text, match.start(), match.end())
@@ -74,10 +78,9 @@ class KeywordParser:
 
     @staticmethod
     def _clean_text(text: str):
-        text = re.sub(r'\.?(?:\r?\n){2,}', ". ", text)
-        text = re.sub(r'\r?\n', "; ", text)
+        text = re.sub(r'([.!?])?(?:\r?\n)+', lambda m: f"{m.group(1)} " if m.group(1) else ". ", text)
         text = re.sub(r' {2,}', " ", text)
-        return text
+        return text.strip()
 
     @staticmethod
     def get_keyword_matching_pattern(keywords):
@@ -177,7 +180,7 @@ class KeywordParser:
 
 
 def save_to_file(records: List[FullMatch], source: MatchSource, creds: Credentials, with_matched_text: bool = False):
-    base_dir = Path("../../metadata") / "keywords" / FolderNames.KEYWORDS_RAW
+    base_dir = AbsDirPath.KEYWORDS_MATCHING
     filename = f'{creds.get_ref(".")}.{source.value}.csv'
     if with_matched_text:
         resulting_filename = base_dir / "full" / filename
@@ -190,12 +193,13 @@ def save_to_file(records: List[FullMatch], source: MatchSource, creds: Credentia
 
 
 if __name__ == "__main__":
-    docs_path = Path("../../.tmp/docs")
-    source_code_path = Path("../../.tmp/source")
-    cache_dir = Path(".cache/keyword_extraction")
+    docs_path = AbsDirPath.WIKIS
+    source_code_path = AbsDirPath.SOURCE_CODE
+    cache_dir = AbsDirPath.CACHE / "keyword_extraction"
     os.makedirs(cache_dir, exist_ok=True)
 
-    run_id = "23.06.2025"
+    run_id = "24.06.2025"
+    cache_path = cache_dir / run_id
     logger.add(create_logger_path(run_id), mode="w")
 
     # creds = Credentials(author="scverse", repo="scanpy", version="1.10.2", wiki="scanpy.readthedocs.io/en")
@@ -205,9 +209,9 @@ if __name__ == "__main__":
 
     # credential_list2 = [creds]
 
-    with shelve.open(f".cache/keyword_extraction/{run_id}") as db:
+    with shelve.open(cache_path) as db:
         last_processed = db.get("last_processed", None)
-        for creds in credential_list:
+        for creds in selected_credentials:
             if creds.get_ref() == last_processed:
                 logger.info(f"Skipping {creds.get_ref()}")
                 continue

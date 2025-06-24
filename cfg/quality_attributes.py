@@ -20,7 +20,7 @@ quality_Attributes_raw = {'availability': ['bidirect model transform', 'parallel
                                        'failur', 'markov', 'operat', 'reboot', 'redund', 'reliab', 'repair', 'replic',
                                        'restor', 'robust', 'servic', 'standy', 'avail', 'error', 'escal', 'fault',
                                        'incid', 'outag', 'recov', 'state', 'stead', 'toler', 'uptim', 'down', 'echo',
-                                       'heal', 'mask', 'mtbf', 'mttf', 'mttr', 'ping', 'sla', 'sli', 'slo', 'ha'],
+                                       'heal', 'mask', 'mtbf', 'mttf', 'mttr', 'ping', 'sla', 'sli', 'slo'],
                       'deployability': ['product environ', 'deliver capab', 'record replay', 'record-and-replay',
                                         'cd-driven', 'infrastructur', 'configurat', 'smartfrog', 'toolchain',
                                         'artifact', 'orchestr', 'redundan', 'rollback', 'undeploy', 'automat',

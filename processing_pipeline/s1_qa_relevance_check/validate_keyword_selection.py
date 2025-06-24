@@ -19,7 +19,7 @@ from tenacity import retry, stop_after_attempt, RetryError, wait_incrementing, w
 from tqdm import tqdm
 
 from constants.foldernames import FolderNames
-from cfg.repo_credentials import credential_list
+from cfg.repo_credentials import selected_credentials
 from utils.utils import create_logger_path
 
 # Load environment variables from .env file
@@ -339,7 +339,7 @@ def verify_file_batched_llm(file_path: Path, res_filepath: Path, batch_size=10):
 
 def main():
     keyword_folder = Path("metadata/keywords/")
-    optimized_keyword_folder = keyword_folder / FolderNames.OPTIMIZED_KEYWORD_DIR
+    optimized_keyword_folder = keyword_folder / FolderNames.OPTIMIZED_KEYWORD
     os.makedirs("../../.logs", exist_ok=True)
     os.makedirs(keyword_folder / FolderNames.VERIFICATION_DIR, exist_ok=True)
     logger.add(create_logger_path(FolderNames.VERIFICATION_DIR), mode="w")
@@ -352,7 +352,7 @@ def main():
     #     Credentials({'author': 'qutip', 'repo': 'qutip', 'version': 'v5.0.4', 'wiki': 'https://qutip.org'}),
     #     Credentials({'author': 'hail-is', 'repo': 'hail', 'version': '0.2.133', 'wiki': 'https://hail.is'}),
     # ]
-    creds = credential_list
+    creds = selected_credentials
 
     try:
         # for file_path in keyword_folder.glob("*.csv"):
