@@ -1,5 +1,6 @@
 from datetime import datetime
 
+from constants.abs_paths import AbsDirPath
 from utils.paths import Paths
 
 
@@ -9,4 +10,4 @@ def get_golden_repos() -> list[str]:
 
 
 def create_logger_path(prefix: str) -> str:
-    return f".logs/{prefix}.{datetime.now().strftime('%Y-%m-%dT%H-%M-%S')}.log"
+    return AbsDirPath.LOGS / f"{prefix}.{datetime.now().strftime('%Y-%m-%dT%H-%M-%S')}.log"

@@ -1,6 +1,7 @@
 import os
 import re
 import shelve
+from collections import defaultdict
 from enum import Enum
 from pathlib import Path
 from typing import List, Dict, Generator, Optional
@@ -50,6 +51,7 @@ class FullMatch(TextMatch, Credentials, Dict):
 
 
 BASE_GITHUB_URL = "https://github.com"
+datapoint_count_per_source = defaultdict(int)  # data points before matching
 
 
 class KeywordParser:
@@ -101,6 +103,7 @@ class KeywordParser:
         return full_url
 
     def parse_wiki(self, wiki_path: str) -> List[FullMatch]:
+        global datapoint_count_per_source
         matches = []
         files = Path(wiki_path).glob("**/*.html")
         for file in tqdm(files, desc=f"Parsing wiki {wiki_path}"):
@@ -112,6 +115,7 @@ class KeywordParser:
                 matches.extend([FullMatch(**match, source=MatchSource.WIKI, filename=rel_path, **self.creds,
                                           url=self.generate_link(self.creds['wiki'], rel_path)) for match in
                                 self.matched_keyword_iterator(text_content)])
+                datapoint_count_per_source[(self.creds.repo_name, MatchSource.WIKI)] += 1
             except Exception as error:
                 logger.error(f"Parse docs failed for {self.creds.get_ref()}, {file=}: {error=}")
         return matches
@@ -135,6 +139,7 @@ class KeywordParser:
         return text[context_start: context_end]
 
     def parse_docs(self, docs_path: str) -> List[FullMatch]:
+        global datapoint_count_per_source
         repo_url = self.get_github_repo_url(self.creds)
         matches = []
         docs_extensions = [".md", ".rst", ".txt", ".adoc", ".html"]
@@ -150,6 +155,7 @@ class KeywordParser:
                     matches.extend([FullMatch(**match, source=MatchSource.DOCS, filename=rel_path, **self.creds,
                                               url=self.generate_link(repo_url, rel_path)) for match in
                                     self.matched_keyword_iterator(text_content)])
+                    datapoint_count_per_source[(self.creds.repo_name, MatchSource.DOCS)] += 1
                 except Exception as error:
                     logger.error(f"Parse docs failed for {self.creds.get_ref()}, {file=}: {error=}")
 
@@ -160,6 +166,7 @@ class KeywordParser:
         return f"{BASE_GITHUB_URL}/{creds['author']}/{creds['repo']}/tree/{creds['version']}"
 
     def parse_comments(self, source_code_path: str) -> List[FullMatch]:
+        global datapoint_count_per_source
         repo_url = self.get_github_repo_url(self.creds)
         matches = []
         for root, dirs, files in tqdm(os.walk(source_code_path), desc="Parsing code comments"):
@@ -174,6 +181,7 @@ class KeywordParser:
                             matches.extend([FullMatch(**match, source=MatchSource.CODE_COMMENT, filename=rel_path,
                                                       **self.creds, url=self.generate_link(repo_url, rel_path)) for
                                             match in self.matched_keyword_iterator(text_content)])
+                            datapoint_count_per_source[(self.creds.repo_name, MatchSource.CODE_COMMENT)] += 1
                     except Exception as error:
                         logger.error(f"Parse code comments failed for {self.creds.get_ref()}, {file=}, {rel_path=}: {error=}")
         return matches
@@ -192,9 +200,53 @@ def save_to_file(records: List[FullMatch], source: MatchSource, creds: Credentia
     pd.DataFrame(records_with_id).to_csv(resulting_filename, index=False)
 
 
+def save_datapoints_per_source_count(run_id: str):
+    data_for_df = []
+    for (repo_name, match_source), count in datapoint_count_per_source.items():
+        data_for_df.append({
+            "repo_name": repo_name,
+            "match_source": match_source.value,  # Use .value if you want the string representation of the Enum
+            "count": count
+        })
+    df = pd.DataFrame(data_for_df)
+    df_sorted = df.sort_values(by=["repo_name", "match_source"]).reset_index(drop=True)
+    df_sorted.to_csv(AbsDirPath.DATA / f"dataset_size/datapoints_per_source_{run_id}.csv", index=False)
+
+def restore_datapoints_per_source_count(run_id: str):
+    global datapoint_count_per_source
+    file_path = AbsDirPath.DATA / f"dataset_size/datapoints_per_source_{run_id}.csv"
+
+    if not file_path.exists():
+        print(f"Warning: File not found at {file_path}. Returning empty defaultdict.")
+        return
+
+    try:
+        df = pd.read_csv(file_path)
+
+        # Iterate over DataFrame rows and reconstruct the defaultdict
+        for index, row in df.iterrows():
+            repo_name = row["repo_name"]
+            # Convert string back to MatchSource Enum member
+            match_source_str = row["match_source"]
+            try:
+                match_source = MatchSource(match_source_str)
+            except ValueError:
+                print(
+                    f"Warning: Unknown MatchSource '{match_source_str}' encountered for repo '{repo_name}'. Skipping.")
+                continue  # Skip this row if Enum conversion fails
+
+            count = int(row["count"])  # Ensure count is an integer
+
+            datapoint_count_per_source[(repo_name, match_source)] = count
+
+        print(f"Data restored from: {file_path}")
+
+    except pd.errors.EmptyDataError:
+        print(f"Warning: CSV file {file_path} is empty. Returning empty defaultdict.")
+    except Exception as e:
+        print(f"An error occurred while restoring data: {e}")
+
 if __name__ == "__main__":
-    docs_path = AbsDirPath.WIKIS
-    source_code_path = AbsDirPath.SOURCE_CODE
     cache_dir = AbsDirPath.CACHE / "keyword_extraction"
     os.makedirs(cache_dir, exist_ok=True)
 
@@ -202,19 +254,14 @@ if __name__ == "__main__":
     cache_path = cache_dir / run_id
     logger.add(create_logger_path(run_id), mode="w")
 
-    # creds = Credentials(author="scverse", repo="scanpy", version="1.10.2", wiki="scanpy.readthedocs.io/en")
-    # creds = Credentials({'author': 'root-project', 'repo': 'root', 'version': 'v6-32-06', 'wiki': 'https://root.cern'})
-    # creds = Credentials(
-    #     {'author': 'allenai', 'repo': 'scispacy', 'version': 'v0.5.5', 'wiki': 'https://allenai.github.io/scispacy/'})
-
-    # credential_list2 = [creds]
+    restore_datapoints_per_source_count(run_id)
 
     with shelve.open(cache_path) as db:
         last_processed = db.get("last_processed", None)
         for creds in selected_credentials:
-            if creds.get_ref() == last_processed:
-                logger.info(f"Skipping {creds.get_ref()}")
-                continue
+            # if creds.get_ref() == last_processed:
+            #     logger.info(f"Skipping {creds.get_ref()}")
+            #     continue
 
             logger.info(f"Processing {creds.get_ref()}")
             try:
@@ -223,16 +270,18 @@ if __name__ == "__main__":
                 append_full_text = False
                 parser = KeywordParser(quality_attributes, creds, append_full_text=append_full_text)
 
-                # if creds.has_wiki():
-                #     matches_wiki = parser.parse_wiki(str(docs_path / creds.wiki_dir))
-                #     save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
+                if creds.has_wiki():
+                    matches_wiki = parser.parse_wiki(str(AbsDirPath.WIKIS / creds.wiki_dir))
+                    save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
 
-                matches_code_comments = parser.parse_comments(str(source_code_path / creds.get_ref()))
-                save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
-
-                # matches_docs = parser.parse_docs(str(source_code_path / creds.get_ref()))
+                # source_code_path = str(AbsDirPath.SOURCE_CODE / creds.get_ref())
+                # matches_code_comments = parser.parse_comments(source_code_path)
+                # save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
+                #
+                # matches_docs = parser.parse_docs(source_code_path)
                 # save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
             except Exception as e:
                 logger.error(f"Error processing {creds.get_ref()}: {str(e)}")
             finally:
                 db["last_processed"] = creds.get_ref()
+                save_datapoints_per_source_count(run_id)

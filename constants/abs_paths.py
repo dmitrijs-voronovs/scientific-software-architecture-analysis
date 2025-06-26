@@ -17,6 +17,7 @@ class AbsDirPath:
     CONFIG = PROJECT_ROOT / "cfg"
     CONSTANTS = PROJECT_ROOT / "constants"
     RESOURCES = PROJECT_ROOT / "resources"
+    STAGES = PROJECT_ROOT / "stages"
 
     TEMP = PROJECT_ROOT / ".tmp"
     CACHE = PROJECT_ROOT / ".cache"
@@ -26,9 +27,10 @@ class AbsDirPath:
     QUERIES = RESOURCES / "queries"
     KEYWORDS = DATA / "keywords"
     SAMPLES = DATA / "samples"
+    ANALYSIS = STAGES / "analysis"
 
-    WIKIS = DATA / "docs"
-    SOURCE_CODE = DATA / "source"
+    WIKIS = TEMP / "docs"
+    SOURCE_CODE = TEMP / "source"
 
     # KEYWORD DIRS
     KEYWORDS_MATCHING = KEYWORDS / FolderNames.KEYWORDS_MATCHING_DIR

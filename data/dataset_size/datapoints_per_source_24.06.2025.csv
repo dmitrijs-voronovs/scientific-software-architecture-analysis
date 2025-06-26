@@ -1,0 +1,13 @@
+repo_name,match_source,count
+OpenGene.fastp,CODE_COMMENT,1039
+OpenGene.fastp,DOCS,1
+allenai.scispacy,CODE_COMMENT,267
+allenai.scispacy,DOCS,6
+google.deepvariant,CODE_COMMENT,6339
+google.deepvariant,DOCS,43
+root-project.root,CODE_COMMENT,621375
+root-project.root,DOCS,2816
+root-project.root,WIKI,17264
+scverse.scanpy,CODE_COMMENT,2350
+scverse.scanpy,DOCS,102
+scverse.scanpy,WIKI,313

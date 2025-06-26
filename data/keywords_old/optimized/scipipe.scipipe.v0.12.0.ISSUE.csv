@@ -1,3 +1,0 @@
-quality_attribute,sentence,source,author,repo,version,id,keyword,matched_word,match_idx,wiki,url,total_similar,target_keywords,target_matched_words
-Usability,Use WaitGroup to simplify reading synchronously from multiple in-bound channels,MatchSource.ISSUE,scipipe,scipipe,v0.12.0,https://github.com/scipipe/scipipe/issues/22:17,simpl,simplify,17,https://scipipe.org,https://github.com/scipipe/scipipe/issues/22,1,['simpl'],['simplify']
-Usability,simplify function: remove if,MatchSource.ISSUE,scipipe,scipipe,v0.12.0,https://github.com/scipipe/scipipe/pull/43:0,simpl,simplify,0,https://scipipe.org,https://github.com/scipipe/scipipe/pull/43,1,['simpl'],['simplify']
