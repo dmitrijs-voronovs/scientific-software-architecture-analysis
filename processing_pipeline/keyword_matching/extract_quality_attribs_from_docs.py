@@ -11,11 +11,10 @@ from bs4 import BeautifulSoup
 from loguru import logger
 from tqdm import tqdm
 
-from constants.abs_paths import AbsDirPath
-from constants.foldernames import FolderNames
-from cfg.repo_credentials import selected_credentials
-from model.Credentials import Credentials
 from cfg.quality_attributes import quality_attributes
+from cfg.repo_credentials import selected_credentials
+from constants.abs_paths import AbsDirPath
+from model.Credentials import Credentials
 from services.ast_extractor import ext_to_lang, code_comments_iterator
 from utils.utils import create_logger_path
 
@@ -61,7 +60,7 @@ class KeywordParser:
         self.attributes = QAs
         self.creds = creds
         self.append_full_text = append_full_text
-        self.qa_patterns = { qa: KeywordParser.get_keyword_matching_pattern(keywords) for qa, keywords in QAs.items()}
+        self.qa_patterns = {qa: KeywordParser.get_keyword_matching_pattern(keywords) for qa, keywords in QAs.items()}
 
     def matched_keyword_iterator(self, text: str) -> Generator[TextMatch, None, None]:
         if not text:
@@ -70,13 +69,19 @@ class KeywordParser:
         for quality_attr, keywords in self.attributes.items():
             pattern = self.qa_patterns[quality_attr]
             for match in re.finditer(pattern, text):
-                full_match, keyword, match_idx = match.group(), match.group(1), match.start()
-                context = KeywordParser.get_match_context(text, match.start(), match.end())
-                text_match = TextMatch(quality_attribute=quality_attr, keyword=keyword, matched_word=full_match,
-                                       match_idx=match_idx, sentence=context)
-                if self.append_full_text:
-                    text_match.text = text
-                yield text_match
+                yield self._extract_match_details(match, quality_attr, text)
+
+    def _extract_match_details(self, match, quality_attr, text):
+        full_match, match_idx = match.group(), match.start()
+        keyword_idx = next(
+            (keyword_idx for keyword_idx, group in enumerate(match.groups()) if group is not None), -1)
+        keyword = self.attributes[quality_attr][keyword_idx].replace(r'\b', '')
+        context = KeywordParser.get_match_context(text, match.start(), match.end())
+        text_match = TextMatch(quality_attribute=quality_attr, keyword=keyword, matched_word=full_match,
+                               match_idx=match_idx, sentence=context)
+        if self.append_full_text:
+            text_match.text = text
+        return text_match
 
     @staticmethod
     def _clean_text(text: str):
@@ -86,11 +91,13 @@ class KeywordParser:
 
     @staticmethod
     def get_keyword_matching_pattern(keywords):
-        sorted_keywords = sorted(keywords, key=lambda x: (x[0], -len(x)))
-        end_pattern = re.compile(r'[a-z-]*\b')
-        separator = re.compile(rf"{end_pattern.pattern} \b")
-        composed_keywords_with_correct_delimiters = [separator.pattern.join(k.split(" ")) if " " in k else k for k in sorted_keywords]
-        return re.compile(rf'\b({"|".join(composed_keywords_with_correct_delimiters)}){end_pattern.pattern}', re.IGNORECASE)
+        """Expect list of sorted keywords, to be able to identify related keyword based on match group"""
+        end_pattern = r'[a-z-]*\b'
+        separator = rf"{end_pattern} \b"
+        keywords_with_correct_delimiters = [separator.join(k.split(" ")) if " " in k else k for k in keywords]
+        keywords_wrapped_in_groups = [f"({k})" for k in keywords_with_correct_delimiters]
+        # noinspection RegExpUnnecessaryNonCapturingGroup
+        return re.compile(rf'\b(?:{"|".join(keywords_wrapped_in_groups)}){end_pattern}', re.IGNORECASE)
 
     @staticmethod
     def _strip_html_tags(html_content: str) -> str:
@@ -183,7 +190,8 @@ class KeywordParser:
                                             match in self.matched_keyword_iterator(text_content)])
                             datapoint_count_per_source[(self.creds.repo_name, MatchSource.CODE_COMMENT)] += 1
                     except Exception as error:
-                        logger.error(f"Parse code comments failed for {self.creds.get_ref()}, {file=}, {rel_path=}: {error=}")
+                        logger.error(
+                            f"Parse code comments failed for {self.creds.get_ref()}, {file=}, {rel_path=}: {error=}")
         return matches
 
 
@@ -203,14 +211,13 @@ def save_to_file(records: List[FullMatch], source: MatchSource, creds: Credentia
 def save_datapoints_per_source_count(run_id: str):
     data_for_df = []
     for (repo_name, match_source), count in datapoint_count_per_source.items():
-        data_for_df.append({
-            "repo_name": repo_name,
-            "match_source": match_source.value,  # Use .value if you want the string representation of the Enum
-            "count": count
-        })
+        data_for_df.append({"repo_name": repo_name, "match_source": match_source.value,
+            # Use .value if you want the string representation of the Enum
+            "count": count})
     df = pd.DataFrame(data_for_df)
     df_sorted = df.sort_values(by=["repo_name", "match_source"]).reset_index(drop=True)
     df_sorted.to_csv(AbsDirPath.DATA / f"dataset_size/datapoints_per_source_{run_id}.csv", index=False)
+
 
 def restore_datapoints_per_source_count(run_id: str):
     global datapoint_count_per_source
@@ -246,6 +253,7 @@ def restore_datapoints_per_source_count(run_id: str):
     except Exception as e:
         print(f"An error occurred while restoring data: {e}")
 
+
 if __name__ == "__main__":
     cache_dir = AbsDirPath.CACHE / "keyword_extraction"
     os.makedirs(cache_dir, exist_ok=True)
@@ -274,12 +282,7 @@ if __name__ == "__main__":
                     matches_wiki = parser.parse_wiki(str(AbsDirPath.WIKIS / creds.wiki_dir))
                     save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
 
-                # source_code_path = str(AbsDirPath.SOURCE_CODE / creds.get_ref())
-                # matches_code_comments = parser.parse_comments(source_code_path)
-                # save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
-                #
-                # matches_docs = parser.parse_docs(source_code_path)
-                # save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
+                # source_code_path = str(AbsDirPath.SOURCE_CODE / creds.get_ref())  # matches_code_comments = parser.parse_comments(source_code_path)  # save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)  #  # matches_docs = parser.parse_docs(source_code_path)  # save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
             except Exception as e:
                 logger.error(f"Error processing {creds.get_ref()}: {str(e)}")
             finally:
