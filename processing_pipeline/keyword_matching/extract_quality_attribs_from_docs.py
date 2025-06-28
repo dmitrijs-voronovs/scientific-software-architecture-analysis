@@ -197,15 +197,18 @@ class KeywordParser:
 
 def save_to_file(records: List[FullMatch], source: MatchSource, creds: Credentials, with_matched_text: bool = False):
     base_dir = AbsDirPath.KEYWORDS_MATCHING
-    filename = f'{creds.get_ref(".")}.{source.value}.csv'
+    filename = f'{creds.get_ref(".")}.{source.value}.parquet'
     if with_matched_text:
         resulting_filename = base_dir / "full" / filename
     else:
         resulting_filename = base_dir / filename
     os.makedirs(resulting_filename.parent, exist_ok=True)
 
-    records_with_id = [{"id": record.id, **record} for record in records]
-    pd.DataFrame(records_with_id).to_csv(resulting_filename, index=False)
+    if len(records) == 0:
+        return
+
+    records_with_id = [{"id": record.id, **record, "source":record["source"].value} for record in records]
+    pd.DataFrame(records_with_id).to_parquet(resulting_filename, engine='pyarrow', compression='snappy', index=False)
 
 
 def save_datapoints_per_source_count(run_id: str):
@@ -282,7 +285,12 @@ if __name__ == "__main__":
                     matches_wiki = parser.parse_wiki(str(AbsDirPath.WIKIS / creds.wiki_dir))
                     save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
 
-                # source_code_path = str(AbsDirPath.SOURCE_CODE / creds.get_ref())  # matches_code_comments = parser.parse_comments(source_code_path)  # save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)  #  # matches_docs = parser.parse_docs(source_code_path)  # save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
+                source_code_path = str(AbsDirPath.SOURCE_CODE / creds.get_ref())
+                matches_code_comments = parser.parse_comments(source_code_path)
+                save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
+
+                matches_docs = parser.parse_docs(source_code_path)
+                save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
             except Exception as e:
                 logger.error(f"Error processing {creds.get_ref()}: {str(e)}")
             finally:
