@@ -13,7 +13,7 @@ class AbsDirPath:
     # DIRS
 
     DATA = PROJECT_ROOT / "data"
-    WEB = PROJECT_ROOT / "web"
+    DOCS = PROJECT_ROOT / "docs"
     CONFIG = PROJECT_ROOT / "cfg"
     CONSTANTS = PROJECT_ROOT / "constants"
     RESOURCES = PROJECT_ROOT / "resources"
