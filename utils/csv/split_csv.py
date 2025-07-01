@@ -13,7 +13,7 @@ MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024
 
 
 def split_file(file_path: Path, size_bytes=MAX_FILE_SIZE_BYTES / 2):
-    content = pd.read_csv(file_path)
+    content = pd.read_parquet(file_path)
     file_size = file_path.stat().st_size
     num_rows = content.shape[0]
     num_chunks = math.ceil(file_size / size_bytes)
@@ -22,11 +22,11 @@ def split_file(file_path: Path, size_bytes=MAX_FILE_SIZE_BYTES / 2):
     chunks = [content.iloc[ran] for ran in grouper_ranges(num_rows, chunk_size_rows)]
     n_chunks = len(chunks)
     for i, chunk in enumerate(chunks):
-        chunk.to_csv(file_path.with_stem(f"{file_path.stem}.{i:0{len(str(n_chunks))}}"), index=False)
+        chunk.to_parquet(file_path.with_stem(f"{file_path.stem}.{i:0{len(str(n_chunks))}}"), engine='pyarrow', compression='snappy', index=False)
 
 
 def split_files_exceeding_max_limit(dir):
-    for file_path in Path(dir).glob("*[A-Z].csv"):
+    for file_path in Path(dir).glob("*[A-Z].parquet"):
         size = file_path.stat().st_size
         if size > MAX_FILE_SIZE_BYTES:
             print(f"File size: {file_path} | {size}")
@@ -41,6 +41,7 @@ def grouper_ranges(total_size, chunk_size):
 
 
 if __name__ == "__main__":
-    split_files_exceeding_max_limit(AbsDirPath.KEYWORDS_MATCHING.parent / "matched_wikis")
+    split_files_exceeding_max_limit(AbsDirPath.KEYWORDS_MATCHING)
+    split_files_exceeding_max_limit(AbsDirPath.OPTIMIZED_KEYWORDS)
     # print(list(grouper_ranges(98, 10)))
     # split_file("metadata/keywords/broadinstitute.cromwell.87.ISSUE_COMMENT.csv", 500_000)
