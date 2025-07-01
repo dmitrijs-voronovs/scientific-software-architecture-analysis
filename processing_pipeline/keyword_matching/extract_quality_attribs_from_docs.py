@@ -2,6 +2,7 @@ import concurrent.futures
 import os
 import re
 import shelve
+import time
 from collections import defaultdict
 from enum import Enum
 from pathlib import Path
@@ -12,7 +13,7 @@ from bs4 import BeautifulSoup
 from loguru import logger
 from tqdm import tqdm
 
-from cfg.quality_attributes import quality_attributes
+from cfg.quality_attributes import quality_attributes, transform_quality_attributes
 from cfg.repo_credentials import selected_credentials
 from constants.abs_paths import AbsDirPath
 from model.Credentials import Credentials
@@ -24,6 +25,7 @@ AttributeDictType = Dict[str, List[str]]
 
 class TextMatch(Dict):
     keyword: str
+    keyword_raw: str
     matched_word: str
     match_idx: int
     sentence: str
@@ -58,7 +60,8 @@ class KeywordParser:
     context_length = 2000
 
     def __init__(self, QAs: AttributeDictType, creds: Credentials, *, append_full_text: bool = False):
-        self.attributes = QAs
+        self.QAs = QAs
+        self.QAs_non_regex = transform_quality_attributes(QAs, keep_regex_notation=False)
         self.creds = creds
         self.append_full_text = append_full_text
         self.qa_patterns = {qa: KeywordParser.get_keyword_matching_pattern(keywords) for qa, keywords in QAs.items()}
@@ -67,7 +70,7 @@ class KeywordParser:
         if not text:
             return
         text = KeywordParser._clean_text(text)
-        for quality_attr, keywords in self.attributes.items():
+        for quality_attr, keywords in self.QAs.items():
             pattern = self.qa_patterns[quality_attr]
             for match in re.finditer(pattern, text):
                 yield self._extract_match_details(match, quality_attr, text)
@@ -76,9 +79,10 @@ class KeywordParser:
         full_match, match_idx = match.group(), match.start()
         keyword_idx = next(
             (keyword_idx for keyword_idx, group in enumerate(match.groups()) if group is not None), -1)
-        keyword = self.attributes[quality_attr][keyword_idx].replace(r'\b', '')
+        keyword = self.QAs_non_regex[quality_attr][keyword_idx]
+        keyword_raw = self.QAs[quality_attr][keyword_idx]
         context = KeywordParser.get_match_context(text, match.start(), match.end())
-        text_match = TextMatch(quality_attribute=quality_attr, keyword=keyword, matched_word=full_match,
+        text_match = TextMatch(quality_attribute=quality_attr, keyword=keyword, keyword_raw=keyword_raw, matched_word=full_match,
                                match_idx=match_idx, sentence=context)
         if self.append_full_text:
             text_match.text = text
@@ -308,15 +312,32 @@ if __name__ == "__main__":
                 parser = KeywordParser(quality_attributes, creds, append_full_text=append_full_text)
 
                 if creds.has_wiki():
+                    start = time.perf_counter()
                     matches_wiki = parser.parse_wiki(str(AbsDirPath.WIKIS / creds.wiki_dir))
-                    save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
+                    # save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
+                    stop = time.perf_counter()
+                    print(f"Time for `parse_wiki` 5: {(stop - start) :.4f} sec")
 
-                source_code_path = str(AbsDirPath.SOURCE_CODE / creds.get_ref())
-                matches_code_comments = parser.parse_comments(source_code_path)
-                save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
+                if creds.has_wiki():
+                    start = time.perf_counter()
+                    matches_wiki = parser.parse_wiki(str(AbsDirPath.WIKIS / creds.wiki_dir), 10)
+                    # save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
+                    stop = time.perf_counter()
+                    print(f"Time for `parse_wiki` 10: {(stop - start) :.4f} sec")
 
-                matches_docs = parser.parse_docs(source_code_path)
-                save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
+                if creds.has_wiki():
+                    start = time.perf_counter()
+                    matches_wiki = parser.old_parse_wiki(str(AbsDirPath.WIKIS / creds.wiki_dir))
+                    # save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
+                    stop = time.perf_counter()
+                    print(f"Time for `old_parse_wiki`: {(stop - start) :.4f} sec")
+
+                # source_code_path = str(AbsDirPath.SOURCE_CODE / creds.get_ref())
+                # matches_code_comments = parser.parse_comments(source_code_path)
+                # save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
+                #
+                # matches_docs = parser.parse_docs(source_code_path)
+                # save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
             except Exception as e:
                 logger.error(f"Error processing {creds.get_ref()}: {str(e)}")
             finally:

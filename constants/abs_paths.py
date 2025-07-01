@@ -32,6 +32,11 @@ class AbsDirPath:
     WIKIS = TEMP / "docs"
     SOURCE_CODE = TEMP / "source"
 
+    # ANALYSIS DIRS
+    REPO_TOPICS = ANALYSIS / "repo_topics"
+    REPOS = ANALYSIS / "repos"
+    KEYWORD_ANALYSIS = ANALYSIS / "keywords"
+
     # KEYWORD DIRS
     KEYWORDS_MATCHING = KEYWORDS / FolderNames.KEYWORDS_MATCHING_DIR
     OPTIMIZED_KEYWORDS = KEYWORDS / FolderNames.OPTIMIZED_KEYWORD_DIR
