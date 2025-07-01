@@ -1,3 +1,4 @@
+import concurrent.futures
 import os
 import re
 import shelve
@@ -109,7 +110,7 @@ class KeywordParser:
         full_url = f"{base_url}/{page}" if page else base_url
         return full_url
 
-    def parse_wiki(self, wiki_path: str) -> List[FullMatch]:
+    def old_parse_wiki(self, wiki_path: str) -> List[FullMatch]:
         global datapoint_count_per_source
         matches = []
         files = Path(wiki_path).glob("**/*.html")
@@ -126,6 +127,31 @@ class KeywordParser:
             except Exception as error:
                 logger.error(f"Parse docs failed for {self.creds.get_ref()}, {file=}: {error=}")
         return matches
+
+    def parse_wiki(self, wiki_path: str, max_workers=5) -> List[FullMatch]:
+        global datapoint_count_per_source
+        matches = []
+        files = Path(wiki_path).glob("**/*.html")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            all_futures = []
+            for file in tqdm(files, desc=f"Parsing wiki {wiki_path}"):
+                abs_path = file
+                all_futures.append(executor.submit(self._parse_wiki_helper, abs_path, datapoint_count_per_source, file, wiki_path))
+            for futures in concurrent.futures.as_completed(all_futures):
+                matches.extend(futures.result())
+        return matches
+
+    def _parse_wiki_helper(self, abs_path, datapoint_count_per_source, file, wiki_path):
+        rel_path = os.path.normpath(os.path.relpath(abs_path, start=wiki_path)).replace("\\", "/")
+        try:
+            documentation_raw = open(abs_path, "r", encoding="utf-8", errors="replace").read()
+            text_content = self._strip_html_tags(documentation_raw)
+            datapoint_count_per_source[(self.creds.repo_name, MatchSource.WIKI)] += 1
+            return [FullMatch(**match, source=MatchSource.WIKI, filename=rel_path, **self.creds,
+                                      url=self.generate_link(self.creds['wiki'], rel_path)) for match in
+                            self.matched_keyword_iterator(text_content)]
+        except Exception as error:
+            logger.error(f"Parse docs failed for {self.creds.get_ref()}, {file=}: {error=}")
 
     @staticmethod
     def get_match_context(text: str, match_start: int, match_end: int) -> str:
