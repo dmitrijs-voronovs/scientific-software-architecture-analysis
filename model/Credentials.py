@@ -1,41 +1,17 @@
-import functools
 import re
-from typing import Dict, Optional
+from dataclasses import dataclass
+from typing import Optional
 
-
-class Credentials(Dict):
+@dataclass
+class CredentialsDTO():
     author: str
     repo: str
     version: str
-    wiki: Optional[str]
+    wiki: Optional[str] = None
 
-    @property
-    def repo_path(self) -> str:
-        return f"{self['author']}/{self['repo']}"
-
-    @property
-    def repo_name(self) -> str:
-        return f"{self['author']}.{self['repo']}"
-
-    @property
-    def wiki_dir(self) -> str:
-        return re.split(r"https?://", self["wiki"])[-1]
-
-    def has_wiki(self) -> bool:
-        return self["wiki"] is not None
-
-    def get_ref(self, delimiter="/") -> str:
-        return f"{self['author']}{delimiter}{self['repo']}{delimiter}{self['version']}"
-
-    @property
-    def dotted_ref(self) -> str:
-        return self.get_ref(".")
-
-class CredentialsDTO(Dict):
-    author: str
-    repo: str
-    version: str
-    wiki: Optional[str]
+    @classmethod
+    def from_dict(cls, dct: dict):
+        return cls(**dct)
 
     @property
     def repo_path(self) -> str:
@@ -47,14 +23,18 @@ class CredentialsDTO(Dict):
 
     @property
     def wiki_dir(self) -> str:
-        return re.split(r"https?://", self["wiki"])[-1]
+        return re.split(r"https?://", self.wiki)[-1]
 
     def has_wiki(self) -> bool:
-        return self["wiki"] is not None
+        return self.wiki is not None
 
-    def get_ref(self, delimiter="/") -> str:
-        return f"{self.author}{delimiter}{self.repo}{delimiter}{self.version}"
+    def _get_ref(self, delimiter="/") -> str:
+        return delimiter.join([self.author, self.repo, self.version])
 
     @property
     def dotted_ref(self) -> str:
-        return self.get_ref(".")
+        return self._get_ref(".")
+
+    @property
+    def id(self) -> str:
+        return self.id

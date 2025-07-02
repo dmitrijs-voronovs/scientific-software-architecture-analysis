@@ -1,4 +1,5 @@
 import dataclasses
+from dataclasses import asdict
 import json
 import os
 import re
@@ -15,7 +16,7 @@ from tenacity import retry, stop_after_attempt, wait_fixed
 from tqdm import tqdm
 
 from processing_pipeline.keyword_matching.extract_quality_attribs_from_docs import KeywordParser
-from model.Credentials import Credentials
+from model.Credentials import CredentialsDTO
 from utils.utils import create_logger_path
 
 
@@ -292,7 +293,7 @@ You are a software design pattern expert and a skilled code analyst. Analyze the
 
 1. Design Pattern Extraction: Identify and evaluate occurrences of any software design patterns from the following list:
 ```
-{[dataclasses.asdict(val) for val in patterns.values()]}
+{[asdict(val) for val in patterns.values()]}
 ```
  
    - For each identified pattern:
@@ -479,9 +480,9 @@ class FileType(Enum):
     FILE = "file"
 
 
-def pattern_extractor_iterator(creds: Credentials):
+def pattern_extractor_iterator(creds: CredentialsDTO):
     repo_url = KeywordParser.get_github_repo_url(creds)
-    source_code_dir = Path("../../../.tmp") / "source" / creds.get_ref()
+    source_code_dir = Path("../../../.tmp") / "source" / creds.id
     cache_dir = Path(".cache/patterns")
     os.makedirs(cache_dir, exist_ok=True)
     with shelve.open(str(cache_dir / creds.dotted_ref)) as db:
@@ -502,7 +503,7 @@ def pattern_extractor_iterator(creds: Credentials):
                             result = request_gemma(prompt)
                             file_patterns.append(result)
                             # rel_path = os.path.normpath(os.path.relpath(abs_path, source_code_path)).replace("\\", "/")
-                            yield dict(filename=rel_path, type=FileType.FILE, **creds,
+                            yield dict(filename=rel_path, type=FileType.FILE, **asdict(creds),
                                        url=KeywordParser.generate_link(repo_url, rel_path), patterns=result["patterns"],
                                        **result["description"])
                         except Exception as e:
@@ -525,8 +526,8 @@ def pattern_extractor_iterator(creds: Credentials):
 pattern_extraction_dir = "pattern_extraction"
 
 
-def extract_patterns(cred: Credentials, batch_size=20):
-    save_destination = Path("metadata/patterns") / cred.get_ref(".")
+def extract_patterns(cred: CredentialsDTO, batch_size=20):
+    save_destination = Path("metadata/patterns") / cred.dotted_ref
     os.makedirs(save_destination, exist_ok=True)
     batch = []
     for i, pattern in enumerate(pattern_extractor_iterator(cred)):
@@ -548,12 +549,12 @@ def main():
     os.makedirs(keyword_folder / pattern_extraction_dir, exist_ok=True)
     logger.add(create_logger_path(pattern_extraction_dir), mode="w")
 
-    creds = [Credentials(
+    creds = [CredentialsDTO.from_dict(
         {'author': 'scverse', 'repo': 'scanpy', 'version': '1.10.2', 'wiki': 'https://scanpy.readthedocs.io'}),
-        Credentials({'author': 'allenai', 'repo': 'scispacy', 'version': 'v0.5.5',
+        CredentialsDTO.from_dict({'author': 'allenai', 'repo': 'scispacy', 'version': 'v0.5.5',
                      'wiki': 'https://allenai.github.io/scispacy/'}),
-        Credentials({'author': 'qutip', 'repo': 'qutip', 'version': 'v5.0.4', 'wiki': 'https://qutip.org'}),
-        Credentials({'author': 'hail-is', 'repo': 'hail', 'version': '0.2.133', 'wiki': 'https://hail.is'}), ]
+        CredentialsDTO.from_dict({'author': 'qutip', 'repo': 'qutip', 'version': 'v5.0.4', 'wiki': 'https://qutip.org'}),
+        CredentialsDTO.from_dict({'author': 'hail-is', 'repo': 'hail', 'version': '0.2.133', 'wiki': 'https://hail.is'}), ]
 
     try:
         for cred in creds:

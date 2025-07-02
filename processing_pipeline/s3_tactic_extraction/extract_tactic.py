@@ -281,7 +281,7 @@ def extract_tactics(host, only_files_containing_text: List[str] | None = None, r
 
     try:
         for file_path in optimized_keyword_folder.glob("*.csv"):
-            if any(cred.get_ref(".") in file_path.stem for cred in (selected_credentials)):
+            if any(cred.dotted_ref in file_path.stem for cred in (selected_credentials)):
                 keep_processing = len(only_files_containing_text) == 0 or any(
                     text_to_test in file_path.stem for text_to_test in only_files_containing_text)
                 if keep_processing == reverse:

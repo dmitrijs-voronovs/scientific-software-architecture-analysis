@@ -5,7 +5,7 @@ import dotenv
 import pandas as pd
 from tqdm import tqdm
 
-from model.Credentials import Credentials
+from model.Credentials import CredentialsDTO
 from processing_pipeline.keyword_matching.extract_quality_attribs_from_github_metadata import GitHubDataFetcher
 
 dotenv.load_dotenv()
@@ -39,7 +39,7 @@ def query_and_save_versions(package_versions_path):
     data = []
     for repo_path in tqdm(repos, "Getting latest repository version"):
         _, author, repo = repo_path.split("/")
-        git_repo = GitHubDataFetcher(os.getenv("GITHUB_TOKEN"), Credentials(
+        git_repo = GitHubDataFetcher(os.getenv("GITHUB_TOKEN"), CredentialsDTO(
             author=author,
             repo=repo,
             version="latest"
@@ -54,9 +54,9 @@ def query_and_save_versions(package_versions_path):
 def print_as_credentials(package_versions_path: Path, save_to: Path):
     df = pd.read_csv(package_versions_path)
     with open(save_to, "w", encoding="utf-8") as f:
-        f.write("credential_list: List[Credentials] = [\n")
+        f.write("credential_list: List[CredentialsDTO] = [\n")
         for (author, repo, version, wiki) in df.itertuples(index=False):
-            f.write(f"Credentials({Credentials(author=author, repo=repo, version=version, wiki=wiki if isinstance(wiki, str) else None)}),\n")
+            f.write(f"CredentialsDTO.from_dict({CredentialsDTO(author=author, repo=repo, version=version, wiki=wiki if isinstance(wiki, str) else None)}),\n")
         f.write("]")
 
 

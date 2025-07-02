@@ -1,11 +1,10 @@
-import concurrent.futures
-import dataclasses
 import os
 import re
 import shelve
 import time
 from abc import ABC
 from collections import defaultdict
+from dataclasses import asdict, field, dataclass
 from enum import Enum
 from pathlib import Path
 from typing import List, Dict, Generator, Optional
@@ -18,32 +17,21 @@ from tqdm import tqdm
 from cfg.quality_attributes import quality_attributes, transform_quality_attributes
 from cfg.repo_credentials import selected_credentials
 from constants.abs_paths import AbsDirPath
-from model.Credentials import Credentials, CredentialsDTO
+from model.Credentials import CredentialsDTO
 from services.ast_extractor import ext_to_lang, code_comments_iterator
 from utils.utils import create_logger_path
 
 AttributeDictType = Dict[str, List[str]]
 
-
-class TextMatch(Dict):
+@dataclass
+class TextMatchDTO:
     keyword: str
     keyword_raw: str
     matched_word: str
     match_idx: int
     sentence: str
     quality_attribute: str
-    text: Optional[str]
-
-
-@dataclasses.dataclass
-class TextMatchDTO():
-    keyword: str
-    keyword_raw: str
-    matched_word: str
-    match_idx: int
-    sentence: str
-    quality_attribute: str
-    text: Optional[str]
+    text: Optional[str] = field(kw_only=True, default=None)
 
 
 class MatchSource(Enum):
@@ -55,26 +43,29 @@ class MatchSource(Enum):
     CODE_COMMENT = "CODE_COMMENT"
 
 
-class FullMatch(TextMatch, Credentials, Dict):
-    filename: Optional[str]
-    source: MatchSource
-    url: str
-
-    @property
-    def id(self):
-        return f"{self["url"]}:{self["match_idx"]}"
-
-
-@dataclasses.dataclass
+@dataclass
 class FullMatchDTO(TextMatchDTO):
-    author_id: str
-    filename: Optional[str]
+    author: CredentialsDTO
     source: MatchSource
     url: str
 
+    # TODO: remove
     @property
     def id(self):
         return f"{self.url}:{self.match_idx}"
+
+    @classmethod
+    def from_text_match(cls, text_match: TextMatchDTO, author: CredentialsDTO, source: MatchSource, url: str):
+        # noinspection PyTypeChecker
+        return cls(**asdict(text_match), author=author, source=source, url=url)
+
+    def as_dict(self) -> dict:
+        # noinspection PyTypeChecker
+        result = {k: v for k, v in asdict(self).items()}
+        result["source"] = self.source.value
+        del result["author"]
+        result["author_id"] = self.author.id
+        return result
 
 
 BASE_GITHUB_URL = "https://github.com"
@@ -84,7 +75,7 @@ datapoint_count_per_source = defaultdict(int)  # data points before matching
 class KeywordParserBase(ABC):
     context_length = 2000
 
-    def __init__(self, QAs: AttributeDictType, creds: Credentials, *, append_full_text: bool = False):
+    def __init__(self, QAs: AttributeDictType, creds: CredentialsDTO, *, append_full_text: bool = False):
         self.QAs_non_regex = transform_quality_attributes(QAs, keep_regex_notation=False)
         self.creds = creds
         self.append_full_text = append_full_text
@@ -93,18 +84,18 @@ class KeywordParserBase(ABC):
 
     def _extract_match_details(self, match, quality_attr, text):
         full_match, match_idx = match.group(), match.start()
-        keyword_idx = next(
-            (keyword_idx for keyword_idx, group in enumerate(match.groups()) if group is not None), -1)
+        keyword_idx = next((keyword_idx for keyword_idx, group in enumerate(match.groups()) if group is not None), -1)
+        assert keyword_idx == match.lastindex - 1, f"Keyword index {keyword_idx} does not match lastindex {match.lastindex}"
         keyword = self.QAs_non_regex[quality_attr][keyword_idx]
         keyword_raw = self.QAs[quality_attr][keyword_idx]
         context = KeywordParser.get_match_context(text, match.start(), match.end())
-        text_match = TextMatch(quality_attribute=quality_attr, keyword=keyword, keyword_raw=keyword_raw, matched_word=full_match,
-                               match_idx=match_idx, sentence=context)
+        text_match = TextMatchDTO(quality_attribute=quality_attr, keyword=keyword, keyword_raw=keyword_raw,
+                                  matched_word=full_match, match_idx=match_idx, sentence=context)
         if self.append_full_text:
             text_match.text = text
         return text_match
 
-    def matched_keyword_iterator(self, text: str) -> Generator[TextMatch, None, None]:
+    def matched_keyword_iterator(self, text: str) -> Generator[TextMatchDTO, None, None]:
         if not text:
             return
         text = KeywordParser._clean_text(text)
@@ -159,25 +150,25 @@ class KeywordParserBase(ABC):
 
 
 class KeywordParser(KeywordParserBase):
-    def parse_wiki(self, wiki_path: str) -> List[FullMatch]:
+    def parse_wiki(self, wiki_path: str) -> List[FullMatchDTO]:
         global datapoint_count_per_source
         matches = []
         files = Path(wiki_path).glob("**/*.html")
         for file in tqdm(files, desc=f"Parsing wiki {wiki_path}"):
             abs_path = file
             rel_path = os.path.normpath(os.path.relpath(abs_path, start=wiki_path)).replace("\\", "/")
+            link = self.generate_link(self.creds.wiki, rel_path)
             try:
                 documentation_raw = open(abs_path, "r", encoding="utf-8", errors="replace").read()
                 text_content = self._strip_html_tags(documentation_raw)
-                matches.extend([FullMatch(**match, source=MatchSource.WIKI, filename=rel_path, **self.creds,
-                                          url=self.generate_link(self.creds['wiki'], rel_path)) for match in
+                matches.extend([FullMatchDTO.from_text_match(match, source=MatchSource.WIKI, author=self.creds, url=link) for match in
                                 self.matched_keyword_iterator(text_content)])
                 datapoint_count_per_source[(self.creds.repo_name, MatchSource.WIKI)] += 1
             except Exception as error:
-                logger.error(f"Parse docs failed for {self.creds.get_ref()}, {file=}: {error=}")
+                logger.error(f"Parse docs failed for {self.creds.id}, {file=}: {error=}")
         return matches
 
-    def parse_docs(self, docs_path: str) -> List[FullMatch]:
+    def parse_docs(self, docs_path: str) -> List[FullMatchDTO]:
         global datapoint_count_per_source
         repo_url = self.get_github_repo_url(self.creds)
         matches = []
@@ -188,23 +179,23 @@ class KeywordParser(KeywordParserBase):
                 tqdm.write(str(file))
                 abs_path = file
                 rel_path = os.path.normpath(os.path.relpath(abs_path, start=docs_path)).replace("\\", "/")
+                link = self.generate_link(repo_url, rel_path)
                 try:
                     documentation_raw = open(abs_path, "r", encoding="utf-8", errors="replace").read()
                     text_content = self._strip_html_tags(documentation_raw) if ext in ".html" else documentation_raw
-                    matches.extend([FullMatch(**match, source=MatchSource.DOCS, filename=rel_path, **self.creds,
-                                              url=self.generate_link(repo_url, rel_path)) for match in
+                    matches.extend([FullMatchDTO.from_text_match(match, source=MatchSource.DOCS, author=self.creds, url=link) for match in
                                     self.matched_keyword_iterator(text_content)])
                     datapoint_count_per_source[(self.creds.repo_name, MatchSource.DOCS)] += 1
                 except Exception as error:
-                    logger.error(f"Parse docs failed for {self.creds.get_ref()}, {file=}: {error=}")
+                    logger.error(f"Parse docs failed for {self.creds.id}, {file=}: {error=}")
 
         return matches
 
     @staticmethod
-    def get_github_repo_url(creds: Credentials) -> str:
-        return f"{BASE_GITHUB_URL}/{creds['author']}/{creds['repo']}/tree/{creds['version']}"
+    def get_github_repo_url(creds: CredentialsDTO) -> str:
+        return f"{BASE_GITHUB_URL}/{creds.author}/{creds.repo}/tree/{creds.version}"
 
-    def parse_comments(self, source_code_path: str) -> List[FullMatch]:
+    def parse_comments(self, source_code_path: str) -> List[FullMatchDTO]:
         global datapoint_count_per_source
         repo_url = self.get_github_repo_url(self.creds)
         matches = []
@@ -215,51 +206,22 @@ class KeywordParser(KeywordParserBase):
                 if Path(file).suffix[1:] in supported_language_extensions:
                     abs_path = os.path.join(root, file)
                     rel_path = os.path.normpath(os.path.relpath(abs_path, source_code_path)).replace("\\", "/")
+                    link = self.generate_link(repo_url, rel_path)
                     try:
                         for text_content in code_comments_iterator(abs_path):
-                            matches.extend([FullMatch(**match, source=MatchSource.CODE_COMMENT, filename=rel_path,
-                                                      **self.creds, url=self.generate_link(repo_url, rel_path)) for
-                                            match in self.matched_keyword_iterator(text_content)])
+                            matches.extend(
+                                [FullMatchDTO.from_text_match(match, source=MatchSource.CODE_COMMENT, author=self.creds, url=link) for match
+                                 in self.matched_keyword_iterator(text_content)])
                             datapoint_count_per_source[(self.creds.repo_name, MatchSource.CODE_COMMENT)] += 1
                     except Exception as error:
                         logger.error(
-                            f"Parse code comments failed for {self.creds.get_ref()}, {file=}, {rel_path=}: {error=}")
+                            f"Parse code comments failed for {self.creds.id}, {file=}, {rel_path=}: {error=}")
         return matches
 
-class KeywordParserParallel(KeywordParser):
-    def __init__(self, QAs: AttributeDictType, creds: Credentials, *, append_full_text: bool = False, threads=5):
-        super().__init__(QAs, creds, append_full_text=append_full_text)
-        self.threads = threads
 
-    def parse_wiki(self, wiki_path: str) -> List[FullMatch]:
-        global datapoint_count_per_source
-        matches = []
-        files = Path(wiki_path).glob("**/*.html")
-        with concurrent.futures.ThreadPoolExecutor(max_workers=self.threads) as executor:
-            all_futures = []
-            for file in tqdm(files, desc=f"Parsing wiki {wiki_path}"):
-                abs_path = file
-                all_futures.append(executor.submit(self._parse_wiki_helper, abs_path, datapoint_count_per_source, file, wiki_path))
-            for futures in concurrent.futures.as_completed(all_futures):
-                matches.extend(futures.result())
-        return matches
-
-    def _parse_wiki_helper(self, abs_path, datapoint_count_per_source, file, wiki_path):
-        rel_path = os.path.normpath(os.path.relpath(abs_path, start=wiki_path)).replace("\\", "/")
-        try:
-            documentation_raw = open(abs_path, "r", encoding="utf-8", errors="replace").read()
-            text_content = self._strip_html_tags(documentation_raw)
-            datapoint_count_per_source[(self.creds.repo_name, MatchSource.WIKI)] += 1
-            return [FullMatch(**match, source=MatchSource.WIKI, filename=rel_path, **self.creds,
-                                      url=self.generate_link(self.creds['wiki'], rel_path)) for match in
-                            self.matched_keyword_iterator(text_content)]
-        except Exception as error:
-            logger.error(f"Parse docs failed for {self.creds.get_ref()}, {file=}: {error=}")
-
-
-def save_to_file(records: List[FullMatch], source: MatchSource, creds: Credentials, with_matched_text: bool = False):
+def save_to_file(records: List[FullMatchDTO], source: MatchSource, creds: CredentialsDTO, with_matched_text: bool = False):
     base_dir = AbsDirPath.KEYWORDS_MATCHING
-    filename = f'{creds.get_ref(".")}.{source.value}.parquet'
+    filename = f'{creds.dotted_ref}.{source.value}.parquet'
     if with_matched_text:
         resulting_filename = base_dir / "full" / filename
     else:
@@ -269,16 +231,16 @@ def save_to_file(records: List[FullMatch], source: MatchSource, creds: Credentia
     if len(records) == 0:
         return
 
-    records_with_id = [{"id": record.id, **record, "source":record["source"].value} for record in records]
-    pd.DataFrame(records_with_id).to_parquet(resulting_filename, engine='pyarrow', compression='snappy', index=False)
+    serialized = [record.as_dict() for record in records]
+    pd.DataFrame(serialized).to_parquet(resulting_filename, engine='pyarrow', compression='snappy', index=False)
 
 
 def save_datapoints_per_source_count(run_id: str):
     data_for_df = []
     for (repo_name, match_source), count in datapoint_count_per_source.items():
         data_for_df.append({"repo_name": repo_name, "match_source": match_source.value,
-            # Use .value if you want the string representation of the Enum
-            "count": count})
+                            # Use .value if you want the string representation of the Enum
+                            "count": count})
     df = pd.DataFrame(data_for_df)
     df_sorted = df.sort_values(by=["repo_name", "match_source"]).reset_index(drop=True)
     df_sorted.to_csv(AbsDirPath.DATA / f"dataset_size/datapoints_per_source_{run_id}.csv", index=False)
@@ -332,31 +294,15 @@ if __name__ == "__main__":
     with shelve.open(cache_path) as db:
         last_processed = db.get("last_processed", None)
         for creds in selected_credentials:
-            # if creds.get_ref() == last_processed:
-            #     logger.info(f"Skipping {creds.get_ref()}")
+            # if creds.id == last_processed:
+            #     logger.info(f"Skipping {creds.id}")
             #     continue
 
-            logger.info(f"Processing {creds.get_ref()}")
+            logger.info(f"Processing {creds.id}")
             try:
                 # checkout_tag(creds['author'], creds['repo'], creds['version'])
 
                 append_full_text = False
-
-                if creds.has_wiki():
-                    parser = KeywordParserParallel(quality_attributes, creds, append_full_text=append_full_text, threads=5)
-                    start = time.perf_counter()
-                    matches_wiki = parser.parse_wiki(str(AbsDirPath.WIKIS / creds.wiki_dir))
-                    # save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
-                    stop = time.perf_counter()
-                    print(f"Time for `parse_wiki` 5: {(stop - start) :.4f} sec")
-
-                if creds.has_wiki():
-                    parser = KeywordParserParallel(quality_attributes, creds, append_full_text=append_full_text, threads=10)
-                    start = time.perf_counter()
-                    matches_wiki = parser.parse_wiki(str(AbsDirPath.WIKIS / creds.wiki_dir))
-                    # save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
-                    stop = time.perf_counter()
-                    print(f"Time for `parse_wiki` 10: {(stop - start) :.4f} sec")
 
                 if creds.has_wiki():
                     parser = KeywordParser(quality_attributes, creds, append_full_text=append_full_text)
@@ -366,14 +312,9 @@ if __name__ == "__main__":
                     stop = time.perf_counter()
                     print(f"Time for `old_parse_wiki`: {(stop - start) :.4f} sec")
 
-                # source_code_path = str(AbsDirPath.SOURCE_CODE / creds.get_ref())
-                # matches_code_comments = parser.parse_comments(source_code_path)
-                # save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
-                #
-                # matches_docs = parser.parse_docs(source_code_path)
-                # save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
+                # source_code_path = str(AbsDirPath.SOURCE_CODE / creds.get_ref())  # matches_code_comments = parser.parse_comments(source_code_path)  # save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)  #  # matches_docs = parser.parse_docs(source_code_path)  # save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
             except Exception as e:
-                logger.error(f"Error processing {creds.get_ref()}: {str(e)}")
+                logger.error(f"Error processing {creds.id}: {str(e)}")
             finally:
-                db["last_processed"] = creds.get_ref()
+                db["last_processed"] = creds.id
                 save_datapoints_per_source_count(run_id)

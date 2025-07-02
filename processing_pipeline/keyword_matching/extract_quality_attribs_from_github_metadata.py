@@ -19,8 +19,9 @@ from tqdm import tqdm
 
 from cfg.quality_attributes import QualityAttributesMap, quality_attributes
 from cfg.repo_credentials import selected_credentials
-from extract_quality_attribs_from_docs import KeywordParser, FullMatch, MatchSource, save_to_file
-from model.Credentials import Credentials
+from extract_quality_attribs_from_docs import KeywordParser, MatchSource, save_to_file
+from model.Credentials import CredentialsDTO
+from processing_pipeline.keyword_matching.extract_quality_attribs_from_docs import FullMatchDTO
 from services.MongoDBConnection import MongoDBConnection
 
 dotenv.load_dotenv()
@@ -119,7 +120,7 @@ class RepoInfoDTO:
 
 
 class GitHubDataFetcher:
-    def __init__(self, token: str, creds: Credentials):
+    def __init__(self, token: str, creds: CredentialsDTO):
         """
         Initialize the fetcher with GitHub token
 
@@ -218,8 +219,7 @@ class GitHubDataFetcher:
     def get_releases(self, batch_size=10) -> Iterator[List[ReleaseDTO]]:
         assert batch_size > 0, "Batch size must be greater than 0"
 
-        owner, repo_name = self.creds.get("author"), self.creds.get("repo")
-        repo = self.github.get_repo(f"{owner}/{repo_name}")
+        repo = self.github.get_repo(f"{self.creds.author}/{self.creds.repo}")
 
         releases = repo.get_releases()
         total_releases = releases.totalCount
@@ -264,7 +264,7 @@ class MongoMatch(TypedDict):
 
 
 class DB:
-    def __init__(self, creds: Credentials):
+    def __init__(self, creds: CredentialsDTO):
         self.non_robot_users = ["olgabot", "hugtalbot", "arrogantrobot", "robot-chenwei", "Bot-Enigma-0"]
         self.regex_omitting_bots = re.compile(r"bot\b", re.IGNORECASE)
         self.creds = creds
@@ -320,7 +320,7 @@ class DB:
 
 total_matches_per_source = {}
 
-def save_matched_keywords(creds: Credentials, db, quality_attributes_map: QualityAttributesMap):
+def save_matched_keywords(creds: CredentialsDTO, db, quality_attributes_map: QualityAttributesMap):
     global total_matches_per_source
     source_to_generator_map = {MatchSource.ISSUE_COMMENT: db.extract_comments,
                                MatchSource.ISSUE: db.extract_issues,
@@ -329,7 +329,7 @@ def save_matched_keywords(creds: Credentials, db, quality_attributes_map: Qualit
     for source, gen in source_to_generator_map.items():
         matches = []
         for match in tqdm(gen(), desc=f"Processing {creds.dotted_ref} / {source.value}"):
-            matches.extend([FullMatch(**text_match, source=source, **creds, url=match["html_url"]) for text_match in
+            matches.extend([FullMatchDTO.from_text_match(text_match, source=source, author=creds, url=match["html_url"]) for text_match in
                             keyword_parser.matched_keyword_iterator(match["text"])])
         save_to_file(matches, source, creds)
         total_matches_per_source[(creds.repo_name, source.value)] = len(matches)

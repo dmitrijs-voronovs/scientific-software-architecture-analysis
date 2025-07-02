@@ -61,7 +61,7 @@ def main():
                 df = transform_data(df)
                 save_data(df, target_dir, cred, source)
             except Exception as error:
-                print(f"Error processing {cred.get_ref()}, {error=}\n{traceback.format_exc()}")
+                print(f"Error processing {cred.id}, {error=}\n{traceback.format_exc()}")
 
     split_files_exceeding_max_limit(target_dir)
 

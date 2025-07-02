@@ -366,7 +366,7 @@ def main():
             #     logger.info(f"Skipping CODE_COMMENTS for {file_path.stem}, as dataset is incomplete")
             #     continue
 
-            if any(cred.get_ref(".") in file_path.stem for cred in creds):
+            if any(cred.dotted_ref in file_path.stem for cred in creds):
                 res_filepath = keyword_folder / f"{FolderNames.VERIFICATION_DIR}/{file_path.stem}.verified.csv"
                 # Verifying
                 # allenai.scispacy.v0
