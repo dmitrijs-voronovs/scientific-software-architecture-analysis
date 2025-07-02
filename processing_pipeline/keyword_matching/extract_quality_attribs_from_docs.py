@@ -1,4 +1,5 @@
 import concurrent.futures
+import dataclasses
 import os
 import re
 import shelve
@@ -16,7 +17,7 @@ from tqdm import tqdm
 from cfg.quality_attributes import quality_attributes, transform_quality_attributes
 from cfg.repo_credentials import selected_credentials
 from constants.abs_paths import AbsDirPath
-from model.Credentials import Credentials
+from model.Credentials import Credentials, CredentialsDTO
 from services.ast_extractor import ext_to_lang, code_comments_iterator
 from utils.utils import create_logger_path
 
@@ -24,6 +25,17 @@ AttributeDictType = Dict[str, List[str]]
 
 
 class TextMatch(Dict):
+    keyword: str
+    keyword_raw: str
+    matched_word: str
+    match_idx: int
+    sentence: str
+    quality_attribute: str
+    text: Optional[str]
+
+
+@dataclasses.dataclass
+class TextMatchDTO():
     keyword: str
     keyword_raw: str
     matched_word: str
@@ -50,6 +62,17 @@ class FullMatch(TextMatch, Credentials, Dict):
     @property
     def id(self):
         return f"{self["url"]}:{self["match_idx"]}"
+
+
+@dataclasses.dataclass
+class FullMatchDTO(TextMatchDTO):
+    filename: Optional[str]
+    source: MatchSource
+    url: str
+
+    @property
+    def id(self):
+        return f"{self.url}:{self.match_idx}"
 
 
 BASE_GITHUB_URL = "https://github.com"
@@ -114,7 +137,7 @@ class KeywordParser:
         full_url = f"{base_url}/{page}" if page else base_url
         return full_url
 
-    def old_parse_wiki(self, wiki_path: str) -> List[FullMatch]:
+    def parse_wiki(self, wiki_path: str) -> List[FullMatch]:
         global datapoint_count_per_source
         matches = []
         files = Path(wiki_path).glob("**/*.html")
@@ -131,31 +154,6 @@ class KeywordParser:
             except Exception as error:
                 logger.error(f"Parse docs failed for {self.creds.get_ref()}, {file=}: {error=}")
         return matches
-
-    def parse_wiki(self, wiki_path: str, max_workers=5) -> List[FullMatch]:
-        global datapoint_count_per_source
-        matches = []
-        files = Path(wiki_path).glob("**/*.html")
-        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-            all_futures = []
-            for file in tqdm(files, desc=f"Parsing wiki {wiki_path}"):
-                abs_path = file
-                all_futures.append(executor.submit(self._parse_wiki_helper, abs_path, datapoint_count_per_source, file, wiki_path))
-            for futures in concurrent.futures.as_completed(all_futures):
-                matches.extend(futures.result())
-        return matches
-
-    def _parse_wiki_helper(self, abs_path, datapoint_count_per_source, file, wiki_path):
-        rel_path = os.path.normpath(os.path.relpath(abs_path, start=wiki_path)).replace("\\", "/")
-        try:
-            documentation_raw = open(abs_path, "r", encoding="utf-8", errors="replace").read()
-            text_content = self._strip_html_tags(documentation_raw)
-            datapoint_count_per_source[(self.creds.repo_name, MatchSource.WIKI)] += 1
-            return [FullMatch(**match, source=MatchSource.WIKI, filename=rel_path, **self.creds,
-                                      url=self.generate_link(self.creds['wiki'], rel_path)) for match in
-                            self.matched_keyword_iterator(text_content)]
-        except Exception as error:
-            logger.error(f"Parse docs failed for {self.creds.get_ref()}, {file=}: {error=}")
 
     @staticmethod
     def get_match_context(text: str, match_start: int, match_end: int) -> str:
@@ -223,6 +221,38 @@ class KeywordParser:
                         logger.error(
                             f"Parse code comments failed for {self.creds.get_ref()}, {file=}, {rel_path=}: {error=}")
         return matches
+
+class KeywordParserParallel(KeywordParser):
+    context_length = 2000
+
+    def __init__(self, QAs: AttributeDictType, creds: Credentials, *, append_full_text: bool = False, threads=5):
+        super().__init__(QAs, creds, append_full_text=append_full_text)
+        self.threads = threads
+
+    def parse_wiki(self, wiki_path: str) -> List[FullMatch]:
+        global datapoint_count_per_source
+        matches = []
+        files = Path(wiki_path).glob("**/*.html")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=self.threads) as executor:
+            all_futures = []
+            for file in tqdm(files, desc=f"Parsing wiki {wiki_path}"):
+                abs_path = file
+                all_futures.append(executor.submit(self._parse_wiki_helper, abs_path, datapoint_count_per_source, file, wiki_path))
+            for futures in concurrent.futures.as_completed(all_futures):
+                matches.extend(futures.result())
+        return matches
+
+    def _parse_wiki_helper(self, abs_path, datapoint_count_per_source, file, wiki_path):
+        rel_path = os.path.normpath(os.path.relpath(abs_path, start=wiki_path)).replace("\\", "/")
+        try:
+            documentation_raw = open(abs_path, "r", encoding="utf-8", errors="replace").read()
+            text_content = self._strip_html_tags(documentation_raw)
+            datapoint_count_per_source[(self.creds.repo_name, MatchSource.WIKI)] += 1
+            return [FullMatch(**match, source=MatchSource.WIKI, filename=rel_path, **self.creds,
+                                      url=self.generate_link(self.creds['wiki'], rel_path)) for match in
+                            self.matched_keyword_iterator(text_content)]
+        except Exception as error:
+            logger.error(f"Parse docs failed for {self.creds.get_ref()}, {file=}: {error=}")
 
 
 def save_to_file(records: List[FullMatch], source: MatchSource, creds: Credentials, with_matched_text: bool = False):
@@ -309,9 +339,9 @@ if __name__ == "__main__":
                 # checkout_tag(creds['author'], creds['repo'], creds['version'])
 
                 append_full_text = False
-                parser = KeywordParser(quality_attributes, creds, append_full_text=append_full_text)
 
                 if creds.has_wiki():
+                    parser = KeywordParserParallel(quality_attributes, creds, append_full_text=append_full_text, threads=5)
                     start = time.perf_counter()
                     matches_wiki = parser.parse_wiki(str(AbsDirPath.WIKIS / creds.wiki_dir))
                     # save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
@@ -319,15 +349,17 @@ if __name__ == "__main__":
                     print(f"Time for `parse_wiki` 5: {(stop - start) :.4f} sec")
 
                 if creds.has_wiki():
+                    parser = KeywordParserParallel(quality_attributes, creds, append_full_text=append_full_text, threads=10)
                     start = time.perf_counter()
-                    matches_wiki = parser.parse_wiki(str(AbsDirPath.WIKIS / creds.wiki_dir), 10)
+                    matches_wiki = parser.parse_wiki(str(AbsDirPath.WIKIS / creds.wiki_dir))
                     # save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
                     stop = time.perf_counter()
                     print(f"Time for `parse_wiki` 10: {(stop - start) :.4f} sec")
 
                 if creds.has_wiki():
+                    parser = KeywordParser(quality_attributes, creds, append_full_text=append_full_text)
                     start = time.perf_counter()
-                    matches_wiki = parser.old_parse_wiki(str(AbsDirPath.WIKIS / creds.wiki_dir))
+                    matches_wiki = parser.parse_wiki(str(AbsDirPath.WIKIS / creds.wiki_dir))
                     # save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
                     stop = time.perf_counter()
                     print(f"Time for `old_parse_wiki`: {(stop - start) :.4f} sec")
