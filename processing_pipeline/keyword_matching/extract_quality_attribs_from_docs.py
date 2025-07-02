@@ -4,6 +4,7 @@ import os
 import re
 import shelve
 import time
+from abc import ABC
 from collections import defaultdict
 from enum import Enum
 from pathlib import Path
@@ -66,6 +67,7 @@ class FullMatch(TextMatch, Credentials, Dict):
 
 @dataclasses.dataclass
 class FullMatchDTO(TextMatchDTO):
+    author_id: str
     filename: Optional[str]
     source: MatchSource
     url: str
@@ -79,24 +81,15 @@ BASE_GITHUB_URL = "https://github.com"
 datapoint_count_per_source = defaultdict(int)  # data points before matching
 
 
-class KeywordParser:
+class KeywordParserBase(ABC):
     context_length = 2000
 
     def __init__(self, QAs: AttributeDictType, creds: Credentials, *, append_full_text: bool = False):
-        self.QAs = QAs
         self.QAs_non_regex = transform_quality_attributes(QAs, keep_regex_notation=False)
         self.creds = creds
         self.append_full_text = append_full_text
         self.qa_patterns = {qa: KeywordParser.get_keyword_matching_pattern(keywords) for qa, keywords in QAs.items()}
-
-    def matched_keyword_iterator(self, text: str) -> Generator[TextMatch, None, None]:
-        if not text:
-            return
-        text = KeywordParser._clean_text(text)
-        for quality_attr, keywords in self.QAs.items():
-            pattern = self.qa_patterns[quality_attr]
-            for match in re.finditer(pattern, text):
-                yield self._extract_match_details(match, quality_attr, text)
+        self.QAs = QAs
 
     def _extract_match_details(self, match, quality_attr, text):
         full_match, match_idx = match.group(), match.start()
@@ -110,6 +103,15 @@ class KeywordParser:
         if self.append_full_text:
             text_match.text = text
         return text_match
+
+    def matched_keyword_iterator(self, text: str) -> Generator[TextMatch, None, None]:
+        if not text:
+            return
+        text = KeywordParser._clean_text(text)
+        for quality_attr, keywords in self.QAs.items():
+            pattern = self.qa_patterns[quality_attr]
+            for match in re.finditer(pattern, text):
+                yield self._extract_match_details(match, quality_attr, text)
 
     @staticmethod
     def _clean_text(text: str):
@@ -137,24 +139,6 @@ class KeywordParser:
         full_url = f"{base_url}/{page}" if page else base_url
         return full_url
 
-    def parse_wiki(self, wiki_path: str) -> List[FullMatch]:
-        global datapoint_count_per_source
-        matches = []
-        files = Path(wiki_path).glob("**/*.html")
-        for file in tqdm(files, desc=f"Parsing wiki {wiki_path}"):
-            abs_path = file
-            rel_path = os.path.normpath(os.path.relpath(abs_path, start=wiki_path)).replace("\\", "/")
-            try:
-                documentation_raw = open(abs_path, "r", encoding="utf-8", errors="replace").read()
-                text_content = self._strip_html_tags(documentation_raw)
-                matches.extend([FullMatch(**match, source=MatchSource.WIKI, filename=rel_path, **self.creds,
-                                          url=self.generate_link(self.creds['wiki'], rel_path)) for match in
-                                self.matched_keyword_iterator(text_content)])
-                datapoint_count_per_source[(self.creds.repo_name, MatchSource.WIKI)] += 1
-            except Exception as error:
-                logger.error(f"Parse docs failed for {self.creds.get_ref()}, {file=}: {error=}")
-        return matches
-
     @staticmethod
     def get_match_context(text: str, match_start: int, match_end: int) -> str:
         """ Returns a context string of length `KeywordParser.context_length` centered around the match. """
@@ -172,6 +156,26 @@ class KeywordParser:
         context_start = match_start - remaining_left
         if context_start < 0: return text[:KeywordParser.context_length]
         return text[context_start: context_end]
+
+
+class KeywordParser(KeywordParserBase):
+    def parse_wiki(self, wiki_path: str) -> List[FullMatch]:
+        global datapoint_count_per_source
+        matches = []
+        files = Path(wiki_path).glob("**/*.html")
+        for file in tqdm(files, desc=f"Parsing wiki {wiki_path}"):
+            abs_path = file
+            rel_path = os.path.normpath(os.path.relpath(abs_path, start=wiki_path)).replace("\\", "/")
+            try:
+                documentation_raw = open(abs_path, "r", encoding="utf-8", errors="replace").read()
+                text_content = self._strip_html_tags(documentation_raw)
+                matches.extend([FullMatch(**match, source=MatchSource.WIKI, filename=rel_path, **self.creds,
+                                          url=self.generate_link(self.creds['wiki'], rel_path)) for match in
+                                self.matched_keyword_iterator(text_content)])
+                datapoint_count_per_source[(self.creds.repo_name, MatchSource.WIKI)] += 1
+            except Exception as error:
+                logger.error(f"Parse docs failed for {self.creds.get_ref()}, {file=}: {error=}")
+        return matches
 
     def parse_docs(self, docs_path: str) -> List[FullMatch]:
         global datapoint_count_per_source
@@ -223,8 +227,6 @@ class KeywordParser:
         return matches
 
 class KeywordParserParallel(KeywordParser):
-    context_length = 2000
-
     def __init__(self, QAs: AttributeDictType, creds: Credentials, *, append_full_text: bool = False, threads=5):
         super().__init__(QAs, creds, append_full_text=append_full_text)
         self.threads = threads
