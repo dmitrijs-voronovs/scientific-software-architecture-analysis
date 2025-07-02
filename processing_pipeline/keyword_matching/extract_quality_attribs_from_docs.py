@@ -30,7 +30,7 @@ class TextMatchDTO:
     matched_word: str
     match_idx: int
     sentence: str
-    quality_attribute: str
+    qa: str
     text: Optional[str] = field(kw_only=True, default=None)
 
 
@@ -45,7 +45,7 @@ class MatchSource(Enum):
 
 @dataclass
 class FullMatchDTO(TextMatchDTO):
-    author: CredentialsDTO
+    repo: CredentialsDTO
     source: MatchSource
     url: str
 
@@ -55,16 +55,16 @@ class FullMatchDTO(TextMatchDTO):
         return f"{self.url}:{self.match_idx}"
 
     @classmethod
-    def from_text_match(cls, text_match: TextMatchDTO, author: CredentialsDTO, source: MatchSource, url: str):
+    def from_text_match(cls, text_match: TextMatchDTO, repo: CredentialsDTO, source: MatchSource, url: str):
         # noinspection PyTypeChecker
-        return cls(**asdict(text_match), author=author, source=source, url=url)
+        return cls(**asdict(text_match), repo=repo, source=source, url=url)
 
     def as_dict(self) -> dict:
         # noinspection PyTypeChecker
         result = {k: v for k, v in asdict(self).items()}
         result["source"] = self.source.value
-        del result["author"]
-        result["author_id"] = self.author.id
+        del result["repo"]
+        result["repo_id"] = self.repo.id
         return result
 
 
@@ -89,7 +89,7 @@ class KeywordParserBase(ABC):
         keyword = self.QAs_non_regex[quality_attr][keyword_idx]
         keyword_raw = self.QAs[quality_attr][keyword_idx]
         context = KeywordParser.get_match_context(text, match.start(), match.end())
-        text_match = TextMatchDTO(quality_attribute=quality_attr, keyword=keyword, keyword_raw=keyword_raw,
+        text_match = TextMatchDTO(qa=quality_attr, keyword=keyword, keyword_raw=keyword_raw,
                                   matched_word=full_match, match_idx=match_idx, sentence=context)
         if self.append_full_text:
             text_match.text = text
@@ -161,7 +161,7 @@ class KeywordParser(KeywordParserBase):
             try:
                 documentation_raw = open(abs_path, "r", encoding="utf-8", errors="replace").read()
                 text_content = self._strip_html_tags(documentation_raw)
-                matches.extend([FullMatchDTO.from_text_match(match, source=MatchSource.WIKI, author=self.creds, url=link) for match in
+                matches.extend([FullMatchDTO.from_text_match(match, source=MatchSource.WIKI, repo=self.creds, url=link) for match in
                                 self.matched_keyword_iterator(text_content)])
                 datapoint_count_per_source[(self.creds.repo_name, MatchSource.WIKI)] += 1
             except Exception as error:
@@ -183,7 +183,7 @@ class KeywordParser(KeywordParserBase):
                 try:
                     documentation_raw = open(abs_path, "r", encoding="utf-8", errors="replace").read()
                     text_content = self._strip_html_tags(documentation_raw) if ext in ".html" else documentation_raw
-                    matches.extend([FullMatchDTO.from_text_match(match, source=MatchSource.DOCS, author=self.creds, url=link) for match in
+                    matches.extend([FullMatchDTO.from_text_match(match, source=MatchSource.DOCS, repo=self.creds, url=link) for match in
                                     self.matched_keyword_iterator(text_content)])
                     datapoint_count_per_source[(self.creds.repo_name, MatchSource.DOCS)] += 1
                 except Exception as error:
@@ -210,7 +210,7 @@ class KeywordParser(KeywordParserBase):
                     try:
                         for text_content in code_comments_iterator(abs_path):
                             matches.extend(
-                                [FullMatchDTO.from_text_match(match, source=MatchSource.CODE_COMMENT, author=self.creds, url=link) for match
+                                [FullMatchDTO.from_text_match(match, source=MatchSource.CODE_COMMENT, repo=self.creds, url=link) for match
                                  in self.matched_keyword_iterator(text_content)])
                             datapoint_count_per_source[(self.creds.repo_name, MatchSource.CODE_COMMENT)] += 1
                     except Exception as error:

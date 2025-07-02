@@ -246,10 +246,6 @@ class GitHubDataFetcher:
             yield batch
 
 
-def extract_keywords(path: str):
-    pass
-
-
 class MongoTextMatch(TypedDict):
     captures: List[str]
     idx: int
@@ -329,7 +325,7 @@ def save_matched_keywords(creds: CredentialsDTO, db, quality_attributes_map: Qua
     for source, gen in source_to_generator_map.items():
         matches = []
         for match in tqdm(gen(), desc=f"Processing {creds.dotted_ref} / {source.value}"):
-            matches.extend([FullMatchDTO.from_text_match(text_match, source=source, author=creds, url=match["html_url"]) for text_match in
+            matches.extend([FullMatchDTO.from_text_match(text_match, source=source, repo=creds, url=match["html_url"]) for text_match in
                             keyword_parser.matched_keyword_iterator(match["text"])])
         save_to_file(matches, source, creds)
         total_matches_per_source[(creds.repo_name, source.value)] = len(matches)
