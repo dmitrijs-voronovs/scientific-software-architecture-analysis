@@ -1,16 +1,14 @@
-import re
 from enum import Enum
 from pathlib import Path
 from typing import Generator, Dict
 
-import tree_sitter_python as tspython
-import tree_sitter_java as tsjava
-import tree_sitter_cpp as tscpp
-import tree_sitter_javascript as tsjavascript
 import tree_sitter_c as tsc
 import tree_sitter_c_sharp as tscsharp
-from tree_sitter_typescript import language_typescript as tstypescript
+import tree_sitter_cpp as tscpp
+import tree_sitter_javascript as tsjavascript
+import tree_sitter_python as tspython
 from tree_sitter import Language, Parser, Tree, Node
+from tree_sitter_typescript import language_typescript as tstypescript
 
 
 class Lang(Enum):
@@ -22,31 +20,19 @@ class Lang(Enum):
     JAVASCRIPT = "javascript"
     TYPESCRIPT = "typescript"
 
-# TODO: make sure that ext name is compared in lowercase
-ext_to_lang: Dict[str, Lang] = {"py": Lang.PYTHON,
-                                # "java": Lang.JAVA,
-                                "h": Lang.CPP,
-                                "cc": Lang.CPP,
-                                # use CPP language grammar for C files,
-                                # as current C grammar is incompatible with latest version
-                                "c": Lang.CPP,
-                                "cs": Lang.CSHARP,
-                                "cpp": Lang.CPP,
-                                "cxx": Lang.CPP,
-                                "hxx": Lang.CPP,
-                                "js": Lang.JAVASCRIPT,
-                                "mjs": Lang.JAVASCRIPT,
-                                "ts": Lang.TYPESCRIPT
-                                }
 
-Languages: dict[Lang, Language] = {Lang.PYTHON: Language(tspython.language()),
-                                   # Lang.JAVA: Language(tsjava.language()),
-                                   Lang.CPP: Language(tscpp.language()),
-                                   Lang.C: Language(tsc.language()),
+# TODO: make sure that ext name is compared in lowercase
+ext_to_lang: Dict[str, Lang] = {"py": Lang.PYTHON, # "java": Lang.JAVA,
+                                "h": Lang.CPP, "cc": Lang.CPP, # use CPP language grammar for C files,
+                                # as current C grammar is incompatible with latest version
+                                "c": Lang.CPP, "cs": Lang.CSHARP, "cpp": Lang.CPP, "cxx": Lang.CPP, "hxx": Lang.CPP,
+                                "js": Lang.JAVASCRIPT, "mjs": Lang.JAVASCRIPT, "ts": Lang.TYPESCRIPT}
+
+Languages: dict[Lang, Language] = {Lang.PYTHON: Language(tspython.language()), # Lang.JAVA: Language(tsjava.language()),
+                                   Lang.CPP: Language(tscpp.language()), Lang.C: Language(tsc.language()),
                                    Lang.CSHARP: Language(tscsharp.language()),
                                    Lang.JAVASCRIPT: Language(tsjavascript.language()),
-                                   Lang.TYPESCRIPT: Language(tstypescript())
-                                   }
+                                   Lang.TYPESCRIPT: Language(tstypescript())}
 
 
 def extract_text_from_all_nodes(match):
@@ -61,7 +47,7 @@ def render_if_exists(object, field, prefix="", postfix="", orString="", render_f
 
 
 Queries = {"python": {"class_field": {"handler": (lambda match: {**(m := extract_text_from_all_nodes(match)),
-    "embedding": f"Class field: {render_if_exists(m, "class.instance_field", "[instance] ", render_field=lambda x: "")}{m["class.name"]}.{m["class.field"].replace('self.', '')}"}),
+                                                                 "embedding": f"Class field: {render_if_exists(m, "class.instance_field", "[instance] ", render_field=lambda x: "")}{m["class.name"]}.{m["class.field"].replace('self.', '')}"}),
                                       "query": """
             (class_definition
                 name: (identifier) @class.name
@@ -95,7 +81,7 @@ Queries = {"python": {"class_field": {"handler": (lambda match: {**(m := extract
                 )
             )
         """}, "class_method": {"handler": (lambda match: {**(m := extract_text_from_all_nodes(match)),
-    "embedding": f"Class method: {render_if_exists(m, "method.decorator", "[", "] ")}{m["class.name"]}.{m["method.name"]}{m["method.parameters"]}{render_if_exists(m, "method.type", " -> ")}"}),
+                                                          "embedding": f"Class method: {render_if_exists(m, "method.decorator", "[", "] ")}{m["class.name"]}.{m["method.name"]}{m["method.parameters"]}{render_if_exists(m, "method.type", " -> ")}"}),
                                "query": """
             (class_definition
                 name: (identifier) @class.name
@@ -118,13 +104,14 @@ Queries = {"python": {"class_field": {"handler": (lambda match: {**(m := extract
                 )
             ) ;; @class_method
         """}, "class": {"handler": (lambda match: {**(m := extract_text_from_all_nodes(match)),
-    "embedding": f"Class: {m["class.name"]}{render_if_exists(m, "class.base")}"}), "query": """
+                                                   "embedding": f"Class: {m["class.name"]}{render_if_exists(m, "class.base")}"}),
+                        "query": """
             (class_definition
                 name: (identifier) @class.name
                 superclasses: (argument_list)? @class.base
             ) ;; @class
         """}, "function": {"handler": (lambda match: {**(m := extract_text_from_all_nodes(match)),
-    "embedding": f"Function: {m["function.name"]}{m["function.parameters"]}{render_if_exists(m, "function.type", " -> ")}"}),
+                                                      "embedding": f"Function: {m["function.name"]}{m["function.parameters"]}{render_if_exists(m, "function.type", " -> ")}"}),
                            "query": """
             (module
                 (function_definition
@@ -135,7 +122,8 @@ Queries = {"python": {"class_field": {"handler": (lambda match: {**(m := extract
                 ) ;; @function
             )
         """}, "module_type": {"handler": (lambda match: {**(m := extract_text_from_all_nodes(match)),
-    "embedding": f"Type: {m['type.name']} = {m['type.value']}"}), "query": """
+                                                         "embedding": f"Type: {m['type.name']} = {m['type.value']}"}),
+                              "query": """
             (module
                 (type_alias_statement
                     (type (identifier) @type.name)
@@ -154,7 +142,8 @@ Queries = {"python": {"class_field": {"handler": (lambda match: {**(m := extract
                 )
             )
         """}, "import": {"handler": (lambda match: {**(m := extract_text_from_all_nodes(match)),
-    "embedding": f"Import: {m["import.name"]}{render_if_exists(m, "import.from", " from ")}"}), "query": """
+                                                    "embedding": f"Import: {m["import.name"]}{render_if_exists(m, "import.from", " from ")}"}),
+                         "query": """
             (module
                 (import_from_statement
                     module_name: (dotted_name) @import.from
@@ -174,7 +163,8 @@ Queries = {"python": {"class_field": {"handler": (lambda match: {**(m := extract
                 ) @import
             )
         """}, "local_import": {"handler": (lambda match: {**(m := extract_text_from_all_nodes(match)),
-    "embedding": f"Import: {m["import.name"]} from {m["import.from"]}"}), "query": """
+                                                          "embedding": f"Import: {m["import.name"]} from {m["import.from"]}"}),
+                               "query": """
             (module
                 (import_from_statement
                     (dotted_name
@@ -256,8 +246,7 @@ def ast_iterator(lang, tree, query) -> Generator[tuple[int, dict[str, list[Node]
         return
 
 
-lang_to_comment_query_map: Dict[Lang, str] = {
-    Lang.PYTHON: """
+lang_to_comment_query_map: Dict[Lang, str] = {Lang.PYTHON: """
         (
           (string) @docstring
           (#match? @docstring "^(\\"\\"\\"|''')")
@@ -322,19 +311,23 @@ lang_to_comment_query_map: Dict[Lang, str] = {
 
 COMMENT_SYMBOLS = " *#'\"/-_="
 
-def transform_text(text: str):
-    return " ".join([part.lstrip(COMMENT_SYMBOLS) for part in text.split("\n") if part]).rstrip(COMMENT_SYMBOLS)
 
-def extract_text_from_comments_node(match) -> Generator [str, None, None]:
+def transform_text(text: str):
+    return " ".join([part.lstrip(COMMENT_SYMBOLS) for part in text.split("\n") if part]).rstrip(
+        COMMENT_SYMBOLS).removeprefix("\n ")
+
+
+def extract_text_from_comments_node(match) -> Generator[str, None, None]:
     for [_, value] in match.items():
         yield " ".join([transform_text(v.text.decode("utf-8")) for v in value]).strip()
+
 
 def extract_comments(lang, tree) -> Generator[str, None, None]:
     for [_, match] in ast_iterator(lang, tree, lang_to_comment_query_map[lang]):
         yield from extract_text_from_comments_node(match)
 
+
 def code_comments_iterator(file_path: str) -> Generator[str, None, None]:
     code, filename, lang = read_file(str(file_path))
     tree = parse_code(code, lang)
     yield from extract_comments(lang, tree)
-

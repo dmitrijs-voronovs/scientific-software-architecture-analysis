@@ -1,0 +1,13 @@
+repo_id,match_source,count
+allenai/scispacy/v0.5.5,code_comment,267
+google/deepvariant/v1.6.1,code_comment,6339
+OpenGene/fastp/v0.23.4,code_comment,1039
+root-project/root/v6-32-06,code_comment,633377
+scverse/scanpy/1.10.2,code_comment,2350
+allenai/scispacy/v0.5.5,docs,6
+google/deepvariant/v1.6.1,docs,43
+OpenGene/fastp/v0.23.4,docs,1
+root-project/root/v6-32-06,docs,2816
+scverse/scanpy/1.10.2,docs,102
+root-project/root/v6-32-06,wiki,83
+scverse/scanpy/1.10.2,wiki,54

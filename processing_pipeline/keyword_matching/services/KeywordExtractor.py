@@ -86,7 +86,7 @@ class KeywordExtractor(ABC):
     @staticmethod
     def _clean_text(text: str):
         text = re.sub(r'([.!?])?(?:\r?\n)+', lambda m: f"{m.group(1)} " if m.group(1) else ". ", text)
-        text = re.sub(r' {2,}', " ", text)
+        text = re.sub(r'[ \n]{2,}', " ", text)
         return text.strip()
 
     @staticmethod
