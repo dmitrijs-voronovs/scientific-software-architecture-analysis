@@ -1,6 +1,6 @@
 from cfg.quality_attributes import qa_sorter, QualityAttributesMap
 from cfg.repo_credentials import all_credentials
-from processing_pipeline.keyword_matching.extract_quality_attribs_from_docs import KeywordParser
+from processing_pipeline.keyword_matching.services.KeywordParser import KeywordParser
 
 
 def test_keyword_extraction_patter():

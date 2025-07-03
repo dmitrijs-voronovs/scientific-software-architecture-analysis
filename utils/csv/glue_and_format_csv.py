@@ -6,7 +6,7 @@ import pandas as pd
 from tqdm import tqdm
 
 from constants.foldernames import FolderNames
-from processing_pipeline.keyword_matching.extract_quality_attribs_from_docs import MatchSource
+from processing_pipeline.keyword_matching.services.KeywordParser import MatchSource
 from cfg.repo_credentials import selected_credentials
 from split_csv import split_files_exceeding_max_limit
 

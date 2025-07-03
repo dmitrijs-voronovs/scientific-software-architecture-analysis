@@ -6,7 +6,7 @@ import pandas as pd
 from tqdm import tqdm
 
 from model.Credentials import Credentials
-from processing_pipeline.keyword_matching.extract_quality_attribs_from_github_metadata import GitHubDataFetcher
+from processing_pipeline.keyword_matching.services.GithubDataFetcher import GithubDataFetcher
 
 dotenv.load_dotenv()
 
@@ -39,7 +39,7 @@ def query_and_save_versions(package_versions_path):
     data = []
     for repo_path in tqdm(repos, "Getting latest repository version"):
         _, author, repo = repo_path.split("/")
-        git_repo = GitHubDataFetcher(os.getenv("GITHUB_TOKEN"), Credentials(
+        git_repo = GithubDataFetcher(os.getenv("GITHUB_TOKEN"), Credentials(
             author=author,
             repo=repo,
             version="latest"

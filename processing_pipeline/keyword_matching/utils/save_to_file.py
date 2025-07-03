@@ -1,0 +1,24 @@
+import os
+from typing import List
+
+import pandas as pd
+
+from constants.abs_paths import AbsDirPath
+from model.Credentials import Credentials
+from processing_pipeline.keyword_matching.services.KeywordParser import FullMatch, MatchSource
+
+
+def save_matches_to_file(records: List[FullMatch], source: MatchSource, creds: Credentials, with_matched_text: bool = False):
+    base_dir = AbsDirPath.KEYWORDS_MATCHING
+    filename = f'{creds.dotted_ref}.{source.value}.parquet'
+    if with_matched_text:
+        resulting_filename = base_dir / "full" / filename
+    else:
+        resulting_filename = base_dir / filename
+    os.makedirs(resulting_filename.parent, exist_ok=True)
+
+    if len(records) == 0:
+        return
+
+    serialized = [record.as_dict() for record in records]
+    pd.DataFrame(serialized).to_parquet(resulting_filename, engine='pyarrow', compression='snappy', index=False)
