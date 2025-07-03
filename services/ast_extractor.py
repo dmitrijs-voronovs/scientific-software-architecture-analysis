@@ -320,20 +320,14 @@ lang_to_comment_query_map: Dict[Lang, str] = {
 
 }
 
+COMMENT_SYMBOLS = " *#'\"/-_="
+
+def transform_text(text: str):
+    return " ".join([part.lstrip(COMMENT_SYMBOLS) for part in text.split("\n") if part]).rstrip(COMMENT_SYMBOLS)
 
 def extract_text_from_comments_node(match) -> Generator [str, None, None]:
     for [_, value] in match.items():
-        first_line = value[0].text.decode("utf-8")
-        comment_symbol = get_comment_symbol(first_line)
-        yield "\n".join([v.text.decode("utf-8").lstrip(comment_symbol) for v in value])
-
-
-def get_comment_symbol(first_line):
-    comment_symbol_match = re.match(r'^(\W)', first_line)
-    if comment_symbol_match:
-        return  comment_symbol_match[1]
-    return None
-
+        yield " ".join([transform_text(v.text.decode("utf-8")) for v in value]).strip()
 
 def extract_comments(lang, tree) -> Generator[str, None, None]:
     for [_, match] in ast_iterator(lang, tree, lang_to_comment_query_map[lang]):
