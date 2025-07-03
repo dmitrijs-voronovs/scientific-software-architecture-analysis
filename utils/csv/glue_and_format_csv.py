@@ -5,6 +5,7 @@ from pathlib import Path
 import pandas as pd
 from tqdm import tqdm
 
+from constants.abs_paths import AbsDirPath
 from constants.foldernames import FolderNames
 from processing_pipeline.keyword_matching.services.KeywordParser import MatchSource
 from cfg.selected_repos import selected_repos
@@ -42,8 +43,8 @@ def save_data(df, target_dir, repo, source: 'MatchSource'):
     df.to_csv(target_dir / f"{repo.dotted_ref}.{source.value}.csv", index=False)
 
 def main():
-    keywords_dir = Path(f"metadata/keywords/{FolderNames.KEYWORDS_MATCHING}")
-    target_dir = keywords_dir / ".." / FolderNames.OPTIMIZED_KEYWORD
+    keywords_dir = AbsDirPath.KEYWORDS_MATCHING
+    target_dir = AbsDirPath.OPTIMIZED_KEYWORDS
 
     for repos in tqdm(selected_repos, desc="Processing keywords"):
         for source in MatchSource:
