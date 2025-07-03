@@ -180,7 +180,7 @@ class SourceCodeKeywordExtractor(KeywordExtractor):
             tqdm.write(str(root))
             for file in files:
                 supported_language_extensions = ext_to_lang.keys()
-                if Path(file).suffix[1:] in supported_language_extensions:
+                if Path(file).suffix[1:].lower() in supported_language_extensions:
                     abs_path = os.path.join(root, file)
                     rel_path = os.path.normpath(os.path.relpath(abs_path, source_code_path)).replace("\\", "/")
                     link = self.generate_link(self.repo.github_source_code_url, rel_path)

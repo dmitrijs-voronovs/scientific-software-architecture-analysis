@@ -9,6 +9,7 @@ class RepoDict(TypedDict):
     version: str
     wiki: Optional[str]
 
+
 @dataclass
 class Repo:
     BASE_GITHUB_URL = "https://github.com"
