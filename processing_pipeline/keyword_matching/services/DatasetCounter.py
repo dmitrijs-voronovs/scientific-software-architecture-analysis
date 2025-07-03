@@ -4,7 +4,7 @@ import pandas as pd
 
 from constants.abs_paths import AbsDirPath
 from model.Repo import Repo
-from processing_pipeline.keyword_matching.services.KeywordParser import MatchSource
+from processing_pipeline.keyword_matching.model.MatchSource import MatchSource
 
 
 class DatasetCounter:

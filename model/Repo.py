@@ -1,6 +1,13 @@
 import re
 from dataclasses import dataclass
-from typing import Optional
+from typing import Optional, TypedDict
+
+
+class RepoDict(TypedDict):
+    author: str
+    name: str
+    version: str
+    wiki: Optional[str]
 
 @dataclass
 class Repo:
@@ -12,7 +19,7 @@ class Repo:
     wiki: Optional[str] = None
 
     @classmethod
-    def from_dict(cls, dct: dict):
+    def from_dict(cls, dct: RepoDict):
         return cls(**dct)
 
     @property

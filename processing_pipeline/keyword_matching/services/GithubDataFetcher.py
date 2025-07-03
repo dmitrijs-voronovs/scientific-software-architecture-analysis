@@ -10,6 +10,7 @@ from github.Issue import Issue
 from github.IssueComment import IssueComment
 from tqdm import tqdm
 
+from constants.abs_paths import AbsDirPath
 from model.Repo import Repo
 
 type InternalReactionKey = Literal["thumbs_up", "thumbs_down", "laugh", "confused", "heart", "hooray", "rocket", "eyes"]
@@ -123,8 +124,9 @@ class GithubDataFetcher:
         assert batch_size > 0, "Batch size must be greater than 0"
         repo = self.github.get_repo(self.repo.git_id)
 
-        os.makedirs("../../.cache/issues", exist_ok=True)
-        with shelve.open(f".cache/issues/{self.repo.repo_name}") as db:
+        issue_cache_dir = AbsDirPath.CACHE / "issues"
+        os.makedirs(issue_cache_dir, exist_ok=True)
+        with shelve.open(issue_cache_dir / self.repo.repo_name) as db:
             since = db.get("since", None)
             # Get all issues (including pull requests)
             issues = repo.get_issues(state='all', direction='asc', since=since) if since else repo.get_issues(
@@ -204,7 +206,7 @@ class GithubDataFetcher:
     def get_releases(self, batch_size=10) -> Iterator[List[ReleaseDTO]]:
         assert batch_size > 0, "Batch size must be greater than 0"
 
-        repo = self.github.get_repo(f"{self.repo.author}/{self.repo.name}")
+        repo = self.github.get_repo(self.repo.git_id)
 
         releases = repo.get_releases()
         total_releases = releases.totalCount

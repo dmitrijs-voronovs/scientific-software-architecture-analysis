@@ -7,7 +7,7 @@ from cfg.quality_attributes import quality_attributes
 from cfg.selected_repos import selected_repos
 from constants.abs_paths import AbsDirPath
 from processing_pipeline.keyword_matching.services.DatasetCounter import DatasetCounter
-from processing_pipeline.keyword_matching.services.KeywordParser import KeywordParser
+from processing_pipeline.keyword_matching.services.KeywordExtractor import SourceCodeKeywordExtractor
 from utils.utils import create_logger_path
 
 if __name__ == "__main__":
@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
                 append_full_text = False
 
-                parser = KeywordParser(quality_attributes, repo, append_full_text=append_full_text, dataset_counter=dataset_counter)
+                parser = SourceCodeKeywordExtractor(quality_attributes, repo, append_full_text=append_full_text, dataset_counter=dataset_counter)
                 # if repo.has_wiki():
                 #     start = time.perf_counter()
                 #     matches_wiki = parser.parse_wiki(str(AbsDirPath.WIKIS / repo.wiki_dir))

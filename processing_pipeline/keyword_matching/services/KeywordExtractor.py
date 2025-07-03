@@ -2,7 +2,6 @@ import os
 import re
 from abc import ABC
 from dataclasses import dataclass, field, asdict
-from enum import Enum
 from pathlib import Path
 from typing import Dict, List, Optional, Generator
 
@@ -12,7 +11,9 @@ from tqdm import tqdm
 
 from cfg.quality_attributes import transform_quality_attributes
 from model.Repo import Repo
+from processing_pipeline.keyword_matching.model.MatchSource import MatchSource
 from processing_pipeline.keyword_matching.services.DatasetCounter import DatasetCounter
+from processing_pipeline.keyword_matching.services.MongoDB import MongoDB
 from services.ast_extractor import ext_to_lang, code_comments_iterator
 
 AttributeDictType = Dict[str, List[str]]
@@ -27,15 +28,6 @@ class TextMatch:
     sentence: str
     qa: str
     text: Optional[str] = field(kw_only=True, default=None)
-
-
-class MatchSource(Enum):
-    RELEASES = "RELEASES"
-    WIKI = "WIKI"
-    DOCS = "DOCS"
-    ISSUE = "ISSUE"
-    ISSUE_COMMENT = "ISSUE_COMMENT"
-    CODE_COMMENT = "CODE_COMMENT"
 
 
 @dataclass
@@ -58,14 +50,14 @@ class FullMatch(TextMatch):
         return result
 
 
-class KeywordParserBase(ABC):
+class KeywordExtractor(ABC):
     context_length = 2000
 
     def __init__(self, QAs: AttributeDictType, repo: Repo, *, append_full_text: bool = False):
         self.QAs_non_regex = transform_quality_attributes(QAs, keep_regex_notation=False)
         self.repo = repo
         self.append_full_text = append_full_text
-        self.qa_patterns = {qa: KeywordParser.get_keyword_matching_pattern(keywords) for qa, keywords in QAs.items()}
+        self.qa_patterns = {qa: SourceCodeKeywordExtractor.get_keyword_matching_pattern(keywords) for qa, keywords in QAs.items()}
         self.QAs = QAs
 
     def _extract_match_details(self, match, quality_attr, text):
@@ -73,7 +65,7 @@ class KeywordParserBase(ABC):
         keyword_idx = match.lastindex - 1
         keyword = self.QAs_non_regex[quality_attr][keyword_idx]
         keyword_raw = self.QAs[quality_attr][keyword_idx]
-        context = KeywordParser.get_match_context(text, match.start(), match.end())
+        context = SourceCodeKeywordExtractor.get_match_context(text, match.start(), match.end())
         text_match = TextMatch(qa=quality_attr, keyword=keyword, keyword_raw=keyword_raw,
                                matched_word=full_match, match_idx=match_idx, sentence=context)
         if self.append_full_text:
@@ -83,7 +75,7 @@ class KeywordParserBase(ABC):
     def matched_keyword_iterator(self, text: str) -> Generator[TextMatch, None, None]:
         if not text:
             return
-        text = KeywordParser._clean_text(text)
+        text = SourceCodeKeywordExtractor._clean_text(text)
         for quality_attr, keywords in self.QAs.items():
             pattern = self.qa_patterns[quality_attr]
             for match in re.finditer(pattern, text):
@@ -118,24 +110,29 @@ class KeywordParserBase(ABC):
     @staticmethod
     def get_match_context(text: str, match_start: int, match_end: int) -> str:
         """ Returns a context string of length `KeywordParser.context_length` centered around the match. """
-        if len(text) < KeywordParser.context_length:
+        if len(text) < SourceCodeKeywordExtractor.context_length:
             return text
 
         match_len = match_end - match_start
-        remaining = KeywordParser.context_length - match_len
+        remaining = SourceCodeKeywordExtractor.context_length - match_len
         remaining_left = remaining // 2
         remaining_right = remaining - remaining_left
 
         context_end = match_end + remaining_right
-        if context_end > len(text): return text[-KeywordParser.context_length:]
+        if context_end > len(text): return text[-SourceCodeKeywordExtractor.context_length:]
 
         context_start = match_start - remaining_left
-        if context_start < 0: return text[:KeywordParser.context_length]
+        if context_start < 0: return text[:SourceCodeKeywordExtractor.context_length]
         return text[context_start: context_end]
 
 
-class KeywordParser(KeywordParserBase):
-    def __init__(self, QAs: AttributeDictType, repo: Repo, *, append_full_text: bool = False, dataset_counter: DatasetCounter = None):
+class SourceCodeKeywordExtractor(KeywordExtractor):
+    """
+    Extracting keywords from repository docs, code comments and wiki pages.
+    Collections were fetched earlier with `GithubDataFetcher`, `services\ast_extractor.py` (tree-sitter based scripts)
+    and external tool `WinHTTrack` (repo wiki pages).
+    """
+    def __init__(self, QAs: AttributeDictType, repo: Repo, *, append_full_text: bool = False, dataset_counter: DatasetCounter):
         super().__init__(QAs, repo, append_full_text=append_full_text)
         self.dataset_counter = dataset_counter
 
@@ -151,7 +148,7 @@ class KeywordParser(KeywordParserBase):
                 text_content = self._strip_html_tags(documentation_raw)
                 matches.extend([FullMatch.from_text_match(match, source=MatchSource.WIKI, repo=self.repo, url=link) for match in
                                 self.matched_keyword_iterator(text_content)])
-                if self.dataset_counter: self.dataset_counter.add(self.repo, MatchSource.WIKI)
+                self.dataset_counter.add(self.repo, MatchSource.WIKI)
             except Exception as error:
                 logger.error(f"Parse docs failed for {self.repo.id}, {file=}: {error=}")
         return matches
@@ -171,7 +168,7 @@ class KeywordParser(KeywordParserBase):
                     text_content = self._strip_html_tags(documentation_raw) if ext in ".html" else documentation_raw
                     matches.extend([FullMatch.from_text_match(match, source=MatchSource.DOCS, repo=self.repo, url=link) for match in
                                     self.matched_keyword_iterator(text_content)])
-                    if self.dataset_counter: self.dataset_counter.add(self.repo, MatchSource.DOCS)
+                    self.dataset_counter.add(self.repo, MatchSource.DOCS)
                 except Exception as error:
                     logger.error(f"Parse docs failed for {self.repo.id}, {file=}: {error=}")
 
@@ -192,8 +189,40 @@ class KeywordParser(KeywordParserBase):
                             matches.extend(
                                 [FullMatch.from_text_match(match, source=MatchSource.CODE_COMMENT, repo=self.repo, url=link) for match
                                  in self.matched_keyword_iterator(text_content)])
-                            if self.dataset_counter: self.dataset_counter.add(self.repo, MatchSource.CODE_COMMENT)
+                            self.dataset_counter.add(self.repo, MatchSource.CODE_COMMENT)
                     except Exception as error:
                         logger.error(
                             f"Parse code comments failed for {self.repo.id}, {file=}, {rel_path=}: {error=}")
         return matches
+
+class RepoDataKeywordExtractor(KeywordExtractor):
+    """
+    Extracting keywords directly from MongoDB.
+    Collections were fetched earlier from github (issues, issue comments, releases) with `GithubDataFetcher`.
+    """
+    def __init__(self, QAs: AttributeDictType, repo: Repo, *, append_full_text: bool = False, db: MongoDB):
+        super().__init__(QAs, repo, append_full_text=append_full_text)
+        self.db = db
+        self.source_to_generator_map = {MatchSource.ISSUE_COMMENT: db.extract_comments,
+                                        MatchSource.ISSUE: db.extract_issues,
+                                        MatchSource.RELEASE: db.extract_releases}
+
+    def _parse_source(self, source) -> List[FullMatch]:
+        matches = []
+        generator = self.source_to_generator_map[source]
+        for match in tqdm(generator(), desc=f"Processing {self.repo.dotted_ref} / {source.value}"):
+            matches.extend(
+                [FullMatch.from_text_match(text_match, source=source, repo=self.repo, url=match["html_url"]) for
+                 text_match in
+                 self.matched_keyword_iterator(match["text"])])
+        return matches
+
+    def parse_issues(self):
+        return self._parse_source(MatchSource.ISSUE)
+
+    def parse_issue_comments(self):
+        return self._parse_source(MatchSource.ISSUE_COMMENT)
+
+    def parse_releases(self):
+        return self._parse_source(MatchSource.RELEASE)
+
