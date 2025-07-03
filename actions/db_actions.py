@@ -1,6 +1,6 @@
 import asyncio
 
-from services.MongoDBConnection import MongoDBConnection
+from servicess.MongoDBConnection import MongoDBConnection
 
 
 def upsert_collection(database: str, collection: str):

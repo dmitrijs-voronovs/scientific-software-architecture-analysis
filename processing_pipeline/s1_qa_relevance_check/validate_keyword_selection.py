@@ -20,7 +20,7 @@ from tqdm import tqdm
 
 from constants.foldernames import FolderNames
 from cfg.selected_repos import selected_repos
-from utils.utils import create_logger_path
+from utilities.utils import create_logger_path
 
 # Load environment variables from .env file
 dotenv.load_dotenv()
@@ -35,7 +35,7 @@ def request_llm(prompt):
     response = requests.post(url="https://openrouter.ai/api/v1/chat/completions",
         headers={"Authorization": f"Bearer {OPENROUTER_API_KEY}", "X-Title": f"{YOUR_APP_NAME}",
             # Optional. Shows in rankings on openrouter.ai.
-        }, data=json.dumps({"model": "google/gemma-2-9b-it:free",  # Optional
+        }, data=json.dumps({"models": "google/gemma-2-9b-it:free",  # Optional
             "messages": [{"role": "system",
                 "content": "You are a helpful assistant who provides thoughtful and concise responses and tightly follows user instroctuctions. You never output any extra information."},
                 {"role": "user", "content": prompt}]
@@ -79,7 +79,7 @@ LOCAL_LLM_HOST = "http://localhost:11434"
 def request_gemma(prompt):
     url = "%s/api/generate" % LOCAL_LLM_HOST
 
-    payload = json.dumps({"model": "gemma", "prompt": prompt, "stream": False})
+    payload = json.dumps({"models": "gemma", "prompt": prompt, "stream": False})
     response = requests.request("POST", url, headers={'Content-Type': 'application/json'}, data=payload).json()
 
     try:
@@ -231,7 +231,7 @@ def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
         logger.info(f"Processing {file_path.stem}")
 
         # genai.configure(api_key=os.getenv("GOOGLE_AI_STUDIO_KEY"))
-        # model = genai.GenerativeModel("gemini-1.5-flash")
+        # models = genai.GenerativeModel("gemini-1.5-flash")
 
         try:
             df = pd.read_csv(file_path)
@@ -252,7 +252,7 @@ def verify_file(file_path: Path, res_filepath: Path, batch_size=10):
         res = []
         for i, (_idx, row) in tqdm(enumerate(df.iterrows()), total=df.shape[0], desc=f"Verifying {file_path.stem}"):
             try:
-                # r = request_google_ailab(model, row["prompt"])
+                # r = request_google_ailab(models, row["prompt"])
                 try:
                     r = request_gemma(row["prompt"])
                     res.append(r)

@@ -16,7 +16,7 @@ from tqdm import tqdm
 
 from constants.foldernames import FolderNames
 from cfg.selected_repos import selected_repos
-from utils.utils import create_logger_path
+from utilities.utils import create_logger_path
 
 # Load environment variables from .env file
 dotenv.load_dotenv()

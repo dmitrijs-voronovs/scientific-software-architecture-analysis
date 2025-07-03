@@ -5,7 +5,7 @@ import dotenv
 import pandas as pd
 from tqdm import tqdm
 
-from model.Repo import Repo
+from models.Repo import Repo
 from processing_pipeline.keyword_matching.services.GithubDataFetcher import GithubDataFetcher
 
 dotenv.load_dotenv()

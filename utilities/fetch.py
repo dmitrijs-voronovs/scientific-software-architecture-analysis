@@ -5,7 +5,7 @@ import os
 import requests
 
 from constants.urls import GITHUB_GRAPHQL_ENDPOINT
-from utils.load_query import Query, load_gql_query
+from utilities.load_query import Query, load_gql_query
 
 
 async def query_gql_endpoint(url, token, query, variables=None):

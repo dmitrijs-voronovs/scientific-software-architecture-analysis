@@ -6,9 +6,9 @@ from pymongo import UpdateOne
 from pymongo.synchronous.collection import Collection
 from pymongo.synchronous.command_cursor import CommandCursor
 
-from model.Repo import Repo
+from models.Repo import Repo
 from processing_pipeline.keyword_matching.services.GithubDataFetcher import IssueDTO, ReleaseDTO
-from services.MongoDBConnection import MongoDBConnection
+from servicess.MongoDBConnection import MongoDBConnection
 
 
 class MongoMatch(TypedDict):

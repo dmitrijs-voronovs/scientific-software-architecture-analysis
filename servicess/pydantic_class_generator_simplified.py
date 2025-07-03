@@ -5,7 +5,7 @@ from typing import TypedDict, Generator
 
 import yaml
 
-from services.pydantic_class_generator import tactic_description_iterator, TacticListDTO
+from servicess.pydantic_class_generator import tactic_description_iterator, TacticListDTO
 
 generate_class_definition = lambda tactics: f"""
 class TacticSimplifiedModel(BaseModel):

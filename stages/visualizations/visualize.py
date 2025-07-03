@@ -2,7 +2,7 @@ import dotenv
 
 from actions.data_visualization import visualize
 from constants.db import DBCollections
-from services.MongoDBConnection import MongoDBConnection
+from servicess.MongoDBConnection import MongoDBConnection
 
 dotenv.load_dotenv()
 

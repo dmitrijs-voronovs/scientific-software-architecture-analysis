@@ -6,7 +6,7 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 from collections import defaultdict
 import subprocess
-from services.git import checkout_tag
+from servicess.git import checkout_tag
 
 
 def get_repo_tags(author, repo_name):

@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from constants.abs_paths import AbsDirPath
-from utils.paths import Paths
+from utilities.paths import Paths
 
 
 def get_golden_repos() -> list[str]:

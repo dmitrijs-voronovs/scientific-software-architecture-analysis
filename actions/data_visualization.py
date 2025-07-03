@@ -1,7 +1,7 @@
 import os
 
 from constants.db import PROJECTS_DB_NAME, DBCollections
-from services.MongoDBConnection import MongoDBConnection
+from servicess.MongoDBConnection import MongoDBConnection
 
 
 def get_schema_sample(collection, sample_size=1000):

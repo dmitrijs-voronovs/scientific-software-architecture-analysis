@@ -1,16 +1,10 @@
 import os
 
 import dotenv
-from tqdm import tqdm
 
-from cfg.quality_attributes import QualityAttributesMap, quality_attributes
 from cfg.selected_repos import selected_repos
 from processing_pipeline.keyword_matching.services.GithubDataFetcher import GithubDataFetcher
 from processing_pipeline.keyword_matching.services.MongoDB import MongoDB
-from processing_pipeline.keyword_matching.utils.save_to_file import save_matches_to_file
-from processing_pipeline.keyword_matching.services.KeywordExtractor import FullMatch, SourceCodeKeywordExtractor
-from processing_pipeline.keyword_matching.model.MatchSource import MatchSource
-from model.Repo import Repo
 
 dotenv.load_dotenv()
 

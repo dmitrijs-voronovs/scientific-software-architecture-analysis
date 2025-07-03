@@ -3,12 +3,12 @@ from collections import defaultdict
 import pandas as pd
 
 from constants.abs_paths import AbsDirPath
-from model.Repo import Repo
+from models.Repo import Repo
 from processing_pipeline.keyword_matching.model.MatchSource import MatchSource
 
 
 class DatasetCounter:
-    def __init__(self, run_id):
+    def __init__(self, run_id: str):
         self.datapoint_count_per_source = defaultdict(int)
         self.run_id = run_id
         self.filename = AbsDirPath.DATA / f"dataset_size/datapoints_per_source_{run_id}.csv"
@@ -23,9 +23,7 @@ class DatasetCounter:
     def save_datapoints_per_source_count(self):
         data_for_df = []
         for (repo_id, match_source), count in self.datapoint_count_per_source.items():
-            data_for_df.append({"repo_id": repo_id, "match_source": match_source.value,
-                                # Use .value if you want the string representation of the Enum
-                                "count": count})
+            data_for_df.append({"repo_id": repo_id, "match_source": match_source, "count": count})
         df = pd.DataFrame(data_for_df)
         df_sorted = df.sort_values(by=["repo_id", "match_source"]).reset_index(drop=True)
         df_sorted.to_csv(self.filename, index=False)
@@ -41,18 +39,10 @@ class DatasetCounter:
             # Iterate over DataFrame rows and reconstruct the defaultdict
             for index, row in df.iterrows():
                 repo_id = row["repo_id"]
-                # Convert string back to MatchSource Enum member
                 match_source_str = row["match_source"]
-                try:
-                    match_source = MatchSource(match_source_str)
-                except ValueError:
-                    print(
-                        f"Warning: Unknown MatchSource '{match_source_str}' encountered for repo '{repo_id}'. Skipping.")
-                    continue  # Skip this row if Enum conversion fails
-
                 count = int(row["count"])  # Ensure count is an integer
 
-                self.datapoint_count_per_source[(repo_id, match_source)] = count
+                self.datapoint_count_per_source[(repo_id, match_source_str)] = count
 
             print(f"Data restored from: {self.filename}")
 

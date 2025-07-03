@@ -5,11 +5,11 @@ import dotenv
 
 from actions.db_actions import upsert_collection_async
 from constants.db import PROJECTS_DB_NAME, DBCollections
-from services.fetcher.CategoryTopics import CategoryTopicsFetcher_isOrganization
-from services.MongoDBConnection import MongoDBConnection
+from servicess.fetcher.CategoryTopics import CategoryTopicsFetcher_isOrganization
+from servicess.MongoDBConnection import MongoDBConnection
 from tag_parser.tag_parser import get_tags
-from utils.paths import Paths
-from utils.utils import get_golden_repos
+from utilities.paths import Paths
+from utilities.utils import get_golden_repos
 
 dotenv.load_dotenv()
 

@@ -1,11 +1,11 @@
 import asyncio
 from typing import Type, Callable, Coroutine, Any
 
-from services.Cache import CategoryCache, CategoryCache_isOrganization
-from services.IJSONFileCache import IJSONFileCache
-from utils.data_transformation import wrap_with_update_one_operation
-from utils.fetch import fetch
-from utils.load_query import Query
+from servicess.Cache import CategoryCache, CategoryCache_isOrganization
+from servicess.IJSONFileCache import IJSONFileCache
+from utilities.data_transformation import wrap_with_update_one_operation
+from utilities.fetch import fetch
+from utilities.load_query import Query
 
 
 class CategoryTopicsFetcher:

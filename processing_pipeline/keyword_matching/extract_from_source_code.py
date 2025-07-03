@@ -10,7 +10,7 @@ from processing_pipeline.keyword_matching.model.MatchSource import MatchSource
 from processing_pipeline.keyword_matching.services.DatasetCounter import DatasetCounter
 from processing_pipeline.keyword_matching.services.KeywordExtractor import SourceCodeKeywordExtractor
 from processing_pipeline.keyword_matching.utils.save_to_file import save_matches_to_file
-from utils.utils import create_logger_path
+from utilities.utils import create_logger_path
 
 
 def main():

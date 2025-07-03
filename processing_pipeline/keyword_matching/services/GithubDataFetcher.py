@@ -11,7 +11,7 @@ from github.IssueComment import IssueComment
 from tqdm import tqdm
 
 from constants.abs_paths import AbsDirPath
-from model.Repo import Repo
+from models.Repo import Repo
 
 type InternalReactionKey = Literal["thumbs_up", "thumbs_down", "laugh", "confused", "heart", "hooray", "rocket", "eyes"]
 type ReactionKey = Literal[InternalReactionKey, "+1", "-1"]

@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from services.ast_extractor import code_comments_iterator
+from servicess.ast_extractor import code_comments_iterator
 
 
 def test_code_comments_iterator_cpp():

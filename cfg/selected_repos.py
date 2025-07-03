@@ -1,6 +1,6 @@
 from typing import List
 
-from model.Repo import Repo
+from models.Repo import Repo
 
 '''Top 5 repos based on number of stars'''
 selected_repos: List[Repo] = [

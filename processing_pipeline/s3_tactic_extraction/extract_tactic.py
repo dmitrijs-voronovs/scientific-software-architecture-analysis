@@ -18,7 +18,7 @@ from cfg.tactic_description_full import tactic_descriptions_full
 from cfg.tactic_list_simplified import TacticSimplifiedModel
 from constants.foldernames import FolderNames
 from cfg.selected_repos import selected_repos
-from utils.utils import create_logger_path
+from utilities.utils import create_logger_path
 
 # Load environment variables from .env file
 dotenv.load_dotenv()

@@ -10,11 +10,11 @@ from loguru import logger
 from tqdm import tqdm
 
 from cfg.quality_attributes import transform_quality_attributes
-from model.Repo import Repo
+from models.Repo import Repo
 from processing_pipeline.keyword_matching.model.MatchSource import MatchSource
 from processing_pipeline.keyword_matching.services.DatasetCounter import DatasetCounter
 from processing_pipeline.keyword_matching.services.MongoDB import MongoDB
-from services.ast_extractor import ext_to_lang, code_comments_iterator
+from servicess.ast_extractor import ext_to_lang, code_comments_iterator
 
 AttributeDictType = Dict[str, List[str]]
 
@@ -41,12 +41,14 @@ class FullMatch(TextMatch):
         # noinspection PyTypeChecker
         return cls(**asdict(text_match), repo=repo, source=source, url=url)
 
-    def as_dict(self) -> dict:
+    def as_dict(self, keep_text = False) -> dict:
         # noinspection PyTypeChecker
         result = {k: v for k, v in asdict(self).items()}
         result["source"] = self.source.value
         del result["repo"]
         result["repo_id"] = self.repo.id
+        if not keep_text:
+            del result["text"]
         return result
 
 
@@ -129,7 +131,7 @@ class KeywordExtractor(ABC):
 class SourceCodeKeywordExtractor(KeywordExtractor):
     """
     Extracting keywords from repository docs, code comments and wiki pages.
-    Collections were fetched earlier with `GithubDataFetcher`, `services\ast_extractor.py` (tree-sitter based scripts)
+    Collections were fetched earlier with `GithubDataFetcher`, `servicess\ast_extractor.py` (tree-sitter based scripts)
     and external tool `WinHTTrack` (repo wiki pages).
     """
     def __init__(self, QAs: AttributeDictType, repo: Repo, *, append_full_text: bool = False, dataset_counter: DatasetCounter):

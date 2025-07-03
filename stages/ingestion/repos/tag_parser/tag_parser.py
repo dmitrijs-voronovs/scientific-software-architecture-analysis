@@ -3,7 +3,7 @@ import requests
 from dotenv import load_dotenv
 from urllib.parse import urlparse
 
-from utils.paths import Paths
+from utilities.paths import Paths
 
 # Load environment variables from .env file
 load_dotenv()

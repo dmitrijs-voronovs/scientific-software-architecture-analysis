@@ -4,7 +4,7 @@ from typing import List
 import pandas as pd
 
 from constants.abs_paths import AbsDirPath
-from model.Repo import Repo
+from models.Repo import Repo
 from processing_pipeline.keyword_matching.services.KeywordExtractor import FullMatch
 from processing_pipeline.keyword_matching.model.MatchSource import MatchSource
 

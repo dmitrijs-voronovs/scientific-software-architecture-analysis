@@ -1,7 +1,7 @@
 from typing import Optional
 
-from services.IJSONFileCache import IJSONFileCache
-from utils.paths import Paths
+from servicess.IJSONFileCache import IJSONFileCache
+from utilities.paths import Paths
 
 type CategoryCacheItem = tuple[Optional[str], bool]
 
