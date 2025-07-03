@@ -1,4 +1,3 @@
-import os
 from typing import List, Generator
 
 import dotenv
@@ -13,7 +12,7 @@ from model.Credentials import Credentials
 
 dotenv.load_dotenv()
 
-def extract_matches(creds: Credentials, db_query: MongoDB, quality_attributes_map: QualityAttributesMap) -> Generator[(MatchSource, List[FullMatch]), None, None]:
+def extract_git_matches(creds: Credentials, db_query: MongoDB, quality_attributes_map: QualityAttributesMap) -> Generator[(MatchSource, List[FullMatch]), None, None]:
     source_to_generator_map = {MatchSource.ISSUE_COMMENT: db_query.extract_comments,
                                MatchSource.ISSUE: db_query.extract_issues,
                                MatchSource.RELEASES: db_query.extract_releases}
@@ -25,16 +24,13 @@ def extract_matches(creds: Credentials, db_query: MongoDB, quality_attributes_ma
                             keyword_parser.matched_keyword_iterator(match["text"])])
         yield source, matches
 
-def save_matched_keywords(creds: Credentials, db_query: MongoDB, quality_attributes_map: QualityAttributesMap):
-    for source, matches in extract_matches(creds, db_query, quality_attributes_map):
-        save_matches_to_file(matches, source, creds)
-
 def main():
     for creds in selected_credentials:
         print(f"Parsing github metadata for {creds}")
         db = MongoDB(creds)
 
-        save_matched_keywords(creds, db, quality_attributes)
+        for source, matches in extract_git_matches(creds, db, quality_attributes):
+            save_matches_to_file(matches, source, creds)
     print("Done!")
 
 
