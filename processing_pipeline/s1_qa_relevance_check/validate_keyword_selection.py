@@ -19,7 +19,7 @@ from tenacity import retry, stop_after_attempt, RetryError, wait_incrementing, w
 from tqdm import tqdm
 
 from constants.foldernames import FolderNames
-from cfg.repo_credentials import selected_credentials
+from cfg.selected_repos import selected_repos
 from utils.utils import create_logger_path
 
 # Load environment variables from .env file
@@ -344,15 +344,7 @@ def main():
     os.makedirs(keyword_folder / FolderNames.VERIFICATION_DIR, exist_ok=True)
     logger.add(create_logger_path(FolderNames.VERIFICATION_DIR), mode="w")
 
-    # creds = [
-    #     Credentials(
-    #         {'author': 'scverse', 'repo': 'scanpy', 'version': '1.10.2', 'wiki': 'https://scanpy.readthedocs.io'}),
-    #     Credentials({'author': 'allenai', 'repo': 'scispacy', 'version': 'v0.5.5',
-    #                  'wiki': 'https://allenai.github.io/scispacy/'}),
-    #     Credentials({'author': 'qutip', 'repo': 'qutip', 'version': 'v5.0.4', 'wiki': 'https://qutip.org'}),
-    #     Credentials({'author': 'hail-is', 'repo': 'hail', 'version': '0.2.133', 'wiki': 'https://hail.is'}),
-    # ]
-    creds = selected_credentials
+    repos = selected_repos
 
     try:
         # for file_path in keyword_folder.glob("*.csv"):
@@ -366,7 +358,7 @@ def main():
             #     logger.info(f"Skipping CODE_COMMENTS for {file_path.stem}, as dataset is incomplete")
             #     continue
 
-            if any(cred.dotted_ref in file_path.stem for cred in creds):
+            if any(repo.dotted_ref in file_path.stem for repo in repos):
                 res_filepath = keyword_folder / f"{FolderNames.VERIFICATION_DIR}/{file_path.stem}.verified.csv"
                 # Verifying
                 # allenai.scispacy.v0

@@ -6,7 +6,7 @@ from pymongo import UpdateOne
 from pymongo.synchronous.collection import Collection
 from pymongo.synchronous.command_cursor import CommandCursor
 
-from model.Credentials import Credentials
+from model.Repo import Repo
 from processing_pipeline.keyword_matching.services.GithubDataFetcher import IssueDTO, ReleaseDTO
 from services.MongoDBConnection import MongoDBConnection
 
@@ -17,17 +17,17 @@ class MongoMatch(TypedDict):
 
 
 class MongoDB:
-    def __init__(self, creds: Credentials):
+    def __init__(self, repo: Repo):
         self.non_robot_users = ["olgabot", "hugtalbot", "arrogantrobot", "robot-chenwei", "Bot-Enigma-0"]
         self.regex_omitting_bots = re.compile(r"bot\b", re.IGNORECASE)
-        self.creds = creds
+        self.repo = repo
         self.client = MongoDBConnection().get_client()
 
     def _issue_collection(self) -> Collection:
-        return self.client['git_issues'][self.creds.repo_name]
+        return self.client['git_issues'][self.repo.repo_name]
 
     def _releases_collection(self) -> Collection:
-        return self.client['git_releases'][self.creds.repo_name]
+        return self.client['git_releases'][self.repo.repo_name]
 
     def insert_issues(self, documents: List[IssueDTO]):
         table = self._issue_collection()

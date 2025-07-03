@@ -3,7 +3,7 @@ from collections import defaultdict
 import pandas as pd
 
 from constants.abs_paths import AbsDirPath
-from model.Credentials import Credentials
+from model.Repo import Repo
 from processing_pipeline.keyword_matching.services.KeywordParser import MatchSource
 
 
@@ -13,7 +13,7 @@ class DatasetCounter:
         self.run_id = run_id
         self.filename = AbsDirPath.DATA / f"dataset_size/datapoints_per_source_{run_id}.csv"
 
-    def add(self, repo: Credentials, source: MatchSource):
+    def add(self, repo: Repo, source: MatchSource):
         self.datapoint_count_per_source[(repo.id, source.value)] += 1
 
     def reset(self):

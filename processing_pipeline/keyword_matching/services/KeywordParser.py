@@ -11,7 +11,7 @@ from loguru import logger
 from tqdm import tqdm
 
 from cfg.quality_attributes import transform_quality_attributes
-from model.Credentials import Credentials
+from model.Repo import Repo
 from processing_pipeline.keyword_matching.services.DatasetCounter import DatasetCounter
 from services.ast_extractor import ext_to_lang, code_comments_iterator
 
@@ -40,12 +40,12 @@ class MatchSource(Enum):
 
 @dataclass
 class FullMatch(TextMatch):
-    repo: Credentials
+    repo: Repo
     source: MatchSource
     url: str
 
     @classmethod
-    def from_text_match(cls, text_match: TextMatch, repo: Credentials, source: MatchSource, url: str):
+    def from_text_match(cls, text_match: TextMatch, repo: Repo, source: MatchSource, url: str):
         # noinspection PyTypeChecker
         return cls(**asdict(text_match), repo=repo, source=source, url=url)
 
@@ -58,15 +58,12 @@ class FullMatch(TextMatch):
         return result
 
 
-BASE_GITHUB_URL = "https://github.com"
-
-
 class KeywordParserBase(ABC):
     context_length = 2000
 
-    def __init__(self, QAs: AttributeDictType, creds: Credentials, *, append_full_text: bool = False):
+    def __init__(self, QAs: AttributeDictType, repo: Repo, *, append_full_text: bool = False):
         self.QAs_non_regex = transform_quality_attributes(QAs, keep_regex_notation=False)
-        self.creds = creds
+        self.repo = repo
         self.append_full_text = append_full_text
         self.qa_patterns = {qa: KeywordParser.get_keyword_matching_pattern(keywords) for qa, keywords in QAs.items()}
         self.QAs = QAs
@@ -138,8 +135,8 @@ class KeywordParserBase(ABC):
 
 
 class KeywordParser(KeywordParserBase):
-    def __init__(self, QAs: AttributeDictType, creds: Credentials, *, append_full_text: bool = False, dataset_counter: DatasetCounter = None):
-        super().__init__(QAs, creds, append_full_text=append_full_text)
+    def __init__(self, QAs: AttributeDictType, repo: Repo, *, append_full_text: bool = False, dataset_counter: DatasetCounter = None):
+        super().__init__(QAs, repo, append_full_text=append_full_text)
         self.dataset_counter = dataset_counter
 
     def parse_wiki(self, wiki_path: str) -> List[FullMatch]:
@@ -148,19 +145,18 @@ class KeywordParser(KeywordParserBase):
         for file in tqdm(files, desc=f"Parsing wiki {wiki_path}"):
             abs_path = file
             rel_path = os.path.normpath(os.path.relpath(abs_path, start=wiki_path)).replace("\\", "/")
-            link = self.generate_link(self.creds.wiki, rel_path)
+            link = self.generate_link(self.repo.wiki, rel_path)
             try:
                 documentation_raw = open(abs_path, "r", encoding="utf-8", errors="replace").read()
                 text_content = self._strip_html_tags(documentation_raw)
-                matches.extend([FullMatch.from_text_match(match, source=MatchSource.WIKI, repo=self.creds, url=link) for match in
+                matches.extend([FullMatch.from_text_match(match, source=MatchSource.WIKI, repo=self.repo, url=link) for match in
                                 self.matched_keyword_iterator(text_content)])
-                if self.dataset_counter: self.dataset_counter.add(self.creds, MatchSource.WIKI)
+                if self.dataset_counter: self.dataset_counter.add(self.repo, MatchSource.WIKI)
             except Exception as error:
-                logger.error(f"Parse docs failed for {self.creds.id}, {file=}: {error=}")
+                logger.error(f"Parse docs failed for {self.repo.id}, {file=}: {error=}")
         return matches
 
     def parse_docs(self, docs_path: str) -> List[FullMatch]:
-        repo_url = self.get_github_repo_url(self.creds)
         matches = []
         docs_extensions = [".md", ".rst", ".txt", ".adoc", ".html"]
         for ext in docs_extensions:
@@ -169,24 +165,19 @@ class KeywordParser(KeywordParserBase):
                 tqdm.write(str(file))
                 abs_path = file
                 rel_path = os.path.normpath(os.path.relpath(abs_path, start=docs_path)).replace("\\", "/")
-                link = self.generate_link(repo_url, rel_path)
+                link = self.generate_link(self.repo.github_source_code_url, rel_path)
                 try:
                     documentation_raw = open(abs_path, "r", encoding="utf-8", errors="replace").read()
                     text_content = self._strip_html_tags(documentation_raw) if ext in ".html" else documentation_raw
-                    matches.extend([FullMatch.from_text_match(match, source=MatchSource.DOCS, repo=self.creds, url=link) for match in
+                    matches.extend([FullMatch.from_text_match(match, source=MatchSource.DOCS, repo=self.repo, url=link) for match in
                                     self.matched_keyword_iterator(text_content)])
-                    if self.dataset_counter: self.dataset_counter.add(self.creds, MatchSource.DOCS)
+                    if self.dataset_counter: self.dataset_counter.add(self.repo, MatchSource.DOCS)
                 except Exception as error:
-                    logger.error(f"Parse docs failed for {self.creds.id}, {file=}: {error=}")
+                    logger.error(f"Parse docs failed for {self.repo.id}, {file=}: {error=}")
 
         return matches
 
-    @staticmethod
-    def get_github_repo_url(creds: Credentials) -> str:
-        return f"{BASE_GITHUB_URL}/{creds.author}/{creds.repo}/tree/{creds.version}"
-
     def parse_comments(self, source_code_path: str) -> List[FullMatch]:
-        repo_url = self.get_github_repo_url(self.creds)
         matches = []
         for root, dirs, files in tqdm(os.walk(source_code_path), desc="Parsing code comments"):
             tqdm.write(str(root))
@@ -195,14 +186,14 @@ class KeywordParser(KeywordParserBase):
                 if Path(file).suffix[1:] in supported_language_extensions:
                     abs_path = os.path.join(root, file)
                     rel_path = os.path.normpath(os.path.relpath(abs_path, source_code_path)).replace("\\", "/")
-                    link = self.generate_link(repo_url, rel_path)
+                    link = self.generate_link(self.repo.github_source_code_url, rel_path)
                     try:
                         for text_content in code_comments_iterator(abs_path):
                             matches.extend(
-                                [FullMatch.from_text_match(match, source=MatchSource.CODE_COMMENT, repo=self.creds, url=link) for match
+                                [FullMatch.from_text_match(match, source=MatchSource.CODE_COMMENT, repo=self.repo, url=link) for match
                                  in self.matched_keyword_iterator(text_content)])
-                            if self.dataset_counter: self.dataset_counter.add(self.creds, MatchSource.CODE_COMMENT)
+                            if self.dataset_counter: self.dataset_counter.add(self.repo, MatchSource.CODE_COMMENT)
                     except Exception as error:
                         logger.error(
-                            f"Parse code comments failed for {self.creds.id}, {file=}, {rel_path=}: {error=}")
+                            f"Parse code comments failed for {self.repo.id}, {file=}, {rel_path=}: {error=}")
         return matches

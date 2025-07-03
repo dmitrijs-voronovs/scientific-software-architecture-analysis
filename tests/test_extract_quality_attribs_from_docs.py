@@ -1,5 +1,5 @@
 from cfg.quality_attributes import qa_sorter, QualityAttributesMap
-from cfg.repo_credentials import all_credentials
+from cfg.selected_repos import all_repos
 from processing_pipeline.keyword_matching.services.KeywordParser import KeywordParser
 
 
@@ -13,7 +13,7 @@ def test_matched_keyword_iterator():
         "test2": ["kw1", "kw2", "kw3", "kw4"]
     }
 
-    kp = KeywordParser(test_qas, all_credentials[0])
+    kp = KeywordParser(test_qas, all_repos[0])
     iter = kp.matched_keyword_iterator("category cat kw3 kw4")
     match = next(iter)
     assert match["keyword"] == "categ"

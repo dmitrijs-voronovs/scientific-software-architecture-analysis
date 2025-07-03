@@ -4,13 +4,13 @@ from typing import List
 import pandas as pd
 
 from constants.abs_paths import AbsDirPath
-from model.Credentials import Credentials
+from model.Repo import Repo
 from processing_pipeline.keyword_matching.services.KeywordParser import FullMatch, MatchSource
 
 
-def save_matches_to_file(records: List[FullMatch], source: MatchSource, creds: Credentials, with_matched_text: bool = False):
+def save_matches_to_file(records: List[FullMatch], source: MatchSource, repo: Repo, with_matched_text: bool = False):
     base_dir = AbsDirPath.KEYWORDS_MATCHING
-    filename = f'{creds.dotted_ref}.{source.value}.parquet'
+    filename = f'{repo.dotted_ref}.{source.value}.parquet'
     if with_matched_text:
         resulting_filename = base_dir / "full" / filename
     else:

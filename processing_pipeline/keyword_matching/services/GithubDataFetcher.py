@@ -10,7 +10,7 @@ from github.Issue import Issue
 from github.IssueComment import IssueComment
 from tqdm import tqdm
 
-from model.Credentials import Credentials
+from model.Repo import Repo
 
 type InternalReactionKey = Literal["thumbs_up", "thumbs_down", "laugh", "confused", "heart", "hooray", "rocket", "eyes"]
 type ReactionKey = Literal[InternalReactionKey, "+1", "-1"]
@@ -105,7 +105,7 @@ class RepoInfoDTO:
 
 
 class GithubDataFetcher:
-    def __init__(self, token: str, creds: Credentials):
+    def __init__(self, token: str, repo: Repo):
         """
         Initialize the fetcher with GitHub token
 
@@ -113,18 +113,18 @@ class GithubDataFetcher:
             token (str): GitHub Personal Access Token
         """
         self.github = Github(token)
-        self.creds = creds
+        self.repo = repo
 
     def get_repo_info(self) -> RepoInfoDTO:
-        repo = self.github.get_repo(self.creds.repo_path)
+        repo = self.github.get_repo(self.repo.git_id)
         return RepoInfoDTO(latest_version=repo.get_latest_release().tag_name, homepage=repo.homepage)
 
     def get_issues(self, batch_size: int = 10) -> Iterator[List[IssueDTO]]:
         assert batch_size > 0, "Batch size must be greater than 0"
-        repo = self.github.get_repo(self.creds.repo_path)
+        repo = self.github.get_repo(self.repo.git_id)
 
         os.makedirs("../../.cache/issues", exist_ok=True)
-        with shelve.open(f".cache/issues/{self.creds.repo_name}") as db:
+        with shelve.open(f".cache/issues/{self.repo.repo_name}") as db:
             since = db.get("since", None)
             # Get all issues (including pull requests)
             issues = repo.get_issues(state='all', direction='asc', since=since) if since else repo.get_issues(
@@ -204,7 +204,7 @@ class GithubDataFetcher:
     def get_releases(self, batch_size=10) -> Iterator[List[ReleaseDTO]]:
         assert batch_size > 0, "Batch size must be greater than 0"
 
-        repo = self.github.get_repo(f"{self.creds.author}/{self.creds.repo}")
+        repo = self.github.get_repo(f"{self.repo.author}/{self.repo.name}")
 
         releases = repo.get_releases()
         total_releases = releases.totalCount

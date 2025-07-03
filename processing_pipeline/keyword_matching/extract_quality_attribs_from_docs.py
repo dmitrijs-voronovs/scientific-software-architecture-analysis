@@ -4,7 +4,7 @@ import shelve
 from loguru import logger
 
 from cfg.quality_attributes import quality_attributes
-from cfg.repo_credentials import selected_credentials
+from cfg.selected_repos import selected_repos
 from constants.abs_paths import AbsDirPath
 from processing_pipeline.keyword_matching.services.DatasetCounter import DatasetCounter
 from processing_pipeline.keyword_matching.services.KeywordParser import KeywordParser
@@ -23,34 +23,34 @@ if __name__ == "__main__":
 
     with shelve.open(cache_path) as db:
         last_processed = db.get("last_processed", None)
-        for creds in selected_credentials:
-            # if creds.id == last_processed:
-            #     logger.info(f"Skipping {creds.id}")
+        for repo in selected_repos:
+            # if repo.id == last_processed:
+            #     logger.info(f"Skipping {repo.id}")
             #     continue
 
-            logger.info(f"Processing {creds.id}")
+            logger.info(f"Processing {repo.id}")
             try:
-                # checkout_tag(creds['author'], creds['repo'], creds['version'])
+                # checkout_tag(repo['author'], repo['repo'], repo['version'])
 
                 append_full_text = False
 
-                parser = KeywordParser(quality_attributes, creds, append_full_text=append_full_text, dataset_counter=dataset_counter)
-                # if creds.has_wiki():
+                parser = KeywordParser(quality_attributes, repo, append_full_text=append_full_text, dataset_counter=dataset_counter)
+                # if repo.has_wiki():
                 #     start = time.perf_counter()
-                #     matches_wiki = parser.parse_wiki(str(AbsDirPath.WIKIS / creds.wiki_dir))
-                #     # save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
+                #     matches_wiki = parser.parse_wiki(str(AbsDirPath.WIKIS / repo.wiki_dir))
+                #     # save_to_file(matches_wiki, MatchSource.WIKI, repo, append_full_text)
                 #     stop = time.perf_counter()
                 #     print(f"Time for `old_parse_wiki`: {(stop - start) :.4f} sec")
                 #
-                source_code_path = str(AbsDirPath.SOURCE_CODE / creds.id)
+                source_code_path = str(AbsDirPath.SOURCE_CODE / repo.id)
                 matches_code_comments = parser.parse_comments(source_code_path)
-                # save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
+                # save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, repo, append_full_text)
                 #
                 # matches_docs = parser.parse_docs(source_code_path)
-                # save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
+                # save_to_file(matches_docs, MatchSource.DOCS, repo, append_full_text)
             except Exception as e:
-                logger.error(f"Error processing {creds.id}: {str(e)}")
+                logger.error(f"Error processing {repo.id}: {str(e)}")
             finally:
-                db["last_processed"] = creds.id
+                db["last_processed"] = repo.id
 
     dataset_counter.save_datapoints_per_source_count()

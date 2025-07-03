@@ -7,14 +7,14 @@ from tqdm import tqdm
 
 from constants.foldernames import FolderNames
 from processing_pipeline.keyword_matching.services.KeywordParser import MatchSource
-from cfg.repo_credentials import selected_credentials
+from cfg.selected_repos import selected_repos
 from split_csv import split_files_exceeding_max_limit
 
 
 
-def get_data(keywords_dir, cred, source: 'MatchSource'):
+def get_data(keywords_dir, repo, source: 'MatchSource'):
     dfs = []
-    for file in keywords_dir.glob(f"{cred.dotted_ref}.{source.value}.*csv"):
+    for file in keywords_dir.glob(f"{repo.dotted_ref}.{source.value}.*csv"):
         try:
             print(f"reading file {file}")
             df = pd.read_csv(file)
@@ -37,31 +37,26 @@ def transform_data(df):
     return res
 
 
-def save_data(df, target_dir, cred, source: 'MatchSource'):
+def save_data(df, target_dir, repo, source: 'MatchSource'):
     os.makedirs(target_dir, exist_ok=True)
-    df.to_csv(target_dir / f"{cred.dotted_ref}.{source.value}.csv", index=False)
+    df.to_csv(target_dir / f"{repo.dotted_ref}.{source.value}.csv", index=False)
 
 def main():
     keywords_dir = Path(f"metadata/keywords/{FolderNames.KEYWORDS_MATCHING}")
     target_dir = keywords_dir / ".." / FolderNames.OPTIMIZED_KEYWORD
 
-    # credential_list = [
-    #     Credentials({'author': 'sofa-framework', 'repo': 'sofa', 'version': 'v24.06.00',
-    #                  'wiki': 'https://www.sofa-framework.org'}),
-    #
-    # ]
-    for cred in tqdm(selected_credentials, desc="Processing keywords"):
+    for repos in tqdm(selected_repos, desc="Processing keywords"):
         for source in MatchSource:
             # # TODO: uncomment for all sources
             # if source != MatchSource.CODE_COMMENT:
             #     continue
-            tqdm.write(cred.dotted_ref)
+            tqdm.write(repos.dotted_ref)
             try:
-                df = get_data(keywords_dir, cred, source)
+                df = get_data(keywords_dir, repos, source)
                 df = transform_data(df)
-                save_data(df, target_dir, cred, source)
+                save_data(df, target_dir, repos, source)
             except Exception as error:
-                print(f"Error processing {cred.id}, {error=}\n{traceback.format_exc()}")
+                print(f"Error processing {repos.id}, {error=}\n{traceback.format_exc()}")
 
     split_files_exceeding_max_limit(target_dir)
 

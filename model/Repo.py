@@ -3,9 +3,11 @@ from dataclasses import dataclass
 from typing import Optional
 
 @dataclass
-class Credentials:
+class Repo:
+    BASE_GITHUB_URL = "https://github.com"
+
     author: str
-    repo: str
+    name: str
     version: str
     wiki: Optional[str] = None
 
@@ -14,12 +16,16 @@ class Credentials:
         return cls(**dct)
 
     @property
-    def repo_path(self) -> str:
-        return f"{self.author}/{self.repo}"
+    def git_id(self) -> str:
+        return f"{self.author}/{self.name}"
+
+    @property
+    def github_source_code_url(self) -> str:
+        return f"{self.BASE_GITHUB_URL}/{self.git_id}/tree/{self.version}"
 
     @property
     def repo_name(self) -> str:
-        return f"{self.author}.{self.repo}"
+        return f"{self.author}.{self.name}"
 
     @property
     def wiki_dir(self) -> str:
@@ -29,7 +35,7 @@ class Credentials:
         return self.wiki is not None
 
     def _get_ref(self, delimiter="/") -> str:
-        return delimiter.join([self.author, self.repo, self.version])
+        return delimiter.join([self.author, self.name, self.version])
 
     @property
     def dotted_ref(self) -> str:
