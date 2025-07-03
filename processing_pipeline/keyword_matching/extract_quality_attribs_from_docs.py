@@ -1,9 +1,7 @@
 import os
 import re
 import shelve
-import time
 from abc import ABC
-from collections import defaultdict
 from dataclasses import asdict, field, dataclass
 from enum import Enum
 from pathlib import Path
@@ -18,6 +16,7 @@ from cfg.quality_attributes import quality_attributes, transform_quality_attribu
 from cfg.repo_credentials import selected_credentials
 from constants.abs_paths import AbsDirPath
 from model.Credentials import Credentials
+from processing_pipeline.keyword_matching.DatasetCounter import DatasetCounter
 from services.ast_extractor import ext_to_lang, code_comments_iterator
 from utils.utils import create_logger_path
 
@@ -64,7 +63,6 @@ class FullMatch(TextMatch):
 
 
 BASE_GITHUB_URL = "https://github.com"
-datapoint_count_per_source = defaultdict(int)  # data points before matching
 
 
 class KeywordParserBase(ABC):
@@ -144,8 +142,11 @@ class KeywordParserBase(ABC):
 
 
 class KeywordParser(KeywordParserBase):
+    def __init__(self, QAs: AttributeDictType, creds: Credentials, dataset_counter: DatasetCounter, *, append_full_text: bool = False):
+        super().__init__(QAs, creds, append_full_text=append_full_text)
+        self.dataset_counter = dataset_counter
+
     def parse_wiki(self, wiki_path: str) -> List[FullMatch]:
-        global datapoint_count_per_source
         matches = []
         files = Path(wiki_path).glob("**/*.html")
         for file in tqdm(files, desc=f"Parsing wiki {wiki_path}"):
@@ -157,13 +158,12 @@ class KeywordParser(KeywordParserBase):
                 text_content = self._strip_html_tags(documentation_raw)
                 matches.extend([FullMatch.from_text_match(match, source=MatchSource.WIKI, repo=self.creds, url=link) for match in
                                 self.matched_keyword_iterator(text_content)])
-                datapoint_count_per_source[(self.creds.repo_name, MatchSource.WIKI)] += 1
+                self.dataset_counter.add(self.creds, MatchSource.WIKI)
             except Exception as error:
                 logger.error(f"Parse docs failed for {self.creds.id}, {file=}: {error=}")
         return matches
 
     def parse_docs(self, docs_path: str) -> List[FullMatch]:
-        global datapoint_count_per_source
         repo_url = self.get_github_repo_url(self.creds)
         matches = []
         docs_extensions = [".md", ".rst", ".txt", ".adoc", ".html"]
@@ -179,7 +179,7 @@ class KeywordParser(KeywordParserBase):
                     text_content = self._strip_html_tags(documentation_raw) if ext in ".html" else documentation_raw
                     matches.extend([FullMatch.from_text_match(match, source=MatchSource.DOCS, repo=self.creds, url=link) for match in
                                     self.matched_keyword_iterator(text_content)])
-                    datapoint_count_per_source[(self.creds.repo_name, MatchSource.DOCS)] += 1
+                    self.dataset_counter.add(self.creds, MatchSource.DOCS)
                 except Exception as error:
                     logger.error(f"Parse docs failed for {self.creds.id}, {file=}: {error=}")
 
@@ -190,7 +190,6 @@ class KeywordParser(KeywordParserBase):
         return f"{BASE_GITHUB_URL}/{creds.author}/{creds.repo}/tree/{creds.version}"
 
     def parse_comments(self, source_code_path: str) -> List[FullMatch]:
-        global datapoint_count_per_source
         repo_url = self.get_github_repo_url(self.creds)
         matches = []
         for root, dirs, files in tqdm(os.walk(source_code_path), desc="Parsing code comments"):
@@ -206,7 +205,7 @@ class KeywordParser(KeywordParserBase):
                             matches.extend(
                                 [FullMatch.from_text_match(match, source=MatchSource.CODE_COMMENT, repo=self.creds, url=link) for match
                                  in self.matched_keyword_iterator(text_content)])
-                            datapoint_count_per_source[(self.creds.repo_name, MatchSource.CODE_COMMENT)] += 1
+                            self.dataset_counter.add(self.creds, MatchSource.CODE_COMMENT)
                     except Exception as error:
                         logger.error(
                             f"Parse code comments failed for {self.creds.id}, {file=}, {rel_path=}: {error=}")
@@ -229,61 +228,16 @@ def save_to_file(records: List[FullMatch], source: MatchSource, creds: Credentia
     pd.DataFrame(serialized).to_parquet(resulting_filename, engine='pyarrow', compression='snappy', index=False)
 
 
-def save_datapoints_per_source_count(run_id: str):
-    data_for_df = []
-    for (repo_name, match_source), count in datapoint_count_per_source.items():
-        data_for_df.append({"repo_name": repo_name, "match_source": match_source.value,
-                            # Use .value if you want the string representation of the Enum
-                            "count": count})
-    df = pd.DataFrame(data_for_df)
-    df_sorted = df.sort_values(by=["repo_name", "match_source"]).reset_index(drop=True)
-    df_sorted.to_csv(AbsDirPath.DATA / f"dataset_size/datapoints_per_source_{run_id}.csv", index=False)
-
-
-def restore_datapoints_per_source_count(run_id: str):
-    global datapoint_count_per_source
-    file_path = AbsDirPath.DATA / f"dataset_size/datapoints_per_source_{run_id}.csv"
-
-    if not file_path.exists():
-        print(f"Warning: File not found at {file_path}. Returning empty defaultdict.")
-        return
-
-    try:
-        df = pd.read_csv(file_path)
-
-        # Iterate over DataFrame rows and reconstruct the defaultdict
-        for index, row in df.iterrows():
-            repo_name = row["repo_name"]
-            # Convert string back to MatchSource Enum member
-            match_source_str = row["match_source"]
-            try:
-                match_source = MatchSource(match_source_str)
-            except ValueError:
-                print(
-                    f"Warning: Unknown MatchSource '{match_source_str}' encountered for repo '{repo_name}'. Skipping.")
-                continue  # Skip this row if Enum conversion fails
-
-            count = int(row["count"])  # Ensure count is an integer
-
-            datapoint_count_per_source[(repo_name, match_source)] = count
-
-        print(f"Data restored from: {file_path}")
-
-    except pd.errors.EmptyDataError:
-        print(f"Warning: CSV file {file_path} is empty. Returning empty defaultdict.")
-    except Exception as e:
-        print(f"An error occurred while restoring data: {e}")
-
-
 if __name__ == "__main__":
     cache_dir = AbsDirPath.CACHE / "keyword_extraction"
     os.makedirs(cache_dir, exist_ok=True)
 
-    run_id = "24.06.2025"
+    run_id = "03.07.2025_from_docs"
     cache_path = cache_dir / run_id
     logger.add(create_logger_path(run_id), mode="w")
 
-    restore_datapoints_per_source_count(run_id)
+    dataset_counter = DatasetCounter(run_id)
+    dataset_counter.restore_datapoints_per_source_count()
 
     with shelve.open(cache_path) as db:
         last_processed = db.get("last_processed", None)
@@ -298,7 +252,7 @@ if __name__ == "__main__":
 
                 append_full_text = False
 
-                parser = KeywordParser(quality_attributes, creds, append_full_text=append_full_text)
+                parser = KeywordParser(quality_attributes, creds, dataset_counter, append_full_text=append_full_text)
                 # if creds.has_wiki():
                 #     start = time.perf_counter()
                 #     matches_wiki = parser.parse_wiki(str(AbsDirPath.WIKIS / creds.wiki_dir))
@@ -316,4 +270,4 @@ if __name__ == "__main__":
                 logger.error(f"Error processing {creds.id}: {str(e)}")
             finally:
                 db["last_processed"] = creds.id
-                save_datapoints_per_source_count(run_id)
+                dataset_counter.save_datapoints_per_source_count()

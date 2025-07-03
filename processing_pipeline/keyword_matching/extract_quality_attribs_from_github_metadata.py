@@ -314,10 +314,8 @@ class DB:
         return self._issue_collection().aggregate(
             [{"$group": {"_id": None, "totalComments": {"$sum": "$comments_count"}}}]).to_list()
 
-total_matches_per_source = {}
 
 def save_matched_keywords(creds: Credentials, db, quality_attributes_map: QualityAttributesMap):
-    global total_matches_per_source
     source_to_generator_map = {MatchSource.ISSUE_COMMENT: db.extract_comments,
                                MatchSource.ISSUE: db.extract_issues,
                                MatchSource.RELEASES: db.extract_releases}
@@ -328,8 +326,6 @@ def save_matched_keywords(creds: Credentials, db, quality_attributes_map: Qualit
             matches.extend([FullMatch.from_text_match(text_match, source=source, repo=creds, url=match["html_url"]) for text_match in
                             keyword_parser.matched_keyword_iterator(match["text"])])
         save_to_file(matches, source, creds)
-        total_matches_per_source[(creds.repo_name, source.value)] = len(matches)
-
 
 def main():
     token = os.getenv('GITHUB_TOKEN')
@@ -348,8 +344,6 @@ def main():
         #     db.insert_releases(releases)
 
         save_matched_keywords(creds, db, quality_attributes)
-
-    print(f"Total matches: {total_matches_per_source}")
     print("Done!")
 
 
