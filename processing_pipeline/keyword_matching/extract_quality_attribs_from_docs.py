@@ -17,14 +17,14 @@ from tqdm import tqdm
 from cfg.quality_attributes import quality_attributes, transform_quality_attributes
 from cfg.repo_credentials import selected_credentials
 from constants.abs_paths import AbsDirPath
-from model.Credentials import CredentialsDTO
+from model.Credentials import Credentials
 from services.ast_extractor import ext_to_lang, code_comments_iterator
 from utils.utils import create_logger_path
 
 AttributeDictType = Dict[str, List[str]]
 
 @dataclass
-class TextMatchDTO:
+class TextMatch:
     keyword: str
     keyword_raw: str
     matched_word: str
@@ -44,18 +44,13 @@ class MatchSource(Enum):
 
 
 @dataclass
-class FullMatchDTO(TextMatchDTO):
-    repo: CredentialsDTO
+class FullMatch(TextMatch):
+    repo: Credentials
     source: MatchSource
     url: str
 
-    # TODO: remove
-    @property
-    def id(self):
-        return f"{self.url}:{self.match_idx}"
-
     @classmethod
-    def from_text_match(cls, text_match: TextMatchDTO, repo: CredentialsDTO, source: MatchSource, url: str):
+    def from_text_match(cls, text_match: TextMatch, repo: Credentials, source: MatchSource, url: str):
         # noinspection PyTypeChecker
         return cls(**asdict(text_match), repo=repo, source=source, url=url)
 
@@ -75,7 +70,7 @@ datapoint_count_per_source = defaultdict(int)  # data points before matching
 class KeywordParserBase(ABC):
     context_length = 2000
 
-    def __init__(self, QAs: AttributeDictType, creds: CredentialsDTO, *, append_full_text: bool = False):
+    def __init__(self, QAs: AttributeDictType, creds: Credentials, *, append_full_text: bool = False):
         self.QAs_non_regex = transform_quality_attributes(QAs, keep_regex_notation=False)
         self.creds = creds
         self.append_full_text = append_full_text
@@ -88,13 +83,13 @@ class KeywordParserBase(ABC):
         keyword = self.QAs_non_regex[quality_attr][keyword_idx]
         keyword_raw = self.QAs[quality_attr][keyword_idx]
         context = KeywordParser.get_match_context(text, match.start(), match.end())
-        text_match = TextMatchDTO(qa=quality_attr, keyword=keyword, keyword_raw=keyword_raw,
-                                  matched_word=full_match, match_idx=match_idx, sentence=context)
+        text_match = TextMatch(qa=quality_attr, keyword=keyword, keyword_raw=keyword_raw,
+                               matched_word=full_match, match_idx=match_idx, sentence=context)
         if self.append_full_text:
             text_match.text = text
         return text_match
 
-    def matched_keyword_iterator(self, text: str) -> Generator[TextMatchDTO, None, None]:
+    def matched_keyword_iterator(self, text: str) -> Generator[TextMatch, None, None]:
         if not text:
             return
         text = KeywordParser._clean_text(text)
@@ -149,7 +144,7 @@ class KeywordParserBase(ABC):
 
 
 class KeywordParser(KeywordParserBase):
-    def parse_wiki(self, wiki_path: str) -> List[FullMatchDTO]:
+    def parse_wiki(self, wiki_path: str) -> List[FullMatch]:
         global datapoint_count_per_source
         matches = []
         files = Path(wiki_path).glob("**/*.html")
@@ -160,14 +155,14 @@ class KeywordParser(KeywordParserBase):
             try:
                 documentation_raw = open(abs_path, "r", encoding="utf-8", errors="replace").read()
                 text_content = self._strip_html_tags(documentation_raw)
-                matches.extend([FullMatchDTO.from_text_match(match, source=MatchSource.WIKI, repo=self.creds, url=link) for match in
+                matches.extend([FullMatch.from_text_match(match, source=MatchSource.WIKI, repo=self.creds, url=link) for match in
                                 self.matched_keyword_iterator(text_content)])
                 datapoint_count_per_source[(self.creds.repo_name, MatchSource.WIKI)] += 1
             except Exception as error:
                 logger.error(f"Parse docs failed for {self.creds.id}, {file=}: {error=}")
         return matches
 
-    def parse_docs(self, docs_path: str) -> List[FullMatchDTO]:
+    def parse_docs(self, docs_path: str) -> List[FullMatch]:
         global datapoint_count_per_source
         repo_url = self.get_github_repo_url(self.creds)
         matches = []
@@ -182,7 +177,7 @@ class KeywordParser(KeywordParserBase):
                 try:
                     documentation_raw = open(abs_path, "r", encoding="utf-8", errors="replace").read()
                     text_content = self._strip_html_tags(documentation_raw) if ext in ".html" else documentation_raw
-                    matches.extend([FullMatchDTO.from_text_match(match, source=MatchSource.DOCS, repo=self.creds, url=link) for match in
+                    matches.extend([FullMatch.from_text_match(match, source=MatchSource.DOCS, repo=self.creds, url=link) for match in
                                     self.matched_keyword_iterator(text_content)])
                     datapoint_count_per_source[(self.creds.repo_name, MatchSource.DOCS)] += 1
                 except Exception as error:
@@ -191,10 +186,10 @@ class KeywordParser(KeywordParserBase):
         return matches
 
     @staticmethod
-    def get_github_repo_url(creds: CredentialsDTO) -> str:
+    def get_github_repo_url(creds: Credentials) -> str:
         return f"{BASE_GITHUB_URL}/{creds.author}/{creds.repo}/tree/{creds.version}"
 
-    def parse_comments(self, source_code_path: str) -> List[FullMatchDTO]:
+    def parse_comments(self, source_code_path: str) -> List[FullMatch]:
         global datapoint_count_per_source
         repo_url = self.get_github_repo_url(self.creds)
         matches = []
@@ -209,7 +204,7 @@ class KeywordParser(KeywordParserBase):
                     try:
                         for text_content in code_comments_iterator(abs_path):
                             matches.extend(
-                                [FullMatchDTO.from_text_match(match, source=MatchSource.CODE_COMMENT, repo=self.creds, url=link) for match
+                                [FullMatch.from_text_match(match, source=MatchSource.CODE_COMMENT, repo=self.creds, url=link) for match
                                  in self.matched_keyword_iterator(text_content)])
                             datapoint_count_per_source[(self.creds.repo_name, MatchSource.CODE_COMMENT)] += 1
                     except Exception as error:
@@ -218,7 +213,7 @@ class KeywordParser(KeywordParserBase):
         return matches
 
 
-def save_to_file(records: List[FullMatchDTO], source: MatchSource, creds: CredentialsDTO, with_matched_text: bool = False):
+def save_to_file(records: List[FullMatch], source: MatchSource, creds: Credentials, with_matched_text: bool = False):
     base_dir = AbsDirPath.KEYWORDS_MATCHING
     filename = f'{creds.dotted_ref}.{source.value}.parquet'
     if with_matched_text:

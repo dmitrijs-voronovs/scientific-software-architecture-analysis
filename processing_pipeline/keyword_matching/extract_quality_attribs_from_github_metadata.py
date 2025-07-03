@@ -20,8 +20,8 @@ from tqdm import tqdm
 from cfg.quality_attributes import QualityAttributesMap, quality_attributes
 from cfg.repo_credentials import selected_credentials
 from extract_quality_attribs_from_docs import KeywordParser, MatchSource, save_to_file
-from model.Credentials import CredentialsDTO
-from processing_pipeline.keyword_matching.extract_quality_attribs_from_docs import FullMatchDTO
+from model.Credentials import Credentials
+from processing_pipeline.keyword_matching.extract_quality_attribs_from_docs import FullMatch
 from services.MongoDBConnection import MongoDBConnection
 
 dotenv.load_dotenv()
@@ -120,7 +120,7 @@ class RepoInfoDTO:
 
 
 class GitHubDataFetcher:
-    def __init__(self, token: str, creds: CredentialsDTO):
+    def __init__(self, token: str, creds: Credentials):
         """
         Initialize the fetcher with GitHub token
 
@@ -260,7 +260,7 @@ class MongoMatch(TypedDict):
 
 
 class DB:
-    def __init__(self, creds: CredentialsDTO):
+    def __init__(self, creds: Credentials):
         self.non_robot_users = ["olgabot", "hugtalbot", "arrogantrobot", "robot-chenwei", "Bot-Enigma-0"]
         self.regex_omitting_bots = re.compile(r"bot\b", re.IGNORECASE)
         self.creds = creds
@@ -316,7 +316,7 @@ class DB:
 
 total_matches_per_source = {}
 
-def save_matched_keywords(creds: CredentialsDTO, db, quality_attributes_map: QualityAttributesMap):
+def save_matched_keywords(creds: Credentials, db, quality_attributes_map: QualityAttributesMap):
     global total_matches_per_source
     source_to_generator_map = {MatchSource.ISSUE_COMMENT: db.extract_comments,
                                MatchSource.ISSUE: db.extract_issues,
@@ -325,7 +325,7 @@ def save_matched_keywords(creds: CredentialsDTO, db, quality_attributes_map: Qua
     for source, gen in source_to_generator_map.items():
         matches = []
         for match in tqdm(gen(), desc=f"Processing {creds.dotted_ref} / {source.value}"):
-            matches.extend([FullMatchDTO.from_text_match(text_match, source=source, repo=creds, url=match["html_url"]) for text_match in
+            matches.extend([FullMatch.from_text_match(text_match, source=source, repo=creds, url=match["html_url"]) for text_match in
                             keyword_parser.matched_keyword_iterator(match["text"])])
         save_to_file(matches, source, creds)
         total_matches_per_source[(creds.repo_name, source.value)] = len(matches)

@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from typing import Optional
 
 @dataclass
-class CredentialsDTO():
+class Credentials:
     author: str
     repo: str
     version: str
