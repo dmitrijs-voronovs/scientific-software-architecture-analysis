@@ -1,3 +1,4 @@
+import re
 from enum import Enum
 from pathlib import Path
 from typing import Generator, Dict
@@ -320,16 +321,23 @@ lang_to_comment_query_map: Dict[Lang, str] = {
 }
 
 
-def extract_text_from_comments_node(match):
+def extract_text_from_comments_node(match) -> Generator [str, None, None]:
     for [_, value] in match.items():
-        return "\n".join([v.text.decode("utf-8") for v in value])
+        first_line = value[0].text.decode("utf-8")
+        comment_symbol = get_comment_symbol(first_line)
+        yield "\n".join([v.text.decode("utf-8").lstrip(comment_symbol) for v in value])
 
 
-# TODO: add line number extraction
+def get_comment_symbol(first_line):
+    comment_symbol_match = re.match(r'^(\W)', first_line)
+    if comment_symbol_match:
+        return  comment_symbol_match[1]
+    return None
+
+
 def extract_comments(lang, tree) -> Generator[str, None, None]:
-    yield from (extract_text_from_comments_node(match) for [_, match] in
-                ast_iterator(lang, tree, lang_to_comment_query_map[lang]))
-
+    for [_, match] in ast_iterator(lang, tree, lang_to_comment_query_map[lang]):
+        yield from extract_text_from_comments_node(match)
 
 def code_comments_iterator(file_path: str) -> Generator[str, None, None]:
     code, filename, lang = read_file(str(file_path))

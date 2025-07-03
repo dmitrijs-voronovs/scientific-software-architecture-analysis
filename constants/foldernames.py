@@ -1,6 +1,6 @@
 class FolderNames:
-    KEYWORDS_MATCHING_DIR = "matched"
-    OPTIMIZED_KEYWORD_DIR = "optimized"
+    KEYWORDS_MATCHING_DIR = "matched_v2"
+    OPTIMIZED_KEYWORD_DIR = "optimized_v2"
     NOISE_FILTERING_DIR = "noise_filtering"
     QA_RELEVANCE_CHECK_DIR = "qa_relevance_check"
     ARCH_RELEVANCE_CHECK_DIR = "arch_relevance_check"

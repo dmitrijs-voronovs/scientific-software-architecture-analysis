@@ -37,4 +37,4 @@ class CredentialsDTO():
 
     @property
     def id(self) -> str:
-        return self.id
+        return self._get_ref()

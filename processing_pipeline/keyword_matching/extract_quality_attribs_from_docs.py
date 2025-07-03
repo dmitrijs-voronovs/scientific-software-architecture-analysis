@@ -84,8 +84,7 @@ class KeywordParserBase(ABC):
 
     def _extract_match_details(self, match, quality_attr, text):
         full_match, match_idx = match.group(), match.start()
-        keyword_idx = next((keyword_idx for keyword_idx, group in enumerate(match.groups()) if group is not None), -1)
-        assert keyword_idx == match.lastindex - 1, f"Keyword index {keyword_idx} does not match lastindex {match.lastindex}"
+        keyword_idx = match.lastindex - 1
         keyword = self.QAs_non_regex[quality_attr][keyword_idx]
         keyword_raw = self.QAs[quality_attr][keyword_idx]
         context = KeywordParser.get_match_context(text, match.start(), match.end())
@@ -304,15 +303,20 @@ if __name__ == "__main__":
 
                 append_full_text = False
 
-                if creds.has_wiki():
-                    parser = KeywordParser(quality_attributes, creds, append_full_text=append_full_text)
-                    start = time.perf_counter()
-                    matches_wiki = parser.parse_wiki(str(AbsDirPath.WIKIS / creds.wiki_dir))
-                    # save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
-                    stop = time.perf_counter()
-                    print(f"Time for `old_parse_wiki`: {(stop - start) :.4f} sec")
-
-                # source_code_path = str(AbsDirPath.SOURCE_CODE / creds.get_ref())  # matches_code_comments = parser.parse_comments(source_code_path)  # save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)  #  # matches_docs = parser.parse_docs(source_code_path)  # save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
+                parser = KeywordParser(quality_attributes, creds, append_full_text=append_full_text)
+                # if creds.has_wiki():
+                #     start = time.perf_counter()
+                #     matches_wiki = parser.parse_wiki(str(AbsDirPath.WIKIS / creds.wiki_dir))
+                #     # save_to_file(matches_wiki, MatchSource.WIKI, creds, append_full_text)
+                #     stop = time.perf_counter()
+                #     print(f"Time for `old_parse_wiki`: {(stop - start) :.4f} sec")
+                #
+                source_code_path = str(AbsDirPath.SOURCE_CODE / creds.id)
+                matches_code_comments = parser.parse_comments(source_code_path)
+                # save_to_file(matches_code_comments, MatchSource.CODE_COMMENT, creds, append_full_text)
+                #
+                # matches_docs = parser.parse_docs(source_code_path)
+                # save_to_file(matches_docs, MatchSource.DOCS, creds, append_full_text)
             except Exception as e:
                 logger.error(f"Error processing {creds.id}: {str(e)}")
             finally:
