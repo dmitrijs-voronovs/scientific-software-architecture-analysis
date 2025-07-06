@@ -29,18 +29,46 @@ class OllamaFormatValidityResponse(BaseModel):
     to_eliminate: bool
     reason: str
 
-# @retry(stop=stop_after_attempt(6), wait=wait_fixed(3), after=lambda retry_state: logger.warning(retry_state),
-#     reraise=True, )
-def request_ollama_chain(prompts: List[str], base_url: str) -> List[OllamaFormatValidityResponse]:
-    # model_name = "gemma"
-    # model_name = "gemma2"
-    model_name = "deepseek-r1:8b"
-    model  = ChatOllama(model=model_name, temperature=0.0, base_url=base_url, format=OllamaFormatValidityResponse.model_json_schema())
-    batch_answers = model.batch(prompts)
-    return [OllamaFormatValidityResponse.model_validate_json(answer.content) for answer in batch_answers]
 
-to_prompt = lambda x: \
-f"""
+class NoiseFilteringStage:
+    stage_name = 's0'
+    in_dir = AbsDirPath.OPTIMIZED_KEYWORDS
+    out_dir = AbsDirPath.S0_NOISE_FILTERING
+    cache_dir = AbsDirPath.CACHE / FolderNames.NOISE_FILTERING_DIR
+    model_name = "deepseek-r1:8b"
+    temperature = 0.0
+    data_model = OllamaFormatValidityResponse
+
+    def __init__(self, hostname: str, batch_size: int = 10):
+        self.hostname = hostname
+        self.batch_size = batch_size
+        self._init()
+
+    def _init(self):
+        AbsDirPath.LOGS.mkdir(exist_ok=True)
+        os.makedirs(self.out_dir, exist_ok=True)
+        os.makedirs(self.cache_dir, exist_ok=True)
+        logger.add(create_logger_path(self.out_dir), mode="w")
+
+        # Register the signal handler
+        signal.signal(signal.SIGINT, self._cleanup_and_exit)
+
+    @staticmethod
+    def _cleanup_and_exit(signal_num, frame):
+        print("Caught interrupt, cleaning up...")
+        sys.exit(0)  # Triggers the context manager's cleanup
+
+    # @retry(stop=stop_after_attempt(6), wait=wait_fixed(3), after=lambda retry_state: logger.warning(retry_state),
+    #     reraise=True, )
+    def request_ollama_chain(self, prompts: List[str]) -> List[BaseModel]:
+        model = ChatOllama(model=self.model_name, temperature=self.temperature, base_url=self.hostname,
+                           format=self.data_model.model_json_schema())
+        batch_answers = model.batch(prompts)
+        return [self.data_model.model_validate_json(answer.content) for answer in batch_answers]
+
+    @staticmethod
+    def to_prompt(x: pd.Series) -> str:
+        return f"""
 You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts intended mainly for machines or formal structure.
 
 ## Instructions:
@@ -109,112 +137,100 @@ reasoning: Although formatted as a code comment, the content is natural language
 {x['sentence']}
 """
 
+    @staticmethod
+    def filter_data(df: pd.DataFrame) -> pd.DataFrame:
+        df = df[df["quality_attribute"].isin(["Testability", "Energy Efficiency"])]
+        df["word_count"] = df["sentence"].apply(lambda x: len(re.sub(r"[\W_]+", " ", x).strip().split()))
+        return df
 
-def cleanup_and_exit(signal_num, frame):
-    print("Caught interrupt, cleaning up...")
-    sys.exit(0)  # Triggers the context manager's cleanup
+    def verify_file_batched_llm(self, file_path: Path, res_filepath: Path):
+        with shelve.open(self.cache_dir / file_path.stem) as db:
+            if db.get("processed", False):
+                logger.info(f"File {file_path.stem} already processed")
+                return
+            logger.info(f"Processing {file_path.stem}")
 
-# Register the signal handler
-signal.signal(signal.SIGINT, cleanup_and_exit)
+            try:
+                df = pd.read_csv(file_path)
+            except Exception as e:
+                logger.info(e)
+                return
 
-MIN_WORD_COUNT = 10
+            df = self.filter_data(df)
 
-def filter_df(df):
-    df = df[df["quality_attribute"].isin(["Testability", "Energy Efficiency"])]
-    df["word_count"] = df["sentence"].apply(lambda x: len(re.sub(r"[\W_]+", " ", x).strip().split()))
-    df = df[df["word_count"] >= MIN_WORD_COUNT]
-    return df
+            last_idx = db.get("idx", 0)
+            df = df.iloc[last_idx:].copy()
+            if last_idx > 0:
+                logger.info(f"Continuing from {last_idx}")
+                res_filepath = res_filepath.with_suffix(f".from_{last_idx}.csv")
 
+            df[f"{self.stage_name}_prompt"] = df.apply(self.to_prompt, axis=1)
+            res = []
 
-def verify_file_batched_llm(file_path: Path, res_filepath: Path, host: str, batch_size=10):
-    os.makedirs(f".cache/{FolderNames.FORMAT_VALIDATION_DIR}/", exist_ok=True)
-    with shelve.open(f".cache/{FolderNames.FORMAT_VALIDATION_DIR}/{file_path.stem}") as db:
-        if db.get("processed", False):
-            logger.info(f"File {file_path.stem} already processed")
-            return
-        logger.info(f"Processing {file_path.stem}")
+            for i in tqdm(range(0, len(df), self.batch_size), total=math.ceil(len(df) / self.batch_size),
+                          desc=f"Verifying {file_path.stem} in batches of {self.batch_size}"):
+                batch_df = df.iloc[i:i + self.batch_size]
+                prompts = batch_df[f"{self.stage_name}_prompt"].tolist()
 
+                res.extend(self.process_batch(batch_df, i, last_idx, prompts))
+
+                df_to_save = df.iloc[:i + self.batch_size].copy()
+                # TODO: assign dynamically extracted fields.
+                df_to_save['to_eliminate'], df_to_save['reason'] = zip(*res)
+                df_to_save.to_csv(res_filepath, index=False)
+                db["idx"] = last_idx + i + self.batch_size
+
+            db['processed'] = True
+            logger.info(f"Processed {file_path.stem}")
+
+    # TODO: RetryError does not exist anymore. Refactor. Think about the correct way to handle errors.
+    #  What should happen if batch fails? Should we continue with the next file or something else?
+    # When it fails it is likely not a problem with the file, but with the connection, thus no need to retry, just stop processing (after 3 more tries??)
+    def process_batch(self, batch_df, i, last_idx, prompts):
         try:
-            df = pd.read_csv(file_path)
+            responses = self.request_ollama_chain(prompts)  # New batch query
+            return [self.extract_response_data(r) for r in responses]
+        except RetryError as error:
+            logger.error(f"Retry error at batch starting index {last_idx + i}, {error}")
+            responses = [(None, str(error))] * len(batch_df)
+            return responses
         except Exception as e:
-            logger.info(e)
-            return
+            logger.error(e)
+            errors_for_termination = ["HTTPConnectionPool",
+                                      "No connection could be made because the target machine actively refused it"]
+            if any(error in str(e) for error in errors_for_termination):
+                logger.error("HTTPConnectionPool error, exiting")
+                exit(1)
+            responses = [(None, str(e))] * len(batch_df)
+            return responses
 
-        # df = df[df["true_positive"] == True]
-        # df = filter_df(df)
+    def extract_response_data(self, response: BaseModel):
+        return tuple([getattr(response, field) for field in self.data_model.model_fields.keys()])
 
-        last_idx = db.get("idx", 0)
-        df = df.iloc[last_idx:].copy()
-        if last_idx > 0:
-            logger.info(f"Continuing from {last_idx}")
-            res_filepath = res_filepath.with_suffix(f".from_{last_idx}.csv")
+    def execute(self, only_files_containing_text: List[str] | None = None, reverse: bool = False):
+        only_files_containing_text = only_files_containing_text or []
 
-        df['format_prompt'] = df.apply(lambda x: to_prompt(x), axis=1)
-        res = []
+        # TODO: make extensions class field
+        try:
+            for file_path in self.in_dir.glob("*.csv"):
+                if any(repo.dotted_ref in file_path.stem for repo in selected_repos):
+                    keep_processing = len(only_files_containing_text) == 0 or any(
+                        text_to_test in file_path.stem for text_to_test in only_files_containing_text)
+                    if keep_processing == reverse:
+                        continue
 
-        for i in tqdm(range(0, len(df), batch_size), total=math.ceil(len(df) / batch_size), desc=f"Verifying {file_path.stem} in batches of {batch_size}"):
-            batch_df = df.iloc[i:i + batch_size]
-            prompts = batch_df['format_prompt'].tolist()
+                    res_filepath = self.out_dir / f"{file_path.stem}.arch_verified.csv"
+                    self.verify_file_batched_llm(file_path, res_filepath,
+                                                 10)
+        except Exception as e:
+            logger.error(e)
+            raise e
 
-            res.extend(process_batch(batch_df, host, i, last_idx, prompts))
-
-            df_to_save = df.iloc[:i + batch_size].copy()
-            df_to_save['to_eliminate'], df_to_save['reason'] = zip(*res)
-            df_to_save.to_csv(res_filepath, index=False)
-            db["idx"] = last_idx + i + batch_size
-
-        db['processed'] = True
-        logger.info(f"Processed {file_path.stem}")
-
-
-# TODO: RetryError does not exist anymore. Refactor. Think about the correct way to handle errors.
-#  What should happen if batch fails? Should we continue with the next file or something else?
-# When it fails it is likely not a problem with the file, but with the connection, thus no need to retry, just stop processing (after 3 more tries??)
-def process_batch(batch_df, host, i, last_idx, prompts):
-    try:
-        responses = request_ollama_chain(prompts, host)  # New batch query
-        processed_responses = [(r.to_eliminate, r.reason) for r in responses]
-        return processed_responses
-    except RetryError as error:
-        logger.error(f"Retry error at batch starting index {last_idx + i}, {error}")
-        responses = [(None, str(error))] * len(batch_df)
-        return responses
-    except Exception as e:
-        logger.error(e)
-        errors_for_termination = ["HTTPConnectionPool",
-                                  "No connection could be made because the target machine actively refused it"]
-        if any(error in str(e) for error in errors_for_termination):
-            logger.error("HTTPConnectionPool error, exiting")
-            exit(1)
-        responses = [(None, str(e))] * len(batch_df)
-        return responses
-
-
-def validate_arch(host, only_files_containing_text: List[str] | None = None, reverse: bool = False):
-    only_files_containing_text = only_files_containing_text or []
-    optimized_keyword_folder = AbsDirPath.OPTIMIZED_KEYWORDS
-    AbsDirPath.LOGS.mkdir(exist_ok=True)
-    os.makedirs(AbsDirPath.S0_NOISE_FILTERING, exist_ok=True)
-    logger.add(create_logger_path(AbsDirPath.S0_NOISE_FILTERING), mode="w")
-
-    try:
-        for file_path in optimized_keyword_folder.glob("*.csv"):
-            if any(repo.dotted_ref in file_path.stem for repo in selected_repos):
-                keep_processing = len(only_files_containing_text) == 0 or any(text_to_test in file_path.stem for text_to_test in only_files_containing_text)
-                if keep_processing == reverse:
-                    continue
-
-                res_filepath = AbsDirPath.S0_NOISE_FILTERING / f"{file_path.stem}.arch_verified.csv"
-                verify_file_batched_llm(file_path, res_filepath, host,
-                                        10)  # res_filepath = file_path.with_stem("test123")
-    except Exception as e:
-        logger.error(e)
-        raise e
 
 
 LOCAL_LLM_HOST = "http://localhost:11434"
 
 if __name__ == "__main__":
-    validate_arch(LOCAL_LLM_HOST, [
+    NoiseFilteringStage(hostname=LOCAL_LLM_HOST).execute([
         "root-project"
     ], reverse=True)
