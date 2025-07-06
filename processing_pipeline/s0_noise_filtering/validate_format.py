@@ -42,6 +42,7 @@ class NoiseFilteringStage:
     def __init__(self, hostname: str, batch_size: int = 10):
         self.hostname = hostname
         self.batch_size = batch_size
+        self.model_fields = list(self.data_model.model_fields.keys())
         self._init()
 
     def _init(self):
@@ -137,10 +138,11 @@ reasoning: Although formatted as a code comment, the content is natural language
 {x['sentence']}
 """
 
+    # TODO: remove existing random filters
     @staticmethod
     def filter_data(df: pd.DataFrame) -> pd.DataFrame:
-        df = df[df["quality_attribute"].isin(["Testability", "Energy Efficiency"])]
-        df["word_count"] = df["sentence"].apply(lambda x: len(re.sub(r"[\W_]+", " ", x).strip().split()))
+        # df = df[df["quality_attribute"].isin(["Testability", "Energy Efficiency"])]
+        # df["word_count"] = df["sentence"].apply(lambda x: len(re.sub(r"[\W_]+", " ", x).strip().split()))
         return df
 
     def verify_file_batched_llm(self, file_path: Path, res_filepath: Path):
@@ -151,34 +153,40 @@ reasoning: Although formatted as a code comment, the content is natural language
             logger.info(f"Processing {file_path.stem}")
 
             try:
-                df = pd.read_csv(file_path)
+                df = pd.read_parquet(file_path)
             except Exception as e:
-                logger.info(e)
+                logger.error(e)
                 return
 
-            df = self.filter_data(df)
-
             last_idx = db.get("idx", 0)
-            df = df.iloc[last_idx:].copy()
             if last_idx > 0:
                 logger.info(f"Continuing from {last_idx}")
-                res_filepath = res_filepath.with_suffix(f".from_{last_idx}.csv")
+                res_filepath = res_filepath.with_suffix(f".from_{last_idx}.parquet")
 
-            df[f"{self.stage_name}_prompt"] = df.apply(self.to_prompt, axis=1)
-            res = []
+            df = self.filter_data(df)
+            df = df.iloc[last_idx:].copy()
 
-            for i in tqdm(range(0, len(df), self.batch_size), total=math.ceil(len(df) / self.batch_size),
-                          desc=f"Verifying {file_path.stem} in batches of {self.batch_size}"):
-                batch_df = df.iloc[i:i + self.batch_size]
-                prompts = batch_df[f"{self.stage_name}_prompt"].tolist()
+            prompt_field = f"{self.stage_name}_prompt"
+            df[prompt_field] = df.apply(self.to_prompt, axis=1)
 
-                res.extend(self.process_batch(batch_df, i, last_idx, prompts))
+            for batch_n in tqdm(range(0, len(df), self.batch_size), total=math.ceil(len(df) / self.batch_size),
+                          desc=f"Processing {file_path.stem} in batches of {self.batch_size}"):
+                batch_end = batch_n + self.batch_size
+                batch_df = df.iloc[batch_n:batch_end]
+                prompts = batch_df[prompt_field].tolist()
+                batch_index = batch_df.index
 
-                df_to_save = df.iloc[:i + self.batch_size].copy()
-                # TODO: assign dynamically extracted fields.
-                df_to_save['to_eliminate'], df_to_save['reason'] = zip(*res)
-                df_to_save.to_csv(res_filepath, index=False)
-                db["idx"] = last_idx + i + self.batch_size
+                llm_responses = self.process_batch(prompts)
+                if llm_responses is None:
+                    logger.error(f"Error processing batch {last_idx + batch_n}")
+                    continue
+
+                resulting_df = pd.DataFrame(llm_responses, columns=self.model_fields, index=batch_index)
+                for field_name in self.model_fields:
+                    df.loc[batch_index, field_name] = resulting_df[field_name]
+
+                df.iloc[:batch_end].copy().to_parquet(res_filepath, engine='pyarrow', compression='snappy', index=False)
+                db["idx"] = last_idx + batch_end
 
             db['processed'] = True
             logger.info(f"Processed {file_path.stem}")
@@ -186,14 +194,13 @@ reasoning: Although formatted as a code comment, the content is natural language
     # TODO: RetryError does not exist anymore. Refactor. Think about the correct way to handle errors.
     #  What should happen if batch fails? Should we continue with the next file or something else?
     # When it fails it is likely not a problem with the file, but with the connection, thus no need to retry, just stop processing (after 3 more tries??)
-    def process_batch(self, batch_df, i, last_idx, prompts):
+    def process_batch(self, prompts):
         try:
             responses = self.request_ollama_chain(prompts)  # New batch query
             return [self.extract_response_data(r) for r in responses]
         except RetryError as error:
-            logger.error(f"Retry error at batch starting index {last_idx + i}, {error}")
-            responses = [(None, str(error))] * len(batch_df)
-            return responses
+            logger.error(f"Retry error at batch, {error}")
+            return None
         except Exception as e:
             logger.error(e)
             errors_for_termination = ["HTTPConnectionPool",
@@ -201,31 +208,29 @@ reasoning: Although formatted as a code comment, the content is natural language
             if any(error in str(e) for error in errors_for_termination):
                 logger.error("HTTPConnectionPool error, exiting")
                 exit(1)
-            responses = [(None, str(e))] * len(batch_df)
-            return responses
+            return None
 
     def extract_response_data(self, response: BaseModel):
-        return tuple([getattr(response, field) for field in self.data_model.model_fields.keys()])
+        return tuple([getattr(response, field) for field in self.model_fields])
 
     def execute(self, only_files_containing_text: List[str] | None = None, reverse: bool = False):
+        logger.info(f"Executing {self.stage_name} stage")
         only_files_containing_text = only_files_containing_text or []
 
-        # TODO: make extensions class field
         try:
-            for file_path in self.in_dir.glob("*.csv"):
+            for file_path in self.in_dir.glob("*.parquet"):
                 if any(repo.dotted_ref in file_path.stem for repo in selected_repos):
                     keep_processing = len(only_files_containing_text) == 0 or any(
                         text_to_test in file_path.stem for text_to_test in only_files_containing_text)
                     if keep_processing == reverse:
                         continue
 
-                    res_filepath = self.out_dir / f"{file_path.stem}.arch_verified.csv"
-                    self.verify_file_batched_llm(file_path, res_filepath,
-                                                 10)
+                    res_filepath = self.out_dir / f"{file_path.stem}.parquet"
+                    self.verify_file_batched_llm(file_path, res_filepath)
         except Exception as e:
             logger.error(e)
             raise e
-
+        logger.info(f"Executing {self.stage_name} stage finished")
 
 
 LOCAL_LLM_HOST = "http://localhost:11434"
