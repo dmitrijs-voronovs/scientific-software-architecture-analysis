@@ -39,20 +39,22 @@ class NoiseFilteringStage:
     temperature = 0.0
     data_model = OllamaFormatValidityResponse
 
-    def __init__(self, hostname: str, batch_size: int = 10):
+    def __init__(self, hostname: str, batch_size: int = 10, n_threads: int = 5):
+        self.n_threads = n_threads
         self.hostname = hostname
         self.batch_size = batch_size
         self.model_fields = list(self.data_model.model_fields.keys())
         self._init()
 
-    def _init(self):
+    @classmethod
+    def _init(cls):
         AbsDirPath.LOGS.mkdir(exist_ok=True)
-        os.makedirs(self.out_dir, exist_ok=True)
-        os.makedirs(self.cache_dir, exist_ok=True)
-        logger.add(create_logger_path(self.out_dir), mode="w")
+        os.makedirs(cls.out_dir, exist_ok=True)
+        os.makedirs(cls.cache_dir, exist_ok=True)
+        logger.add(create_logger_path(cls.out_dir), mode="w")
 
         # Register the signal handler
-        signal.signal(signal.SIGINT, self._cleanup_and_exit)
+        signal.signal(signal.SIGINT, cls._cleanup_and_exit)
 
     @staticmethod
     def _cleanup_and_exit(signal_num, frame):
@@ -230,7 +232,7 @@ reasoning: Although formatted as a code comment, the content is natural language
         except Exception as e:
             logger.error(e)
             raise e
-        logger.info(f"Executing {self.stage_name} stage finished")
+        logger.info(f"Finished {self.stage_name} stage")
 
 
 LOCAL_LLM_HOST = "http://localhost:11434"
