@@ -1,25 +1,13 @@
-import math
-import os
-import re
-import shelve
-import signal
-import sys
-from pathlib import Path
-from typing import List
+import itertools
+import time
 
 import dotenv
 import pandas as pd
-from langchain_ollama import ChatOllama
-from loguru import logger
 from pydantic import BaseModel
-from tenacity import RetryError
-from tqdm import tqdm
 
 from constants.abs_paths import AbsDirPath
 from constants.foldernames import FolderNames
-from cfg.selected_repos import selected_repos
-from utilities.utils import create_logger_path
-
+from processing_pipeline.model.BaseStage import BaseStage
 
 # Load environment variables from .env file
 dotenv.load_dotenv()
@@ -30,44 +18,14 @@ class OllamaFormatValidityResponse(BaseModel):
     reason: str
 
 
-class NoiseFilteringStage:
-    stage_name = 's0'
-    in_dir = AbsDirPath.OPTIMIZED_KEYWORDS
-    out_dir = AbsDirPath.S0_NOISE_FILTERING
-    cache_dir = AbsDirPath.CACHE / FolderNames.NOISE_FILTERING_DIR
-    model_name = "deepseek-r1:8b"
-    temperature = 0.0
+class NoiseFilteringStage(BaseStage):
     data_model = OllamaFormatValidityResponse
-
-    def __init__(self, hostname: str, batch_size: int = 10, n_threads: int = 5):
-        self.n_threads = n_threads
-        self.hostname = hostname
-        self.batch_size = batch_size
-        self.model_fields = list(self.data_model.model_fields.keys())
-        self._init()
-
-    @classmethod
-    def _init(cls):
-        AbsDirPath.LOGS.mkdir(exist_ok=True)
-        os.makedirs(cls.out_dir, exist_ok=True)
-        os.makedirs(cls.cache_dir, exist_ok=True)
-        logger.add(create_logger_path(cls.out_dir), mode="w")
-
-        # Register the signal handler
-        signal.signal(signal.SIGINT, cls._cleanup_and_exit)
-
-    @staticmethod
-    def _cleanup_and_exit(signal_num, frame):
-        print("Caught interrupt, cleaning up...")
-        sys.exit(0)  # Triggers the context manager's cleanup
-
-    # @retry(stop=stop_after_attempt(6), wait=wait_fixed(3), after=lambda retry_state: logger.warning(retry_state),
-    #     reraise=True, )
-    def request_ollama_chain(self, prompts: List[str]) -> List[BaseModel]:
-        model = ChatOllama(model=self.model_name, temperature=self.temperature, base_url=self.hostname,
-                           format=self.data_model.model_json_schema())
-        batch_answers = model.batch(prompts)
-        return [self.data_model.model_validate_json(answer.content) for answer in batch_answers]
+    temperature = 0.0
+    model_name = "deepseek-r1:8b"
+    cache_dir = AbsDirPath.CACHE / FolderNames.NOISE_FILTERING_DIR
+    out_dir = AbsDirPath.S0_NOISE_FILTERING
+    in_dir = AbsDirPath.OPTIMIZED_KEYWORDS
+    stage_name = 's0'
 
     @staticmethod
     def to_prompt(x: pd.Series) -> str:
@@ -140,104 +98,24 @@ reasoning: Although formatted as a code comment, the content is natural language
 {x['sentence']}
 """
 
-    # TODO: remove existing random filters
-    @staticmethod
-    def filter_data(df: pd.DataFrame) -> pd.DataFrame:
-        # df = df[df["quality_attribute"].isin(["Testability", "Energy Efficiency"])]
-        # df["word_count"] = df["sentence"].apply(lambda x: len(re.sub(r"[\W_]+", " ", x).strip().split()))
-        return df
-
-    def verify_file_batched_llm(self, file_path: Path, res_filepath: Path):
-        with shelve.open(self.cache_dir / file_path.stem) as db:
-            if db.get("processed", False):
-                logger.info(f"File {file_path.stem} already processed")
-                return
-            logger.info(f"Processing {file_path.stem}")
-
-            try:
-                df = pd.read_parquet(file_path)
-            except Exception as e:
-                logger.error(e)
-                return
-
-            last_idx = db.get("idx", 0)
-            if last_idx > 0:
-                logger.info(f"Continuing from {last_idx}")
-                res_filepath = res_filepath.with_suffix(f".from_{last_idx}.parquet")
-
-            df = self.filter_data(df)
-            df = df.iloc[last_idx:].copy()
-
-            prompt_field = f"{self.stage_name}_prompt"
-            df[prompt_field] = df.apply(self.to_prompt, axis=1)
-
-            for batch_n in tqdm(range(0, len(df), self.batch_size), total=math.ceil(len(df) / self.batch_size),
-                          desc=f"Processing {file_path.stem} in batches of {self.batch_size}"):
-                batch_end = batch_n + self.batch_size
-                batch_df = df.iloc[batch_n:batch_end]
-                prompts = batch_df[prompt_field].tolist()
-                batch_index = batch_df.index
-
-                llm_responses = self.process_batch(prompts)
-                if llm_responses is None:
-                    logger.error(f"Error processing batch {last_idx + batch_n}")
-                    continue
-
-                resulting_df = pd.DataFrame(llm_responses, columns=self.model_fields, index=batch_index)
-                for field_name in self.model_fields:
-                    df.loc[batch_index, field_name] = resulting_df[field_name]
-
-                df.iloc[:batch_end].copy().to_parquet(res_filepath, engine='pyarrow', compression='snappy', index=False)
-                db["idx"] = last_idx + batch_end
-
-            db['processed'] = True
-            logger.info(f"Processed {file_path.stem}")
-
-    # TODO: RetryError does not exist anymore. Refactor. Think about the correct way to handle errors.
-    #  What should happen if batch fails? Should we continue with the next file or something else?
-    # When it fails it is likely not a problem with the file, but with the connection, thus no need to retry, just stop processing (after 3 more tries??)
-    def process_batch(self, prompts):
-        try:
-            responses = self.request_ollama_chain(prompts)  # New batch query
-            return [self.extract_response_data(r) for r in responses]
-        except RetryError as error:
-            logger.error(f"Retry error at batch, {error}")
-            return None
-        except Exception as e:
-            logger.error(e)
-            errors_for_termination = ["HTTPConnectionPool",
-                                      "No connection could be made because the target machine actively refused it"]
-            if any(error in str(e) for error in errors_for_termination):
-                logger.error("HTTPConnectionPool error, exiting")
-                exit(1)
-            return None
-
-    def extract_response_data(self, response: BaseModel):
-        return tuple([getattr(response, field) for field in self.model_fields])
-
-    def execute(self, only_files_containing_text: List[str] | None = None, reverse: bool = False):
-        logger.info(f"Executing {self.stage_name} stage")
-        only_files_containing_text = only_files_containing_text or []
-
-        try:
-            for file_path in self.in_dir.glob("*.parquet"):
-                if any(repo.dotted_ref in file_path.stem for repo in selected_repos):
-                    keep_processing = len(only_files_containing_text) == 0 or any(
-                        text_to_test in file_path.stem for text_to_test in only_files_containing_text)
-                    if keep_processing == reverse:
-                        continue
-
-                    res_filepath = self.out_dir / f"{file_path.stem}.parquet"
-                    self.verify_file_batched_llm(file_path, res_filepath)
-        except Exception as e:
-            logger.error(e)
-            raise e
-        logger.info(f"Finished {self.stage_name} stage")
-
 
 LOCAL_LLM_HOST = "http://localhost:11434"
 
+
+def main():
+    # NoiseFilteringStage(hostname=LOCAL_LLM_HOST).execute(["root-project"], reverse=True)
+    n_threads = [1, 5, 10, 15, 20]
+    n_batches = [1, 5, 10, 15, 20, 50]
+    results = []
+    for threads, batches in itertools.product(n_threads, n_batches):
+        start = time.time()
+        NoiseFilteringStage(hostname=LOCAL_LLM_HOST, n_threads=threads, batch_size=batches).execute(["OpenGene.fastp"], reverse=False)
+        end = time.time()
+        results.append({"n_threads": threads, "n_batches": batches, "time": end - start})
+    df = pd.DataFrame(results)
+    df.to_csv(AbsDirPath.RES_S0_NOISE_FILTERING / "batch_thread_test.csv", index=False)
+
+
+
 if __name__ == "__main__":
-    NoiseFilteringStage(hostname=LOCAL_LLM_HOST).execute([
-        "root-project"
-    ], reverse=True)
+    main()
