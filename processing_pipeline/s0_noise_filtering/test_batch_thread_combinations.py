@@ -4,7 +4,7 @@ import time
 import pandas as pd
 
 from constants.abs_paths import AbsDirPath
-from processing_pipeline.s0_noise_filtering.validate_format import NoiseFilteringStage
+from processing_pipeline.s0_noise_filtering.NoiseFiltering import NoiseFilteringStage
 
 LOCAL_LLM_HOST = "http://localhost:11434"
 

@@ -95,8 +95,13 @@ class BaseStage(metaclass=ABCMeta):
     def to_prompt(x):
         pass
 
-    @staticmethod
-    def filter_data(df):
+    @classmethod
+    def filter_and_transform_df_before_processing(cls, df) -> pd.DataFrame:
+        """Filter to apply to the data before processing"""
+        return df
+
+    @classmethod
+    def transform_df_before_saving(cls, df) -> pd.DataFrame:
         """Filter to apply to the data before processing"""
         return df
 
@@ -122,7 +127,7 @@ class BaseStage(metaclass=ABCMeta):
                 logger.info(f"Continuing from {last_idx}")
                 res_filepath = res_filepath.with_suffix(f".from_{last_idx}.parquet")
 
-            df = self.filter_data(df)
+            df = self.filter_and_transform_df_before_processing(df)
             df = df.iloc[last_idx:].copy()
 
             prompt_field = self.get_stage_labeled_field("prompt")
@@ -140,11 +145,12 @@ class BaseStage(metaclass=ABCMeta):
                     logger.error(f"Error processing batch {last_idx + batch_n}")
                     continue
 
-                resulting_df = pd.DataFrame(llm_responses, columns=[self.get_stage_labeled_field(field) for field in
+                df_with_responses = pd.DataFrame(llm_responses, columns=[self.get_stage_labeled_field(field) for field in
                                                                     self.model_fields], index=batch_index)
-                df.update(resulting_df)
+                df.update(df_with_responses)
 
-                df.iloc[:batch_end].copy().to_parquet(res_filepath, engine='pyarrow', compression='snappy', index=False)
+                resulting_df = df.iloc[:batch_end].copy()
+                self.transform_df_before_saving(resulting_df).to_parquet(res_filepath, engine='pyarrow', compression='snappy', index=False)
                 db["idx"] = last_idx + batch_end
 
             db['processed'] = True
