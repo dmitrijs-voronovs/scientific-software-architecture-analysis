@@ -1,6 +1,8 @@
 import pandas as pd
 
 from processing_pipeline.s3_tactic_extraction.extract_tactic import tactic_descriptions_list_simplified
+
+from cfg.LLMHost import LLMHost
 from processing_pipeline.s3_tactic_extraction.tactics.tactic_description_full import tactic_descriptions_full
 from processing_pipeline.s3_tactic_extraction.tactics.tactic_list_simplified import TacticSimplifiedModelResponse
 from constants.abs_paths import AbsDirPath
@@ -77,10 +79,8 @@ For the given text:
         return df[df.s2_related_to_arch]
 
 
-LOCAL_LLM_HOST = "http://localhost:11434"
-
 def main():
-    TacticExtractionStage(hostname=LOCAL_LLM_HOST).execute(["root-project"], reverse=True)
+    TacticExtractionStage(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=True)
 
 
 if __name__ == "__main__":
