@@ -1,3 +1,4 @@
+import concurrent.futures.thread
 import math
 import os
 import shelve
@@ -55,7 +56,7 @@ class BaseStage(metaclass=ABCMeta):
         pass
 
     error_texts_for_termination = ["HTTPConnectionPool",
-                              "No connection could be made because the target machine actively refused it"]
+                                   "No connection could be made because the target machine actively refused it"]
 
     def __init__(self, hostname: str, batch_size: int = 10, n_threads: int = 5):
         self.model_fields = list(self.data_model.model_fields.keys())
@@ -84,7 +85,8 @@ class BaseStage(metaclass=ABCMeta):
         error_s = str(error)
         return not any(error_text in error_s for error_text in cls.error_texts_for_termination)
 
-    @retry(stop=stop_after_attempt(3), wait=wait_incrementing(5, 5), after=lambda retry_state: logger.warning(retry_state),
+    @retry(stop=stop_after_attempt(3), wait=wait_incrementing(5, 5),
+           after=lambda retry_state: logger.warning(retry_state),
            reraise=True, retry=is_retriable_error)
     def request_ollama_chain(self, prompts: List[str]) -> List[BaseModel]:
         batch_answers = self.model.batch(prompts)
@@ -145,12 +147,14 @@ class BaseStage(metaclass=ABCMeta):
                     logger.error(f"Error processing batch {last_idx + batch_n}")
                     continue
 
-                df_with_responses = pd.DataFrame(llm_responses, columns=[self.get_stage_labeled_field(field) for field in
-                                                                    self.model_fields], index=batch_index)
+                df_with_responses = pd.DataFrame(llm_responses,
+                                                 columns=[self.get_stage_labeled_field(field) for field in
+                                                          self.model_fields], index=batch_index)
                 df.update(df_with_responses)
 
                 resulting_df = df.iloc[:batch_end].copy()
-                self.transform_df_before_saving(resulting_df).to_parquet(res_filepath, engine='pyarrow', compression='snappy', index=False)
+                self.transform_df_before_saving(resulting_df).to_parquet(res_filepath, engine='pyarrow',
+                                                                         compression='snappy', index=False)
                 db["idx"] = last_idx + batch_end
 
             db['processed'] = True
@@ -175,14 +179,20 @@ class BaseStage(metaclass=ABCMeta):
         only_files_containing_text = only_files_containing_text or []
 
         try:
-            for file_path in self.in_dir.glob("*.parquet"):
-                keep_processing = len(only_files_containing_text) == 0 or any(
-                    text_to_test in file_path.stem for text_to_test in only_files_containing_text)
-                if keep_processing == reverse:
-                    continue
+            with concurrent.futures.thread.ThreadPoolExecutor(max_workers=self.n_threads) as executor:
+                futures_to_filenames = {}
+                for file_path in self.in_dir.glob("*.parquet"):
+                    keep_processing = len(only_files_containing_text) == 0 or any(
+                        text_to_test in file_path.stem for text_to_test in only_files_containing_text)
+                    if keep_processing == reverse:
+                        continue
 
-                res_filepath = self.out_dir / f"{file_path.stem}.parquet"
-                self.verify_file_batched_llm(file_path, res_filepath)
+                    res_filepath = self.out_dir / f"{file_path.stem}.parquet"
+                    futures_to_filenames[executor.submit(self.verify_file_batched_llm, file_path, res_filepath)] = file_path
+
+            for future in concurrent.futures.as_completed(futures_to_filenames):
+                future.result()
+                logger.info(f"File {futures_to_filenames[future]} processed")
         except Exception as e:
             logger.error(e)
             raise e
