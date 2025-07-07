@@ -35,6 +35,10 @@ class BaseStage(metaclass=ABCMeta):
     def model_name(self) -> str:
         pass
 
+    @model_name.setter
+    def model_name(self, value):
+        self._model_name = value
+
     @property
     @abstractmethod
     def cache_dir(self) -> Path:
@@ -58,13 +62,15 @@ class BaseStage(metaclass=ABCMeta):
     error_texts_for_termination = ["HTTPConnectionPool",
                                    "No connection could be made because the target machine actively refused it"]
 
-    def __init__(self, hostname: str, batch_size: int = 10, n_threads: int = 5):
+    def __init__(self, hostname: str, batch_size: int = 10, n_threads: int = 5, model_name_override: str = None):
         self.model_fields = list(self.data_model.model_fields.keys())
         self.batch_size = batch_size
         self.hostname = hostname
         self.model = ChatOllama(model=self.model_name, temperature=self.temperature, base_url=self.hostname,
                                 format=self.data_model.model_json_schema())
         self.n_threads = n_threads
+        if model_name_override:
+            self.model_name = model_name_override
 
     @staticmethod
     def _cleanup_and_exit(signal_num, frame):
