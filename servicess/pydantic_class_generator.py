@@ -102,7 +102,7 @@ def get_full_descriptions(tactics: TacticListDTO):
     return {tactic["tactic"]: {**tactic} for tactic in tactic_description_iterator(tactics)}
 
 def main():
-    with open("../cfg/tactic_list.yaml", "r") as f:
+    with open("../processing_pipeline/s3_tactic_extraction/tactics/tactic_list.yaml", "r") as f:
         tactics: TacticListDTO = yaml.safe_load(f)
     result = generate_pydantic_classes(tactics)
     print(result)
@@ -110,11 +110,11 @@ def main():
         f.write(result)
 
     descriptions = get_descriptions(tactics)
-    with open("../cfg/tactic_description.py", "w") as f:
+    with open("../processing_pipeline/s3_tactic_extraction/tactics/tactic_description.py", "w") as f:
         f.write("tactic_descriptions = " + json.dumps(descriptions))
 
     descriptions = get_full_descriptions(tactics)
-    with open("../cfg/tactic_description_full.py", "w") as f:
+    with open("../processing_pipeline/s3_tactic_extraction/tactics/tactic_description_full.py", "w") as f:
         f.write("tactic_descriptions_full = " + json.dumps(descriptions))
 
 if __name__ == "__main__":

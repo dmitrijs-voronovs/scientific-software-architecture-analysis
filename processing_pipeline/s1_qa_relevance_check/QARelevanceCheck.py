@@ -16,12 +16,12 @@ class QARelevanceCheckStage(BaseStage):
     temperature = 0.0
     model_name = "deepseek-r1:8b"
     cache_dir = AbsDirPath.CACHE / FolderNames.QA_RELEVANCE_CHECK_DIR
-    out_dir = AbsDirPath.S1_QA_RELEVANCE_CHECK
     in_dir = AbsDirPath.S0_NOISE_FILTERING
-    stage_name = 's0'
+    out_dir = AbsDirPath.S1_QA_RELEVANCE_CHECK
+    stage_name = 's1'
 
-    @staticmethod
-    def to_prompt(x: pd.Series) -> str:
+    @classmethod
+    def to_prompt(cls, x: pd.Series) -> str:
         return f"""
 You are an expert in evaluating and categorizing quality attributes in software engineering. You possess the necessary skills to distinguish sentences that clearly relate to a given quality attribute from those that do not. 
 
@@ -59,7 +59,9 @@ Instructions:
 
         df["attribute_desc"] = df["qa"].apply(lambda x: qa_descriptions[x])
 
-        return super().filter_and_transform_df_before_processing(df)
+        # filter out noise
+        df = df[~df.s0_to_eliminate]
+        return df
 
     @classmethod
     def transform_df_before_saving(cls, df):

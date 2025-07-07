@@ -41,12 +41,12 @@ class BaseStage(metaclass=ABCMeta):
 
     @property
     @abstractmethod
-    def out_dir(self) -> Path:
+    def in_dir(self) -> Path:
         pass
 
     @property
     @abstractmethod
-    def in_dir(self) -> Path:
+    def out_dir(self) -> Path:
         pass
 
     @property
@@ -90,9 +90,9 @@ class BaseStage(metaclass=ABCMeta):
         batch_answers = self.model.batch(prompts)
         return [self.data_model.model_validate_json(answer.content) for answer in batch_answers]
 
-    @staticmethod
+    @classmethod
     @abstractmethod
-    def to_prompt(x):
+    def to_prompt(cls, x: pd.Series) -> str:
         pass
 
     @classmethod

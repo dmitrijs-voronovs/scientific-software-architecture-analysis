@@ -16,12 +16,12 @@ class NoiseFilteringStage(BaseStage):
     temperature = 0.0
     model_name = "deepseek-r1:8b"
     cache_dir = AbsDirPath.CACHE / FolderNames.NOISE_FILTERING_DIR
-    out_dir = AbsDirPath.S0_NOISE_FILTERING
     in_dir = AbsDirPath.OPTIMIZED_KEYWORDS
+    out_dir = AbsDirPath.S0_NOISE_FILTERING
     stage_name = 's0'
 
-    @staticmethod
-    def to_prompt(x: pd.Series) -> str:
+    @classmethod
+    def to_prompt(cls, x: pd.Series) -> str:
         return f"""
 You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts intended mainly for machines or formal structure.
 
