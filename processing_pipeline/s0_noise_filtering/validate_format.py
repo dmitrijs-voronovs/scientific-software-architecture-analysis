@@ -1,16 +1,9 @@
-import itertools
-import time
-
-import dotenv
 import pandas as pd
 from pydantic import BaseModel
 
 from constants.abs_paths import AbsDirPath
 from constants.foldernames import FolderNames
 from processing_pipeline.model.BaseStage import BaseStage
-
-# Load environment variables from .env file
-dotenv.load_dotenv()
 
 
 class OllamaFormatValidityResponse(BaseModel):
@@ -103,18 +96,7 @@ LOCAL_LLM_HOST = "http://localhost:11434"
 
 
 def main():
-    # NoiseFilteringStage(hostname=LOCAL_LLM_HOST).execute(["root-project"], reverse=True)
-    n_threads = [1, 5, 10, 15, 20]
-    n_batches = [1, 5, 10, 15, 20, 50]
-    results = []
-    for threads, batches in itertools.product(n_threads, n_batches):
-        start = time.time()
-        NoiseFilteringStage(hostname=LOCAL_LLM_HOST, n_threads=threads, batch_size=batches).execute(["OpenGene.fastp"], reverse=False)
-        end = time.time()
-        results.append({"n_threads": threads, "n_batches": batches, "time": end - start})
-    df = pd.DataFrame(results)
-    df.to_csv(AbsDirPath.RES_S0_NOISE_FILTERING / "batch_thread_test.csv", index=False)
-
+    NoiseFilteringStage(hostname=LOCAL_LLM_HOST).execute(["root-project"], reverse=True)
 
 
 if __name__ == "__main__":

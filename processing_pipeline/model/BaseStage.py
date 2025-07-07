@@ -11,10 +11,9 @@ import pandas as pd
 from langchain_ollama import ChatOllama
 from loguru import logger
 from pydantic import BaseModel
-from tenacity import RetryError
+from tenacity import retry, stop_after_attempt, wait_incrementing
 from tqdm import tqdm
 
-from cfg.selected_repos import selected_repos
 from constants.abs_paths import AbsDirPath
 from utilities.utils import create_logger_path
 
@@ -55,10 +54,15 @@ class BaseStage(metaclass=ABCMeta):
     def stage_name(self) -> str:
         pass
 
+    error_texts_for_termination = ["HTTPConnectionPool",
+                              "No connection could be made because the target machine actively refused it"]
+
     def __init__(self, hostname: str, batch_size: int = 10, n_threads: int = 5):
         self.model_fields = list(self.data_model.model_fields.keys())
         self.batch_size = batch_size
         self.hostname = hostname
+        self.model = ChatOllama(model=self.model_name, temperature=self.temperature, base_url=self.hostname,
+                                format=self.data_model.model_json_schema())
         self.n_threads = n_threads
 
     @staticmethod
@@ -75,15 +79,15 @@ class BaseStage(metaclass=ABCMeta):
         # Register the signal handler
         signal.signal(signal.SIGINT, self._cleanup_and_exit)
 
-    # TODO: RetryError does not exist anymore. Refactor. Think about the correct way to handle errors.
-    #  What should happen if batch fails? Should we continue with the next file or something else?
-    # When it fails it is likely not a problem with the file, but with the connection, thus no need to retry, just stop processing (after 3 more tries??)
-    # @retry(stop=stop_after_attempt(6), wait=wait_fixed(3), after=lambda retry_state: logger.warning(retry_state),
-    #     reraise=True, )
+    @classmethod
+    def is_retriable_error(cls, error) -> bool:
+        error_s = str(error)
+        return not any(error_text in error_s for error_text in cls.error_texts_for_termination)
+
+    @retry(stop=stop_after_attempt(3), wait=wait_incrementing(5, 5), after=lambda retry_state: logger.warning(retry_state),
+           reraise=True, retry=is_retriable_error)
     def request_ollama_chain(self, prompts: List[str]) -> List[BaseModel]:
-        model = ChatOllama(model=self.model_name, temperature=self.temperature, base_url=self.hostname,
-                           format=self.data_model.model_json_schema())
-        batch_answers = model.batch(prompts)
+        batch_answers = self.model.batch(prompts)
         return [self.data_model.model_validate_json(answer.content) for answer in batch_answers]
 
     @staticmethod
@@ -150,14 +154,9 @@ class BaseStage(metaclass=ABCMeta):
         try:
             responses = self.request_ollama_chain(prompts)  # New batch query
             return [self.extract_response_data(r) for r in responses]
-        except RetryError as error:
-            logger.error(f"Retry error at batch, {error}")
-            return None
         except Exception as e:
             logger.error(e)
-            errors_for_termination = ["HTTPConnectionPool",
-                                      "No connection could be made because the target machine actively refused it"]
-            if any(error in str(e) for error in errors_for_termination):
+            if not self.is_retriable_error(e):
                 logger.error("HTTPConnectionPool error, exiting")
                 exit(1)
             return None
@@ -171,15 +170,13 @@ class BaseStage(metaclass=ABCMeta):
 
         try:
             for file_path in self.in_dir.glob("*.parquet"):
-                # TODO: fix selected_repos direct reference.
-                if any(repo.dotted_ref in file_path.stem for repo in selected_repos):
-                    keep_processing = len(only_files_containing_text) == 0 or any(
-                        text_to_test in file_path.stem for text_to_test in only_files_containing_text)
-                    if keep_processing == reverse:
-                        continue
+                keep_processing = len(only_files_containing_text) == 0 or any(
+                    text_to_test in file_path.stem for text_to_test in only_files_containing_text)
+                if keep_processing == reverse:
+                    continue
 
-                    res_filepath = self.out_dir / f"{file_path.stem}.parquet"
-                    self.verify_file_batched_llm(file_path, res_filepath)
+                res_filepath = self.out_dir / f"{file_path.stem}.parquet"
+                self.verify_file_batched_llm(file_path, res_filepath)
         except Exception as e:
             logger.error(e)
             raise e
