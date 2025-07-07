@@ -2,6 +2,7 @@ import pandas as pd
 from pydantic import BaseModel
 
 from cfg.LLMHost import LLMHost
+from cfg.ModelName import ModelName
 from constants.abs_paths import AbsDirPath
 from constants.foldernames import FolderNames
 from processing_pipeline.model.BaseStage import BaseStage
@@ -15,7 +16,7 @@ class OllamaFormatValidityResponse(BaseModel):
 class NoiseFilteringStage(BaseStage):
     data_model = OllamaFormatValidityResponse
     temperature = 0.0
-    model_name = "deepseek-r1:8b"
+    model_name = ModelName.DEEPSEEK_1_5B
     cache_dir = AbsDirPath.CACHE / FolderNames.NOISE_FILTERING_DIR
     in_dir = AbsDirPath.OPTIMIZED_KEYWORDS
     out_dir = AbsDirPath.S0_NOISE_FILTERING

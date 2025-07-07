@@ -1,8 +1,7 @@
 import pandas as pd
 
-from processing_pipeline.s3_tactic_extraction.extract_tactic import tactic_descriptions_list_simplified
-
 from cfg.LLMHost import LLMHost
+from cfg.ModelName import ModelName
 from processing_pipeline.s3_tactic_extraction.tactics.tactic_description_full import tactic_descriptions_full
 from processing_pipeline.s3_tactic_extraction.tactics.tactic_list_simplified import TacticSimplifiedModelResponse
 from constants.abs_paths import AbsDirPath
@@ -13,7 +12,7 @@ from processing_pipeline.model.BaseStage import BaseStage
 class TacticExtractionStage(BaseStage):
     data_model = TacticSimplifiedModelResponse
     temperature = 0.0
-    model_name = "deepseek-r1:8b"
+    model_name = ModelName.DEEPSEEK_1_5B
     cache_dir = AbsDirPath.CACHE / FolderNames.TACTIC_EXTRACTION_DIR
     in_dir = AbsDirPath.S2_ARCH_RELEVANCE_CHECK
     out_dir = AbsDirPath.S3_TACTIC_EXTRACTION
