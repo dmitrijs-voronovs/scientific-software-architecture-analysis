@@ -25,13 +25,13 @@ def main():
     results = []
     for threads, batches, model_name in itertools.product(n_threads, n_batches, model_names):
         start = time.time()
-        NoiseFilteringStage(hostname=LLMHost.RADU_SERVER, n_threads=threads, batch_size=batches, model_name_override=model_name, disable_cache=True).execute(
+        NoiseFilteringStage(hostname=LLMHost.GREEN_LAB, n_threads=threads, batch_size=batches, model_name_override=model_name, disable_cache=True).execute(
             ["google.deepvariant"], reverse=False)
         end = time.time()
         results.append({"n_threads": threads, "n_batches": batches, "model_name": model_name, "time": end - start})
     df = pd.DataFrame(results)
     print(df)
-    df.to_csv(AbsDirPath.RES_S0_NOISE_FILTERING / "batch_thread_test.csv", index=False)
+    df.to_csv(AbsDirPath.RES_S0_NOISE_FILTERING / f"batch_thread_test_{LLMHost.GREEN_LAB}.csv", index=False)
 
 
 if __name__ == "__main__":

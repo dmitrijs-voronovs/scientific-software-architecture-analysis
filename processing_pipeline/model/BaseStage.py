@@ -49,10 +49,18 @@ class BaseStage(metaclass=ABCMeta):
     def in_dir(self) -> Path:
         pass
 
+    @in_dir.setter
+    def in_dir(self, value):
+        self._in_dir = value
+
     @property
     @abstractmethod
     def out_dir(self) -> Path:
         pass
+
+    @out_dir.setter
+    def out_dir(self, value):
+        self._out_dir = value
 
     @property
     @abstractmethod
@@ -60,9 +68,9 @@ class BaseStage(metaclass=ABCMeta):
         pass
 
     error_texts_for_termination = ["HTTPConnectionPool",
-                                   "No connection could be made because the target machine actively refused it"]
+                                   "No connection could be made because the target machine actively refused it", "An existing connection was forcibly closed"]
 
-    def __init__(self, hostname: str, batch_size: int = 10, n_threads: int = 5, model_name_override: str = None, disable_cache = False):
+    def __init__(self, hostname: str, batch_size: int = 10, n_threads: int = 5, *, disable_cache = False, model_name_override: str = None, in_dir_override: Path = None, out_dir_override: Path = None):
         self.model_fields = list(self.data_model.model_fields.keys())
         self.batch_size = batch_size
         self.hostname = hostname
@@ -72,6 +80,10 @@ class BaseStage(metaclass=ABCMeta):
         self.disable_cache = disable_cache
         if model_name_override:
             self.model_name = model_name_override
+        if in_dir_override:
+            self.in_dir = in_dir_override
+        if out_dir_override:
+            self.out_dir = out_dir_override
 
         self._init()
 
@@ -121,6 +133,8 @@ class BaseStage(metaclass=ABCMeta):
         return f"{cls.stage_name}_{field_name}"
 
     def verify_file_batched_llm(self, file_path: Path, res_filepath: Path):
+        # Fix for shelve not working in multithreading environment
+        self._prepare_shelf(file_path)
         with shelve.open(self.cache_dir / file_path.stem) as db:
             if not self.disable_cache and db.get("processed", False):
                 logger.info(f"File {file_path.stem} already processed")
@@ -168,6 +182,11 @@ class BaseStage(metaclass=ABCMeta):
 
             if not self.disable_cache: db['processed'] = True
             logger.info(f"Processed {file_path.stem}")
+
+    def _prepare_shelf(self, file_path):
+        (self.cache_dir / f"{file_path.stem}.dat").touch()
+        (self.cache_dir / f"{file_path.stem}.bak").touch()
+        (self.cache_dir / f"{file_path.stem}.dir").touch()
 
     def process_batch(self, prompts):
         try:
@@ -224,4 +243,3 @@ class BaseStage(metaclass=ABCMeta):
             logger.error(e)
             raise e
         logger.info(f"Finished {self.stage_name} stage")
-
