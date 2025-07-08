@@ -68,9 +68,12 @@ class BaseStage(metaclass=ABCMeta):
         pass
 
     error_texts_for_termination = ["HTTPConnectionPool",
-                                   "No connection could be made because the target machine actively refused it", "An existing connection was forcibly closed"]
+                                   "No connection could be made because the target machine actively refused it",
+                                   "An existing connection was forcibly closed",
+                                   "RuntimeError cannot schedule new futures after interpreter shutdown"]
 
-    def __init__(self, hostname: str, batch_size: int = 10, n_threads: int = 5, *, disable_cache = False, model_name_override: str = None, in_dir_override: Path = None, out_dir_override: Path = None):
+    def __init__(self, hostname: str, batch_size: int = 10, n_threads: int = 5, *, disable_cache=False,
+                 model_name_override: str = None, in_dir_override: Path = None, out_dir_override: Path = None):
         self.model_fields = list(self.data_model.model_fields.keys())
         self.batch_size = batch_size
         self.hostname = hostname
@@ -107,8 +110,7 @@ class BaseStage(metaclass=ABCMeta):
         return not any(error_text in error_s for error_text in cls.error_texts_for_termination)
 
     @retry(stop=stop_after_attempt(3), wait=wait_incrementing(5, 5),
-           after=lambda retry_state: logger.warning(retry_state),
-           reraise=True)
+           after=lambda retry_state: logger.warning(retry_state), reraise=True)
     def request_ollama_chain(self, prompts: List[str]) -> List[BaseModel]:
         batch_answers = self.model.batch(prompts)
         return [self.data_model.model_validate_json(answer.content) for answer in batch_answers]
@@ -234,7 +236,8 @@ class BaseStage(metaclass=ABCMeta):
                         continue
 
                     res_filepath = self.out_dir / f"{file_path.stem}.parquet"
-                    futures_to_filenames[executor.submit(self.verify_file_batched_llm, file_path, res_filepath)] = file_path
+                    futures_to_filenames[
+                        executor.submit(self.verify_file_batched_llm, file_path, res_filepath)] = file_path
 
             for future in concurrent.futures.as_completed(futures_to_filenames):
                 future.result()
