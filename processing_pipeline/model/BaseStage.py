@@ -134,7 +134,7 @@ class BaseStage(metaclass=ABCMeta):
     def get_stage_labeled_field(cls, field_name):
         return f"{cls.stage_name}_{field_name}"
 
-    def verify_file_batched_llm(self, file_path: Path, res_filepath: Path):
+    def _process_in_batches(self, file_path: Path, res_filepath: Path):
         # Fix for shelve not working in multithreading environment
         self._prepare_shelf(file_path)
         with shelve.open(self.cache_dir / file_path.stem) as db:
@@ -186,6 +186,9 @@ class BaseStage(metaclass=ABCMeta):
             logger.info(f"Processed {file_path.stem}")
 
     def _prepare_shelf(self, file_path):
+        if self.disable_cache:
+            return
+
         (self.cache_dir / f"{file_path.stem}.dat").touch()
         (self.cache_dir / f"{file_path.stem}.bak").touch()
         (self.cache_dir / f"{file_path.stem}.dir").touch()
@@ -216,7 +219,7 @@ class BaseStage(metaclass=ABCMeta):
                     continue
 
                 res_filepath = self.out_dir / f"{file_path.stem}.parquet"
-                self.verify_file_batched_llm(file_path, res_filepath)
+                self._process_in_batches(file_path, res_filepath)
         except Exception as e:
             logger.error(e)
             raise e
@@ -237,7 +240,7 @@ class BaseStage(metaclass=ABCMeta):
 
                     res_filepath = self.out_dir / f"{file_path.stem}.parquet"
                     futures_to_filenames[
-                        executor.submit(self.verify_file_batched_llm, file_path, res_filepath)] = file_path
+                        executor.submit(self._process_in_batches, file_path, res_filepath)] = file_path
 
             for future in concurrent.futures.as_completed(futures_to_filenames):
                 future.result()

@@ -46,7 +46,10 @@ Instructions:
 
     @classmethod
     def filter_and_transform_df_before_processing(cls, df):
-        return df[df.s1_true_positive]
+        df = df[df.s1_true_positive]
+        # TODO: groupby sentence and count the number of entries per group
+        #  Later use it in analysis.
+        return df
 
 
 def main():

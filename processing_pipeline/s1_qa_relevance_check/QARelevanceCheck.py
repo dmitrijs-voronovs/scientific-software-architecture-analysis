@@ -32,7 +32,7 @@ Evaluate whether the content accurately aligns with its associated quality attri
 Data:
 
 Quality Attribute: {x['qa']}
-Attribute Description: {x['attribute_desc']}
+Attribute Description: {x['qa_desc']}
 Content: {x['sentence']}
 
 Instructions: 

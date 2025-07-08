@@ -25,14 +25,13 @@ def split_file(file_path: Path, size_bytes=MAX_FILE_SIZE_BYTES / 2):
         chunk.to_parquet(file_path.with_stem(f"{file_path.stem}.{i:0{len(str(n_chunks))}}"), engine='pyarrow', compression='snappy', index=False)
 
 
-def split_files_exceeding_max_limit(dir):
+def split_files_exceeding_max_limit(dir, size_limit=MAX_FILE_SIZE_BYTES):
     for file_path in Path(dir).glob("*[A-Z].parquet"):
         size = file_path.stat().st_size
-        if size > MAX_FILE_SIZE_BYTES:
+        if size > size_limit:
             print(f"File size: {file_path} | {size}")
             split_file(file_path)
             file_path.rename(file_path.with_stem(f"_{file_path.stem}"))
-
 
 
 def grouper_ranges(total_size, chunk_size):
