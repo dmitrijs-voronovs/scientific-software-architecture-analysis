@@ -62,15 +62,18 @@ class BaseStage(metaclass=ABCMeta):
     error_texts_for_termination = ["HTTPConnectionPool",
                                    "No connection could be made because the target machine actively refused it"]
 
-    def __init__(self, hostname: str, batch_size: int = 10, n_threads: int = 5, model_name_override: str = None):
+    def __init__(self, hostname: str, batch_size: int = 10, n_threads: int = 5, model_name_override: str = None, disable_cache = False):
         self.model_fields = list(self.data_model.model_fields.keys())
         self.batch_size = batch_size
         self.hostname = hostname
         self.model = ChatOllama(model=self.model_name, temperature=self.temperature, base_url=self.hostname,
                                 format=self.data_model.model_json_schema())
         self.n_threads = n_threads
+        self.disable_cache = disable_cache
         if model_name_override:
             self.model_name = model_name_override
+
+        self._init()
 
     @staticmethod
     def _cleanup_and_exit(signal_num, frame):
@@ -93,7 +96,7 @@ class BaseStage(metaclass=ABCMeta):
 
     @retry(stop=stop_after_attempt(3), wait=wait_incrementing(5, 5),
            after=lambda retry_state: logger.warning(retry_state),
-           reraise=True, retry=is_retriable_error)
+           reraise=True)
     def request_ollama_chain(self, prompts: List[str]) -> List[BaseModel]:
         batch_answers = self.model.batch(prompts)
         return [self.data_model.model_validate_json(answer.content) for answer in batch_answers]
@@ -119,7 +122,7 @@ class BaseStage(metaclass=ABCMeta):
 
     def verify_file_batched_llm(self, file_path: Path, res_filepath: Path):
         with shelve.open(self.cache_dir / file_path.stem) as db:
-            if db.get("processed", False):
+            if not self.disable_cache and db.get("processed", False):
                 logger.info(f"File {file_path.stem} already processed")
                 return
             logger.info(f"Processing {file_path.stem}")
@@ -130,7 +133,7 @@ class BaseStage(metaclass=ABCMeta):
                 logger.error(e)
                 return
 
-            last_idx = db.get("idx", 0)
+            last_idx = 0 if self.disable_cache else db.get("idx", 0)
             if last_idx > 0:
                 logger.info(f"Continuing from {last_idx}")
                 res_filepath = res_filepath.with_suffix(f".from_{last_idx}.parquet")
@@ -156,19 +159,19 @@ class BaseStage(metaclass=ABCMeta):
                 df_with_responses = pd.DataFrame(llm_responses,
                                                  columns=[self.get_stage_labeled_field(field) for field in
                                                           self.model_fields], index=batch_index)
-                df.update(df_with_responses)
+                df.loc[batch_index, df_with_responses.columns] = df_with_responses.values
 
-                resulting_df = df.iloc[:batch_end].copy()
+                resulting_df = df.iloc[:batch_end]
                 self.transform_df_before_saving(resulting_df).to_parquet(res_filepath, engine='pyarrow',
                                                                          compression='snappy', index=False)
-                db["idx"] = last_idx + batch_end
+                if not self.disable_cache: db["idx"] = last_idx + batch_end
 
-            db['processed'] = True
+            if not self.disable_cache: db['processed'] = True
             logger.info(f"Processed {file_path.stem}")
 
     def process_batch(self, prompts):
         try:
-            responses = self.request_ollama_chain(prompts)  # New batch query
+            responses = self.request_ollama_chain(prompts)
             return [self.extract_response_data(r) for r in responses]
         except Exception as e:
             logger.error(e)
@@ -179,6 +182,24 @@ class BaseStage(metaclass=ABCMeta):
 
     def extract_response_data(self, response: BaseModel):
         return tuple([getattr(response, field) for field in self.model_fields])
+
+    def execute_single_threaded(self, only_files_containing_text: List[str] | None = None, reverse: bool = False):
+        logger.info(f"Executing {self.stage_name} stage")
+        only_files_containing_text = only_files_containing_text or []
+
+        try:
+            for file_path in self.in_dir.glob("*.parquet"):
+                keep_processing = len(only_files_containing_text) == 0 or any(
+                    text_to_test in file_path.stem for text_to_test in only_files_containing_text)
+                if keep_processing == reverse:
+                    continue
+
+                res_filepath = self.out_dir / f"{file_path.stem}.parquet"
+                self.verify_file_batched_llm(file_path, res_filepath)
+        except Exception as e:
+            logger.error(e)
+            raise e
+        logger.info(f"Finished {self.stage_name} stage")
 
     def execute(self, only_files_containing_text: List[str] | None = None, reverse: bool = False):
         logger.info(f"Executing {self.stage_name} stage")
@@ -203,3 +224,4 @@ class BaseStage(metaclass=ABCMeta):
             logger.error(e)
             raise e
         logger.info(f"Finished {self.stage_name} stage")
+
