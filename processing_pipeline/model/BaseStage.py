@@ -131,7 +131,7 @@ class BaseStage(metaclass=ABCMeta):
         return df
 
     @classmethod
-    def get_stage_labeled_field(cls, field_name):
+    def get_stage_column_name(cls, field_name):
         return f"{cls.stage_name}_{field_name}"
 
     def _process_in_batches(self, file_path: Path, res_filepath: Path):
@@ -157,7 +157,7 @@ class BaseStage(metaclass=ABCMeta):
             df = self.filter_and_transform_df_before_processing(df)
             df = df.iloc[last_idx:].copy()
 
-            prompt_field = self.get_stage_labeled_field("prompt")
+            prompt_field = self.get_stage_column_name("prompt")
             df[prompt_field] = df.apply(self.to_prompt, axis=1)
 
             for batch_n in tqdm(range(0, len(df), self.batch_size), total=math.ceil(len(df) / self.batch_size),
@@ -173,8 +173,7 @@ class BaseStage(metaclass=ABCMeta):
                     continue
 
                 df_with_responses = pd.DataFrame(llm_responses,
-                                                 columns=[self.get_stage_labeled_field(field) for field in
-                                                          self.model_fields], index=batch_index)
+                                                 columns=self.get_columns(), index=batch_index)
                 df.loc[batch_index, df_with_responses.columns] = df_with_responses.values
 
                 resulting_df = df.iloc[:batch_end]
@@ -184,6 +183,13 @@ class BaseStage(metaclass=ABCMeta):
 
             if not self.disable_cache: db['processed'] = True
             logger.info(f"Processed {file_path.stem}")
+
+    @classmethod
+    def get_columns(cls):
+        # noinspection PyUnresolvedReferences
+        return [cls.get_stage_column_name(field) for field in
+                # cls.model_fields]
+                cls.data_model.model_fields.keys()]
 
     def _prepare_shelf(self, file_path):
         if self.disable_cache:

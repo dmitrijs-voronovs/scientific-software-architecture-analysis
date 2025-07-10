@@ -10,7 +10,7 @@ from processing_pipeline.model.BaseStage import BaseStage
 
 class OllamaFormatValidityResponse(BaseModel):
     to_eliminate: bool
-    reason: str
+    reasoning: str
 
 
 class NoiseFilteringStage(BaseStage):
