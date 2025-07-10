@@ -42,7 +42,7 @@ def save_data(df, target_dir, repo, source: 'MatchSource'):
 
 def main():
     keywords_dir = AbsDirPath.KEYWORDS_MATCHING
-    target_dir = AbsDirPath.OPTIMIZED_KEYWORDS
+    target_dir = AbsDirPath.O_KEYWORDS_MATCHING
 
     for repos in tqdm(selected_repos, desc="Processing keywords"):
         for source in MatchSource:

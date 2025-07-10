@@ -21,7 +21,7 @@ def extract_first_rows(dir_in, dir_out, names_containing, n=100):
 
 
 if __name__ == "__main__":
-    extract_first_rows(AbsDirPath.OPTIMIZED_KEYWORDS_OLD, AbsDirPath.PARAMETER_TUNING_DIR,
+    extract_first_rows(AbsDirPath.O_KEYWORDS_MATCHING_OLD, AbsDirPath.PARAMETER_TUNING_DIR,
                        ["allenai.scispacy", "google.deepvariant", "OpenGene.fastp"])
 
     # print(list(grouper_ranges(98, 10)))  # split_file("metadata/keywords/broadinstitute.cromwell.87.ISSUE_COMMENT.csv", 500_000)

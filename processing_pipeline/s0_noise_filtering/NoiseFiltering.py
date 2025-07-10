@@ -18,7 +18,7 @@ class NoiseFilteringStage(BaseStage):
     temperature = 0.0
     model_name = ModelName.DEEPSEEK_1_5B
     cache_dir = AbsDirPath.CACHE / FolderNames.NOISE_FILTERING_DIR
-    in_dir = AbsDirPath.OPTIMIZED_KEYWORDS
+    in_dir = AbsDirPath.O_KEYWORDS_MATCHING
     out_dir = AbsDirPath.S0_NOISE_FILTERING
     stage_name = 's0'
 
