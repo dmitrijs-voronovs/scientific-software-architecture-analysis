@@ -14,11 +14,17 @@ class StageConfig:
     boolean_field_name: str | None = None
     next_stage: Optional['StageConfig'] = None
 
+    def get_column_name(self, col_name: str):
+        return f"{self.name}_{col_name}"
+
     def get_columns(self):
-        return [f"{self.name}_{column}" for column in self.resulting_fields]
+        return [self.get_column_name(column) for column in self.resulting_fields]
 
     def all_df_columns(self):
         return self.depends_on_fields + self.get_columns()
+
+    def get_boolean_field(self):
+        return self.get_column_name(self.boolean_field_name)
 
 S3TacticExtraction = StageConfig("s3", ["sentence"], ["tactic", "response"], AbsDirPath.S3_TACTIC_EXTRACTION)
 S2ArchRelevance = StageConfig("s2", ["sentence"], ["related_to_arch", "reasoning"], AbsDirPath.S2_ARCH_RELEVANCE_CHECK, "related_to_arch", next_stage=S3TacticExtraction)
