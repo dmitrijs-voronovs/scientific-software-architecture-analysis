@@ -77,12 +77,12 @@ class BaseStage(metaclass=ABCMeta):
         self.model_fields = list(self.data_model.model_fields.keys())
         self.batch_size = batch_size
         self.hostname = hostname
+        if model_name_override:
+            self.model_name = model_name_override
         self.model = ChatOllama(model=self.model_name, temperature=self.temperature, base_url=self.hostname,
                                 format=self.data_model.model_json_schema())
         self.n_threads = n_threads
         self.disable_cache = disable_cache
-        if model_name_override:
-            self.model_name = model_name_override
         if in_dir_override:
             self.in_dir = in_dir_override
         if out_dir_override:

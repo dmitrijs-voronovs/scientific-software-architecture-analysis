@@ -12,6 +12,8 @@ class AbsDirPath:
     """
     # DIRS
 
+    ROOT = PROJECT_ROOT
+
     DATA = PROJECT_ROOT / "data"
     RESULTS = PROJECT_ROOT / "results"
     DOCS = PROJECT_ROOT / "docs"
