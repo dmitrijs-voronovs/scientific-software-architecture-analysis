@@ -1,14 +1,22 @@
 class FolderNames:
+    """O_ prefix for Optimized"""
     KEYWORDS_MATCHING_DIR = "matched"
-    OPTIMIZED_KEYWORD_DIR = "optimized"
+    O_KEYWORDS_MATCHING_DIR = "matched_o"
+    O2_KEYWORDS_MATCHING_DIR = "matched_o2"
     NOISE_FILTERING_DIR = "s0_noise_filtering"
+    O_NOISE_FILTERING_DIR = "s0_noise_filtering_o"
     QA_RELEVANCE_CHECK_DIR = "s1_qa_relevance_check"
+    O_QA_RELEVANCE_CHECK_DIR = "s1_qa_relevance_check_o"
     ARCH_RELEVANCE_CHECK_DIR = "s2_arch_relevance_check"
+    O_ARCH_RELEVANCE_CHECK_DIR = "s2_arch_relevance_check_o"
     TACTIC_EXTRACTION_DIR = "s3_tactic_extraction"
 
-    OPTIMIZED_KEYWORD_OLD_DIR = "optimized_old"
+    O_KEYWORDS_MATCHING_OLD_DIR = "matched_o_old"
+
     PARAMETER_TUNING_DIR = "parameter_tuning"
     PARAMETER_TUNING_RES_DIR = "parameter_tuning_res"
+
+    MERGED_DIR = "merged"
 
     # TODO: think why they are needed, for analysis???
     RES_KEYWORDS_MATCHING_DIR = "keyword_matching"

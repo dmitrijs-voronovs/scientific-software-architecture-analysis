@@ -41,11 +41,11 @@ def grouper_ranges(total_size, chunk_size):
 
 if __name__ == "__main__":
     # split_files_exceeding_max_limit(AbsDirPath.KEYWORDS_MATCHING)
-    # split_files_exceeding_max_limit(AbsDirPath.OPTIMIZED_KEYWORDS)
-    split_files_exceeding_max_limit(AbsDirPath.S0_NOISE_FILTERING)
-    split_files_exceeding_max_limit(AbsDirPath.S1_QA_RELEVANCE_CHECK)
-    split_files_exceeding_max_limit(AbsDirPath.S2_ARCH_RELEVANCE_CHECK)
-    split_files_exceeding_max_limit(AbsDirPath.S3_TACTIC_EXTRACTION)
+    split_files_exceeding_max_limit(AbsDirPath.O_KEYWORDS_MATCHING)
+    # split_files_exceeding_max_limit(AbsDirPath.S0_NOISE_FILTERING)
+    # split_files_exceeding_max_limit(AbsDirPath.S1_QA_RELEVANCE_CHECK)
+    # split_files_exceeding_max_limit(AbsDirPath.S2_ARCH_RELEVANCE_CHECK)
+    # split_files_exceeding_max_limit(AbsDirPath.S3_TACTIC_EXTRACTION)
 
     # print(list(grouper_ranges(98, 10)))
     # split_file("metadata/keywords/broadinstitute.cromwell.87.ISSUE_COMMENT.csv", 500_000)
