@@ -25,7 +25,7 @@ def main():
     results = []
     for threads, batches, model_name in itertools.product(n_threads, n_batches, model_names):
         start = time.time()
-        NoiseFilteringStage(hostname=LLMHost.GREEN_LAB, n_threads=threads, batch_size=batches,
+        NoiseFilteringStage(hostname=LLMHost.GREEN_LAB, n_threads_override=threads, batch_size_override=batches,
                             model_name_override=model_name, disable_cache=True,
                             in_dir_override=AbsDirPath.PARAMETER_TUNING_DIR,
                             out_dir_override=AbsDirPath.PARAMETER_TUNING_RES_DIR).execute()

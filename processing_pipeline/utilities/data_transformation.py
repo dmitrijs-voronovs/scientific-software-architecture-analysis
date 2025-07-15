@@ -20,9 +20,11 @@ def split_dataset_by_repo_and_source(out_dir: Path, df: pd.DataFrame, *, clean_b
         print(f"Saved {output_file}")
 
 
-def load_all_files(in_dir: Path):
+def load_all_files(in_dir: Path, *, name_contains: str = None):
     dfs = []
     for file_path in in_dir.glob("*.parquet"):
+        if name_contains and not name_contains in file_path:
+            continue
         try:
             file = pd.read_parquet(file_path, engine='pyarrow')
             # file['fname'] = file_path

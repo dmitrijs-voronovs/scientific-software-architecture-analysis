@@ -16,6 +16,7 @@ from tenacity import retry, stop_after_attempt, wait_incrementing
 from tqdm import tqdm
 
 from constants.abs_paths import AbsDirPath
+from processing_pipeline.processing_parameter_tuning.optimal_params import optimal_processing_parameters
 from utilities.utils import create_logger_path
 
 
@@ -72,21 +73,27 @@ class BaseStage(metaclass=ABCMeta):
                                    "An existing connection was forcibly closed",
                                    "RuntimeError cannot schedule new futures after interpreter shutdown"]
 
-    def __init__(self, hostname: str, batch_size: int = 10, n_threads: int = 5, *, disable_cache=False,
-                 model_name_override: str = None, in_dir_override: Path = None, out_dir_override: Path = None):
+    def __init__(self, hostname: str, *, batch_size_override: int = None, n_threads_override: int = None,
+                 disable_cache=False, model_name_override: str = None, in_dir_override: Path = None,
+                 out_dir_override: Path = None):
         self.model_fields = list(self.data_model.model_fields.keys())
-        self.batch_size = batch_size
         self.hostname = hostname
         if model_name_override:
             self.model_name = model_name_override
         self.model = ChatOllama(model=self.model_name, temperature=self.temperature, base_url=self.hostname,
                                 format=self.data_model.model_json_schema())
-        self.n_threads = n_threads
+
+        optimal_params = optimal_processing_parameters[self.model_name]
+        self.batch_size = batch_size_override or optimal_params.batch_size
+        self.n_threads = n_threads_override or optimal_params.n_threads
+
         self.disable_cache = disable_cache
         if in_dir_override:
             self.in_dir = in_dir_override
         if out_dir_override:
             self.out_dir = out_dir_override
+
+        self._print_all_params()
 
         self._init()
 
@@ -136,7 +143,7 @@ class BaseStage(metaclass=ABCMeta):
 
     def _process_in_batches(self, file_path: Path, res_filepath: Path):
         # Fix for shelve not working in multithreading environment
-        self._prepare_shelf(file_path)
+        shelf_path = self._prepare_shelf_with_path(file_path)
         with shelve.open(self.cache_dir / file_path.stem) as db:
             if not self.disable_cache and db.get("processed", False):
                 logger.info(f"File {file_path.stem} already processed")
@@ -191,13 +198,14 @@ class BaseStage(metaclass=ABCMeta):
                 # cls.model_fields]
                 cls.data_model.model_fields.keys()]
 
-    def _prepare_shelf(self, file_path):
+    def _prepare_shelf_with_path(self, file_path) -> Path:
         if self.disable_cache:
-            return
+            return self.cache_dir / file_path
 
-        (self.cache_dir / f"{file_path.stem}.dat").touch()
-        (self.cache_dir / f"{file_path.stem}.bak").touch()
-        (self.cache_dir / f"{file_path.stem}.dir").touch()
+        (self.cache_dir / file_path.with_suffix(".dat")).touch()
+        (self.cache_dir / file_path.with_suffix(".bak")).touch()
+        (self.cache_dir / file_path.with_suffix(".dir")).touch()
+        return self.cache_dir / file_path.stem
 
     def process_batch(self, prompts):
         try:
@@ -255,3 +263,9 @@ class BaseStage(metaclass=ABCMeta):
             logger.error(e)
             raise e
         logger.info(f"Finished {self.stage_name} stage")
+
+    def _print_all_params(self):
+        print(f"Stage {self.stage_name} params:")
+        for k, v in self.__dict__.items():
+            print(f"{k}: {v}")
+        print("\n")

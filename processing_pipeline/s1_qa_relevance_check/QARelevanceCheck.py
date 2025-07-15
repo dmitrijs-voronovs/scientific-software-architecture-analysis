@@ -16,7 +16,7 @@ class OllamaQaRelevanceResponse(BaseModel):
 class QARelevanceCheckStage(BaseStage):
     data_model = OllamaQaRelevanceResponse
     temperature = 0.0
-    model_name = ModelName.DEEPSEEK_1_5B
+    model_name = ModelName.DEEPSEEK_8B
     cache_dir = AbsDirPath.CACHE / FolderNames.QA_RELEVANCE_CHECK_DIR
     in_dir = AbsDirPath.S0_NOISE_FILTERING
     out_dir = AbsDirPath.S1_QA_RELEVANCE_CHECK

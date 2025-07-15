@@ -16,7 +16,7 @@ class OllamaFormatValidityResponse(BaseModel):
 class NoiseFilteringStage(BaseStage):
     data_model = OllamaFormatValidityResponse
     temperature = 0.0
-    model_name = ModelName.DEEPSEEK_1_5B
+    model_name = ModelName.DEEPSEEK_8B
     cache_dir = AbsDirPath.CACHE / FolderNames.NOISE_FILTERING_DIR
     in_dir = AbsDirPath.O_KEYWORDS_MATCHING
     out_dir = AbsDirPath.S0_NOISE_FILTERING

@@ -12,7 +12,7 @@ from processing_pipeline.model.BaseStage import BaseStage
 class TacticExtractionStage(BaseStage):
     data_model = TacticSimplifiedModelResponse
     temperature = 0.0
-    model_name = ModelName.DEEPSEEK_1_5B
+    model_name = ModelName.DEEPSEEK_8B
     cache_dir = AbsDirPath.CACHE / FolderNames.TACTIC_EXTRACTION_DIR
     in_dir = AbsDirPath.S2_ARCH_RELEVANCE_CHECK
     out_dir = AbsDirPath.S3_TACTIC_EXTRACTION
