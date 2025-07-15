@@ -202,9 +202,9 @@ class BaseStage(metaclass=ABCMeta):
         if self.disable_cache:
             return self.cache_dir / file_path
 
-        (self.cache_dir / file_path.with_suffix(".dat")).touch()
-        (self.cache_dir / file_path.with_suffix(".bak")).touch()
-        (self.cache_dir / file_path.with_suffix(".dir")).touch()
+        (self.cache_dir / f"{file_path.stem}.dat").touch()
+        (self.cache_dir / f"{file_path.stem}.bak").touch()
+        (self.cache_dir / f"{file_path.stem}.dir").touch()
         return self.cache_dir / file_path.stem
 
     def process_batch(self, prompts):
