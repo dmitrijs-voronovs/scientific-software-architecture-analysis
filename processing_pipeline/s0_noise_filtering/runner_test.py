@@ -10,7 +10,7 @@ from processing_pipeline.s0_noise_filtering.NoiseFiltering import NoiseFiltering
 
 
 def main():
-    NoiseFilteringStage(hostname=LLMHost.SERVER, disable_cache=True).execute(["root-project"], reverse=True)
+    NoiseFilteringStage(hostname=LLMHost.SERVER, disable_cache=True, batch_size_override=5, n_threads_override=2).execute(["root-project"], reverse=True)
 
 
 if __name__ == "__main__":
