@@ -18,7 +18,7 @@ class NoiseFilteringStage(BaseStage):
     temperature = 0.0
     model_name = ModelName.DEEPSEEK_8B
     cache_dir = AbsDirPath.CACHE / FolderNames.NOISE_FILTERING_DIR
-    in_dir = AbsDirPath.O_KEYWORDS_MATCHING
+    in_dir = AbsDirPath.O2_KEYWORDS_MATCHING
     out_dir = AbsDirPath.S0_NOISE_FILTERING
     stage_name = 's0'
 
@@ -105,7 +105,7 @@ reasoning: This is a structured changelog that is simply a list of changes. It l
 """
 
 def main():
-    NoiseFilteringStage(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=True)
+    NoiseFilteringStage(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=False)
 
 
 if __name__ == "__main__":
