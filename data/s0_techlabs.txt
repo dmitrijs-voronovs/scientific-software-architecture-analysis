@@ -65,3 +65,18 @@ disable_cache: False
 
 
 Processing scverse.scanpy.1.10.2.issue.3 in batches of 50:   0%|          | 0/54 [00:00<?, ?it/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.release in batches of 50: 100%|██████████| 1/1 [03:18<00:00, 198.17s/it][A[A[A[A[A[AProcessing OpenGene.fastp.v0.23.4.release in batches of 50: 100%|██████████| 1/1 [03:18<00:00, 198.17s/it]
+2025-07-16 12:54:18.015 | INFO     | processing_pipeline.model.BaseStage:_process_in_batches:192 - Processed OpenGene.fastp.v0.23.4.release
+2025-07-16 12:54:18.015 | INFO     | processing_pipeline.model.BaseStage:_process_in_batches:151 - Processing google.deepvariant.v1.6.1.issue_comment.2
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 50:   0%|          | 0/76 [00:00<?, ?it/s][A[A[A[A[A[A
