@@ -73,10 +73,6 @@ For the given text:
 "{x['sentence']}"
 """
 
-    @classmethod
-    def filter_and_transform_df_before_processing(cls, df):
-        return df[df.s2_related_to_arch]
-
 
 def main():
     TacticExtractionStage(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=True)

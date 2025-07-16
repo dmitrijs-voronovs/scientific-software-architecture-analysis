@@ -62,10 +62,6 @@ Instructions:
         }
 
         df["qa_desc"] = df["qa"].apply(lambda x: qa_descriptions[x])
-
-        # filter out noise
-        # Explicitly filter with True values
-        df = df[~(df.s0_to_eliminate == True)]
         return df
 
     @classmethod

@@ -44,13 +44,6 @@ Instructions:
 5. Provide `reasoning` explaining why the content is classified as related on unrelated.
 """
 
-    @classmethod
-    def filter_and_transform_df_before_processing(cls, df):
-        df = df[df.s1_true_positive]
-        # TODO: groupby sentence and count the number of entries per group
-        #  Later use it in analysis.
-        return df
-
 
 def main():
     ArchitectureRelevanceCheckStage(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=True)
