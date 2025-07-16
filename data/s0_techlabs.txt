@@ -1,0 +1,67 @@
+nohup: ignoring input
+2025-07-16 12:50:59.624 | INFO     | processing_pipeline.model.BaseStage:execute:243 - Executing s0 stage
+2025-07-16 12:50:59.631 | INFO     | processing_pipeline.model.BaseStage:_process_in_batches:151 - Processing google.deepvariant.v1.6.1.issue.1
+2025-07-16 12:50:59.648 | INFO     | processing_pipeline.model.BaseStage:_process_in_batches:151 - Processing google.deepvariant.v1.6.1.issue_comment.0
+2025-07-16 12:50:59.648 | INFO     | processing_pipeline.model.BaseStage:_process_in_batches:151 - Processing scverse.scanpy.1.10.2.issue.0
+2025-07-16 12:50:59.649 | INFO     | processing_pipeline.model.BaseStage:_process_in_batches:151 - Processing OpenGene.fastp.v0.23.4.release
+2025-07-16 12:50:59.649 | INFO     | processing_pipeline.model.BaseStage:_process_in_batches:151 - Processing scverse.scanpy.1.10.2.issue.3
+2025-07-16 12:50:59.649 | INFO     | processing_pipeline.model.BaseStage:_process_in_batches:151 - Processing allenai.scispacy.v0.5.5.issue_comment
+2025-07-16 12:50:59.649 | INFO     | processing_pipeline.model.BaseStage:_process_in_batches:151 - Processing OpenGene.fastp.v0.23.4.issue_comment
+2025-07-16 12:50:59.649 | INFO     | processing_pipeline.model.BaseStage:_process_in_batches:151 - Processing google.deepvariant.v1.6.1.issue_comment.1
+2025-07-16 12:50:59.649 | INFO     | processing_pipeline.model.BaseStage:_process_in_batches:151 - Processing google.deepvariant.v1.6.1.issue.2
+2025-07-16 12:50:59.631 | INFO     | processing_pipeline.model.BaseStage:_process_in_batches:151 - Processing allenai.scispacy.v0.5.5.code_comment
+Stage s0 params:
+model_fields: ['to_eliminate', 'reasoning']
+hostname: http://localhost:11434
+model: model='deepseek-r1:8b' temperature=0.0 format={'properties': {'to_eliminate': {'title': 'To Eliminate', 'type': 'boolean'}, 'reasoning': {'title': 'Reasoning', 'type': 'string'}}, 'required': ['to_eliminate', 'reasoning'], 'title': 'OllamaFormatValidityResponse', 'type': 'object'} base_url='http://localhost:11434'
+batch_size: 50
+n_threads: 10
+disable_cache: False
+
+
+Processing allenai.scispacy.v0.5.5.code_comment in batches of 50:   0%|          | 0/3 [00:00<?, ?it/s]
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 50:   0%|          | 0/39 [00:00<?, ?it/s][A
+
+Processing OpenGene.fastp.v0.23.4.issue_comment in batches of 50:   0%|          | 0/20 [00:00<?, ?it/s][A[A
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.0 in batches of 50:   0%|          | 0/76 [00:00<?, ?it/s][A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue.1 in batches of 50:   0%|          | 0/61 [00:00<?, ?it/s][A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue.2 in batches of 50:   0%|          | 0/60 [00:00<?, ?it/s][A[A[A[A[A
+
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.release in batches of 50:   0%|          | 0/1 [00:00<?, ?it/s][A[A[A[A[A[A
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.1 in batches of 50:   0%|          | 0/76 [00:00<?, ?it/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue.0 in batches of 50:   0%|          | 0/54 [00:00<?, ?it/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue.3 in batches of 50:   0%|          | 0/54 [00:00<?, ?it/s][A[A[A[A[A[A[A[A[A
