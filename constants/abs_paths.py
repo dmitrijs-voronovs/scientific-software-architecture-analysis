@@ -28,9 +28,10 @@ class AbsDirPath:
 
     # SUB DIRS
     QUERIES = RESOURCES / "queries"
+    ANALYSIS = STAGES / "analysis"
     KEYWORDS = DATA / "keywords"
     SAMPLES = DATA / "samples"
-    ANALYSIS = STAGES / "analysis"
+    SAMPLES_VERIFIED = SAMPLES / "verified"
 
     WIKIS = TEMP / "docs"
     SOURCE_CODE = TEMP / "source"

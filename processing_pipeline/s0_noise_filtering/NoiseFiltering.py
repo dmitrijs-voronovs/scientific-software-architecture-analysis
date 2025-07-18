@@ -5,7 +5,7 @@ from cfg.LLMHost import LLMHost
 from cfg.ModelName import ModelName
 from constants.abs_paths import AbsDirPath
 from constants.foldernames import FolderNames
-from processing_pipeline.model.BaseStage import BaseStage
+from processing_pipeline.model.IBaseStage import IBaseStage
 
 
 class OllamaFormatValidityResponse(BaseModel):
@@ -13,7 +13,7 @@ class OllamaFormatValidityResponse(BaseModel):
     reasoning: str
 
 
-class NoiseFilteringStage(BaseStage):
+class NoiseFilteringStage(IBaseStage):
     data_model = OllamaFormatValidityResponse
     temperature = 0.0
     model_name = ModelName.DEEPSEEK_8B
@@ -103,6 +103,7 @@ reasoning: This is a structured changelog that is simply a list of changes. It l
 **Content to evaluate:**
 {x['sentence']}
 """
+
 
 def main():
     NoiseFilteringStage(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=False)

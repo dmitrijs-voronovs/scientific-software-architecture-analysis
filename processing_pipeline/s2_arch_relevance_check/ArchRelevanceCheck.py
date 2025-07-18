@@ -5,7 +5,7 @@ from cfg.LLMHost import LLMHost
 from cfg.ModelName import ModelName
 from constants.abs_paths import AbsDirPath
 from constants.foldernames import FolderNames
-from processing_pipeline.model.BaseStage import BaseStage
+from processing_pipeline.model.IBaseStage import IBaseStage
 
 
 class OllamaArchitectureResponse(BaseModel):
@@ -13,7 +13,7 @@ class OllamaArchitectureResponse(BaseModel):
     reasoning: str
 
 
-class ArchitectureRelevanceCheckStage(BaseStage):
+class ArchitectureRelevanceCheckStageI(IBaseStage):
     data_model = OllamaArchitectureResponse
     temperature = 0.0
     model_name = ModelName.DEEPSEEK_8B
@@ -46,7 +46,7 @@ Instructions:
 
 
 def main():
-    ArchitectureRelevanceCheckStage(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=True)
+    ArchitectureRelevanceCheckStageI(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=True)
 
 
 if __name__ == "__main__":

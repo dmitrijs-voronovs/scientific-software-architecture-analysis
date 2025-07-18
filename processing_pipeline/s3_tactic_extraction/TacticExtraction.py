@@ -6,10 +6,10 @@ from processing_pipeline.s3_tactic_extraction.tactics.tactic_description_full im
 from processing_pipeline.s3_tactic_extraction.tactics.tactic_list_simplified import TacticSimplifiedModelResponse
 from constants.abs_paths import AbsDirPath
 from constants.foldernames import FolderNames
-from processing_pipeline.model.BaseStage import BaseStage
+from processing_pipeline.model.IBaseStage import IBaseStage
 
 
-class TacticExtractionStage(BaseStage):
+class TacticExtractionStageI(IBaseStage):
     data_model = TacticSimplifiedModelResponse
     temperature = 0.0
     model_name = ModelName.DEEPSEEK_8B
@@ -75,7 +75,7 @@ For the given text:
 
 
 def main():
-    TacticExtractionStage(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=True)
+    TacticExtractionStageI(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=True)
 
 
 if __name__ == "__main__":
