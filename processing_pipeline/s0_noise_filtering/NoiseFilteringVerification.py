@@ -1,15 +1,10 @@
-from pathlib import Path
 from typing import Literal
 
 import pandas as pd
 from pydantic import BaseModel
 
 from cfg.LLMHost import LLMHost
-from cfg.ModelName import ModelName
-from constants.abs_paths import AbsDirPath
-from processing_pipeline.model.CSVDFHandler import CSVDFHandler
-from processing_pipeline.model.IBaseStage import IBaseStage
-from processing_pipeline.model.IDFHandler import IDfHandler
+from processing_pipeline.s0_noise_filtering.IStageVerification import IStageVerification
 from processing_pipeline.s0_noise_filtering.NoiseFiltering import NoiseFilteringStage
 
 
@@ -18,15 +13,9 @@ class OllamaFormatValidityResponse(BaseModel):
     reasoning: str
 
 
-class NoiseFilteringStageVerification(IBaseStage):
+class NoiseFilteringStageVerification(IStageVerification):
     data_model = OllamaFormatValidityResponse
-    temperature = 0.0
-    model_name = ModelName.DEEPSEEK_8B
-    in_dir = AbsDirPath.SAMPLES
-    out_dir = AbsDirPath.SAMPLES_VERIFIED
-    cache_dir = AbsDirPath.CACHE / "samples"
     stage_name = 's0_v'
-    DFHandler = CSVDFHandler()
 
     @classmethod
     def to_prompt(cls, x: pd.Series) -> str:
@@ -68,9 +57,9 @@ Based **only** on the instructions in the **Original Task (Section 1)**, evaluat
 
 
 def main():
-    NoiseFilteringStageVerification(hostname=LLMHost.RADU_SERVER, batch_size_override=10).execute([NoiseFilteringStage.stage_name])
+    NoiseFilteringStageVerification(hostname=LLMHost.RADU_SERVER, batch_size_override=10).execute(
+        [NoiseFilteringStage.stage_name])
 
 
 if __name__ == "__main__":
     main()
-    
