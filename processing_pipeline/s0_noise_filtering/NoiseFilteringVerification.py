@@ -4,7 +4,7 @@ import pandas as pd
 from pydantic import BaseModel
 
 from cfg.LLMHost import LLMHost
-from processing_pipeline.s0_noise_filtering.IStageVerification import IStageVerification
+from processing_pipeline.model.IStageVerification import IStageVerification
 from processing_pipeline.s0_noise_filtering.NoiseFiltering import NoiseFilteringStage
 
 
