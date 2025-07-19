@@ -15,7 +15,7 @@ class OllamaFormatValidityResponse(BaseModel):
 
 class NoiseFilteringStageVerification(IStageVerification):
     data_model = OllamaFormatValidityResponse
-    stage_name = 's0_v'
+    stage_to_verify = NoiseFilteringStage
 
     @classmethod
     def to_prompt(cls, x: pd.Series) -> str:
@@ -32,7 +32,7 @@ Your task is to judge if the AI's output was `correct`, `partially correct`, or 
 
 ## 1. Original Task (Prompt Given to the First AI)
 
-This is the entire prompt, including instructions and the specific content the first AI was asked to analyze.
+This is the entire prompt, including instructions and the specific content the first AI was asked to analyze. 
 {x['s0_prompt']}
 
 ---
@@ -57,8 +57,7 @@ Based **only** on the instructions in the **Original Task (Section 1)**, evaluat
 
 
 def main():
-    NoiseFilteringStageVerification(hostname=LLMHost.RADU_SERVER, batch_size_override=10).execute(
-        [NoiseFilteringStage.stage_name])
+    NoiseFilteringStageVerification(hostname=LLMHost.RADU_SERVER, batch_size_override=10).execute_verification()
 
 
 if __name__ == "__main__":

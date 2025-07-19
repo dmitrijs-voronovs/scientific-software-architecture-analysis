@@ -1,4 +1,4 @@
-from abc import ABC
+from abc import ABC, abstractproperty
 
 from cfg.ModelName import ModelName
 from constants.abs_paths import AbsDirPath
@@ -13,3 +13,12 @@ class IStageVerification(IBaseStage, ABC):
     out_dir = AbsDirPath.SAMPLES_VERIFIED
     cache_dir = AbsDirPath.CACHE / "samples"
     DFHandler = CSVDFHandler()
+
+    stage_to_verify = type[IBaseStage]
+
+    @property
+    def stage_name(self) -> str:
+        return self.stage_to_verify.stage_name + '_v'
+
+    def execute_verification(self):
+        self.execute(self.stage_to_verify.stage_name)
