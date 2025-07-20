@@ -126,7 +126,7 @@ class IBaseStage(metaclass=ABCMeta):
         error_s = str(error)
         return not any(error_text in error_s for error_text in cls.error_texts_for_termination)
 
-    @retry(stop=stop_after_attempt(3), wait=wait_incrementing(5, 5),
+    @retry(stop=stop_after_attempt(5), wait=wait_incrementing(5, 5),
            after=lambda retry_state: logger.warning(retry_state), reraise=True)
     def request_ollama_chain(self, prompts: List[str]) -> List[BaseModel]:
         batch_answers = self.model.batch(prompts)
