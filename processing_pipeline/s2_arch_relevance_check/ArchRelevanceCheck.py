@@ -18,7 +18,7 @@ class ArchitectureRelevanceCheckStageI(IBaseStage):
     temperature = 0.0
     model_name = ModelName.DEEPSEEK_8B
     cache_dir = AbsDirPath.CACHE / FolderNames.ARCH_RELEVANCE_CHECK_DIR
-    in_dir = AbsDirPath.S1_QA_RELEVANCE_CHECK
+    in_dir = AbsDirPath.O_S1_QA_RELEVANCE_CHECK
     out_dir = AbsDirPath.S2_ARCH_RELEVANCE_CHECK
     stage_name = 's2'
 
