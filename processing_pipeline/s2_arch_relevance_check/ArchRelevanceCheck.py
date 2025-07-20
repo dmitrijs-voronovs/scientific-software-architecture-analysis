@@ -47,7 +47,7 @@ Instructions:
 
 def main():
     ArchitectureRelevanceCheckStageI(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=True)
-
+    # QARelevanceCheckStage(hostname=LLMHost.GREEN_LAB, disable_cache=True, batch_size_override=10).execute_single_threaded(["root-project.root.v6-32-06.code_comment.", "root-project.root.v6-32-06.docs.", "root-project.root.v6-32-06.issue_comment."], reverse=True)
 
 if __name__ == "__main__":
     main()
