@@ -13,7 +13,7 @@ class OllamaArchitectureResponse(BaseModel):
     reasoning: str
 
 
-class ArchitectureRelevanceCheckStageI(IBaseStage):
+class ArchitectureRelevanceCheckStage(IBaseStage):
     data_model = OllamaArchitectureResponse
     temperature = 0.0
     model_name = ModelName.DEEPSEEK_8B
@@ -27,27 +27,31 @@ class ArchitectureRelevanceCheckStageI(IBaseStage):
         return f"""
 You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
 
-Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns. Your goal is to determine if the content is relevant to software architecture.
+Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns at a system level. Your goal is to distinguish between high-level architectural discussions and low-level implementation details.
 
 Data:
 
 Content: {x['sentence']}
 Instructions:
 
-1. Analyze the content and determine whether it is discussing software architecture, including but not limited to:
-    * Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
-    * Architectural decisions, trade-offs, or quality attributes (e.g., scalability, maintainability, performance).
-    * High-level system structure, interactions, dependencies, or constraints.
-2. If the content clearly pertains to software architecture, mark it as `related_to_arch: true`.
-3. If the content is general software development, code-level details, logs, or unrelated to architecture, mark it as `related_to_arch: false`.
-4. If the content includes partial architectural relevance but is mostly about implementation details, analyze whether the relevant part is strong enough to classify it as `related_to_arch: true`.
-5. Provide `reasoning` explaining why the content is classified as related on unrelated.
+1.  **Analyze the content for system-level architectural topics.** These include, but are not limited to:
+    *   Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
+    *   Decisions about the overall structure of a system, its layers, and the high-level interactions between its major components.
+    *   System-wide quality attributes and the trade-offs involved (e.g., choosing a technology for its scalability properties).
+    *   Dependencies and constraints that impact the entire system.
+
+2.  **Identify implementation-level topics.** These include general software development, debugging, dependency issues, library-specific configurations, or the internal logic of a single algorithm or function.
+
+3.  **Apply the following classification rule:**
+    *   If the primary focus of the content is on the **system-level** topics described in Instruction 1, mark it as `related_to_arch: true`.
+    *   If the content focuses on **implementation-level** topics, mark it as `related_to_arch: false`. **This is true even if it mentions a quality attribute like performance in a narrow context.** For example, a discussion about tuning a specific algorithm's parameters for a speed-vs-accuracy trade-off is considered an implementation detail.
+
+4.  **Provide `reasoning`** that clearly explains your classification based on the rules above.
 """
 
-
 def main():
-    ArchitectureRelevanceCheckStageI(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=True)
-    # QARelevanceCheckStage(hostname=LLMHost.GREEN_LAB, disable_cache=True, batch_size_override=10).execute_single_threaded(["root-project.root.v6-32-06.code_comment.", "root-project.root.v6-32-06.docs.", "root-project.root.v6-32-06.issue_comment."], reverse=True)
+    # ArchitectureRelevanceCheckStage(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=True)
+    ArchitectureRelevanceCheckStage(hostname=LLMHost.GREEN_LAB, disable_cache=True, batch_size_override=10).execute_single_threaded(["root-project.root.v6-32-06.code_comment.", "root-project.root.v6-32-06.docs.", "root-project.root.v6-32-06.issue_comment."], reverse=True)
 
 if __name__ == "__main__":
     main()
