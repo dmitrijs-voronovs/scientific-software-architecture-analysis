@@ -48,9 +48,9 @@ First, determine if the 'Content to Analyze' is plausibly a comment from a softw
 - If it reads like a scientific abstract, a news article, or any other non-software text, it is **out of scope**. Respond immediately with `true_positive: false` and reasoning that the content is not from a software context.
 
 **Step 2: Intent vs. Quality.**
-Analyze the content's primary intent. Differentiate between:
-- **Describing Functionality:** What the code *does*. (e.g., "This function parses a file.") This is **not** a true positive.
-- **Describing a Quality Attribute:** *Why* the code is designed a certain way to achieve a non-functional goal. (e.g., "The parser uses a streaming API to handle large files without running out of memory.") This **is** a potential true positive.
+Analyze the content's primary intent. This is the most important step. You must rigorously differentiate between:
+- **Describing Functionality:** Text that only explains what the code *does*. (e.g., "This function parses a file.") This is **not** a true positive.
+- **Describing a Quality Attribute:** Text that explains *why* the code is designed in a certain way to achieve a non-functional goal. (e.g., "The parser uses a streaming API to handle large files without running out of memory.") This **is** a potential true positive.
 
 **Step 3: Apply the Scope & Distinctions.**
 Reread the 'Scope & Distinctions' section carefully. Does the intent you identified in Step 2 fall squarely within this scope?
@@ -63,9 +63,8 @@ Based on the strict application of the steps above, make your final decision.
 
 Provide your response with only the following two fields:
 - `true_positive`: `true` or `false`.
-- `reasoning`: A concise explanation for your decision based on the step-by-step analysis. If false, you must state which rule or distinction it failed and suggest the more appropriate quality attribute (e.g., Reliability, Performance, Maintainability).
+- `reasoning`: A concise explanation for your decision based on the step-by-step analysis. Your explanation must begin by explicitly stating if the primary intent is 'Describing Functionality' or 'Describing a Quality Attribute'. If false, you must state which rule or distinction it failed and suggest the more appropriate quality attribute (e.g., Reliability, Performance, Maintainability).
 """
-
     @classmethod
     def filter_and_transform_df_before_processing(cls, df):
         qa_details = {
