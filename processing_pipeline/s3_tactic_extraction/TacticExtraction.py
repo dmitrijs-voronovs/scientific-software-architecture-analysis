@@ -9,7 +9,7 @@ from constants.foldernames import FolderNames
 from processing_pipeline.model.IBaseStage import IBaseStage
 
 
-class TacticExtractionStageI(IBaseStage):
+class TacticExtractionStage(IBaseStage):
     data_model = TacticSimplifiedModelResponse
     temperature = 0.0
     model_name = ModelName.DEEPSEEK_8B
@@ -75,8 +75,8 @@ For the given text:
 
 
 def main():
-    TacticExtractionStageI(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=True)
-    # QARelevanceCheckStage(hostname=LLMHost.GREEN_LAB, disable_cache=True, batch_size_override=10).execute_single_threaded(["root-project.root.v6-32-06.code_comment.", "root-project.root.v6-32-06.docs.", "root-project.root.v6-32-06.issue_comment."], reverse=True)
+    # TacticExtractionStage(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=True)
+    TacticExtractionStage(hostname=LLMHost.GREEN_LAB, disable_cache=True, batch_size_override=10).execute_single_threaded(["root-project.root.v6-32-06.code_comment.", "root-project.root.v6-32-06.docs.", "root-project.root.v6-32-06.issue_comment."], reverse=True)
 
 
 if __name__ == "__main__":
