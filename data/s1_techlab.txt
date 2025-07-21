@@ -3590,3 +3590,4092 @@ disable_cache: False
 
 
 Processing scverse.scanpy.1.10.2.issue in batches of 50:  43%|████▎     | 76/177 [11:53:08<15:32:32, 553.99s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.1 in batches of 50:  91%|█████████ | 78/86 [11:53:17<1:13:47, 553.47s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.0 in batches of 50:  91%|█████████ | 78/86 [11:53:31<1:13:50, 553.86s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  22%|██▏       | 23/103 [3:31:32<12:19:13, 554.42s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  69%|██████▉   | 78/113 [11:53:26<5:23:01, 553.75s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  29%|██▉       | 30/103 [4:36:33<11:14:30, 554.39s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  41%|████      | 46/113 [7:03:06<10:18:36, 553.98s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  75%|███████▍  | 77/103 [11:43:46<3:59:53, 553.60s/it][A[A
+
+
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 50:  92%|█████████▏| 79/86 [12:01:42<1:04:44, 554.97s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  70%|██████▉   | 79/113 [12:02:15<5:14:48, 555.55s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  44%|████▎     | 77/177 [12:02:26<15:25:36, 555.36s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.1 in batches of 50:  92%|█████████▏| 79/86 [12:02:36<1:04:45, 555.01s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.0 in batches of 50:  92%|█████████▏| 79/86 [12:02:49<1:04:45, 555.12s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  23%|██▎       | 24/103 [3:40:49<12:10:53, 555.11s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  70%|██████▉   | 79/113 [12:02:47<5:15:01, 555.92s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  30%|███       | 31/103 [4:45:51<11:06:31, 555.44s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  42%|████▏     | 47/113 [7:12:26<10:11:10, 555.62s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  76%|███████▌  | 78/103 [11:53:06<3:51:32, 555.70s/it][A[A
+
+
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 50:  93%|█████████▎| 80/86 [12:11:00<55:33, 555.66s/it]  [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  71%|███████   | 80/113 [12:11:31<5:05:29, 555.43s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  44%|████▍     | 78/177 [12:11:44<15:17:18, 555.95s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.1 in batches of 50:  93%|█████████▎| 80/86 [12:11:55<55:36, 556.14s/it]  [A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.0 in batches of 50:  93%|█████████▎| 80/86 [12:12:06<55:34, 555.78s/it]  [A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  24%|██▍       | 25/103 [3:50:05<12:01:52, 555.29s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  71%|███████   | 80/113 [12:12:03<5:05:45, 555.92s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  31%|███       | 32/103 [4:55:09<10:58:13, 556.25s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  42%|████▏     | 48/113 [7:21:42<10:02:16, 555.95s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  77%|███████▋  | 79/103 [12:02:24<3:42:28, 556.20s/it][A[A
+
+
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 50:  94%|█████████▍| 81/86 [12:20:14<46:17, 555.43s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  72%|███████▏  | 81/113 [12:20:48<4:56:32, 556.01s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  45%|████▍     | 79/177 [12:20:59<15:07:56, 555.88s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.1 in batches of 50:  94%|█████████▍| 81/86 [12:21:09<46:18, 555.63s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.0 in batches of 50:  94%|█████████▍| 81/86 [12:21:20<46:15, 555.18s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  25%|██▌       | 26/103 [3:59:20<11:52:44, 555.38s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  72%|███████▏  | 81/113 [12:21:18<4:56:19, 555.62s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  32%|███▏      | 33/103 [5:04:23<10:48:07, 555.53s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  43%|████▎     | 49/113 [7:30:57<9:52:27, 555.43s/it] [A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  78%|███████▊  | 80/103 [12:11:36<3:32:43, 554.93s/it][A[A
+
+
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 50:  95%|█████████▌| 82/86 [12:29:23<36:53, 553.47s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  73%|███████▎  | 82/113 [12:29:56<4:46:04, 553.68s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  45%|████▌     | 80/177 [12:30:07<14:54:41, 553.41s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.1 in batches of 50:  95%|█████████▌| 82/86 [12:30:17<36:53, 553.44s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.0 in batches of 50:  95%|█████████▌| 82/86 [12:30:28<36:52, 553.12s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  26%|██▌       | 27/103 [4:08:29<11:40:48, 553.27s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  73%|███████▎  | 82/113 [12:30:26<4:45:54, 553.37s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  33%|███▎      | 34/103 [5:13:30<10:36:08, 553.17s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  44%|████▍     | 50/113 [7:40:04<9:40:32, 552.90s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  79%|███████▊  | 81/103 [12:20:45<3:22:48, 553.14s/it][A[A
+
+
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 50:  97%|█████████▋| 83/86 [12:38:32<27:36, 552.01s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  73%|███████▎  | 83/113 [12:39:05<4:36:03, 552.11s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  46%|████▌     | 81/177 [12:39:16<14:43:14, 552.03s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.1 in batches of 50:  97%|█████████▋| 83/86 [12:39:27<27:37, 552.38s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.0 in batches of 50:  97%|█████████▋| 83/86 [12:39:39<27:36, 552.23s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  27%|██▋       | 28/103 [4:17:42<11:31:27, 553.16s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  73%|███████▎  | 83/113 [12:39:40<4:36:47, 553.57s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  34%|███▍      | 35/103 [5:22:47<10:28:17, 554.37s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  45%|████▌     | 51/113 [7:49:21<9:32:46, 554.31s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  80%|███████▉  | 82/103 [12:30:03<3:14:05, 554.54s/it][A[A
+
+
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 50:  98%|█████████▊| 84/86 [12:47:57<18:32, 556.02s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  74%|███████▍  | 84/113 [12:48:29<4:28:35, 555.71s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  46%|████▋     | 82/177 [12:48:41<14:40:20, 556.00s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.1 in batches of 50:  98%|█████████▊| 84/86 [12:48:52<18:32, 556.14s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.0 in batches of 50:  98%|█████████▊| 84/86 [12:49:04<18:32, 556.07s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  28%|██▊       | 29/103 [4:27:04<11:25:33, 555.85s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  74%|███████▍  | 84/113 [12:49:03<4:29:00, 556.58s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  35%|███▍      | 36/103 [5:32:07<10:20:43, 555.87s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  46%|████▌     | 52/113 [7:58:40<9:24:56, 555.67s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  81%|████████  | 83/103 [12:39:20<3:05:07, 555.37s/it][A[A
+
+
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 50:  99%|█████████▉| 85/86 [12:57:08<09:14, 554.45s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  75%|███████▌  | 85/113 [12:57:42<4:18:58, 554.95s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  47%|████▋     | 83/177 [12:57:53<14:29:21, 554.91s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.1 in batches of 50:  99%|█████████▉| 85/86 [12:58:07<09:15, 555.75s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.0 in batches of 50:  99%|█████████▉| 85/86 [12:58:17<09:15, 555.39s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  29%|██▉       | 30/103 [4:36:21<11:16:42, 556.20s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  75%|███████▌  | 85/113 [12:58:20<4:19:45, 556.64s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  36%|███▌      | 37/103 [5:41:28<10:13:21, 557.60s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  47%|████▋     | 53/113 [8:08:00<9:17:02, 557.05s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  82%|████████▏ | 84/103 [12:48:39<2:56:14, 556.58s/it][A[A
+
+
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 50: 100%|██████████| 86/86 [13:02:41<00:00, 487.97s/it][A[A[A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment.2 in batches of 50: 100%|██████████| 86/86 [13:02:41<00:00, 546.06s/it]
+2025-07-21 11:17:53.467 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed google.deepvariant.v1.6.1.issue_comment.2
+2025-07-21 11:17:53.469 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.issue.5
+
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:   0%|          | 0/103 [00:00<?, ?it/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.1 in batches of 50: 100%|██████████| 86/86 [13:03:49<00:00, 491.57s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment.1 in batches of 50: 100%|██████████| 86/86 [13:03:49<00:00, 546.85s/it]
+2025-07-21 11:19:01.368 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed google.deepvariant.v1.6.1.issue_comment.1
+2025-07-21 11:19:01.369 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing OpenGene.fastp.v0.23.4.code_comment
+
+
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.code_comment in batches of 50:   0%|          | 0/8 [00:00<?, ?it/s][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.0 in batches of 50: 100%|██████████| 86/86 [13:03:54<00:00, 489.66s/it][A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment.0 in batches of 50: 100%|██████████| 86/86 [13:03:54<00:00, 546.91s/it]
+2025-07-21 11:19:06.146 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed google.deepvariant.v1.6.1.issue_comment.0
+2025-07-21 11:19:06.147 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing allenai.scispacy.v0.5.5.docs
+
+
+
+
+
+Processing allenai.scispacy.v0.5.5.docs in batches of 50:   0%|          | 0/2 [00:00<?, ?it/s][A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  76%|███████▌  | 86/113 [13:06:24<4:05:15, 545.03s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  47%|████▋     | 84/177 [13:06:38<14:05:52, 545.73s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  30%|███       | 31/103 [4:45:26<11:03:31, 552.94s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  76%|███████▌  | 86/113 [13:07:24<4:08:43, 552.73s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  37%|███▋      | 38/103 [5:50:41<10:02:31, 556.17s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  48%|████▊     | 54/113 [8:17:13<9:06:24, 555.67s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  83%|████████▎ | 85/103 [12:57:54<2:46:45, 555.89s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:   1%|          | 1/103 [09:21<15:54:15, 561.32s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.code_comment in batches of 50:  12%|█▎        | 1/8 [09:30<1:06:30, 570.07s/it][A[A[A[A[A[A
+
+
+
+
+Processing allenai.scispacy.v0.5.5.docs in batches of 50:  50%|█████     | 1/2 [09:38<09:38, 578.82s/it][A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  77%|███████▋  | 87/113 [13:15:58<3:59:55, 553.68s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  48%|████▊     | 85/177 [13:16:10<14:08:56, 553.66s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  31%|███       | 32/103 [4:54:59<11:01:27, 558.98s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  77%|███████▋  | 87/113 [13:16:54<4:01:49, 558.04s/it]
+
+
+
+
+Processing allenai.scispacy.v0.5.5.docs in batches of 50: 100%|██████████| 2/2 [16:20<00:00, 474.47s/it][A[A[A[A[AProcessing allenai.scispacy.v0.5.5.docs in batches of 50: 100%|██████████| 2/2 [16:20<00:00, 490.12s/it]
+2025-07-21 11:35:26.391 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed allenai.scispacy.v0.5.5.docs
+2025-07-21 11:35:26.391 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing google.deepvariant.v1.6.1.issue
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:   0%|          | 0/56 [00:00<?, ?it/s][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  38%|███▊      | 39/103 [5:59:56<9:52:47, 555.74s/it] [A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  49%|████▊     | 55/113 [8:26:31<8:57:50, 556.39s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  83%|████████▎ | 86/103 [13:07:11<2:37:38, 556.37s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:   2%|▏         | 2/103 [18:39<15:41:57, 559.58s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.code_comment in batches of 50:  25%|██▌       | 2/8 [18:46<56:13, 562.29s/it]  [A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  78%|███████▊  | 88/113 [13:25:21<3:51:54, 556.58s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  49%|████▊     | 86/177 [13:25:32<14:03:25, 556.10s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  32%|███▏      | 33/103 [5:04:19<10:52:34, 559.35s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  78%|███████▊  | 88/113 [13:26:11<3:52:24, 557.79s/it]
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:   2%|▏         | 1/56 [09:12<8:26:12, 552.24s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  39%|███▉      | 40/103 [6:09:09<9:42:41, 554.95s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  50%|████▉     | 56/113 [8:35:42<8:47:02, 554.79s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  84%|████████▍ | 87/103 [13:16:22<2:27:54, 554.64s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:   3%|▎         | 3/103 [27:52<15:27:21, 556.41s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.code_comment in batches of 50:  38%|███▊      | 3/8 [27:59<46:29, 557.99s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  79%|███████▉  | 89/113 [13:34:38<3:42:38, 556.62s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  49%|████▉     | 87/177 [13:34:50<13:55:10, 556.78s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  33%|███▎      | 34/103 [5:13:42<10:44:30, 560.45s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  79%|███████▉  | 89/113 [13:35:45<3:45:03, 562.66s/it]
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:   4%|▎         | 2/56 [18:45<8:27:55, 564.35s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  40%|███▉      | 41/103 [6:18:42<9:38:56, 560.27s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  50%|█████     | 57/113 [8:45:16<8:43:16, 560.66s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  85%|████████▌ | 88/103 [13:25:55<2:20:06, 560.41s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:   4%|▍         | 4/103 [37:23<15:27:39, 562.22s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.code_comment in batches of 50:  50%|█████     | 4/8 [37:31<37:33, 563.37s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  80%|███████▉  | 90/113 [13:44:10<3:35:13, 561.46s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  50%|████▉     | 88/177 [13:44:22<13:52:48, 561.44s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  34%|███▍      | 35/103 [5:23:08<10:37:01, 562.08s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  80%|███████▉  | 90/113 [13:45:09<3:35:50, 563.08s/it]
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:   5%|▌         | 3/56 [28:04<8:16:25, 561.98s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  41%|████      | 42/103 [6:28:02<9:29:31, 560.19s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  51%|█████▏    | 58/113 [8:54:37<8:34:03, 560.79s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  86%|████████▋ | 89/103 [13:35:18<2:10:54, 561.06s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:   5%|▍         | 5/103 [46:45<15:18:08, 562.13s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.code_comment in batches of 50:  62%|██████▎   | 5/8 [46:54<28:09, 563.29s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  81%|████████  | 91/113 [13:53:30<3:25:38, 560.84s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  50%|█████     | 89/177 [13:53:40<13:41:49, 560.34s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  35%|███▍      | 36/103 [5:32:26<10:26:16, 560.84s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  81%|████████  | 91/113 [13:54:26<3:25:46, 561.22s/it]
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:   7%|▋         | 4/56 [37:25<8:06:56, 561.86s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  42%|████▏     | 43/103 [6:37:23<9:20:23, 560.39s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  52%|█████▏    | 59/113 [9:03:56<8:24:16, 560.30s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  87%|████████▋ | 90/103 [13:44:35<2:01:19, 559.95s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:   6%|▌         | 6/103 [56:04<15:06:56, 561.00s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.code_comment in batches of 50:  75%|███████▌  | 6/8 [56:14<18:44, 562.14s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  81%|████████▏ | 92/113 [14:03:00<3:17:15, 563.61s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  51%|█████     | 90/177 [14:03:12<13:37:21, 563.70s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  36%|███▌      | 37/103 [5:42:01<10:21:31, 565.02s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  81%|████████▏ | 92/113 [14:04:00<3:17:42, 564.88s/it]
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:   9%|▉         | 5/56 [47:03<8:02:26, 567.57s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  43%|████▎     | 44/103 [6:47:02<9:16:33, 565.99s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  53%|█████▎    | 60/113 [9:13:37<8:20:23, 566.48s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  88%|████████▊ | 91/103 [13:54:17<1:53:18, 566.52s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:   7%|▋         | 7/103 [1:05:44<15:07:41, 567.31s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.code_comment in batches of 50:  88%|████████▊ | 7/8 [1:05:56<09:28, 568.52s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  82%|████████▏ | 93/113 [14:12:36<3:09:06, 567.31s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  51%|█████▏    | 91/177 [14:12:47<13:32:49, 567.08s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  37%|███▋      | 38/103 [5:51:33<10:14:31, 567.25s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  82%|████████▏ | 93/113 [14:13:25<3:08:19, 564.98s/it]
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  11%|█         | 6/56 [56:21<7:50:18, 564.37s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  44%|████▎     | 45/103 [6:56:20<9:04:44, 563.52s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  54%|█████▍    | 61/113 [9:22:54<8:08:20, 563.47s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  89%|████████▉ | 92/103 [14:03:34<1:43:19, 563.63s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:   8%|▊         | 8/103 [1:15:01<14:53:11, 564.12s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.code_comment in batches of 50: 100%|██████████| 8/8 [1:15:04<00:00, 561.96s/it][A[A[A[A[A[AProcessing OpenGene.fastp.v0.23.4.code_comment in batches of 50: 100%|██████████| 8/8 [1:15:04<00:00, 563.00s/it]
+2025-07-21 12:34:05.409 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed OpenGene.fastp.v0.23.4.code_comment
+2025-07-21 12:34:05.410 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing allenai.scispacy.v0.5.5.release
+
+
+
+
+
+
+Processing allenai.scispacy.v0.5.5.release in batches of 50:   0%|          | 0/1 [00:00<?, ?it/s][A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  83%|████████▎ | 94/113 [14:21:38<2:57:14, 559.70s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  52%|█████▏    | 92/177 [14:21:48<13:12:24, 559.35s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  38%|███▊      | 39/103 [6:00:33<9:56:20, 559.07s/it] [A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  83%|████████▎ | 94/113 [14:22:30<2:56:58, 558.89s/it]
+
+
+
+
+
+Processing allenai.scispacy.v0.5.5.release in batches of 50: 100%|██████████| 1/1 [06:23<00:00, 383.93s/it][A[A[A[A[A[AProcessing allenai.scispacy.v0.5.5.release in batches of 50: 100%|██████████| 1/1 [06:23<00:00, 383.93s/it]
+2025-07-21 12:40:29.346 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed allenai.scispacy.v0.5.5.release
+2025-07-21 12:40:29.347 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing google.deepvariant.v1.6.1.code_comment
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:   0%|          | 0/44 [00:00<?, ?it/s][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  12%|█▎        | 7/56 [1:05:14<7:32:32, 554.14s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  45%|████▍     | 46/103 [7:05:12<8:46:36, 554.32s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  55%|█████▍    | 62/113 [9:31:44<7:50:33, 553.60s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  90%|█████████ | 93/103 [14:12:26<1:32:20, 554.07s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:   9%|▊         | 9/103 [1:23:52<14:27:29, 553.72s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  84%|████████▍ | 95/113 [14:30:49<2:47:08, 557.16s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  53%|█████▎    | 93/177 [14:31:01<13:00:32, 557.53s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  39%|███▉      | 40/103 [6:09:45<9:44:38, 556.80s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  84%|████████▍ | 95/113 [14:31:39<2:46:48, 556.03s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:   2%|▏         | 1/44 [09:08<6:33:26, 548.99s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  14%|█▍        | 8/56 [1:14:22<7:21:35, 552.00s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  46%|████▌     | 47/103 [7:14:20<8:35:36, 552.43s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  56%|█████▌    | 63/113 [9:40:58<7:41:22, 553.65s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  91%|█████████▏| 94/103 [14:21:41<1:23:09, 554.38s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  10%|▉         | 10/103 [1:33:08<14:19:07, 554.28s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  85%|████████▍ | 96/113 [14:40:04<2:37:41, 556.56s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  53%|█████▎    | 94/177 [14:40:16<12:50:20, 556.87s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  40%|███▉      | 41/103 [6:18:59<9:34:40, 556.14s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  85%|████████▍ | 96/113 [14:40:59<2:37:54, 557.33s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:   5%|▍         | 2/44 [18:35<6:31:42, 559.58s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  16%|█▌        | 9/56 [1:23:51<7:16:41, 557.48s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  47%|████▋     | 48/103 [7:23:49<8:30:55, 557.37s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  57%|█████▋    | 64/113 [9:50:22<7:34:37, 556.68s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  92%|█████████▏| 95/103 [14:31:02<1:14:10, 556.27s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  11%|█         | 11/103 [1:42:29<14:13:03, 556.34s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  86%|████████▌ | 97/113 [14:49:21<2:28:28, 556.78s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  54%|█████▎    | 95/177 [14:49:31<12:40:11, 556.24s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  41%|████      | 42/103 [6:28:17<9:25:50, 556.57s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  86%|████████▌ | 97/113 [14:50:12<2:28:16, 556.02s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:   7%|▋         | 3/44 [27:43<6:18:37, 554.09s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  18%|█▊        | 10/56 [1:32:59<7:05:01, 554.38s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  48%|████▊     | 49/103 [7:32:55<8:18:28, 553.87s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  58%|█████▊    | 65/113 [9:59:31<7:23:33, 554.44s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  93%|█████████▎| 96/103 [14:40:14<1:04:45, 555.03s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  12%|█▏        | 12/103 [1:51:40<14:01:19, 554.72s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  87%|████████▋ | 98/113 [14:58:35<2:18:57, 555.87s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  54%|█████▍    | 96/177 [14:58:46<12:30:11, 555.70s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  42%|████▏     | 43/103 [6:37:33<9:16:30, 556.51s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  87%|████████▋ | 98/113 [14:59:31<2:19:11, 556.74s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:   9%|▉         | 4/44 [37:05<6:11:26, 557.16s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  20%|█▉        | 11/56 [1:42:18<6:56:53, 555.85s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  49%|████▊     | 50/103 [7:42:15<8:10:48, 555.62s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  58%|█████▊    | 66/113 [10:08:48<7:14:55, 555.23s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  94%|█████████▍| 97/103 [14:49:29<55:30, 555.03s/it]  [A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  13%|█▎        | 13/103 [2:00:56<13:52:49, 555.21s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  88%|████████▊ | 99/113 [15:07:52<2:09:44, 556.03s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  55%|█████▍    | 97/177 [15:08:04<12:21:51, 556.40s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  43%|████▎     | 44/103 [6:46:46<9:06:11, 555.45s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  88%|████████▊ | 99/113 [15:08:44<2:09:39, 555.65s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  11%|█▏        | 5/44 [46:12<5:59:44, 553.45s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  21%|██▏       | 12/56 [1:51:31<6:47:01, 555.04s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  50%|████▉     | 51/103 [7:51:27<8:00:33, 554.49s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  59%|█████▉    | 67/113 [10:18:04<7:05:43, 555.29s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  95%|█████████▌| 98/103 [14:58:43<46:14, 554.85s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  14%|█▎        | 14/103 [2:10:11<13:43:16, 555.02s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  88%|████████▊ | 100/113 [15:17:05<2:00:18, 555.24s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  55%|█████▌    | 98/177 [15:17:17<12:11:14, 555.37s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  44%|████▎     | 45/103 [6:56:00<8:56:20, 554.84s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  88%|████████▊ | 100/113 [15:17:58<2:00:19, 555.34s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  14%|█▎        | 6/44 [55:29<5:51:16, 554.64s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  23%|██▎       | 13/56 [2:00:43<6:37:06, 554.11s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  50%|█████     | 52/103 [8:00:42<7:51:31, 554.73s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  60%|██████    | 68/113 [10:27:19<6:56:31, 555.37s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  96%|█████████▌| 99/103 [15:08:02<37:03, 555.89s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  15%|█▍        | 15/103 [2:19:29<13:35:34, 556.07s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  89%|████████▉ | 101/113 [15:26:24<1:51:16, 556.40s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  56%|█████▌    | 99/177 [15:26:36<12:03:29, 556.53s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  45%|████▍     | 46/103 [7:05:22<8:49:06, 556.96s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  89%|████████▉ | 101/113 [15:27:20<1:51:27, 557.32s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  16%|█▌        | 7/44 [1:04:48<5:43:02, 556.29s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  25%|██▌       | 14/56 [2:10:02<6:28:55, 555.61s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  51%|█████▏    | 53/103 [8:09:58<7:42:43, 555.27s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  61%|██████    | 69/113 [10:36:31<6:46:24, 554.19s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  97%|█████████▋| 100/103 [15:17:10<27:40, 553.50s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  16%|█▌        | 16/103 [2:28:37<13:22:38, 553.54s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  90%|█████████ | 102/113 [15:35:32<1:41:32, 553.83s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  56%|█████▋    | 100/177 [15:35:45<11:51:28, 554.40s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  46%|████▌     | 47/103 [7:14:36<8:39:05, 556.17s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  90%|█████████ | 102/113 [15:36:29<1:41:41, 554.64s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  18%|█▊        | 8/44 [1:13:55<5:31:57, 553.28s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  27%|██▋       | 15/56 [2:19:12<6:18:28, 553.86s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  52%|█████▏    | 54/103 [8:19:09<7:32:12, 553.73s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  62%|██████▏   | 70/113 [10:45:45<6:37:09, 554.17s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  98%|█████████▊| 101/103 [15:26:28<18:29, 554.93s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  17%|█▋        | 17/103 [2:37:54<13:14:54, 554.59s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  91%|█████████ | 103/113 [15:44:49<1:32:28, 554.82s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  57%|█████▋    | 101/177 [15:45:01<11:42:47, 554.83s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  47%|████▋     | 48/103 [7:23:43<8:27:22, 553.50s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  91%|█████████ | 103/113 [15:45:44<1:32:29, 554.90s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  20%|██        | 9/44 [1:23:16<5:24:07, 555.63s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  29%|██▊       | 16/56 [2:28:31<6:10:18, 555.46s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  53%|█████▎    | 55/103 [8:28:27<7:24:14, 555.31s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  63%|██████▎   | 71/113 [10:55:03<6:28:53, 555.56s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50:  99%|█████████▉| 102/103 [15:35:43<09:14, 555.00s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  17%|█▋        | 18/103 [2:47:10<13:06:23, 555.09s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  92%|█████████▏| 104/113 [15:54:06<1:23:18, 555.37s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  58%|█████▊    | 102/177 [15:54:18<11:34:08, 555.31s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  48%|████▊     | 49/103 [7:33:02<8:19:26, 554.94s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  92%|█████████▏| 104/113 [15:54:57<1:23:08, 554.32s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  23%|██▎       | 10/44 [1:32:26<5:13:48, 553.78s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  30%|███       | 17/56 [2:37:42<6:00:04, 553.96s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  54%|█████▍    | 56/103 [8:37:39<7:14:00, 554.05s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  64%|██████▎   | 72/113 [11:04:12<6:18:08, 553.38s/it][A
+
+Processing root-project.root.v6-32-06.issue.0 in batches of 50: 100%|██████████| 103/103 [15:44:47<00:00, 551.71s/it][A[AProcessing root-project.root.v6-32-06.issue.0 in batches of 50: 100%|██████████| 103/103 [15:44:47<00:00, 550.36s/it]
+2025-07-21 14:13:57.915 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed root-project.root.v6-32-06.issue.0
+2025-07-21 14:13:57.916 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.issue.1
+
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:   0%|          | 0/103 [00:00<?, ?it/s][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  18%|█▊        | 19/103 [2:56:16<12:53:06, 552.22s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  93%|█████████▎| 105/113 [16:03:02<1:13:18, 549.79s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  58%|█████▊    | 103/177 [16:03:15<11:18:06, 549.82s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  49%|████▊     | 50/103 [7:42:00<8:05:48, 549.97s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  93%|█████████▎| 105/113 [16:03:56<1:13:16, 549.60s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  25%|██▌       | 11/44 [1:41:27<5:02:32, 550.08s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  32%|███▏      | 18/56 [2:46:44<5:48:42, 550.59s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  55%|█████▌    | 57/103 [8:46:42<7:02:13, 550.73s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  65%|██████▍   | 73/113 [11:13:17<6:07:12, 550.81s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:   1%|          | 1/103 [09:11<15:37:56, 551.73s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  19%|█▉        | 20/103 [3:05:26<12:43:19, 551.80s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  94%|█████████▍| 106/113 [16:12:27<1:04:39, 554.17s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  59%|█████▉    | 104/177 [16:12:39<11:14:18, 554.22s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  50%|████▉     | 51/103 [7:51:26<8:00:46, 554.74s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  94%|█████████▍| 106/113 [16:13:25<1:04:49, 555.57s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  27%|██▋       | 12/44 [1:50:57<4:56:33, 556.05s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  34%|███▍      | 19/56 [2:56:11<5:42:29, 555.39s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  56%|█████▋    | 58/103 [8:56:09<6:56:43, 555.62s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  65%|██████▌   | 74/113 [11:22:46<6:01:35, 556.29s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:   2%|▏         | 2/103 [18:38<15:43:29, 560.49s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  20%|██        | 21/103 [3:14:54<12:40:36, 556.54s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  95%|█████████▍| 107/113 [16:21:50<55:41, 556.93s/it]  [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  59%|█████▉    | 105/177 [16:22:03<11:08:40, 557.23s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  50%|█████     | 52/103 [8:00:43<7:52:05, 555.40s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  95%|█████████▍| 107/113 [16:22:42<55:35, 555.87s/it]  
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  30%|██▉       | 13/44 [2:00:10<4:46:44, 555.00s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  36%|███▌      | 20/56 [3:05:26<5:33:15, 555.44s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  57%|█████▋    | 59/103 [9:05:24<6:47:17, 555.40s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  66%|██████▋   | 75/113 [11:32:02<5:52:21, 556.35s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:   3%|▎         | 3/103 [27:55<15:31:54, 559.14s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  21%|██▏       | 22/103 [3:24:10<12:30:59, 556.29s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  96%|█████████▌| 108/113 [16:31:05<46:21, 556.27s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  60%|█████▉    | 106/177 [16:31:17<10:57:57, 556.02s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  51%|█████▏    | 53/103 [8:09:57<7:42:29, 555.00s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  96%|█████████▌| 108/113 [16:31:55<46:14, 554.97s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  32%|███▏      | 14/44 [2:09:27<4:37:50, 555.67s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  38%|███▊      | 21/56 [3:14:42<5:23:57, 555.36s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  58%|█████▊    | 60/103 [9:14:39<6:38:06, 555.49s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  67%|██████▋   | 76/113 [11:41:17<5:42:44, 555.80s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:   4%|▍         | 4/103 [37:09<15:18:49, 556.87s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  22%|██▏       | 23/103 [3:33:23<12:20:26, 555.33s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  96%|█████████▋| 109/113 [16:40:09<36:50, 552.66s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  60%|██████    | 107/177 [16:40:25<10:45:52, 553.60s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  52%|█████▏    | 54/103 [8:19:10<7:32:50, 554.50s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  96%|█████████▋| 109/113 [16:41:12<37:02, 555.52s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  34%|███▍      | 15/44 [2:18:37<4:27:48, 554.09s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  39%|███▉      | 22/56 [3:23:53<5:14:02, 554.18s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  59%|█████▉    | 61/103 [9:23:49<6:27:34, 553.68s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  68%|██████▊   | 77/113 [11:50:24<5:32:01, 553.39s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:   5%|▍         | 5/103 [46:16<15:03:56, 553.43s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  23%|██▎       | 24/103 [3:42:33<12:08:56, 553.63s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  97%|█████████▋| 110/113 [16:49:21<27:37, 552.38s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  61%|██████    | 108/177 [16:49:33<10:34:57, 552.14s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  53%|█████▎    | 55/103 [8:28:19<7:22:15, 552.83s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  97%|█████████▋| 110/113 [16:50:10<27:31, 550.45s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  36%|███▋      | 16/44 [2:27:47<4:17:57, 552.78s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  41%|████      | 23/56 [3:33:01<5:03:46, 552.32s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  60%|██████    | 62/103 [9:32:57<6:17:14, 552.05s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  69%|██████▉   | 78/113 [11:59:34<5:22:12, 552.36s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:   6%|▌         | 6/103 [55:25<14:52:09, 551.85s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  24%|██▍       | 25/103 [3:51:40<11:57:20, 551.80s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  98%|█████████▊| 111/113 [16:58:39<18:28, 554.06s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  62%|██████▏   | 109/177 [16:58:50<10:27:26, 553.63s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  54%|█████▍    | 56/103 [8:37:36<7:14:05, 554.15s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  98%|█████████▊| 111/113 [16:59:30<18:26, 553.13s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  39%|███▊      | 17/44 [2:37:02<4:08:59, 553.32s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  43%|████▎     | 24/56 [3:42:16<4:55:03, 553.24s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  61%|██████    | 63/103 [9:42:13<6:08:49, 553.24s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  70%|██████▉   | 79/113 [12:08:48<5:13:12, 552.74s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:   7%|▋         | 7/103 [1:04:41<14:45:13, 553.26s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  25%|██▌       | 26/103 [4:00:56<11:49:41, 553.01s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:  99%|█████████▉| 112/113 [17:07:45<09:11, 551.64s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  62%|██████▏   | 110/177 [17:07:57<10:15:44, 551.40s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  55%|█████▌    | 57/103 [8:46:42<7:02:48, 551.49s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50:  99%|█████████▉| 112/113 [17:08:40<09:12, 552.26s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  41%|████      | 18/44 [2:46:10<3:59:07, 551.81s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  45%|████▍     | 25/56 [3:51:25<4:45:05, 551.79s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  62%|██████▏   | 64/103 [9:51:21<5:58:37, 551.73s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  71%|███████   | 80/113 [12:17:54<5:02:55, 550.76s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:   8%|▊         | 8/103 [1:13:46<14:32:01, 550.76s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  26%|██▌       | 27/103 [4:10:02<11:37:53, 550.97s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50: 100%|██████████| 113/113 [17:17:02<00:00, 553.36s/it][A[A[A[A[A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50: 100%|██████████| 113/113 [17:17:02<00:00, 550.64s/it]
+2025-07-21 15:32:14.774 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed scverse.scanpy.1.10.2.issue_comment.3
+2025-07-21 15:32:14.775 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing scverse.scanpy.1.10.2.code_comment
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:   0%|          | 0/17 [00:00<?, ?it/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  63%|██████▎   | 111/177 [17:17:14<10:08:34, 553.25s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  56%|█████▋    | 58/103 [8:56:01<6:55:24, 553.88s/it][A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50: 100%|██████████| 113/113 [17:17:56<00:00, 553.54s/it]Processing scverse.scanpy.1.10.2.issue_comment.1 in batches of 50: 100%|██████████| 113/113 [17:17:56<00:00, 551.12s/it]
+2025-07-21 15:35:02.418 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed scverse.scanpy.1.10.2.issue_comment.1
+2025-07-21 15:35:02.419 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.issue.7
+Processing root-project.root.v6-32-06.issue.7 in batches of 50:   0%|          | 0/103 [00:00<?, ?it/s]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  43%|████▎     | 19/44 [2:55:29<3:50:50, 554.01s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  46%|████▋     | 26/56 [4:00:45<4:37:07, 554.26s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  63%|██████▎   | 65/103 [10:00:43<5:51:16, 554.63s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  72%|███████▏  | 81/113 [12:27:20<4:56:06, 555.22s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:   9%|▊         | 9/103 [1:23:12<14:30:04, 555.37s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  27%|██▋       | 28/103 [4:19:28<11:34:26, 555.55s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:   6%|▌         | 1/17 [09:29<2:31:49, 569.35s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  63%|██████▎   | 112/177 [17:26:43<10:04:23, 557.90s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  57%|█████▋    | 59/103 [9:05:27<6:48:54, 557.61s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:   1%|          | 1/103 [09:27<16:04:41, 567.47s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  45%|████▌     | 20/44 [3:04:54<3:42:53, 557.24s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  48%|████▊     | 27/56 [4:10:09<4:29:21, 557.29s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  64%|██████▍   | 66/103 [10:10:10<5:44:27, 558.58s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  73%|███████▎  | 82/113 [12:36:43<4:48:06, 557.63s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  10%|▉         | 10/103 [1:32:38<14:25:44, 558.54s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  28%|██▊       | 29/103 [4:28:53<11:28:27, 558.21s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:  12%|█▏        | 2/17 [18:57<2:22:05, 568.39s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  64%|██████▍   | 113/177 [17:36:11<9:58:15, 560.87s/it] [A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  58%|█████▊    | 60/103 [9:14:56<6:42:01, 560.96s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:   2%|▏         | 2/103 [18:59<15:59:52, 570.23s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  48%|████▊     | 21/44 [3:14:28<3:35:36, 562.46s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  50%|█████     | 28/56 [4:19:43<4:22:25, 562.33s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  65%|██████▌   | 67/103 [10:19:41<5:37:23, 562.32s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  73%|███████▎  | 83/113 [12:46:13<4:40:38, 561.29s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  11%|█         | 11/103 [1:42:07<14:21:28, 561.84s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  29%|██▉       | 30/103 [4:38:22<11:23:13, 561.55s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:  18%|█▊        | 3/17 [28:18<2:11:51, 565.07s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  64%|██████▍   | 114/177 [17:45:30<9:48:24, 560.39s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  59%|█████▉    | 61/103 [9:24:16<6:32:26, 560.63s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:   3%|▎         | 3/103 [28:15<15:39:41, 563.81s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  50%|█████     | 22/44 [3:23:47<3:25:51, 561.44s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  52%|█████▏    | 29/56 [4:29:05<4:12:55, 562.04s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  66%|██████▌   | 68/103 [10:29:00<5:27:18, 561.10s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  74%|███████▍  | 84/113 [12:55:32<4:31:02, 560.76s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  12%|█▏        | 12/103 [1:51:26<14:11:01, 561.12s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  30%|███       | 31/103 [4:47:41<11:13:01, 560.86s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:  24%|██▎       | 4/17 [37:43<2:02:25, 565.02s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  65%|██████▍   | 115/177 [17:54:57<9:41:12, 562.46s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  60%|██████    | 62/103 [9:33:47<6:25:08, 563.63s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:   4%|▍         | 4/103 [37:46<15:34:37, 566.43s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  52%|█████▏    | 23/44 [3:33:16<3:17:15, 563.61s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  54%|█████▎    | 30/56 [4:38:31<4:04:04, 563.27s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  67%|██████▋   | 69/103 [10:38:27<5:19:04, 563.06s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  75%|███████▌  | 85/113 [13:05:03<4:23:05, 563.76s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  13%|█▎        | 13/103 [2:00:55<14:05:17, 563.53s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  31%|███       | 32/103 [4:57:12<11:07:02, 563.69s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:  29%|██▉       | 5/17 [47:18<1:53:44, 568.73s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  66%|██████▌   | 116/177 [18:04:32<9:35:33, 566.13s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  61%|██████    | 63/103 [9:43:18<6:17:19, 565.99s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:   5%|▍         | 5/103 [47:16<15:27:37, 567.93s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  55%|█████▍    | 24/44 [3:42:46<3:08:27, 565.35s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  55%|█████▌    | 31/56 [4:48:02<3:55:42, 565.70s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  68%|██████▊   | 70/103 [10:47:59<5:11:09, 565.76s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  76%|███████▌  | 86/113 [13:14:31<4:14:15, 565.01s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  14%|█▎        | 14/103 [2:10:23<13:57:50, 564.83s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  32%|███▏      | 33/103 [5:06:39<10:59:04, 564.93s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:  35%|███▌      | 6/17 [56:37<1:43:41, 565.58s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  66%|██████▌   | 117/177 [18:13:52<9:24:13, 564.23s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  62%|██████▏   | 64/103 [9:52:38<6:06:42, 564.18s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:   6%|▌         | 6/103 [56:37<15:13:53, 565.30s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  57%|█████▋    | 25/44 [3:52:03<2:58:18, 563.07s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  57%|█████▋    | 32/56 [4:57:19<3:45:12, 563.04s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  69%|██████▉   | 71/103 [10:57:17<5:00:23, 563.23s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  77%|███████▋  | 87/113 [13:23:52<4:04:14, 563.65s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  15%|█▍        | 15/103 [2:19:46<13:47:18, 564.07s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  33%|███▎      | 34/103 [5:16:01<10:48:35, 564.00s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:  41%|████      | 7/17 [1:05:56<1:33:51, 563.19s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  67%|██████▋   | 118/177 [18:23:12<9:13:35, 562.98s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  63%|██████▎   | 65/103 [10:01:55<5:56:00, 562.11s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:   7%|▋         | 7/103 [1:05:54<15:00:21, 562.72s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  59%|█████▉    | 26/44 [4:01:25<2:48:46, 562.56s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  59%|█████▉    | 33/56 [5:06:40<3:35:36, 562.45s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  70%|██████▉   | 72/103 [11:06:37<4:50:33, 562.39s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  78%|███████▊  | 88/113 [13:33:11<3:54:18, 562.36s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  16%|█▌        | 16/103 [2:29:03<13:34:51, 561.98s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  34%|███▍      | 35/103 [5:25:22<10:38:08, 563.06s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:  47%|████▋     | 8/17 [1:15:12<1:24:08, 560.96s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  67%|██████▋   | 119/177 [18:32:27<9:02:04, 560.77s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  64%|██████▍   | 66/103 [10:11:13<5:45:53, 560.89s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:   8%|▊         | 8/103 [1:15:18<14:51:31, 563.07s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  61%|██████▏   | 27/44 [4:10:53<2:39:53, 564.32s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  61%|██████    | 34/56 [5:16:07<3:26:42, 563.76s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  71%|███████   | 73/103 [11:16:05<4:41:57, 563.91s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  79%|███████▉  | 89/113 [13:42:39<3:45:35, 563.99s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  17%|█▋        | 17/103 [2:38:32<13:28:42, 564.22s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  35%|███▍      | 36/103 [5:34:47<10:29:29, 563.72s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:  53%|█████▎    | 9/17 [1:24:50<1:15:31, 566.43s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  68%|██████▊   | 120/177 [18:42:06<8:57:45, 566.05s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  65%|██████▌   | 67/103 [10:20:49<5:39:11, 565.32s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:   9%|▊         | 9/103 [1:24:53<14:47:51, 566.72s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  64%|██████▎   | 28/44 [4:20:21<2:30:46, 565.43s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  62%|██████▎   | 35/56 [5:25:37<3:17:56, 565.53s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  72%|███████▏  | 74/103 [11:25:33<4:33:12, 565.27s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  80%|███████▉  | 90/113 [13:52:07<3:36:43, 565.38s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  17%|█▋        | 18/103 [2:48:01<13:21:24, 565.70s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  36%|███▌      | 37/103 [5:44:17<10:21:55, 565.39s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:  59%|█████▉    | 10/17 [1:34:12<1:05:55, 565.08s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  68%|██████▊   | 121/177 [18:51:26<8:46:45, 564.39s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  66%|██████▌   | 68/103 [10:30:11<5:29:12, 564.35s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  10%|▉         | 10/103 [1:34:09<14:33:30, 563.56s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  66%|██████▌   | 29/44 [4:29:36<2:20:35, 562.36s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  64%|██████▍   | 36/56 [5:34:57<3:07:58, 563.95s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  73%|███████▎  | 75/103 [11:34:55<4:23:19, 564.25s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  81%|████████  | 91/113 [14:01:29<3:26:56, 564.38s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  18%|█▊        | 19/103 [2:57:22<13:10:03, 564.32s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  37%|███▋      | 38/103 [5:53:38<10:11:05, 564.09s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:  65%|██████▍   | 11/17 [1:43:40<56:35, 565.92s/it]  [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  69%|██████▉   | 122/177 [19:00:53<8:38:02, 565.13s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  67%|██████▋   | 69/103 [10:39:38<5:20:15, 565.15s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  11%|█         | 11/103 [1:43:40<14:27:40, 565.88s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  68%|██████▊   | 30/44 [4:39:07<2:11:48, 564.87s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  66%|██████▌   | 37/56 [5:44:22<2:58:39, 564.19s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  74%|███████▍  | 76/103 [11:44:19<4:13:56, 564.33s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  81%|████████▏ | 92/113 [14:10:55<3:17:37, 564.64s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  19%|█▉        | 20/103 [3:06:48<13:00:59, 564.57s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  38%|███▊      | 39/103 [6:03:02<10:01:51, 564.24s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:  71%|███████   | 12/17 [1:53:03<47:04, 564.88s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  69%|██████▉   | 123/177 [19:10:17<8:28:09, 564.62s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  68%|██████▊   | 70/103 [10:49:04<5:10:52, 565.23s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  12%|█▏        | 12/103 [1:53:08<14:19:22, 566.62s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  70%|███████   | 31/44 [4:48:34<2:02:32, 565.59s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  68%|██████▊   | 38/56 [5:53:51<2:49:41, 565.62s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  75%|███████▍  | 77/103 [11:53:49<4:05:12, 565.88s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  82%|████████▏ | 93/113 [14:20:25<3:08:49, 566.47s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  20%|██        | 21/103 [3:16:20<12:54:36, 566.79s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  39%|███▉      | 40/103 [6:12:38<9:56:08, 567.75s/it] [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:  76%|███████▋  | 13/17 [2:02:34<37:47, 566.77s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  70%|███████   | 124/177 [19:19:48<8:20:28, 566.57s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  69%|██████▉   | 71/103 [10:58:34<5:02:13, 566.68s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  13%|█▎        | 13/103 [2:02:36<14:10:31, 567.02s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  73%|███████▎  | 32/44 [4:58:07<1:53:31, 567.66s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  70%|██████▉   | 39/56 [6:03:20<2:40:36, 566.86s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  76%|███████▌  | 78/103 [12:03:18<3:56:10, 566.84s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  83%|████████▎ | 94/113 [14:29:51<2:59:18, 566.25s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  21%|██▏       | 22/103 [3:25:44<12:44:19, 566.16s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  40%|███▉      | 41/103 [6:22:01<9:44:57, 566.09s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:  82%|████████▏ | 14/17 [2:11:55<28:15, 565.07s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  71%|███████   | 125/177 [19:29:10<8:09:53, 565.27s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  70%|██████▉   | 72/103 [11:07:50<4:51:07, 563.47s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  14%|█▎        | 14/103 [2:11:51<13:55:34, 563.31s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  75%|███████▌  | 33/44 [5:07:16<1:43:04, 562.23s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  71%|███████▏  | 40/56 [6:12:30<2:29:47, 561.69s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  77%|███████▋  | 79/103 [12:12:27<3:44:37, 561.56s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  84%|████████▍ | 95/113 [14:39:00<2:48:19, 561.10s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  22%|██▏       | 23/103 [3:34:52<12:27:29, 560.62s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  41%|████      | 42/103 [6:31:07<9:29:38, 560.30s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:  88%|████████▊ | 15/17 [2:21:06<18:41, 560.74s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  71%|███████   | 126/177 [19:38:21<7:56:44, 560.88s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  71%|███████   | 73/103 [11:17:00<4:39:45, 559.53s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  15%|█▍        | 15/103 [2:21:04<13:41:36, 560.18s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  77%|███████▋  | 34/44 [5:16:31<1:33:18, 559.88s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  73%|███████▎  | 41/56 [6:21:45<2:19:54, 559.63s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  78%|███████▊  | 80/103 [12:21:44<3:34:45, 560.24s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  85%|████████▍ | 96/113 [14:48:18<2:38:44, 560.27s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  23%|██▎       | 24/103 [3:44:13<12:18:29, 560.88s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  42%|████▏     | 43/103 [6:40:29<9:20:41, 560.69s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:  94%|█████████▍| 16/17 [2:30:27<09:20, 560.83s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  72%|███████▏  | 127/177 [19:47:40<7:47:06, 560.53s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  72%|███████▏  | 74/103 [11:26:24<4:31:04, 560.84s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  16%|█▌        | 16/103 [2:30:23<13:31:53, 559.93s/it]
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50: 100%|██████████| 17/17 [2:33:32<00:00, 447.78s/it][A[A[A[A[A[A[AProcessing scverse.scanpy.1.10.2.code_comment in batches of 50: 100%|██████████| 17/17 [2:33:32<00:00, 541.89s/it]
+2025-07-21 18:05:46.870 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed scverse.scanpy.1.10.2.code_comment
+2025-07-21 18:05:46.871 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing google.deepvariant.v1.6.1.release
+
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.release in batches of 50:   0%|          | 0/4 [00:00<?, ?it/s][A[A[A[A[A[A[A
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  80%|███████▉  | 35/44 [5:25:50<1:23:56, 559.60s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  75%|███████▌  | 42/56 [6:31:04<2:10:31, 559.38s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  79%|███████▊  | 81/103 [12:31:04<3:25:20, 560.02s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  86%|████████▌ | 97/113 [14:57:37<2:29:17, 559.86s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  24%|██▍       | 25/103 [3:53:32<12:08:23, 560.30s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  43%|████▎     | 44/103 [6:49:48<9:10:46, 560.11s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  72%|███████▏  | 128/177 [19:57:12<7:40:26, 563.81s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  73%|███████▎  | 75/103 [11:35:56<4:23:14, 564.10s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  17%|█▋        | 17/103 [2:39:54<13:27:01, 563.04s/it]
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.release in batches of 50:  25%|██▌       | 1/4 [09:23<28:09, 563.07s/it][A[A[A[A[A[A[A
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  82%|████████▏ | 36/44 [5:35:10<1:14:38, 559.84s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  77%|███████▋  | 43/56 [6:40:25<2:01:20, 560.05s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  80%|███████▉  | 82/103 [12:40:21<3:15:44, 559.26s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  87%|████████▋ | 98/113 [15:06:57<2:19:55, 559.68s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  25%|██▌       | 26/103 [4:02:49<11:57:45, 559.29s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  44%|████▎     | 45/103 [6:59:07<9:01:04, 559.74s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  73%|███████▎  | 129/177 [20:06:29<7:29:23, 561.74s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  74%|███████▍  | 76/103 [11:45:13<4:12:56, 562.11s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  17%|█▋        | 18/103 [2:49:11<13:15:23, 561.46s/it]
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.release in batches of 50:  50%|█████     | 2/4 [18:38<18:37, 558.74s/it][A[A[A[A[A[A[A
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  84%|████████▍ | 37/44 [5:44:28<1:05:15, 559.32s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  79%|███████▊  | 44/56 [6:49:44<1:51:54, 559.58s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  81%|████████  | 83/103 [12:49:42<3:06:33, 559.66s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  88%|████████▊ | 99/113 [15:16:14<2:10:26, 559.06s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  26%|██▌       | 27/103 [4:12:06<11:47:23, 558.47s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  45%|████▍     | 46/103 [7:08:21<8:50:23, 558.31s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  73%|███████▎  | 130/177 [20:16:03<7:22:56, 565.46s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  75%|███████▍  | 77/103 [11:54:49<4:05:20, 566.18s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  18%|█▊        | 19/103 [2:58:48<13:12:27, 566.04s/it]
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.release in batches of 50:  75%|███████▌  | 3/4 [28:17<09:27, 567.80s/it][A[A[A[A[A[A[A
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  86%|████████▋ | 38/44 [5:54:07<56:31, 565.30s/it]  [A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  80%|████████  | 45/56 [6:59:21<1:43:32, 564.82s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  82%|████████▏ | 84/103 [12:59:23<2:59:13, 565.97s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  88%|████████▊ | 100/113 [15:25:59<2:02:48, 566.82s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  27%|██▋       | 28/103 [4:21:51<11:47:59, 566.40s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  46%|████▌     | 47/103 [7:18:06<8:48:29, 566.23s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.release in batches of 50: 100%|██████████| 4/4 [30:48<00:00, 403.48s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.release in batches of 50: 100%|██████████| 4/4 [30:48<00:00, 462.24s/it]
+2025-07-21 18:36:35.819 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed google.deepvariant.v1.6.1.release
+2025-07-21 18:36:35.819 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing scverse.scanpy.1.10.2.docs
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.docs in batches of 50:   0%|          | 0/10 [00:00<?, ?it/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  74%|███████▍  | 131/177 [20:25:13<7:10:06, 561.01s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  76%|███████▌  | 78/103 [12:03:58<3:53:44, 560.99s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  19%|█▉        | 20/103 [3:07:55<12:55:00, 560.25s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  89%|████████▊ | 39/44 [6:03:28<46:58, 563.75s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  82%|████████▏ | 46/56 [7:08:43<1:33:59, 563.96s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  83%|████████▎ | 85/103 [13:08:38<2:48:51, 562.87s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  89%|████████▉ | 101/113 [15:35:11<1:52:28, 562.37s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  28%|██▊       | 29/103 [4:31:03<11:33:25, 562.23s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  47%|████▋     | 48/103 [7:27:18<8:35:04, 561.91s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.docs in batches of 50:  10%|█         | 1/10 [09:14<1:23:10, 554.50s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  75%|███████▍  | 132/177 [20:34:46<7:03:22, 564.50s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  77%|███████▋  | 79/103 [12:13:29<3:45:36, 564.01s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  20%|██        | 21/103 [3:17:31<12:52:06, 564.96s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  91%|█████████ | 40/44 [6:13:05<37:51, 567.77s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  84%|████████▍ | 47/56 [7:18:20<1:25:11, 567.96s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  83%|████████▎ | 86/103 [13:18:16<2:40:46, 567.45s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  90%|█████████ | 102/113 [15:44:51<1:44:03, 567.57s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  29%|██▉       | 30/103 [4:40:43<11:30:31, 567.56s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  48%|████▊     | 49/103 [7:36:58<8:30:29, 567.21s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.docs in batches of 50:  20%|██        | 2/10 [18:52<1:15:45, 568.22s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  75%|███████▌  | 133/177 [20:44:20<6:56:00, 567.29s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  78%|███████▊  | 80/103 [12:23:06<3:37:40, 567.86s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  21%|██▏       | 22/103 [3:27:03<12:45:43, 567.20s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  93%|█████████▎| 41/44 [6:23:25<29:10, 583.37s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  86%|████████▌ | 48/56 [7:28:38<1:17:44, 583.12s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  84%|████████▍ | 87/103 [13:28:34<2:35:19, 582.46s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  91%|█████████ | 103/113 [15:55:06<1:36:58, 581.86s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  30%|███       | 31/103 [4:50:58<11:38:14, 581.86s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  49%|████▊     | 50/103 [7:47:14<8:34:12, 582.12s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.docs in batches of 50:  30%|███       | 3/10 [29:04<1:08:38, 588.36s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  76%|███████▌  | 134/177 [20:54:01<6:49:36, 571.53s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  79%|███████▊  | 81/103 [12:32:34<3:28:18, 568.11s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  22%|██▏       | 23/103 [3:36:27<12:34:47, 566.10s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  95%|█████████▌| 42/44 [6:31:55<18:42, 561.43s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  88%|████████▊ | 49/56 [7:37:08<1:05:28, 561.19s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  85%|████████▌ | 88/103 [13:37:04<2:20:10, 560.67s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  92%|█████████▏| 104/113 [16:03:35<1:24:00, 560.05s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  31%|███       | 32/103 [4:59:27<11:02:32, 559.90s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  50%|████▉     | 51/103 [7:55:43<8:05:27, 560.15s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.docs in batches of 50:  40%|████      | 4/10 [37:33<55:41, 556.90s/it]  [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  76%|███████▋  | 135/177 [21:02:27<6:26:17, 551.84s/it][A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  80%|███████▉  | 82/103 [12:41:01<3:12:25, 549.80s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  23%|██▎       | 24/103 [3:44:57<12:03:26, 549.45s/it]
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:  98%|█████████▊| 43/44 [6:40:22<09:05, 545.29s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  89%|████████▉ | 50/56 [7:45:36<54:29, 544.97s/it]  [A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  86%|████████▋ | 89/103 [13:45:32<2:07:09, 544.97s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  93%|█████████▎| 105/113 [16:12:02<1:12:32, 544.03s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  32%|███▏      | 33/103 [5:07:53<10:34:12, 543.61s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  50%|█████     | 52/103 [8:04:08<7:41:52, 543.39s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.docs in batches of 50:  50%|█████     | 5/10 [45:58<44:50, 538.09s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  77%|███████▋  | 136/177 [21:10:52<6:07:28, 537.77s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50: 100%|██████████| 44/44 [6:45:39<00:00, 476.76s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.code_comment in batches of 50: 100%|██████████| 44/44 [6:45:39<00:00, 553.18s/it]
+2025-07-21 19:26:09.112 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed google.deepvariant.v1.6.1.code_comment
+2025-07-21 19:26:09.113 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing scverse.scanpy.1.10.2.issue_comment.2
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:   0%|          | 0/113 [00:00<?, ?it/s][A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  81%|████████  | 83/103 [12:49:13<2:57:29, 532.47s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  24%|██▍       | 25/103 [3:53:04<11:29:55, 530.71s/it]
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  91%|█████████ | 51/56 [7:53:56<44:17, 531.59s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  87%|████████▋ | 90/103 [13:53:52<1:55:08, 531.43s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  94%|█████████▍| 106/113 [16:20:24<1:02:00, 531.53s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  33%|███▎      | 34/103 [5:16:14<10:10:34, 530.93s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  51%|█████▏    | 53/103 [8:12:29<7:22:20, 530.82s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.docs in batches of 50:  60%|██████    | 6/10 [54:19<35:02, 525.54s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  77%|███████▋  | 137/177 [21:19:10<5:50:32, 525.82s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:   1%|          | 1/113 [08:23<15:39:09, 503.12s/it][A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  82%|████████▏ | 84/103 [12:57:40<2:46:07, 524.59s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  25%|██▌       | 26/103 [4:01:29<11:11:02, 522.89s/it]
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  93%|█████████▎| 52/56 [8:02:19<34:52, 523.09s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  88%|████████▊ | 91/103 [14:02:16<1:44:37, 523.15s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  95%|█████████▍| 107/113 [16:28:46<52:15, 522.54s/it]  [A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  34%|███▍      | 35/103 [5:24:36<9:51:53, 522.26s/it] [A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  52%|█████▏    | 54/103 [8:20:52<7:06:32, 522.30s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.docs in batches of 50:  70%|███████   | 7/10 [1:02:43<25:56, 518.71s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  78%|███████▊  | 138/177 [21:27:34<5:37:25, 519.12s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:   2%|▏         | 2/113 [16:45<15:29:59, 502.70s/it][A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  83%|████████▎ | 85/103 [13:05:57<2:34:53, 516.30s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  26%|██▌       | 27/103 [4:09:50<10:53:56, 516.26s/it]
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  95%|█████████▍| 53/56 [8:10:39<25:48, 516.10s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  89%|████████▉ | 92/103 [14:10:34<1:34:32, 515.68s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  96%|█████████▌| 108/113 [16:37:05<42:56, 515.40s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  35%|███▍      | 36/103 [5:32:58<9:36:17, 516.09s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  53%|█████▎    | 55/103 [8:29:12<6:52:32, 515.68s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.docs in batches of 50:  80%|████████  | 8/10 [1:11:00<17:03, 511.57s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  79%|███████▊  | 139/177 [21:35:54<5:25:10, 513.44s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:   3%|▎         | 3/113 [25:07<15:21:03, 502.39s/it][A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  83%|████████▎ | 86/103 [13:14:25<2:25:36, 513.91s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  27%|██▋       | 28/103 [4:18:16<10:41:24, 513.13s/it]
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  96%|█████████▋| 54/56 [8:19:04<17:05, 512.84s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  90%|█████████ | 93/103 [14:19:00<1:25:27, 512.79s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  96%|█████████▋| 109/113 [16:45:31<34:10, 512.65s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  36%|███▌      | 37/103 [5:41:23<9:23:58, 512.71s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  54%|█████▍    | 56/103 [8:37:38<6:41:45, 512.89s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.docs in batches of 50:  90%|█████████ | 9/10 [1:19:26<08:29, 509.82s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.docs in batches of 50: 100%|██████████| 10/10 [1:22:26<00:00, 408.25s/it][A[A[A[A[A[A[AProcessing scverse.scanpy.1.10.2.docs in batches of 50: 100%|██████████| 10/10 [1:22:26<00:00, 494.70s/it]
+2025-07-21 19:59:02.782 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed scverse.scanpy.1.10.2.docs
+2025-07-21 19:59:02.783 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing OpenGene.fastp.v0.23.4.docs
+
+
+
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.docs in batches of 50:   0%|          | 0/3 [00:00<?, ?it/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  79%|███████▉  | 140/177 [21:44:01<5:11:44, 505.52s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:   4%|▎         | 4/113 [33:12<15:00:02, 495.43s/it][A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  84%|████████▍ | 87/103 [13:22:26<2:14:25, 504.08s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  28%|██▊       | 29/103 [4:26:18<10:21:21, 503.80s/it]
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50:  98%|█████████▊| 55/56 [8:27:08<08:24, 504.28s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  91%|█████████▏| 94/103 [14:27:05<1:15:41, 504.58s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  97%|█████████▋| 110/113 [16:53:36<25:13, 504.39s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  37%|███▋      | 38/103 [5:49:27<9:06:13, 504.20s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  55%|█████▌    | 57/103 [8:45:41<6:26:15, 503.82s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.docs in batches of 50:  33%|███▎      | 1/3 [08:31<17:02, 511.45s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  80%|███████▉  | 141/177 [21:52:32<5:04:21, 507.27s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:   4%|▍         | 5/113 [41:43<15:01:48, 501.00s/it][A[A[A[A[A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 50: 100%|██████████| 56/56 [8:32:40<00:00, 452.42s/it][A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue in batches of 50: 100%|██████████| 56/56 [8:32:40<00:00, 549.29s/it]
+2025-07-21 20:08:06.826 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed google.deepvariant.v1.6.1.issue
+2025-07-21 20:08:06.827 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.wiki
+
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:   0%|          | 0/26 [00:00<?, ?it/s][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  85%|████████▌ | 88/103 [13:30:53<2:06:16, 505.09s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  29%|██▉       | 30/103 [4:34:45<10:14:10, 504.81s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  92%|█████████▏| 95/103 [14:35:45<1:07:53, 509.13s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  98%|█████████▊| 111/113 [17:02:16<16:58, 509.09s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  38%|███▊      | 39/103 [5:58:08<9:03:17, 509.34s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  56%|█████▋    | 58/103 [8:54:25<6:22:21, 509.81s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.docs in batches of 50:  67%|██████▋   | 2/3 [17:18<08:40, 520.66s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  80%|████████  | 142/177 [22:01:18<4:59:06, 512.76s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:   5%|▌         | 6/113 [50:30<15:09:31, 510.01s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:   4%|▍         | 1/26 [08:44<3:38:32, 524.50s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  86%|████████▋ | 89/103 [13:39:36<1:59:06, 510.43s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  30%|███       | 31/103 [4:43:33<10:14:01, 511.68s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  93%|█████████▎| 96/103 [14:44:36<1:00:09, 515.64s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50:  99%|█████████▉| 112/113 [17:11:07<08:35, 515.77s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  39%|███▉      | 40/103 [6:06:57<9:01:00, 515.24s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  57%|█████▋    | 59/103 [9:03:12<6:17:46, 515.15s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.docs in batches of 50: 100%|██████████| 3/3 [25:54<00:00, 518.60s/it][A[A[A[A[A[A[AProcessing OpenGene.fastp.v0.23.4.docs in batches of 50: 100%|██████████| 3/3 [25:54<00:00, 518.23s/it]
+2025-07-21 20:24:57.487 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed OpenGene.fastp.v0.23.4.docs
+2025-07-21 20:24:57.487 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing google.deepvariant.v1.6.1.docs
+
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50:   0%|          | 0/16 [00:00<?, ?it/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  81%|████████  | 143/177 [22:09:54<4:51:14, 513.97s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:   6%|▌         | 7/113 [59:06<15:04:34, 512.03s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:   8%|▊         | 2/26 [17:21<3:28:07, 520.29s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  87%|████████▋ | 90/103 [13:48:12<1:50:57, 512.11s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  31%|███       | 32/103 [4:52:07<10:06:32, 512.57s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  94%|█████████▍| 97/103 [14:53:07<51:25, 514.27s/it]  [A[A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50: 100%|██████████| 113/113 [17:19:37<00:00, 513.83s/it][AProcessing scverse.scanpy.1.10.2.issue_comment.0 in batches of 50: 100%|██████████| 113/113 [17:19:37<00:00, 552.01s/it]
+2025-07-21 20:29:16.573 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed scverse.scanpy.1.10.2.issue_comment.0
+2025-07-21 20:29:16.575 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.issue.2
+
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:   0%|          | 0/103 [00:00<?, ?it/s][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  40%|███▉      | 41/103 [6:15:29<8:51:10, 514.03s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  58%|█████▊    | 60/103 [9:11:43<6:08:16, 513.86s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50:   6%|▋         | 1/16 [08:41<2:10:21, 521.46s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  81%|████████▏ | 144/177 [22:18:34<4:43:37, 515.69s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:   7%|▋         | 8/113 [1:07:46<15:00:14, 514.43s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  12%|█▏        | 3/26 [26:00<3:19:10, 519.58s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  88%|████████▊ | 91/103 [13:56:51<1:42:47, 513.95s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  32%|███▏      | 33/103 [5:00:49<10:01:16, 515.38s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  95%|█████████▌| 98/103 [15:01:51<43:06, 517.21s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:   1%|          | 1/103 [08:47<14:56:35, 527.41s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  41%|████      | 42/103 [6:24:16<8:46:44, 518.10s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  59%|█████▉    | 61/103 [9:20:31<6:02:33, 517.93s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50:  12%|█▎        | 2/16 [17:25<2:02:02, 523.04s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  82%|████████▏ | 145/177 [22:27:20<4:36:42, 518.84s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:   8%|▊         | 9/113 [1:16:34<14:59:01, 518.67s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  15%|█▌        | 4/26 [34:47<3:11:31, 522.33s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  89%|████████▉ | 92/103 [14:05:39<1:35:01, 518.29s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  33%|███▎      | 34/103 [5:09:29<9:54:16, 516.76s/it] 
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  96%|█████████▌| 99/103 [15:10:27<34:27, 516.85s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:   2%|▏         | 2/103 [17:21<14:34:18, 519.39s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  42%|████▏     | 43/103 [6:32:48<8:36:16, 516.28s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  60%|██████    | 62/103 [9:29:03<5:52:44, 516.21s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50:  19%|█▉        | 3/16 [25:56<1:52:06, 517.41s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  82%|████████▏ | 146/177 [22:35:52<4:26:56, 516.67s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:   9%|▉         | 10/113 [1:25:03<14:45:28, 515.81s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  19%|█▉        | 5/26 [43:17<3:01:21, 518.18s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  90%|█████████ | 93/103 [14:14:09<1:25:59, 515.93s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  34%|███▍      | 35/103 [5:18:07<9:45:56, 517.01s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  97%|█████████▋| 100/103 [15:19:04<25:50, 516.71s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:   3%|▎         | 3/103 [25:57<14:23:29, 518.10s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  43%|████▎     | 44/103 [6:41:26<8:28:09, 516.78s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  61%|██████    | 63/103 [9:37:40<5:44:23, 516.59s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50:  25%|██▌       | 4/16 [34:37<1:43:47, 519.00s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  83%|████████▎ | 147/177 [22:44:32<4:18:50, 517.69s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:  10%|▉         | 11/113 [1:33:45<14:39:44, 517.49s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  23%|██▎       | 6/26 [51:58<2:52:58, 518.94s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  91%|█████████▏| 94/103 [14:22:49<1:17:33, 517.07s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  35%|███▍      | 36/103 [5:26:44<9:37:21, 517.04s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  98%|█████████▊| 101/103 [15:27:45<17:16, 518.22s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:   4%|▍         | 4/103 [34:40<14:17:40, 519.80s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  44%|████▎     | 45/103 [6:50:09<8:21:24, 518.69s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  62%|██████▏   | 64/103 [9:46:24<5:37:09, 518.72s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50:  31%|███▏      | 5/16 [43:20<1:35:23, 520.28s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  84%|████████▎ | 148/177 [22:53:17<4:11:18, 519.96s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:  11%|█         | 12/113 [1:42:29<14:34:44, 519.65s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  27%|██▋       | 7/26 [1:00:42<2:44:53, 520.72s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  92%|█████████▏| 95/103 [14:31:37<1:09:21, 520.24s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  36%|███▌      | 37/103 [5:35:29<9:31:35, 519.63s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:  99%|█████████▉| 102/103 [15:36:28<08:39, 519.66s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:   5%|▍         | 5/103 [43:22<14:10:34, 520.76s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  45%|████▍     | 46/103 [6:58:51<8:13:38, 519.62s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  63%|██████▎   | 65/103 [9:55:06<5:29:09, 519.72s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50:  38%|███▊      | 6/16 [52:07<1:27:05, 522.52s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  84%|████████▍ | 149/177 [23:02:03<4:03:24, 521.61s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:  12%|█▏        | 13/113 [1:51:15<14:29:01, 521.41s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  31%|███       | 8/26 [1:09:28<2:36:44, 522.47s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  93%|█████████▎| 96/103 [14:40:20<1:00:47, 521.06s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  37%|███▋      | 38/103 [5:44:16<9:25:00, 521.54s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50: 100%|██████████| 103/103 [15:45:09<00:00, 520.02s/it][A[A[A[AProcessing root-project.root.v6-32-06.issue.4 in batches of 50: 100%|██████████| 103/103 [15:45:09<00:00, 550.58s/it]
+2025-07-21 21:20:50.411 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed root-project.root.v6-32-06.issue.4
+2025-07-21 21:20:50.413 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.issue.6
+
+
+
+
+Processing root-project.root.v6-32-06.issue.6 in batches of 50:   0%|          | 0/103 [00:00<?, ?it/s][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:   6%|▌         | 6/103 [52:05<14:03:04, 521.49s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  46%|████▌     | 47/103 [7:07:34<8:05:49, 520.53s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  64%|██████▍   | 66/103 [10:03:45<5:20:27, 519.66s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50:  44%|████▍     | 7/16 [1:00:42<1:18:00, 520.08s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  85%|████████▍ | 150/177 [23:10:36<3:53:38, 519.19s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:  12%|█▏        | 14/113 [1:59:49<14:16:44, 519.24s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  35%|███▍      | 9/26 [1:18:03<2:27:18, 519.89s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  94%|█████████▍| 97/103 [14:48:55<51:56, 519.34s/it]  [A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  38%|███▊      | 39/103 [5:52:47<9:13:04, 518.51s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.6 in batches of 50:   1%|          | 1/103 [08:35<14:36:20, 515.49s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:   7%|▋         | 7/103 [1:00:39<13:50:38, 519.16s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  47%|████▋     | 48/103 [7:16:09<7:55:49, 519.08s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  65%|██████▌   | 67/103 [10:12:24<5:11:39, 519.42s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50:  50%|█████     | 8/16 [1:09:20<1:09:15, 519.41s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  85%|████████▌ | 151/177 [23:19:16<3:45:05, 519.44s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:  13%|█▎        | 15/113 [2:08:30<14:08:51, 519.71s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  38%|███▊      | 10/26 [1:26:43<2:18:41, 520.07s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  95%|█████████▌| 98/103 [14:57:34<43:16, 519.34s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  39%|███▉      | 40/103 [6:01:24<9:03:53, 517.99s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.6 in batches of 50:   2%|▏         | 2/103 [17:14<14:30:45, 517.28s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:   8%|▊         | 8/103 [1:09:16<13:40:44, 518.36s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  48%|████▊     | 49/103 [7:24:45<7:46:15, 518.07s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  66%|██████▌   | 68/103 [10:20:58<5:02:04, 517.83s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50:  56%|█████▋    | 9/16 [1:17:54<1:00:24, 517.83s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  86%|████████▌ | 152/177 [23:27:49<3:35:36, 517.45s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:  14%|█▍        | 16/113 [2:17:00<13:55:41, 516.92s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  42%|████▏     | 11/26 [1:35:15<2:09:21, 517.46s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  96%|█████████▌| 99/103 [15:06:05<34:27, 516.75s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  40%|███▉      | 41/103 [6:10:01<8:55:00, 517.75s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.6 in batches of 50:   3%|▎         | 3/103 [25:53<14:23:51, 518.32s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:   9%|▊         | 9/103 [1:17:56<13:32:46, 518.80s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  49%|████▊     | 50/103 [7:33:24<7:37:55, 518.41s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  67%|██████▋   | 69/103 [10:29:39<4:53:52, 518.61s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50:  62%|██████▎   | 10/16 [1:26:31<51:45, 517.62s/it] [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  86%|████████▋ | 153/177 [23:36:28<3:27:11, 517.99s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:  15%|█▌        | 17/113 [2:25:41<13:49:00, 518.13s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  46%|████▌     | 12/26 [1:43:55<2:00:57, 518.38s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  97%|█████████▋| 100/103 [15:14:48<25:55, 518.55s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  41%|████      | 42/103 [6:18:39<8:46:35, 517.95s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.6 in batches of 50:   4%|▍         | 4/103 [34:30<14:14:29, 517.87s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:  10%|▉         | 10/103 [1:26:36<13:24:54, 519.29s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  50%|████▉     | 51/103 [7:42:06<7:30:07, 519.37s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  68%|██████▊   | 70/103 [10:38:20<4:45:38, 519.35s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50:  69%|██████▉   | 11/16 [1:35:17<43:21, 520.26s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  87%|████████▋ | 154/177 [23:45:13<3:19:19, 519.97s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:  16%|█▌        | 18/113 [2:34:25<13:43:02, 519.81s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  50%|█████     | 13/26 [1:52:38<1:52:36, 519.70s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  98%|█████████▊| 101/103 [15:23:31<17:19, 519.86s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  42%|████▏     | 43/103 [6:27:20<8:38:41, 518.70s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.6 in batches of 50:   5%|▍         | 5/103 [43:06<14:04:46, 517.21s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:  11%|█         | 11/103 [1:35:12<13:14:46, 518.33s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  50%|█████     | 52/103 [7:50:39<7:19:47, 517.40s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  69%|██████▉   | 71/103 [10:46:53<4:36:02, 517.58s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50:  75%|███████▌  | 12/16 [1:43:54<34:36, 519.13s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  88%|████████▊ | 155/177 [23:53:49<3:10:14, 518.82s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:  17%|█▋        | 19/113 [2:43:04<13:33:52, 519.49s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  54%|█████▍    | 14/26 [2:01:17<1:43:55, 519.61s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50:  99%|█████████▉| 102/103 [15:32:07<08:38, 518.89s/it][A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  43%|████▎     | 44/103 [6:36:02<8:31:08, 519.80s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.6 in batches of 50:   6%|▌         | 6/103 [51:52<14:00:55, 520.16s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:  12%|█▏        | 12/103 [1:43:57<13:09:15, 520.39s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  51%|█████▏    | 53/103 [7:59:27<7:13:57, 520.76s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  70%|██████▉   | 72/103 [10:55:41<4:28:55, 520.51s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.8 in batches of 50: 100%|██████████| 103/103 [15:38:22<00:00, 475.46s/it][A[A[AProcessing root-project.root.v6-32-06.issue.8 in batches of 50: 100%|██████████| 103/103 [15:38:22<00:00, 546.62s/it]
+2025-07-21 22:16:08.093 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed root-project.root.v6-32-06.issue.8
+2025-07-21 22:16:08.095 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing OpenGene.fastp.v0.23.4.issue
+
+
+
+Processing OpenGene.fastp.v0.23.4.issue in batches of 50:   0%|          | 0/29 [00:00<?, ?it/s][A[A[A
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50:  81%|████████▏ | 13/16 [1:52:41<26:04, 521.64s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  88%|████████▊ | 156/177 [24:02:38<3:02:41, 521.96s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:  18%|█▊        | 20/113 [2:51:49<13:28:10, 521.40s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  58%|█████▊    | 15/26 [2:10:04<1:35:40, 521.88s/it][A[A[A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  44%|████▎     | 45/103 [6:45:02<8:28:17, 525.82s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.6 in batches of 50:   7%|▋         | 7/103 [1:00:53<14:03:16, 527.05s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:  13%|█▎        | 13/103 [1:52:56<13:08:55, 525.95s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  52%|█████▏    | 54/103 [8:08:25<7:09:31, 525.95s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  71%|███████   | 73/103 [11:04:40<4:23:08, 526.28s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing OpenGene.fastp.v0.23.4.issue in batches of 50:   3%|▎         | 1/29 [08:42<4:03:38, 522.09s/it][A[A[A
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50:  88%|████████▊ | 14/16 [2:01:26<17:24, 522.45s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  89%|████████▊ | 157/177 [24:11:22<2:54:09, 522.46s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:  19%|█▊        | 21/113 [3:00:34<13:20:58, 522.37s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  62%|██████▏   | 16/26 [2:18:47<1:27:00, 522.08s/it][A[A[A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  45%|████▍     | 46/103 [6:53:43<8:18:15, 524.49s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue.6 in batches of 50:   8%|▊         | 8/103 [1:09:33<13:50:41, 524.65s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:  14%|█▎        | 14/103 [2:01:35<12:57:08, 523.91s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  53%|█████▎    | 55/103 [8:17:04<6:58:57, 523.70s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  72%|███████▏  | 74/103 [11:13:19<4:13:14, 523.95s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing OpenGene.fastp.v0.23.4.issue in batches of 50:   7%|▋         | 2/29 [17:24<3:55:02, 522.33s/it][A[A[A
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50:  94%|█████████▍| 15/16 [2:10:05<08:41, 521.59s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  89%|████████▉ | 158/177 [24:20:00<2:45:00, 521.09s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:  19%|█▉        | 22/113 [3:09:11<13:09:46, 520.73s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  65%|██████▌   | 17/26 [2:27:25<1:18:06, 520.71s/it][A[A[A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  46%|████▌     | 47/103 [7:02:22<8:07:45, 522.60s/it]
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50: 100%|██████████| 16/16 [2:12:52<00:00, 414.69s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.docs in batches of 50: 100%|██████████| 16/16 [2:12:52<00:00, 498.27s/it]
+2025-07-21 22:37:49.797 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed google.deepvariant.v1.6.1.docs
+2025-07-21 22:37:49.798 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.issue.3
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.3 in batches of 50:   0%|          | 0/103 [00:00<?, ?it/s][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.6 in batches of 50:   9%|▊         | 9/103 [1:18:12<13:39:22, 523.00s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:  15%|█▍        | 15/103 [2:10:16<12:46:59, 522.95s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  54%|█████▍    | 56/103 [8:25:45<6:49:31, 522.80s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  73%|███████▎  | 75/103 [11:22:00<4:04:04, 523.02s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing OpenGene.fastp.v0.23.4.issue in batches of 50:  10%|█         | 3/29 [25:58<3:44:34, 518.26s/it][A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  90%|████████▉ | 159/177 [24:28:39<2:36:11, 520.64s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:  20%|██        | 23/113 [3:17:51<13:00:46, 520.52s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  69%|██████▉   | 18/26 [2:36:05<1:09:25, 520.66s/it][A[A[A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  47%|████▋     | 48/103 [7:10:56<7:56:40, 520.01s/it]
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.3 in batches of 50:   1%|          | 1/103 [08:18<14:07:51, 498.74s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.6 in batches of 50:  10%|▉         | 10/103 [1:26:31<13:19:08, 515.58s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:  16%|█▌        | 16/103 [2:18:32<12:26:35, 514.89s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  55%|█████▌    | 57/103 [8:34:00<6:34:26, 514.50s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  74%|███████▍  | 76/103 [11:30:16<3:51:44, 514.96s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing OpenGene.fastp.v0.23.4.issue in batches of 50:  14%|█▍        | 4/29 [34:14<3:32:21, 509.65s/it][A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  90%|█████████ | 160/177 [24:36:59<2:25:43, 514.32s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:  21%|██        | 24/113 [3:26:12<12:43:30, 514.73s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  73%|███████▎  | 19/26 [2:44:25<1:00:01, 514.45s/it][A[A[A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  48%|████▊     | 49/103 [7:19:20<7:43:46, 515.30s/it]
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.3 in batches of 50:   2%|▏         | 2/103 [16:41<14:03:41, 501.21s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.6 in batches of 50:  11%|█         | 11/103 [1:34:53<13:04:14, 511.46s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:  17%|█▋        | 17/103 [2:26:54<12:12:28, 511.03s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  56%|█████▋    | 58/103 [8:42:23<6:23:17, 511.06s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  75%|███████▍  | 77/103 [11:38:39<3:41:37, 511.43s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing OpenGene.fastp.v0.23.4.issue in batches of 50:  17%|█▋        | 5/29 [42:34<3:22:26, 506.11s/it][A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  91%|█████████ | 161/177 [24:45:26<2:16:31, 511.99s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:  22%|██▏       | 25/113 [3:34:37<12:30:20, 511.60s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  77%|███████▋  | 20/26 [2:52:50<51:10, 511.70s/it]  [A[A[A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  49%|████▊     | 50/103 [7:27:47<7:33:04, 512.92s/it]
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.3 in batches of 50:   3%|▎         | 3/103 [25:12<14:02:43, 505.63s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.6 in batches of 50:  12%|█▏        | 12/103 [1:43:22<12:54:34, 510.71s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:  17%|█▋        | 18/103 [2:35:23<12:03:04, 510.41s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  57%|█████▋    | 59/103 [8:50:53<6:14:31, 510.71s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  76%|███████▌  | 78/103 [11:47:07<3:32:41, 510.47s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing OpenGene.fastp.v0.23.4.issue in batches of 50:  21%|██        | 6/29 [51:05<3:14:43, 507.97s/it][A[A[A
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:  92%|█████████▏| 162/177 [24:53:49<2:07:22, 509.48s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 50:  23%|██▎       | 26/113 [3:43:01<12:18:34, 509.36s/it][A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:  81%|████████  | 21/26 [3:01:15<42:27, 509.50s/it][A[A[A[A[AProcessing root-project.root.v6-32-06.issue.7 in batches of 50:  50%|████▉     | 51/103 [7:36:12<7:22:26, 510.51s/it]
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.3 in batches of 50:   4%|▍         | 4/103 [33:37<13:53:44, 505.29s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue.6 in batches of 50:  13%|█▎        | 13/103 [1:51:49<12:44:21, 509.57s/it][A[A[A[A
+Processing root-project.root.v6-32-06.issue.2 in batches of 50:  18%|█▊        | 19/103 [2:43:52<11:53:56, 509.96s/it][A
+
+Processing root-project.root.v6-32-06.issue.1 in batches of 50:  58%|█████▊    | 60/103 [8:59:21<6:05:33, 510.08s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue.5 in batches of 50:  77%|███████▋  | 79/103 [11:55:38<3:24:08, 510.37s/it][A[A[A[A[A[A[A[A[A
