@@ -39,12 +39,12 @@ Follow these steps to arrive at your conclusion:
 **Step 1: Initial Analysis**
 First, identify the core topic of the content. Is it about a high-level system design, or is it about a specific, low-level problem?
 
-**Step 2: Check for Architectural Keywords**
-Look for explicit mentions of system-level architectural concepts, including:
-*   Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture, client-server).
-*   System layers, high-level components, and their interactions.
-*   System-wide quality attributes (e.g., scalability, security, fault tolerance, maintainability).
-*   Cross-cutting concerns.
+**Step 2: Check for Architectural Concepts**
+Analyze the content to see if it discusses system-level architectural concepts, even if it doesn't use the exact keywords. These concepts include:
+*   **Architectural patterns or styles:** (e.g., microservices, monolith, event-driven architecture, client-server).
+*   **System structure:** Discussions of system layers, high-level components, modules, and their interactions.
+*   **System-wide quality attributes:** Discussions about how the system as a whole handles things like scalability, security, fault tolerance, maintainability, **consistency**, or performance under **heavy workloads**.
+*   **Cross-cutting concerns:** System-wide decisions that affect multiple components.
 
 **Step 3: Apply Exclusion Criteria**
 The content is **NOT** related to architecture if its primary focus is on any of the following implementation-level topics:
