@@ -27,26 +27,39 @@ class ArchitectureRelevanceCheckStage(IBaseStage):
         return f"""
 You are an expert in software architecture and software engineering. You have the necessary expertise to evaluate whether a given piece of content is related to software architecture.
 
-Evaluate whether the content explicitly discusses or relates to software architecture concepts, principles, or concerns at a system level. Your goal is to distinguish between high-level architectural discussions and low-level implementation details.
+Your goal is to determine if the content is relevant to **system-level** software architecture.
 
 Data:
 
 Content: {x['sentence']}
 Instructions:
 
-1.  **Analyze the content for system-level architectural topics.** These include, but are not limited to:
-    *   Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture).
-    *   Decisions about the overall structure of a system, its layers, and the high-level interactions between its major components.
-    *   System-wide quality attributes and the trade-offs involved (e.g., choosing a technology for its scalability properties).
-    *   Dependencies and constraints that impact the entire system.
+Follow these steps to arrive at your conclusion:
 
-2.  **Identify implementation-level topics.** These include general software development, debugging, dependency issues, library-specific configurations, or the internal logic of a single algorithm or function.
+**Step 1: Initial Analysis**
+First, identify the core topic of the content. Is it about a high-level system design, or is it about a specific, low-level problem?
 
-3.  **Apply the following classification rule:**
-    *   If the primary focus of the content is on the **system-level** topics described in Instruction 1, mark it as `related_to_arch: true`.
-    *   If the content focuses on **implementation-level** topics, mark it as `related_to_arch: false`. **This is true even if it mentions a quality attribute like performance in a narrow context.** For example, a discussion about tuning a specific algorithm's parameters for a speed-vs-accuracy trade-off is considered an implementation detail.
+**Step 2: Check for Architectural Keywords**
+Look for explicit mentions of system-level architectural concepts, including:
+*   Architectural patterns or styles (e.g., microservices, monolith, event-driven architecture, client-server).
+*   System layers, high-level components, and their interactions.
+*   System-wide quality attributes (e.g., scalability, security, fault tolerance, maintainability).
+*   Cross-cutting concerns.
 
-4.  **Provide `reasoning`** that clearly explains your classification based on the rules above.
+**Step 3: Apply Exclusion Criteria**
+The content is **NOT** related to architecture if its primary focus is on any of the following implementation-level topics:
+*   Installation issues, dependency conflicts, or version compatibility.
+*   Specific error messages, stack traces, or debugging.
+*   The internal logic of a single, narrow algorithm or function.
+*   Configuration of a specific tool or library.
+*   A performance trade-off for a *single component* (e.g., "improving recall at the expense of indexing time" for one algorithm is an implementation detail).
+*   The selection of a dataset for model training.
+
+**Step 4: Final Classification and Reasoning**
+Based on the steps above, make your final decision.
+*   If the content is primarily about the system-level topics from Step 2 and does not fall into the exclusion criteria from Step 3, mark it as `related_to_arch: true`.
+*   Otherwise, mark it as `related_to_arch: false`.
+*   Provide `reasoning` that explicitly follows your step-by-step analysis to justify your conclusion.
 """
 
 def main():
