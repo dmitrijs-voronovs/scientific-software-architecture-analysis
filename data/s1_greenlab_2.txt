@@ -1,0 +1,62 @@
+nohup: ignoring input
+2025-07-22 16:34:43.267 | INFO     | processing_pipeline.model.IBaseStage:execute:252 - Executing s1 stage
+2025-07-22 16:34:43.271 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.08 already processed
+2025-07-22 16:34:43.286 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.13 already processed
+2025-07-22 16:34:43.286 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.docs.19
+2025-07-22 16:34:43.287 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.10 already processed
+2025-07-22 16:34:43.287 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.code_comment.12 already processed
+2025-07-22 16:34:43.287 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.00 already processed
+2025-07-22 16:34:43.288 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.04 already processed
+2025-07-22 16:34:43.288 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.code_comment.03 already processed
+2025-07-22 16:34:43.288 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.code_comment.04 already processed
+2025-07-22 16:34:43.288 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.issue_comment.0 already processed
+2025-07-22 16:34:43.289 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.20 already processed
+2025-07-22 16:34:43.289 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.code_comment.08 already processed
+2025-07-22 16:34:43.289 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.23 already processed
+2025-07-22 16:34:43.291 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.code_comment.06 already processed
+2025-07-22 16:34:43.291 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.issue_comment.3 already processed
+2025-07-22 16:34:43.292 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.code_comment.16 already processed
+2025-07-22 16:34:43.292 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.issue_comment.6 already processed
+2025-07-22 16:34:43.293 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.code_comment.01 already processed
+2025-07-22 16:34:43.293 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.21 already processed
+2025-07-22 16:34:43.296 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.06 already processed
+2025-07-22 16:34:43.297 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.22 already processed
+2025-07-22 16:34:43.297 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.code_comment.15 already processed
+2025-07-22 16:34:43.298 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.05 already processed
+2025-07-22 16:34:43.299 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.02 already processed
+2025-07-22 16:34:43.299 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.25 already processed
+2025-07-22 16:34:43.301 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.09 already processed
+2025-07-22 16:34:43.301 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.code_comment.00 already processed
+2025-07-22 16:34:43.308 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.code_comment.05 already processed
+2025-07-22 16:34:43.308 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.14 already processed
+2025-07-22 16:34:43.308 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.07 already processed
+2025-07-22 16:34:43.309 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.03 already processed
+2025-07-22 16:34:43.310 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.code_comment.14 already processed
+2025-07-22 16:34:43.312 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.15 already processed
+2025-07-22 16:34:43.313 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.code_comment.11 already processed
+2025-07-22 16:34:43.314 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.code_comment.10 already processed
+2025-07-22 16:34:43.314 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.issue_comment.4 already processed
+2025-07-22 16:34:43.315 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.issue_comment.1 already processed
+2025-07-22 16:34:43.317 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.code_comment.13 already processed
+2025-07-22 16:34:43.317 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.code_comment.07 already processed
+2025-07-22 16:34:43.318 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.18 already processed
+2025-07-22 16:34:43.320 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.12 already processed
+2025-07-22 16:34:43.323 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.code_comment.09 already processed
+2025-07-22 16:34:43.324 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.01 already processed
+2025-07-22 16:34:43.332 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.11 already processed
+2025-07-22 16:34:43.332 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.code_comment.02 already processed
+2025-07-22 16:34:43.333 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.16 already processed
+2025-07-22 16:34:43.333 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.24 already processed
+2025-07-22 16:34:43.333 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.issue_comment.5 already processed
+2025-07-22 16:34:43.337 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.docs.17 already processed
+2025-07-22 16:34:43.338 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:159 - File root-project.root.v6-32-06.issue_comment.2 already processed
+Stage s1 params:
+model_fields: ['true_positive', 'reasoning']
+hostname: http://localhost:11434
+model: model='deepseek-r1:8b' temperature=0.0 format={'properties': {'true_positive': {'title': 'True Positive', 'type': 'boolean'}, 'reasoning': {'title': 'Reasoning', 'type': 'string'}}, 'required': ['true_positive', 'reasoning'], 'title': 'OllamaQaRelevanceResponse', 'type': 'object'} base_url='http://localhost:11434'
+batch_size: 50
+n_threads: 10
+disable_cache: False
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 50:   0%|          | 0/47 [00:00<?, ?it/s]Processing root-project.root.v6-32-06.docs.19 in batches of 50:   2%|▏         | 1/47 [00:31<24:11, 31.56s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:   4%|▍         | 2/47 [01:02<23:29, 31.31s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:   6%|▋         | 3/47 [01:31<22:07, 30.17s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:   9%|▊         | 4/47 [02:01<21:35, 30.13s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:  11%|█         | 5/47 [02:29<20:35, 29.41s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:  13%|█▎        | 6/47 [02:57<19:41, 28.81s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:  15%|█▍        | 7/47 [03:28<19:38, 29.45s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:  17%|█▋        | 8/47 [03:54<18:36, 28.62s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:  19%|█▉        | 9/47 [04:22<17:57, 28.36s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:  21%|██▏       | 10/47 [04:50<17:24, 28.22s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:  23%|██▎       | 11/47 [05:19<17:00, 28.34s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:  26%|██▌       | 12/47 [05:48<16:44, 28.69s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:  28%|██▊       | 13/47 [06:18<16:22, 28.90s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:  30%|██▉       | 14/47 [06:48<16:06, 29.28s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:  32%|███▏      | 15/47 [07:18<15:47, 29.61s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:  34%|███▍      | 16/47 [07:48<15:15, 29.52s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:  36%|███▌      | 17/47 [08:16<14:39, 29.32s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:  38%|███▊      | 18/47 [08:44<13:59, 28.94s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:  40%|████      | 19/47 [09:14<13:37, 29.20s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:  43%|████▎     | 20/47 [09:44<13:15, 29.47s/it]Processing root-project.root.v6-32-06.docs.19 in batches of 50:  45%|████▍     | 21/47 [10:12<12:31, 28.90s/it]
