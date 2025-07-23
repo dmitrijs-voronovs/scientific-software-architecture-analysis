@@ -1,0 +1,74 @@
+nohup: ignoring input
+2025-07-23 09:27:25.299 | INFO     | processing_pipeline.model.IBaseStage:execute:252 - Executing s2 stage
+2025-07-23 09:27:25.321 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.docs.01
+2025-07-23 09:27:25.321 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing allenai.scispacy.v0.5.5.code_comment
+2025-07-23 09:27:25.321 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing scverse.scanpy.1.10.2.issue
+2025-07-23 09:27:25.322 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.docs.04
+2025-07-23 09:27:25.322 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.release
+2025-07-23 09:27:25.322 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.issue
+2025-07-23 09:27:25.322 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing allenai.scispacy.v0.5.5.issue_comment
+2025-07-23 09:27:25.322 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing OpenGene.fastp.v0.23.4.release
+2025-07-23 09:27:25.322 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing OpenGene.fastp.v0.23.4.issue_comment
+2025-07-23 09:27:25.322 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.docs.07
+Stage s2 params:
+model_fields: ['related_to_arch', 'reasoning']
+hostname: http://localhost:11434
+model: model='deepseek-r1:8b' temperature=0.0 format={'properties': {'related_to_arch': {'title': 'Related To Arch', 'type': 'boolean'}, 'reasoning': {'title': 'Reasoning', 'type': 'string'}}, 'required': ['related_to_arch', 'reasoning'], 'title': 'OllamaArchitectureResponse', 'type': 'object'} base_url='http://localhost:11434'
+batch_size: 50
+n_threads: 10
+disable_cache: False
+
+
+Processing root-project.root.v6-32-06.release in batches of 50:   0%|          | 0/1 [00:00<?, ?it/s]
+
+Processing OpenGene.fastp.v0.23.4.release in batches of 50:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+
+Processing OpenGene.fastp.v0.23.4.issue_comment in batches of 50:   0%|          | 0/9 [00:00<?, ?it/s][A[A[A
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 50:   0%|          | 0/13 [00:00<?, ?it/s][A
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:   0%|          | 0/36 [00:00<?, ?it/s][A[A[A[A
+
+
+
+
+Processing allenai.scispacy.v0.5.5.code_comment in batches of 50:   0%|          | 0/1 [00:00<?, ?it/s][A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 50:   0%|          | 0/48 [00:00<?, ?it/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 50:   0%|          | 0/48 [00:00<?, ?it/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 50:   0%|          | 0/48 [00:00<?, ?it/s][A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue in batches of 50:   0%|          | 0/211 [00:00<?, ?it/s][A[A[A[A[A[A[A[A[A
+
+Processing OpenGene.fastp.v0.23.4.release in batches of 50: 100%|██████████| 1/1 [00:30<00:00, 30.06s/it][A[AProcessing OpenGene.fastp.v0.23.4.release in batches of 50: 100%|██████████| 1/1 [00:30<00:00, 30.06s/it]
+2025-07-23 09:27:55.489 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:202 - Processed OpenGene.fastp.v0.23.4.release
+2025-07-23 09:27:55.490 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.docs.00
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 50:   0%|          | 0/48 [00:00<?, ?it/s][A[A
