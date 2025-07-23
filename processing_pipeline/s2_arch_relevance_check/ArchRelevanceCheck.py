@@ -63,8 +63,7 @@ Based on the steps above, make your final decision.
 """
 
 def main():
-    # ArchitectureRelevanceCheckStage(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=True)
-    ArchitectureRelevanceCheckStage(hostname=LLMHost.RADU_SERVER, disable_cache=True, batch_size_override=10).execute(["root-project"], reverse=True)
+    ArchitectureRelevanceCheckStage(hostname=LLMHost.SERVER).execute(["code_comment.", "issue."], reverse=False)
 
 if __name__ == "__main__":
     main()

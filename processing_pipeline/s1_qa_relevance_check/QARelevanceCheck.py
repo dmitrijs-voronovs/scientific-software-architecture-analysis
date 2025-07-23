@@ -128,7 +128,7 @@ Provide your response with only the following two fields:
 
 
 def main():
-    QARelevanceCheckStage(hostname=LLMHost.GREEN_LAB).execute(["root-project.root.v6-32-06.code_comment.","root-project.root.v6-32-06.docs.","root-project.root.v6-32-06.issue_comment."], reverse=False)
+    QARelevanceCheckStage(hostname=LLMHost.SERVER).execute(["root-project.root.v6-32-06.code_comment.","root-project.root.v6-32-06.docs.","root-project.root.v6-32-06.issue_comment."], reverse=False)
 
 
 if __name__ == "__main__":

@@ -106,7 +106,7 @@ reasoning: This is a structured changelog that is simply a list of changes. It l
 
 
 def main():
-    NoiseFilteringStage(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=False)
+    NoiseFilteringStage(hostname=LLMHost.SERVER).execute(["root-project"], reverse=False)
 
 
 if __name__ == "__main__":
