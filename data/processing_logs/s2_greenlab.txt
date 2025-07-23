@@ -1,0 +1,33 @@
+nohup: ignoring input
+2025-07-23 07:27:14.635 | INFO     | processing_pipeline.model.IBaseStage:execute:252 - Executing s2 stage
+2025-07-23 07:27:14.653 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.code_comment.3
+2025-07-23 07:27:14.653 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.code_comment.1
+2025-07-23 07:27:14.653 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.code_comment.2
+2025-07-23 07:27:14.654 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.code_comment.0
+2025-07-23 07:27:14.654 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.code_comment.4
+2025-07-23 07:27:14.654 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:161 - Processing root-project.root.v6-32-06.code_comment.5
+Stage s2 params:
+model_fields: ['related_to_arch', 'reasoning']
+hostname: http://localhost:11434
+model: model='deepseek-r1:8b' temperature=0.0 format={'properties': {'related_to_arch': {'title': 'Related To Arch', 'type': 'boolean'}, 'reasoning': {'title': 'Reasoning', 'type': 'string'}}, 'required': ['related_to_arch', 'reasoning'], 'title': 'OllamaArchitectureResponse', 'type': 'object'} base_url='http://localhost:11434'
+batch_size: 50
+n_threads: 10
+disable_cache: False
+
+
+Processing root-project.root.v6-32-06.code_comment.2 in batches of 50:   0%|          | 0/206 [00:00<?, ?it/s]
+Processing root-project.root.v6-32-06.code_comment.1 in batches of 50:   0%|          | 0/206 [00:00<?, ?it/s][A
+
+Processing root-project.root.v6-32-06.code_comment.4 in batches of 50:   0%|          | 0/206 [00:00<?, ?it/s][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.0 in batches of 50:   0%|          | 0/206 [00:00<?, ?it/s][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.code_comment.5 in batches of 50:   0%|          | 0/206 [00:00<?, ?it/s][A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.3 in batches of 50:   0%|          | 0/206 [00:00<?, ?it/s][A[A[A[A[A
