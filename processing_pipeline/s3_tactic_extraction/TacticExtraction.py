@@ -1,12 +1,28 @@
+from functools import cache
+
 import pandas as pd
+import yaml
 
 from cfg.LLMHost import LLMHost
 from cfg.ModelName import ModelName
-from processing_pipeline.s3_tactic_extraction.tactics.tactic_description_full import tactic_descriptions_full
-from processing_pipeline.s3_tactic_extraction.tactics.tactic_list_simplified import TacticSimplifiedModelResponse
+from cfg.tactics.tactic_list_simplified import TacticSimplifiedModelResponse
 from constants.abs_paths import AbsDirPath
 from constants.foldernames import FolderNames
 from processing_pipeline.model.IBaseStage import IBaseStage
+
+
+def get_structured_tactic_list() -> str:
+    with open(AbsDirPath.TACTICS / "tactic_list.yaml", "r") as f:
+        tactics = yaml.safe_load(f)
+    prompt_lines = []
+
+    for attr in tactics['tactics']:
+        prompt_lines.append(f"\n\n### {attr['quality_attribute']}")
+        for category in attr['tactic_categories']:
+            prompt_lines.append(f"\n#### {category['category_name']}")
+            for tactic in category['tactics']:
+                prompt_lines.append(f"- **{tactic['name']}**: {tactic['description']}")
+    return "\n".join(prompt_lines)
 
 
 class TacticExtractionStage(IBaseStage):
@@ -18,65 +34,52 @@ class TacticExtractionStage(IBaseStage):
     out_dir = AbsDirPath.S3_TACTIC_EXTRACTION
     stage_name = 's3'
 
-    tactic_descriptions_list_simplified = "\n".join(
-        f"- {tactic}: {details["description"]}"
-        for tactic, details in tactic_descriptions_full.items())
-
     @classmethod
     def to_prompt(cls, x: pd.Series) -> str:
         return f"""
-You are an expert in software architecture tactics. Your task is to analyze the given text and categorize it according to software architecture tactics, quality attributes, and system responses.
+    You are an expert in software architecture tactics. Your task is to analyze the provided text and identify the single most specific software architecture tactic being described.
 
-### **Key Concepts**
-- **Tactics**: Design decisions that influence system responses to achieve quality attributes.
-- **Response**: The system's reaction to a stimulus, either at runtime or development time.
+    ### **Reasoning Process**
+    To ensure accuracy, you must follow these three steps:
+    1.  **Identify Quality Attribute**: First, determine which primary Quality Attribute the text is addressing (e.g., Performance, Modifiability).
+    2.  **Identify Tactic Category**: Within that attribute, determine the most relevant Tactic Category (e.g., Manage Resources, Reduce Coupling).
+    3.  **Select Specific Tactic**: From that category, select the **single most specific tactic** that best describes the action in the text.
 
-### **Available Quality Attributes**
-- **Availability**: Minimizing service outages by masking or repairing faults.
-- **Interoperability**: Enabling seamless data exchange between systems.
-- **Modifiability**: Facilitating easy changes for new features, bug fixes, or adaptations.
-- **Performance**: Ensuring the system meets timing and throughput requirements.
-- **Security**: Protecting data from unauthorized access and ensuring confidentiality.
-- **Testability**: Making software easy to test and debug.
-- **Usability**: Enhancing user experience and reducing operational errors.
-- **Energy Efficiency**: Reducing energy consumption in software and hardware.
+    **Crucially, focus on the architectural *solution* or *feature* described, not just the problem it solves. For example, a request to add a configuration option is a Modifiability tactic, even if it is meant to prevent an error.**
 
-### **Your Task**
-For the given text:
-1. Determine the **specific tactic** from the list below and identify the **quality attribute** it addresses
-2. Assign the tactic to `tactic` field. 
-3. Describe the **system's response** to the stimulus, assign it to `response` field
+    ### **Your Task**
+    Based on your reasoning, provide the following two fields:
 
-### **Examples**
-- **Availability**  
-  - **Stimulus**: Server becomes unresponsive.  
-  - **Tactic**: Heartbeat Monitor (Detect Faults).  
-  - **Response**: Inform Operator, Continue to Operate.  
-  - **Response Measure**: No Downtime.  
+    1.  `tactic`: The name of the single most specific tactic you identified.
+    2.  `response`: A one-sentence summary of the functionality or behavior described in the text, from the system's perspective. Start the sentence with "The system...".
 
-- **Performance**  
-  - **Stimulus**: Users initiate transactions.  
-  - **Tactic**: Increase Resources (Manage Resources).  
-  - **Response**: Transactions Are Processed.  
-  - **Response Measure**: Average Latency of Two Seconds.  
+    ---
+    ### **Examples**
+    # (Examples remain the same)
+    - **Text**: "...for parallel processing of FASTQ files (i.e. alignment in parallel), `fastp` supports splitting the output into multiple files."
+      - `tactic`: Introduce Concurrency
+      - `response`: The system processes different streams of events in parallel to reduce blocked time.
 
-- **Security**  
-  - **Stimulus**: Disgruntled employee attempts to modify the pay rate table.  
-  - **Tactic**: Maintain Audit Trail (React to Attacks).  
-  - **Response**: Record attempted modification.  
-  - **Response Measure**: Time taken to restore data.  
+    - **Text**: "Request is a for a now CLI arg --umi_join that will define the character placed between the UMIs in read1 and read2."
+      - `tactic`: Tailor Interface
+      - `response`: The system adds a capability to an interface, allowing users to customize the UMI delimiter without changing the core code.
 
-### **Available Tactics**
-{cls.tactic_descriptions_list_simplified}
+    - **Text**: "The option `--dup_calc_accuracy` can be used to specify the level (1 ~ 6). The higher level means more memory usage and more running time."
+      - `tactic`: Increase Resources
+      - `response`: The system uses additional memory and processing time to reduce latency and improve calculation accuracy.
 
-### **Analyze the Following Text**
-"{x['sentence']}"
-"""
+    ---
+    ### **Available Tactics**
+    {get_structured_tactic_list()}
 
+    ---
+    ### **Analyze the Following Text**
+    "{x['sentence']}"
+    """
 
 def main():
     # TacticExtractionStage(hostname=LLMHost.GREEN_LAB).execute(["root-project"], reverse=True)
-    TacticExtractionStage(hostname=LLMHost.GREEN_LAB, disable_cache=True, batch_size_override=10).execute_single_threaded(["root-project.root.v6-32-06.code_comment.", "root-project.root.v6-32-06.docs.", "root-project.root.v6-32-06.issue_comment."], reverse=True)
+    TacticExtractionStage(hostname=LLMHost.RADU_SERVER, disable_cache=True, batch_size_override=10).execute_single_threaded()
 
 
 if __name__ == "__main__":

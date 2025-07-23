@@ -30,8 +30,10 @@ class AbsDirPath:
     QUERIES = RESOURCES / "queries"
     ANALYSIS = STAGES / "analysis"
     KEYWORDS = DATA / "keywords"
+    TACTICS = CONFIG / "tactics"
     SAMPLES = DATA / "samples"
     SAMPLES_VERIFIED = SAMPLES / "verified"
+
 
     WIKIS = TEMP / "docs"
     SOURCE_CODE = TEMP / "source"
