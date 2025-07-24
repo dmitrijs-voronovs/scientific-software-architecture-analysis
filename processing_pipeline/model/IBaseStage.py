@@ -234,8 +234,7 @@ class IBaseStage(metaclass=ABCMeta):
 
         try:
             for file_path in self.in_dir.glob(f"*{self.file_ext}"):
-                keep_processing = len(only_files_containing_text) == 0 or any(
-                    text_to_test in file_path.stem for text_to_test in only_files_containing_text)
+                keep_processing = self._keep_processing(file_path, only_files_containing_text)
                 if keep_processing == reverse:
                     continue
 
@@ -254,8 +253,7 @@ class IBaseStage(metaclass=ABCMeta):
             with concurrent.futures.thread.ThreadPoolExecutor(max_workers=self.n_threads) as executor:
                 futures_to_filenames = {}
                 for file_path in self.in_dir.glob(f"*{self.file_ext}"):
-                    keep_processing = len(only_files_containing_text) == 0 or any(
-                        text_to_test in str(file_path) for text_to_test in only_files_containing_text)
+                    keep_processing = self._keep_processing(file_path, only_files_containing_text)
                     if keep_processing == reverse:
                         if dry_run: logger.info(f"File {file_path.stem} would be skipped")
                         continue
@@ -275,6 +273,12 @@ class IBaseStage(metaclass=ABCMeta):
             logger.error(e)
             raise e
         logger.info(f"Finished {self.stage_name} stage")
+
+    @staticmethod
+    def _keep_processing(file_path, only_files_containing_text):
+        keep_processing = len(only_files_containing_text) == 0 or any(
+            text_to_test in file_path.name for text_to_test in only_files_containing_text)
+        return keep_processing
 
     def _print_all_params(self):
         print(f"Stage {self.stage_name} params:")
