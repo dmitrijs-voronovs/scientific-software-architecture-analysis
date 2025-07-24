@@ -147,9 +147,8 @@ class IBaseStage(metaclass=ABCMeta):
         """Filter to apply to the data before processing"""
         return df
 
-    @classmethod
-    def get_stage_column_name(cls, field_name):
-        return f"{cls.stage_name}_{field_name}"
+    def get_stage_column_name(self, field_name):
+        return f"{self.stage_name}_{field_name}"
 
     def _process_in_batches(self, file_path: Path, res_filepath: Path):
         # Fix for shelve not working in multithreading environment
@@ -201,12 +200,11 @@ class IBaseStage(metaclass=ABCMeta):
             if not self.disable_cache: db['processed'] = True
             logger.info(f"Processed {file_path.stem}")
 
-    @classmethod
-    def get_columns(cls):
+    def get_columns(self):
         # noinspection PyUnresolvedReferences
-        return [cls.get_stage_column_name(field) for field in
-                # cls.model_fields]
-                cls.data_model.model_fields.keys()]
+        return [self.get_stage_column_name(field) for field in
+                # self.model_fields]
+                self.data_model.model_fields.keys()]
 
     def _prepare_shelf_with_path(self, file_path) -> Path:
         if not self.disable_cache:
