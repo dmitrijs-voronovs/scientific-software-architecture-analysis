@@ -248,7 +248,7 @@ class IBaseStage(metaclass=ABCMeta):
             raise e
         logger.info(f"Finished {self.stage_name} stage")
 
-    def execute(self, only_files_containing_text: List[str] | None = None, reverse: bool = False):
+    def execute(self, only_files_containing_text: List[str] | None = None, reverse: bool = False, dry_run: bool = False):
         logger.info(f"Executing {self.stage_name} stage")
         only_files_containing_text = only_files_containing_text or []
 
@@ -257,8 +257,13 @@ class IBaseStage(metaclass=ABCMeta):
                 futures_to_filenames = {}
                 for file_path in self.in_dir.glob(f"*{self.file_ext}"):
                     keep_processing = len(only_files_containing_text) == 0 or any(
-                        text_to_test in file_path.stem for text_to_test in only_files_containing_text)
+                        text_to_test in str(file_path) for text_to_test in only_files_containing_text)
                     if keep_processing == reverse:
+                        if dry_run: logger.info(f"File {file_path.stem} would be skipped")
+                        continue
+
+                    if dry_run:
+                        logger.info(f"File {file_path.stem} would be processed")
                         continue
 
                     res_filepath = self.out_dir / f"{file_path.stem}{self.file_ext}"
