@@ -4,11 +4,11 @@ import pandas as pd
 
 from cfg.LLMHost import LLMHost
 from processing_pipeline.model.IStageVerification import IStageVerification
-from processing_pipeline.s1_qa_relevance_check import QARelevanceCheck
+from processing_pipeline.s1_qa_relevance_check.QARelevanceCheck import QARelevanceCheckStage
 
 
 class QARelevanceCheckVerification(IStageVerification):
-    stage_to_verify = QARelevanceCheck
+    stage_to_verify = QARelevanceCheckStage
 
     @classmethod
     def to_prompt(cls, x: pd.Series) -> str:
@@ -64,6 +64,8 @@ You **must** respond with a single, raw JSON object. Do not add any text, commen
     "correct": "correct" | "partially correct" | "incorrect",
     "reasoning": "Your detailed explanation for why you chose this evaluation. Justify your verdict by referencing the specific rules from the `<original_prompt>` and the content of `<ai_output_to_verify>`."
 }}
+
+Now, perform your evaluation based on the content within the <evaluation_data> block.
 """
 
 
