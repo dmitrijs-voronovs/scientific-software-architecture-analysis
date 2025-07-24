@@ -4,17 +4,17 @@ import pandas as pd
 
 from cfg.LLMHost import LLMHost
 from processing_pipeline.model.IStageVerification import IStageVerification
-from processing_pipeline.s0_noise_filtering.NoiseFiltering import NoiseFilteringStage
+from processing_pipeline.s1_qa_relevance_check import QARelevanceCheck
 
 
-class NoiseFilteringStageVerification(IStageVerification):
-    stage_to_verify = NoiseFilteringStage
+class QARelevanceCheckVerification(IStageVerification):
+    stage_to_verify = QARelevanceCheck
 
     @classmethod
     def to_prompt(cls, x: pd.Series) -> str:
-        original_prompt_str = html.escape(x.get('s0_prompt', 'N/A'))
-        to_eliminate_str = str(x.get('s0_to_eliminate', 'N/A')).lower()
-        reasoning_str = html.escape(x.get('s0_reasoning', 'N/A'))
+        original_prompt_str = html.escape(x.get('s1_prompt', 'N/A'))
+        is_true_positive_str = str(x.get('s1_true_positive', 'N/A')).lower()
+        reasoning_str = html.escape(x.get('s1_reasoning', 'N/A'))
 
         return f"""
 You are a meticulous and expert evaluator of AI model outputs. Your goal is to review and verify a classification made by another AI model.
@@ -30,7 +30,7 @@ You will be provided with the original prompt that the first AI was given, and t
     </original_prompt>
 
     <ai_output_to_verify>
-        <decision_to_eliminate>{to_eliminate_str}</decision_to_eliminate>
+        <is_true_positive>{is_true_positive_str}</is_true_positive>
         <reasoning>{reasoning_str}</reasoning>
     </ai_output_to_verify>
 </evaluation_data>
@@ -45,16 +45,16 @@ You will be provided with the original prompt that the first AI was given, and t
 ### Evaluation Criteria
 
 - **`correct`**:
-  - The `decision_to_eliminate` is **correct** according to the rules in `<original_prompt>`.
+  - The decision in `<is_true_positive>` is **correct** according to the rules in `<original_prompt>`.
   - AND the `reasoning` accurately and logically justifies that decision.
 
 - **`partially correct`**:
-  - The `decision_to_eliminate` is **correct**.
+  - The decision in `<is_true_positive>` is **correct**.
   - BUT the `reasoning` is flawed. This includes reasoning that is weak, imprecise, irrelevant, missing when required, or uses the wrong justification.
 
 - **`incorrect`**:
-  - The `decision_to_eliminate` is **incorrect**.
-  - This verdict applies **regardless of the quality of the `reasoning`**. If the main decision is wrong, the entire output is incorrect. This explicitly includes scenarios where the `reasoning` accurately describes the content but leads to the wrong final decision.
+  - The decision in `<is_true_positive>` is **incorrect**.
+  - This verdict applies **regardless of the quality of the `reasoning`**. If the main decision is wrong, the entire output is incorrect.
 
 ### Response Format
 You **must** respond with a single, raw JSON object. Do not add any text, comments, or markdown formatting before or after the JSON. Your response must conform to the following structure:
@@ -68,7 +68,7 @@ You **must** respond with a single, raw JSON object. Do not add any text, commen
 
 
 def main():
-    NoiseFilteringStageVerification(hostname=LLMHost.GREEN_LAB, batch_size_override=10).execute_verification()
+    QARelevanceCheckVerification(hostname=LLMHost.GREEN_LAB, batch_size_override=20).execute_verification()
 
 
 if __name__ == "__main__":

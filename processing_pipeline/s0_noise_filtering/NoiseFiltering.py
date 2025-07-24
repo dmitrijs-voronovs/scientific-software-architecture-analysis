@@ -8,13 +8,13 @@ from constants.foldernames import FolderNames
 from processing_pipeline.model.IBaseStage import IBaseStage
 
 
-class OllamaFormatValidityResponse(BaseModel):
+class OllamaNoiseFilteringResponse(BaseModel):
     to_eliminate: bool
     reasoning: str
 
 
 class NoiseFilteringStage(IBaseStage):
-    data_model = OllamaFormatValidityResponse
+    data_model = OllamaNoiseFilteringResponse
     temperature = 0.0
     model_name = ModelName.DEEPSEEK_8B
     cache_dir = AbsDirPath.CACHE / FolderNames.NOISE_FILTERING_DIR

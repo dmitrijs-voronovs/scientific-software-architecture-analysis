@@ -1,9 +1,17 @@
 from abc import ABC, abstractproperty
+from typing import Literal
+
+from pydantic import BaseModel
 
 from cfg.ModelName import ModelName
 from constants.abs_paths import AbsDirPath
 from processing_pipeline.model.CSVDFHandler import CSVDFHandler
 from processing_pipeline.model.IBaseStage import IBaseStage
+
+
+class OllamaFormatValidityResponse(BaseModel):
+    correctness: Literal["correct", "partially correct", "incorrect"]
+    reasoning: str
 
 
 class IStageVerification(IBaseStage, ABC):
@@ -13,6 +21,7 @@ class IStageVerification(IBaseStage, ABC):
     out_dir = AbsDirPath.SAMPLES_VERIFIED
     cache_dir = AbsDirPath.CACHE / "samples"
     DFHandler = CSVDFHandler()
+    data_model = OllamaFormatValidityResponse
 
     stage_to_verify = type[IBaseStage]
 
