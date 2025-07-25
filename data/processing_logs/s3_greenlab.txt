@@ -1,0 +1,95 @@
+nohup: ignoring input
+2025-07-25 09:09:31.228 | INFO     | processing_pipeline.model.IBaseStage:execute:249 - Executing s3 stage
+2025-07-25 09:09:31.231 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:160 - Processing scverse.scanpy.1.10.2.wiki
+2025-07-25 09:09:31.233 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:160 - Processing root-project.root.v6-32-06.wiki
+2025-07-25 09:09:31.233 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:160 - Processing scverse.scanpy.1.10.2.code_comment
+2025-07-25 09:09:31.233 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:160 - Processing google.deepvariant.v1.6.1.release
+2025-07-25 09:09:31.246 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:160 - Processing google.deepvariant.v1.6.1.docs
+2025-07-25 09:09:31.247 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:160 - Processing allenai.scispacy.v0.5.5.docs
+2025-07-25 09:09:31.247 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:160 - Processing allenai.scispacy.v0.5.5.code_comment
+2025-07-25 09:09:31.247 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:160 - Processing OpenGene.fastp.v0.23.4.docs
+2025-07-25 09:09:31.248 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:160 - Processing google.deepvariant.v1.6.1.code_comment
+2025-07-25 09:09:31.248 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:160 - Processing root-project.root.v6-32-06.docs.1
+Stage s3 params:
+model_fields: ['tactic', 'response']
+hostname: http://localhost:11434
+model: model='deepseek-r1:8b' temperature=0.0 format={'properties': {'tactic': {'enum': ['Ping/Echo', 'Monitor', 'Heartbeat', 'Timestamp', 'Sanity Checking', 'Condition Monitoring', 'Voting', 'Exception Detection', 'Self-Test', 'Active Redundancy', 'Passive Redundancy', 'Spare', 'Exception Handling', 'Rollback', 'Software Upgrade', 'Retry', 'Ignore Faulty Behavior', 'Degradation', 'Reconfiguration', 'Shadow', 'State Resynchronization', 'Escalating Restart', 'Non-Stop Forwarding', 'Removal from Service', 'Transactions', 'Predictive Model', 'Exception Prevention', 'Increase Competence Set', 'Discover Service', 'Orchestrate', 'Tailor Interface', 'Split Module', 'Increase Semantic Coherence', 'Encapsulate', 'Use an Intermediary', 'Restrict Dependencies', 'Refactor', 'Abstract Common Services', 'Component Replacement', 'Compile-time Parameterization', 'Aspects', 'Configuration-time Binding', 'Resource Files', 'Runtime Registration', 'Dynamic Lookup', 'Interpret Parameters', 'Startup Time Binding', 'Name Servers', 'Plug-ins', 'Publish-Subscribe', 'Shared Repositories', 'Polymorphism', 'Manage Sampling Rate', 'Limit Event Response', 'Prioritize Events', 'Reduce Overhead', 'Bound Execution Times', 'Increase Resource Efficiency', 'Increase Resources', 'Introduce Concurrency', 'Maintain Multiple Copies of Computations', 'Maintain Multiple Copies of Data', 'Bound Queue Sizes', 'Schedule Resources', 'Detect Intrusion', 'Detect Service Denial', 'Verify Message Integrity', 'Detect Message Delay', 'Identify Actors', 'Authenticate Actors', 'Authorize Actors', 'Limit Access', 'Limit Exposure', 'Encrypt Data', 'Separate Entities', 'Change Default Settings', 'Revoke Access', 'Lock Computer', 'Inform Actors', 'Maintain Audit Trail', 'Restore', 'Specialized Interfaces', 'Record/Playback', 'Localize State Storage', 'Abstract Data Sources', 'Sandbox', 'Executable Assertions', 'Limit Structural Complexity', 'Limit Nondeterminism', 'Increase semantic coherence', 'Co-locate related responsibilities', 'Restrict dependencies', 'Defer binding', 'Cancel', 'Undo', 'Pause/resume', 'Aggregate', 'Maintain task models', 'Maintain user models', 'Maintain system models', 'Metering', 'Static Classification', 'Dynamic Classification', 'Vertical Scaling', 'Horizontal Scaling', 'Scheduling', 'Brokering', 'Service Adaptation', 'Increase Efficiency', 'None'], 'title': 'Tactic', 'type': 'string'}, 'response': {'title': 'Response', 'type': 'string'}}, 'required': ['tactic', 'response'], 'title': 'TacticSimplifiedModelResponse', 'type': 'object'} base_url='http://localhost:11434'
+batch_size: 50
+n_threads: 10
+disable_cache: False
+
+
+Processing allenai.scispacy.v0.5.5.docs in batches of 50:   0%|          | 0/1 [00:00<?, ?it/s]
+Processing OpenGene.fastp.v0.23.4.docs in batches of 50:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Processing allenai.scispacy.v0.5.5.code_comment in batches of 50:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+
+Processing google.deepvariant.v1.6.1.release in batches of 50:   0%|          | 0/1 [00:00<?, ?it/s][A[A[A
+
+
+
+Processing scverse.scanpy.1.10.2.code_comment in batches of 50:   0%|          | 0/1 [00:00<?, ?it/s][A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.wiki in batches of 50:   0%|          | 0/2 [00:00<?, ?it/s][A[A[A[A[A
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 50:   0%|          | 0/2 [00:00<?, ?it/s][A[A[A[A[A[AProcessing allenai.scispacy.v0.5.5.docs in batches of 50: 100%|██████████| 1/1 [00:08<00:00,  8.16s/it]Processing allenai.scispacy.v0.5.5.docs in batches of 50: 100%|██████████| 1/1 [00:08<00:00,  8.16s/it]
+2025-07-25 09:09:39.824 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:201 - Processed allenai.scispacy.v0.5.5.docs
+2025-07-25 09:09:39.931 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:160 - Processing root-project.root.v6-32-06.docs.0
+Processing google.deepvariant.v1.6.1.docs in batches of 50:   0%|          | 0/5 [00:00<?, ?it/s]
+Processing OpenGene.fastp.v0.23.4.docs in batches of 50: 100%|██████████| 1/1 [00:13<00:00, 13.60s/it][AProcessing OpenGene.fastp.v0.23.4.docs in batches of 50: 100%|██████████| 1/1 [00:13<00:00, 13.60s/it]
+2025-07-25 09:09:46.075 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:201 - Processed OpenGene.fastp.v0.23.4.docs
+2025-07-25 09:09:46.101 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:160 - Processing root-project.root.v6-32-06.docs.3
+
+Processing root-project.root.v6-32-06.wiki in batches of 50:   0%|          | 0/6 [00:00<?, ?it/s][A
+
+Processing allenai.scispacy.v0.5.5.code_comment in batches of 50: 100%|██████████| 1/1 [00:28<00:00, 28.18s/it][A[AProcessing allenai.scispacy.v0.5.5.code_comment in batches of 50: 100%|██████████| 1/1 [00:28<00:00, 28.22s/it]
+2025-07-25 09:10:00.725 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:201 - Processed allenai.scispacy.v0.5.5.code_comment
+2025-07-25 09:10:00.973 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:160 - Processing OpenGene.fastp.v0.23.4.code_comment
+
+
+Processing OpenGene.fastp.v0.23.4.code_comment in batches of 50:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.1 in batches of 50:   0%|          | 0/44 [00:00<?, ?it/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.0 in batches of 50:   0%|          | 0/44 [00:00<?, ?it/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.3 in batches of 50:   0%|          | 0/44 [00:00<?, ?it/s][A[A[A[A[A[A[A[A[A2025-07-25 09:13:00.229 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:130 - <RetryCallState 134314373061840: attempt #1; slept for 0.0; last result: failed (ResponseError connection refused (status code: -1))>
+2025-07-25 09:13:37.005 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:130 - <RetryCallState 134314639391776: attempt #1; slept for 0.0; last result: failed (ResponseError connection refused (status code: -1))>
+
+
+Processing OpenGene.fastp.v0.23.4.code_comment in batches of 50: 100%|██████████| 1/1 [04:02<00:00, 242.88s/it][A[AProcessing OpenGene.fastp.v0.23.4.code_comment in batches of 50: 100%|██████████| 1/1 [04:02<00:00, 242.88s/it]
+2025-07-25 09:14:04.589 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:201 - Processed OpenGene.fastp.v0.23.4.code_comment
+2025-07-25 09:14:04.589 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:160 - Processing root-project.root.v6-32-06.docs.2
+
+
+Processing root-project.root.v6-32-06.docs.2 in batches of 50:   0%|          | 0/44 [00:00<?, ?it/s][A[A2025-07-25 09:17:48.010 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:130 - <RetryCallState 134314372630960: attempt #1; slept for 0.0; last result: failed (ResponseError model runner has unexpectedly stopped, this may be due to resource limitations or an internal error, check ollama server logs for details (status code: -1))>
+2025-07-25 09:17:48.035 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:130 - <RetryCallState 134314636304240: attempt #1; slept for 0.0; last result: failed (ResponseError connection refused (status code: -1))>
+2025-07-25 09:17:48.042 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:130 - <RetryCallState 134314635700576: attempt #1; slept for 0.0; last result: failed (ResponseError connection refused (status code: -1))>
+2025-07-25 09:17:48.088 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:130 - <RetryCallState 134314373061840: attempt #2; slept for 5.0; last result: failed (ResponseError llama runner process no longer running: 2  (status code: -1))>
+2025-07-25 09:17:48.105 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:130 - <RetryCallState 134314370795520: attempt #1; slept for 0.0; last result: failed (ResponseError llama runner process no longer running: 2  (status code: -1))>
