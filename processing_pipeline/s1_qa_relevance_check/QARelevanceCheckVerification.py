@@ -70,7 +70,7 @@ Now, perform your evaluation based on the content within the <evaluation_data> b
 
 
 def main():
-    QARelevanceCheckVerification(hostname=LLMHost.GREEN_LAB, batch_size_override=20).execute_verification()
+    QARelevanceCheckVerification(hostname=LLMHost.RADU_SERVER, batch_size_override=20).execute_verification()
 
 
 if __name__ == "__main__":
