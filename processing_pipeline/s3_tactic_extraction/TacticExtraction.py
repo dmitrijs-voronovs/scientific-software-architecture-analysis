@@ -84,9 +84,7 @@ Based on your reasoning, provide the following two fields:
     """
 
 def main():
-    # TacticExtractionStage(hostname=LLMHost.SERVER).execute(["root-project"], reverse=True)
-    TacticExtractionStage(hostname=LLMHost.RADU_SERVER, disable_cache=True, batch_size_override=10).execute_single_threaded()
-
+    TacticExtractionStage(hostname=LLMHost.SERVER).execute(["issue", "issue_comment"], reverse=True)
 
 if __name__ == "__main__":
     main()
