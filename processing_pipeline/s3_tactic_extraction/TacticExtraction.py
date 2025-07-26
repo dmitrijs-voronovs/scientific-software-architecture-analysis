@@ -24,6 +24,7 @@ def get_structured_tactic_list() -> str:
                 prompt_lines.append(f"- **{tactic['name']}**: {tactic['description']}")
     return "\n".join(prompt_lines)
 
+tactic_list = get_structured_tactic_list()
 
 class TacticExtractionStage(IBaseStage):
     data_model = TacticSimplifiedModelResponse
@@ -76,7 +77,7 @@ Based on your reasoning, provide the following two fields:
 
 ---
 ### Available Tactics
-{get_structured_tactic_list()}
+{tactic_list}
 
 ---
 ### Analyze the Following Text
