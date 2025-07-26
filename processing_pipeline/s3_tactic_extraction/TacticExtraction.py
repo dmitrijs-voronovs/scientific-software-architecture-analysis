@@ -40,25 +40,25 @@ class TacticExtractionStage(IBaseStage):
         return f"""
 You are an expert in software architecture tactics. Your task is to analyze the provided text and identify the single most specific software architecture tactic being described.
 
-### Guiding Principles
+## Guiding Principles
 - Focus on the Mechanism: Identify the architectural *how* (the solution or feature), not the *why* (the benefit). For example, a request to add a configuration option is a Modifiability tactic, even if it is meant to prevent an error.
 - Handle Non-Feature Descriptions: If the text is a user question, bug report, installation issue, or a general discussion *about* the software rather than a description of a feature *within* the software, you **must** classify the tactic as `None`.
 
-### Reasoning Process
+## Reasoning Process
 To ensure accuracy, you must follow these four steps:
 0.  Summarize the Core Action: In one sentence, what is the system *doing* or what functional feature is being *added* or *described*? If no feature is described, state that it is a user question or discussion.
 1.  Identify Quality Attribute: Based on your summary, determine which primary Quality Attribute the text is addressing (e.g., Performance, Modifiability). If no feature is described, this is `None`.
 2.  Identify Tactic Category: Within that attribute, determine the most relevant Tactic Category (e.g., Manage Resources, Reduce Coupling).
 3.  Select Specific Tactic: From that category, select the single most specific tactic that best describes the action in the text.
 
-### Your Task
+## Your Task
 Based on your reasoning, provide the following two fields:
 
 1.  `tactic`: The name of the single most specific tactic you identified, or `None`.
 2.  `response`: A one-sentence summary of the functionality or behavior described in the text, from the system's perspective. Start the sentence with "The system...". If the tactic is `None`, summarize the user's query or the nature of the text.
 
 ---
-### Examples
+## Examples
 - Text: "...for parallel processing of FASTQ files (i.e. alignment in parallel), `fastp` supports splitting the output into multiple files."
   - `tactic`: Introduce Concurrency
   - `response`: The system processes different streams of events in parallel to reduce blocked time.
@@ -76,11 +76,11 @@ Based on your reasoning, provide the following two fields:
   - `response`: The system is being asked about its TensorFlow version and how to convert its model checkpoints to another format.
 
 ---
-### Available Tactics
+## Available Tactics
 {tactic_list}
 
 ---
-### Analyze the Following Text
+## Analyze the Following Text
 "{x['sentence']}"
     """
 
