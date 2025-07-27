@@ -4,11 +4,13 @@ import os
 import shelve
 import signal
 import sys
+import threading
 from abc import ABCMeta, abstractmethod
 from pathlib import Path
 from typing import List
 
 import pandas as pd
+from langchain_core.messages import SystemMessage, HumanMessage
 from langchain_ollama import ChatOllama
 from loguru import logger
 from pydantic import BaseModel
@@ -86,6 +88,7 @@ class IBaseStage(metaclass=ABCMeta):
     def __init__(self, hostname: str, *, batch_size_override: int = None, n_threads_override: int = None,
                  disable_cache=False, model_name_override: str = None, in_dir_override: Path = None,
                  out_dir_override: Path = None):
+        self.stop_event = threading.Event()
         self.model_fields = list(self.data_model.model_fields.keys())
         self.hostname = hostname
         if model_name_override:
@@ -107,9 +110,9 @@ class IBaseStage(metaclass=ABCMeta):
 
         self._init()
 
-    @staticmethod
-    def _cleanup_and_exit(signal_num, frame):
+    def _cleanup_and_exit(self, signal_num, frame):
         print("Caught interrupt, cleaning up...")
+        self.stop_event.set()
         sys.exit(0)  # Triggers the context manager's cleanup
 
     def _init(self):
@@ -120,6 +123,7 @@ class IBaseStage(metaclass=ABCMeta):
 
         # Register the signal handler
         signal.signal(signal.SIGINT, self._cleanup_and_exit)
+        signal.signal(signal.SIGTERM, self._cleanup_and_exit)
 
     @classmethod
     def is_retriable_error(cls, error) -> bool:
@@ -129,13 +133,23 @@ class IBaseStage(metaclass=ABCMeta):
     @retry(stop=stop_after_attempt(5), wait=wait_incrementing(5, 5),
            after=lambda retry_state: logger.warning(retry_state), reraise=True)
     def request_ollama_chain(self, prompts: List[str]) -> List[BaseModel]:
-        batch_answers = self.model.batch(prompts)
+        sys_prompt = self.get_system_prompt()
+        if sys_prompt:
+            system_message = SystemMessage(content=sys_prompt)
+            combined_prompts = [[system_message, HumanMessage(content=prompt)] for prompt in prompts]
+            batch_answers = self.model.batch(combined_prompts)
+        else:
+            batch_answers = self.model.batch(prompts)
         return [self.data_model.model_validate_json(answer.content) for answer in batch_answers]
 
     @classmethod
     @abstractmethod
     def to_prompt(cls, x: pd.Series) -> str:
         pass
+
+    @classmethod
+    def get_system_prompt(cls) -> str | None:
+        return None
 
     @classmethod
     def filter_and_transform_df_before_processing(cls, df) -> pd.DataFrame:
@@ -196,6 +210,8 @@ class IBaseStage(metaclass=ABCMeta):
                 df1 = self.transform_df_before_saving(resulting_df)
                 self.DFHandler.write_df(df1, res_filepath)
                 if not self.disable_cache: db["idx"] = last_idx + batch_end
+                if self.stop_event.is_set():
+                    return
 
             if not self.disable_cache: db['processed'] = True
             logger.info(f"Processed {file_path.stem}")
