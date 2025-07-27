@@ -36,8 +36,8 @@ class TacticExtractionStage(IBaseStage):
     stage_name = 's3'
 
     @classmethod
-    def to_prompt(cls, x: pd.Series) -> str:
-        return f"""
+    def get_system_prompt(cls) -> str | None:
+        return """
 You are an expert in software architecture tactics. Your task is to analyze the provided text and identify the single most specific software architecture tactic being described.
 
 ## Guiding Principles
@@ -80,12 +80,21 @@ Based on your reasoning, provide the following two fields:
 {tactic_list}
 
 ---
+        """
+
+    @classmethod
+    def to_prompt(cls, x: pd.Series) -> str:
+        return f"""
+---
 ## Analyze the Following Text
 "{x['sentence']}"
     """
 
+
 def main():
-    TacticExtractionStage(hostname=LLMHost.SERVER).execute(["issue", "issue_comment"], reverse=True)
+    # TacticExtractionStage(hostname=LLMHost.SERVER).execute(["issue", "issue_comment"], reverse=True)
+    # TacticExtractionStage(hostname=LLMHost.RADU_SERVER).execute(["issue", "issue_comment"], reverse=True)
+    TacticExtractionStage(hostname=LLMHost.RADU_SERVER, batch_size_override=5, n_threads_override=1, model_name_override=ModelName.DEEPSEEK_8B, disable_cache=True).execute(["issue", "issue_comment"], reverse=True)
 
 if __name__ == "__main__":
     main()
