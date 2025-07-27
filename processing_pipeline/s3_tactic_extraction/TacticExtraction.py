@@ -93,9 +93,9 @@ Based on the rules and tactics provided, analyze the following text and provide 
 
 
 def main():
-    # TacticExtractionStage(hostname=LLMHost.SERVER).execute(["issue", "issue_comment"], reverse=True)
+    TacticExtractionStage(hostname=LLMHost.SERVER).execute(["issue", "issue_comment"], reverse=True)
     # TacticExtractionStage(hostname=LLMHost.RADU_SERVER).execute(["issue", "issue_comment"], reverse=True)
-    TacticExtractionStage(hostname=LLMHost.GREEN_LAB, batch_size_override=5, n_threads_override=1, model_name_override=ModelName.DEEPSEEK_8B, disable_cache=True).execute(["issue", "issue_comment"], reverse=True)
+    # TacticExtractionStage(hostname=LLMHost.GREEN_LAB, batch_size_override=5, n_threads_override=1, model_name_override=ModelName.DEEPSEEK_8B, disable_cache=True).execute(["issue", "issue_comment"], reverse=True)
 
 if __name__ == "__main__":
     main()
