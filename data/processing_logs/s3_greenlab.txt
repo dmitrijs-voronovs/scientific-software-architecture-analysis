@@ -1,0 +1,68 @@
+nohup: ignoring input
+2025-07-28 09:51:26.734 | INFO     | processing_pipeline.model.IBaseStage:execute:265 - Executing s3 stage
+2025-07-28 09:51:26.738 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:174 - Processing google.deepvariant.v1.6.1.issue
+2025-07-28 09:51:26.738 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:174 - Processing root-project.root.v6-32-06.docs.6
+2025-07-28 09:51:26.738 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:174 - Processing scverse.scanpy.1.10.2.issue
+2025-07-28 09:51:26.738 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:174 - Processing root-project.root.v6-32-06.docs.1
+2025-07-28 09:51:26.739 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:174 - Processing allenai.scispacy.v0.5.5.docs
+2025-07-28 09:51:26.742 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:174 - Processing google.deepvariant.v1.6.1.docs
+2025-07-28 09:51:26.742 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:174 - Processing OpenGene.fastp.v0.23.4.docs
+2025-07-28 09:51:26.744 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:174 - Processing root-project.root.v6-32-06.docs.0
+2025-07-28 09:51:26.745 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:174 - Processing root-project.root.v6-32-06.docs.4
+2025-07-28 09:51:26.746 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:174 - Processing root-project.root.v6-32-06.docs.3
+Stage s3 params:
+stop_event: <threading.Event at 0x743380137c80: unset>
+model_fields: ['tactic', 'response']
+hostname: http://localhost:11434
+model: model='deepseek-r1:8b' temperature=0.0 format={'properties': {'tactic': {'enum': ['Ping/Echo', 'Monitor', 'Heartbeat', 'Timestamp', 'Sanity Checking', 'Condition Monitoring', 'Voting', 'Exception Detection', 'Self-Test', 'Active Redundancy', 'Passive Redundancy', 'Spare', 'Exception Handling', 'Rollback', 'Software Upgrade', 'Retry', 'Ignore Faulty Behavior', 'Degradation', 'Reconfiguration', 'Shadow', 'State Resynchronization', 'Escalating Restart', 'Non-Stop Forwarding', 'Removal from Service', 'Transactions', 'Predictive Model', 'Exception Prevention', 'Increase Competence Set', 'Discover Service', 'Orchestrate', 'Tailor Interface', 'Split Module', 'Increase Semantic Coherence', 'Encapsulate', 'Use an Intermediary', 'Restrict Dependencies', 'Refactor', 'Abstract Common Services', 'Component Replacement', 'Compile-time Parameterization', 'Aspects', 'Configuration-time Binding', 'Resource Files', 'Runtime Registration', 'Dynamic Lookup', 'Interpret Parameters', 'Startup Time Binding', 'Name Servers', 'Plug-ins', 'Publish-Subscribe', 'Shared Repositories', 'Polymorphism', 'Manage Sampling Rate', 'Limit Event Response', 'Prioritize Events', 'Reduce Overhead', 'Bound Execution Times', 'Increase Resource Efficiency', 'Increase Resources', 'Introduce Concurrency', 'Maintain Multiple Copies of Computations', 'Maintain Multiple Copies of Data', 'Bound Queue Sizes', 'Schedule Resources', 'Detect Intrusion', 'Detect Service Denial', 'Verify Message Integrity', 'Detect Message Delay', 'Identify Actors', 'Authenticate Actors', 'Authorize Actors', 'Limit Access', 'Limit Exposure', 'Encrypt Data', 'Separate Entities', 'Change Default Settings', 'Revoke Access', 'Lock Computer', 'Inform Actors', 'Maintain Audit Trail', 'Restore', 'Specialized Interfaces', 'Record/Playback', 'Localize State Storage', 'Abstract Data Sources', 'Sandbox', 'Executable Assertions', 'Limit Structural Complexity', 'Limit Nondeterminism', 'Increase semantic coherence', 'Co-locate related responsibilities', 'Restrict dependencies', 'Defer binding', 'Cancel', 'Undo', 'Pause/resume', 'Aggregate', 'Maintain task models', 'Maintain user models', 'Maintain system models', 'Metering', 'Static Classification', 'Dynamic Classification', 'Vertical Scaling', 'Horizontal Scaling', 'Scheduling', 'Brokering', 'Service Adaptation', 'Increase Efficiency', 'None'], 'title': 'Tactic', 'type': 'string'}, 'response': {'title': 'Response', 'type': 'string'}}, 'required': ['tactic', 'response'], 'title': 'TacticSimplifiedModelResponse', 'type': 'object'} base_url='http://localhost:11434'
+batch_size: 50
+n_threads: 10
+disable_cache: False
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:   0%|          | 0/13 [00:00<?, ?it/s]
+
+Processing OpenGene.fastp.v0.23.4.docs in batches of 50:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+Processing google.deepvariant.v1.6.1.issue in batches of 50:   0%|          | 0/5 [00:00<?, ?it/s][A
+
+
+
+Processing google.deepvariant.v1.6.1.docs in batches of 50:   0%|          | 0/9 [00:00<?, ?it/s][A[A[A[A
+
+
+Processing allenai.scispacy.v0.5.5.docs in batches of 50:   0%|          | 0/1 [00:00<?, ?it/s][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.0 in batches of 50:   0%|          | 0/42 [00:00<?, ?it/s][A[A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.6 in batches of 50:   0%|          | 0/42 [00:00<?, ?it/s][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.4 in batches of 50:   0%|          | 0/42 [00:00<?, ?it/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.3 in batches of 50:   0%|          | 0/42 [00:00<?, ?it/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.1 in batches of 50:   0%|          | 0/42 [00:00<?, ?it/s][A[A[A[A[A[A[A[A[A
