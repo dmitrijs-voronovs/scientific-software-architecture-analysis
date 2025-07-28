@@ -56,43 +56,22 @@ class TacticExtractionStage(IBaseStage):
     @classmethod
     def get_system_prompt(cls) -> str | None:
         return f"""
-You are an expert in software architecture tactics. Your task is to analyze the provided text and identify the single most specific software architecture tactic being described.
+You are an expert in software architecture tactics. Your task is to analyze user-provided text and identify the single most specific software architecture tactic being described from a list I will provide.
 
 ## Guiding Principles
-- Focus on the Mechanism: Identify the architectural *how* (the solution or feature), not the *why* (the benefit). For example, a request to add a configuration option is a Modifiability tactic, even if it is meant to prevent an error.
+- Focus on the Mechanism: Identify the architectural *how* (the solution or feature), not the *why* (the benefit).
 - Handle Non-Feature Descriptions: If the text is a user question, bug report, installation issue, or a general discussion *about* the software rather than a description of a feature *within* the software, you **must** classify the tactic as `None`.
 
-## Reasoning Process
-To ensure accuracy, you must follow these four steps:
-0.  Summarize the Core Action: In one sentence, what is the system *doing* or what functional feature is being *added* or *described*? If no feature is described, state that it is a user question or discussion.
-1.  Identify Quality Attribute: Based on your summary, determine which primary Quality Attribute the text is addressing (e.g., Performance, Modifiability). If no feature is described, this is `None`.
-2.  Identify Tactic Category: Within that attribute, determine the most relevant Tactic Category (e.g., Manage Resources, Reduce Coupling).
-3.  Select Specific Tactic: From that category, select the single most specific tactic that best describes the action in the text.
-
 ## Your Task
-Based on your reasoning, provide the following two fields:
-
-1.  `tactic`: The name of the single most specific tactic you identified, or `None`.
-2.  `response`: A one-sentence summary of the functionality or behavior described in the text, from the system's perspective. Start the sentence with "The system...". If the tactic is `None`, summarize the user's query or the nature of the text.
+You will be given a list of "Available Tactics" and a "Text to Analyze". Based on these, provide a single JSON object with two fields:
+1.  `tactic`: The name of the single most specific tactic you identified from the provided list, or `None`.
+2.  `response`: A one-sentence summary of the functionality described, starting with "The system...". If the tactic is `None`, summarize the user's query or the text's purpose.
 
 ---
-## Examples
-- Text: "...for parallel processing of FASTQ files (i.e. alignment in parallel), `fastp` supports splitting the output into multiple files."
-  - `tactic`: Introduce Concurrency
-  - `response`: The system processes different streams of events in parallel to reduce blocked time.
-
-- Text: "Request is a for a now CLI arg --umi_join that will define the character placed between the UMIs in read1 and read2."
-  - `tactic`: Tailor Interface
-  - `response`: The system adds a capability to an interface, allowing users to customize the UMI delimiter without changing the core code.
-
-- Text: "The option `--dup_calc_accuracy` can be used to specify the level (1 ~ 6). The higher level means more memory usage and more running time."
-  - `tactic`: Increase Resources
-  - `response`: The system uses additional memory and processing time to reduce latency and improve calculation accuracy.
-      
+### Example of Handling a Non-Feature
 - Text: "Tensorflow version of the model checkpoint; What is the version of tensorflow for generating the checkpoint files (`index`, `meta`, `data`)? And is there any way that I can load these checkpoints into a standalone tensorflow program and then dump it as a `.onnx` file?"
   - `tactic`: None
   - `response`: The system is being asked about its TensorFlow version and how to convert its model checkpoints to another format.
-
 ---
 You will now be provided with the list of available tactics and a text to analyze. Apply these rules to the text that follows.
 """
@@ -114,9 +93,10 @@ Based on the rules provided, analyze the following available tactics and text an
 
 
 def main():
-    TacticExtractionStage(hostname=LLMHost.SERVER).execute(["issue.", "docs"], reverse=False)
-    # TacticExtractionStage(hostname=LLMHost.RADU_SERVER).execute(["issue", "issue_comment"], reverse=True)
-    # TacticExtractionStage(hostname=LLMHost.GREEN_LAB, batch_size_override=5, n_threads_override=1, model_name_override=ModelName.DEEPSEEK_8B, disable_cache=True).execute(["issue", "issue_comment"], reverse=True)
+    # TacticExtractionStage(hostname=LLMHost.SERVER).execute(["issue.", "docs"], reverse=False)
+    TacticExtractionStage(hostname=LLMHost.GREEN_LAB, batch_size_override=5, n_threads_override=1,
+                          model_name_override=ModelName.DEEPSEEK_8B, disable_cache=True).execute()
+
 
 if __name__ == "__main__":
     main()
