@@ -3,7 +3,7 @@ from processing_pipeline.s3_tactic_extraction.TacticExtraction import TacticExtr
 
 
 def main():
-    TacticExtractionStage(hostname=LLMHost.SERVER).execute(["issue", "issue_comment"], reverse=False)
+    TacticExtractionStage(hostname=LLMHost.SERVER).execute(["issue.", "docs"], reverse=True)
 
 
 if __name__ == "__main__":

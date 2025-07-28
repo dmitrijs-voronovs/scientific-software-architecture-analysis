@@ -1,0 +1,338 @@
+tactics:
+  - quality_attribute: Availability
+    tactic_categories:
+      - category_name: Detect Faults
+        tactics:
+          - name: Ping/Echo
+            description: An asynchronous request/response message pair exchanged between nodes to determine reachability and responsiveness.
+          - name: Monitor
+            description: A component that monitors the state of health of various parts of the system such as processors, processes, I/O, and memory.
+          - name: Heartbeat
+            description: A fault detection mechanism that employs periodic message exchange between a system monitor and a process being monitored.
+          - name: Timestamp
+            description: Used to detect incorrect sequences of events by assigning the state of a local clock to events immediately after they occur.
+          - name: Sanity Checking
+            description: Checks the validity or reasonableness of specific operations or outputs of a component.
+          - name: Condition Monitoring
+            description: Involves checking conditions in a process or device to prevent a system from producing faulty behavior.
+          - name: Voting
+            description: Employs multiple components that do the same thing with identical inputs and forwards their output to voting logic to detect inconsistencies.
+          - name: Exception Detection
+            description: The detection of a system condition that alters the normal flow of execution.
+          - name: Self-Test
+            description: Components can run procedures to test themselves for correct operation.
+      - category_name: Recover from Faults_Preparation and Repair
+        tactics:
+          - name: Active Redundancy
+            description: A configuration where all nodes receive and process identical inputs in parallel, allowing redundant spares to maintain synchronous state with active nodes.
+          - name: Passive Redundancy
+            description: A configuration where only active members process input traffic and provide redundant spares with periodic state updates.
+          - name: Spare
+            description: Cold sparing where redundant spares remain out of service until a fail-over occurs.
+          - name: Exception Handling
+            description: Mechanisms employed to handle detected exceptions using information to mask the fault.
+          - name: Rollback
+            description: Permits the system to revert to a previous known good state upon detection of a failure.
+          - name: Software Upgrade
+            description: Achieves in-service upgrades to executable code images in a non-service-affecting manner.
+          - name: Retry
+            description: Assumes that the fault causing a failure is transient and retrying the operation may lead to success.
+          - name: Ignore Faulty Behavior
+            description: Calls for ignoring messages from a particular source when determined to be spurious.
+          - name: Degradation
+            description: Maintains critical system functions in the presence of component failures by dropping less critical functions.
+          - name: Reconfiguration
+            description: Recovers from component failures by reassigning responsibilities to remaining functional resources.
+      - category_name: Recover from Faults_Reintroduction
+        tactics:
+          - name: Shadow
+            description: Operates a previously failed component in "shadow mode" for a predefined duration before reverting it to an active role.
+          - name: State Resynchronization
+            description: Ensures that failed components are brought back to a consistent state with active components.
+          - name: Escalating Restart
+            description: Allows system recovery by varying the granularity of components restarted while minimizing service impact.
+          - name: Non-Stop Forwarding
+            description: Splits functionality into control and data planes to continue operations while recovering the supervisory information.
+      - category_name: Prevent Faults
+        tactics:
+          - name: Removal from Service
+            description: Temporarily placing a system component in an out-of-service state to mitigate potential system failures.
+          - name: Transactions
+            description: Ensures that asynchronous messages exchanged between distributed components are atomic, consistent, isolated, and durable.
+          - name: Predictive Model
+            description: Used with monitors to ensure a system operates within nominal parameters and take corrective action for conditions predictive of future faults.
+          - name: Exception Prevention
+            description: Techniques employed to prevent system exceptions from occurring.
+          - name: Increase Competence Set
+            description: Expanding the set of states in which a program is competent to operate to handle more cases as part of normal operation.
+
+  - quality_attribute: Modifiability
+    tactic_categories:
+      - category_name: Reduce Size of a Module
+        tactics:
+          - name: Split Module
+            description: Refining a module into several smaller modules to reduce the average cost of future changes.
+
+      - category_name: Increase Cohesion
+        tactics:
+          - name: Increase Semantic Coherence
+            description: Moving responsibilities that don't serve the same purpose to different modules to reduce the likelihood of side effects.
+
+      - category_name: Reduce Coupling
+        tactics:
+          - name: Encapsulate
+            description: Introducing an explicit interface to a module to reduce the probability that a change to one module propagates to other modules.
+          - name: Use an Intermediary
+            description: Breaking a dependency between responsibilities by using an intermediary that depends on the type of dependency.
+          - name: Restrict Dependencies
+            description: Restricting the modules that a given module interacts with or depends on through visibility or authorization.
+          - name: Refactor
+            description: Factoring out common responsibilities from modules where they exist and assigning them an appropriate home to reduce duplication.
+          - name: Abstract Common Services
+            description: Implementing similar servicess once in a more general (abstract) form to reduce modification costs.
+
+      - category_name: Defer Binding
+        tactics:
+          - name: Component Replacement
+            description: Binding values at compile time or build time through replacement in build scripts or makefiles.
+          - name: Compile-time Parameterization
+            description: Binding values at compile time through parameterization.
+          - name: Aspects
+            description: Binding values at compile time or build time using aspects.
+          - name: Configuration-time Binding
+            description: Binding values at deployment time through configuration.
+          - name: Resource Files
+            description: Binding values at startup or initialization time using resource files.
+          - name: Runtime Registration
+            description: Binding values at runtime through registration.
+          - name: Dynamic Lookup
+            description: Binding values at runtime through dynamic lookup for servicess.
+          - name: Interpret Parameters
+            description: Binding values at runtime by interpreting parameters.
+          - name: Startup Time Binding
+            description: Binding values at runtime during startup.
+          - name: Name Servers
+            description: Binding values at runtime using name servers.
+          - name: Plug-ins
+            description: Binding values at runtime through plug-ins.
+          - name: Publish-Subscribe
+            description: Binding values at runtime using the publish-subscribe pattern.
+          - name: Shared Repositories
+            description: Binding values at runtime through shared repositories.
+          - name: Polymorphism
+            description: Binding values at runtime using polymorphism.
+
+  - quality_attribute: Performance
+    tactic_categories:
+      - category_name: Control Resource Demand
+        tactics:
+          - name: Manage Sampling Rate
+            description: Reduce the frequency at which environmental data is captured to decrease demand, typically with some loss of fidelity.
+          - name: Limit Event Response
+            description: Process events only up to a set maximum rate to ensure more predictable processing when events are processed.
+          - name: Prioritize Events
+            description: Impose a priority scheme that ranks events according to how important it is to service them.
+          - name: Reduce Overhead
+            description: Reduce the resources consumed in processing an event stream by removing intermediaries.
+          - name: Bound Execution Times
+            description: Place a limit on how much execution time is used to respond to an event.
+          - name: Increase Resource Efficiency
+            description: Improve the algorithms used in critical areas to decrease latency.
+      - category_name: Manage Resources
+        tactics:
+          - name: Increase Resources
+            description: Use faster processors, additional processors, additional memory, and faster networks to reduce latency.
+          - name: Introduce Concurrency
+            description: Process requests in parallel to reduce the blocked time.
+          - name: Maintain Multiple Copies of Computations
+            description: Use multiple servers in a client-server pattern as replicas of computation to reduce the contention.
+          - name: Maintain Multiple Copies of Data
+            description: Keep copies of data on storage with different access speeds to reduce the contention from multiple simultaneous accesses.
+          - name: Bound Queue Sizes
+            description: Control the maximum number of queued arrivals and consequently the resources used to process the arrivals.
+          - name: Schedule Resources
+            description: Understand the characteristics of each resource's use and choose the scheduling strategy that is compatible with it.
+
+  - quality_attribute: Security
+    tactic_categories:
+      - category_name: Detect Attacks
+        tactics:
+          - name: Detect Intrusion
+            description: Comparison of network traffic or service request patterns within a system to a set of signatures or known patterns of malicious behavior stored in a database.
+          - name: Detect Service Denial
+            description: Comparison of the pattern or signature of network traffic coming into a system to historic profiles of known denial-of-service attacks.
+          - name: Verify Message Integrity
+            description: Employment of techniques such as checksums or hash values to verify the integrity of messages, resource files, deployment files, and configuration files.
+          - name: Detect Message Delay
+            description: Detection of potential man-in-the-middle attacks by checking the time that it takes to deliver a message to identify suspicious timing behavior.
+      - category_name: Resist Attacks
+        tactics:
+          - name: Identify Actors
+            description: Identifying the source of any external input to the system, typically through user IDs, access codes, IP addresses, protocols, and ports.
+          - name: Authenticate Actors
+            description: Ensuring that an actor is actually who or what it purports to be through passwords, one-time passwords, digital certificates, and biometric identification.
+          - name: Authorize Actors
+            description: Ensuring that an authenticated actor has the rights to access and modify either data or servicess through access control mechanisms.
+          - name: Limit Access
+            description: Limiting access to computing resources such as memory, network connections, or access points by using memory protection, blocking a host, closing a port, or rejecting a protocol.
+          - name: Limit Exposure
+            description: Minimizing the attack surface of a system by reducing the number of access points for resources, data, or servicess and connectors that may provide unanticipated exposure.
+          - name: Encrypt Data
+            description: Protecting data from unauthorized access by applying some form of encryption to data and to communication.
+          - name: Separate Entities
+            description: Separating different entities within the system through physical separation, virtual machines, air gaps, or separation of sensitive from nonsensitive data.
+          - name: Change Default Settings
+            description: Forcing users to change default settings to prevent attackers from gaining access to the system through publicly available settings.
+      - category_name: React to Attacks
+        tactics:
+          - name: Revoke Access
+            description: Severely limiting access to sensitive resources when the system or administrator believes that an attack is underway.
+          - name: Lock Computer
+            description: Limiting access from a particular computer if there are repeated failed attempts to access an account from that computer.
+          - name: Inform Actors
+            description: Notifying relevant personnel or cooperating systems when the system has detected an attack.
+      - category_name: Recover from Attacks
+        tactics:
+          - name: Maintain Audit Trail
+            description: Keeping a record of user and system actions and their effects to help trace the actions of, and to identify, an attacker.
+          - name: Restore
+            description: Restoration of servicess after an attack using tactics that deal with recovering from a failure.
+
+  - quality_attribute: Testability
+    tactic_categories:
+      - category_name: Control and Observe System State
+        tactics:
+          - name: Specialized Interfaces
+            description: Providing test-specific interfaces that allow testers to control or observe component variables and states that might otherwise be inaccessible.
+          - name: Record/Playback
+            description: Capturing the state when it crosses an interface to allow that state to be used to "play the system back" and re-create faults.
+          - name: Localize State Storage
+            description: Storing state in a single place to make it easier to set the system to an arbitrary state for testing.
+          - name: Abstract Data Sources
+            description: Designing interfaces to easily substitute test data without changing functional code.
+          - name: Sandbox
+            description: Isolating the system from the real world to enable experimentation without permanent consequences.
+          - name: Executable Assertions
+            description: Placing code at strategic locations to indicate when a program is in a faulty state.
+      - category_name: Limit Complexity
+        tactics:
+          - name: Limit Structural Complexity
+            description: Reducing dependencies between components, simplifying inheritance hierarchies, and increasing cohesion to make behavior more predictable and easier to test.
+          - name: Limit Nondeterminism
+            description: Finding and eliminating sources of unpredictable behavior to make testing more reliable.
+
+  - quality_attribute: Usability
+    tactic_categories:
+      - category_name: Separate the User Interface
+        tactics:
+          - name: Increase semantic coherence
+            description: Localizes user interface responsibilities to a single place.
+          - name: Encapsulate
+            description: Localizes user interface responsibilities to a single place.
+          - name: Co-locate related responsibilities
+            description: Localizes user interface responsibilities to a single place.
+          - name: Restrict dependencies
+            description: Minimizes the ripple effect to other software when the user interface changes.
+          - name: Defer binding
+            description: Lets you make critical user interface choices without having to recode.
+      - category_name: Support User Initiative
+        tactics:
+          - name: Cancel
+            description: Allows the user to terminate a command with appropriate resource management and notification.
+          - name: Undo
+            description: Maintains sufficient information about system state so that an earlier state may be restored at the user's request.
+          - name: Pause/resume
+            description: Provides the ability to temporarily free resources so they may be reallocated to other tasks.
+          - name: Aggregate
+            description: Allows operations to be applied to a group of objects, freeing the user from repetitive operations.
+      - category_name: Support System Initiative
+        tactics:
+          - name: Maintain task models
+            description: Determines context so the system can have some idea of what the user is attempting and provide assistance.
+          - name: Maintain user models
+            description: Explicitly represents the user's knowledge of the system to control response time and assistance.
+          - name: Maintain system models
+            description: Determines expected system behavior so that appropriate feedback can be given to the user.
+
+  - quality_attribute: Energy Efficiency
+    tactic_categories:
+      - category_name: Resource Monitoring
+        tactics:
+          - name: Metering
+            description: Collecting data about the energy consumption of computational devices via a sensor infrastructure in real time.
+          - name: Static Classification
+            description: Statically classifying devices and computational resources based on benchmarking or reported device characteristics when real-time data collection is infeasible.
+          - name: Dynamic Classification
+            description: Using dynamic models that take into consideration transient conditions to determine energy consumption when real-time data collection is infeasible.
+      - category_name: Resource Allocation
+        tactics:
+          - name: Vertical Scaling
+            description: Adding or activating resources to meet processing demands, or removing/deactivating resources when demands no longer require them.
+          - name: Horizontal Scaling
+            description: Adding additional servers, VMs, or resources to an existing pool for scaling up, or removing/idling such resources for energy efficiency.
+          - name: Scheduling
+            description: Allocating tasks to computational resources to optimize energy usage while respecting task constraints and priorities.
+          - name: Brokering
+            description: Matching service requests with service providers based on energy information to allow choosing providers based on their energy characteristics.
+      - category_name: Resource Adaptation
+        tactics:
+          - name: Service Adaptation
+            description: Dynamically switching computational resources to ones that offer better energy efficiency or lower energy costs.
+          - name: Increase Efficiency
+            description: Improving the time or memory performance of critical algorithms to enhance energy efficiency, or matching service requests to hardware best suited for those requests.
+          - name: Reduce Overhead
+            description: Co-locating resources and removing intermediaries and abstractions to reduce computational overhead and energy demands.
+
+  - quality_attribute: Interoperability
+    tactic_categories:
+      - category_name: Locate
+        tactics:
+          - name: Discover Service
+            description: Locates a service through searching a known directory service at runtime.
+      - category_name: Manage Interfaces
+        tactics:
+          - name: Orchestrate
+            description: Uses a control mechanism to coordinate, manage and sequence the invocation of particular servicess that could be ignorant of each other.
+          - name: Tailor Interface
+            description: Adds or removes capabilities to an interface, such as translation, buffering, or hiding particular functions from untrusted users.
+
+  - quality_attribute: Safety
+    tactic_categories:
+      - category_name: Detect Faults
+        tactics:
+           - name: Monitor
+             description: A component that monitors the state of health of various parts of the system such as processors, processes, I/O, and memory.
+           - name: Sanity Checking
+             description: Checks the validity or reasonableness of specific operations or outputs of a component.
+           - name: Condition Monitoring
+             description: Involves checking conditions in a process or device to prevent a system from producing faulty behavior.
+           - name: Voting
+             description: Employs multiple components that do the same thing with identical inputs and forwards their output to voting logic to detect inconsistencies.
+           - name: Exception Detection
+             description: The detection of a system condition that alters the normal flow of execution.
+      - category_name: Recover from Faults_Preparation and Repair
+        tactics:
+          - name: Active Redundancy
+            description: A configuration where all nodes receive and process identical inputs in parallel, allowing redundant spares to maintain synchronous state with active nodes.
+          - name: Degradation
+            description: Maintains critical system functions in the presence of component failures by dropping less critical functions.
+          - name: Reconfiguration
+            description: Recovers from component failures by reassigning responsibilities to remaining functional resources.
+      - category_name: Prevent Faults
+        tactics:
+          - name: Removal from Service
+            description: Temporarily placing a system component in an out-of-service state to mitigate potential system failures.
+      - category_name: Resist Attacks
+        tactics:
+          - name: Authorize Actors
+            description: Ensuring that an authenticated actor has the rights to access and modify either data or servicess through access control mechanisms.
+          - name: Limit Access
+            description: Limiting access to computing resources such as memory, network connections, or access points by using memory protection, blocking a host, closing a port, or rejecting a protocol.
+      - category_name: Control and Observe System State
+        tactics:
+          - name: Specialized Interfaces
+            description: Providing test-specific interfaces that allow testers to control or observe component variables and states that might otherwise be inaccessible.
+          - name: Sandbox
+            description: Isolating the system from the real world to enable experimentation without permanent consequences.
+          - name: Executable Assertions
+            description: Placing code at strategic locations to indicate when a program is in a faulty state.

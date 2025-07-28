@@ -1,4 +1,5 @@
 from functools import cache
+from typing import Dict
 
 import pandas as pd
 import yaml
@@ -11,20 +12,37 @@ from constants.foldernames import FolderNames
 from processing_pipeline.model.IBaseStage import IBaseStage
 
 
-def get_structured_tactic_list() -> str:
-    with open(AbsDirPath.TACTICS / "tactic_list.yaml", "r") as f:
+def get_structured_tactic_list_by_qa() -> Dict[str, str]:
+    with open(AbsDirPath.TACTICS / "tactic_list_modified.yaml", "r") as f:
         tactics = yaml.safe_load(f)
-    prompt_lines = []
+    tactics_by_qa = {}
 
     for attr in tactics['tactics']:
-        prompt_lines.append(f"\n\n### {attr['quality_attribute']}")
+        prompt_lines = []
         for category in attr['tactic_categories']:
             prompt_lines.append(f"\n#### {category['category_name']}")
             for tactic in category['tactics']:
                 prompt_lines.append(f"- **{tactic['name']}**: {tactic['description']}")
-    return "\n".join(prompt_lines)
 
-tactic_list = get_structured_tactic_list()
+        tactics_by_qa[attr['quality_attribute'].lower()] = "\n".join(prompt_lines)
+
+    return tactics_by_qa
+
+# This dictionary translates the QA found on an item
+# to the QA that has a corresponding tactic list.
+QA_TO_TACTIC_MAP = {
+    'deployability': 'modifiability',         # mapped
+    'integrability': 'interoperability',      # mapped
+    'reliability': 'availability',          # mapped
+}
+
+tactics_by_qa_map = get_structured_tactic_list_by_qa()
+
+def get_tactic_list_for_qa(qa: str) -> str:
+    mapped_qa = QA_TO_TACTIC_MAP.get(qa, qa)
+    tactic_list = tactics_by_qa_map.get(mapped_qa)
+    assert tactic_list is not None, f"No tactic list found for qa {qa}"
+    return tactic_list
 
 class TacticExtractionStage(IBaseStage):
     data_model = TacticSimplifiedModelResponse
@@ -76,24 +94,27 @@ Based on your reasoning, provide the following two fields:
   - `response`: The system is being asked about its TensorFlow version and how to convert its model checkpoints to another format.
 
 ---
-## Available Tactics
-{tactic_list}
-
----
-You will now be provided with text to analyze. Apply these rules to the text that follows.
+You will now be provided with the list of available tactics and a text to analyze. Apply these rules to the text that follows.
 """
 
     @classmethod
     def to_prompt(cls, x: pd.Series) -> str:
         return f"""
-Based on the rules and tactics provided, analyze the following text and provide the JSON output.
+Based on the rules provided, analyze the following available tactics and text and provide the JSON output.
 
+---
+
+## Available Tactics
+{get_tactic_list_for_qa(x['qa'])}
+
+---
+## Text To Analyze:
 "{x['sentence']}"
 """
 
 
 def main():
-    TacticExtractionStage(hostname=LLMHost.SERVER).execute(["issue", "issue_comment"], reverse=True)
+    TacticExtractionStage(hostname=LLMHost.SERVER).execute(["issue.", "docs"], reverse=False)
     # TacticExtractionStage(hostname=LLMHost.RADU_SERVER).execute(["issue", "issue_comment"], reverse=True)
     # TacticExtractionStage(hostname=LLMHost.GREEN_LAB, batch_size_override=5, n_threads_override=1, model_name_override=ModelName.DEEPSEEK_8B, disable_cache=True).execute(["issue", "issue_comment"], reverse=True)
 
