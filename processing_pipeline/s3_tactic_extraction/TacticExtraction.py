@@ -93,9 +93,9 @@ Based on the rules provided, analyze the following available tactics and text an
 
 
 def main():
-    # TacticExtractionStage(hostname=LLMHost.SERVER).execute(["issue.", "docs"], reverse=False)
-    TacticExtractionStage(hostname=LLMHost.GREEN_LAB, batch_size_override=5, n_threads_override=1,
-                          model_name_override=ModelName.DEEPSEEK_8B, disable_cache=True).execute()
+    TacticExtractionStage(hostname=LLMHost.SERVER).execute(["issue.", "docs"], reverse=False)
+    # TacticExtractionStage(hostname=LLMHost.GREEN_LAB, batch_size_override=5, n_threads_override=1,
+    #                       model_name_override=ModelName.DEEPSEEK_8B, disable_cache=True).execute()
 
 
 if __name__ == "__main__":
