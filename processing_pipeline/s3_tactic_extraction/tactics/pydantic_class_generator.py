@@ -101,6 +101,9 @@ def tactic_description_iterator(tactics: TacticListDTO) -> Generator[TacticDefin
 def get_descriptions(tactics: TacticListDTO):
     return {tactic["tactic"]: tactic["description"] for tactic in tactic_description_iterator(tactics)}
 
+def get_tactic_to_category_map(tactics: TacticListDTO):
+    return {tactic["tactic"]: tactic["tactic_category"] for tactic in tactic_description_iterator(tactics)}
+
 def get_full_descriptions(tactics: TacticListDTO):
     return {tactic["tactic"]: {**tactic} for tactic in tactic_description_iterator(tactics)}
 
@@ -115,6 +118,10 @@ def main():
     descriptions = get_descriptions(tactics)
     with open(AbsDirPath.TACTICS / "tactic_description.py", "w") as f:
         f.write("tactic_descriptions = " + json.dumps(descriptions))
+
+    tactic_to_category_map = get_tactic_to_category_map(tactics)
+    with open(AbsDirPath.TACTICS / "tactic_to_category_map.py", "w") as f:
+        f.write("tactic_to_category_map = " + json.dumps(tactic_to_category_map))
 
     descriptions = get_full_descriptions(tactics)
     with open(AbsDirPath.TACTICS / "tactic_description_full.py", "w") as f:
