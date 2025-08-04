@@ -11,7 +11,7 @@ class TacticExtractionVerification(IStageVerification):
 
 
 def main():
-    TacticExtractionVerification(hostname=LLMHost.TECH_LAB, batch_size_override=20).execute_verification()
+    TacticExtractionVerification(hostname=LLMHost.GREEN_LAB, batch_size_override=20).execute_verification()
 
 
 if __name__ == "__main__":
