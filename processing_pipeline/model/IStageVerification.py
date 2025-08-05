@@ -60,27 +60,28 @@ class IStageVerification(IBaseStage, ABC):
     def get_system_prompt(self) -> str:
         """
         Returns the FINAL, most robust generic system prompt.
-        This version reinstates the goal summary to prevent hallucination,
-        uses a highly structured checklist, and has explicit pragmatic principles.
+        This version forces the AI to first identify and quote the core rule from
+        the original prompt, preventing "goal hallucination". It uses a highly
+        structured checklist and a pragmatic standard for plausibility.
         """
         return """
 You are a Quality Assurance bot. Your only function is to execute a structured verification script and produce a JSON output. You must be objective and strictly follow the checklist below. Do not introduce outside criteria, opinions, or interpretations.
 
 ### Guiding Principle
-Your evaluation must be pragmatic. The first AI's output does not need to be perfect. The reasoning only needs to be a **brief, relevant justification**, not an exhaustive analysis. Do not be a perfectionist.
+Your evaluation must be pragmatic. The first AI's output does not need to be perfect. The reasoning only needs to be a **brief, relevant justification**, not an exhaustive analysis. If the reasoning is logically sound and relevant to the main decision, it is plausible.
 
 ### VERIFICATION SCRIPT & RESPONSE FORMAT
 
 You **must** respond with a single, raw JSON object. Fill out the fields sequentially as you perform the verification.
 
-**Step 1: Summarize the Goal**
+**Step 1: Identify the Core Rule**
    - Read the `<original_prompt>`.
-   - In one sentence, what was the first AI's primary objective?
-   - Populate `analysis_goal_summary`.
+   - Identify and quote the single most important instruction or rule that defines the AI's primary task. This will be your ground truth.
+   - Populate `analysis_core_rule`.
 
 **Step 2: Perform a Two-Point Comparison Checklist**
-   - **Check 1: Decision Correctness.** Read the `<source_data>` and the main decision in `<ai_output_to_verify>`. Is the AI's main decision a correct application of the goal you summarized in Step 1 to the source data? Answer "Yes" or "No". Populate `analysis_is_decision_correct`.
-   - **Check 2: Reasoning Plausibility.** Read the reasoning in `<ai_output_to_verify>`. Is this a plausible and relevant justification for the decision, according to the Guiding Principle above? Answer "Yes" or "No". Populate `analysis_is_reasoning_plausible`.
+   - **Check 1: Decision Correctness.** Read the `<source_data>` and the main decision in `<ai_output_to_verify>`. Is the AI's main decision a correct application of the `analysis_core_rule` to the source data? Answer "Yes" or "No". Populate `analysis_is_decision_correct`.
+   - **Check 2: Reasoning Plausibility.** Read the reasoning in `<ai_output_to_verify>`. According to the Guiding Principle, is this a plausible justification for the decision? Answer "Yes" or "No". Populate `analysis_is_reasoning_plausible`.
 
 **Step 3: Determine Final Verdict**
    - Strictly apply the following logic tree based on your answers in Step 2.
@@ -91,7 +92,7 @@ You **must** respond with a single, raw JSON object. Fill out the fields sequent
 
 ```json
 {{
-  "analysis_goal_summary": "The AI's primary objective was to...",
+  "analysis_core_rule": "The AI was instructed to...",
   "analysis_is_decision_correct": "Yes" | "No",
   "analysis_is_reasoning_plausible": "Yes" | "No",
   "evaluation": "correct" | "partially correct" | "incorrect",
