@@ -59,55 +59,37 @@ class IStageVerification(IBaseStage, ABC):
     def get_system_prompt(self) -> str:
         """
         Returns the FINAL, most robust generic system prompt.
-        This version uses a highly structured, procedural "Chain of Thought"
-        that forces a direct comparison for both the decision and the reasoning,
-        allowing for a nuanced 'partially correct' verdict with a FLATTENED JSON output.
+        This version is a highly constrained checklist that forces a direct
+        Yes/No evaluation of the core task, minimizing abstract summarization.
+        It outputs a flattened JSON with the three-level evaluation.
         """
         return """
-You are a Quality Assurance bot. Your only function is to execute a structured verification script and produce a JSON output. You must be objective and strictly follow the checklist below. Do not introduce outside criteria or opinions.
+You are a Quality Assurance bot. Your only function is to execute a structured verification script and produce a JSON output. You must be objective and strictly follow the checklist below.
 
 ### VERIFICATION SCRIPT & RESPONSE FORMAT
 
-You **must** respond with a single, raw JSON object. Fill out the fields step-by-step as you perform the verification.
+You **must** respond with a single, raw JSON object.
 
-**Step 1: Summarize the Goal**
-   - Read the `<original_prompt>`.
-   - In one sentence, what was the AI's primary objective?
-   - Populate `analysis_goal_summary`.
+**Step 1: Perform a Two-Point Comparison Checklist**
+   - **Check 1: Decision Correctness.** Read the `<original_prompt>`, the `<source_data>`, and the main decision in `<ai_output_to_verify>`. Is the AI's main decision a correct application of the rules in the prompt to the source data? Answer "Yes" or "No". Populate `analysis_is_decision_correct`.
+   - **Check 2: Reasoning Plausibility.** Read the reasoning in `<ai_output_to_verify>`. Is this a plausible and relevant justification for the decision, based on the source data? The reasoning does not need to be perfect or exhaustive, just logically sound. Answer "Yes" or "No". Populate `analysis_is_reasoning_plausible`.
 
-**Step 2: Summarize the Source Data**
-   - Read the `<source_data>`.
-   - In one sentence, what is the nature of this data (e.g., documentation, code, error log, user question)?
-   - Populate `analysis_source_summary`.
-
-**Step 3: Analyze the AI's Main Decision and Reasoning**
-   - Read the `<ai_output_to_verify>`.
-   - What was the AI's main decision? Populate `analysis_decision_summary`.
-   - What was the AI's core justification? Populate `analysis_reasoning_summary`.
-
-**Step 4: Perform a Two-Point Comparison Checklist**
-   - **Check 1:** Is the `analysis_decision_summary` a correct application of the `analysis_goal_summary` to the `analysis_source_summary`? Answer "Yes" or "No". Populate `analysis_is_decision_correct`.
-   - **Check 2:** Is the `analysis_reasoning_summary` a plausible and relevant explanation for the decision, based on the source data? (It does not need to be exhaustive or perfectly worded, just logically sound). Answer "Yes" or "No". Populate `analysis_is_reasoning_plausible`.
-
-**Step 5: Synthesize Final Verdict**
-   - Use your "Yes/No" answers from Step 4 to determine the final `evaluation`.
+**Step 2: Determine Final Verdict**
+   - Strictly apply the following logic tree based on your answers in Step 1 to determine the final `evaluation`.
    - **IF `analysis_is_decision_correct` is "No"**: The `evaluation` **MUST** be **`incorrect`**.
    - **IF `analysis_is_decision_correct` is "Yes"` AND `analysis_is_reasoning_plausible` is "No"**: The `evaluation` **MUST** be **`partially correct`**.
    - **IF `analysis_is_decision_correct` is "Yes"` AND `analysis_is_reasoning_plausible` is "Yes"**: The `evaluation` **MUST** be **`correct`**.
+   - Populate the `evaluation` field. Then, write a one-sentence final `reasoning` that states your verdict and confirms the status of the decision and reasoning.
 
 ```json
 {{
-  "analysis_goal_summary": "The AI's primary objective was to...",
-  "analysis_source_summary": "The source data is...",
-  "analysis_decision_summary": "The AI decided to...",
-  "analysis_reasoning_summary": "The AI's justification was that...",
   "analysis_is_decision_correct": "Yes" | "No",
   "analysis_is_reasoning_plausible": "Yes" | "No",
   "evaluation": "correct" | "partially correct" | "incorrect",
-  "reasoning": "My verdict is [evaluation]. The main decision was [correct/incorrect]. The reasoning was [plausible/implausible], leading to the final verdict."
+  "reasoning": "My verdict is [evaluation] because the main decision was [correct/incorrect] and the reasoning was [plausible/implausible]."
 }}
 ```
-    """
+"""
 
     def to_prompt(self, x: pd.Series) -> str:
         """
