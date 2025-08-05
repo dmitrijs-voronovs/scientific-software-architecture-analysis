@@ -4,7 +4,7 @@ from processing_pipeline.s3_tactic_extraction.TacticExtraction import TacticExtr
 
 
 class TacticExtractionVerification(IStageVerification):
-    stage_to_verify = TacticExtractionStage
+    stage_to_verify = TacticExtractionStage()
 
     source_columns = ['qa', 'sentence']
     ai_output_columns = ['tactic', 'response']

@@ -17,6 +17,7 @@ from pydantic import BaseModel
 from tenacity import retry, stop_after_attempt, wait_incrementing
 from tqdm import tqdm
 
+from cfg.LLMHost import LLMHost
 from constants.abs_paths import AbsDirPath
 from processing_pipeline.model.IDFHandler import IDfHandler
 from processing_pipeline.model.ParquetDFHandler import ParquetDFHandler
@@ -85,7 +86,7 @@ class IBaseStage(metaclass=ABCMeta):
                                    "An existing connection was forcibly closed",
                                    "RuntimeError cannot schedule new futures after interpreter shutdown"]
 
-    def __init__(self, hostname: str, *, batch_size_override: int = None, n_threads_override: int = None,
+    def __init__(self, hostname: str = LLMHost.SERVER, *, batch_size_override: int = None, n_threads_override: int = None,
                  disable_cache=False, model_name_override: str = None, in_dir_override: Path = None,
                  out_dir_override: Path = None):
         self.stop_event = threading.Event()

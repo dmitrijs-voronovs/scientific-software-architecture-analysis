@@ -4,7 +4,7 @@ from processing_pipeline.s2_arch_relevance_check.ArchRelevanceCheck import Archi
 
 
 class ArchitectureRelevanceCheckVerification(IStageVerification):
-    stage_to_verify = ArchitectureRelevanceCheckStage
+    stage_to_verify = ArchitectureRelevanceCheckStage()
 
     source_columns = ['sentence']
     ai_output_columns = ['related_to_arch', 'reasoning']

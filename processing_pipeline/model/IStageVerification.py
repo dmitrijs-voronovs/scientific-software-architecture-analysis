@@ -25,7 +25,7 @@ class IStageVerification(IBaseStage, ABC):
     DFHandler = CSVDFHandler()
     data_model = OllamaFormatValidityResponse
 
-    stage_to_verify = type[IBaseStage]
+    stage_to_verify: IBaseStage
 
     @property
     def stage_prefix(self) -> str:

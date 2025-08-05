@@ -4,7 +4,7 @@ from processing_pipeline.s1_qa_relevance_check.QARelevanceCheck import QARelevan
 
 
 class QARelevanceCheckVerification(IStageVerification):
-    stage_to_verify = QARelevanceCheckStage
+    stage_to_verify = QARelevanceCheckStage()
 
     source_columns = ['qa', "sentence"]
     ai_output_columns = ['true_positive', 'reasoning']
