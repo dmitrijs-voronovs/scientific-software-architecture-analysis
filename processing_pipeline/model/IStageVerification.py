@@ -13,9 +13,9 @@ from processing_pipeline.model.IBaseStage import IBaseStage
 
 class OllamaFormatValidityResponse(BaseModel):
     analysis_goal_summary: "str"
-    analysis_source_summary: "str"
-    analysis_decision_summary: "str"
-    analysis_reasoning_summary: "str"
+    # analysis_source_summary: "str"
+    # analysis_decision_summary: "str"
+    # analysis_reasoning_summary: "str"
     analysis_is_decision_correct: Literal["yes", "no"]
     analysis_is_reasoning_plausible: Literal["yes", "no"]
     evaluation: Literal["correct", "partially correct", "incorrect"]
@@ -53,29 +53,37 @@ class IStageVerification(IBaseStage, ABC):
         """
         A list of the AI output column SUFFIXES to be verified.
         (e.g., ['to_eliminate', 'reasoning'] for stage 's0')
+
         """
         pass
 
     def get_system_prompt(self) -> str:
         """
         Returns the FINAL, most robust generic system prompt.
-        This version is a highly constrained checklist that forces a direct
-        Yes/No evaluation of the core task, minimizing abstract summarization.
-        It outputs a flattened JSON with the three-level evaluation.
+        This version reinstates the goal summary to prevent hallucination,
+        uses a highly structured checklist, and has explicit pragmatic principles.
         """
         return """
-You are a Quality Assurance bot. Your only function is to execute a structured verification script and produce a JSON output. You must be objective and strictly follow the checklist below.
+You are a Quality Assurance bot. Your only function is to execute a structured verification script and produce a JSON output. You must be objective and strictly follow the checklist below. Do not introduce outside criteria, opinions, or interpretations.
+
+### Guiding Principle
+Your evaluation must be pragmatic. The first AI's output does not need to be perfect. The reasoning only needs to be a **brief, relevant justification**, not an exhaustive analysis. Do not be a perfectionist.
 
 ### VERIFICATION SCRIPT & RESPONSE FORMAT
 
-You **must** respond with a single, raw JSON object.
+You **must** respond with a single, raw JSON object. Fill out the fields sequentially as you perform the verification.
 
-**Step 1: Perform a Two-Point Comparison Checklist**
-   - **Check 1: Decision Correctness.** Read the `<original_prompt>`, the `<source_data>`, and the main decision in `<ai_output_to_verify>`. Is the AI's main decision a correct application of the rules in the prompt to the source data? Answer "Yes" or "No". Populate `analysis_is_decision_correct`.
-   - **Check 2: Reasoning Plausibility.** Read the reasoning in `<ai_output_to_verify>`. Is this a plausible and relevant justification for the decision, based on the source data? The reasoning does not need to be perfect or exhaustive, just logically sound. Answer "Yes" or "No". Populate `analysis_is_reasoning_plausible`.
+**Step 1: Summarize the Goal**
+   - Read the `<original_prompt>`.
+   - In one sentence, what was the first AI's primary objective?
+   - Populate `analysis_goal_summary`.
 
-**Step 2: Determine Final Verdict**
-   - Strictly apply the following logic tree based on your answers in Step 1 to determine the final `evaluation`.
+**Step 2: Perform a Two-Point Comparison Checklist**
+   - **Check 1: Decision Correctness.** Read the `<source_data>` and the main decision in `<ai_output_to_verify>`. Is the AI's main decision a correct application of the goal you summarized in Step 1 to the source data? Answer "Yes" or "No". Populate `analysis_is_decision_correct`.
+   - **Check 2: Reasoning Plausibility.** Read the reasoning in `<ai_output_to_verify>`. Is this a plausible and relevant justification for the decision, according to the Guiding Principle above? Answer "Yes" or "No". Populate `analysis_is_reasoning_plausible`.
+
+**Step 3: Determine Final Verdict**
+   - Strictly apply the following logic tree based on your answers in Step 2.
    - **IF `analysis_is_decision_correct` is "No"**: The `evaluation` **MUST** be **`incorrect`**.
    - **IF `analysis_is_decision_correct` is "Yes"` AND `analysis_is_reasoning_plausible` is "No"**: The `evaluation` **MUST** be **`partially correct`**.
    - **IF `analysis_is_decision_correct` is "Yes"` AND `analysis_is_reasoning_plausible` is "Yes"**: The `evaluation` **MUST** be **`correct`**.
@@ -83,6 +91,7 @@ You **must** respond with a single, raw JSON object.
 
 ```json
 {{
+  "analysis_goal_summary": "The AI's primary objective was to...",
   "analysis_is_decision_correct": "Yes" | "No",
   "analysis_is_reasoning_plausible": "Yes" | "No",
   "evaluation": "correct" | "partially correct" | "incorrect",
