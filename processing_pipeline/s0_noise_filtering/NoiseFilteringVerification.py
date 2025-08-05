@@ -17,7 +17,7 @@ class NoiseFilteringStageVerification(IStageVerification):
 
 
 def main():
-    NoiseFilteringStageVerification(hostname=LLMHost.GREEN_LAB, batch_size_override=20).execute_verification()
+    NoiseFilteringStageVerification(hostname=LLMHost.TECH_LAB, batch_size_override=20).execute_verification()
 
 
 if __name__ == "__main__":
