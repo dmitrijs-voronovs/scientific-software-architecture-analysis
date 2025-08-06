@@ -75,8 +75,8 @@ You **must** respond with a single, raw JSON object. Fill out the fields sequent
 
 **Step 1: Identify the Core Rule**
    - Read the `<original_prompt>`.
-   - **Search for the main instructions that define the AI's classification task (e.g., the "Keep" and "Eliminate" criteria).**
-   - **You MUST ignore any final meta-instructions about formatting or the "Now analyze..." command.**
+   - **Search for the main instructions that define the AI's classification task (e.g., look for sections like "Instructions", "Keep Content That", or "Eliminate Content That").**
+   - **You MUST ignore any final meta-instructions about formatting or any "Now analyze..." command.**
    - Quote the single most important sentence that defines the primary classification rule. This is your ground truth.
    - Populate `analysis_core_rule`.
 
