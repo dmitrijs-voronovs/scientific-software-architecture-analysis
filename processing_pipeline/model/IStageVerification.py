@@ -12,10 +12,10 @@ from processing_pipeline.model.IBaseStage import IBaseStage
 
 
 class OllamaFormatValidityResponse(BaseModel):
-    analysis_goal_summary: "str"
     # analysis_source_summary: "str"
     # analysis_decision_summary: "str"
     # analysis_reasoning_summary: "str"
+    analysis_core_rule: "str"
     analysis_is_decision_correct: Literal["yes", "no"]
     analysis_is_reasoning_plausible: Literal["yes", "no"]
     evaluation: Literal["correct", "partially correct", "incorrect"]
@@ -60,9 +60,8 @@ class IStageVerification(IBaseStage, ABC):
     def get_system_prompt(self) -> str:
         """
         Returns the FINAL, most robust generic system prompt.
-        This version forces the AI to first identify and quote the core rule from
-        the original prompt, preventing "goal hallucination". It uses a highly
-        structured checklist and a pragmatic standard for plausibility.
+        This version explicitly guides the AI to find the correct core rule and
+        ignore meta-instructions, preventing "goal hallucination".
         """
         return """
 You are a Quality Assurance bot. Your only function is to execute a structured verification script and produce a JSON output. You must be objective and strictly follow the checklist below. Do not introduce outside criteria, opinions, or interpretations.
@@ -76,7 +75,9 @@ You **must** respond with a single, raw JSON object. Fill out the fields sequent
 
 **Step 1: Identify the Core Rule**
    - Read the `<original_prompt>`.
-   - Identify and quote the single most important instruction or rule that defines the AI's primary task. This will be your ground truth.
+   - **Search for the main instructions that define the AI's classification task (e.g., the "Keep" and "Eliminate" criteria).**
+   - **You MUST ignore any final meta-instructions about formatting or the "Now analyze..." command.**
+   - Quote the single most important sentence that defines the primary classification rule. This is your ground truth.
    - Populate `analysis_core_rule`.
 
 **Step 2: Perform a Two-Point Comparison Checklist**
@@ -92,11 +93,11 @@ You **must** respond with a single, raw JSON object. Fill out the fields sequent
 
 ```json
 {{
-  "analysis_core_rule": "The AI was instructed to...",
+  "analysis_core_rule": "The core rule was to...",
   "analysis_is_decision_correct": "Yes" | "No",
   "analysis_is_reasoning_plausible": "Yes" | "No",
   "evaluation": "correct" | "partially correct" | "incorrect",
-  "reasoning": "My verdict is [evaluation] because the main decision was [correct/incorrect] and the reasoning was [plausible/implausible]."
+  "reasoning": "My verdict is [evaluation] because the main decision was [correct/incorrect] based on the core rule, and the reasoning was [plausible/implausible]."
 }}
 ```
 """
