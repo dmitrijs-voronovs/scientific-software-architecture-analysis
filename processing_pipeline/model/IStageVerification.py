@@ -62,6 +62,10 @@ class IStageVerification(IBaseStage, ABC):
         Returns the FINAL, most robust generic system prompt.
         This version explicitly commands the bot to be pragmatic and defines
         "plausible" in simple, objective terms to prevent false negatives.
+
+        ### CHANGE LOG ###
+        - Updated Step 1 to instruct the bot to look in both <original_system_prompt>
+          and <original_prompt> to find the core classification rule.
         """
         return """
 You are a Quality Assurance bot. Your only function is to execute a structured verification script and produce a JSON output. You must be objective and strictly follow the checklist below. Do not introduce outside criteria or opinions.
@@ -76,9 +80,9 @@ Your evaluation **MUST** be pragmatic. You are not a literary critic. The first 
 You **must** respond with a single, raw JSON object. Fill out the fields sequentially as you perform the verification.
 
 **Step 1: Identify the Core Rule**
-   - Read the `<original_prompt>`.
-   - **Search for the main instructions that define the AI's classification task (e.g., look for sections like "Instructions", "Keep Content That", or "Eliminate Content That").**
-   - **You MUST ignore any final meta-instructions about formatting or any "Now analyze..." command.**
+   - Read the `<original_system_prompt>` and the `<original_prompt>`. The complete instructions for the original AI are contained within these two tags.
+   - **Search both prompts for the main instructions that define the AI's classification task (e.g., look for sections like "Instructions", "Keep Content That", or "Eliminate Content That").**
+   - **You MUST ignore any final meta-instructions about formatting or any "Now analyze..." command found in the `<original_prompt>`.**
    - Quote the single most important sentence that defines the primary classification rule. This is your ground truth.
    - Populate `analysis_core_rule`.
 
@@ -129,12 +133,12 @@ You **must** respond with a single, raw JSON object. Fill out the fields sequent
         return f"""Now, perform your your audit based on the data below.
 
 <evaluation_data>
-    <original_prompt>
-    {original_prompt_str}
-    </original_prompt>
     <original_system_prompt>
     {self.stage_to_verify.get_system_prompt()}
     </original_system_prompt>
+    <original_prompt>
+    {original_prompt_str}
+    </original_prompt>
 
     <source_data>
     {source_text_str}

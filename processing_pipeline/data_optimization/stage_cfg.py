@@ -9,7 +9,7 @@ import pandas as pd
 from constants.abs_paths import AbsDirPath
 from processing_pipeline.utilities.data_transformation import load_all_files
 
-type ApplyFilters = Callable[[pd.DataFrame], pd.DataFrame]
+type DFTransformers = Callable[[pd.DataFrame], pd.DataFrame]
 
 COLUMNS_FOR_SPLITTING_DATA = ["repo_id", "source"]
 
@@ -22,7 +22,8 @@ class StageConfig:
     out_dir: Path | None = None
     boolean_field_name: str | None = None
     next_stage: Optional['StageConfig'] = None
-    _apply_filters: ApplyFilters = field(default_factory=lambda: (lambda df: df))
+    _apply_filters: DFTransformers = field(default_factory=lambda: (lambda df: df))
+    _on_load: DFTransformers = field(default_factory=lambda: (lambda df: df))
 
     def get_column_name(self, col_name: str):
         return f"{self.name}_{col_name}"
@@ -41,7 +42,7 @@ class StageConfig:
         return load_all_files(AbsDirPath.O_KEYWORDS_MATCHING)
 
     def load_stage_df(self):
-        return load_all_files(self.in_dir)
+        return self._on_load(load_all_files(self.in_dir))
 
     def merge_stage_into_main(self, df_main: pd.DataFrame, df_stage: pd.DataFrame):
         return pd.merge(df_main, df_stage, "left", self.depends_on_fields)
@@ -76,6 +77,7 @@ class StageConfig:
 
     def optimize_df_for_next_stage(self, df: pd.DataFrame):
         next_stage_cfg = self.next_stage
+        assert next_stage_cfg is not None, f"The next stage is not defined for this stage {self.name}"
         required_columns_for_the_next_stage_prompt = next_stage_cfg.depends_on_fields
         total_columns = required_columns_for_the_next_stage_prompt + COLUMNS_FOR_SPLITTING_DATA
         df = df.drop_duplicates(required_columns_for_the_next_stage_prompt)[total_columns]
@@ -106,14 +108,12 @@ S0NoiseFiltering = StageConfig("s0", ["sentence"], ["to_eliminate", "reasoning"]
 
 def ps_apply_filters(df):
     df_res = df.copy()
-    df_res = df_res.drop_duplicates(["sentence"])["sentence"]
-    df_res['nwords'] = df.sentence.str.count(" ") + 1
-    mask = df_res.nwords > 5
-    df_res = df_res.drop(columns=["nwords"])
-    return df_res[mask]
+    df_res['nwords'] = df_res.sentence.str.count(" ") + 1
+    df_res = df_res[(df_res.nwords > 5)]
+    return df_res.drop(columns=["nwords"])
 
 
 PrefilterStage = StageConfig("prefilter", ["sentence"], [], AbsDirPath.O_KEYWORDS_MATCHING, AbsDirPath.O2_KEYWORDS_MATCHING,
-                             "to_eliminate", S0NoiseFiltering, ps_apply_filters)
+                             "to_eliminate", S0NoiseFiltering, ps_apply_filters, lambda df: df.drop_duplicates(["sentence"])[["sentence"]])
 
 first_stage = PrefilterStage
