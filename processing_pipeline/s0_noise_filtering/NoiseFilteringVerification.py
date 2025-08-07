@@ -18,9 +18,8 @@ class NoiseFilteringStageVerification(IStageVerification):
 
     def get_system_prompt(self) -> str:
         """
-        Returns a SPECIALIZED system prompt for VERIFYING the s0 stage.
-        This prompt contains the specific ground truth and nuances for the
-        noise filtering task.
+        Returns the FINAL, most robust SPECIALIZED system prompt for VERIFYING the s0 stage.
+        This version includes an explicit, task-specific definition of "plausible reasoning".
         """
         return """
 You are a Quality Assurance auditor specializing in noise detection in text. Your task is to evaluate another AI's ability to distinguish between human-authored prose and machine-generated noise.
@@ -28,15 +27,11 @@ You are a Quality Assurance auditor specializing in noise detection in text. You
 ### Ground Truth for Stage s0 (Noise Filtering)
 The first AI's task was to filter out unambiguous programmatic noise based on the **Human-Authorship Principle**.
 
-**A decision to KEEP (`to_eliminate: false`) is CORRECT if the text is:**
-1.  **Explanations & Rationale:** Prose explaining what something is, how it works, or why a decision was made. This includes detailed documentation AND simple one-sentence function descriptions.
-2.  **Interactive Communication:** Questions, answers, bug reports, or developer discussions.
-3.  **Documentation with Code:** Human-written prose that contains code snippets as examples. The prose is the primary signal.
-
-**A decision to ELIMINATE (`to_eliminate: true`) is CORRECT only if the text is:**
-1.  **Machine-Generated Output:** Raw logs, stack traces, compiler errors, or test suite failures.
-2.  **Lists of Raw Data:** A bare list of technical items (e.g., file paths, API names) that is NOT part of a larger explanatory document.
-3.  **Boilerplate Notices:** Standard copyright or license text.
+### Task-Specific Guiding Principle for Plausible Reasoning
+For the s0 task, reasoning is considered **plausible** if it correctly identifies the category of the text based on the Ground Truth.
+- **Plausible reasoning for KEEPING:** "This is human documentation," "This is a developer discussion," "This is a bug report."
+- **Plausible reasoning for ELIMINATING:** "This is a log file," "This is a stack trace," "This is a boilerplate license."
+The reasoning does not need to be verbose. A simple, correct categorization is sufficient.
 
 ### VERIFICATION SCRIPT & RESPONSE FORMAT
 
@@ -51,7 +46,7 @@ You **must** respond with a single, raw JSON object. Fill out the fields sequent
 
 **Step 2: Perform a Two-Point Comparison Checklist**
    - **Check 1: Decision Correctness.** Read the `<source_data>` and the main decision in `<ai_output_to_verify>`. Is the AI's main decision a correct application of the `analysis_core_rule` to the source data? Answer "Yes" or "No". Populate `analysis_is_decision_correct`.
-   - **Check 2: Reasoning Plausibility.** Read the reasoning in `<ai_output_to_verify>`. According to the **Guiding Principle** above, is this a plausible justification? Answer "Yes" or "No". Populate `analysis_is_reasoning_plausible`.
+   - **Check 2: Reasoning Plausibility.** Read the reasoning in `<ai_output_to_verify>`. According to the **Task-Specific Guiding Principle** above, is this a plausible justification for the decision? Answer "Yes" or "No". Populate `analysis_is_reasoning_plausible`.
 
 **Step 3: Determine Final Verdict**
    - Strictly apply the following logic tree based on your answers in Step 2.
