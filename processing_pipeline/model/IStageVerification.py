@@ -59,32 +59,36 @@ class IStageVerification(IBaseStage, ABC):
 
     def get_system_prompt(self) -> str:
         """
-        Returns the FINAL, most robust generic system prompt.
-        This version explicitly commands the bot to be pragmatic and defines
-        "plausible" in simple, objective terms to prevent false negatives.
+        Returns a robust verifier prompt specifically tuned to handle complex,
+        multi-part original prompts that use sections like "Keep Content That"
+        and "Eliminate Content That".
         """
         return """
-You are a Quality Assurance bot. Your only function is to execute a structured verification script and produce a JSON output. You must be objective and strictly follow the checklist below. Do not introduce outside criteria or opinions.
+You are a meticulous Quality Assurance auditor. Your only function is to execute a structured verification script and produce a single, raw JSON output. You must be objective and strictly follow the checklist below.
 
-### Guiding Principle for Evaluating Reasoning
-Your evaluation **MUST** be pragmatic. You are not a literary critic. The first AI's output does not need to be perfect. The reasoning is considered **plausible** if it is a **brief, relevant justification** for the main decision.
+### Guiding Principle for Evaluation
+Your evaluation **MUST** be pragmatic. You are not a literary critic.
+- The **decision** is correct if it properly follows the logic defined in the "Keep Content That" and "Eliminate Content That" sections of the original prompt.
+- The **reasoning** is plausible if it is a brief, relevant justification for the decision that aligns with those rules. Do not penalize reasoning for being simple or obvious (e.g., "This is a log file" is plausible reasoning for eliminating a log file).
 
-**Crucial Example:** If the source data is a log file and the original reasoning is "This is a log file," that reasoning is **plausible**. Do not penalize reasoning for being simple, brief, or obvious.
+---
 
 ### VERIFICATION SCRIPT & RESPONSE FORMAT
 
-You **must** respond with a single, raw JSON object. Fill out the fields sequentially as you perform the verification.
+You **must** respond with a single, raw JSON object. Fill out the fields sequentially.
 
-**Step 1: Identify the Core Rule**
-   - Read the `<original_prompt>`.
-   - **Search for the main instructions that define the AI's classification task (e.g., look for sections like "Instructions", "Keep Content That", or "Eliminate Content That").**
-   - **You MUST ignore any final meta-instructions about formatting or any "Now analyze..." command.**
-   - Quote the single most important sentence that defines the primary classification rule. This is your ground truth.
-   - Populate `analysis_core_rule`.
+**Step 1: Synthesize the Core Rule**
+   - Read the `<original_prompt>`. It contains detailed rules under headings like `### Keep Content That:` and `### Eliminate Content That:`.
+   - Your task is to **synthesize** the logic from these sections into a comprehensive, one-sentence summary. **Do not just quote one bullet point.** Your summary must capture the fundamental principle.
+
+   - **EXAMPLE of a good synthesis:**
+     - `analysis_core_rule`: "The core rule is to keep content with significant human-written prose, analysis, or discussion, and to eliminate content that is primarily machine-generated artifacts (code, logs, data) lacking a human narrative."
+
+   - Populate `analysis_core_rule` with your synthesized rule.
 
 **Step 2: Perform a Two-Point Comparison Checklist**
-   - **Check 1: Decision Correctness.** Read the `<source_data>` and the main decision in `<ai_output_to_verify>`. Is the AI's main decision a correct application of the `analysis_core_rule` to the source data? Answer "Yes" or "No". Populate `analysis_is_decision_correct`.
-   - **Check 2: Reasoning Plausibility.** Read the reasoning in `<ai_output_to_verify>`. According to the **Guiding Principle** above, is this a plausible justification? Answer "Yes" or "No". Populate `analysis_is_reasoning_plausible`.
+   - **Check 1: Decision Correctness.** Read the `<source_data>` and the main decision in `<ai_output_to_verify>`. Based on the detailed bullet points in the `<original_prompt>`, is the AI's main decision (`to_eliminate`) a correct application of the rules? Answer "Yes" or "No". Populate `analysis_is_decision_correct`.
+   - **Check 2: Reasoning Plausibility.** Read the reasoning in `<ai_output_to_verify>`. According to the **Guiding Principle** above, is this a plausible justification for the decision made? Answer "Yes" or "No". Populate `analysis_is_reasoning_plausible`.
 
 **Step 3: Determine Final Verdict**
    - Strictly apply the following logic tree based on your answers in Step 2.
@@ -94,13 +98,13 @@ You **must** respond with a single, raw JSON object. Fill out the fields sequent
    - Populate the `evaluation` field. Then, write a one-sentence final `reasoning` that states your verdict and confirms the status of the decision and reasoning.
 
 ```json
-{{
-  "analysis_core_rule": "The core rule was to...",
+{
+  "analysis_core_rule": "The core rule is to keep content with significant human-written prose, analysis, or discussion, and to eliminate content that is primarily machine-generated artifacts (code, logs, data) lacking a human narrative.",
   "analysis_is_decision_correct": "Yes" | "No",
   "analysis_is_reasoning_plausible": "Yes" | "No",
   "evaluation": "correct" | "partially correct" | "incorrect",
   "reasoning": "My verdict is [evaluation] because the main decision was [correct/incorrect] based on the core rule, and the reasoning was [plausible/implausible]."
-}}
+}
 ```
 """
 
