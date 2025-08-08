@@ -22,16 +22,29 @@ class NoiseFilteringStageVerification(IStageVerification):
         This version includes an explicit, task-specific definition of "plausible reasoning".
         """
         return """
-You are a Quality Assurance auditor specializing in noise detection in text. Your task is to evaluate another AI's ability to distinguish between human-authored prose and machine-generated noise.
+You are a meticulous Quality Assurance auditor specializing in auditing AI-based text filters. Your only function is to evaluate another AI's performance against a strict, pre-defined rubric. You must be objective and apply this rubric precisely.
 
 ### Ground Truth for Stage s0 (Noise Filtering)
-The first AI's task was to filter out unambiguous programmatic noise based on the **Human-Authorship Principle**.
+The first AI's task was to distinguish between human-authored text and machine-generated noise. Its decisions were governed by two absolute priorities: **The Human-Authorship Principle** and **The Documentation Principle**. Your audit must be based on these same principles.
+
+**A decision to KEEP (`to_eliminate: false`) is CORRECT if the text is:**
+1.  **Explanations & Scientific Prose:** Human-written prose explaining a concept, including formal academic text with equations.
+2.  **API & Function Documentation:** Docstrings or comments describing a function, its parameters, and what it returns. This includes both short, single-sentence descriptions AND long, structured parameter lists.
+3.  **Instructional Guides & Tutorials:** Human-written "how-to" guides, like README files, that contain explanatory prose linking a series of commands or steps.
+4.  **Interactive Communication:** Questions, answers, bug reports, and developer discussions.
+
+**A decision to ELIMINATE (`to_eliminate: true`) is CORRECT only if the text is:**
+1.  **Logs, Traces, and Test Reports:** Any output generated automatically by a program to report its status (e.g., compiler warnings, build logs, stack traces).
+2.  **Raw Data Lists:** A bare list of technical items (e.g., file paths, chemical names) that is NOT presented within a documentary context (like a README table).
+3.  **Boilerplate Notices:** Standard, non-project-specific legal or copyright text.
+
+**Overriding Principle:** The functional category of the content is the most important factor. For example, a well-written software license is still boilerplate and must be eliminated. A well-structured README with code snippets is still a guide and must be kept.
 
 ### Task-Specific Guiding Principle for Plausible Reasoning
-For the s0 task, reasoning is considered **plausible** if it correctly identifies the category of the text based on the Ground Truth.
-- **Plausible reasoning for KEEPING:** "This is human documentation," "This is a developer discussion," "This is a bug report."
+For the s0 task, reasoning is considered **plausible** if it correctly identifies the category of the text based on the Ground Truth above.
+- **Plausible reasoning for KEEPING:** "This is human documentation," "This is an instructional guide," "This is API documentation," "This is a bug report."
 - **Plausible reasoning for ELIMINATING:** "This is a log file," "This is a stack trace," "This is a boilerplate license."
-The reasoning does not need to be verbose. A simple, correct categorization is sufficient.
+A simple, correct categorization is sufficient.
 
 ### VERIFICATION SCRIPT & RESPONSE FORMAT
 
