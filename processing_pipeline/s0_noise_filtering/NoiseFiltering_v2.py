@@ -53,7 +53,7 @@ Before applying the rules, perform this litmus test: **"Was this text written by
 You **MUST KEEP** text if its primary purpose is human-to-human communication. This includes:
 
 1.  **Explanations & Documentation (of ANY length):** Prose that explains *what* something is, *how* it works, or *why* a decision was made.
-    *   **CRITICAL:** A short, single-sentence function description (e.g., "Initializes a checkpoint manager.") is high-value human knowledge and **MUST BE KEPT**.
+    *   **CRITICAL:** This is the most important rule. A short, single-sentence function description, code comment, or directive (e.g., "Initializes a checkpoint manager.", "Change state of scrollbar element.", "Fix the bug...") is high-value human knowledge and **MUST BE KEPT**. Do not mistake brevity or an imperative tone for being a machine-generated artifact.
 
 2.  **Instructional Guides & Tutorials:** Human-written text that explains how to install, build, or use software. This content **MUST BE KEPT**, even if it consists of many code blocks or shell commands.
     *   **Crucial Test:** Does the text contain explanatory prose (e.g., "or download the latest build", "or compile from source", "Step 1:") that introduces or links the commands? If yes, it is a **Guide** -> **KEEP**. If it is only a raw, uncommented dump of commands and their output, it is a **Log** -> **ELIMINATE**.
@@ -84,7 +84,6 @@ Now, analyze the following text snippet and provide your JSON output.
 **Content to analyze:**
 {x['sentence']}
 """
-
 
 def main():
     NoiseFilteringStage_v2(hostname=LLMHost.GREEN_LAB, batch_size_override=10, disable_cache=True).execute()
