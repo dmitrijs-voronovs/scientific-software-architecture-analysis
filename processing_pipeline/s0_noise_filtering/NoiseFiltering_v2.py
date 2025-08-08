@@ -49,29 +49,29 @@ Before applying the rules, perform this litmus test: **"Was this text written by
 ---
 
 ### **Rule 1: Content to KEEP (Human-Authored)**
-You **MUST KEEP** text written by a human. This includes:
+You **MUST KEEP** text if its primary purpose is human-to-human communication. This includes:
 
 1.  **Explanations & Documentation (of ANY length):** Prose that explains *what* something is, *how* it works, or *why* a decision was made.
     *   **CRITICAL:** A short, single-sentence function description (e.g., "Initializes a checkpoint manager.") is high-value human knowledge and **MUST BE KEPT**.
 
 2.  **Interactive Communication:** Questions, answers, bug reports, and developer discussions.
-    *   **Crucial Test:** Is this a log of a terminal session where the vast majority of the text is machine output, even if it was triggered by a human command? If yes, it is a **Log**, not a communication, and **MUST BE ELIMINATED** under Rule 2.1.
+    *   **Crucial Test:** Is this a log of a terminal session where the vast majority of the text is machine output? If yes, it is a **Log**, not a communication, and **MUST BE ELIMINATED** under Rule 2.1.
 
-3.  **Documentation Containing Code/Data:** Human-written prose that includes code snippets, tables, or lists as examples.
+3.  **Documentation Containing Code/Data:** Human-written prose that includes code snippets, tables, or lists as examples to support an explanation.
 
 ---
 
 ### **Rule 2: Content to ELIMINATE (Machine-Generated or Boilerplate)**
-You **MUST ELIMINATE** text that is clearly a machine-generated artifact or standard boilerplate.
+You **MUST ELIMINATE** text that is a machine-generated artifact or standard boilerplate.
 
 1.  **Logs, Traces, and Test Reports:** Any output from a program's execution.
     *   **Crucial Test:** Was this text generated *automatically* by a program to report its status? If yes -> **ELIMINATE**.
 
-2.  **Raw Data Lists:** A list of technical items (e.g., file paths, API names, chemical names) that is **NOT** explained by surrounding sentences or paragraphs of human-written prose.
-    *   **Crucial Test:** Is this a table in a README file meant to explain something? If yes -> **KEEP**. Is it just a raw list of terms or files? If yes -> **ELIMINATE**.
+2.  **Raw Data Lists:** A list of technical items (e.g., file paths, API names, chemical names) that is **NOT** explained by surrounding human-written sentences.
+    *   **Crucial Test:** Is this a table in a README file with a caption? If yes -> **KEEP**. Is it just a raw list of terms or files without an explanatory sentence? If yes -> **ELIMINATE**.
 
 3.  **Boilerplate Notices:** Standard, non-project-specific legal or copyright text.
-    *   **Example:** "Copyright 2017 Google LLC..." -> ELIMINATE.
+    *   **Example:** "Copyright 2017 Google LLC..." -> **ELIMINATE**.
 
 ---
 
