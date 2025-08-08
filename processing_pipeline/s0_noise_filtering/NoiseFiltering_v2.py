@@ -27,12 +27,12 @@ class NoiseFilteringStage_v2(IBaseStage):
         return """
 You are a meticulous data pre-processing bot for a scientific study. Your ONLY task is to distinguish between **human-authored text** and **machine-generated artifacts**.
 
-**Your absolute priority is the Human-Authorship Principle:** You must determine if the primary author of the text snippet is a human communicating with another human.
+**Your absolute priority is the Human-Authorship Principle:** Your judgment must be based on the **primary origin and purpose** of the text.
 
-- **Human-Authored Text (KEEP):** Explanations, documentation, comments, questions, and discussions.
-- **Machine-Generated Artifacts (ELIMINATE):** Logs, test results, build outputs, stack traces, and boilerplate notices.
+- **Human-Authored Text (KEEP):** Explanations, documentation, comments, and discussions.
+- **Machine-Generated Artifacts (ELIMINATE):** Logs, test reports, build outputs, stack traces, and boilerplate notices.
 
-**Crucial Tie-Breaker:** If a machine-generated artifact (like a compiler warning) contains a readable English sentence, the Human-Authorship Principle still applies. The text's origin is a machine, so it **MUST BE ELIMINATED**.
+**Crucial Tie-Breaker:** The *category* of the content (e.g., a software license, a build log) is more important than its grammatical structure. If a snippet is functionally a log or boilerplate, it **MUST BE ELIMINATED**, even if it is written in well-formed English prose.
 """
 
     @classmethod
@@ -44,9 +44,7 @@ You are a data filtering bot. Your task is to analyze the user-provided text sni
 
 Before applying the rules, perform this litmus test: **"Was this text written by a human to explain something to another human?"**
 - If the answer is YES, you **MUST KEEP** the text.
-- If the answer is NO, it is likely machine-generated noise that should be eliminated.
-
-**Your default action is to KEEP.** You must only eliminate text that is unambiguously machine-generated.
+- If the answer is NO, it is a machine-generated artifact and **MUST BE ELIMINATED**.
 
 ---
 
@@ -54,24 +52,26 @@ Before applying the rules, perform this litmus test: **"Was this text written by
 You **MUST KEEP** text written by a human. This includes:
 
 1.  **Explanations & Documentation (of ANY length):** Prose that explains *what* something is, *how* it works, or *why* a decision was made.
-    *   **CRITICAL:** This is the most important rule. A short, single-sentence function description or code comment (e.g., "Initializes a checkpoint manager.") is high-value human knowledge and **MUST BE KEPT**. Do not mistake brevity for being machine-generated.
+    *   **CRITICAL:** A short, single-sentence function description (e.g., "Initializes a checkpoint manager.") is high-value human knowledge and **MUST BE KEPT**.
 
-2.  **Interactive Communication:** Questions, answers, bug reports, issue discussions, and developer comments. (e.g., "Hi, I'm having an issue...").
+2.  **Interactive Communication:** Questions, answers, bug reports, and developer discussions.
+    *   **Crucial Test:** Is this a log of a terminal session where the vast majority of the text is machine output, even if it was triggered by a human command? If yes, it is a **Log**, not a communication, and **MUST BE ELIMINATED** under Rule 2.1.
 
-3.  **Documentation Containing Code/Data:** Human-written prose that includes code snippets, tables, or lists as examples. The primary signal is the human-written explanation surrounding these elements.
+3.  **Documentation Containing Code/Data:** Human-written prose that includes code snippets, tables, or lists as examples.
 
 ---
 
 ### **Rule 2: Content to ELIMINATE (Machine-Generated or Boilerplate)**
-You **MUST ELIMINATE** text that is clearly a machine-generated artifact or standard boilerplate, AND which is not part of a larger human-authored explanation.
+You **MUST ELIMINATE** text that is clearly a machine-generated artifact or standard boilerplate.
 
-1.  **Logs, Traces, and Test Reports:** Any output from a program's execution, including build logs, test suite results, stack traces, and compiler errors.
+1.  **Logs, Traces, and Test Reports:** Any output from a program's execution.
     *   **Crucial Test:** Was this text generated *automatically* by a program to report its status? If yes -> **ELIMINATE**.
 
-2.  **Raw Data Lists:** A bare list of technical items (e.g., file paths, API names) that is **NOT** part of a larger documentary context.
-    *   **Crucial Test:** Is this a table in a README file meant to explain something? If yes -> **KEEP**. Is it just a raw list of files from an `ls` command? If yes -> **ELIMINATE**.
+2.  **Raw Data Lists:** A list of technical items (e.g., file paths, API names, chemical names) that is **NOT** explained by surrounding sentences or paragraphs of human-written prose.
+    *   **Crucial Test:** Is this a table in a README file meant to explain something? If yes -> **KEEP**. Is it just a raw list of terms or files? If yes -> **ELIMINATE**.
 
-3.  **Boilerplate Notices:** Standard, non-project-specific text such as copyright notices and software licenses.
+3.  **Boilerplate Notices:** Standard, non-project-specific legal or copyright text.
+    *   **Example:** "Copyright 2017 Google LLC..." -> ELIMINATE.
 
 ---
 
@@ -82,7 +82,6 @@ Now, analyze the following text snippet and provide your JSON output.
 **Content to analyze:**
 {x['sentence']}
 """
-
 
 def main():
     NoiseFilteringStage_v2(hostname=LLMHost.GREEN_LAB, batch_size_override=10, disable_cache=True).execute()
