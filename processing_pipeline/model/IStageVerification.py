@@ -15,9 +15,9 @@ class OllamaFormatValidityResponse(BaseModel):
     # analysis_source_summary: "str"
     # analysis_decision_summary: "str"
     # analysis_reasoning_summary: "str"
-    analysis_core_rule: "str"
-    analysis_is_decision_correct: Literal["yes", "no"]
-    analysis_is_reasoning_plausible: Literal["yes", "no"]
+    analysis_core_rule: str
+    analysis_is_decision_correct: Literal["Yes", "No"]
+    analysis_is_reasoning_plausible: Literal["Yes", "No"]
     evaluation: Literal["correct", "partially correct", "incorrect"]
     reasoning: str
 
@@ -59,21 +59,15 @@ class IStageVerification(IBaseStage, ABC):
 
     def get_system_prompt(self) -> str:
         """
-        Returns the FINAL, most robust generic system prompt.
-        This version explicitly commands the bot to be pragmatic and defines
-        "plausible" in simple, objective terms to prevent false negatives.
-
-        ### CHANGE LOG ###
-        - Updated Step 1 to instruct the bot to look in both <original_system_prompt>
-          and <original_prompt> to find the core classification rule.
+        Returns a TRULY GENERIC system prompt for the base verifier.
+        It contains NO task-specific examples. Stage-specific verifiers
+        will inherit and override this method.
         """
         return """
 You are a Quality Assurance bot. Your only function is to execute a structured verification script and produce a JSON output. You must be objective and strictly follow the checklist below. Do not introduce outside criteria or opinions.
 
 ### Guiding Principle for Evaluating Reasoning
-Your evaluation **MUST** be pragmatic. You are not a literary critic. The first AI's output does not need to be perfect. The reasoning is considered **plausible** if it is a **brief, relevant justification** for the main decision.
-
-**Crucial Example:** If the source data is a log file and the original reasoning is "This is a log file," that reasoning is **plausible**. Do not penalize reasoning for being simple, brief, or obvious.
+Your evaluation **MUST** be pragmatic. You are not a literary critic. The first AI's output does not need to be perfect. The reasoning is considered **plausible** if it is a **brief, relevant justification** for the main decision based on the rules it was given.
 
 ### VERIFICATION SCRIPT & RESPONSE FORMAT
 
