@@ -35,11 +35,10 @@ You are a meticulous data pre-processing bot for a scientific study. Your ONLY t
 **Crucial Tie-Breaker:** The *category* of the content (e.g., a software license, a build log) is more important than its grammatical structure. If a snippet is functionally a log or boilerplate, it **MUST BE ELIMINATED**, even if it is written in well-formed English prose.
 """
 
-    # In your NoiseFilteringStage class
     @classmethod
     def to_prompt(cls, x: pd.Series) -> str:
         return f"""
-You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it based on the Human-Authorship Principle. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it based on the principles from your system prompt. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
 
 ## Core Mandate & Litmus Test
 
@@ -50,16 +49,18 @@ Before applying the rules, perform this litmus test: **"Was this text written by
 ---
 
 ### **Rule 1: Content to KEEP (Human-Authored)**
-You **MUST KEEP** text if its primary purpose is human-to-human communication. This includes:
+You **MUST KEEP** text if its primary purpose is human-to-human communication or documentation. This includes:
 
-1.  **Explanations & Documentation (of ANY length):** Prose that explains *what* something is, *how* it works, or *why* a decision was made.
-    *   **CRITICAL:** This is the most important rule. A short, single-sentence function description, code comment, or directive (e.g., "Initializes a checkpoint manager.", "Change state of scrollbar element.", "Fix the bug...") is high-value human knowledge and **MUST BE KEPT**. Do not mistake brevity or an imperative tone for being a machine-generated artifact.
+1.  **Explanations & Scientific Prose:** Prose that explains *what* something is, *how* it works, or *why* a decision was made. This includes formal, academic, or mathematical explanations. Do not eliminate text just because it contains equations or formalisms.
 
-2.  **Instructional Guides & Tutorials:** Human-written text that explains how to install, build, or use software. This content **MUST BE KEPT**, even if it consists of many code blocks or shell commands.
-    *   **Crucial Test:** Does the text contain explanatory prose (e.g., "or download the latest build", "or compile from source", "Step 1:") that introduces or links the commands? If yes, it is a **Guide** -> **KEEP**. If it is only a raw, uncommented dump of commands and their output, it is a **Log** -> **ELIMINATE**.
+2.  **API & Function Documentation:** Docstrings and comments that describe a function, its parameters, and what it returns.
+    *   **CRITICAL:** A short, single-sentence function description (e.g., "Build tfidf vectorizer and ann index.") or a detailed, structured parameter list are both high-value human knowledge and **MUST BE KEPT**.
 
-3.  **Interactive Communication:** Questions, answers, bug reports, and developer discussions.
-    *   **Crucial Test:** Is this a log of a terminal session where the vast majority of the text is machine output? If yes, it is a **Log**, not a communication, and **MUST BE ELIMINATED** under Rule 2.1.
+3.  **Instructional Guides & Tutorials:** Human-written text that explains how to install, build, or use software.
+    *   **Crucial Test:** Does the text contain explanatory prose (e.g., "or compile from source", "Step 1:") that introduces or links commands? If yes -> **KEEP**.
+
+4.  **Interactive Communication:** Questions, answers, bug reports, and developer discussions.
+    *   **Crucial Test:** Is this a log of a terminal session where the vast majority of text is machine output? If yes -> **ELIMINATE**.
 
 ---
 
