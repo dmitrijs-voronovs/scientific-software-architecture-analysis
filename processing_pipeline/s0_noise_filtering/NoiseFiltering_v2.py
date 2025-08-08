@@ -27,14 +27,16 @@ class NoiseFilteringStage_v2(IBaseStage):
         return """
 You are a meticulous data pre-processing bot for a scientific study. Your ONLY task is to distinguish between **human-authored text** and **machine-generated artifacts**.
 
-**Your absolute priority is the Human-Authorship Principle:** Your judgment must be based on the **primary origin and purpose** of the text.
+**Your judgment must be based on two absolute priorities:**
+1.  **The Human-Authorship Principle:** Determine if the primary author is a human communicating with another human.
+2.  **The Documentation Principle:** Recognize that formal technical documentation, API references, READMEs, and scientific explanations are high-value, human-authored content that MUST be preserved.
 
-- **Human-Authored Text (KEEP):** Explanations, documentation, comments, and discussions.
-- **Machine-Generated Artifacts (ELIMINATE):** Logs, test reports, build outputs, stack traces, and boilerplate notices.
-
-**Crucial Tie-Breaker:** The *category* of the content (e.g., a software license, a build log) is more important than its grammatical structure. If a snippet is functionally a log or boilerplate, it **MUST BE ELIMINATED**, even if it is written in well-formed English prose.
+**Crucial Tie-Breaker:** The *functional category* of the content is more important than its grammatical structure.
+- If a snippet is functionally a **Log** or **Boilerplate License**, it **MUST BE ELIMINATED**, even if it contains English prose.
+- Conversely, if a snippet is functionally a human-written **Guide**, **Tutorial**, or **API Documentation**, it **MUST BE KEPT**, even if it is highly structured or contains many code snippets.
 """
 
+    # In your NoiseFilteringStage class
     @classmethod
     def to_prompt(cls, x: pd.Series) -> str:
         return f"""
@@ -51,16 +53,15 @@ Before applying the rules, perform this litmus test: **"Was this text written by
 ### **Rule 1: Content to KEEP (Human-Authored)**
 You **MUST KEEP** text if its primary purpose is human-to-human communication or documentation. This includes:
 
-1.  **Explanations & Scientific Prose:** Prose that explains *what* something is, *how* it works, or *why* a decision was made. This includes formal, academic, or mathematical explanations. Do not eliminate text just because it contains equations or formalisms.
+1.  **Explanations, Documentation & Scientific Prose:** Prose that explains *what* something is, *how* it works, or *why* a decision was made. This is the highest priority rule.
+    *   **Includes:** Project READMEs, user guides, detailed comments, and formal academic or mathematical explanations.
+    *   **CRITICAL:** Do not mistake structure, formality, or technical terms for being machine-generated. A detailed, structured document is high-value human knowledge.
 
-2.  **API & Function Documentation:** Docstrings and comments that describe a function, its parameters, and what it returns.
-    *   **CRITICAL:** A short, single-sentence function description (e.g., "Build tfidf vectorizer and ann index.") or a detailed, structured parameter list are both high-value human knowledge and **MUST BE KEPT**.
+2.  **API Reference & Help Text:** Docstrings and command-line help text that describe a function, its parameters, its behavior, or what it returns.
+    *   **Includes:** Short, single-sentence function descriptions (e.g., "Build tfidf vectorizer and ann index.") and detailed, structured parameter lists (e.g., "--phred64 indicate the input is using phred64 scoring..."). Both **MUST BE KEPT**.
 
-3.  **Instructional Guides & Tutorials:** Human-written text that explains how to install, build, or use software.
-    *   **Crucial Test:** Does the text contain explanatory prose (e.g., "or compile from source", "Step 1:") that introduces or links commands? If yes -> **KEEP**.
-
-4.  **Interactive Communication:** Questions, answers, bug reports, and developer discussions.
-    *   **Crucial Test:** Is this a log of a terminal session where the vast majority of text is machine output? If yes -> **ELIMINATE**.
+3.  **Interactive Communication:** Questions, answers, bug reports, and developer discussions.
+    *   **Crucial Test:** Is this a log of a terminal session where the vast majority of text is machine output? If yes, it is a **Log** -> **ELIMINATE**.
 
 ---
 
