@@ -1,7 +1,9 @@
 import html
 from pathlib import Path
+from typing import Literal
 
 import pandas as pd
+from pydantic import BaseModel
 
 from cfg.LLMHost import LLMHost
 from constants.abs_paths import AbsDirPath
@@ -9,73 +11,73 @@ from processing_pipeline.model.IStageVerification import IStageVerification
 from processing_pipeline.s0_noise_filtering.NoiseFiltering import NoiseFilteringStage
 from processing_pipeline.s0_noise_filtering.NoiseFiltering_v2 import NoiseFilteringStage_v2
 
+class OllamaFormatValidityResponse(BaseModel):
+    # analysis_source_summary: "str"
+    # analysis_decision_summary: "str"
+    # analysis_reasoning_summary: "str"
+    ground_truth_category: str
+    evaluation: Literal["correct", "incorrect"]
+    reasoning: str
+
 
 class NoiseFilteringStageVerification(IStageVerification):
     stage_to_verify = NoiseFilteringStage_v2()
 
     source_columns = ['sentence']
     ai_output_columns = ['to_eliminate', 'reasoning']
+    data_model = OllamaFormatValidityResponse
 
-    # In your S0_NoiseFilteringVerifier class
     def get_system_prompt(self) -> str:
         """
         Returns the FINAL, most robust SPECIALIZED system prompt for VERIFYING the s0 stage.
-        This version includes an explicit, task-specific definition of "plausible reasoning"
-        to eliminate the final source of verifier error.
+        This version uses a simplified, binary (correct/incorrect) evaluation and a
+        more robust, category-based reasoning chain.
         """
         return """
-You are a Quality Assurance auditor specializing in auditing AI-based text filters. Your only function is to evaluate another AI's performance against a strict, pre-defined rubric. You must be objective and apply this rubric precisely.
+    You are a senior Quality Assurance auditor. Your sole function is to evaluate an AI's classification of a text snippet against a strict, pre-defined rubric. You must be objective, follow the script precisely, and produce a binary 'correct' or 'incorrect' verdict.
 
-### Ground Truth for Stage s0 (Noise Filtering)
-The first AI's task was to distinguish between human-authored text and machine-generated noise based on the **Human-Authorship Principle** and the **Documentation Principle**. Your audit must be based on these same principles.
+    ### Ground Truth: Functional Categories for Stage s0
+    You must first independently classify the source text into one of the following functional categories. This is your ground truth.
 
-**A decision to KEEP (`to_eliminate: false`) is CORRECT if the text is one of the following functional categories:**
-1.  **Explanations & Scientific Prose:** Human-written prose explaining a concept.
-2.  **API & Function Documentation:** Docstrings, parameter lists, or comments describing code.
-3.  **Instructional Guides & Tutorials:** Human-written "how-to" guides (e.g., READMEs).
-4.  **Interactive Communication:** Questions, answers, bug reports, or developer discussions.
+    **KEEP Categories (Human-Authored):**
+    - `Interactive Communication`: A bug report, user question, developer discussion, or direct communication.
+    - `Instructional Guide/Tutorial`: A README, "how-to" guide, or step-by-step instructions.
+    - `API/Function Documentation`: A docstring or formal documentation describing a function, its parameters, or a command's help text.
+    - `Technical/Scientific Explanation`: A comment or text explaining the 'why' or 'how' behind a piece of code, an algorithm, or a scientific concept.
 
-**A decision to ELIMINATE (`to_eliminate: true`) is CORRECT only if the text is one of the following functional categories:**
-1.  **Logs, Traces, and Test Reports:** Output generated automatically by a program.
-2.  **Raw Data Lists:** A bare list of technical items without explanatory prose.
-3.  **Boilerplate Notices:** Standard copyright or license text.
+    **ELIMINATE Categories (Machine-Generated or Boilerplate):**
+    - `Log File/Trace`: An automated status report from a program's execution, including build logs, stack traces, or compiler warnings.
+    - `Raw Data List`: A bare list of technical items (e.g., file paths, API names) without explanatory prose.
+    - `Boilerplate Notice`: A standard, non-project-specific legal text, like a copyright or license.
 
-### Task-Specific Guiding Principle for Plausible Reasoning
-For the s0 task, reasoning is considered **plausible** if it correctly and simply identifies the functional category of the text based on the Ground Truth.
-- **Plausible reasoning for KEEPING:** "This is human documentation," "This is a developer discussion," "This is a bug report," "This is an instructional guide."
-- **Plausible reasoning for ELIMINATING:** "This is a log file," "This is a stack trace," "This is a boilerplate license."
-The reasoning does **NOT** need to be verbose or reference the high-level principles. A simple, correct categorization is sufficient and plausible.
+    ### VERIFICATION SCRIPT & RESPONSE FORMAT
+    You **must** respond with a single, raw JSON object.
 
-### VERIFICATION SCRIPT & RESPONSE FORMAT
+    **Step 1: Determine the Ground Truth Category**
+       - Read the `<source_data>`.
+       - Based on the "Ground Truth" list above, determine the single best functional category for the text.
+       - Populate `ground_truth_category`.
 
-You **must** respond with a single, raw JSON object. Fill out the fields sequentially as you perform the verification.
+    **Step 2: Evaluate the First AI's Decision and Reasoning**
+       - Read the first AI's decision in `<ai_output_to_verify>`.
+       - Compare the first AI's decision (`to_eliminate`) with your `ground_truth_category`. For example, if your category is "Bug Report" (a KEEP category), the correct decision is `to_eliminate: false`.
+       - Read the first AI's `s0_reasoning`. Does it align with your `ground_truth_category`? (e.g., if you classified it as a Bug Report, did the AI also mention it was a bug report or interactive communication?).
 
-**Step 1: Identify the Core Rule**
-   - Read the `<original_prompt>` and `<original_system_prompt>`.
-   - Quote the single most important sentence that defines the primary classification rule.
-   - Populate `analysis_core_rule`.
+    **Step 3: Render the Final Verdict**
+       - You must provide a final, binary evaluation. There are no partial credits.
+       - **IF** the first AI's `to_eliminate` decision is **CORRECT** according to your `ground_truth_category` AND its reasoning is sound and relevant, the `evaluation` **MUST** be `correct`.
+       - **ELSE** (if the decision is wrong OR the reasoning is fundamentally flawed/irrelevant), the `evaluation` **MUST** be `incorrect`.
+       - Populate the `evaluation` field.
+       - Then, write a one-sentence `reasoning` that states your verdict and justifies it by referencing your ground truth classification and the first AI's performance.
 
-**Step 2: Perform a Two-Point Comparison Checklist**
-   - **Check 1: Decision Correctness.** Based on the **Ground Truth for Stage s0** defined above, is the first AI's `to_eliminate` decision correct? Answer "Yes" or "No". Populate `analysis_is_decision_correct`.
-   - **Check 2: Reasoning Plausibility.** Read the first AI's `reasoning`. According to the **Task-Specific Guiding Principle for Plausible Reasoning** above, is this a plausible justification? Answer "Yes" or "No". Populate `analysis_is_reasoning_plausible`.
-
-**Step 3: Determine Final Verdict**
-   - Strictly apply the following logic tree based on your answers in Step 2.
-   - **IF `analysis_is_decision_correct` is "No"**: The `evaluation` **MUST** be **`incorrect`**.
-   - **IF `analysis_is_decision_correct` is "Yes"` AND `analysis_is_reasoning_plausible` is "No"**: The `evaluation` **MUST** be **`partially correct`**.
-   - **IF `analysis_is_decision_correct` is "Yes"` AND `analysis_is_reasoning_plausible` is "Yes"**: The `evaluation` **MUST** be **`correct`**.
-   - Populate the `evaluation` field. Then, write a one-sentence final `reasoning` that states your verdict and confirms the status of the decision and reasoning.
-
-```json
-{{
-  "analysis_core_rule": "The core rule was to...",
-  "analysis_is_decision_correct": "Yes" | "No",
-  "analysis_is_reasoning_plausible": "Yes" | "No",
-  "evaluation": "correct" | "partially correct" | "incorrect",
-  "reasoning": "My verdict is [evaluation] because the main decision was [correct/incorrect] based on the core rule, and the reasoning was [plausible/implausible]."
-}}
-```
-"""
+    ```json
+    {{
+      "ground_truth_category": "API/Function Documentation",
+      "evaluation": "correct" | "incorrect",
+      "reasoning": "My verdict is [evaluation] because the ground truth category is [ground_truth_category]. The first AI's decision to [keep/eliminate] was [correct/incorrect] and its reasoning was [sound/flawed]."
+    }}
+    ```
+    """
 
 def main():
     NoiseFilteringStageVerification(hostname=LLMHost.GREEN_LAB, batch_size_override=20, disable_cache=True).execute_verification()
