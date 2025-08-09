@@ -29,11 +29,11 @@ You are a meticulous data pre-processing bot for a scientific study. Your ONLY t
 
 **Your judgment must be based on two absolute priorities:**
 1.  **The Human-Authorship Principle:** Determine if the primary author is a human communicating with another human.
-2.  **The Documentation Principle:** Recognize that formal technical documentation, API references, READMEs, and scientific explanations are high-value, human-authored content that MUST be preserved.
+2.  **The Documentation Principle:** Recognize that formal technical documentation, API references, READMEs, and scientific explanations are high-value, human-authored content.
 
-**Crucial Tie-Breaker:** The *functional category* of the content is more important than its grammatical structure.
-- If a snippet is functionally a **Log** or **Boilerplate License**, it **MUST BE ELIMINATED**, even if it contains English prose.
-- Conversely, if a snippet is functionally a human-written **Guide**, **Tutorial**, or **API Documentation**, it **MUST BE KEPT**, even if it is highly structured or contains many code snippets.
+**Crucial Tie-Breaker:** The *functional category* of the content is more important than its structure.
+- If a snippet is functionally a **Log**, **Trace**, or **Boilerplate Notice (like a software license)**, it **MUST BE ELIMINATED**, even if it is written in well-formed English prose.
+- Conversely, if a snippet is functionally a human-written **Guide**, **Tutorial**, or **API Documentation**, it **MUST BE KEPT**, even if it is highly structured.
 """
 
     # In your NoiseFilteringStage class
@@ -53,15 +53,14 @@ Before applying the rules, perform this litmus test: **"Was this text written by
 ### **Rule 1: Content to KEEP (Human-Authored)**
 You **MUST KEEP** text if its primary purpose is human-to-human communication or documentation. This includes:
 
-1.  **Explanations, Documentation & Scientific Prose:** Prose that explains *what* something is, *how* it works, or *why* a decision was made. This is the highest priority rule.
-    *   **Includes:** Project READMEs, user guides, detailed comments, and formal academic or mathematical explanations.
-    *   **CRITICAL:** Do not mistake structure, formality, or technical terms for being machine-generated. A detailed, structured document is high-value human knowledge.
+1.  **Explanations, Documentation & Scientific Prose:** ... (This rule is solid, no change)
 
-2.  **API Reference & Help Text:** Docstrings and command-line help text that describe a function, its parameters, its behavior, or what it returns.
-    *   **Includes:** Short, single-sentence function descriptions (e.g., "Build tfidf vectorizer and ann index.") and detailed, structured parameter lists (e.g., "--phred64 indicate the input is using phred64 scoring..."). Both **MUST BE KEPT**.
+2.  **API Reference & Help Text:** Docstrings, command-line help text, and concise code comments that describe a function, its parameters, its behavior, or provide technical direction.
+    *   **CRITICAL:** Do not mistake brevity or an imperative tone for being a machine-generated artifact. Short, single-sentence docstrings or comments (e.g., "Build tfidf vectorizer and ann index.", "Fix the bug in interleaved mode.") are high-value human knowledge and **MUST BE KEPT**.
+    *   **Includes:** Structured parameter lists (e.g., "--phred64 indicates the input is using phred64 scoring...").
 
 3.  **Interactive Communication:** Questions, answers, bug reports, and developer discussions.
-    *   **Crucial Test:** Is this a log of a terminal session where the vast majority of text is machine output? If yes, it is a **Log** -> **ELIMINATE**.
+    *   **Crucial Test:** Is this a log of a terminal session where the vast majority of the text is machine output, even if it was triggered by a human command? If yes, it is a **Log**, not a communication, and **MUST BE ELIMINATED** under Rule 2.1.
 
 ---
 
