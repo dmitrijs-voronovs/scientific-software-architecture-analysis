@@ -1,20 +1,13 @@
-import html
-from pathlib import Path
 from typing import Literal
 
-import pandas as pd
 from pydantic import BaseModel
 
 from cfg.LLMHost import LLMHost
-from constants.abs_paths import AbsDirPath
 from processing_pipeline.model.IStageVerification import IStageVerification
-from processing_pipeline.s0_noise_filtering.NoiseFiltering import NoiseFilteringStage
 from processing_pipeline.s0_noise_filtering.NoiseFiltering_v2 import NoiseFilteringStage_v2
 
+
 class OllamaFormatValidityResponse(BaseModel):
-    # analysis_source_summary: "str"
-    # analysis_decision_summary: "str"
-    # analysis_reasoning_summary: "str"
     ground_truth_category: str
     evaluation: Literal["correct", "incorrect"]
     reasoning: str
@@ -79,8 +72,9 @@ class NoiseFilteringStageVerification(IStageVerification):
     ```
     """
 
+
 def main():
-    NoiseFilteringStageVerification(hostname=LLMHost.GREEN_LAB, batch_size_override=20, disable_cache=True).execute_verification()
+    NoiseFilteringStageVerification(hostname=LLMHost.GREEN_LAB, batch_size_override=20).execute_verification()
 
 
 if __name__ == "__main__":
