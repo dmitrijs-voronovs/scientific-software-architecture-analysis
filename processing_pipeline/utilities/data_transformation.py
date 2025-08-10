@@ -23,10 +23,26 @@ def split_dataset_by_repo_and_source(out_dir: Path, df: pd.DataFrame, *, clean_b
 def load_all_files(in_dir: Path, *, name_contains: str = None):
     dfs = []
     for file_path in in_dir.glob("*.parquet"):
-        if name_contains and not name_contains in file_path:
+        if name_contains and not name_contains in str(file_path):
             continue
         try:
             file = pd.read_parquet(file_path, engine='pyarrow')
+            # file['fname'] = file_path
+            dfs.append(file)
+            print(f"Loaded {file_path}")
+        except:
+            print(f"Error while loading {file_path}")
+
+    df = pd.concat(dfs)
+    return df
+
+def load_all_csv_files(in_dir: Path, *, name_contains: str = None):
+    dfs = []
+    for file_path in in_dir.glob("*.csv"):
+        if name_contains and not name_contains in str(file_path):
+            continue
+        try:
+            file = pd.read_csv(file_path)
             # file['fname'] = file_path
             dfs.append(file)
             print(f"Loaded {file_path}")
