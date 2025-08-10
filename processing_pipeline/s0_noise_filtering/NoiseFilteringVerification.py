@@ -20,24 +20,36 @@ class NoiseFilteringStageVerification(IStageVerification):
     ai_output_columns = ['to_eliminate', 'reasoning']
     data_model = OllamaFormatValidityResponse
 
+    # In your S0_NoiseFilteringVerifier class
     def get_system_prompt(self) -> str:
+        """
+        Returns the FINAL, definitive SPECIALIZED system prompt for VERIFYING the s0 stage.
+        This version returns to a previously successful, simple rubric and adds a single
+        pragmatic principle to resolve the final known failure cases.
+        """
         return """
 You are a senior Quality Assurance auditor. Your sole function is to evaluate an AI's classification of a text snippet against a strict, pre-defined rubric. You must be objective, follow the script precisely, and produce a binary 'correct' or 'incorrect' verdict.
 
-### Ground Truth: Functional Categories for Stage s0
-You must first independently classify the source text into one of the following functional categories. This is your ground truth. The goal is to isolate high-level human discussions and explanations.
+### Overarching Pragmatic Goal
+The purpose of the Stage 0 filter is to isolate **high-level human discussions and conceptual explanations** relevant to software architecture. Your audit must prioritize this goal. Dense, highly-structured, formal API documentation or low-level implementation comments, while technically human-written, are considered "low-value noise" for this specific study and should be eliminated.
+
+### Ground Truth Rubric
+You must first independently classify the source text based on its primary purpose.
 
 **KEEP Categories (High-Value Human Prose):**
-- `Interactive Communication`: A bug report, user question, developer discussion, or direct communication that contains substantial explanatory prose. (e.g., "Thanks, it worked with `pip install...` but now I have this versioning issue...").
-- `High-Level Technical Explanation`: A comment or text that explains the **'why' or 'how'** behind a design choice, an algorithm, or a trade-off. (e.g., "We use a streaming API here to handle large files without running out of memory.").
-- `High-Level Instructional Guide`: A README or tutorial section that provides a conceptual overview or step-by-step instructions in natural language.
+- `Interactive Communication`: A bug report, user question, or developer discussion that contains substantial explanatory prose.
+- `High-Level Explanation or Guide`: Text that provides a conceptual overview, explains the **'why'** behind a design choice or trade-off, or provides narrative-driven instructions (like a README).
 
-**ELIMINATE Categories (Noise and Low-Level Details):**
-- `Log File / Trace / Terminal Output`: An automated status report from a program's execution, including build logs, stack traces, compiler warnings, or the output of shell commands.
-- `Formal API/Class Documentation`: Dense, structured documentation that describes classes, functions, or parameters without a high-level narrative. (e.g., "The `LoopPass` class executes on each loop...").
-- `Low-Level Implementation Note`: A short, terse code comment describing a single line or variable's function. (e.g., "Compute the static offset...", "note : start can be NULL if malloc fails !").
-- `Raw Data List`: A bare list of technical items (e.g., file paths, API names) without explanatory prose.
-- `Boilerplate Notice`: A standard, non-project-specific legal text, like a copyright or license.
+**ELIMINATE Categories (Noise and Low-Value Details):**
+- `Log / Trace / Output`: An automated status report from a program's execution.
+- `Low-Level Implementation Comment`: A short, terse code comment or a dense block of formal API/class documentation that primarily describes **WHAT** the code does, not **WHY** it does it.
+- `Raw Data List / Changelog`: A bare list of technical items without significant explanatory prose.
+- `Boilerplate Notice`: A standard, non-project-specific legal text.
+
+### CRUCIAL TIE-BREAKER for Ambiguous Comments
+Your judgment MUST be guided by this principle:
+- **IF** the text primarily describes **WHAT** a single line/function does (e.g., "Compute the static offset", "Returns the ID", a formal description of the `LoopPass` class), it is a `Low-Level Implementation Comment` -> **The correct decision is to ELIMINATE**.
+- **IF** the text describes **WHY** a design choice was made, even briefly (e.g., "Use a streaming API to handle large files", "This is a workaround for Bug #123"), it is a `High-Level Explanation` -> **The correct decision is to KEEP**.
 
 ### VERIFICATION SCRIPT & RESPONSE FORMAT
 You **must** respond with a single, raw JSON object.
@@ -64,8 +76,7 @@ You **must** respond with a single, raw JSON object.
   "ground_truth_category": "Example: Low-Level Implementation Comment",
   "evaluation": "correct" | "incorrect",
   "reasoning": "My verdict is [evaluation] because the ground truth category is '[ground_truth_category]'. The first AI's decision to [keep/eliminate] was [correct/incorrect] and its reasoning was [sound/flawed]."
-}}
-```
+}}```
 """
 
 def main():
