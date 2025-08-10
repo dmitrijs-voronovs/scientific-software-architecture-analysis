@@ -11,7 +11,7 @@ def split_file(path: Path, n_parts: int, handler: IDfHandler):
 
 
 def main():
-    split_file(Path(r"C:\Users\Dmitrijs\Documents\myDocs\masters\courses\thesis\code\data\samples\verified\s0.csv"), 2, CSVDFHandler())
+    split_file(Path(r"C:\Users\Dmitrijs\Documents\myDocs\masters\courses\thesis\code\data\samples\verified\s0.csv"), 4, CSVDFHandler())
 
 if __name__ == "__main__":
     main()
