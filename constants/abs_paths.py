@@ -29,11 +29,11 @@ class AbsDirPath:
     # SUB DIRS
     QUERIES = RESOURCES / "queries"
     ANALYSIS = STAGES / "analysis"
-    KEYWORDS = DATA / "keywords"
-    # KEYWORDS = DATA / "keywords_2"
+    # KEYWORDS = DATA / "keywords"
+    KEYWORDS = DATA / "keywords_2"
     TACTICS = CONFIG / "tactics"
-    SAMPLES = DATA / "samples"
-    # SAMPLES = DATA / "samples_2"
+    # SAMPLES = DATA / "samples"
+    SAMPLES = DATA / "samples_2"
     SAMPLES_VERIFIED = SAMPLES / "verified"
 
 
