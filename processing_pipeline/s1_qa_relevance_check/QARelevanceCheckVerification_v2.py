@@ -5,6 +5,8 @@ from pydantic import BaseModel
 from cfg.LLMHost import LLMHost
 from processing_pipeline.model.IStageVerification import IStageVerification
 from processing_pipeline.s1_qa_relevance_check.QARelevanceCheck import QARelevanceCheckStage
+from processing_pipeline.s1_qa_relevance_check.QARelevanceCheck_v2 import QARelevanceCheckStage_v2
+
 
 class S1VerificationResponse(BaseModel):
     ground_truth_intent: Literal["Describing Functionality", "Describing Quality Attribute", "Out of Scope"]
@@ -12,8 +14,8 @@ class S1VerificationResponse(BaseModel):
     evaluation: Literal["correct", "incorrect"]
     reasoning: str
 
-class QARelevanceCheckVerification(IStageVerification):
-    stage_to_verify = QARelevanceCheckStage()
+class QARelevanceCheckVerification_v2(IStageVerification):
+    stage_to_verify = QARelevanceCheckStage_v2()
 
     source_columns = ['qa', "sentence"]
     ai_output_columns = ['true_positive', 'reasoning']

@@ -11,7 +11,7 @@ class OllamaQaRelevanceResponse(BaseModel):
     reasoning: str
 
 
-class QARelevanceCheckStage(IBaseStage):
+class QARelevanceCheckStage_v2(IBaseStage):
     data_model = OllamaQaRelevanceResponse
     temperature = 0.0
     model_name = ModelName.DEEPSEEK_8B
