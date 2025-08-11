@@ -1,3 +1,5 @@
+# QARelevanceCheck.py (REVISED with System/User Split)
+
 import pandas as pd
 from pydantic import BaseModel
 
@@ -6,7 +8,11 @@ from cfg.ModelName import ModelName
 from constants.abs_paths import AbsDirPath
 from constants.foldernames import FolderNames
 from processing_pipeline.model.IBaseStage import IBaseStage
+
 class OllamaQaRelevanceResponse(BaseModel):
+    analysis_context_check: str
+    analysis_intent: str
+    analysis_scope_match: str
     true_positive: bool
     reasoning: str
 
@@ -21,50 +27,44 @@ class QARelevanceCheckStage_v2(IBaseStage):
     stage_name = 's1'
 
     @classmethod
-    def to_prompt(cls, x: pd.Series) -> str:
-        return f"""
-You are a meticulous software engineering expert acting as a strict quality gatekeeper. Your task is to determine if a sentence from a software codebase or its technical documentation is a **direct and unambiguous** example of a specific quality attribute.
+    def get_system_prompt(cls) -> str:
+        """
+        Sets the expert persona, core directives, and mandatory output structure.
+        This is the static, unchanging part of the prompt.
+        """
+        return """
+You are a meticulous software engineering expert acting as a strict quality gatekeeper. Your task is to determine if a sentence is a direct and unambiguous example of a specific quality attribute.
 
 ### Primary Directives
 1.  **Avoid False Positives at All Costs:** If a connection is weak, indirect, or requires significant assumptions, you must classify it as a false positive.
-2.  **Principle of Direct Evidence:** The content must explicitly describe the *'why'* behind a design choice as it relates to a non-functional goal. Do not infer a quality attribute from a simple description of what the code *does*.
+2.  **Principle of Direct Evidence:** The content must explicitly describe the **'why'** behind a design choice as it relates to a non-functional goal. This 'why' is non-negotiable. Do not infer a quality attribute from a simple description of what the code *does*.
 
+### Your Response: Mandatory Chain of Thought Analysis
+You must generate a response with the following fields. Complete the analysis fields **first** before making your final decision.
+
+1.  `analysis_context_check`: Is the 'Content to Analyze' from a software context? (One-sentence assessment).
+2.  `analysis_intent`: What is the primary intent? "Describing Functionality" or "Describing Quality Attribute"? (State the intent clearly).
+3.  `analysis_scope_match`: Does the intent fall squarely within the 'Scope & Distinctions'? (One-sentence assessment of the match).
+4.  `true_positive`: `true` or `false`. This decision must be the logical conclusion of the preceding analysis steps.
+5.  `reasoning`: A final, concise summary of your decision. If false, state the reason and suggest a more appropriate quality attribute if possible.
+"""
+
+    @classmethod
+    def to_prompt(cls, x: pd.Series) -> str:
+        """
+        Provides the specific, dynamic data for the LLM to analyze in one shot.
+        This is the user prompt.
+        """
+        return f"""
 ### Data for Evaluation
-
 **1. Quality Attribute:** {x['qa']}
-
 **2. Attribute Description:** {x['qa_desc']}
-
 **3. Scope & Distinctions (Crucial Guardrails):** {x['qa_scope_hint']}
-
 **4. Content to Analyze:** {x['sentence']}
 
-### Instructions for Analysis
-
-Follow this **mandatory** reasoning process step-by-step:
-
-**Step 1: Context Check.**
-First, determine if the 'Content to Analyze' is plausibly a comment from a software codebase or technical documentation.
-- If it reads like a scientific abstract, a news article, or any other non-software text, it is **out of scope**. Respond immediately with `true_positive: false` and reasoning that the content is not from a software context.
-
-**Step 2: Intent vs. Quality.**
-Analyze the content's primary intent. This is the most important step. You must rigorously differentiate between:
-- **Describing Functionality:** Text that only explains what the code *does*. (e.g., "This function parses a file.") This is **not** a true positive.
-- **Describing a Quality Attribute:** Text that explains *why* the code is designed in a certain way to achieve a non-functional goal. (e.g., "The parser uses a streaming API to handle large files without running out of memory.") This **is** a potential true positive.
-
-**Step 3: Apply the Scope & Distinctions.**
-Reread the 'Scope & Distinctions' section carefully. Does the intent you identified in Step 2 fall squarely within this scope?
-- A strong example must match the positive descriptions provided in the scope hint, not the concepts it should be distinguished from.
-
-**Step 4: Final Decision.**
-Based on the strict application of the steps above, make your final decision.
-
-### Your Response
-
-Provide your response with only the following two fields:
-- `true_positive`: `true` or `false`.
-- `reasoning`: A concise explanation for your decision based on the step-by-step analysis. Your explanation must begin by explicitly stating if the primary intent is 'Describing Functionality' or 'Describing a Quality Attribute'. If false, you must state which rule or distinction it failed and suggest the more appropriate quality attribute (e.g., Reliability, Performance, Maintainability).
+Now, apply the analysis steps defined in your system prompt to the data provided above.
 """
+
     @classmethod
     def filter_and_transform_df_before_processing(cls, df):
         qa_details = {
@@ -128,7 +128,7 @@ Provide your response with only the following two fields:
 
 
 def main():
-    QARelevanceCheckStage(hostname=LLMHost.SERVER).execute(["root-project.root.v6-32-06.code_comment.","root-project.root.v6-32-06.docs.","root-project.root.v6-32-06.issue_comment."], reverse=False)
+    QARelevanceCheckStage_v2(hostname=LLMHost.SERVER).execute(["root-project.root.v6-32-06.code_comment.","root-project.root.v6-32-06.docs.","root-project.root.v6-32-06.issue."], reverse=False)
 
 
 if __name__ == "__main__":
