@@ -45,14 +45,15 @@ class StageConfig:
         return self._on_load(load_all_files(self.in_dir))
 
     def merge_stage_into_main(self, df_main: pd.DataFrame, df_stage: pd.DataFrame):
-        return pd.merge(df_main, df_stage, "left", self.depends_on_fields)
+        return pd.merge(df_main, df_stage.drop_duplicates(self.depends_on_fields), "left", self.depends_on_fields)
 
     def get_passed_column(self):
         return f"{self.name}_passed"
 
     def apply_filters(self, df_stage: pd.DataFrame):
-        df_stage_res = df_stage.copy()
+        df_stage_res = df_stage.copy().reset_index(drop=True)
         df_stage_res[self.get_passed_column()] = False
+        df_stage_res = df_stage_res.drop_duplicates(self.depends_on_fields)
         df_stage_res.loc[self._apply_filters(df_stage_res).index, self.get_passed_column()] = True
         return df_stage_res
 
@@ -66,9 +67,11 @@ class StageConfig:
             print(f"Applying filters for {current_stage.name}")
             df_stage = current_stage.load_stage_df()
             df_stage = current_stage.apply_filters(df_stage)
-            if not keep_all_data:
-                df_stage = current_stage.filter_passed(df_stage)
             df = current_stage.merge_stage_into_main(df, df_stage)
+            print(f"Current size: {df.shape[0]}")
+            if not keep_all_data:
+                df = current_stage.filter_passed(df)
+                print(f"Size after filtering: {df.shape[0]}")
 
             if current_stage is self:
                 break
@@ -103,7 +106,7 @@ S1QARelevance = StageConfig("s1", ["qa", "sentence"], ["true_positive", "reasoni
 
 S0NoiseFiltering = StageConfig("s0", ["sentence"], ["to_eliminate", "reasoning"], AbsDirPath.S0_NOISE_FILTERING,
                                AbsDirPath.O_S0_NOISE_FILTERING, "to_eliminate", S1QARelevance,
-                               lambda df: df[df['s0_to_eliminate'] == False])
+                               _apply_filters = lambda df: df[df['s0_to_eliminate'] == False])
 
 
 def ps_apply_filters(df):
