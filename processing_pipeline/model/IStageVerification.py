@@ -93,5 +93,6 @@ class IStageVerification(IBaseStage, ABC):
         return self.stage_to_verify.stage_name + '_v'
 
     def execute_verification(self):
-        # self.execute([self.stage_to_verify.stage_name])
-        self.execute([f"{self.stage_to_verify.stage_name}.part"])
+        self.execute([self.stage_to_verify.stage_name])
+        # for quick multipart sample verification
+        # self.execute([f"{self.stage_to_verify.stage_name}.part"])

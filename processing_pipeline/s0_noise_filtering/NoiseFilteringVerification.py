@@ -20,7 +20,6 @@ class NoiseFilteringStageVerification(IStageVerification):
     ai_output_columns = ['to_eliminate', 'reasoning']
     data_model = OllamaFormatValidityResponse
 
-    # In your S0_NoiseFilteringVerifier class
     def get_system_prompt(self) -> str:
         """
         Returns the FINAL, definitive SPECIALIZED system prompt for VERIFYING the s0 stage.

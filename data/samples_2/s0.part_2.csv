@@ -1,0 +1,1255 @@
+Unnamed: 0,sentence,s0_prompt,s0_to_eliminate,s0_reasoning
+4," these three conditions simultaneously. duplication rate and deduplication. For both SE and PE data, fastp supports evaluating its duplication rate and removing duplicated reads/pairs. fastp considers one read as duplicated only if its all base pairs are identical as another one. This meas if there is a sequencing error or an N base, the read will not be treated as duplicated. duplication rate evaluation. By default, fastp evaluates duplication rate, and this module may use 1G memory and take 10% ~ 20% more running time. If you don't need the duplication rate information, you can set `--dont_eval_duplication` to disable the duplication evaluation. But please be noted that, if deduplication (`--dedup`) option is enabled, then `--dont_eval_duplication` option is ignored. fastp uses a hash algorithm to find the identical sequences. Due to the possible hash collision, about 0.01% of the total reads may be wrongly recognized as deduplicated reads. Normally this may not impact the downstream analysis. The accuracy of calculating duplication can be improved by increasing the hash buffer number or enlarge the buffer size. The option `--dup_calc_accuracy` can be used to specify the level (1 ~ 6). The higher level means more memory usage and more running time. Please refer to following table:. | dup_calc_accuracy level | hash buffer number | buffer size | memory usage | speed | |. |- | - | - | - | - | - |. | 1 | 1 | 1G | 1G | ultra-fast | default for no-dedup mode |. | 2 | 1 | 2G | 2G | fast | |. | 3 | 2 | 2G | 4G | fast | default for dedup|. | 4 | 2 | 4G | 8G | fast | |. | 5 | 2 | 8G | 12G | fast | |. | 6 | 3 | 8G | 24G | moderate | |. deduplication. Since `v0.22.0`, fastp supports deduplication for FASTQ data. Specify `-D` or `--dedup` to enable this option. When `--dedup` is enabled, the `dup_calc_accuracy` level is default to `3`, and it can be changed to any value of 1 ~ 6. all options. ```shell. usage: fastp -i <in1> -o <out1> [-I <in1> -O <out2>] [options...]","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+ these three conditions simultaneously. duplication rate and deduplication. For both SE and PE data, fastp supports evaluating its duplication rate and removing duplicated reads/pairs. fastp considers one read as duplicated only if its all base pairs are identical as another one. This meas if there is a sequencing error or an N base, the read will not be treated as duplicated. duplication rate evaluation. By default, fastp evaluates duplication rate, and this module may use 1G memory and take 10% ~ 20% more running time. If you don't need the duplication rate information, you can set `--dont_eval_duplication` to disable the duplication evaluation. But please be noted that, if deduplication (`--dedup`) option is enabled, then `--dont_eval_duplication` option is ignored. fastp uses a hash algorithm to find the identical sequences. Due to the possible hash collision, about 0.01% of the total reads may be wrongly recognized as deduplicated reads. Normally this may not impact the downstream analysis. The accuracy of calculating duplication can be improved by increasing the hash buffer number or enlarge the buffer size. The option `--dup_calc_accuracy` can be used to specify the level (1 ~ 6). The higher level means more memory usage and more running time. Please refer to following table:. | dup_calc_accuracy level | hash buffer number | buffer size | memory usage | speed | |. |- | - | - | - | - | - |. | 1 | 1 | 1G | 1G | ultra-fast | default for no-dedup mode |. | 2 | 1 | 2G | 2G | fast | |. | 3 | 2 | 2G | 4G | fast | default for dedup|. | 4 | 2 | 4G | 8G | fast | |. | 5 | 2 | 8G | 12G | fast | |. | 6 | 3 | 8G | 24G | moderate | |. deduplication. Since `v0.22.0`, fastp supports deduplication for FASTQ data. Specify `-D` or `--dedup` to enable this option. When `--dedup` is enabled, the `dup_calc_accuracy` level is default to `3`, and it can be changed to any value of 1 ~ 6. all options. ```shell. usage: fastp -i <in1> -o <out1> [-I <in1> -O <out2>] [options...]
+",False,"This text explains the functionality and design choices of the fastp tool, specifically regarding duplication rate evaluation and deduplication. It discusses conditions for identifying duplicates, memory usage trade-offs, accuracy improvements through configuration options, and provides details on how to use specific flags. The content includes explanations of 'how' (e.g., hash algorithm) and 'why' (e.g., impact of hash collision), which aligns with Principle #1: KEEP High-Value Explanations. It also serves as documentation for the tool's features, fitting Principle #2: KEEP Simple Human Communication."
+3,"Building DockerFile fails at Stage Install CLIF binary ; **Have you checked the FAQ? https://github.com/google/deepvariant/blob/r1.2/docs/FAQ.md**: yes. **Describe the issue:**. I am building the deep variant Dockerfile (v1.2) off the Databricks Runtime base image (Ubuntu 18.04). Run into issues at Stage Install CLIF binary', I get the error,. `ModuleNotFoundError: No module named apt_pkg'`. I see in the build-prereq.sh script this comment,. `Build clif binary from scratch. Might not be ideal because it installs a. bunch of dependencies, but this works fine when we used this in a Dockerfile. because we don't do build-prereq.sh in the final image.`. Please advise how to get around this when building your own Docker Image. Cheers,. William. **Setup**. - Operating system: Ununtu 18.04. - DeepVariant version: 1.2. - Installation method (Docker, built from source, etc.): Docker. - Type of data: (sequencing instrument, reference genome, anything special that is unlike the case studies?). **Steps to reproduce:**. - Command:. - Error trace: (if applicable). **Does the quick start test work on your system?**. Please test with https://github.com/google/deepvariant/blob/r0.10/docs/deepvariant-quick-start.md. Is there any way to reproduce the issue by using the quick start? **Any additional context:**.","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+Building DockerFile fails at Stage Install CLIF binary ; **Have you checked the FAQ? https://github.com/google/deepvariant/blob/r1.2/docs/FAQ.md**: yes. **Describe the issue:**. I am building the deep variant Dockerfile (v1.2) off the Databricks Runtime base image (Ubuntu 18.04). Run into issues at Stage Install CLIF binary', I get the error,. `ModuleNotFoundError: No module named apt_pkg'`. I see in the build-prereq.sh script this comment,. `Build clif binary from scratch. Might not be ideal because it installs a. bunch of dependencies, but this works fine when we used this in a Dockerfile. because we don't do build-prereq.sh in the final image.`. Please advise how to get around this when building your own Docker Image. Cheers,. William. **Setup**. - Operating system: Ununtu 18.04. - DeepVariant version: 1.2. - Installation method (Docker, built from source, etc.): Docker. - Type of data: (sequencing instrument, reference genome, anything special that is unlike the case studies?). **Steps to reproduce:**. - Command:. - Error trace: (if applicable). **Does the quick start test work on your system?**. Please test with https://github.com/google/deepvariant/blob/r0.10/docs/deepvariant-quick-start.md. Is there any way to reproduce the issue by using the quick start? **Any additional context:**.
+",False,"This text contains a detailed explanation of an issue encountered while building a Dockerfile for DeepVariant, including specific error messages and references to documentation. It discusses potential reasons (installing dependencies via build-prereq.sh script) and seeks advice on resolving the problem. The intent is clearly human communication aimed at explaining technical challenges in setting up the environment."
+3,"Revise overlap detection, PE correction and adapter trimming. Support average quality score filter. Count polyX. ...","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+Revise overlap detection, PE correction and adapter trimming. Support average quality score filter. Count polyX. ...
+",False,"This appears to be a list of features or tasks being addressed in the context of genetic data processing (likely referring to bioinformatics tools). While it is structured as bullet points, each item describes an action ('Revise overlap detection', 'PE correction', etc.) that requires explanation. The phrase 'Support average quality score filter' and 'Count polyX' suggest technical implementation details which may be part of a design discussion or code documentation explaining the rationale behind these changes. However, without explicit context about why these features are being implemented (e.g., to improve accuracy, efficiency, etc.), it is ambiguous whether this constitutes an explanation. Since Principle #1 requires keeping any text that explains 'why' or 'how', and there's insufficient information here to determine if it does, I must err on the side of caution by not eliminating it."
+29,"AACTGCTTTTTAAAGTGCGTGTTATACACTTTCAGCAG. +. CCCCCGGGGGGGGGGGGGGGGGGGGGGGFGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGDGGGGFEGGGGFGFGGGGGGGGFGGGGGGGGGGGGGGDGGGGGGFGGGGGGGGGGFGGGGGGGGGGGGGGGGGGFGGFFGGGGGFEGCFFGGGGGGGGGGGGFGGGGGGGGGGGFGGGGGGGGGGGG>FGGGGGGEFE>5CGGGGGGGGGGGGGFFGGGGCEGGGGGDEDDGFFCGG=DFGGGGGF<>>FFGEEEB5BFFB==4AFFF<4@AB@>?EFFFFAFFFF?<BA>DBF9. ERROR: sequence and quality have different length. ERROR: igzip: Error invalid gzip header found: /Users/drflanman/Documents/Work/HSE/Research/Query_Failed_VTEC/Fastq/23S-3563_S6_L001_R1_001.fastq.gz. ERROR: igzip: Error invalid gzip header found: /Users/drflanman/Documents/Work/HSE/Research/Query_Failed_VTEC/Fastq/23S-3567_S16_L001_R2_001.fastq.gz. ERROR: igzip: Error invalid gzip header found: /Users/drflanman/Documents/Work/HSE/Research/Query_Failed_VTEC/Fastq/23S-3576_S7_L001_R1_001.fastq.gz. ERROR: igzip: Error invalid gzip header found: /Users/drflanman/Documents/Work/HSE/Research/Query_Failed_VTEC/Fastq/23S-3581_S8_L001_R1_001.fastq.gz. ERROR: sequence and quality have different length:. @M04968:233:000000000-L7FRV:1:2119:22180:16168 1:N:0:14. GTATGGGGCGGTGTGCATGCAAAACCCTAAACTCCAGTACCTCACTGATTATTCCCCCTCTGATGCGCCCTGGGACGCACACAGAAGCGTTTCTGACGACGTGGGAGGGATTTACCTGCTTGCGGCCGAATATGAGCACTACGGGGCTCGTATGGCTTCCTGTGGCGGTTTACTGCGTTTCGGGTGGTCTACCCTCAAGGAAACCGGAGAAACGCGTCTGAGGCTGCGTGAGGCACATTTCTGC. +. CCCCCGGGGGGGDGEGG9FFGGGG8CGGGCFGGEFGGGFGGG9C8@F9FFGGGGFGCFGGCFGFD,@FGDGGGF8FFEC>FFF<CDFFGGGGFF<ADFCEF@@GED+>CCG8FFCFEGFF<FFFGG+@@FEC<D<FFCFFFFC@FGECFGGEFGGGG,FC9;FGGGEC:C*,<BFGEF*=<F7<BGCGTC,<B00000FC9;F000-GCAAAFFDEGGGG8CGGGCFGGEFGGGFGGG9C8@F9FFGGGGFGCFGCGCF505:1GGGGFGC,@FG:GGG9::C000-GGFGACGGGGGCGGATG<F7<BGGGEFFGGGG+ACGGGGGGEEFGG:N:7F<FGGTGCG8ATGAGCAAAC2FG:CAACACGC888888?CTCAA:++030;9*>GDFFDFGFGGATDFGFGGTGCTG+030;9*>GDGG>FFGGTGGGCGTGATGCABFAEF9E?DAAGAG19:::CFE@TTTCA@:221CCCTCTGATGCGCCCTGGGACGCACACAGAAGCGTTT6*AA:++030L7FRV7FRVCAGT000CATGEC<D<FFCAGAFFFF:++03TGACC:000CACTA@GE71CCGCTCF:++03TF:++ACATT. ERROR: sequence and quality have diffe","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+AACTGCTTTTTAAAGTGCGTGTTATACACTTTCAGCAG. +. CCCCCGGGGGGGGGGGGGGGGGGGGGGGFGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGDGGGGFEGGGGFGFGGGGGGGGFGGGGGGGGGGGGGGDGGGGGGFGGGGGGGGGGFGGGGGGGGGGGGGGGGGGFGGFFGGGGGFEGCFFGGGGGGGGGGGGFGGGGGGGGGGGFGGGGGGGGGGGG>FGGGGGGEFE>5CGGGGGGGGGGGGGFFGGGGCEGGGGGDEDDGFFCGG=DFGGGGGF<>>FFGEEEB5BFFB==4AFFF<4@AB@>?EFFFFAFFFF?<BA>DBF9. ERROR: sequence and quality have different length. ERROR: igzip: Error invalid gzip header found: /Users/drflanman/Documents/Work/HSE/Research/Query_Failed_VTEC/Fastq/23S-3563_S6_L001_R1_001.fastq.gz. ERROR: igzip: Error invalid gzip header found: /Users/drflanman/Documents/Work/HSE/Research/Query_Failed_VTEC/Fastq/23S-3567_S16_L001_R2_001.fastq.gz. ERROR: igzip: Error invalid gzip header found: /Users/drflanman/Documents/Work/HSE/Research/Query_Failed_VTEC/Fastq/23S-3576_S7_L001_R1_001.fastq.gz. ERROR: igzip: Error invalid gzip header found: /Users/drflanman/Documents/Work/HSE/Research/Query_Failed_VTEC/Fastq/23S-3581_S8_L001_R1_001.fastq.gz. ERROR: sequence and quality have different length:. @M04968:233:000000000-L7FRV:1:2119:22180:16168 1:N:0:14. GTATGGGGCGGTGTGCATGCAAAACCCTAAACTCCAGTACCTCACTGATTATTCCCCCTCTGATGCGCCCTGGGACGCACACAGAAGCGTTTCTGACGACGTGGGAGGGATTTACCTGCTTGCGGCCGAATATGAGCACTACGGGGCTCGTATGGCTTCCTGTGGCGGTTTACTGCGTTTCGGGTGGTCTACCCTCAAGGAAACCGGAGAAACGCGTCTGAGGCTGCGTGAGGCACATTTCTGC. +. CCCCCGGGGGGGDGEGG9FFGGGG8CGGGCFGGEFGGGFGGG9C8@F9FFGGGGFGCFGGCFGFD,@FGDGGGF8FFEC>FFF<CDFFGGGGFF<ADFCEF@@GED+>CCG8FFCFEGFF<FFFGG+@@FEC<D<FFCFFFFC@FGECFGGEFGGGG,FC9;FGGGEC:C*,<BFGEF*=<F7<BGCGTC,<B00000FC9;F000-GCAAAFFDEGGGG8CGGGCFGGEFGGGFGGG9C8@F9FFGGGGFGCFGCGCF505:1GGGGFGC,@FG:GGG9::C000-GGFGACGGGGGCGGATG<F7<BGGGEFFGGGG+ACGGGGGGEEFGG:N:7F<FGGTGCG8ATGAGCAAAC2FG:CAACACGC888888?CTCAA:++030;9*>GDFFDFGFGGATDFGFGGTGCTG+030;9*>GDGG>FFGGTGGGCGTGATGCABFAEF9E?DAAGAG19:::CFE@TTTCA@:221CCCTCTGATGCGCCCTGGGACGCACACAGAAGCGTTT6*AA:++030L7FRV7FRVCAGT000CATGEC<D<FFCAGAFFFF:++03TGACC:000CACTA@GE71CCGCTCF:++03TF:++ACATT. ERROR: sequence and quality have diffe
+",True,"The text appears to be a series of error messages from a program, likely related to file processing or data validation (e.g., gzip header errors). It does not explain any 'why' or 'how', nor does it contain simple human communication. Instead, it is raw output with no context or rationale provided for the issues described. According to Principle #3, unambiguous noise should be eliminated if there's no explanatory value."
+17,"424: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations: AVX2 AVX512F AVX512_VNNI FMA. To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags. 2023-04-13 03:58:36.431128: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations: AVX2 AVX512F AVX512_VNNI FMA. To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags. 2023-04-13 03:58:36.649384: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations: AVX2 AVX512F AVX512_VNNI FMA. To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags. 2023-04-13 03:58:37.283502: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations: AVX2 AVX512F AVX512_VNNI FMA. To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags. 2023-04-13 03:58:36.696454: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations: AVX2 AVX512F AVX512_VNNI FMA. To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags. 2023-04-13 03:58:37.910042: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in perfor","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+424: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations: AVX2 AVX512F AVX512_VNNI FMA. To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags. 2023-04-13 03:58:36.431128: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations: AVX2 AVX512F AVX512_VNNI FMA. To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags. 2023-04-13 03:58:36.649384: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations: AVX2 AVX512F AVX512_VNNI FMA. To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags. 2023-04-13 03:58:37.283502: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations: AVX2 AVX512F AVX512_VNNI FMA. To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags. 2023-04-13 03:58:36.696454: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations: AVX2 AVX512F AVX512_VNNI FMA. To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags. 2023-04-13 03:58:37.910042: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in perfor
+",True,"The text consists of multiple repeated log messages from TensorFlow, all describing the same information about CPU optimizations and compiler flags. It does not explain a technical concept or design choice; it is simply raw output logging system behavior without any human explanation or context. According to Principle #3, this falls under 'Log File / Trace / Output' which should be eliminated as unambiguous noise."
+11,Adds entity linking and abbreviation detection.,"
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+Adds entity linking and abbreviation detection.
+",False,"This is a high-value explanation of an enhancement in a system. It explains what was added (entity linking and abbreviation detection) but does not explicitly state the 'why' or 'how'. However, according to Principle #1, it still has substantial explanatory value because it describes a feature addition without which the user might infer intent from context."
+0,"The threading and I/O modules have been completely rewritten to generate reproducible outputs and improve performance greatly. New libraries `libisal` and `libdeflate` were introduced to replace the slow `zlib`. Although this may bring some difficulties to compilation, it is all worthwhile for performance improvement. In many cases, fastp v0.23.0 can be 2x as faster as previous versions. Especially, when the compression level is set to 6 or higher, the performance gain is very obvious. Threading randomness issue has been addressed, so the output files are MD5 consistent when you run it twice, which means the results are completely reproducible.","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+The threading and I/O modules have been completely rewritten to generate reproducible outputs and improve performance greatly. New libraries `libisal` and `libdeflate` were introduced to replace the slow `zlib`. Although this may bring some difficulties to compilation, it is all worthwhile for performance improvement. In many cases, fastp v0.23.0 can be 2x as faster as previous versions. Especially, when the compression level is set to 6 or higher, the performance gain is very obvious. Threading randomness issue has been addressed, so the output files are MD5 consistent when you run it twice, which means the results are completely reproducible.
+",False,"This text explains a system update (fastp) and its benefits in terms of performance improvement and reproducibility. It discusses specific technical changes (`libisal`, `libdeflate`), addresses potential issues, and provides quantitative results (2x faster). This falls under Principle #1 as it clearly conveys the 'why' behind the rewrite and how these changes affect outcomes."
+3,Updates scispacy to be compatiable with the latest spacy version (3.2.3),"
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+Updates scispacy to be compatiable with the latest spacy version (3.2.3)
+",False,"This is a commit message that explains the purpose of an update, which aligns with Principle #2: KEEP Simple Human Communication. It clearly states human intent and provides context for why this change was made."
+10,"asta` to give a FASTA file to tell `fastp` to trim multiple adapters in this FASTA file. Here is a sample of such adapter FASTA file:. ```. >Illumina TruSeq Adapter Read 1. AGATCGGAAGAGCACACGTCTGAACTCCAGTCA. >Illumina TruSeq Adapter Read 2. AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT. >polyA. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA. ```. The adapter sequence in this file should be at least 6bp long, otherwise it will be skipped. And you can give whatever you want to trim, rather than regular sequencing adapters (i.e. polyA). `fastp` first trims the auto-detected adapter or the adapter sequences given by `--adapter_sequence | --adapter_sequence_r2`, then trims the adapters given by `--adapter_fasta` one by one. The sequence distribution of trimmed adapters can be found at the HTML/JSON reports. per read cutting by quality score. `fastp` supports per read sliding window cutting by evaluating the mean quality scores in the sliding window. From `v0.19.6`, `fastp` supports 3 different operations, and you enable one or all of them:. * `-5, --cut_front` move a sliding window from front (5') to tail, drop the bases in the window if its mean quality is below cut_mean_quality, stop otherwise. Default is disabled. The leading N bases are also trimmed. Use `cut_front_window_size` to set the widnow size, and `cut_front_mean_quality` to set the mean quality threshold. If the window size is 1, this is similar as the Trimmomatic `LEADING` method. * `-3, --cut_tail` move a sliding window from tail (3') to front, drop the bases in the window if its mean quality is below cut_mean_quality, stop otherwise. Default is disabled. The trailing N bases are also trimmed. Use `cut_tail_window_size` to set the widnow size, and `cut_tail_mean_quality` to set the mean quality threshold. If the window size is 1, this is similar as the Trimmomatic `TRAILING` method. * `-r, --cut_right` move a sliding window from front to tail, if meet one window with mean quality < threshold, drop the bases in the ","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+asta` to give a FASTA file to tell `fastp` to trim multiple adapters in this FASTA file. Here is a sample of such adapter FASTA file:. ```. >Illumina TruSeq Adapter Read 1. AGATCGGAAGAGCACACGTCTGAACTCCAGTCA. >Illumina TruSeq Adapter Read 2. AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT. >polyA. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA. ```. The adapter sequence in this file should be at least 6bp long, otherwise it will be skipped. And you can give whatever you want to trim, rather than regular sequencing adapters (i.e. polyA). `fastp` first trims the auto-detected adapter or the adapter sequences given by `--adapter_sequence | --adapter_sequence_r2`, then trims the adapters given by `--adapter_fasta` one by one. The sequence distribution of trimmed adapters can be found at the HTML/JSON reports. per read cutting by quality score. `fastp` supports per read sliding window cutting by evaluating the mean quality scores in the sliding window. From `v0.19.6`, `fastp` supports 3 different operations, and you enable one or all of them:. * `-5, --cut_front` move a sliding window from front (5') to tail, drop the bases in the window if its mean quality is below cut_mean_quality, stop otherwise. Default is disabled. The leading N bases are also trimmed. Use `cut_front_window_size` to set the widnow size, and `cut_front_mean_quality` to set the mean quality threshold. If the window size is 1, this is similar as the Trimmomatic `LEADING` method. * `-3, --cut_tail` move a sliding window from tail (3') to front, drop the bases in the window if its mean quality is below cut_mean_quality, stop otherwise. Default is disabled. The trailing N bases are also trimmed. Use `cut_tail_window_size` to set the widnow size, and `cut_tail_mean_quality` to set the mean quality threshold. If the window size is 1, this is similar as the Trimmomatic `TRAILING` method. * `-r, --cut_right` move a sliding window from front to tail, if meet one window with mean quality < threshold, drop the bases in the 
+",False,"This text explains how to use the FASTA file feature in `fastp`, including details about adapter sequences and trimming operations. It discusses specific functionalities (e.g., `-5`, `-3`, `-r`), compares with Trimmomatic, and describes the process of per-read cutting by quality score. This meets Principle #1 as it provides substantial explanation for a technical tool's usage."
+18,"`-g` or `--trim_poly_g` to enable it for any data, or specify `-G` or `--disable_trim_poly_g` to disable it. NextSeq/NovaSeq data is detected by the machine ID in the FASTQ records.  . A minimum length can be set with `<poly_g_min_len>` for `fastp` to detect polyG. This value is 10 by default. polyX tail trimming. This feature is similar as polyG tail trimming, but is disabled by default. Use `-x` or `--trim_poly_x` to enable it. A minimum length can be set with `<poly_x_min_len>` for `fastp` to detect polyX. This value is 10 by default. When `polyG tail trimming` and `polyX tail trimming` are both enabled, fastp will perform `polyG trimming` first, then perform `polyX trimming`. This setting is useful for trimming the tails having `polyX (i.e. polyA) ` before `polyG`. `polyG` is usually caused by sequencing artifacts, while `polyA` can be commonly found from the tails of mRNA-Seq reads. unique molecular identifier (UMI) processing. UMI is useful for duplication elimination and error correction based on generating consensus of reads originated from a same DNA fragment. It's usually used in deep sequencing applications like ctDNA sequencing. Commonly for Illumina platforms, UMIs can be integrated in two different places: `index` or head of `read`.  . To enable UMI processing, you have to enable `-U` or `--umi` option in the command line, and specify `--umi_loc` to specify the UMI location, it can be one of:. * `index1` the first index is used as UMI. If the data is PE, this UMI will be used for both read1/read2. * `index2` the second index is used as UMI. PE data only, this UMI will be used for both read1/read2. * `read1` the head of read1 is used as UMI. If the data is PE, this UMI will be used for both read1/read2. * `read2` the head of read2 is used as UMI. PE data only, this UMI will be used for both read1/read2. * `per_index` `index1_index2` is used as UMI for both read1/read2. * `per_read` define `umi1` as the head of read1, and `umi2` as the head of read2.","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+`-g` or `--trim_poly_g` to enable it for any data, or specify `-G` or `--disable_trim_poly_g` to disable it. NextSeq/NovaSeq data is detected by the machine ID in the FASTQ records.  . A minimum length can be set with `<poly_g_min_len>` for `fastp` to detect polyG. This value is 10 by default. polyX tail trimming. This feature is similar as polyG tail trimming, but is disabled by default. Use `-x` or `--trim_poly_x` to enable it. A minimum length can be set with `<poly_x_min_len>` for `fastp` to detect polyX. This value is 10 by default. When `polyG tail trimming` and `polyX tail trimming` are both enabled, fastp will perform `polyG trimming` first, then perform `polyX trimming`. This setting is useful for trimming the tails having `polyX (i.e. polyA) ` before `polyG`. `polyG` is usually caused by sequencing artifacts, while `polyA` can be commonly found from the tails of mRNA-Seq reads. unique molecular identifier (UMI) processing. UMI is useful for duplication elimination and error correction based on generating consensus of reads originated from a same DNA fragment. It's usually used in deep sequencing applications like ctDNA sequencing. Commonly for Illumina platforms, UMIs can be integrated in two different places: `index` or head of `read`.  . To enable UMI processing, you have to enable `-U` or `--umi` option in the command line, and specify `--umi_loc` to specify the UMI location, it can be one of:. * `index1` the first index is used as UMI. If the data is PE, this UMI will be used for both read1/read2. * `index2` the second index is used as UMI. PE data only, this UMI will be used for both read1/read2. * `read1` the head of read1 is used as UMI. If the data is PE, this UMI will be used for both read1/read2. * `read2` the head of read2 is used as UMI. PE data only, this UMI will be used for both read1/read2. * `per_index` `index1_index2` is used as UMI for both read1/read2. * `per_read` define `umi1` as the head of read1, and `umi2` as the head of read2.
+",True,"This text appears to be a detailed explanation of command-line options and features for a tool called fastp. It discusses polyG tail trimming, polyX tail trimming, and unique molecular identifier (UMI) processing. However, upon closer inspection, it does not contain substantial explanatory prose about the 'why' or 'how'. Instead, it is primarily instructional, listing parameters and their default values without providing context for why these features exist or how they should be used in a broader sense. It describes what each option does but lacks depth on the rationale behind them."
+5,"BSD 3-Clause License Copyright (c) 2020, Fourthought All rights reserved. Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS AS IS AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+BSD 3-Clause License Copyright (c) 2020, Fourthought All rights reserved. Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS AS IS AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+",True,"This text is a standard boilerplate license notice. It contains no explanation of the 'why' or 'how' and does not communicate any technical concept, design choice, or rationale for code to another human. According to Principle #3, it should be eliminated as unambiguous noise."
+11,"tput.tfrecord.gz \. --examples ${OUTPUT_DIR}/examples.tfrecord@${N_SHARDS}.gz \. --checkpoint gs://deepvariant/models/DeepVariant/1.0.0/DeepVariant-inception_v3-1.0.0+data-pacbio_standard/model.ckpt"". ```. the following error occurs:. ```. I1203 17:49:21.931325 140389904897792 call_variants.py:335] Shape of input examples: [100, 221, 6]. 2020-12-03 17:49:32.284722: W tensorflow/core/platform/cloud/google_auth_provider.cc:178] All attempts to get a Google authentication bearer token failed, returning an empty token. Retrieving token from files failed with Not found: Could not locate the credentials file."". Retrieving token from GCE failed with Aborted: All 10 retry attempts failed. The last failure: Unavailable: Error executing an HTTP request: libcurl code 6 meaning Couldn't resolve host name', error details: Couldn't resolve host metadata . Traceback (most recent call last):. File /tmp/Bazel.runfiles_a7fwubx_/runfiles/com_google_deepvariant/deepvariant/call_variants.py"", line 491, in <module>. tf.compat.v1.app.run(). File /usr/local/lib/python3.6/dist-packages/tensorflow_core/python/platform/app.py"", line 40, in run. _run(main=main, argv=argv, flags_parser=_parse_flags_tolerate_undef). File /tmp/Bazel.runfiles_a7fwubx_/runfiles/absl_py/absl/app.py"", line 300, in run. _run_main(main, args). File /tmp/Bazel.runfiles_a7fwubx_/runfiles/absl_py/absl/app.py"", line 251, in _run_main. sys.exit(main(argv)). File /tmp/Bazel.runfiles_a7fwubx_/runfiles/com_google_deepvariant/deepvariant/call_variants.py"", line 481, in main. use_tpu=FLAGS.use_tpu,. File /tmp/Bazel.runfiles_a7fwubx_/runfiles/com_google_deepvariant/deepvariant/call_variants.py"", line 348, in call_variants. num_channels_in_checkpoint_model, example_shape[2])). ValueError: The number of channels in examples and checkpoint should match, but the checkpoint has 8 channels while the examples have 6. ```. Running with the checkpoint for 0.9.0 works with this command. Is the model on the GS bucket correct?","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+tput.tfrecord.gz \. --examples ${OUTPUT_DIR}/examples.tfrecord@${N_SHARDS}.gz \. --checkpoint gs://deepvariant/models/DeepVariant/1.0.0/DeepVariant-inception_v3-1.0.0+data-pacbio_standard/model.ckpt"". ```. the following error occurs:. ```. I1203 17:49:21.931325 140389904897792 call_variants.py:335] Shape of input examples: [100, 221, 6]. 2020-12-03 17:49:32.284722: W tensorflow/core/platform/cloud/google_auth_provider.cc:178] All attempts to get a Google authentication bearer token failed, returning an empty token. Retrieving token from files failed with Not found: Could not locate the credentials file."". Retrieving token from GCE failed with Aborted: All 10 retry attempts failed. The last failure: Unavailable: Error executing an HTTP request: libcurl code 6 meaning Couldn't resolve host name', error details: Couldn't resolve host metadata . Traceback (most recent call last):. File /tmp/Bazel.runfiles_a7fwubx_/runfiles/com_google_deepvariant/deepvariant/call_variants.py"", line 491, in <module>. tf.compat.v1.app.run(). File /usr/local/lib/python3.6/dist-packages/tensorflow_core/python/platform/app.py"", line 40, in run. _run(main=main, argv=argv, flags_parser=_parse_flags_tolerate_undef). File /tmp/Bazel.runfiles_a7fwubx_/runfiles/absl_py/absl/app.py"", line 300, in run. _run_main(main, args). File /tmp/Bazel.runfiles_a7fwubx_/runfiles/absl_py/absl/app.py"", line 251, in _run_main. sys.exit(main(argv)). File /tmp/Bazel.runfiles_a7fwubx_/runfiles/com_google_deepvariant/deepvariant/call_variants.py"", line 481, in main. use_tpu=FLAGS.use_tpu,. File /tmp/Bazel.runfiles_a7fwubx_/runfiles/com_google_deepvariant/deepvariant/call_variants.py"", line 348, in call_variants. num_channels_in_checkpoint_model, example_shape[2])). ValueError: The number of channels in examples and checkpoint should match, but the checkpoint has 8 channels while the examples have 6. ```. Running with the checkpoint for 0.9.0 works with this command. Is the model on the GS bucket correct?
+",False,"This text contains a detailed explanation of an error encountered during execution, including analysis about the mismatch between example channels and checkpoint channels, which explains 'why' or 'how' it occurred. It also includes a question about whether the model is correct, indicating human communication with intent to understand and resolve the issue."
+15,"Reads one byte from the compressed file. gzgetc returns this byte or -1 in case of end of file or error. This is implemented as a macro for speed. As such, it does not do all of the checking the other functions do. I.e. it does not check to see if file is NULL, nor whether the structure file points to has been clobbered or not.","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+Reads one byte from the compressed file. gzgetc returns this byte or -1 in case of end of file or error. This is implemented as a macro for speed. As such, it does not do all of the checking the other functions do. I.e. it does not check to see if file is NULL, nor whether the structure file points to has been clobbered or not.
+",False,"This text explains the implementation and rationale behind gzgetc(), discussing its purpose (reading one byte), behavior (-1 on EOF/error), performance optimization (implemented as a macro for speed), and potential risks (not checking file validity). It addresses 'how' and 'why', providing substantial explanation of code design, which aligns with Principle #1: KEEP High-Value Explanations. The content is not low-value noise but offers insight into the function's implementation trade-offs."
+0,"gle file. store the reads that fail the filters. * give `--failed_out` to specify the file name to store the failed reads. * if one read failed and is written to `--failed_out`, its `failure reason` will be appended to its read name. For example, `failed_quality_filter`, `failed_too_short` etc. * for PE data, if unpaired reads are not stored (by giving --unpaired1 or --unpaired2), the failed pair of reads will be put together. If one read passes the filters but its pair doesn't, the `failure reason` will be `paired_read_is_failing`. process only part of the data. If you don't want to process all the data, you can specify `--reads_to_process` to limit the reads to be processed. This is useful if you want to have a fast preview of the data quality, or you want to create a subset of the filtered data. do not overwrite exiting files. You can enable the option `--dont_overwrite` to protect the existing files not to be overwritten by `fastp`. In this case, `fastp` will report an error and quit if it finds any of the output files (read1, read2, json report, html report) already exists before. split the output to multiple files for parallel processing. See [output splitting](#output-splitting). merge PE reads. See [merge paired-end reads](#merge-paired-end-reads). filtering. Multiple filters have been implemented. quality filter. Quality filtering is enabled by default, but you can disable it by `-Q` or `disable_quality_filtering`. Currently it supports filtering by limiting the N base number (`-n, --n_base_limit`), and the percentage of unqualified bases.  . To filter reads by its percentage of unqualified bases, two options should be provided:. * `-q, --qualified_quality_phred`       the quality value that a base is qualified. Default 15 means phred quality >=Q15 is qualified. * `-u, --unqualified_percent_limit`   how many percents of bases are allowed to be unqualified (0~100). Default 40 means 40%. You can also filter reads by its average quality sco","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+gle file. store the reads that fail the filters. * give `--failed_out` to specify the file name to store the failed reads. * if one read failed and is written to `--failed_out`, its `failure reason` will be appended to its read name. For example, `failed_quality_filter`, `failed_too_short` etc. * for PE data, if unpaired reads are not stored (by giving --unpaired1 or --unpaired2), the failed pair of reads will be put together. If one read passes the filters but its pair doesn't, the `failure reason` will be `paired_read_is_failing`. process only part of the data. If you don't want to process all the data, you can specify `--reads_to_process` to limit the reads to be processed. This is useful if you want to have a fast preview of the data quality, or you want to create a subset of the filtered data. do not overwrite exiting files. You can enable the option `--dont_overwrite` to protect the existing files not to be overwritten by `fastp`. In this case, `fastp` will report an error and quit if it finds any of the output files (read1, read2, json report, html report) already exists before. split the output to multiple files for parallel processing. See [output splitting](#output-splitting). merge PE reads. See [merge paired-end reads](#merge-paired-end-reads). filtering. Multiple filters have been implemented. quality filter. Quality filtering is enabled by default, but you can disable it by `-Q` or `disable_quality_filtering`. Currently it supports filtering by limiting the N base number (`-n, --n_base_limit`), and the percentage of unqualified bases.  . To filter reads by its percentage of unqualified bases, two options should be provided:. * `-q, --qualified_quality_phred`       the quality value that a base is qualified. Default 15 means phred quality >=Q15 is qualified. * `-u, --unqualified_percent_limit`   how many percents of bases are allowed to be unqualified (0~100). Default 40 means 40%. You can also filter reads by its average quality sco
+",False,"This text appears to be instructions or documentation for a tool called 'fastp'. It explains various command-line options and their purposes, such as storing failed reads, handling PE data, limiting processing, preventing file overwrite, splitting output, merging PE reads, and quality filtering. The content discusses the 'why' behind these features (e.g., to store failed reads separately, to analyze data quality quickly) and provides context on how they work together in a system. Even though it contains some technical terms and options, it is clearly intended to explain functionality to users, making it high-value explanatory text that should be preserved."
+5,Update for spacy 3.7.x. What's Changed. * Fixes 485 Project Page URL in setup.py by @sajedjalil in https://github.com/allenai/scispacy/pull/495. * add progress bar to http_get by @WeixiongLin in https://github.com/allenai/scispacy/pull/499. * Update for spacy 3.7 compatibility by @dakinggg in https://github.com/allenai/scispacy/pull/507. * Update publish workflow to trusted publisher by @dakinggg in https://github.com/allenai/scispacy/pull/508. New Contributors. * @sajedjalil made their first contribution in https://github.com/allenai/scispacy/pull/495. * @WeixiongLin made their first contribution in https://github.com/allenai/scispacy/pull/499. **Full Changelog**: https://github.com/allenai/scispacy/compare/v0.5.3...v0.5.4,"
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+Update for spacy 3.7.x. What's Changed. * Fixes 485 Project Page URL in setup.py by @sajedjalil in https://github.com/allenai/scispacy/pull/495. * add progress bar to http_get by @WeixiongLin in https://github.com/allenai/scispacy/pull/499. * Update for spacy 3.7 compatibility by @dakinggg in https://github.com/allenai/scispacy/pull/507. * Update publish workflow to trusted publisher by @dakinggg in https://github.com/allenai/scispacy/pull/508. New Contributors. * @sajedjalil made their first contribution in https://github.com/allenai/scispacy/pull/495. * @WeixiongLin made their first contribution in https://github.com/allenai/scispacy/pull/499. **Full Changelog**: https://github.com/allenai/scispacy/compare/v0.5.3...v0.5.4
+",False,"This text appears to be a changelog entry for a software project (SciSpacy). It includes updates, fixes, and new contributors with links to pull requests. While it is structured as a changelog, the content explains changes made in the system by providing context about what was fixed and who contributed. This falls under Principle #2: KEEP Simple Human Communication because it describes human communication of project updates (even if terse). It also contains elements that explain 'what' but with enough detail to be considered informative for users tracking the project's development, thus having some explanatory value."
+7,Offset used to switch between TMP states and non-tmp states,"
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+Offset used to switch between TMP states and non-tmp states
+",True,"This appears to be a low-level description of an offset in code or data without providing any explanation about the 'why' or 'how'. It does not meet Principle #1 for keeping high-value explanations, nor Principle #2 for simple human communication. The text is too terse and lacks context, making it fall under unambiguous noise as per Principle #3."
+14,"ed in the merging mode, write the unmerged or unpaired reads to the file specified by --merge. Disabled by default. -6, --phred64 indicate the input is using phred64 scoring (it'll be converted to phred33, so the output will still be phred33). -z, --compression compression level for gzip output (1 ~ 9). 1 is fastest, 9 is smallest, default is 4. (int [=4]). --stdin input from STDIN. If the STDIN is interleaved paired-end FASTQ, please also add --interleaved_in. --stdout output passing-filters reads to STDOUT. This option will result in interleaved FASTQ output for paired-end input. Disabled by default. --interleaved_in indicate that <in1> is an interleaved FASTQ which contains both read1 and read2. Disabled by default. --reads_to_process specify how many reads/pairs to be processed. Default 0 means process all reads. (int [=0]). --dont_overwrite don't overwrite existing files. Overwritting is allowed by default. --fix_mgi_id the MGI FASTQ ID format is not compatible with many BAM operation tools, enable this option to fix it. adapter trimming options. -A, --disable_adapter_trimming adapter trimming is enabled by default. If this option is specified, adapter trimming is disabled. -a, --adapter_sequence the adapter for read1. For SE data, if not specified, the adapter will be auto-detected. For PE data, this is used if R1/R2 are found not overlapped. (string [=auto]). --adapter_sequence_r2 the adapter for read2 (PE data only). This is used if R1/R2 are found not overlapped. If not specified, it will be the same as <adapter_sequence> (string [=]). --adapter_fasta specify a FASTA file to trim both read1 and read2 (if PE) by all the sequences in this FASTA file (string [=]). --detect_adapter_for_pe by default, the adapter sequence auto-detection is enabled for SE data only, turn on this option to enable it for PE data. global trimming options. -f, --trim_front1 trimming how many bases in front for read1, default is 0 (int [=0]). -t, --trim_tail1 trimming how many bas","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+ed in the merging mode, write the unmerged or unpaired reads to the file specified by --merge. Disabled by default. -6, --phred64 indicate the input is using phred64 scoring (it'll be converted to phred33, so the output will still be phred33). -z, --compression compression level for gzip output (1 ~ 9). 1 is fastest, 9 is smallest, default is 4. (int [=4]). --stdin input from STDIN. If the STDIN is interleaved paired-end FASTQ, please also add --interleaved_in. --stdout output passing-filters reads to STDOUT. This option will result in interleaved FASTQ output for paired-end input. Disabled by default. --interleaved_in indicate that <in1> is an interleaved FASTQ which contains both read1 and read2. Disabled by default. --reads_to_process specify how many reads/pairs to be processed. Default 0 means process all reads. (int [=0]). --dont_overwrite don't overwrite existing files. Overwritting is allowed by default. --fix_mgi_id the MGI FASTQ ID format is not compatible with many BAM operation tools, enable this option to fix it. adapter trimming options. -A, --disable_adapter_trimming adapter trimming is enabled by default. If this option is specified, adapter trimming is disabled. -a, --adapter_sequence the adapter for read1. For SE data, if not specified, the adapter will be auto-detected. For PE data, this is used if R1/R2 are found not overlapped. (string [=auto]). --adapter_sequence_r2 the adapter for read2 (PE data only). This is used if R1/R2 are found not overlapped. If not specified, it will be the same as <adapter_sequence> (string [=]). --adapter_fasta specify a FASTA file to trim both read1 and read2 (if PE) by all the sequences in this FASTA file (string [=]). --detect_adapter_for_pe by default, the adapter sequence auto-detection is enabled for SE data only, turn on this option to enable it for PE data. global trimming options. -f, --trim_front1 trimming how many bases in front for read1, default is 0 (int [=0]). -t, --trim_tail1 trimming how many bas
+",True,"This text appears to be a set of command-line options and their descriptions from a bioinformatics tool. It describes the 'what' and basic usage but does not provide any explanation for why these features exist or how they function in detail. The content is structured as low-level technical documentation, lacking substantive discussion on design principles, trade-offs, or the rationale behind the code's implementation. According to Principle #3, it should be eliminated if Principles 1 & 2 do not apply."
+6,"penGene/fastp/issues/new. simple usage. * for single end data (not compressed). ```. fastp -i in.fq -o out.fq. ```. * for paired end data (gzip compressed). ```. fastp -i in.R1.fq.gz -I in.R2.fq.gz -o out.R1.fq.gz -O out.R2.fq.gz. ```. By default, the HTML report is saved to `fastp.html` (can be specified with `-h` option), and the JSON report is saved to `fastp.json` (can be specified with `-j` option). examples of report. `fastp` creates reports in both HTML and JSON format. * HTML report: http://opengene.org/fastp/fastp.html. * JSON report: http://opengene.org/fastp/fastp.json. get fastp. install with Bioconda. [![install with conda](. https://anaconda.org/bioconda/fastp/badges/version.svg)](https://anaconda.org/bioconda/fastp). ```shell. note: the fastp version in bioconda may be not the latest. conda install -c bioconda fastp. ```. or download the latest prebuilt binary for Linux users. This binary was compiled on CentOS, and tested on CentOS/Ubuntu. ```shell. download the latest build. wget http://opengene.org/fastp/fastp. chmod a+x ./fastp. or download specified version, i.e. fastp v0.23.1. wget http://opengene.org/fastp/fastp.0.23.1. mv fastp.0.23.1 fastp. chmod a+x ./fastp. ```. or compile from source. `fastp` depends on `libdeflate` and `libisal`, while `libisal` is not compatible with gcc 4.8. If you use gcc 4.8, your fastp will fail to run. Please upgrade your gcc before you build the libraries and fastp. Step 1: download and build libisal. See https://github.com/intel/isa-l. `autoconf`, `automake`, `libtools`, `nasm (>=v2.11.01)` and `yasm (>=1.2.0)` are required to build this isal. ```shell. git clone https://github.com/intel/isa-l.git. cd isa-l. ./autogen.sh. ./configure --prefix=/usr --libdir=/usr/lib64. make. sudo make install. ```. step 2: download and build libdeflate. See https://github.com/ebiggers/libdeflate. ```shell. git clone https://github.com/ebiggers/libdeflate.git. cd libdeflate. cmake -B build. cmake --build","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+penGene/fastp/issues/new. simple usage. * for single end data (not compressed). ```. fastp -i in.fq -o out.fq. ```. * for paired end data (gzip compressed). ```. fastp -i in.R1.fq.gz -I in.R2.fq.gz -o out.R1.fq.gz -O out.R2.fq.gz. ```. By default, the HTML report is saved to `fastp.html` (can be specified with `-h` option), and the JSON report is saved to `fastp.json` (can be specified with `-j` option). examples of report. `fastp` creates reports in both HTML and JSON format. * HTML report: http://opengene.org/fastp/fastp.html. * JSON report: http://opengene.org/fastp/fastp.json. get fastp. install with Bioconda. [![install with conda](. https://anaconda.org/bioconda/fastp/badges/version.svg)](https://anaconda.org/bioconda/fastp). ```shell. note: the fastp version in bioconda may be not the latest. conda install -c bioconda fastp. ```. or download the latest prebuilt binary for Linux users. This binary was compiled on CentOS, and tested on CentOS/Ubuntu. ```shell. download the latest build. wget http://opengene.org/fastp/fastp. chmod a+x ./fastp. or download specified version, i.e. fastp v0.23.1. wget http://opengene.org/fastp/fastp.0.23.1. mv fastp.0.23.1 fastp. chmod a+x ./fastp. ```. or compile from source. `fastp` depends on `libdeflate` and `libisal`, while `libisal` is not compatible with gcc 4.8. If you use gcc 4.8, your fastp will fail to run. Please upgrade your gcc before you build the libraries and fastp. Step 1: download and build libisal. See https://github.com/intel/isa-l. `autoconf`, `automake`, `libtools`, `nasm (>=v2.11.01)` and `yasm (>=1.2.0)` are required to build this isal. ```shell. git clone https://github.com/intel/isa-l.git. cd isa-l. ./autogen.sh. ./configure --prefix=/usr --libdir=/usr/lib64. make. sudo make install. ```. step 2: download and build libdeflate. See https://github.com/ebiggers/libdeflate. ```shell. git clone https://github.com/ebiggers/libdeflate.git. cd libdeflate. cmake -B build. cmake --build
+",False,"This text explains the usage of fastp, including examples for single-end and paired-end data, describes default report saving options, provides installation methods (Bioconda, direct download, source compilation), and includes specific instructions about dependencies (gcc version, libdeflate, libisal). It contains substantial explanatory prose regarding how to use the tool, potential issues during setup, and alternative approaches. This meets Principle #1 by explaining 'how' to operate fastp in various scenarios and addressing a design choice or system requirement (gcc upgrade), thus it should be kept."
+8,bianBadge](. https://badges.debian.net/badges/debian/unstable/fastp/version.svg)](https://packages.debian.org/unstable/fastp). [![fastp ci](https://github.com/OpenGene/fastp/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/OpenGene/fastp/actions/workflows/ci.yml). fastp. A tool designed to provide fast all-in-one preprocessing for FastQ files. This tool is developed in C++ with multithreading supported to afford high performance. - [fastp](#fastp). - [features](#features). - [simple usage](#simple-usage). - [examples of report](#examples-of-report). - [get fastp](#get-fastp). - [install with Bioconda](#install-with-bioconda). - [or download the latest prebuilt binary for Linux users](#or-download-the-latest-prebuilt-binary-for-linux-users). - [or compile from source](#or-compile-from-source). - [Step 1: download and build libisal](#step-1-download-and-build-libisal). - [step 2: download and build libdeflate](#step-2-download-and-build-libdeflate). - [Step 3: download and build fastp](#step-3-download-and-build-fastp). - [input and output](#input-and-output). - [output to STDOUT](#output-to-stdout). - [input from STDIN](#input-from-stdin). - [store the unpaired reads for PE data](#store-the-unpaired-reads-for-pe-data). - [store the reads that fail the filters](#store-the-reads-that-fail-the-filters). - [process only part of the data](#process-only-part-of-the-data). - [do not overwrite exiting files](#do-not-overwrite-exiting-files). - [split the output to multiple files for parallel processing](#split-the-output-to-multiple-files-for-parallel-processing). - [merge PE reads](#merge-pe-reads). - [filtering](#filtering). - [quality filter](#quality-filter). - [length filter](#length-filter). - [low complexity filter](#low-complexity-filter). - [Other filter](#other-filter). - [adapters](#adapters). - [per read cutting by quality score](#per-read-cutting-by-quality-score). - [base correction for PE data](#base-correction-for-pe-data). - [global tr,"
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+bianBadge](. https://badges.debian.net/badges/debian/unstable/fastp/version.svg)](https://packages.debian.org/unstable/fastp). [![fastp ci](https://github.com/OpenGene/fastp/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/OpenGene/fastp/actions/workflows/ci.yml). fastp. A tool designed to provide fast all-in-one preprocessing for FastQ files. This tool is developed in C++ with multithreading supported to afford high performance. - [fastp](#fastp). - [features](#features). - [simple usage](#simple-usage). - [examples of report](#examples-of-report). - [get fastp](#get-fastp). - [install with Bioconda](#install-with-bioconda). - [or download the latest prebuilt binary for Linux users](#or-download-the-latest-prebuilt-binary-for-linux-users). - [or compile from source](#or-compile-from-source). - [Step 1: download and build libisal](#step-1-download-and-build-libisal). - [step 2: download and build libdeflate](#step-2-download-and-build-libdeflate). - [Step 3: download and build fastp](#step-3-download-and-build-fastp). - [input and output](#input-and-output). - [output to STDOUT](#output-to-stdout). - [input from STDIN](#input-from-stdin). - [store the unpaired reads for PE data](#store-the-unpaired-reads-for-pe-data). - [store the reads that fail the filters](#store-the-reads-that-fail-the-filters). - [process only part of the data](#process-only-part-of-the-data). - [do not overwrite exiting files](#do-not-overwrite-exiting-files). - [split the output to multiple files for parallel processing](#split-the-output-to-multiple-files-for-parallel-processing). - [merge PE reads](#merge-pe-reads). - [filtering](#filtering). - [quality filter](#quality-filter). - [length filter](#length-filter). - [low complexity filter](#low-complexity-filter). - [Other filter](#other-filter). - [adapters](#adapters). - [per read cutting by quality score](#per-read-cutting-by-quality-score). - [base correction for PE data](#base-correction-for-pe-data). - [global tr
+",False,"This text appears to be a project description or README file for the tool 'fastp'. It includes explanations of features, usage, installation steps, and input/output handling. The content discusses design choices (e.g., multithreading for high performance) and provides context about what the tool does without delving into low-level details that would be considered noise. Since it explains aspects of the system or code to a human reader, it aligns with Principle #1: KEEP High-Value Explanations."
+2,got a data error -- remain here until reset,"
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+got a data error -- remain here until reset
+",False,"This appears to be an instruction for handling a data error. It explains what action (remaining in place) should be taken under certain conditions, which addresses the 'how' of system behavior. Even though it is brief and lacks formal structure, it provides guidance on handling errors, making it valuable as an explanation of system operation or design choice."
+19,"Fastp quality scores plot shows naive means of phred scores not actual means; [Phred quality scores](https://en.wikipedia.org/wiki/Phred_quality_score) are log scores. A quality of 30 stands for a 1 in 1000 error rate. A quality of 10 stands for a 1 in 10 error rate. The average of 10 and 30 is therefore -10 * log10((0.1 + 0.001) /2) ~= 13. Not (10 + 30) / 2 = 20. On actual realworld data the average quality between the naive method and the proper can differ more than 10 Phred units. That is an overestimation of the quality by a factor of 10! . In the file I investigated, fastp reports the last cycles to have on average quality 34, while analysing it with a correct algorithm yields 22. The latter value is closer to 1 error per 100 which seems much more realistic than the less than 1 error per 1000 quality that fastp reports.","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+Fastp quality scores plot shows naive means of phred scores not actual means; [Phred quality scores](https://en.wikipedia.org/wiki/Phred_quality_score) are log scores. A quality of 30 stands for a 1 in 1000 error rate. A quality of 10 stands for a 1 in 10 error rate. The average of 10 and 30 is therefore -10 * log10((0.1 + 0.001) /2) ~= 13. Not (10 + 30) / 2 = 20. On actual realworld data the average quality between the naive method and the proper can differ more than 10 Phred units. That is an overestimation of the quality by a factor of 10! . In the file I investigated, fastp reports the last cycles to have on average quality 34, while analysing it with a correct algorithm yields 22. The latter value is closer to 1 error per 100 which seems much more realistic than the less than 1 error per 1000 quality that fastp reports.
+",False,"This text explains why and how Phred quality scores are calculated, including a discussion of trade-offs between naive and proper methods. It provides substantial explanatory value regarding a technical concept (Phred scoring) in the context of real-world data analysis."
+18,"prebuilt fastp binary links for Linux are broken; Hi, I am trying to download the latest prebuilt fastp binary for Linux, but none of the wget download links work, even for earlier versions (http://opengene.org/fastp/fastp). The Bioconda version is out of date, and I do not have compile from source capabilities on my server. Can you please assist?","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+prebuilt fastp binary links for Linux are broken; Hi, I am trying to download the latest prebuilt fastp binary for Linux, but none of the wget download links work, even for earlier versions (http://opengene.org/fastp/fastp). The Bioconda version is out of date, and I do not have compile from source capabilities on my server. Can you please assist?
+",False,"This text contains a bug report that analyzes the problem (wget download links broken) and explains the user's situation (inability to compile from source). It provides context about the issue with prebuilt binaries, which aligns with Principle #1: KEEP High-Value Explanations. The intent is clearly human communication seeking assistance for a technical problem."
+27," --adapter_sequence CTGTCTCTTATACACATCT \. ... ```. I tried seeing what fastp would do without the duplicate arguments, expecting to get the same results:. ```. ... --adapter_sequence CTGTCTCTTATACACATCT \. --adapter_sequence AGATGTGTATAAGAGACAG \. ... ```. But I found that in some cases my read lengths were now different - sometimes only r1 was affected, sometimes only r2, sometimes both. The adapter sequences being specified don't even appear in the fastqs in this case, so I expected them to have no effect. Steps to reproduce:. ```bash. GiaB test data. wget https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/NA12878/NIST_NA12878_HG001_HiSeq_300x/131219_D00360_005_BH814YADXX/Project_RM8398/Sample_U0a/U0a_CGATGT_L001_R{1,2}_001.fastq.gz. fastp 0.23.4. wget http://opengene.org/fastp/fastp.0.23.4. chmod u+x fastp.0.23.4. ln -s fastp.0.23.4 fastp. proof that the adapter sequences are absent in the fastqs - so surely should have no effect? for f in U0a_CGATGT_L001_R*; do echo $f; for a in CTGTCTCTTATACACATCT AGATGTGTATAAGAGACAG; do zcat $f | grep -c $a; done; done. subset to a minimal example of 3 reads known to be affected. zcat U0a_CGATGT_L001_R1_001.fastq.gz | grep -E ^@HWI-D00360:5:H814YADXX:1:1101:(3756:2236|7206:2194|5147:4880) -A 3 --no-group-separator | head -n 12 | gzip -c > minimal_r1.fastq.gz. zcat U0a_CGATGT_L001_R2_001.fastq.gz | grep -E ^@HWI-D00360:5:H814YADXX:1:1101:(3756:2236|7206:2194|5147:4880) -A 3 --no-group-separator | head -n 12 | gzip -c > minimal_r2.fastq.gz. run fastp with/without duplicated --adapter_sequence args. fastp -i minimal_r1.fastq.gz -I minimal_r2.fastq.gz -o r1_trimmed.fastq.gz -O r2_trimmed.fastq.gz. --thread 8 \. --adapter_sequence CTGTCTCTTATACACATCT \. --adapter_sequence AGATGTGTATAAGAGACAG \. --adapter_sequence AGATGTGTATAAGAGACAG \. --adapter_sequence CTGTCTCTTATACACATCT. fastp -i minimal_r1.fastq.gz -I minimal_r2.fastq.gz -o r1_trimmed_nodup.fastq.gz -O r2_trimmed_nodup.fastq.gz. --thread 8 \. --adapte","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+ --adapter_sequence CTGTCTCTTATACACATCT \. ... ```. I tried seeing what fastp would do without the duplicate arguments, expecting to get the same results:. ```. ... --adapter_sequence CTGTCTCTTATACACATCT \. --adapter_sequence AGATGTGTATAAGAGACAG \. ... ```. But I found that in some cases my read lengths were now different - sometimes only r1 was affected, sometimes only r2, sometimes both. The adapter sequences being specified don't even appear in the fastqs in this case, so I expected them to have no effect. Steps to reproduce:. ```bash. GiaB test data. wget https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/NA12878/NIST_NA12878_HG001_HiSeq_300x/131219_D00360_005_BH814YADXX/Project_RM8398/Sample_U0a/U0a_CGATGT_L001_R{1,2}_001.fastq.gz. fastp 0.23.4. wget http://opengene.org/fastp/fastp.0.23.4. chmod u+x fastp.0.23.4. ln -s fastp.0.23.4 fastp. proof that the adapter sequences are absent in the fastqs - so surely should have no effect? for f in U0a_CGATGT_L001_R*; do echo $f; for a in CTGTCTCTTATACACATCT AGATGTGTATAAGAGACAG; do zcat $f | grep -c $a; done; done. subset to a minimal example of 3 reads known to be affected. zcat U0a_CGATGT_L001_R1_001.fastq.gz | grep -E ^@HWI-D00360:5:H814YADXX:1:1101:(3756:2236|7206:2194|5147:4880) -A 3 --no-group-separator | head -n 12 | gzip -c > minimal_r1.fastq.gz. zcat U0a_CGATGT_L001_R2_001.fastq.gz | grep -E ^@HWI-D00360:5:H814YADXX:1:1101:(3756:2236|7206:2194|5147:4880) -A 3 --no-group-separator | head -n 12 | gzip -c > minimal_r2.fastq.gz. run fastp with/without duplicated --adapter_sequence args. fastp -i minimal_r1.fastq.gz -I minimal_r2.fastq.gz -o r1_trimmed.fastq.gz -O r2_trimmed.fastq.gz. --thread 8 \. --adapter_sequence CTGTCTCTTATACACATCT \. --adapter_sequence AGATGTGTATAAGAGACAG \. --adapter_sequence AGATGTGTATAAGAGACAG \. --adapter_sequence CTGTCTCTTATACACATCT. fastp -i minimal_r1.fastq.gz -I minimal_r2.fastq.gz -o r1_trimmed_nodup.fastq.gz -O r2_trimmed_nodup.fastq.gz. --thread 8 \. --adapte
+",False,"The text contains a detailed explanation of the user's experience with fastp, including observations about how adapter sequences affect read lengths even when they are not present in the input files. It discusses potential reasons for this behavior and provides steps to reproduce the issue, which aligns with Principle #1: KEEP High-Value Explanations as it explains 'how' and 'why' a system (fastp) behaves unexpectedly."
+6,"Used to deallocate a TObject on the heap (via TObject::operator delete()), for sized deallocation.","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+Used to deallocate a TObject on the heap (via TObject::operator delete()), for sized deallocation.
+",True,"This appears to be a low-level code comment or artifact that only describes 'what' without explaining 'why' or 'how'. It lacks substantial explanatory prose and does not discuss trade-offs, design principles, or analyze problems. The content is too terse and serves no educational or analytical purpose beyond its literal meaning."
+17,"Plot fails after reloading adata when providing RGBA colors in .uns; Please make sure these conditions are met. - [X] I have checked that this issue has not already been reported. - [X] I have confirmed this bug exists on the latest version of scanpy. - [ ] (optional) I have confirmed this bug exists on the master branch of scanpy. What happened? RGBA colors that are provided as tuples or lists in `adata.uns[f""{key}_colors""]` are converted to numpy arrays when saving and loading the adata. This leads plots (e.g. `pl.pca` or `pl.umap`) to run into an error (see below). Minimal code sample. ```python. adata = sc.datasets.pbmc3k_processed(). adata = adata[adata.obs[""louvain""].isin([""Dendritic cells"",""Megakaryocytes""])].copy(). adata.uns[""louvain_colors""] = [[1, 0, 0, 1], [0, 0, 1, 1]] or [(1, 0, 0, 1), (0, 0, 1, 1)]. sc.pl.pca(adata, color=""louvain""). adata.write(""./data/pbmc3k_processed_rgba.h5ad""). adata = sc.read(""./data/pbmc3k_processed_rgba.h5ad""). print(type(adata.uns[""louvain_colors""][0])) --> numpy.ndarray. sc.pl.pca(adata, color=""louvain""). ```. Error output. ```pytb. ValueError Traceback (most recent call last). ... 8 adata = sc.read(""./data/pbmc3k_processed_rgba.h5ad""). 9 print(type(adata.uns[""louvain_colors""][0])) --> numpy.ndarray. ---> 10 sc.pl.pca(adata, color=""louvain""). File ~/opt/anaconda3/envs/sc_test/lib/python3.11/site-packages/scanpy/plotting/_tools/scatterplots.py:893, in pca(adata, annotate_var_explained, show, return_fig, save, **kwargs). 845 \. 846 Scatter plot in PCA coordinates. 847 . (...). 890 pp.pca. 891 . 892 if not annotate_var_explained:. --> 893 return embedding(. 894 adata, pca', show=show, return_fig=return_fig, save=save, **kwargs. 895 ). 896 else:. 897 if pca not in adata.obsm.keys() and X_pca not in adata.obsm.keys():. File ~/opt/anaconda3/envs/sc_test/lib/python3.11/site-packages/scanpy/plotting/_tools/scatterplots.py:267, in embedding(adata, basis, color, gene_symbols, use_raw, sort_order, edges","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+Plot fails after reloading adata when providing RGBA colors in .uns; Please make sure these conditions are met. - [X] I have checked that this issue has not already been reported. - [X] I have confirmed this bug exists on the latest version of scanpy. - [ ] (optional) I have confirmed this bug exists on the master branch of scanpy. What happened? RGBA colors that are provided as tuples or lists in `adata.uns[f""{key}_colors""]` are converted to numpy arrays when saving and loading the adata. This leads plots (e.g. `pl.pca` or `pl.umap`) to run into an error (see below). Minimal code sample. ```python. adata = sc.datasets.pbmc3k_processed(). adata = adata[adata.obs[""louvain""].isin([""Dendritic cells"",""Megakaryocytes""])].copy(). adata.uns[""louvain_colors""] = [[1, 0, 0, 1], [0, 0, 1, 1]] or [(1, 0, 0, 1), (0, 0, 1, 1)]. sc.pl.pca(adata, color=""louvain""). adata.write(""./data/pbmc3k_processed_rgba.h5ad""). adata = sc.read(""./data/pbmc3k_processed_rgba.h5ad""). print(type(adata.uns[""louvain_colors""][0])) --> numpy.ndarray. sc.pl.pca(adata, color=""louvain""). ```. Error output. ```pytb. ValueError Traceback (most recent call last). ... 8 adata = sc.read(""./data/pbmc3k_processed_rgba.h5ad""). 9 print(type(adata.uns[""louvain_colors""][0])) --> numpy.ndarray. ---> 10 sc.pl.pca(adata, color=""louvain""). File ~/opt/anaconda3/envs/sc_test/lib/python3.11/site-packages/scanpy/plotting/_tools/scatterplots.py:893, in pca(adata, annotate_var_explained, show, return_fig, save, **kwargs). 845 \. 846 Scatter plot in PCA coordinates. 847 . (...). 890 pp.pca. 891 . 892 if not annotate_var_explained:. --> 893 return embedding(. 894 adata, pca', show=show, return_fig=return_fig, save=save, **kwargs. 895 ). 896 else:. 897 if pca not in adata.obsm.keys() and X_pca not in adata.obsm.keys():. File ~/opt/anaconda3/envs/sc_test/lib/python3.11/site-packages/scanpy/plotting/_tools/scatterplots.py:267, in embedding(adata, basis, color, gene_symbols, use_raw, sort_order, edges
+",False,"This text appears to be a bug report that explains the issue with plot colors being converted incorrectly when reloading anndata objects. It includes a detailed minimal code sample and error output, which demonstrates how the problem occurs. The explanation discusses the 'why' (the conversion of RGBA tuples/lists to numpy arrays) and provides context about the system behavior. This aligns with Principle #1: KEEP High-Value Explanations because it explains a technical issue in detail."
+8,"ray]. > for res in res_array:. > sc.tl.leiden(adata, resolution=res). > print(silhouette_score(adata.uns['neighbors']['distances'].todense(),. adata.obs[f'leiden'],. metric='precomputed')). running Leiden clustering. finished (0:00:00.59) --> found 6 clusters and added. leiden', the cluster labels (adata.obs, categorical). -1.0. running Leiden clustering. finished (0:00:00.57) --> found 7 clusters and added. leiden', the cluster labels (adata.obs, categorical). -1.0. running Leiden clustering. finished (0:00:00.38) --> found 8 clusters and added. leiden', the cluster labels (adata.obs, categorical). -1.0. running Leiden clustering. finished (0:00:00.48) --> found 8 clusters and added. leiden', the cluster labels (adata.obs, categorical). -1.0. running Leiden clustering. finished (0:00:00.95) --> found 12 clusters and added. leiden', the cluster labels (adata.obs, categorical). nan. running Leiden clustering. finished (0:00:00.67) --> found 14 clusters and added. leiden', the cluster labels (adata.obs, categorical). nan. running Leiden clustering. finished (0:00:00.97) --> found 16 clusters and added. leiden', the cluster labels (adata.obs, categorical). -1.0. running Leiden clustering. finished (0:00:00.67) --> found 16 clusters and added. leiden', the cluster labels (adata.obs, categorical). nan. running Leiden clustering. finished (0:00:00.85) --> found 18 clusters and added. leiden', the cluster labels (adata.obs, categorical). nan. running Leiden clustering. finished (0:00:00.85) --> found 19 clusters and added. leiden', the cluster labels (adata.obs, categorical). nan. running Leiden clustering. finished (0:00:01.05) --> found 19 clusters and added. leiden', the cluster labels (adata.obs, categorical). nan. running Leiden clustering. finished (0:00:00.77) --> found 19 clusters and added. leiden', the cluster labels (adata.obs, categorical). nan. running Leiden clustering. finished (0:00:00.89) --> found 19 clusters and added. leiden', the cluster l","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+ray]. > for res in res_array:. > sc.tl.leiden(adata, resolution=res). > print(silhouette_score(adata.uns['neighbors']['distances'].todense(),. adata.obs[f'leiden'],. metric='precomputed')). running Leiden clustering. finished (0:00:00.59) --> found 6 clusters and added. leiden', the cluster labels (adata.obs, categorical). -1.0. running Leiden clustering. finished (0:00:00.57) --> found 7 clusters and added. leiden', the cluster labels (adata.obs, categorical). -1.0. running Leiden clustering. finished (0:00:00.38) --> found 8 clusters and added. leiden', the cluster labels (adata.obs, categorical). -1.0. running Leiden clustering. finished (0:00:00.48) --> found 8 clusters and added. leiden', the cluster labels (adata.obs, categorical). -1.0. running Leiden clustering. finished (0:00:00.95) --> found 12 clusters and added. leiden', the cluster labels (adata.obs, categorical). nan. running Leiden clustering. finished (0:00:00.67) --> found 14 clusters and added. leiden', the cluster labels (adata.obs, categorical). nan. running Leiden clustering. finished (0:00:00.97) --> found 16 clusters and added. leiden', the cluster labels (adata.obs, categorical). -1.0. running Leiden clustering. finished (0:00:00.67) --> found 16 clusters and added. leiden', the cluster labels (adata.obs, categorical). nan. running Leiden clustering. finished (0:00:00.85) --> found 18 clusters and added. leiden', the cluster labels (adata.obs, categorical). nan. running Leiden clustering. finished (0:00:00.85) --> found 19 clusters and added. leiden', the cluster labels (adata.obs, categorical). nan. running Leiden clustering. finished (0:00:01.05) --> found 19 clusters and added. leiden', the cluster labels (adata.obs, categorical). nan. running Leiden clustering. finished (0:00:00.77) --> found 19 clusters and added. leiden', the cluster labels (adata.obs, categorical). nan. running Leiden clustering. finished (0:00:00.89) --> found 19 clusters and added. leiden', the cluster l
+",True,"The text appears to be a series of log entries or output from a program, specifically showing the execution of Leiden clustering with different resolutions and metrics for silhouette scores. It does not explain any 'why' or 'how', but simply states what is being done (running Leiden clustering) and reports numerical results without context. Each line describes an action ('running Leiden clustering') followed by completion time, number of clusters found, and a score or label status. This falls under Principle #3: Unambiguous Noise as it lacks explanatory substance about the system, design choice, or code rationale."
+1,"Given a URL, look for the corresponding dataset in the local cache. If it's not there, download it. Then return the path to the cached file.","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+Given a URL, look for the corresponding dataset in the local cache. If it's not there, download it. Then return the path to the cached file.
+",False,"This is a high-value explanation of a system or process (describing how to handle URLs and datasets). It explains the 'how' part by outlining steps: checking cache, downloading if necessary, returning path. This aligns with Principle #1 which prioritizes explanations over form."
+16,Insert new strings in the hash table only if the match length is not greater than this length. This saves time but degrades compression. max_insert_length is used only for compression levels <= 3.,"
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+Insert new strings in the hash table only if the match length is not greater than this length. This saves time but degrades compression. max_insert_length is used only for compression levels <= 3.
+",False,"This text explains a design choice and its trade-offs regarding compression efficiency, which falls under Principle #1: KEEP High-Value Explanations. It discusses the rationale behind using 'max_insert_length' to save time while potentially degrading compression for lower levels (<=3). The explanation of the system's behavior and the impact on performance qualifies as a human-authored technical concept or design choice."
+19,"Avoid large copy in subsample; Speed up `subsample` when we copy by not copying the whole thing (which we did for some reason). Example of the speedup (where times are from `sc.pp.subsample(adata, frac=0.5, copy=True)`). Dataset | On a3b71d9113ee14ac0 (this PR) | On a23ad96ea013c7 (current master). --------|--------------------------|--------------. `sc.datasets.pbmc3k_processed()` | 14.9 ms ± 249 µs | 24.3 ms ± 558 µs. 9936 cell x 23000 gene dataset (w/ one layer) | 93.2 ms ± 1.82 ms| 191 ms ± 4 ms. Ping @gokceneraslan, since this touches code you also have a PR for.","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+Avoid large copy in subsample; Speed up `subsample` when we copy by not copying the whole thing (which we did for some reason). Example of the speedup (where times are from `sc.pp.subsample(adata, frac=0.5, copy=True)`). Dataset | On a3b71d9113ee14ac0 (this PR) | On a23ad96ea013c7 (current master). --------|--------------------------|--------------. `sc.datasets.pbmc3k_processed()` | 14.9 ms ± 249 µs | 24.3 ms ± 558 µs. 9936 cell x 23000 gene dataset (w/ one layer) | 93.2 ms ± 1.82 ms| 191 ms ± 4 ms. Ping @gokceneraslan, since this touches code you also have a PR for.
+",False,"This text contains an explanation of the 'why' and 'how' regarding optimizing the `subsample` function in scientific computing. It discusses avoiding large copy to speed up performance by not copying the whole dataset unnecessarily, provides examples with timing data comparing different states (this PR vs current master), and references a specific dataset and code change. The intent is clearly human communication about system optimization rationale and implementation details, which falls under Principle #1 for high-value explanations of 'how' or 'why'. Even though it includes some technical elements like timings and dataset names, the core explanatory content justifies keeping this text."
+9,"Tensorflow version of the model checkpoint; What is the version of tensorflow for generating the checkpoint files (`index`, `meta`, `data`)? And is there any way that I can load these checkpoints into a standalone tensorflow program and then dump it as a `.onnx` file?","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+Tensorflow version of the model checkpoint; What is the version of tensorflow for generating the checkpoint files (`index`, `meta`, `data`)? And is there any way that I can load these checkpoints into a standalone tensorflow program and then dump it as a `.onnx` file?
+",False,"This text appears to be a question or inquiry from a human seeking information about loading model checkpoints in TensorFlow. It asks for the version of TensorFlow used to generate checkpoint files and how to convert them to ONNX format, which falls under Principle #2: KEEP Simple Human Communication. The user is communicating with another human (or an AI) about technical concepts and potential solutions, so it should be preserved."
+0,"JSON formatting error - quotes in report name not escaped; . If a quoted string is passed to the -R flag (to allow spaces in the report title), _e.g._. `fastp -i raw_data/566136_S11.fastq.gz -o raw_data/566136_S11.trimmed_fastp.fastq.gz -w 8 -p -j 566136_S11_fastp.json -h 566136_S11.html -R 566136_S11 fastp report""`. The quotes around the report title are not escaped in the json command line, resulting in the following:. ` command"": fastp -i raw_data/566136_S11.fastq.gz -o raw_data/566136_S11.trimmed_fastp.fastq.gz -w 8 -p -j 566136_S11_fastp.json -h 566136_S11.html -R 566136_S11 fastp report . `. This leads to an error when parsing the JSON file. Thanks,. Chris. Version: 0.20.1","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+JSON formatting error - quotes in report name not escaped; . If a quoted string is passed to the -R flag (to allow spaces in the report title), _e.g._. `fastp -i raw_data/566136_S11.fastq.gz -o raw_data/566136_S11.trimmed_fastp.fastq.gz -w 8 -p -j 566136_S11_fastp.json -h 566136_S11.html -R 566136_S11 fastp report""`. The quotes around the report title are not escaped in the json command line, resulting in the following:. ` command"": fastp -i raw_data/566136_S11.fastq.gz -o raw_data/566136_S11.trimmed_fastp.fastq.gz -w 8 -p -j 566136_S11_fastp.json -h 566136_S11.html -R 566136_S11 fastp report . `. This leads to an error when parsing the JSON file. Thanks,. Chris. Version: 0.20.1
+",False,"This text contains a detailed explanation of why escaping quotes is necessary in command-line arguments, which falls under Principle #1 for explaining 'why' or 'how'. It also includes an example and context about the error caused by unescaped quotes."
+6,I can confirm fastp now exits with an error message on read pairs with uneven reads. Thanks a lot for fixing this!,"
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+I can confirm fastp now exits with an error message on read pairs with uneven reads. Thanks a lot for fixing this!
+",False,"This is a human-authored comment expressing gratitude for a fix that addresses the issue of uneven reads causing errors in fastp. It contains a clear 'why' (confirming functionality) and serves as communication about system behavior, fitting Principle #2: KEEP Simple Human Communication."
+11,"Report an error, if we reach EOF with non-empty preprocessing control stack. This means there is no matching endif for the previous ifdef/#else.","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+Report an error, if we reach EOF with non-empty preprocessing control stack. This means there is no matching endif for the previous ifdef/#else.
+",False,"This text explains a bug condition in code (specifically regarding preprocessor directives and unmatched #endif). It discusses the 'why' behind an error scenario, which aligns with Principle #1. The explanation is technical but serves to clarify a system behavior or design issue."
+11,"ter sequence is specified, the auto detection for SE data will be disabled. * For PE data, the adapters can be detected by per-read overlap analysis, which seeks for the overlap of each pair of reads. This method is robust and fast, so normally you don't have to input the adapter sequence even you know it. But you can still specify the adapter sequences for read1 by `--adapter_sequence`, and for read2 by `--adapter_sequence_r2`. If `fastp` fails to find an overlap (i.e. due to low quality bases), it will use these sequences to trim adapters for read1 and read2 respectively. * For PE data, the adapter sequence auto-detection is disabled by default since the adapters can be trimmed by overlap analysis. However, you can specify `--detect_adapter_for_pe` to enable it. * For PE data, `fastp` will run a little slower if you specify the sequence adapters or enable adapter auto-detection, but usually result in a slightly cleaner output, since the overlap analysis may fail due to sequencing errors or adapter dimers. * The most widely used adapter is the Illumina TruSeq adapters. If your data is from the TruSeq library, you can add `--adapter_sequence=AGATCGGAAGAGCACACGTCTGAACTCCAGTCA --adapter_sequence_r2=AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT` to your command lines, or enable auto detection for PE data by specifing `detect_adapter_for_pe`. * `fastp` contains some built-in known adapter sequences for better auto-detection. If you want to make some adapters to be a part of the built-in adapters, please file an issue. You can also specify `--adapter_fasta` to give a FASTA file to tell `fastp` to trim multiple adapters in this FASTA file. Here is a sample of such adapter FASTA file:. ```. >Illumina TruSeq Adapter Read 1. AGATCGGAAGAGCACACGTCTGAACTCCAGTCA. >Illumina TruSeq Adapter Read 2. AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT. >polyA. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA. ```. The adapter sequence in this file should be at least 6bp long, otherwise it will be skipped. And you ","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+ter sequence is specified, the auto detection for SE data will be disabled. * For PE data, the adapters can be detected by per-read overlap analysis, which seeks for the overlap of each pair of reads. This method is robust and fast, so normally you don't have to input the adapter sequence even you know it. But you can still specify the adapter sequences for read1 by `--adapter_sequence`, and for read2 by `--adapter_sequence_r2`. If `fastp` fails to find an overlap (i.e. due to low quality bases), it will use these sequences to trim adapters for read1 and read2 respectively. * For PE data, the adapter sequence auto-detection is disabled by default since the adapters can be trimmed by overlap analysis. However, you can specify `--detect_adapter_for_pe` to enable it. * For PE data, `fastp` will run a little slower if you specify the sequence adapters or enable adapter auto-detection, but usually result in a slightly cleaner output, since the overlap analysis may fail due to sequencing errors or adapter dimers. * The most widely used adapter is the Illumina TruSeq adapters. If your data is from the TruSeq library, you can add `--adapter_sequence=AGATCGGAAGAGCACACGTCTGAACTCCAGTCA --adapter_sequence_r2=AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT` to your command lines, or enable auto detection for PE data by specifing `detect_adapter_for_pe`. * `fastp` contains some built-in known adapter sequences for better auto-detection. If you want to make some adapters to be a part of the built-in adapters, please file an issue. You can also specify `--adapter_fasta` to give a FASTA file to tell `fastp` to trim multiple adapters in this FASTA file. Here is a sample of such adapter FASTA file:. ```. >Illumina TruSeq Adapter Read 1. AGATCGGAAGAGCACACGTCTGAACTCCAGTCA. >Illumina TruSeq Adapter Read 2. AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT. >polyA. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA. ```. The adapter sequence in this file should be at least 6bp long, otherwise it will be skipped. And you 
+",False,"This text explains the handling of adapter sequences for PE data in fastp software, including how auto-detection works, when to disable it, and alternative methods with examples. It discusses design choices (whether to use auto-detection or specify adapters), potential issues (overlap analysis failure due to quality problems), and specific recommendations (using built-in adapters or filing an issue). The content provides substantial 'how' and 'why' context for using the tool, which aligns with Principle #1: KEEP High-Value Explanations. It is not raw output, code comment, or boilerplate; it's a detailed guide to feature usage in scientific software."
+9,Used to preprocess away new lines in the middle of words. This function is intended to be called on a raw string before it is passed through a spaCy pipeline @param text: a string of text to be processed,"
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+Used to preprocess away new lines in the middle of words. This function is intended to be called on a raw string before it is passed through a spaCy pipeline @param text: a string of text to be processed
+",True,"This appears to be an unambiguous machine-generated artifact, likely from code documentation or comments. It describes the function's purpose in a technical manner but lacks substantial explanatory prose about 'why' or 'how'. The mention of '@param' is typical of automated documentation formats (like Javadoc or Sphinx). While it explains what the function does ('preprocess away new lines in the middle of words'), it does not provide any reasoning, trade-offs, or discussion that would qualify for human-written explanation under Principle #1. It also lacks the characteristics of simple human communication from Principle #2, such as a conversational tone or context about real-world usage. Therefore, based on the hierarchy, this should be eliminated."
+3,"format. * HTML report: http://opengene.org/fastp/fastp.html. * JSON report: http://opengene.org/fastp/fastp.json. get fastp. install with Bioconda. [![install with conda](. https://anaconda.org/bioconda/fastp/badges/version.svg)](https://anaconda.org/bioconda/fastp). ```shell. note: the fastp version in bioconda may be not the latest. conda install -c bioconda fastp. ```. or download the latest prebuilt binary for Linux users. This binary was compiled on CentOS, and tested on CentOS/Ubuntu. ```shell. download the latest build. wget http://opengene.org/fastp/fastp. chmod a+x ./fastp. or download specified version, i.e. fastp v0.23.1. wget http://opengene.org/fastp/fastp.0.23.1. mv fastp.0.23.1 fastp. chmod a+x ./fastp. ```. or compile from source. `fastp` depends on `libdeflate` and `libisal`, while `libisal` is not compatible with gcc 4.8. If you use gcc 4.8, your fastp will fail to run. Please upgrade your gcc before you build the libraries and fastp. Step 1: download and build libisal. See https://github.com/intel/isa-l. `autoconf`, `automake`, `libtools`, `nasm (>=v2.11.01)` and `yasm (>=1.2.0)` are required to build this isal. ```shell. git clone https://github.com/intel/isa-l.git. cd isa-l. ./autogen.sh. ./configure --prefix=/usr --libdir=/usr/lib64. make. sudo make install. ```. step 2: download and build libdeflate. See https://github.com/ebiggers/libdeflate. ```shell. git clone https://github.com/ebiggers/libdeflate.git. cd libdeflate. cmake -B build. cmake --build build. cmake --install build. ```. Step 3: download and build fastp. ```shell. get source (you can also use browser to download from master or releases). git clone https://github.com/OpenGene/fastp.git. build. cd fastp. make. Install. sudo make install. ```. You can add `-j8` option to `make/cmake` to use 8 threads for the compilation. . input and output. `fastp` supports both single-end (SE) and paired-end (PE) input/output. * for SE data, you only have to spe","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+format. * HTML report: http://opengene.org/fastp/fastp.html. * JSON report: http://opengene.org/fastp/fastp.json. get fastp. install with Bioconda. [![install with conda](. https://anaconda.org/bioconda/fastp/badges/version.svg)](https://anaconda.org/bioconda/fastp). ```shell. note: the fastp version in bioconda may be not the latest. conda install -c bioconda fastp. ```. or download the latest prebuilt binary for Linux users. This binary was compiled on CentOS, and tested on CentOS/Ubuntu. ```shell. download the latest build. wget http://opengene.org/fastp/fastp. chmod a+x ./fastp. or download specified version, i.e. fastp v0.23.1. wget http://opengene.org/fastp/fastp.0.23.1. mv fastp.0.23.1 fastp. chmod a+x ./fastp. ```. or compile from source. `fastp` depends on `libdeflate` and `libisal`, while `libisal` is not compatible with gcc 4.8. If you use gcc 4.8, your fastp will fail to run. Please upgrade your gcc before you build the libraries and fastp. Step 1: download and build libisal. See https://github.com/intel/isa-l. `autoconf`, `automake`, `libtools`, `nasm (>=v2.11.01)` and `yasm (>=1.2.0)` are required to build this isal. ```shell. git clone https://github.com/intel/isa-l.git. cd isa-l. ./autogen.sh. ./configure --prefix=/usr --libdir=/usr/lib64. make. sudo make install. ```. step 2: download and build libdeflate. See https://github.com/ebiggers/libdeflate. ```shell. git clone https://github.com/ebiggers/libdeflate.git. cd libdeflate. cmake -B build. cmake --build build. cmake --install build. ```. Step 3: download and build fastp. ```shell. get source (you can also use browser to download from master or releases). git clone https://github.com/OpenGene/fastp.git. build. cd fastp. make. Install. sudo make install. ```. You can add `-j8` option to `make/cmake` to use 8 threads for the compilation. . input and output. `fastp` supports both single-end (SE) and paired-end (PE) input/output. * for SE data, you only have to spe
+",False,"This text contains detailed instructions on how to install and use the fastp tool, including explanations about dependencies, compilation steps, and system requirements. It discusses specific issues (e.g., compatibility with gcc versions) which provides 'how' context for building the software. According to Principle #1, this is a high-value explanation of the process and potential problems, so it should be kept."
+16,"> Same error when using bwa after preprocessing with fastp. > . > ```. > [M::bwa_idx_load_from_disk] read 0 ALT contigs. > [W::bseq_read] the 2nd file has fewer sequences. > [M::process] read 108 sequences (10897 bp)... > [W::bseq_read] the 2nd file has fewer sequences. > [M::mem_pestat] candidate unique pairs for (FF, FR, RF, RR): (0, 0, 0, 0). > [M::mem_pestat] skip orientation FF as there are not enough pairs. > [M::mem_pestat] skip orientation FR as there are not enough pairs. > [M::mem_pestat] skip orientation RF as there are not enough pairs. > [M::mem_pestat] skip orientation RR as there are not enough pairs. > [mem_sam_pe] paired reads have different names: SRR8652095.142629002"", SRR8652095.142645002"". > . > [mem_sam_pe] paired reads have different names: SRR8652095.142629004"", SRR8652095.142645004"". > ```. > . > It indeed has different names. How should I rerun the data with fastp to fix the error? @sfchen. > . > ```. > $ gunzip -c SRR8652095_1.fq.gz | paste - - - - | cut -f 1| head. > @SRR8652095.142629001 142629001 length=101. > @SRR8652095.142629002 142629002 length=101. > @SRR8652095.142629003 142629003 length=101. > @SRR8652095.142629004 142629004 length=101. > @SRR8652095.142629005 142629005 length=101. > @SRR8652095.142629006 142629006 length=101. > @SRR8652095.142629007 142629007 length=101. > @SRR8652095.142629008 142629008 length=101. > @SRR8652095.142629011 142629011 length=101. > @SRR8652095.142629012 142629012 length=101. > . > gzip: SRR8652095_1.fq.gz: unexpected end of file. > $ gunzip -c SRR8652095_2.fq.gz | paste - - - - | cut -f 1| head. > . > gzip: SRR8652095_2.fq.gz: unexpected end of file. > @SRR8652095.142645001 142645001 length=101. > @SRR8652095.142645002 142645002 length=101. > @SRR8652095.142645003 142645003 length=101. > @SRR8652095.142645004 142645004 length=101. > @SRR8652095.142645007 142645007 length=101. > @SRR8652095.142645008 142645008 length=101. > @SRR8652095.142645012 142645012 length=101. > @SRR8652095.142645013 1","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+> Same error when using bwa after preprocessing with fastp. > . > ```. > [M::bwa_idx_load_from_disk] read 0 ALT contigs. > [W::bseq_read] the 2nd file has fewer sequences. > [M::process] read 108 sequences (10897 bp)... > [W::bseq_read] the 2nd file has fewer sequences. > [M::mem_pestat] candidate unique pairs for (FF, FR, RF, RR): (0, 0, 0, 0). > [M::mem_pestat] skip orientation FF as there are not enough pairs. > [M::mem_pestat] skip orientation FR as there are not enough pairs. > [M::mem_pestat] skip orientation RF as there are not enough pairs. > [M::mem_pestat] skip orientation RR as there are not enough pairs. > [mem_sam_pe] paired reads have different names: SRR8652095.142629002"", SRR8652095.142645002"". > . > [mem_sam_pe] paired reads have different names: SRR8652095.142629004"", SRR8652095.142645004"". > ```. > . > It indeed has different names. How should I rerun the data with fastp to fix the error? @sfchen. > . > ```. > $ gunzip -c SRR8652095_1.fq.gz | paste - - - - | cut -f 1| head. > @SRR8652095.142629001 142629001 length=101. > @SRR8652095.142629002 142629002 length=101. > @SRR8652095.142629003 142629003 length=101. > @SRR8652095.142629004 142629004 length=101. > @SRR8652095.142629005 142629005 length=101. > @SRR8652095.142629006 142629006 length=101. > @SRR8652095.142629007 142629007 length=101. > @SRR8652095.142629008 142629008 length=101. > @SRR8652095.142629011 142629011 length=101. > @SRR8652095.142629012 142629012 length=101. > . > gzip: SRR8652095_1.fq.gz: unexpected end of file. > $ gunzip -c SRR8652095_2.fq.gz | paste - - - - | cut -f 1| head. > . > gzip: SRR8652095_2.fq.gz: unexpected end of file. > @SRR8652095.142645001 142645001 length=101. > @SRR8652095.142645002 142645002 length=101. > @SRR8652095.142645003 142645003 length=101. > @SRR8652095.142645004 142645004 length=101. > @SRR8652095.142645007 142645007 length=101. > @SRR8652095.142645008 142645008 length=101. > @SRR8652095.142645012 142645012 length=101. > @SRR8652095.142645013 1
+",False,"The text contains a detailed bug report and analysis of an error encountered when using bwa after preprocessing with fastp. It explains the issue (different sequence names in paired files) and asks for advice on how to rerun the data processing step. This meets Principle #1 by providing substantial explanatory prose about why there might be an error and what steps were taken, even though it includes some technical output."
+5,"e3/envs/scVelo/lib/python3.8/site-packages/numba/core/decorators.py in wrapper(func). 219 with typeinfer.register_dispatcher(disp):. 220 for sig in sigs:. --> 221 disp.compile(sig). 222 disp.disable_compile(). 223 return disp. . ~/miniforge3/envs/scVelo/lib/python3.8/site-packages/numba/core/dispatcher.py in compile(self, sig). 907 with ev.trigger_event(""numba:compile"", data=ev_details):. 908 try:. --> 909 cres = self._compiler.compile(args, return_type). 910 except errors.ForceLiteralArg as e:. 911 def folded(args, kws):. . ~/miniforge3/envs/scVelo/lib/python3.8/site-packages/numba/core/dispatcher.py in compile(self, args, return_type). 77 . 78 def compile(self, args, return_type):. ---> 79 status, retval = self._compile_cached(args, return_type). 80 if status:. 81 return retval. . ~/miniforge3/envs/scVelo/lib/python3.8/site-packages/numba/core/dispatcher.py in _compile_cached(self, args, return_type). 91 . 92 try:. ---> 93 retval = self._compile_core(args, return_type). 94 except errors.TypingError as e:. 95 self._failed_cache[key] = e. . ~/miniforge3/envs/scVelo/lib/python3.8/site-packages/numba/core/dispatcher.py in _compile_core(self, args, return_type). 104 . 105 impl = self._get_implementation(args, {}). --> 106 cres = compiler.compile_extra(self.targetdescr.typing_context,. 107 self.targetdescr.target_context,. 108 impl,. . ~/miniforge3/envs/scVelo/lib/python3.8/site-packages/numba/core/compiler.py in compile_extra(typingctx, targetctx, func, args, return_type, flags, locals, library, pipeline_class). 604 pipeline = pipeline_class(typingctx, targetctx, library,. 605 args, return_type, flags, locals). --> 606 return pipeline.compile_extra(func). 607 . 608 . . ~/miniforge3/envs/scVelo/lib/python3.8/site-packages/numba/core/compiler.py in compile_extra(self, func). 351 self.state.lifted = (). 352 self.state.lifted_from = None. --> 353 return self._compile_bytecode(). 354 . 355 def compile_ir(self, func_ir, lifted=(), lifted_from=None):. . ~/miniforge3/envs/scVe","
+You are a data filtering bot. Your task is to analyze the user-provided text snippet and decide whether to keep it or eliminate it. You must return a JSON object with a boolean `to_eliminate` field and a `reasoning` string.
+
+## Core Principle: Substance Over Form
+Your judgment MUST be based on the **intent and substance** of the text, not its structure. A detailed explanation is valuable whether it is in a comment, a commit message, or formal documentation.
+
+## Hierarchy of Rules (Apply in this order):
+
+### **Principle #1: KEEP High-Value Explanations (This is your most important rule)**
+You **MUST KEEP** any text that explains the **'why'** or **'how'** of a system, design, or piece of code.
+- **This includes:** Detailed documentation (like the LLVM `LoopPass` description), discussions of trade-offs (e.g., ""This is faster but uses more memory""), explanations of design principles (e.g., the ""soft vs. hard errors"" discussion), and bug reports that analyze a problem.
+- **CRITICAL:** If text contains substantial explanatory prose, it **MUST BE KEPT**, even if it also contains code snippets, tables, or formal language.
+
+### **Principle #2: KEEP Simple Human Communication**
+You **MUST KEEP** text that is clearly a human communicating to another human.
+- **This includes:** Bug reports, commit messages with context, and questions or answers in a discussion thread.
+
+### **Principle #3: ELIMINATE Unambiguous Noise and Low-Value Artifacts (Apply only if Principles 1 & 2 do not apply)**
+You should only eliminate text if it provides **no explanatory value.** This is for content that only describes **'what'** without any of the 'why' or 'how' context.
+- **This includes:**
+  - `Log File / Trace / Output`: Raw output from a program (e.g., compiler errors, stack traces, build logs).
+  - `Low-Level Code Comment`: A terse comment that only describes a single line of code without rationale (e.g., ""Compute the static offset"", ""Returns the ID"").
+  - `Raw Data List / Changelog`: A bare list of items (e.g., file paths, function names, simple version changes) without surrounding explanatory prose.
+  - `Boilerplate Notice`: Standard copyright or license text.
+
+---
+## Analysis Task:
+
+Now, analyze the following text snippet and provide your JSON output.
+
+**Content to analyze:**
+e3/envs/scVelo/lib/python3.8/site-packages/numba/core/decorators.py in wrapper(func). 219 with typeinfer.register_dispatcher(disp):. 220 for sig in sigs:. --> 221 disp.compile(sig). 222 disp.disable_compile(). 223 return disp. . ~/miniforge3/envs/scVelo/lib/python3.8/site-packages/numba/core/dispatcher.py in compile(self, sig). 907 with ev.trigger_event(""numba:compile"", data=ev_details):. 908 try:. --> 909 cres = self._compiler.compile(args, return_type). 910 except errors.ForceLiteralArg as e:. 911 def folded(args, kws):. . ~/miniforge3/envs/scVelo/lib/python3.8/site-packages/numba/core/dispatcher.py in compile(self, args, return_type). 77 . 78 def compile(self, args, return_type):. ---> 79 status, retval = self._compile_cached(args, return_type). 80 if status:. 81 return retval. . ~/miniforge3/envs/scVelo/lib/python3.8/site-packages/numba/core/dispatcher.py in _compile_cached(self, args, return_type). 91 . 92 try:. ---> 93 retval = self._compile_core(args, return_type). 94 except errors.TypingError as e:. 95 self._failed_cache[key] = e. . ~/miniforge3/envs/scVelo/lib/python3.8/site-packages/numba/core/dispatcher.py in _compile_core(self, args, return_type). 104 . 105 impl = self._get_implementation(args, {}). --> 106 cres = compiler.compile_extra(self.targetdescr.typing_context,. 107 self.targetdescr.target_context,. 108 impl,. . ~/miniforge3/envs/scVelo/lib/python3.8/site-packages/numba/core/compiler.py in compile_extra(typingctx, targetctx, func, args, return_type, flags, locals, library, pipeline_class). 604 pipeline = pipeline_class(typingctx, targetctx, library,. 605 args, return_type, flags, locals). --> 606 return pipeline.compile_extra(func). 607 . 608 . . ~/miniforge3/envs/scVelo/lib/python3.8/site-packages/numba/core/compiler.py in compile_extra(self, func). 351 self.state.lifted = (). 352 self.state.lifted_from = None. --> 353 return self._compile_bytecode(). 354 . 355 def compile_ir(self, func_ir, lifted=(), lifted_from=None):. . ~/miniforge3/envs/scVe
+",True,"The text appears to be a stack trace or error log from the execution of code in the numba package. It describes the call stack and file locations but does not provide any explanation for why something is happening or how it was designed. The content consists solely of technical details without substantive reasoning, making it an example of low-value artifact that should be eliminated according to Principle #3."

@@ -224,10 +224,10 @@ class IBaseStage(metaclass=ABCMeta):
                 self.data_model.model_fields.keys()]
 
     def _prepare_shelf_with_path(self, file_path) -> Path:
-        if not self.disable_cache:
-            (self.cache_dir / f"{file_path.stem}.dat").touch()
-            (self.cache_dir / f"{file_path.stem}.bak").touch()
-            (self.cache_dir / f"{file_path.stem}.dir").touch()
+        # fix for shelve with multithreading
+        (self.cache_dir / f"{file_path.stem}.dat").touch()
+        (self.cache_dir / f"{file_path.stem}.bak").touch()
+        (self.cache_dir / f"{file_path.stem}.dir").touch()
 
         return self.cache_dir / file_path.stem
 
