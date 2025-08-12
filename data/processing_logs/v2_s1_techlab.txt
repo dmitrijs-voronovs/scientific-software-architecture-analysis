@@ -1,0 +1,68 @@
+nohup: ignoring input
+2025-08-12 12:36:09.377 | INFO     | processing_pipeline.model.IBaseStage:execute:266 - Executing s1 stage
+2025-08-12 12:36:09.400 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing OpenGene.fastp.v0.23.4.issue_comment
+2025-08-12 12:36:09.400 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing OpenGene.fastp.v0.23.4.release
+2025-08-12 12:36:09.401 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing root-project.root.v6-32-06.release
+2025-08-12 12:36:09.401 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing allenai.scispacy.v0.5.5.issue_comment
+2025-08-12 12:36:09.401 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing scverse.scanpy.1.10.2.issue
+2025-08-12 12:36:09.401 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing root-project.root.v6-32-06.issue_comment.0
+2025-08-12 12:36:09.401 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing root-project.root.v6-32-06.issue_comment.1
+2025-08-12 12:36:09.401 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing google.deepvariant.v1.6.1.issue_comment.1
+2025-08-12 12:36:09.402 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing allenai.scispacy.v0.5.5.code_comment
+2025-08-12 12:36:09.402 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing scverse.scanpy.1.10.2.issue_comment.3
+Stage s1 params:
+stop_event: <threading.Event at 0x79e644970e00: unset>
+model_fields: ['analysis_problem_vs_solution', 'analysis_mechanism_vs_feature', 'analysis_causal_link', 'analysis_rubric_check', 'true_positive', 'reasoning']
+hostname: http://localhost:11434
+model: model='deepseek-r1:8b' temperature=0.0 format={'description': 'Defines the structured output required from the LLM, with a more rigorous\nchain-of-thought analysis based on the findings of the error report.', 'properties': {'analysis_problem_vs_solution': {'title': 'Analysis Problem Vs Solution', 'type': 'string'}, 'analysis_mechanism_vs_feature': {'title': 'Analysis Mechanism Vs Feature', 'type': 'string'}, 'analysis_causal_link': {'title': 'Analysis Causal Link', 'type': 'string'}, 'analysis_rubric_check': {'title': 'Analysis Rubric Check', 'type': 'string'}, 'true_positive': {'title': 'True Positive', 'type': 'boolean'}, 'reasoning': {'title': 'Reasoning', 'type': 'string'}}, 'required': ['analysis_problem_vs_solution', 'analysis_mechanism_vs_feature', 'analysis_causal_link', 'analysis_rubric_check', 'true_positive', 'reasoning'], 'title': 'OllamaQaRelevanceResponse', 'type': 'object'} base_url='http://localhost:11434'
+batch_size: 50
+n_threads: 10
+disable_cache: False
+
+
+Processing OpenGene.fastp.v0.23.4.issue_comment in batches of 50:   0%|          | 0/38 [00:00<?, ?it/s]
+Processing allenai.scispacy.v0.5.5.code_comment in batches of 50:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Processing OpenGene.fastp.v0.23.4.release in batches of 50:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+
+Processing root-project.root.v6-32-06.release in batches of 50:   0%|          | 0/2 [00:00<?, ?it/s][A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.1 in batches of 50:   0%|          | 0/86 [00:00<?, ?it/s][A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 50:   0%|          | 0/148 [00:00<?, ?it/s][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 50:   0%|          | 0/113 [00:00<?, ?it/s][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 50:   0%|          | 0/148 [00:00<?, ?it/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 50:   0%|          | 0/49 [00:00<?, ?it/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 50:   0%|          | 0/177 [00:00<?, ?it/s][A[A[A[A[A[A[A[A[A
