@@ -9,6 +9,7 @@ from constants.abs_paths import AbsDirPath
 from constants.foldernames import FolderNames
 from processing_pipeline.model.IBaseStage import IBaseStage
 
+
 class OllamaQaRelevanceResponse(BaseModel):
     """
     Defines the structured output required from the LLM, with a more rigorous
@@ -124,51 +125,38 @@ Now, apply the analysis steps defined in your system prompt to the data provided
         the recommendations in the analysis report. This includes explicit
         inclusion and exclusion criteria.
         """
-        qa_details = {
-            "availability": {
-                "desc": "Mechanisms that ensure a system remains operational and ready to perform its tasks despite the presence of faults (e.g., hardware failures, network interruptions, software bugs).",
-                "inclusion_criteria": [
-                    "Redundancy/Replication: Descriptions of running multiple instances of a component or service.",
-                    "Failover: Logic that automatically switches from a failed component to a standby one.",
-                    "Health Checks & Self-Healing: Processes that monitor component health and automatically restart or replace failed instances.",
-                    "Caching for Resilience: Using a cache to serve data when the primary data source is unavailable.",
-                    "Fault Prevention (Data Integrity): Mechanisms designed to prevent data corruption that would cause an outage (e.g., atomic writes)."
-                ],
-                "exclusion_criteria": [
-                    "User Installation/Configuration Errors: Reports of `pip install` failing, missing files, or incorrect environment setup.",
-                    "Requests for Support/Documentation: Questions about how to use a feature.",
-                    "Functional Bugs: Errors where the system runs but produces an incorrect result.",
-                    "General Maintenance: Discussions of upgrading versions unless the upgrade itself introduces a specific availability mechanism."
-                ]
-            },
+        qa_details = {"availability": {
+            "desc": "Mechanisms that ensure a system remains operational and ready to perform its tasks despite the presence of faults (e.g., hardware failures, network interruptions, software bugs).",
+            "inclusion_criteria": [
+                "Redundancy/Replication: Descriptions of running multiple instances of a component or service.",
+                "Failover: Logic that automatically switches from a failed component to a standby one.",
+                "Health Checks & Self-Healing: Processes that monitor component health and automatically restart or replace failed instances.",
+                "Caching for Resilience: Using a cache to serve data when the primary data source is unavailable.",
+                "Fault Prevention (Data Integrity): Mechanisms designed to prevent data corruption that would cause an outage (e.g., atomic writes)."],
+            "exclusion_criteria": [
+                "User Installation/Configuration Errors: Reports of `pip install` failing, missing files, or incorrect environment setup.",
+                "Requests for Support/Documentation: Questions about how to use a feature.",
+                "Functional Bugs: Errors where the system runs but produces an incorrect result.",
+                "General Maintenance: Discussions of upgrading versions unless the upgrade itself introduces a specific availability mechanism."]},
             "deployability": {
                 "desc": "Mechanisms that automate or simplify the ease, speed, and reliability with which a new version of a system can be delivered to and installed by its users.",
-                "inclusion_criteria": [
-                    "Mentions of package managers (pip, conda, mamba).",
-                    "Containerization technologies (Dockerfile, docker-compose).",
-                    "Build automation scripts (makefiles, shell scripts for release).",
-                    "CI/CD pipeline configurations (e.g., GitHub Actions workflows).",
-                    "Documentation providing structured guidance for installation across different environments."
-                ],
-                "exclusion_criteria": [
-                    "General discussions of software version numbers.",
-                    "Bug fixes that do not touch upon the release or installation process itself."
-                ]
-            },
+                "inclusion_criteria": ["Mentions of package managers (pip, conda, mamba).",
+                                       "Containerization technologies (Dockerfile, docker-compose).",
+                                       "Build automation scripts (makefiles, shell scripts for release).",
+                                       "CI/CD pipeline configurations (e.g., GitHub Actions workflows).",
+                                       "Documentation providing structured guidance for installation across different environments."],
+                "exclusion_criteria": ["General discussions of software version numbers.",
+                                       "Bug fixes that do not touch upon the release or installation process itself."]},
             "energy efficiency": {
                 "desc": "Mechanisms specifically intended to minimize the consumption of operational computing resources, such as CPU cycles, memory, I/O, and electrical power.",
                 "inclusion_criteria": [
                     "Algorithmic Optimization: Replacing an algorithm with a less computationally complex one (e.g., 'replaced bubble sort with quicksort to reduce CPU usage').",
                     "Caching/Memoization: Storing the results of expensive computations to avoid re-calculating them.",
                     "Resource Throttling/Power-Saving: Features that reduce resource usage during idle periods or allow for performance trade-offs.",
-                    "Minimizing Memory Footprint: Techniques to reduce the amount of RAM used during operation (e.g., 'switched to float16 to halve memory usage')."
-                ],
-                "exclusion_criteria": [
-                    "Storage Size Reduction: Decreasing the size of files on disk.",
-                    "Improved Download/Load Times: Making the program start or install faster.",
-                    "Vague Claims: General, unsubstantiated statements like 'this is more efficient' without specifying the resource being saved."
-                ]
-            },
+                    "Minimizing Memory Footprint: Techniques to reduce the amount of RAM used during operation (e.g., 'switched to float16 to halve memory usage')."],
+                "exclusion_criteria": ["Storage Size Reduction: Decreasing the size of files on disk.",
+                                       "Improved Download/Load Times: Making the program start or install faster.",
+                                       "Vague Claims: General, unsubstantiated statements like 'this is more efficient' without specifying the resource being saved."]},
             # NOTE: Rubrics for other QAs can be added here following the same pattern.
             # For now, we will create a default, less detailed rubric for others.
         }
@@ -182,8 +170,7 @@ Now, apply the analysis steps defined in your system prompt to the data provided
             "safety": "Safety refers to the software's ability to avoid entering hazardous states that could cause damage, injury, or loss of life, and to recover or limit harm if such states are entered.",
             "security": "Security is the degree to which a system protects information and data from unauthorised access or manipulation, ensuring confidentiality, integrity, and availability for legitimate users.",
             "testability": "Testability refers to the ease with which software can be made to quickly reveal its faults through execution-based testing, by providing controllability and observability of its state and limiting complexity.",
-            "usability": "Usability is concerned with how easily users can accomplish desired tasks and the kind of user support the system provides to facilitate their effectiveness, efficiency, and satisfaction.",
-        }
+            "usability": "Usability is concerned with how easily users can accomplish desired tasks and the kind of user support the system provides to facilitate their effectiveness, efficiency, and satisfaction.", }
 
         def format_rubric(qa_name):
             details = qa_details.get(qa_name)
@@ -209,8 +196,9 @@ Now, apply the analysis steps defined in your system prompt to the data provided
 
 
 def main():
-    # To run the new version, instantiate QARelevanceCheckStage_v3
-    QARelevanceCheckStage_v2(hostname=LLMHost.SERVER, disable_cache=True, batch_size_override=20, n_threads_override=5).execute(["root-project"], reverse=True)
+    QARelevanceCheckStage_v2(hostname=LLMHost.SERVER).execute(
+        ["root-project.root.v6-32-06.code_comment.", "root-project.root.v6-32-06.docs.",
+         "root-project.root.v6-32-06.issue."], reverse=False)
 
 
 if __name__ == "__main__":
