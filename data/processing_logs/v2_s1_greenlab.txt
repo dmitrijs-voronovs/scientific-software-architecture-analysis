@@ -377,4 +377,11 @@ disable_cache: False
 
 
 
-Processing root-project.root.v6-32-06.code_comment.03 in batches of 50:   3%|▎         | 7/215 [1:47:20<53:21:57, 923.64s/it][A[A[A[A[A[A[A[A[A
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 50:   3%|▎         | 7/215 [1:47:20<53:21:57, 923.64s/it][A[A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue.4 in batches of 50:   6%|▌         | 6/103 [1:47:53<29:04:21, 1078.99s/it]
+2025-08-12 12:23:48.112 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing root-project.root.v6-32-06.code_comment.08
+Caught interrupt, cleaning up...
+
+
+
+Processing root-project.root.v6-32-06.code_comment.08 in batches of 50:   0%|          | 0/215 [00:00<?, ?it/s][A[A[A2025-08-12 12:23:48.155 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:135 - <RetryCallState 138550455950784: attempt #1; slept for 0.0; last result: failed (RuntimeError cannot schedule new futures after interpreter shutdown)>
+2025-08-12 12:23:53.156 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:135 - <RetryCallState 138550455950784: attempt #2; slept for 5.0; last result: failed (RuntimeError cannot schedule new futures after interpreter shutdown)>
