@@ -23,7 +23,7 @@ optimal_processing_parameters: Dict[str, ProcessingParams] = {
 # for chain of thoughts it is the same but half the batch and threads
 optimal_processing_parameters_cot: Dict[str, ProcessingParams] = {
     p.model_name: p for p in [
-        ProcessingParams(ModelName.DEEPSEEK_1_5B, 8, 5),
+        ProcessingParams(ModelName.DEEPSEEK_1_5B, 10, 20),
         ProcessingParams(ModelName.DEEPSEEK_7B, 6, 5),
         ProcessingParams(ModelName.DEEPSEEK_8B, 6, 20),
         ProcessingParams(ModelName.DEEPSEEK_14B, 6, 10),
