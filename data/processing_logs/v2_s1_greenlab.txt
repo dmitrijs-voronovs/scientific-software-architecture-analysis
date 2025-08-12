@@ -1,0 +1,68 @@
+nohup: ignoring input
+2025-08-12 10:35:53.893 | INFO     | processing_pipeline.model.IBaseStage:execute:266 - Executing s1 stage
+2025-08-12 10:35:53.912 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing root-project.root.v6-32-06.docs.08
+2025-08-12 10:35:53.913 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing root-project.root.v6-32-06.docs.19
+2025-08-12 10:35:53.913 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing root-project.root.v6-32-06.code_comment.12
+2025-08-12 10:35:53.913 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing root-project.root.v6-32-06.issue.4
+2025-08-12 10:35:53.913 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing root-project.root.v6-32-06.docs.04
+2025-08-12 10:35:53.914 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing root-project.root.v6-32-06.docs.20
+2025-08-12 10:35:53.914 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing root-project.root.v6-32-06.docs.00
+2025-08-12 10:35:53.914 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing root-project.root.v6-32-06.docs.10
+2025-08-12 10:35:53.914 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing root-project.root.v6-32-06.code_comment.03
+2025-08-12 10:35:53.914 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - Processing root-project.root.v6-32-06.docs.13
+Stage s1 params:
+stop_event: <threading.Event at 0x7e030d158fb0: unset>
+model_fields: ['analysis_problem_vs_solution', 'analysis_mechanism_vs_feature', 'analysis_causal_link', 'analysis_rubric_check', 'true_positive', 'reasoning']
+hostname: http://localhost:11434
+model: model='deepseek-r1:8b' temperature=0.0 format={'description': 'Defines the structured output required from the LLM, with a more rigorous\nchain-of-thought analysis based on the findings of the error report.', 'properties': {'analysis_problem_vs_solution': {'title': 'Analysis Problem Vs Solution', 'type': 'string'}, 'analysis_mechanism_vs_feature': {'title': 'Analysis Mechanism Vs Feature', 'type': 'string'}, 'analysis_causal_link': {'title': 'Analysis Causal Link', 'type': 'string'}, 'analysis_rubric_check': {'title': 'Analysis Rubric Check', 'type': 'string'}, 'true_positive': {'title': 'True Positive', 'type': 'boolean'}, 'reasoning': {'title': 'Reasoning', 'type': 'string'}}, 'required': ['analysis_problem_vs_solution', 'analysis_mechanism_vs_feature', 'analysis_causal_link', 'analysis_rubric_check', 'true_positive', 'reasoning'], 'title': 'OllamaQaRelevanceResponse', 'type': 'object'} base_url='http://localhost:11434'
+batch_size: 50
+n_threads: 10
+disable_cache: False
+
+
+Processing root-project.root.v6-32-06.docs.10 in batches of 50:   0%|          | 0/47 [00:00<?, ?it/s]
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 50:   0%|          | 0/215 [00:00<?, ?it/s][A
+
+
+
+Processing root-project.root.v6-32-06.docs.20 in batches of 50:   0%|          | 0/47 [00:00<?, ?it/s][A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 50:   0%|          | 0/47 [00:00<?, ?it/s][A[A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 50:   0%|          | 0/47 [00:00<?, ?it/s][A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue.4 in batches of 50:   0%|          | 0/103 [00:00<?, ?it/s][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.08 in batches of 50:   0%|          | 0/47 [00:00<?, ?it/s][A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 50:   0%|          | 0/47 [00:00<?, ?it/s][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 50:   0%|          | 0/47 [00:00<?, ?it/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 50:   0%|          | 0/215 [00:00<?, ?it/s][A[A[A[A[A[A[A[A[A
