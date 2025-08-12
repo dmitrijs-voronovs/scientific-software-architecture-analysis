@@ -24,8 +24,8 @@ optimal_processing_parameters: Dict[str, ProcessingParams] = {
 optimal_processing_parameters_cot: Dict[str, ProcessingParams] = {
     p.model_name: p for p in [
         ProcessingParams(ModelName.DEEPSEEK_1_5B, 8, 5),
-        ProcessingParams(ModelName.DEEPSEEK_7B, 5, 5),
-        ProcessingParams(ModelName.DEEPSEEK_8B, 5, 20),
-        ProcessingParams(ModelName.DEEPSEEK_14B, 5, 10),
+        ProcessingParams(ModelName.DEEPSEEK_7B, 6, 5),
+        ProcessingParams(ModelName.DEEPSEEK_8B, 6, 20),
+        ProcessingParams(ModelName.DEEPSEEK_14B, 6, 10),
     ]
 }
