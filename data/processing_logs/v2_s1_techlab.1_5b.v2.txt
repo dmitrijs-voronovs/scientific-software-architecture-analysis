@@ -11041,3 +11041,33 @@ disable_cache: False
 
 
 Processing root-project.root.v6-32-06.issue_comment.1 in batches of 5:   7%|▋         | 99/1422 [3:45:46<55:02:52, 149.79s/it][A[A[A[A[A[A
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 5:  13%|█▎        | 106/822 [3:45:58<29:53:50, 150.32s/it][A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.code_comment in batches of 5:  24%|██▍       | 106/435 [3:46:09<13:47:39, 150.94s/it][A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 5:  19%|█▉        | 106/557 [3:46:22<18:58:37, 151.48s/it][A[A[A[A[A[A[A[A[A[A[A[A
+Processing scverse.scanpy.1.10.2.wiki in batches of 5:  62%|██████▏   | 106/171 [3:46:36<2:45:25, 152.71s/it][A
