@@ -21,7 +21,8 @@ from cfg.LLMHost import LLMHost
 from constants.abs_paths import AbsDirPath
 from processing_pipeline.model.IDFHandler import IDfHandler
 from processing_pipeline.model.ParquetDFHandler import ParquetDFHandler
-from processing_pipeline.processing_parameter_tuning.optimal_params import optimal_processing_parameters
+from processing_pipeline.processing_parameter_tuning.optimal_params import optimal_processing_parameters, \
+    optimal_processing_parameters_cot
 from utilities.utils import create_logger_path
 
 
@@ -88,7 +89,7 @@ class IBaseStage(metaclass=ABCMeta):
 
     def __init__(self, hostname: str = LLMHost.SERVER, *, batch_size_override: int = None, n_threads_override: int = None,
                  disable_cache=False, model_name_override: str = None, in_dir_override: Path = None,
-                 out_dir_override: Path = None):
+                 out_dir_override: Path = None, cot_prompt = False):
         self.stop_event = threading.Event()
         self.model_fields = list(self.data_model.model_fields.keys())
         self.hostname = hostname
@@ -97,7 +98,8 @@ class IBaseStage(metaclass=ABCMeta):
         self.model = ChatOllama(model=self.model_name, temperature=self.temperature, base_url=self.hostname,
                                 format=self.data_model.model_json_schema())
 
-        optimal_params = optimal_processing_parameters[self.model_name]
+        optimal_params_settings = optimal_processing_parameters if cot_prompt else optimal_processing_parameters_cot
+        optimal_params = optimal_params_settings[self.model_name]
         self.batch_size = batch_size_override or optimal_params.batch_size
         self.n_threads = n_threads_override or optimal_params.n_threads
 

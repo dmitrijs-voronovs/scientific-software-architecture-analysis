@@ -26,7 +26,7 @@ class OllamaQaRelevanceResponse(BaseModel):
 class QARelevanceCheckStage_v2(IBaseStage):
     data_model = OllamaQaRelevanceResponse
     temperature = 0.0
-    model_name = ModelName.DEEPSEEK_8B
+    model_name = ModelName.DEEPSEEK_7B
     cache_dir = AbsDirPath.CACHE / FolderNames.QA_RELEVANCE_CHECK_DIR / "v2"
     in_dir = AbsDirPath.O_S0_NOISE_FILTERING
     out_dir = AbsDirPath.S1_QA_RELEVANCE_CHECK
@@ -196,7 +196,7 @@ Now, apply the analysis steps defined in your system prompt to the data provided
 
 
 def main():
-    QARelevanceCheckStage_v2(hostname=LLMHost.SERVER).execute(
+    QARelevanceCheckStage_v2(hostname=LLMHost.SERVER, cot_prompt=True).execute(
         ["root-project.root.v6-32-06.code_comment.", "root-project.root.v6-32-06.docs.",
          "root-project.root.v6-32-06.issue."], reverse=False)
 
