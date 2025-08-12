@@ -1,4 +1,4 @@
-# QARelevanceCheck.py (REVISED with System/User Split)
+# QARelevanceCheck.py (REVISED to v3 based on expert analysis)
 
 import pandas as pd
 from pydantic import BaseModel
@@ -8,10 +8,16 @@ from cfg.ModelName import ModelName
 from constants.abs_paths import AbsDirPath
 from constants.foldernames import FolderNames
 from processing_pipeline.model.IBaseStage import IBaseStage
+
 class OllamaQaRelevanceResponse(BaseModel):
-    analysis_context_check: str
-    analysis_intent: str
-    analysis_scope_match: str
+    """
+    Defines the structured output required from the LLM, with a more rigorous
+    chain-of-thought analysis based on the findings of the error report.
+    """
+    analysis_problem_vs_solution: str
+    analysis_mechanism_vs_feature: str
+    analysis_causal_link: str
+    analysis_rubric_check: str
     true_positive: bool
     reasoning: str
 
@@ -28,109 +34,182 @@ class QARelevanceCheckStage_v2(IBaseStage):
     @classmethod
     def get_system_prompt(cls) -> str:
         """
-        Sets the expert persona, core directives, and mandatory output structure.
-        This is the static, unchanging part of the prompt.
+        Sets the expert persona and provides detailed instructions, including
+        explicit warnings about logical fallacies, few-shot examples, and a
+        mandatory, rigorous chain-of-thought process.
         """
         return """
-You are a discerning software engineering expert. Your task is to analyze if a sentence provides evidence for a specific quality attribute.
+You are a meticulous software architect with deep expertise in non-functional requirements. Your task is to determine if a text snippet from a software project provides concrete evidence of a specific architectural **mechanism** used to achieve a quality attribute.
 
-### Core Principle
-A quality attribute is realized through concrete design and implementation choices. Your primary goal is to identify text that describes **how** a system is built to achieve a certain quality. The implementation detail itself is the evidence.
+Your analysis must be rigorous. You are not a keyword spotter. You are a design reviewer.
 
-### Primary Directives
-1.  **Focus on Evidence, Not Keywords:** A sentence is a true positive if it describes a mechanism, design choice, or implementation detail that contributes to the quality attribute.
-2.  **The 'How' is Sufficient:** You do not need the text to explicitly state the 'why' (e.g., "in order to make it faster"). A description of a performance-enhancing mechanism *is* an example of performance.
+---
+### Core Principle: Mechanism vs. Feature vs. Problem
 
-### Your Response: Mandatory Chain of Thought Analysis
-You must generate a response with the following fields. Complete the analysis fields **first** before making your final decision.
+This is the most critical distinction. You must differentiate between:
+1.  **Architectural Mechanism (The "How" - TRUE POSITIVE):** A description of a specific design or implementation choice made to achieve a quality attribute. This is the **solution**.
+    -   *Example:* "We implemented a caching layer to reduce latency."
+2.  **System Feature (The "What"):** A description of what the software does functionally.
+    -   *Example:* "The system can export reports to PDF."
+3.  **System Problem (A Failure):** A description of a bug, error, user complaint, or installation issue.
+    -   *Example:* "The application crashes when I click the export button."
 
-1.  `analysis_context_check`: Is the 'Content to Analyze' from a software context? (One-sentence assessment).
-2.  `analysis_intent`: What is the primary intent? "Describing Functionality" or "Describing Quality Attribute"? (State the intent clearly).
-3.  `analysis_scope_match`: Does the described mechanism contribute to the given quality attribute? (One-sentence assessment).
-4.  `true_positive`: `true` or `false`. This decision must be the logical conclusion of the preceding analysis steps.
-5.  `reasoning`: A final, concise summary of your decision. If false, state why the described mechanism does not align with the quality attribute.
+---
+### Three Critical Traps to Avoid (Common Logical Fallacies)
+
+Your predecessor made common mistakes. You must avoid them.
+
+**1. The Functionality-Quality Conflation:**
+   - **DO NOT** mistake a description of a feature for a quality attribute mechanism.
+   - **Bad Example:** A progress bar is a *usability feature*, not an *availability mechanism*. It tells the user about a download; it doesn't make the download itself more resilient to failure.
+
+**2. The Problem vs. Solution Fallacy:**
+   - **DO NOT** confuse a report of a system failure with a description of a mechanism designed to handle that failure. A bug report is evidence of a *lack* of quality, not the presence of a solution.
+   - **Bad Example:** A user reporting "OSError: [E050] Can't find model" is describing a **problem**. An **availability mechanism** would be the system automatically falling back to a default model to prevent a crash.
+
+**3. The Tangential Association Fallacy:**
+   - **DO NOT** make weak or speculative leaps. The evidence must be direct.
+   - **Bad Example:** "Reducing a file's size on disk" is evidence of *storage optimization*. It is **not** direct evidence of *energy efficiency* (reduced CPU cycles) unless the text explicitly makes that causal link.
+
+---
+### Illustrative Examples
+
+To calibrate your judgment, study these examples carefully.
+
+**Case 1: Correctly Identified TRUE POSITIVE (Availability)**
+- **Content to Analyze:** "Download to temporary file, then copy to cache dir once finished. Otherwise you get corrupt cache entries if the download gets interrupted."
+- **Correct Analysis:** This is a **TRUE POSITIVE**. It describes a specific implementation pattern (atomic write via a temp file) explicitly designed to prevent a fault (data corruption). This is a classic availability/resilience mechanism.
+
+**Case 2: Correctly Identified FALSE POSITIVE (Availability)**
+- **Content to Analyze:** "OSError: [E050] Can't find model 'en_core_web_sm'. It doesn't seem to be a shortcut link, a Python package or a valid path to a data directory."
+- **Correct Analysis:** This is a **FALSE POSITIVE**. It is a user reporting a **problem**—a system failure. It does not describe a mechanism *within the software* designed to handle this failure, such as a failover or a fallback.
+
+---
+### Your Response: Mandatory Chain of Thought & Output
+
+You will be given a detailed rubric for the quality attribute. You must follow it strictly. Generate a JSON response by completing the following analysis steps **in order**.
+
+1.  `analysis_problem_vs_solution`: Is the text describing a **solution** (a mechanism implemented by developers) or a **problem** (a bug, user error, crash report)?
+2.  `analysis_mechanism_vs_feature`: If it is a solution, does it describe an **architectural mechanism** (how the system achieves a quality) or simply a **functional feature** (what the system does)?
+3.  `analysis_causal_link`: Is the link between the mechanism and the quality attribute **direct and explicit** in the text, or is it a **tangential or speculative** association?
+4.  `analysis_rubric_check`: Does the described mechanism match the **Inclusion Criteria** and avoid the **Exclusion Criteria** provided in the rubric? (Briefly state how it matches or fails).
+5.  `true_positive`: `true` or `false`. This decision must be the logical conclusion of the preceding analysis steps.
+6.  `reasoning`: A final, concise summary of your decision, referencing the fallacies or rubric if applicable.
 """
 
     @classmethod
     def to_prompt(cls, x: pd.Series) -> str:
         """
-        Provides the specific, dynamic data for the LLM to analyze in one shot.
-        This is the user prompt.
+        Provides the specific, dynamic data for the LLM to analyze, including
+        the detailed, structured rubric.
         """
         return f"""
 ### Data for Evaluation
+
 **1. Quality Attribute:** {x['qa']}
-**2. Attribute Description:** {x['qa_desc']}
-**3. Scope & Distinctions (Examples of Mechanisms):** {x['qa_scope_hint']}
-**4. Content to Analyze:** {x['sentence']}
+
+**2. Detailed Rubric:**
+{x['qa_rubric']}
+
+**3. Content to Analyze:**
+"{x['sentence']}"
 
 Now, apply the analysis steps defined in your system prompt to the data provided above.
 """
 
     @classmethod
     def filter_and_transform_df_before_processing(cls, df):
+        """
+        Builds a detailed, structured rubric for each quality attribute based on
+        the recommendations in the analysis report. This includes explicit
+        inclusion and exclusion criteria.
+        """
         qa_details = {
             "availability": {
-                "desc": "Availability refers to a system's ability to mask or repair faults such that the cumulative service outage period does not exceed a required value over a specified time interval, ensuring it is ready to carry out its task when needed.",
-                "scope_hint": "Look for mechanisms that ensure uptime. Examples: redundant components, failover logic, health checks, or caching strategies that serve content even if a downstream service fails."
+                "desc": "Mechanisms that ensure a system remains operational and ready to perform its tasks despite the presence of faults (e.g., hardware failures, network interruptions, software bugs).",
+                "inclusion_criteria": [
+                    "Redundancy/Replication: Descriptions of running multiple instances of a component or service.",
+                    "Failover: Logic that automatically switches from a failed component to a standby one.",
+                    "Health Checks & Self-Healing: Processes that monitor component health and automatically restart or replace failed instances.",
+                    "Caching for Resilience: Using a cache to serve data when the primary data source is unavailable.",
+                    "Fault Prevention (Data Integrity): Mechanisms designed to prevent data corruption that would cause an outage (e.g., atomic writes)."
+                ],
+                "exclusion_criteria": [
+                    "User Installation/Configuration Errors: Reports of `pip install` failing, missing files, or incorrect environment setup.",
+                    "Requests for Support/Documentation: Questions about how to use a feature.",
+                    "Functional Bugs: Errors where the system runs but produces an incorrect result.",
+                    "General Maintenance: Discussions of upgrading versions unless the upgrade itself introduces a specific availability mechanism."
+                ]
             },
             "deployability": {
-                "desc": "Deployability measures the ease and speed with which a new version of the system can be delivered to and installed by its users, including the time taken for updates.",
-                "scope_hint": "Look for descriptions of the release and installation process. Examples: mentions of package managers (pip, conda), containerization (Docker), build automation (scripts, makefiles), or CI/CD pipeline configurations."
+                "desc": "Mechanisms that automate or simplify the ease, speed, and reliability with which a new version of a system can be delivered to and installed by its users.",
+                "inclusion_criteria": [
+                    "Mentions of package managers (pip, conda, mamba).",
+                    "Containerization technologies (Dockerfile, docker-compose).",
+                    "Build automation scripts (makefiles, shell scripts for release).",
+                    "CI/CD pipeline configurations (e.g., GitHub Actions workflows).",
+                    "Documentation providing structured guidance for installation across different environments."
+                ],
+                "exclusion_criteria": [
+                    "General discussions of software version numbers.",
+                    "Bug fixes that do not touch upon the release or installation process itself."
+                ]
             },
             "energy efficiency": {
-                "desc": "Energy efficiency, also known as 'green computing', describes how well software minimises its consumption of computing resources, thus reducing associated costs like electricity, weight, and physical footprint.",
-                "scope_hint": "Look for implementations that reduce resource consumption. Examples: optimizing algorithms to lower CPU cycles, minimizing memory footprints, or implementing power-saving modes."
+                "desc": "Mechanisms specifically intended to minimize the consumption of operational computing resources, such as CPU cycles, memory, I/O, and electrical power.",
+                "inclusion_criteria": [
+                    "Algorithmic Optimization: Replacing an algorithm with a less computationally complex one (e.g., 'replaced bubble sort with quicksort to reduce CPU usage').",
+                    "Caching/Memoization: Storing the results of expensive computations to avoid re-calculating them.",
+                    "Resource Throttling/Power-Saving: Features that reduce resource usage during idle periods or allow for performance trade-offs.",
+                    "Minimizing Memory Footprint: Techniques to reduce the amount of RAM used during operation (e.g., 'switched to float16 to halve memory usage')."
+                ],
+                "exclusion_criteria": [
+                    "Storage Size Reduction: Decreasing the size of files on disk.",
+                    "Improved Download/Load Times: Making the program start or install faster.",
+                    "Vague Claims: General, unsubstantiated statements like 'this is more efficient' without specifying the resource being saved."
+                ]
             },
-            "integrability": {
-                "desc": "Integrability refers to the ease with which software components or distinct systems can be combined and made to work together effectively as a coherent whole, often supported by mechanisms that reduce coupling and manage dependencies.",
-                "scope_hint": "Look for designs that facilitate combining components. Examples: a 'pluggable' architecture, use of dependency injection frameworks, or a component that exposes a well-defined Service Provider Interface (SPI)."
-            },
-            "interoperability": {
-                "desc": "Interoperability is the degree to which two or more systems can usefully exchange and correctly interpret meaningful information via their interfaces within a particular context.",
-                "scope_hint": "Look for mechanisms for data exchange between separate systems. Examples: implementing a client for a specific API, using a standardized data format (JSON, XML) for communication, or adhering to a network protocol."
-            },
-            "modifiability": {
-                "desc": "Modifiability refers to the ease with which changes, such as adding, deleting, or modifying functionality, quality attributes, capacity, or technology, can be made to a system, ideally involving the fewest distinct elements.",
-                "scope_hint": "Look for code structures that make future changes easier. Examples: use of design patterns (like Strategy or Factory), creating a settings file to avoid hardcoded values, or decoupling components with an event bus."
-            },
-            "performance": {
-                "desc": "Performance is a system's ability to meet its timing requirements, encompassing its time-based response to events and its efficiency in resource usage under specified conditions.",
-                "scope_hint": "Look for mechanisms that improve speed or reduce resource usage. Examples: use of caching, pre-computation, indexing (e.g., nearest neighbor index), asynchronous processing, or memory management techniques."
-            },
-            "reliability": {
-                "desc": "Reliability describes the degree to which a system, product, or component performs its specified functions under defined conditions for a given period, often closely related to the broader concept of availability.",
-                "scope_hint": "Look for code that handles errors and edge cases within a component. Examples: null checks, exception handling blocks (try/except), input validation, or retrying a failed operation."
-            },
-            "safety": {
-                "desc": "Safety refers to the software's ability to avoid entering hazardous states that could cause damage, injury, or loss of life, and to recover or limit harm if such states are entered.",
-                "scope_hint": "Look for mechanisms that prevent real-world harm. Examples: sanity checks on dangerous operations, failsafes in physical system controllers, or features that prevent data corruption with irreversible consequences."
-            },
-            "security": {
-                "desc": "Security is the degree to which a system protects information and data from unauthorised access or manipulation, ensuring confidentiality, integrity, and availability for legitimate users.",
-                "scope_hint": "Look for mechanisms that defend against threats. Examples: input sanitization to prevent injection, use of encryption libraries, implementation of authentication/authorization checks, or protection against replay attacks."
-            },
-            "testability": {
-                "desc": "Testability refers to the ease with which software can be made to quickly reveal its faults through execution-based testing, by providing controllability and observability of its state and limiting complexity.",
-                "scope_hint": "Look for designs or features that simplify verification. Examples: implementing dependency injection to allow for mocking, adding extensive logging, creating internal APIs specifically for test harnesses, or separating concerns."
-            },
-            "usability": {
-                "desc": "Usability is concerned with how easily users can accomplish desired tasks and the kind of user support the system provides to facilitate their effectiveness, efficiency, and satisfaction.",
-                "scope_hint": "Look for features that directly improve the end-user experience. Examples: adding helpful error messages, providing default configurations, creating a graphical user interface (GUI), or adding shortcuts and tooltips."
-            }
+            # NOTE: Rubrics for other QAs can be added here following the same pattern.
+            # For now, we will create a default, less detailed rubric for others.
         }
 
-        df["qa_desc"] = df["qa"].apply(lambda x: qa_details[x]["desc"])
-        df["qa_scope_hint"] = df["qa"].apply(lambda x: qa_details[x]["scope_hint"])
+        default_desc = {
+            "integrability": "Integrability refers to the ease with which software components or distinct systems can be combined and made to work together effectively as a coherent whole, often supported by mechanisms that reduce coupling and manage dependencies.",
+            "interoperability": "Interoperability is the degree to which two or more systems can usefully exchange and correctly interpret meaningful information via their interfaces within a particular context.",
+            "modifiability": "Modifiability refers to the ease with which changes, such as adding, deleting, or modifying functionality, quality attributes, capacity, or technology, can be made to a system, ideally involving the fewest distinct elements.",
+            "performance": "Performance is a system's ability to meet its timing requirements, encompassing its time-based response to events and its efficiency in resource usage under specified conditions.",
+            "reliability": "Reliability describes the degree to which a system, product, or component performs its specified functions under defined conditions for a given period, often closely related to the broader concept of availability.",
+            "safety": "Safety refers to the software's ability to avoid entering hazardous states that could cause damage, injury, or loss of life, and to recover or limit harm if such states are entered.",
+            "security": "Security is the degree to which a system protects information and data from unauthorised access or manipulation, ensuring confidentiality, integrity, and availability for legitimate users.",
+            "testability": "Testability refers to the ease with which software can be made to quickly reveal its faults through execution-based testing, by providing controllability and observability of its state and limiting complexity.",
+            "usability": "Usability is concerned with how easily users can accomplish desired tasks and the kind of user support the system provides to facilitate their effectiveness, efficiency, and satisfaction.",
+        }
+
+        def format_rubric(qa_name):
+            details = qa_details.get(qa_name)
+            if details:
+                inclusion_str = "\n".join(f"- {item}" for item in details["inclusion_criteria"])
+                exclusion_str = "\n".join(f"- {item}" for item in details["exclusion_criteria"])
+                return f"""
+**Definition:** {details['desc']}
+**Inclusion Criteria (Must describe one of these):**
+{inclusion_str}
+**Exclusion Criteria (Must NOT be one of these):**
+{exclusion_str}
+"""
+            else:
+                return f"**Definition:** {default_desc.get(qa_name, 'No description available.')}"
+
+        df["qa_rubric"] = df["qa"].apply(format_rubric)
         return df
 
     @classmethod
     def transform_df_before_saving(cls, df):
-        return df.drop(columns=["qa_desc", "qa_scope_hint"])
+        return df.drop(columns=["qa_rubric"])
 
 
 def main():
-    # QARelevanceCheckStage_v2(hostname=LLMHost.SERVER).execute(["root-project.root.v6-32-06.code_comment.","root-project.root.v6-32-06.docs.","root-project.root.v6-32-06.issue."], reverse=False)
+    # To run the new version, instantiate QARelevanceCheckStage_v3
     QARelevanceCheckStage_v2(hostname=LLMHost.SERVER, disable_cache=True, batch_size_override=20, n_threads_override=5).execute(["root-project"], reverse=True)
 
 
