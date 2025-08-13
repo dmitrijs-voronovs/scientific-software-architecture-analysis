@@ -1,0 +1,81 @@
+nohup: ignoring input
+2025-08-13 19:02:57.023 | INFO     | processing_pipeline.model.IBaseStage:execute:284 - Executing s1 stage
+2025-08-13 19:02:57.024 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file allenai.scispacy.v0.5.5.code_comment
+2025-08-13 19:02:57.024 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file root-project.root.v6-32-06.release
+2025-08-13 19:02:57.024 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file root-project.root.v6-32-06.issue_comment.1
+2025-08-13 19:02:57.024 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file root-project.root.v6-32-06.issue_comment.0
+2025-08-13 19:02:57.025 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file allenai.scispacy.v0.5.5.issue_comment
+2025-08-13 19:02:57.045 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:191 - File root-project.root.v6-32-06.release already processed
+2025-08-13 19:02:57.045 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file google.deepvariant.v1.6.1.issue_comment.1
+2025-08-13 19:02:57.045 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:193 - Processing root-project.root.v6-32-06.issue_comment.0
+2025-08-13 19:02:57.045 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:193 - Processing root-project.root.v6-32-06.issue_comment.1
+2025-08-13 19:02:57.045 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:191 - File allenai.scispacy.v0.5.5.code_comment already processed
+2025-08-13 19:02:57.045 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file scverse.scanpy.1.10.2.issue
+2025-08-13 19:02:57.046 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:193 - Processing allenai.scispacy.v0.5.5.issue_comment
+2025-08-13 19:02:57.046 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:193 - Processing google.deepvariant.v1.6.1.issue_comment.1
+2025-08-13 19:02:57.046 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:193 - Processing scverse.scanpy.1.10.2.issue
+2025-08-13 19:02:57.059 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file scverse.scanpy.1.10.2.issue_comment.3
+2025-08-13 19:02:57.059 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:193 - Processing scverse.scanpy.1.10.2.issue_comment.3
+2025-08-13 19:02:57.072 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file OpenGene.fastp.v0.23.4.release
+2025-08-13 19:02:57.073 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file OpenGene.fastp.v0.23.4.issue_comment
+2025-08-13 19:02:57.073 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file google.deepvariant.v1.6.1.issue_comment.0
+2025-08-13 19:02:57.076 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:193 - Processing OpenGene.fastp.v0.23.4.issue_comment
+2025-08-13 19:02:57.076 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:193 - Processing google.deepvariant.v1.6.1.issue_comment.0
+2025-08-13 19:02:57.076 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:191 - File OpenGene.fastp.v0.23.4.release already processed
+2025-08-13 19:02:57.076 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file google.deepvariant.v1.6.1.issue_comment.2
+2025-08-13 19:02:57.077 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file scverse.scanpy.1.10.2.issue_comment.1
+2025-08-13 19:02:57.080 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:193 - Processing google.deepvariant.v1.6.1.issue_comment.2
+2025-08-13 19:02:57.080 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file allenai.scispacy.v0.5.5.issue
+2025-08-13 19:02:57.080 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:193 - Processing scverse.scanpy.1.10.2.issue_comment.1
+2025-08-13 19:02:57.081 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:191 - File allenai.scispacy.v0.5.5.issue already processed
+2025-08-13 19:02:57.081 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file root-project.root.v6-32-06.issue_comment.2
+2025-08-13 19:02:57.082 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file scverse.scanpy.1.10.2.issue_comment.0
+2025-08-13 19:02:57.082 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:193 - Processing root-project.root.v6-32-06.issue_comment.2
+2025-08-13 19:02:57.082 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:193 - Processing scverse.scanpy.1.10.2.issue_comment.0
+2025-08-13 19:02:57.098 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file scverse.scanpy.1.10.2.wiki
+2025-08-13 19:02:57.101 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file root-project.root.v6-32-06.issue_comment.4
+2025-08-13 19:02:57.101 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file OpenGene.fastp.v0.23.4.code_comment
+2025-08-13 19:02:57.101 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file allenai.scispacy.v0.5.5.docs
+2025-08-13 19:02:57.102 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:193 - Processing root-project.root.v6-32-06.issue_comment.4
+2025-08-13 19:02:57.102 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:191 - File scverse.scanpy.1.10.2.wiki already processed
+2025-08-13 19:02:57.102 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file google.deepvariant.v1.6.1.issue
+2025-08-13 19:02:57.105 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file allenai.scispacy.v0.5.5.release
+2025-08-13 19:02:57.105 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:191 - File OpenGene.fastp.v0.23.4.code_comment already processed
+2025-08-13 19:02:57.105 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file google.deepvariant.v1.6.1.code_comment
+2025-08-13 19:02:57.105 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:191 - File allenai.scispacy.v0.5.5.docs already processed
+2025-08-13 19:02:57.106 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file scverse.scanpy.1.10.2.code_comment
+2025-08-13 19:02:57.106 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:191 - File google.deepvariant.v1.6.1.issue already processed
+2025-08-13 19:02:57.106 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file google.deepvariant.v1.6.1.release
+2025-08-13 19:02:57.106 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:191 - File allenai.scispacy.v0.5.5.release already processed
+2025-08-13 19:02:57.106 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file scverse.scanpy.1.10.2.docs
+2025-08-13 19:02:57.106 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:191 - File scverse.scanpy.1.10.2.code_comment already processed
+2025-08-13 19:02:57.107 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file scverse.scanpy.1.10.2.issue_comment.2
+2025-08-13 19:02:57.107 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:191 - File google.deepvariant.v1.6.1.code_comment already processed
+2025-08-13 19:02:57.107 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file root-project.root.v6-32-06.issue_comment.3
+2025-08-13 19:02:57.107 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:191 - File google.deepvariant.v1.6.1.release already processed
+2025-08-13 19:02:57.107 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file OpenGene.fastp.v0.23.4.docs
+2025-08-13 19:02:57.107 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:193 - Processing scverse.scanpy.1.10.2.issue_comment.2
+2025-08-13 19:02:57.107 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:193 - Processing root-project.root.v6-32-06.issue_comment.3
+2025-08-13 19:02:57.107 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:191 - File scverse.scanpy.1.10.2.docs already processed
+2025-08-13 19:02:57.108 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file root-project.root.v6-32-06.wiki
+2025-08-13 19:02:57.108 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:191 - File OpenGene.fastp.v0.23.4.docs already processed
+2025-08-13 19:02:57.108 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file google.deepvariant.v1.6.1.docs
+2025-08-13 19:02:57.108 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:191 - File root-project.root.v6-32-06.wiki already processed
+2025-08-13 19:02:57.108 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file OpenGene.fastp.v0.23.4.issue
+2025-08-13 19:02:57.109 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:191 - File google.deepvariant.v1.6.1.docs already processed
+2025-08-13 19:02:57.109 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file root-project.root.v6-32-06.issue_comment.6
+2025-08-13 19:02:57.109 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:191 - File OpenGene.fastp.v0.23.4.issue already processed
+2025-08-13 19:02:57.109 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:187 - Retrieving cache for file root-project.root.v6-32-06.issue_comment.5
+2025-08-13 19:02:57.109 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:193 - Processing root-project.root.v6-32-06.issue_comment.6
+2025-08-13 19:02:57.109 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:193 - Processing root-project.root.v6-32-06.issue_comment.5
+Stage s1 params:
+stop_event: <threading.Event at 0x7fe4a973b950: unset>
+model_fields: ['analysis_problem_vs_solution', 'analysis_mechanism_vs_feature', 'analysis_causal_link', 'analysis_rubric_check', 'true_positive', 'reasoning']
+hostname: http://localhost:11434
+model: model='deepseek-r1:1.5b' temperature=0.0 format={'description': 'Defines the structured output required from the LLM, with a more rigorous\nchain-of-thought analysis based on the findings of the error report.', 'properties': {'analysis_problem_vs_solution': {'title': 'Analysis Problem Vs Solution', 'type': 'string'}, 'analysis_mechanism_vs_feature': {'title': 'Analysis Mechanism Vs Feature', 'type': 'string'}, 'analysis_causal_link': {'title': 'Analysis Causal Link', 'type': 'string'}, 'analysis_rubric_check': {'title': 'Analysis Rubric Check', 'type': 'string'}, 'true_positive': {'title': 'True Positive', 'type': 'boolean'}, 'reasoning': {'title': 'Reasoning', 'type': 'string'}}, 'required': ['analysis_problem_vs_solution', 'analysis_mechanism_vs_feature', 'analysis_causal_link', 'analysis_rubric_check', 'true_positive', 'reasoning'], 'title': 'OllamaQaRelevanceResponse', 'type': 'object'} base_url='http://localhost:11434'
+batch_size: 10
+n_threads: 5
+disable_cache: False
+
+
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   0%|          | 0/736 [00:00<?, ?it/s]Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   0%|          | 1/736 [00:12<2:37:55, 12.89s/it]Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   0%|          | 2/736 [00:24<2:31:13, 12.36s/it]Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   0%|          | 3/736 [00:36<2:27:31, 12.08s/it]Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   1%|          | 4/736 [00:46<2:18:59, 11.39s/it]
