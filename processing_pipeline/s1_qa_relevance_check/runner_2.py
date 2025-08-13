@@ -4,8 +4,9 @@ from processing_pipeline.s1_qa_relevance_check.QARelevanceCheck_v2 import QARele
 
 
 def main():
-    QARelevanceCheckStage_v2(hostname=LLMHost.SERVER, cot_prompt=True).execute(["root-project.root.v6-32-06.code_comment.","root-project.root.v6-32-06.docs.","root-project.root.v6-32-06.issue."], reverse=True)
+    QARelevanceCheckStage_v2(hostname=LLMHost.SERVER, cot_prompt=True, n_threads_override=15, batch_size_override=10).execute(["root-project.root.v6-32-06.code_comment.","root-project.root.v6-32-06.docs.","root-project.root.v6-32-06.issue."], reverse=True)
 
 
 if __name__ == "__main__":
     main()
+

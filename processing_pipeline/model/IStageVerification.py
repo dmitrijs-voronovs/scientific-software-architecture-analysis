@@ -13,7 +13,7 @@ from processing_pipeline.model.IBaseStage import IBaseStage
 
 class IStageVerification(IBaseStage, ABC):
     temperature = 0.0
-    model_name = ModelName.DEEPSEEK_14B
+    model_name = ModelName.DEEPSEEK_8B
     in_dir = AbsDirPath.SAMPLES
     out_dir = AbsDirPath.SAMPLES_VERIFIED
     cache_dir = AbsDirPath.CACHE / "samples"
