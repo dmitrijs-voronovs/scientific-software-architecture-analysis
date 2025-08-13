@@ -1,0 +1,106 @@
+nohup: ignoring input
+2025-08-14 01:13:25.625 | INFO     | processing_pipeline.model.IBaseStage:execute:312 - Executing s1 stage
+2025-08-14 01:13:25.626 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - allenai.scispacy.v0.5.5.code_comment: Processing file
+2025-08-14 01:13:25.626 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.release: Processing file
+2025-08-14 01:13:25.626 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.issue_comment.1: Processing file
+2025-08-14 01:13:25.626 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.issue_comment.0: Processing file
+2025-08-14 01:13:25.626 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - allenai.scispacy.v0.5.5.issue_comment: Processing file
+2025-08-14 01:13:25.627 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - google.deepvariant.v1.6.1.issue_comment.1: Processing file
+2025-08-14 01:13:25.627 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - scverse.scanpy.1.10.2.issue: Processing file
+2025-08-14 01:13:25.628 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - scverse.scanpy.1.10.2.issue_comment.3: Processing file
+2025-08-14 01:13:25.628 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - OpenGene.fastp.v0.23.4.release: Processing file
+2025-08-14 01:13:25.628 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - OpenGene.fastp.v0.23.4.issue_comment: Processing file
+2025-08-14 01:13:25.647 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - google.deepvariant.v1.6.1.issue_comment.0: Processing file
+2025-08-14 01:13:25.647 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - google.deepvariant.v1.6.1.issue_comment.2: Processing file
+2025-08-14 01:13:25.650 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - allenai.scispacy.v0.5.5.code_comment: File already processed
+2025-08-14 01:13:25.650 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - scverse.scanpy.1.10.2.issue_comment.1: Processing file
+2025-08-14 01:13:25.650 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - OpenGene.fastp.v0.23.4.release: File already processed
+2025-08-14 01:13:25.651 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - allenai.scispacy.v0.5.5.issue: Processing file
+2025-08-14 01:13:25.651 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.release: File already processed
+2025-08-14 01:13:25.651 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.issue_comment.2: Processing file
+2025-08-14 01:13:25.653 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - allenai.scispacy.v0.5.5.issue: File already processed
+2025-08-14 01:13:25.653 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - scverse.scanpy.1.10.2.issue_comment.0: Processing file
+Stage s1 params:
+stop_event: <threading.Event at 0x7822ac9a5df0: unset>
+model_fields: ['analysis_problem_vs_solution', 'analysis_mechanism_vs_feature', 'analysis_causal_link', 'analysis_rubric_check', 'true_positive', 'reasoning']
+hostname: http://localhost:11434
+model: model='deepseek-r1:1.5b' temperature=0.0 format={'description': 'Defines the structured output required from the LLM, with a more rigorous\nchain-of-thought analysis based on the findings of the error report.', 'properties': {'analysis_problem_vs_solution': {'title': 'Analysis Problem Vs Solution', 'type': 'string'}, 'analysis_mechanism_vs_feature': {'title': 'Analysis Mechanism Vs Feature', 'type': 'string'}, 'analysis_causal_link': {'title': 'Analysis Causal Link', 'type': 'string'}, 'analysis_rubric_check': {'title': 'Analysis Rubric Check', 'type': 'string'}, 'true_positive': {'title': 'True Positive', 'type': 'boolean'}, 'reasoning': {'title': 'Reasoning', 'type': 'string'}}, 'required': ['analysis_problem_vs_solution', 'analysis_mechanism_vs_feature', 'analysis_causal_link', 'analysis_rubric_check', 'true_positive', 'reasoning'], 'title': 'OllamaQaRelevanceResponse', 'type': 'object'} base_url='http://localhost:11434'
+batch_size: 10
+n_threads: 10
+disable_cache: False
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 10:   0%|          | 0/565 [00:00<?, ?it/s][AProcessing allenai.scispacy.v0.5.5.issue_comment in batches of 10:   0%|          | 0/244 [00:00<?, ?it/s]
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:   0%|          | 0/736 [00:00<?, ?it/s][A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.1 in batches of 10:   0%|          | 0/565 [00:00<?, ?it/s][A[A[A[A[A
+
+Processing google.deepvariant.v1.6.1.issue_comment.1 in batches of 10:   0%|          | 0/428 [00:00<?, ?it/s][A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:   0%|          | 0/881 [00:00<?, ?it/s][A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:   0%|          | 0/736 [00:00<?, ?it/s][A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:   0%|          | 0/736 [00:00<?, ?it/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 10:   0%|          | 0/565 [00:00<?, ?it/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 10:   0%|          | 0/428 [00:00<?, ?it/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.1 in batches of 10:   0%|          | 1/565 [01:47<16:53:31, 107.82s/it][A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:   0%|          | 1/736 [01:58<24:08:05, 118.21s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:   0%|          | 1/736 [02:56<35:59:45, 176.31s/it][A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:   0%|          | 1/736 [02:58<36:31:03, 178.86s/it][A[A[A[AProcessing allenai.scispacy.v0.5.5.issue_comment in batches of 10:   0%|          | 1/244 [03:01<12:13:33, 181.12s/it]
+
+Processing google.deepvariant.v1.6.1.issue_comment.1 in batches of 10:   0%|          | 1/428 [03:07<22:17:12, 187.90s/it][A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:   0%|          | 1/881 [03:13<47:14:42, 193.28s/it][A[A[A

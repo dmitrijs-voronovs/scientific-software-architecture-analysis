@@ -187,61 +187,70 @@ class IBaseStage(metaclass=ABCMeta):
         logger.info(f"Cleaned cache for file {filename}")
 
     def _process_in_batches(self, file_path: Path, res_filepath: Path):
+        logger.info(f"{file_path.stem}: Processing file")
         # Fix for shelve not working in multithreading environment
-        logger.info(f"Retrieving cache for file {file_path.stem}")
         shelf_path = self._prepare_shelf_with_path(file_path)
-        with shelve.open(shelf_path) as db:
-            if not self.disable_cache and db.get("processed", False):
-                logger.info(f"File {file_path.stem} already processed")
-                return
-            logger.info(f"Processing {file_path.stem}")
 
-            try:
-                df = self.DFHandler.read_df(file_path)
-            except Exception as e:
-                logger.error(e)
-                return
-
-            try:
-                last_idx = 0 if self.disable_cache else db.get("idx", 0)
-            except:
-                logger.error(f"Unable to read last idx from db for file {file_path}")
-                exit(1)
-            if last_idx > 0:
-                logger.info(f"Continuing from {last_idx}")
-                res_filepath = res_filepath.with_suffix(f".from_{last_idx}{self.file_ext}")
-
-            df = self.filter_and_transform_df_before_processing(df)
-            df = df.iloc[last_idx:].copy()
-
-            prompt_field = self.get_stage_column_name("prompt")
-            df[prompt_field] = df.apply(self.to_prompt, axis=1)
-
-            for batch_n in tqdm(range(0, len(df), self.batch_size), total=math.ceil(len(df) / self.batch_size),
-                                desc=f"Processing {file_path.stem} in batches of {self.batch_size}"):
-                batch_end = batch_n + self.batch_size
-                batch_df = df.iloc[batch_n:batch_end]
-                prompts = batch_df[prompt_field].tolist()
-                batch_index = batch_df.index
-
-                llm_responses = self.process_batch(prompts)
-                if llm_responses is None:
-                    logger.error(f"Error processing batch {last_idx + batch_n}")
-                    continue
-
-                df_with_responses = pd.DataFrame(llm_responses,
-                                                 columns=self.get_columns(), index=batch_index)
-                df.loc[batch_index, df_with_responses.columns] = df_with_responses.values
-
-                resulting_df = df.iloc[:batch_end]
-                df1 = self.transform_df_before_saving(resulting_df)
-                self.DFHandler.write_df(df1, res_filepath)
-                if not self.disable_cache: db["idx"] = last_idx + batch_end
-                if self.stop_event.is_set():
+        if not self.disable_cache:
+            with shelve.open(shelf_path) as db:
+                if db.get("processed", False):
+                    logger.info(f"{file_path.stem}: File already processed")
                     return
 
-            if not self.disable_cache: db['processed'] = True
-            logger.info(f"Processed {file_path.stem}")
+        try:
+            df = self.DFHandler.read_df(file_path)
+        except Exception as e:
+            logger.error(f"{file_path.stem}: Error reading file")
+            logger.error(e)
+            return
+
+        if self.disable_cache:
+            last_idx = 0
+        else:
+            with shelve.open(shelf_path) as db:
+                last_idx = db.get("idx", 0)
+
+        if last_idx > 0:
+            logger.info(f"{file_path.stem}: Continuing processing from {last_idx}")
+            res_filepath = res_filepath.with_suffix(f".from_{last_idx}{self.file_ext}")
+
+        df = self.filter_and_transform_df_before_processing(df)
+        df = df.iloc[last_idx:].copy()
+
+        prompt_field = self.get_stage_column_name("prompt")
+        df[prompt_field] = df.apply(self.to_prompt, axis=1)
+
+        for batch_n in tqdm(range(0, len(df), self.batch_size), total=math.ceil(len(df) / self.batch_size),
+                            desc=f"Processing {file_path.stem} in batches of {self.batch_size}"):
+            batch_end = batch_n + self.batch_size
+            batch_df = df.iloc[batch_n:batch_end]
+            prompts = batch_df[prompt_field].tolist()
+            batch_index = batch_df.index
+
+            llm_responses = self.process_batch(prompts)
+            if llm_responses is None:
+                logger.error(f"Error processing batch {last_idx + batch_n}")
+                continue
+
+            df_with_responses = pd.DataFrame(llm_responses,
+                                             columns=self.get_columns(), index=batch_index)
+            df.loc[batch_index, df_with_responses.columns] = df_with_responses.values
+
+            resulting_df = df.iloc[:batch_end]
+            df1 = self.transform_df_before_saving(resulting_df)
+            self.DFHandler.write_df(df1, res_filepath)
+            if not self.disable_cache:
+                with shelve.open(shelf_path) as db:
+                    db["idx"] = last_idx + batch_end
+
+            if self.stop_event.is_set():
+                return
+
+        if not self.disable_cache:
+            with shelve.open(shelf_path) as db:
+                db['processed'] = True
+
+        logger.info(f"{file_path.stem}: Finished processing")
 
     def get_columns(self):
         # noinspection PyUnresolvedReferences
@@ -249,12 +258,23 @@ class IBaseStage(metaclass=ABCMeta):
                 # self.model_fields]
                 self.data_model.model_fields.keys()]
 
+    @staticmethod
+    def _test_shelf(shelf_path):
+        with shelve.open(shelf_path) as db:
+            try:
+                _ = "processed" in db
+            except Exception as e:
+                logger.error(f"{shelf_path.stem}: Cache error")
+                logger.error(e)
+
     def _prepare_shelf_with_path(self, file_path) -> Path:
         # fix for shelve with multithreading
         for shelf_file_path in self._get_shelf_paths(file_path):
             shelf_file_path.touch()
 
-        return self.cache_dir / file_path.stem
+        shelf_path = self.cache_dir / file_path.stem
+        self._test_shelf(shelf_path)
+        return shelf_path
 
     def process_batch(self, prompts):
         try:
@@ -264,7 +284,7 @@ class IBaseStage(metaclass=ABCMeta):
             logger.error(e)
             if not self.is_retriable_error(e):
                 logger.error("HTTPConnectionPool error, exiting")
-                exit(1)
+                raise e
             return None
 
     def extract_response_data(self, response: BaseModel):
@@ -310,8 +330,12 @@ class IBaseStage(metaclass=ABCMeta):
                         executor.submit(self._process_in_batches, file_path, res_filepath)] = file_path
 
             for future in concurrent.futures.as_completed(futures_to_filenames):
-                future.result()
-                logger.info(f"File {futures_to_filenames[future]} processed")
+                try:
+                    future.result()
+                    logger.info(f"{futures_to_filenames[future]}: Thread finished processing the file")
+                except Exception as e:
+                    logger.error(f"{futures_to_filenames[future]}: Thread failed to process the file")
+                    logger.error(e)
         except Exception as e:
             logger.error(e)
             raise e
