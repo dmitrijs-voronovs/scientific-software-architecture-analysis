@@ -1,0 +1,84 @@
+nohup: ignoring input
+2025-08-13 18:05:38.096 | INFO     | processing_pipeline.model.IBaseStage:execute:268 - Executing s1 stage
+2025-08-13 18:05:38.123 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - File allenai.scispacy.v0.5.5.code_comment already processed
+2025-08-13 18:05:38.123 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - File root-project.root.v6-32-06.release already processed
+2025-08-13 18:05:38.123 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:177 - Processing root-project.root.v6-32-06.issue_comment.1
+2025-08-13 18:05:38.143 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:177 - Processing root-project.root.v6-32-06.issue_comment.0
+2025-08-13 18:05:38.155 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:177 - Processing allenai.scispacy.v0.5.5.issue_comment
+2025-08-13 18:05:38.158 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:177 - Processing google.deepvariant.v1.6.1.issue_comment.1
+2025-08-13 18:05:38.166 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:177 - Processing scverse.scanpy.1.10.2.issue
+2025-08-13 18:05:38.186 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:177 - Processing scverse.scanpy.1.10.2.issue_comment.3
+2025-08-13 18:05:38.195 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - File OpenGene.fastp.v0.23.4.release already processed
+2025-08-13 18:05:38.195 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:177 - Processing OpenGene.fastp.v0.23.4.issue_comment
+2025-08-13 18:05:38.197 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:177 - Processing google.deepvariant.v1.6.1.issue_comment.0
+2025-08-13 18:05:38.205 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:177 - Processing google.deepvariant.v1.6.1.issue_comment.2
+2025-08-13 18:05:38.212 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:177 - Processing scverse.scanpy.1.10.2.issue_comment.1
+2025-08-13 18:05:38.221 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - File allenai.scispacy.v0.5.5.issue already processed
+2025-08-13 18:05:38.221 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:177 - Processing root-project.root.v6-32-06.issue_comment.2
+2025-08-13 18:05:38.231 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:177 - Processing scverse.scanpy.1.10.2.issue_comment.0
+2025-08-13 18:05:38.239 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - File scverse.scanpy.1.10.2.wiki already processed
+2025-08-13 18:05:38.240 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:177 - Processing root-project.root.v6-32-06.issue_comment.4
+2025-08-13 18:05:38.250 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - File OpenGene.fastp.v0.23.4.code_comment already processed
+2025-08-13 18:05:38.250 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - File allenai.scispacy.v0.5.5.docs already processed
+2025-08-13 18:05:38.250 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - File google.deepvariant.v1.6.1.issue already processed
+2025-08-13 18:05:38.250 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - File allenai.scispacy.v0.5.5.release already processed
+2025-08-13 18:05:38.250 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - File google.deepvariant.v1.6.1.code_comment already processed
+2025-08-13 18:05:38.250 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - File scverse.scanpy.1.10.2.code_comment already processed
+2025-08-13 18:05:38.250 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - File google.deepvariant.v1.6.1.release already processed
+2025-08-13 18:05:38.250 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - File scverse.scanpy.1.10.2.docs already processed
+2025-08-13 18:05:38.251 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:177 - Processing scverse.scanpy.1.10.2.issue_comment.2
+2025-08-13 18:05:38.259 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:177 - Processing root-project.root.v6-32-06.issue_comment.3
+2025-08-13 18:05:38.268 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - File OpenGene.fastp.v0.23.4.docs already processed
+2025-08-13 18:05:38.268 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - File root-project.root.v6-32-06.wiki already processed
+2025-08-13 18:05:38.268 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - File google.deepvariant.v1.6.1.docs already processed
+2025-08-13 18:05:38.268 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:175 - File OpenGene.fastp.v0.23.4.issue already processed
+2025-08-13 18:05:38.268 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:177 - Processing root-project.root.v6-32-06.issue_comment.6
+2025-08-13 18:05:38.277 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:177 - Processing root-project.root.v6-32-06.issue_comment.5
+2025-08-13 18:05:38.286 | ERROR    | processing_pipeline.model.IBaseStage:execute:292 - pickle data was truncated
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/shelve.py", line 111, in __getitem__
+    value = self.cache[key]
+            ~~~~~~~~~~^^^^^
+KeyError: 'idx'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/dmitry/scientific-software-architecture-analysis/processing_pipeline/s1_qa_relevance_check/runner_2.py", line 10, in <module>
+    main()
+  File "/home/dmitry/scientific-software-architecture-analysis/processing_pipeline/s1_qa_relevance_check/runner_2.py", line 7, in main
+    QARelevanceCheckStage_v2(hostname=LLMHost.SERVER, cot_prompt=True, n_threads_override=1, batch_size_override=10).execute(["root-project.root.v6-32-06.code_comment.","root-project.root.v6-32-06.docs.","root-project.root.v6-32-06.issue."], reverse=True)
+  File "/home/dmitry/scientific-software-architecture-analysis/processing_pipeline/model/IBaseStage.py", line 293, in execute
+    raise e
+  File "/home/dmitry/scientific-software-architecture-analysis/processing_pipeline/model/IBaseStage.py", line 289, in execute
+    future.result()
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dmitry/scientific-software-architecture-analysis/processing_pipeline/model/IBaseStage.py", line 185, in _process_in_batches
+    last_idx = 0 if self.disable_cache else db.get("idx", 0)
+                                            ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/shelve.py", line 106, in get
+    return self[key]
+           ~~~~^^^^^
+  File "/usr/lib/python3.12/shelve.py", line 114, in __getitem__
+    value = Unpickler(f).load()
+            ^^^^^^^^^^^^^^^^^^^
+_pickle.UnpicklingError: pickle data was truncated
+Stage s1 params:
+stop_event: <threading.Event at 0x7abebb573b30: unset>
+model_fields: ['analysis_problem_vs_solution', 'analysis_mechanism_vs_feature', 'analysis_causal_link', 'analysis_rubric_check', 'true_positive', 'reasoning']
+hostname: http://localhost:11434
+model: model='deepseek-r1:1.5b' temperature=0.0 format={'description': 'Defines the structured output required from the LLM, with a more rigorous\nchain-of-thought analysis based on the findings of the error report.', 'properties': {'analysis_problem_vs_solution': {'title': 'Analysis Problem Vs Solution', 'type': 'string'}, 'analysis_mechanism_vs_feature': {'title': 'Analysis Mechanism Vs Feature', 'type': 'string'}, 'analysis_causal_link': {'title': 'Analysis Causal Link', 'type': 'string'}, 'analysis_rubric_check': {'title': 'Analysis Rubric Check', 'type': 'string'}, 'true_positive': {'title': 'True Positive', 'type': 'boolean'}, 'reasoning': {'title': 'Reasoning', 'type': 'string'}}, 'required': ['analysis_problem_vs_solution', 'analysis_mechanism_vs_feature', 'analysis_causal_link', 'analysis_rubric_check', 'true_positive', 'reasoning'], 'title': 'OllamaQaRelevanceResponse', 'type': 'object'} base_url='http://localhost:11434'
+batch_size: 10
+n_threads: 1
+disable_cache: False
+
+

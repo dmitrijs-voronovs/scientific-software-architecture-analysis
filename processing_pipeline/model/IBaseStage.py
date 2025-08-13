@@ -167,8 +167,14 @@ class IBaseStage(metaclass=ABCMeta):
     def get_stage_column_name(self, field_name):
         return f"{self.stage_name}_{field_name}"
 
+    def update_last_processed_item(self, filename: str, last_idx: int):
+        shelf_path = self._prepare_shelf_with_path(Path(filename))
+        with shelve.open(shelf_path) as db:
+            db["last_idx"] = last_idx
+
     def _process_in_batches(self, file_path: Path, res_filepath: Path):
         # Fix for shelve not working in multithreading environment
+        logger.info(f"Retrieving cache for file {file_path.stem}")
         shelf_path = self._prepare_shelf_with_path(file_path)
         with shelve.open(shelf_path) as db:
             if not self.disable_cache and db.get("processed", False):
