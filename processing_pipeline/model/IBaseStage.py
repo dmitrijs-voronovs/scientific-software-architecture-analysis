@@ -174,13 +174,17 @@ class IBaseStage(metaclass=ABCMeta):
                 self.cache_dir / f"{file_path.stem}.dir"]
 
     def update_last_processed_item(self, filename: str, last_idx: int):
-        for shelf_file_path in self._get_shelf_paths(Path(filename)):
-            shelf_file_path.unlink()
+        self.clean_cache(filename)
 
         shelf_path = self._prepare_shelf_with_path(Path(filename))
         with shelve.open(shelf_path) as db:
             db["last_idx"] = last_idx
         logger.info(f"Updated last processed item for {filename} to {last_idx}")
+
+    def clean_cache(self, filename: str):
+        for shelf_file_path in self._get_shelf_paths(Path(filename)):
+            shelf_file_path.unlink()
+        logger.info(f"Cleaned cache for file {filename}")
 
     def _process_in_batches(self, file_path: Path, res_filepath: Path):
         # Fix for shelve not working in multithreading environment
