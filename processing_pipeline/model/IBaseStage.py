@@ -198,7 +198,11 @@ class IBaseStage(metaclass=ABCMeta):
                 logger.error(e)
                 return
 
-            last_idx = 0 if self.disable_cache else db.get("idx", 0)
+            try:
+                last_idx = 0 if self.disable_cache else db.get("idx", 0)
+            except:
+                logger.error(f"Unable to read last idx from db for file {file_path}")
+                exit(1)
             if last_idx > 0:
                 logger.info(f"Continuing from {last_idx}")
                 res_filepath = res_filepath.with_suffix(f".from_{last_idx}{self.file_ext}")
