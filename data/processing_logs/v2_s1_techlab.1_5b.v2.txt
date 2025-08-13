@@ -60390,3 +60390,393 @@ disable_cache: False
 
 
 Processing root-project.root.v6-32-06.issue_comment.2 in batches of 5:  42%|████▏     | 617/1464 [26:34:14<42:48:23, 181.94s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 5:  21%|██▏       | 315/1472 [13:32:04<52:17:38, 162.71s/it][A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 5:  52%|█████▏    | 587/1130 [25:30:52<24:29:03, 162.33s/it][A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 5:  45%|████▌     | 643/1422 [26:34:57<35:24:47, 163.66s/it][A[A[A[A[A[A
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 5:  72%|███████▏  | 595/822 [26:35:10<14:20:43, 227.50s/it][A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 5:  22%|██▏       | 326/1471 [14:24:48<50:27:32, 158.65s/it][A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.0 in batches of 5:  76%|███████▌  | 615/812 [26:35:37<8:40:58, 158.67s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.4 in batches of 5:  44%|████▎     | 637/1464 [26:35:50<100:58:50, 439.58s/it][A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.1 in batches of 5:  55%|█████▍    | 607/1107 [26:36:03<21:59:43, 158.37s/it][A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.3 in batches of 5:  38%|███▊      | 557/1472 [24:15:55<40:18:13, 158.57s/it]
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 5:  42%|████▏     | 618/1464 [26:36:28<39:24:27, 167.69s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 5:  21%|██▏       | 316/1472 [13:34:18<49:31:38, 154.24s/it][A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 5:  52%|█████▏    | 588/1130 [25:33:06<23:10:24, 153.92s/it][A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 5:  45%|████▌     | 644/1422 [26:37:07<33:11:50, 153.61s/it][A[A[A[A[A[A
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 5:  73%|███████▎  | 596/822 [26:37:20<12:26:03, 198.07s/it][A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 5:  22%|██▏       | 327/1471 [14:26:58<47:39:40, 149.98s/it][A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.0 in batches of 5:  76%|███████▌  | 616/812 [26:37:47<8:09:53, 149.97s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.4 in batches of 5:  44%|████▎     | 638/1464 [26:37:58<79:26:05, 346.21s/it] [A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.1 in batches of 5:  55%|█████▍    | 608/1107 [26:38:12<20:44:27, 149.63s/it][A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.3 in batches of 5:  38%|███▊      | 558/1472 [24:18:03<37:57:16, 149.49s/it]
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 5:  42%|████▏     | 619/1464 [26:38:38<36:41:21, 156.31s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 5:  22%|██▏       | 317/1472 [13:36:27<46:59:56, 146.49s/it][A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 5:  52%|█████▏    | 589/1130 [25:35:14<21:58:01, 146.18s/it][A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 5:  45%|████▌     | 645/1422 [26:39:14<31:25:45, 145.62s/it][A[A[A[A[A[A
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 5:  73%|███████▎  | 597/822 [26:39:28<11:04:03, 177.08s/it][A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 5:  22%|██▏       | 328/1471 [14:29:05<45:26:48, 143.14s/it][A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.0 in batches of 5:  76%|███████▌  | 617/812 [26:39:52<7:42:56, 142.44s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.4 in batches of 5:  44%|████▎     | 639/1464 [26:40:04<64:12:39, 280.19s/it][A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.1 in batches of 5:  55%|█████▌    | 609/1107 [26:40:18<19:42:35, 142.48s/it][A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.3 in batches of 5:  38%|███▊      | 559/1472 [24:20:09<36:04:40, 142.26s/it]
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 5:  42%|████▏     | 620/1464 [26:40:41<34:17:36, 146.28s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 5:  22%|██▏       | 318/1472 [13:38:28<44:33:28, 139.00s/it][A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 5:  52%|█████▏    | 590/1130 [25:37:15<20:47:39, 138.63s/it][A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 5:  45%|████▌     | 646/1422 [26:41:17<29:55:46, 138.85s/it][A[A[A[A[A[A
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 5:  73%|███████▎  | 598/822 [26:41:30<9:59:25, 160.56s/it] [A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 5:  22%|██▏       | 329/1471 [14:31:06<43:20:33, 136.63s/it][A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.0 in batches of 5:  76%|███████▌  | 618/812 [26:41:54<7:20:42, 136.30s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.4 in batches of 5:  44%|████▎     | 640/1464 [26:42:06<53:13:51, 232.56s/it][A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.1 in batches of 5:  55%|█████▌    | 610/1107 [26:42:20<18:50:19, 136.46s/it][A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.3 in batches of 5:  38%|███▊      | 560/1472 [24:22:10<34:25:25, 135.88s/it]
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 5:  42%|████▏     | 621/1464 [26:42:45<32:40:52, 139.56s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 5:  22%|██▏       | 319/1472 [13:40:34<43:14:34, 135.02s/it][A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 5:  52%|█████▏    | 591/1130 [25:39:21<20:11:11, 134.83s/it][A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 5:  45%|████▌     | 647/1422 [26:43:21<28:55:15, 134.34s/it][A[A[A[A[A[A
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 5:  73%|███████▎  | 599/822 [26:43:35<9:17:44, 150.06s/it][A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 5:  22%|██▏       | 330/1471 [14:33:15<42:35:19, 134.37s/it][A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.0 in batches of 5:  76%|███████▌  | 619/812 [26:44:04<7:12:51, 134.57s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.4 in batches of 5:  44%|████▍     | 641/1464 [26:44:19<46:20:16, 202.69s/it][A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.1 in batches of 5:  55%|█████▌    | 611/1107 [26:44:30<18:31:25, 134.45s/it][A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.3 in batches of 5:  38%|███▊      | 561/1472 [24:24:22<34:08:19, 134.91s/it]
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 5:  42%|████▏     | 622/1464 [26:44:56<32:03:54, 137.10s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 5:  22%|██▏       | 320/1472 [13:42:44<42:41:31, 133.41s/it][A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 5:  52%|█████▏    | 592/1130 [25:41:32<19:56:36, 133.45s/it][A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 5:  46%|████▌     | 648/1422 [26:45:39<29:07:14, 135.45s/it][A[A[A[A[A[A
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 5:  73%|███████▎  | 600/822 [26:45:51<8:59:24, 145.79s/it][A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 5:  23%|██▎       | 331/1471 [14:35:29<42:28:09, 134.11s/it][A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.0 in batches of 5:  76%|███████▋  | 620/812 [26:46:15<7:07:23, 133.56s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.4 in batches of 5:  44%|████▍     | 642/1464 [26:46:27<41:11:21, 180.39s/it][A[A[A[A2025-08-13 17:46:13.783 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:137 - <RetryCallState 138248503352192: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaQaRelevanceResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 456024 [type=json_invalid, input_value='{ "analysis_problem_vs_s... deployability (quality', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 5:  38%|███▊      | 562/1472 [24:26:37<34:03:36, 134.74s/it]
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 5:  43%|████▎     | 623/1464 [26:47:08<31:40:24, 135.58s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 5:  22%|██▏       | 321/1472 [13:44:59<42:48:38, 133.90s/it][A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 5:  52%|█████▏    | 593/1130 [25:43:45<19:55:01, 133.52s/it][A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 5:  46%|████▌     | 649/1422 [26:47:46<28:32:35, 132.93s/it][A[A[A[A[A[A
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 5:  73%|███████▎  | 601/822 [26:47:56<8:34:15, 139.62s/it][A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 5:  23%|██▎       | 332/1471 [14:37:33<41:30:42, 131.21s/it][A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.0 in batches of 5:  76%|███████▋  | 621/812 [26:48:21<6:57:39, 131.20s/it][A[A[A[A[A
