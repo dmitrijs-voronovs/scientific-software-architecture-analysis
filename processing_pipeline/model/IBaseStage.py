@@ -87,9 +87,10 @@ class IBaseStage(metaclass=ABCMeta):
                                    "An existing connection was forcibly closed",
                                    "RuntimeError cannot schedule new futures after interpreter shutdown"]
 
-    def __init__(self, hostname: str = LLMHost.SERVER, *, batch_size_override: int = None, n_threads_override: int = None,
+    def __init__(self, hostname: str = LLMHost.SERVER, *, batch_size_override: int = None,
+                 n_threads_override: int = None,
                  disable_cache=False, model_name_override: str = None, in_dir_override: Path = None,
-                 out_dir_override: Path = None, cot_prompt = False):
+                 out_dir_override: Path = None, cot_prompt=False):
         self.stop_event = threading.Event()
         self.model_fields = list(self.data_model.model_fields.keys())
         self.hostname = hostname
@@ -167,10 +168,19 @@ class IBaseStage(metaclass=ABCMeta):
     def get_stage_column_name(self, field_name):
         return f"{self.stage_name}_{field_name}"
 
+    def _get_shelf_paths(self, file_path: Path):
+        return [self.cache_dir / f"{file_path.stem}.dat",
+                self.cache_dir / f"{file_path.stem}.bak",
+                self.cache_dir / f"{file_path.stem}.dir"]
+
     def update_last_processed_item(self, filename: str, last_idx: int):
+        for shelf_file_path in self._get_shelf_paths(Path(filename)):
+            shelf_file_path.unlink()
+
         shelf_path = self._prepare_shelf_with_path(Path(filename))
         with shelve.open(shelf_path) as db:
             db["last_idx"] = last_idx
+        logger.info(f"Updated last processed item for {filename} to {last_idx}")
 
     def _process_in_batches(self, file_path: Path, res_filepath: Path):
         # Fix for shelve not working in multithreading environment
@@ -233,9 +243,8 @@ class IBaseStage(metaclass=ABCMeta):
 
     def _prepare_shelf_with_path(self, file_path) -> Path:
         # fix for shelve with multithreading
-        (self.cache_dir / f"{file_path.stem}.dat").touch()
-        (self.cache_dir / f"{file_path.stem}.bak").touch()
-        (self.cache_dir / f"{file_path.stem}.dir").touch()
+        for shelf_file_path in self._get_shelf_paths(file_path):
+            shelf_file_path.touch()
 
         return self.cache_dir / file_path.stem
 
@@ -270,7 +279,8 @@ class IBaseStage(metaclass=ABCMeta):
             raise e
         logger.info(f"Finished {self.stage_name} stage")
 
-    def execute(self, only_files_containing_text: List[str] | None = None, reverse: bool = False, dry_run: bool = False):
+    def execute(self, only_files_containing_text: List[str] | None = None, reverse: bool = False,
+                dry_run: bool = False):
         logger.info(f"Executing {self.stage_name} stage")
         only_files_containing_text = only_files_containing_text or []
 
