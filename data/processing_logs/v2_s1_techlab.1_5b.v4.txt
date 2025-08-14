@@ -7251,3 +7251,49 @@ disable_cache: False
 
 
 Processing scverse.scanpy.1.10.2.issue in batches of 10:  19%|█▉        | 169/881 [10:55:12<27:40:50, 139.96s/it][A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 10:  27%|██▋       | 152/565 [10:55:24<20:09:00, 175.64s/it][A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.0 in batches of 10:  30%|██▉       | 169/565 [10:55:39<15:35:34, 141.75s/it][A[A[A[A[A[A[A
+
+Processing google.deepvariant.v1.6.1.issue_comment.1 in batches of 10:  34%|███▍      | 146/428 [10:55:50<11:02:22, 140.93s/it][A[A
+
+
+
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.2 in batches of 10:  35%|███▍      | 148/428 [10:56:02<10:56:08, 140.60s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  23%|██▎       | 169/736 [10:56:12<22:04:09, 140.12s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  21%|██        | 154/736 [10:56:23<22:33:12, 139.51s/it][A[A[A[A[A[AProcessing allenai.scispacy.v0.5.5.issue_comment in batches of 10:  70%|██████▉   | 170/244 [10:56:34<2:52:05, 139.53s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  21%|██        | 154/736 [10:56:45<22:27:23, 138.91s/it][A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.1 in batches of 10:  25%|██▌       | 143/565 [10:56:57<17:03:52, 145.57s/it][A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  19%|█▉        | 170/881 [10:57:09<26:17:25, 133.12s/it][A[A[A
+Processing scverse.scanpy.1.10.2.issue_comment.3 in batches of 10:  27%|██▋       | 153/565 [10:57:20<18:02:54, 157.71s/it][A
