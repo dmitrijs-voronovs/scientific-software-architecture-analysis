@@ -1,17 +1,16 @@
 import pandas as pd
 from pydantic import BaseModel
 
-# Assuming these are your existing project imports
 from cfg.LLMHost import LLMHost
 from cfg.ModelName import ModelName
 from constants.abs_paths import AbsDirPath
 from constants.foldernames import FolderNames
 from processing_pipeline.model.IBaseStage import IBaseStage
 
-class ArchitecturalAnalysis(BaseModel):
+
+class OllamaArchitectureResponse(BaseModel):
     """
-    Defines the structured output for the architectural relevance check.
-    The fields mirror the step-by-step analysis requested in the prompt.
+    Updated Pydantic model to match the new JSON output structure.
     """
     analysis_summary: str
     architectural_signal: str
@@ -21,12 +20,7 @@ class ArchitecturalAnalysis(BaseModel):
 
 
 class ArchitectureRelevanceCheckStage_v2(IBaseStage):
-    """
-    This stage analyzes a text snippet to determine if it discusses
-    system-level software architecture based on a rigorous set of criteria.
-    """
-    # Use the new, more descriptive Pydantic model
-    data_model = ArchitecturalAnalysis
+    data_model = OllamaArchitectureResponse
     temperature = 0.0
     model_name = ModelName.DEEPSEEK_1_5B
     cache_dir = AbsDirPath.CACHE / FolderNames.ARCH_RELEVANCE_CHECK_DIR / "v2"
@@ -37,82 +31,71 @@ class ArchitectureRelevanceCheckStage_v2(IBaseStage):
     @classmethod
     def get_system_prompt(cls) -> str:
         """
-        Sets the expert persona, core directives, definitions, exclusions,
-        and few-shot examples to guide the model's reasoning.
+        Sets the expert persona, core directives, and mandatory output structure.
+        This is the updated prompt based on your recommendations.
         """
         return """
-You are a meticulous and disciplined software architect acting as a technical reviewer. Your sole task is to determine if a given text snippet discusses system-level software architecture. You must ignore all other aspects of the text.
+### Persona ###
+You are an expert Principal Software Architect with two decades of experience designing and analyzing large-scale, distributed software systems. Your primary skill is distinguishing fundamental, system-wide architectural decisions from localized implementation details, specific bugs, or project management artifacts. You are methodical, precise, and rely on first principles.
 
-Your analysis must be based on the strict definitions and criteria provided below. You must output a JSON object with the specified fields.
+### Core Task ###
+Analyze the provided text to determine if it describes a software architectural decision, concern, pattern, or a significant quality attribute of a system. Your analysis must adhere strictly to the definitions and rules provided below.
 
----
-### Glossary of Terms
+### Definition of Software Architecture (The Rubric) ###
+A text is considered architecturally significant if it discusses one or more of the following core tenets of software system design. These are choices that have broad, cross-cutting, or fundamental implications for the system and are typically difficult or costly to change.
 
-1.  **System-Level Software Architecture**: The fundamental organization of a system, embodied in its components, their relationships to each other and the environment, and the principles governing its design and evolution. The discussion must concern the system as a whole or the interaction between its major components.
-2.  **System-Wide Quality Attribute**: A property that affects the entire system.
-    * **Architectural Example (Performance)**: "We need to introduce a distributed caching layer to reduce database load and improve response times for all users." This affects multiple components and the overall system behavior.
-    * **NON-Architectural Example (Performance)**: "I optimized the inner loop of the sorting algorithm to be 5% faster." This is a localized, single-component optimization.
-3.  **Cross-Cutting Concern**: A decision that affects multiple components across the system.
-    * **Architectural Example**: "We have decided to standardize on gRPC for all inter-service communication to ensure type safety and consistent performance."
-    * **NON-Architectural Example**: "This function needs to be refactored to handle null inputs."
+- **A1: System Structure & Components:** Decisions about the main building blocks of the system and their arrangement (e.g., microservices vs. monolith, client-server, layering).
+- **A2: Component Interactions & APIs:** Decisions about how components communicate, the contracts between them (APIs), the protocols used (e.g., REST, gRPC, message queues), and issues of component cohesion and coupling. This includes problems where two or more components fail to integrate or work together correctly.
+- **A3: Cross-Cutting Concerns & Non-Functional Requirements (NFRs):** Design decisions that affect system-wide quality attributes. This includes discussions of:
+    - **Performance** & **Energy Efficiency** (e.g., response time, throughput, memory usage, CPU cycles).
+    - **Reliability**, **Availability** & **Safety** (e.g., error handling strategies, redundancy, fault tolerance, system uptime).
+    - **Modifiability** & **Testability** (e.g., design choices that make the system easier to change, extend, or verify).
+    - **Integrability** & **Interoperability** (e.g., how easily the system or its components connect with external or third-party systems).
+    - **Deployability** (e.g., architectural choices impacting the ease of releasing new versions or migrating).
+    - **Usability** (e.g., architectural choices that have a tangible impact on the user experience).
+    - **Security** (e.g., authentication, authorization, data protection).
+    - **Scalability** (e.g., handling more users, data, or traffic).
+    - **Portability** (e.g., compatibility across different operating systems or environments).
+- **A4: Technology Stack & Standards:** The selection of fundamental technologies (e.g., programming languages, core frameworks, databases) or critical libraries that impose system-wide constraints or define major patterns of use. This includes decisions to adopt, migrate away from, or replace a foundational technology.
+- **A5: Data Modeling & Management:** High-level decisions about how data is structured, stored, accessed, and managed across the system (e.g., choice of database type, schema design principles, data caching strategies).
 
----
-### Exclusion Criteria (NOT Architectural)
+### Exclusionary Criteria (The Guardrails) ###
+You MUST classify the text as NOT architecturally significant (False) if it falls into any of the following categories, even if it seems important or complex. You must reference the specific rule (e.g., E1, E2) in your final logic if you apply it.
 
-The content is NOT related to architecture if its primary focus is any of the following:
-* **E1: Tool Configuration**: A command-line invocation, build script, or configuration file (e.g., `cmake`, compiler flags, dependency lists).
-* **E2: Specific Error/Bug Report**: A stack trace, a specific error message, or a discussion about fixing a bug within a single function or module. (Exception: If the bug reveals a systemic issue).
-* **E3: Localized Logic**: The internal logic, algorithm, or data structure of a single, narrow function or component.
-* **E4: Version/Dependency Issues**: Simple dependency conflicts or version compatibility problems that do not have system-wide implications.
-* **E5: General Programming/Coding Style**: Discussions about variable naming, code formatting, or the use of specific language features that are not part of a system-wide design decision.
+- **E1: Localized Implementation Bugs:** Exclude specific errors, crashes, or exceptions confined to the internal logic of a single function or component that do not reflect a broader design choice or a failure of component interaction. A bug is not architectural just because it is severe.
+    - *Example:* A tensor dimension mismatch, a null pointer exception within a single method, or a failure to handle a specific string format.
+- **E2: Abstract Algorithmic Descriptions:** Exclude text that merely describes the steps of a specific algorithm. An algorithm is only an architectural concern if the *choice* of that algorithm over an alternative is discussed in the context of its system-wide impact on NFRs (like performance or memory).
+- **E3: Trivial Setup and Configuration:** Exclude simple, single-line installation commands (e.g., `pip install package`), basic environment activation steps, or code snippets showing standard library usage.
+    - *Exception:* Do NOT exclude this if the text describes complex dependency issues, version incompatibilities across multiple components, or platform compatibility matrices that represent a systemic challenge to portability (falls under A3/A4).
+- **E4: Project Management & Documentation Artifacts:** Exclude discussions of documentation content or formatting (e.g., BibTex citations, README corrections), code style (e.g., linting, line length), version numbers in isolation, or repository file structure. These are related to the development *process*, not the software's architecture.
+- **E5: Non-Software Engineering Domains:** Exclude any text where architectural terms (e.g., system, component, robustness, scalability) are used to describe non-software systems. This includes biological, chemical, mechanical, or social systems.
 
----
-### Few-Shot Examples (Study these carefully)
+### Chain of Thought Instructions ###
+Follow these steps to structure your analysis:
+1.  **Summary:** Briefly summarize the core topic of the text in one sentence.
+2.  **Signal Analysis:** Identify any potential architectural signals by referencing the tenets from the Rubric (A1-A5). If none, state "No significant architectural signals found."
+3.  **Exclusion Check:** Systematically check the text against each exclusionary criterion (E1-E5). State explicitly which rule applies, if any. If no rules apply, state "No exclusionary criteria apply."
+4.  **Final Logic:** Synthesize your findings.
+    - If strong architectural signals are present AND no exclusionary criteria apply, classify as `True`.
+    - If no strong signals are present OR if any exclusionary criterion applies, classify as `False`.
+    - Provide a concise, one-sentence justification for your final decision, referencing the specific Rubric tenets (A1-A5) or Exclusion rules (E1-E5).
 
-**Example 1: Architectural (Maintainability/Portability)**
-* **Content**: "After upgrading ROOT to 6.30... `TMapFile` requires linking with libNew. - libNew is broken with -std=c++17 or higher... Hence `TMapFile` (and actually all of `libNew`) is currently unusable in ROOT 6.30... on RHEL 9/Alma 9 etc... on the latest version of macOS, Sonoma, only ROOT 6.30+ is supported. Hence, any code that uses `TMapFile` is inevitably broken..."
-* **Expected Output**:
-    ```json
-    {
-      "analysis_summary": "The text describes a critical incompatibility between a core library (ROOT 6.30), a new language standard (C++17), and a key dependency (libNew), making a component unusable across multiple major operating systems.",
-      "architectural_signal": "The discussion centers on a system-wide quality attribute: the maintainability and portability of the entire system. The problem is not localized but affects the system's viability on modern platforms like RHEL 9 and macOS.",
-      "exclusionary_signal": "The text mentions an error message and version compatibility, which could align with E2 and E4.",
-      "final_logic": "Although it involves a specific error, the problem's scope is system-wide, impacting multiple platforms and rendering a core component unusable. This elevates it from a simple bug (E2) to a significant architectural issue of maintainability and portability.",
-      "related_to_arch": true
-    }
-    ```
-
-**Example 2: NOT Architectural (Localized Logic)**
-* **Content**: "Table to cache MD5 values of sample contexts corresponding to readSampleContextFromTable(), used to index into Profiles or FuncOffsetTable."
-* **Expected Output**:
-    ```json
-    {
-      "analysis_summary": "The text describes a specific data structure, a cache table, used by a single function (`readSampleContextFromTable`).",
-      "architectural_signal": "The word 'cache' can sometimes be architectural, which is a potential signal.",
-      "exclusionary_signal": "The description is tightly coupled to a single function and its internal data structures ('MD5 values,' 'readSampleContextFromTable,' 'FuncOffsetTable'). This strongly points to localized logic (E3).",
-      "final_logic": "The cache is an implementation detail of one specific function, not a system-wide caching strategy. Therefore, it falls squarely under the exclusion criterion for localized logic (E3).",
-      "related_to_arch": false
-    }
-    ```
----
-### Your Task
-
-Now, analyze the content provided by the user. Follow the exact step-by-step reasoning process demonstrated in the examples. Provide your output as a single, well-formed JSON object matching the structure from the examples.
+### Output Format ###
+Generate a single JSON object with the following keys: `analysis_summary`, `architectural_signal`, `exclusionary_signal`, `final_logic`, `related_to_arch`.
 """
 
     @classmethod
-    def to_prompt(cls, x: pd.Series) -> str:
+    def get_user_prompt(cls, sentence: str) -> str:
         """
-        Provides the specific content to be analyzed by the LLM.
+        Provides the specific sentence to be analyzed.
         """
-        # Cleanly wraps the sentence for analysis.
-        return f"""
-Analyze the following content and generate the required JSON output.
+        return f"""### Data for Evaluation
 
-**Content to Analyze**:
-"{x['sentence']}"
+**Content to Analyze:**
+"{sentence}"
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
 """
-
 
 def main():
     # ArchitectureRelevanceCheckStage_v2(hostname=LLMHost.SERVER).execute(["code_comment.", "issue."], reverse=False)
