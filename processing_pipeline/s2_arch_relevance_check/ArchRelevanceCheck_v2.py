@@ -29,7 +29,7 @@ class ArchitectureRelevanceCheckStage_v2(IBaseStage):
     data_model = ArchitecturalAnalysis
     temperature = 0.0
     model_name = ModelName.DEEPSEEK_1_5B
-    cache_dir = AbsDirPath.CACHE / FolderNames.ARCH_RELEVANCE_CHECK_DIR / "v2" # Version up
+    cache_dir = AbsDirPath.CACHE / FolderNames.ARCH_RELEVANCE_CHECK_DIR / "v2"
     in_dir = AbsDirPath.O_S1_QA_RELEVANCE_CHECK
     out_dir = AbsDirPath.S2_ARCH_RELEVANCE_CHECK
     stage_name = 's2'
@@ -101,7 +101,7 @@ Now, analyze the content provided by the user. Follow the exact step-by-step rea
 """
 
     @classmethod
-    def get_user_prompt(cls, x: pd.Series) -> str:
+    def to_prompt(cls, x: pd.Series) -> str:
         """
         Provides the specific content to be analyzed by the LLM.
         """
@@ -115,7 +115,8 @@ Analyze the following content and generate the required JSON output.
 
 
 def main():
-    ArchitectureRelevanceCheckStage_v2(hostname=LLMHost.SERVER).execute(["code_comment.", "issue."], reverse=False)
+    # ArchitectureRelevanceCheckStage_v2(hostname=LLMHost.SERVER).execute(["code_comment.", "issue."], reverse=False)
+    ArchitectureRelevanceCheckStage_v2(hostname=LLMHost.GREEN_LAB, disable_cache=True, n_threads_override=3, batch_size_override=20).execute(["allenai.scispacy"], reverse=False)
 
 if __name__ == "__main__":
     main()
