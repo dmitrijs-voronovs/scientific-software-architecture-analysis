@@ -9355,3 +9355,4648 @@ disable_cache: False
 
 Processing root-project.root.v6-32-06.docs.00 in batches of 5:  73%|███████▎  | 339/466 [3:19:22<1:43:29, 48.90s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  73%|███████▎  | 339/466 [3:19:29<1:43:54, 49.09s/it]
 Processing root-project.root.v6-32-06.docs.08 in batches of 5:  73%|███████▎  | 340/466 [3:19:37<1:43:25, 49.25s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  73%|███████▎  | 340/466 [3:19:45<1:43:56, 49.50s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  73%|███████▎  | 340/466 [3:19:52<1:43:47, 49.42s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  70%|███████   | 328/466 [3:19:59<1:53:45, 49.46s/it][A[A[A[A[A[A2025-08-15 13:39:28.589 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 135379787983008: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaQaRelevanceResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 481703 [type=json_invalid, input_value='{ "analysis_problem_vs_s...links; the link between', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  15%|█▍        | 318/2149 [3:20:04<24:54:47, 48.98s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  73%|███████▎  | 340/466 [3:20:07<1:40:17, 47.76s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  73%|███████▎  | 340/466 [3:20:11<1:38:27, 46.88s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  73%|███████▎  | 341/466 [3:20:14<1:35:03, 45.62s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  73%|███████▎  | 341/466 [3:20:17<1:32:19, 44.32s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  73%|███████▎  | 341/466 [3:20:21<1:30:32, 43.46s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  71%|███████   | 329/466 [3:20:24<1:36:38, 42.33s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  15%|█▍        | 319/2149 [3:20:27<21:04:50, 41.47s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  15%|█▍        | 318/2149 [3:20:31<97:34:13, 191.84s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  73%|███████▎  | 341/466 [3:20:34<1:26:41, 41.61s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  73%|███████▎  | 341/466 [3:20:38<1:25:29, 41.04s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  73%|███████▎  | 342/466 [3:20:41<1:22:37, 39.98s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  73%|███████▎  | 342/466 [3:20:45<1:21:20, 39.36s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  73%|███████▎  | 342/466 [3:20:48<1:19:30, 38.47s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  71%|███████   | 330/466 [3:20:51<1:25:29, 37.72s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  15%|█▍        | 320/2149 [3:20:54<18:47:35, 36.99s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  15%|█▍        | 319/2149 [3:20:57<72:19:06, 142.27s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  73%|███████▎  | 342/466 [3:21:01<1:16:39, 37.09s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  73%|███████▎  | 342/466 [3:21:05<1:15:43, 36.64s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  74%|███████▎  | 343/466 [3:21:08<1:13:39, 35.93s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  74%|███████▎  | 343/466 [3:21:11<1:12:31, 35.38s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  74%|███████▎  | 343/466 [3:21:14<1:11:12, 34.73s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  71%|███████   | 331/466 [3:21:17<1:16:49, 34.15s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  15%|█▍        | 321/2149 [3:21:20<17:02:40, 33.57s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  15%|█▍        | 320/2149 [3:21:23<54:27:18, 107.18s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  74%|███████▎  | 343/466 [3:21:26<1:08:47, 33.56s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  74%|███████▎  | 343/466 [3:21:30<1:08:00, 33.17s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  74%|███████▍  | 344/466 [3:21:33<1:06:48, 32.85s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  74%|███████▍  | 344/466 [3:21:36<1:05:54, 32.41s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  74%|███████▍  | 344/466 [3:21:40<1:05:24, 32.17s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  71%|███████   | 332/466 [3:21:43<1:10:22, 31.51s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  15%|█▍        | 322/2149 [3:21:45<15:51:27, 31.25s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  15%|█▍        | 321/2149 [3:21:49<42:04:26, 82.86s/it] [A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  74%|███████▍  | 344/466 [3:21:52<1:03:53, 31.43s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  74%|███████▍  | 344/466 [3:21:56<1:03:20, 31.15s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  74%|███████▍  | 345/466 [3:21:59<1:01:49, 30.65s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  74%|███████▍  | 345/466 [3:22:02<1:01:26, 30.47s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  74%|███████▍  | 345/466 [3:22:05<1:00:40, 30.09s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  71%|███████▏  | 333/466 [3:22:09<1:06:19, 29.92s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  15%|█▌        | 323/2149 [3:22:12<15:07:42, 29.83s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  15%|█▍        | 322/2149 [3:22:14<33:21:23, 65.73s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  74%|███████▍  | 345/466 [3:22:18<59:52, 29.69s/it]  [A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  74%|███████▍  | 345/466 [3:22:20<58:41, 29.11s/it]  
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  74%|███████▍  | 346/466 [3:22:24<58:13, 29.12s/it]  [A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  74%|███████▍  | 346/466 [3:22:28<58:07, 29.06s/it]  [A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  74%|███████▍  | 346/466 [3:22:31<57:43, 28.86s/it]  [A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  72%|███████▏  | 334/466 [3:22:35<1:03:15, 28.76s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  15%|█▌        | 324/2149 [3:22:38<14:32:31, 28.69s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  15%|█▌        | 323/2149 [3:22:41<27:22:28, 53.97s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  74%|███████▍  | 346/466 [3:22:45<57:29, 28.75s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  74%|███████▍  | 346/466 [3:22:47<56:54, 28.45s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  74%|███████▍  | 347/466 [3:22:51<56:23, 28.43s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  74%|███████▍  | 347/466 [3:22:54<55:54, 28.19s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  74%|███████▍  | 347/466 [3:22:58<55:55, 28.20s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  72%|███████▏  | 335/466 [3:23:02<1:01:28, 28.16s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  15%|█▌        | 325/2149 [3:23:05<14:15:39, 28.15s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  15%|█▌        | 324/2149 [3:23:07<23:08:29, 45.65s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  74%|███████▍  | 347/466 [3:23:11<55:23, 27.93s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  74%|███████▍  | 347/466 [3:23:13<54:58, 27.72s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  75%|███████▍  | 348/466 [3:23:17<54:25, 27.68s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  75%|███████▍  | 348/466 [3:23:21<54:19, 27.62s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  75%|███████▍  | 348/466 [3:23:24<53:57, 27.43s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  72%|███████▏  | 336/466 [3:23:28<59:41, 27.55s/it]  [A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  15%|█▌        | 326/2149 [3:23:31<13:57:01, 27.55s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  15%|█▌        | 325/2149 [3:23:34<20:12:53, 39.90s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  75%|███████▍  | 348/466 [3:23:38<54:36, 27.77s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  75%|███████▍  | 348/466 [3:23:41<54:18, 27.61s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  75%|███████▍  | 349/466 [3:23:44<53:30, 27.44s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  75%|███████▍  | 349/466 [3:23:47<53:12, 27.28s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  75%|███████▍  | 349/466 [3:23:51<53:30, 27.44s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  72%|███████▏  | 337/466 [3:23:54<58:45, 27.33s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  15%|█▌        | 327/2149 [3:23:57<13:42:03, 27.07s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  15%|█▌        | 326/2149 [3:24:00<18:06:23, 35.76s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  75%|███████▍  | 349/466 [3:24:03<52:49, 27.09s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  75%|███████▍  | 349/466 [3:24:07<53:04, 27.22s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  75%|███████▌  | 350/466 [3:24:10<52:21, 27.08s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  75%|███████▌  | 350/466 [3:24:13<51:54, 26.85s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  75%|███████▌  | 350/466 [3:24:16<51:43, 26.76s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  73%|███████▎  | 338/466 [3:24:20<56:59, 26.71s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  15%|█▌        | 328/2149 [3:24:22<13:21:23, 26.41s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  15%|█▌        | 327/2149 [3:24:25<16:26:52, 32.50s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  75%|███████▌  | 350/466 [3:24:28<51:02, 26.40s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  75%|███████▌  | 350/466 [3:24:33<51:46, 26.78s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  75%|███████▌  | 351/466 [3:24:36<50:54, 26.56s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  75%|███████▌  | 351/466 [3:24:39<51:02, 26.63s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  75%|███████▌  | 351/466 [3:24:42<50:31, 26.36s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  73%|███████▎  | 339/466 [3:24:45<55:38, 26.29s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  15%|█▌        | 329/2149 [3:24:48<13:17:00, 26.28s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  15%|█▌        | 328/2149 [3:24:51<15:31:55, 30.71s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  75%|███████▌  | 351/466 [3:24:55<50:33, 26.37s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  75%|███████▌  | 351/466 [3:24:58<50:27, 26.33s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  76%|███████▌  | 352/466 [3:25:01<49:46, 26.20s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  76%|███████▌  | 352/466 [3:25:05<50:00, 26.32s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  76%|███████▌  | 352/466 [3:25:09<50:24, 26.53s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  73%|███████▎  | 340/466 [3:25:14<56:55, 27.11s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  15%|█▌        | 330/2149 [3:25:23<14:41:50, 29.09s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  15%|█▌        | 329/2149 [3:25:29<16:39:33, 32.95s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  76%|███████▌  | 352/466 [3:25:38<59:49, 31.49s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  76%|███████▌  | 352/466 [3:25:46<1:02:08, 32.71s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  76%|███████▌  | 353/466 [3:25:53<1:04:07, 34.05s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  76%|███████▌  | 353/466 [3:26:03<1:07:48, 36.00s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  76%|███████▌  | 353/466 [3:26:11<1:10:13, 37.29s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  73%|███████▎  | 341/466 [3:26:18<1:19:46, 38.29s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  15%|█▌        | 331/2149 [3:26:26<19:42:27, 39.03s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  15%|█▌        | 330/2149 [3:26:34<21:27:50, 42.48s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  76%|███████▌  | 353/466 [3:26:41<1:17:22, 41.08s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  76%|███████▌  | 353/466 [3:26:49<1:18:41, 41.79s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  76%|███████▌  | 354/466 [3:26:57<1:19:57, 42.83s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  76%|███████▌  | 354/466 [3:27:05<1:21:33, 43.70s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  76%|███████▌  | 354/466 [3:27:14<1:23:50, 44.91s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  73%|███████▎  | 342/466 [3:27:20<1:33:44, 45.36s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  15%|█▌        | 332/2149 [3:27:27<23:07:23, 45.81s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  15%|█▌        | 331/2149 [3:27:36<24:21:02, 48.22s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  76%|███████▌  | 354/466 [3:27:44<1:28:46, 47.56s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  76%|███████▌  | 354/466 [3:27:51<1:29:39, 48.04s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  76%|███████▌  | 355/466 [3:27:59<1:29:51, 48.57s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  76%|███████▌  | 355/466 [3:28:07<1:30:53, 49.13s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  76%|███████▌  | 355/466 [3:28:16<1:32:40, 50.10s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  74%|███████▎  | 343/466 [3:28:24<1:44:15, 50.86s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  15%|█▌        | 333/2149 [3:28:30<25:38:26, 50.83s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  15%|█▌        | 332/2149 [3:28:38<26:26:56, 52.40s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  76%|███████▌  | 355/466 [3:28:46<1:36:06, 51.95s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  76%|███████▌  | 355/466 [3:28:54<1:36:59, 52.42s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  76%|███████▋  | 356/466 [3:29:03<1:37:32, 53.20s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  76%|███████▋  | 356/466 [3:29:10<1:38:00, 53.46s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  76%|███████▋  | 356/466 [3:29:18<1:38:12, 53.56s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  74%|███████▍  | 344/466 [3:29:27<1:50:59, 54.59s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▌        | 334/2149 [3:29:32<27:23:37, 54.33s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  15%|█▌        | 333/2149 [3:29:39<27:43:14, 54.95s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  76%|███████▋  | 356/466 [3:29:46<1:39:26, 54.24s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  76%|███████▋  | 356/466 [3:29:56<1:41:25, 55.33s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  77%|███████▋  | 357/466 [3:30:05<1:41:26, 55.84s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  77%|███████▋  | 357/466 [3:30:11<1:40:54, 55.55s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  77%|███████▋  | 357/466 [3:30:19<1:41:47, 56.03s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  74%|███████▍  | 345/466 [3:30:29<1:54:17, 56.67s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▌        | 335/2149 [3:30:35<28:41:06, 56.93s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▌        | 334/2149 [3:30:43<29:11:28, 57.90s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  77%|███████▋  | 357/466 [3:30:52<1:44:56, 57.76s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  77%|███████▋  | 357/466 [3:31:01<1:45:47, 58.23s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  77%|███████▋  | 358/466 [3:31:07<1:44:12, 57.89s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  77%|███████▋  | 358/466 [3:31:15<1:44:30, 58.06s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  77%|███████▋  | 358/466 [3:31:22<1:44:12, 57.89s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  74%|███████▍  | 346/466 [3:31:29<1:55:33, 57.78s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▌        | 336/2149 [3:31:39<29:42:36, 58.99s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▌        | 335/2149 [3:31:44<29:36:15, 58.75s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  77%|███████▋  | 358/466 [3:31:52<1:45:14, 58.47s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  77%|███████▋  | 358/466 [3:32:01<1:45:44, 58.75s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  77%|███████▋  | 359/466 [3:32:07<1:44:29, 58.59s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  77%|███████▋  | 359/466 [3:32:17<1:45:44, 59.30s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  77%|███████▋  | 359/466 [3:32:23<1:45:13, 59.01s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  74%|███████▍  | 347/466 [3:32:30<1:56:32, 58.76s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▌        | 337/2149 [3:32:38<29:37:10, 58.85s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▌        | 336/2149 [3:32:44<29:42:10, 58.98s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  77%|███████▋  | 359/466 [3:32:51<1:44:28, 58.58s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  77%|███████▋  | 359/466 [3:33:00<1:45:00, 58.89s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  77%|███████▋  | 360/466 [3:33:07<1:43:50, 58.77s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  77%|███████▋  | 360/466 [3:33:15<1:44:10, 58.97s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  77%|███████▋  | 360/466 [3:33:23<1:44:46, 59.31s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  75%|███████▍  | 348/466 [3:33:31<1:56:31, 59.25s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▌        | 338/2149 [3:33:37<29:40:02, 58.97s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▌        | 337/2149 [3:33:45<30:03:31, 59.72s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  77%|███████▋  | 360/466 [3:33:53<1:45:12, 59.55s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  77%|███████▋  | 360/466 [3:34:02<1:45:36, 59.78s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  77%|███████▋  | 361/466 [3:34:08<1:44:26, 59.68s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  77%|███████▋  | 361/466 [3:34:16<1:44:11, 59.54s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  77%|███████▋  | 361/466 [3:34:23<1:43:46, 59.30s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  75%|███████▍  | 349/466 [3:34:30<1:55:35, 59.28s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▌        | 339/2149 [3:34:39<30:07:24, 59.91s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▌        | 338/2149 [3:34:47<30:17:32, 60.22s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  77%|███████▋  | 361/466 [3:34:54<1:45:06, 60.06s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  77%|███████▋  | 361/466 [3:35:03<1:45:02, 60.02s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  78%|███████▊  | 362/466 [3:35:11<1:44:40, 60.39s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  78%|███████▊  | 362/466 [3:35:20<1:45:49, 61.05s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  78%|███████▊  | 362/466 [3:35:27<1:45:18, 60.76s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  75%|███████▌  | 350/466 [3:35:35<1:57:55, 60.99s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▌        | 340/2149 [3:35:42<30:35:11, 60.87s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▌        | 339/2149 [3:35:51<30:58:43, 61.62s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  78%|███████▊  | 362/466 [3:35:59<1:46:53, 61.67s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  78%|███████▊  | 362/466 [3:36:07<1:46:25, 61.40s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  78%|███████▊  | 363/466 [3:36:16<1:46:22, 61.97s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  78%|███████▊  | 363/466 [3:36:24<1:46:02, 61.77s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  78%|███████▊  | 363/466 [3:36:33<1:46:59, 62.32s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  75%|███████▌  | 351/466 [3:36:39<1:58:27, 61.80s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▌        | 341/2149 [3:36:46<31:01:33, 61.78s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▌        | 340/2149 [3:36:50<30:33:57, 60.83s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  78%|███████▊  | 363/466 [3:36:59<1:44:59, 61.16s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  78%|███████▊  | 363/466 [3:37:08<1:44:50, 61.07s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  78%|███████▊  | 364/466 [3:37:18<1:45:08, 61.85s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  78%|███████▊  | 364/466 [3:37:24<1:44:16, 61.33s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  78%|███████▊  | 364/466 [3:37:33<1:44:42, 61.59s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  76%|███████▌  | 352/466 [3:37:41<1:57:59, 62.10s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▌        | 342/2149 [3:37:48<31:02:06, 61.83s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▌        | 341/2149 [3:37:53<30:52:25, 61.47s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  78%|███████▊  | 364/466 [3:37:57<1:42:13, 60.14s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  78%|███████▊  | 364/466 [3:38:01<1:39:58, 58.81s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  78%|███████▊  | 365/466 [3:38:04<1:36:29, 57.32s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  78%|███████▊  | 365/466 [3:38:08<1:34:12, 55.97s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  78%|███████▊  | 365/466 [3:38:11<1:32:09, 54.74s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  76%|███████▌  | 353/466 [3:38:15<1:40:39, 53.45s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▌        | 343/2149 [3:38:18<26:16:14, 52.37s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▌        | 342/2149 [3:38:22<25:50:51, 51.50s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  78%|███████▊  | 365/466 [3:38:25<1:24:55, 50.45s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  78%|███████▊  | 365/466 [3:38:29<1:23:20, 49.51s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  79%|███████▊  | 366/466 [3:38:32<1:20:29, 48.30s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  79%|███████▊  | 366/466 [3:38:35<1:19:07, 47.47s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  79%|███████▊  | 366/466 [3:38:39<1:17:38, 46.59s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  76%|███████▌  | 354/466 [3:38:42<1:25:09, 45.62s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▌        | 344/2149 [3:38:45<22:26:02, 44.74s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▌        | 343/2149 [3:38:48<22:07:17, 44.10s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  79%|███████▊  | 366/466 [3:38:52<1:12:29, 43.50s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  79%|███████▊  | 366/466 [3:38:56<1:11:08, 42.69s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  79%|███████▉  | 367/466 [3:39:00<1:09:34, 42.16s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  79%|███████▉  | 367/466 [3:39:03<1:08:20, 41.42s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  79%|███████▉  | 367/466 [3:39:07<1:07:50, 41.12s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  76%|███████▌  | 355/466 [3:39:10<1:14:37, 40.33s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▌        | 345/2149 [3:39:13<19:49:33, 39.56s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▌        | 344/2149 [3:39:15<19:32:16, 38.97s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  79%|███████▉  | 367/466 [3:39:19<1:03:38, 38.57s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  79%|███████▉  | 367/466 [3:39:23<1:02:37, 37.95s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  79%|███████▉  | 368/466 [3:39:26<1:01:00, 37.35s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  79%|███████▉  | 368/466 [3:39:29<1:00:27, 37.02s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  79%|███████▉  | 368/466 [3:39:33<59:34, 36.47s/it]  [A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  76%|███████▋  | 356/466 [3:39:36<1:06:10, 36.10s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▌        | 346/2149 [3:39:39<17:49:18, 35.58s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▌        | 345/2149 [3:39:42<17:39:22, 35.23s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  79%|███████▉  | 368/466 [3:39:45<56:45, 34.75s/it]  [A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  79%|███████▉  | 368/466 [3:39:49<56:29, 34.59s/it]  
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  79%|███████▉  | 369/466 [3:39:52<55:09, 34.12s/it]  [A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  79%|███████▉  | 369/466 [3:39:56<55:00, 34.03s/it]  [A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  79%|███████▉  | 369/466 [3:39:59<53:55, 33.35s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  77%|███████▋  | 357/466 [3:40:04<1:00:47, 33.47s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▌        | 347/2149 [3:40:06<16:29:42, 32.95s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▌        | 346/2149 [3:40:08<16:19:31, 32.60s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  79%|███████▉  | 369/466 [3:40:11<52:04, 32.21s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  79%|███████▉  | 369/466 [3:40:15<51:22, 31.78s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  79%|███████▉  | 370/466 [3:40:18<50:39, 31.66s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  79%|███████▉  | 370/466 [3:40:21<50:06, 31.32s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  79%|███████▉  | 370/466 [3:40:25<49:53, 31.19s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  77%|███████▋  | 358/466 [3:40:28<55:33, 30.86s/it]  [A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▌        | 348/2149 [3:40:32<15:26:37, 30.87s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▌        | 347/2149 [3:40:35<15:22:54, 30.73s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  79%|███████▉  | 370/466 [3:40:38<48:54, 30.57s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  79%|███████▉  | 370/466 [3:40:42<48:35, 30.37s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  80%|███████▉  | 371/466 [3:40:45<47:43, 30.14s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  80%|███████▉  | 371/466 [3:40:49<47:44, 30.15s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  80%|███████▉  | 371/466 [3:40:52<47:06, 29.76s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  77%|███████▋  | 359/466 [3:40:56<53:06, 29.78s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▌        | 349/2149 [3:40:58<14:43:05, 29.44s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▌        | 348/2149 [3:41:01<14:44:46, 29.48s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  80%|███████▉  | 371/466 [3:41:05<46:30, 29.38s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  80%|███████▉  | 371/466 [3:41:09<46:37, 29.45s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  80%|███████▉  | 372/466 [3:41:12<45:51, 29.28s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  80%|███████▉  | 372/466 [3:41:16<45:40, 29.16s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  80%|███████▉  | 372/466 [3:41:19<45:27, 29.02s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  77%|███████▋  | 360/466 [3:41:22<50:53, 28.80s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▋        | 350/2149 [3:41:25<14:22:40, 28.77s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▌        | 349/2149 [3:41:28<14:21:49, 28.73s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  80%|███████▉  | 372/466 [3:41:32<44:56, 28.69s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  80%|███████▉  | 372/466 [3:41:35<44:33, 28.44s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  80%|████████  | 373/466 [3:41:38<43:52, 28.30s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  80%|████████  | 373/466 [3:41:43<44:12, 28.53s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  80%|████████  | 373/466 [3:41:46<44:07, 28.47s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  77%|███████▋  | 361/466 [3:41:50<49:39, 28.37s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▋        | 351/2149 [3:41:52<14:02:07, 28.10s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▋        | 350/2149 [3:41:55<14:03:00, 28.12s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  80%|████████  | 373/466 [3:41:58<43:23, 28.00s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  80%|████████  | 373/466 [3:42:02<43:17, 27.93s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  80%|████████  | 374/466 [3:42:05<42:57, 28.01s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  80%|████████  | 374/466 [3:42:13<44:25, 28.97s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  80%|████████  | 374/466 [3:42:15<44:03, 28.74s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  78%|███████▊  | 362/466 [3:42:19<49:52, 28.77s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▋        | 352/2149 [3:42:22<14:22:32, 28.80s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▋        | 351/2149 [3:42:25<14:21:21, 28.74s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  80%|████████  | 374/466 [3:42:29<44:15, 28.87s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  80%|████████  | 374/466 [3:42:32<44:07, 28.77s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  80%|████████  | 375/466 [3:42:36<43:40, 28.79s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  80%|████████  | 375/466 [3:42:39<42:50, 28.24s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  80%|████████  | 375/466 [3:42:42<42:42, 28.16s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  78%|███████▊  | 363/466 [3:42:47<48:38, 28.33s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▋        | 353/2149 [3:42:49<14:03:45, 28.19s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▋        | 352/2149 [3:42:52<13:59:08, 28.02s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  80%|████████  | 375/466 [3:42:55<42:35, 28.09s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  80%|████████  | 375/466 [3:42:59<42:34, 28.07s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  81%|████████  | 376/466 [3:43:02<41:51, 27.91s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  81%|████████  | 376/466 [3:43:06<41:33, 27.71s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  81%|████████  | 376/466 [3:43:09<41:34, 27.72s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  78%|███████▊  | 364/466 [3:43:12<46:43, 27.48s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  16%|█▋        | 354/2149 [3:43:15<13:46:36, 27.63s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▋        | 353/2149 [3:43:18<13:44:56, 27.56s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  81%|████████  | 376/466 [3:43:22<41:41, 27.80s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  81%|████████  | 376/466 [3:43:25<41:21, 27.58s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  81%|████████  | 377/466 [3:43:29<40:55, 27.59s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  81%|████████  | 377/466 [3:43:32<40:39, 27.41s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  81%|████████  | 377/466 [3:43:35<40:32, 27.34s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  78%|███████▊  | 365/466 [3:43:39<45:48, 27.22s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 355/2149 [3:43:42<13:35:03, 27.26s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  16%|█▋        | 354/2149 [3:43:45<13:37:38, 27.33s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  81%|████████  | 377/466 [3:43:49<40:27, 27.27s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  81%|████████  | 377/466 [3:43:52<40:24, 27.24s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  81%|████████  | 378/466 [3:43:55<40:01, 27.29s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  81%|████████  | 378/466 [3:43:59<39:37, 27.02s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  81%|████████  | 378/466 [3:44:02<39:57, 27.24s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  79%|███████▊  | 366/466 [3:44:06<45:19, 27.19s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 356/2149 [3:44:08<13:30:17, 27.12s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 355/2149 [3:44:12<13:32:08, 27.16s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  81%|████████  | 378/466 [3:44:14<39:18, 26.80s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  81%|████████  | 378/466 [3:44:19<39:49, 27.15s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  81%|████████▏ | 379/466 [3:44:22<39:10, 27.02s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  81%|████████▏ | 379/466 [3:44:25<39:04, 26.95s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  81%|████████▏ | 379/466 [3:44:29<39:04, 26.95s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  79%|███████▉  | 367/466 [3:44:33<44:40, 27.07s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 357/2149 [3:44:35<13:27:35, 27.04s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 356/2149 [3:44:39<13:29:33, 27.09s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  81%|████████▏ | 379/466 [3:44:43<39:47, 27.44s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  81%|████████▏ | 379/466 [3:44:48<40:05, 27.65s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  82%|████████▏ | 380/466 [3:44:51<39:38, 27.66s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  82%|████████▏ | 380/466 [3:44:54<39:29, 27.55s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  82%|████████▏ | 380/466 [3:44:57<39:25, 27.51s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  79%|███████▉  | 368/466 [3:45:00<44:31, 27.26s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 358/2149 [3:45:04<13:38:33, 27.42s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 357/2149 [3:45:06<13:36:28, 27.34s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  82%|████████▏ | 380/466 [3:45:12<39:49, 27.78s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  82%|████████▏ | 380/466 [3:45:15<39:36, 27.64s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  82%|████████▏ | 381/466 [3:45:19<39:13, 27.69s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  82%|████████▏ | 381/466 [3:45:22<38:59, 27.52s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  82%|████████▏ | 381/466 [3:45:25<39:07, 27.61s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  79%|███████▉  | 369/466 [3:45:28<44:31, 27.55s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 359/2149 [3:45:32<13:46:00, 27.69s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 358/2149 [3:45:35<13:44:43, 27.63s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  82%|████████▏ | 381/466 [3:45:38<38:46, 27.37s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  82%|████████▏ | 381/466 [3:45:43<39:12, 27.68s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  82%|████████▏ | 382/466 [3:45:47<39:13, 28.02s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  82%|████████▏ | 382/466 [3:45:50<38:50, 27.75s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  82%|████████▏ | 382/466 [3:45:54<38:59, 27.85s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  79%|███████▉  | 370/466 [3:45:57<44:42, 27.95s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 360/2149 [3:46:00<13:50:51, 27.87s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 359/2149 [3:46:03<13:50:00, 27.82s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  82%|████████▏ | 382/466 [3:46:06<38:42, 27.65s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  82%|████████▏ | 382/466 [3:46:09<38:15, 27.33s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  82%|████████▏ | 383/466 [3:46:13<37:50, 27.36s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  82%|████████▏ | 383/466 [3:46:16<37:45, 27.30s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  82%|████████▏ | 383/466 [3:46:19<37:41, 27.24s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  80%|███████▉  | 371/466 [3:46:23<43:05, 27.22s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 361/2149 [3:46:26<13:33:22, 27.29s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 360/2149 [3:46:29<13:31:34, 27.22s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  82%|████████▏ | 383/466 [3:46:33<37:42, 27.26s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  82%|████████▏ | 383/466 [3:46:36<37:19, 26.98s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  82%|████████▏ | 384/466 [3:46:39<36:53, 26.99s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  82%|████████▏ | 384/466 [3:46:42<36:41, 26.85s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  82%|████████▏ | 384/466 [3:46:46<36:44, 26.89s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  80%|███████▉  | 372/466 [3:46:48<41:52, 26.72s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 362/2149 [3:46:52<13:19:52, 26.86s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 361/2149 [3:46:54<13:09:43, 26.50s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  82%|████████▏ | 384/466 [3:46:58<36:16, 26.55s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  82%|████████▏ | 384/466 [3:47:01<36:08, 26.45s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  83%|████████▎ | 385/466 [3:47:05<35:41, 26.44s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  83%|████████▎ | 385/466 [3:47:08<35:40, 26.43s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  83%|████████▎ | 385/466 [3:47:11<35:36, 26.38s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  80%|████████  | 373/466 [3:47:14<40:52, 26.37s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 363/2149 [3:47:17<13:01:20, 26.25s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 362/2149 [3:47:20<13:08:13, 26.47s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  83%|████████▎ | 385/466 [3:47:24<35:37, 26.38s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  83%|████████▎ | 385/466 [3:47:27<35:41, 26.44s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  83%|████████▎ | 386/466 [3:47:31<35:18, 26.49s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  83%|████████▎ | 386/466 [3:47:34<35:17, 26.47s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  83%|████████▎ | 386/466 [3:47:37<35:19, 26.49s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  80%|████████  | 374/466 [3:47:41<40:45, 26.58s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 364/2149 [3:47:44<13:07:47, 26.48s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 363/2149 [3:47:46<13:06:38, 26.43s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  83%|████████▎ | 386/466 [3:47:50<35:08, 26.36s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  83%|████████▎ | 386/466 [3:47:53<35:06, 26.33s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  83%|████████▎ | 387/466 [3:47:57<34:27, 26.18s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  83%|████████▎ | 387/466 [3:48:01<34:57, 26.55s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  83%|████████▎ | 387/466 [3:48:05<35:09, 26.71s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  80%|████████  | 375/466 [3:48:08<40:33, 26.74s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 365/2149 [3:48:10<13:05:43, 26.43s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 364/2149 [3:48:13<13:12:12, 26.63s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  83%|████████▎ | 387/466 [3:48:17<34:55, 26.52s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  83%|████████▎ | 387/466 [3:48:20<34:45, 26.40s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  83%|████████▎ | 388/466 [3:48:23<34:16, 26.37s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  83%|████████▎ | 388/466 [3:48:27<34:16, 26.37s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  83%|████████▎ | 388/466 [3:48:30<34:18, 26.40s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  81%|████████  | 376/466 [3:48:33<39:26, 26.29s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 366/2149 [3:48:37<13:08:18, 26.53s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 365/2149 [3:48:39<13:05:12, 26.41s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  83%|████████▎ | 388/466 [3:48:43<34:24, 26.47s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  83%|████████▎ | 388/466 [3:48:47<34:25, 26.48s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  83%|████████▎ | 389/466 [3:48:51<34:19, 26.74s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  83%|████████▎ | 389/466 [3:48:54<34:11, 26.64s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  83%|████████▎ | 389/466 [3:48:58<34:24, 26.81s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  81%|████████  | 377/466 [3:49:01<39:32, 26.66s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 367/2149 [3:49:05<13:18:25, 26.88s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 366/2149 [3:49:08<13:22:33, 27.01s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  83%|████████▎ | 389/466 [3:49:11<34:33, 26.93s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  83%|████████▎ | 389/466 [3:49:15<34:44, 27.07s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  84%|████████▎ | 390/466 [3:49:18<34:07, 26.94s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  84%|████████▎ | 390/466 [3:49:22<34:12, 27.01s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  84%|████████▎ | 390/466 [3:49:25<34:00, 26.85s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  81%|████████  | 378/466 [3:49:28<39:16, 26.77s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 368/2149 [3:49:31<13:16:03, 26.82s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 367/2149 [3:49:35<13:21:08, 26.97s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  84%|████████▎ | 390/466 [3:49:38<34:02, 26.87s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  84%|████████▎ | 390/466 [3:49:42<34:08, 26.95s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  84%|████████▍ | 391/466 [3:49:45<33:39, 26.93s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  84%|████████▍ | 391/466 [3:49:49<33:36, 26.89s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  84%|████████▍ | 391/466 [3:49:52<33:37, 26.89s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  81%|████████▏ | 379/466 [3:49:55<39:08, 26.99s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 369/2149 [3:49:58<13:17:11, 26.87s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 368/2149 [3:50:01<13:16:59, 26.85s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  84%|████████▍ | 391/466 [3:50:04<33:23, 26.71s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  84%|████████▍ | 391/466 [3:50:08<33:28, 26.78s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  84%|████████▍ | 392/466 [3:50:11<32:48, 26.60s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  84%|████████▍ | 392/466 [3:50:14<32:39, 26.48s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  84%|████████▍ | 392/466 [3:50:17<32:28, 26.33s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  82%|████████▏ | 380/466 [3:50:20<37:34, 26.22s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 370/2149 [3:50:24<13:03:23, 26.42s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 369/2149 [3:50:26<12:55:55, 26.15s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  84%|████████▍ | 392/466 [3:50:29<32:22, 26.24s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  84%|████████▍ | 392/466 [3:50:33<32:14, 26.14s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  84%|████████▍ | 393/466 [3:50:36<31:44, 26.08s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  84%|████████▍ | 393/466 [3:50:40<31:56, 26.25s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  84%|████████▍ | 393/466 [3:50:43<31:51, 26.18s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  82%|████████▏ | 381/466 [3:50:47<37:19, 26.34s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 371/2149 [3:50:49<12:53:36, 26.11s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 370/2149 [3:50:52<12:59:27, 26.29s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  84%|████████▍ | 393/466 [3:50:56<32:01, 26.32s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  84%|████████▍ | 393/466 [3:50:59<31:49, 26.15s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  85%|████████▍ | 394/466 [3:51:02<31:25, 26.19s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  85%|████████▍ | 394/466 [3:51:05<31:18, 26.09s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  85%|████████▍ | 394/466 [3:51:10<31:44, 26.45s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  82%|████████▏ | 382/466 [3:51:13<36:49, 26.30s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 372/2149 [3:51:16<13:01:35, 26.39s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 371/2149 [3:51:19<13:06:09, 26.53s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  85%|████████▍ | 394/466 [3:51:22<31:38, 26.37s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  85%|████████▍ | 394/466 [3:51:26<31:47, 26.50s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  85%|████████▍ | 395/466 [3:51:29<31:14, 26.41s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  85%|████████▍ | 395/466 [3:51:33<31:16, 26.42s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  85%|████████▍ | 395/466 [3:51:36<31:12, 26.38s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  82%|████████▏ | 383/466 [3:51:39<36:19, 26.26s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 373/2149 [3:51:42<12:54:38, 26.17s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 372/2149 [3:51:45<12:54:57, 26.17s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  85%|████████▍ | 395/466 [3:51:48<30:50, 26.06s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  85%|████████▍ | 395/466 [3:51:51<30:52, 26.09s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  85%|████████▍ | 396/466 [3:51:55<30:41, 26.31s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  85%|████████▍ | 396/466 [3:51:59<30:39, 26.28s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  85%|████████▍ | 396/466 [3:52:02<30:28, 26.12s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  82%|████████▏ | 384/466 [3:52:05<35:51, 26.23s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 374/2149 [3:52:08<12:54:44, 26.19s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 373/2149 [3:52:11<12:52:08, 26.09s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  85%|████████▍ | 396/466 [3:52:15<30:50, 26.44s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  85%|████████▍ | 396/466 [3:52:18<30:42, 26.32s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  85%|████████▌ | 397/466 [3:52:22<30:12, 26.27s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  85%|████████▌ | 397/466 [3:52:24<29:59, 26.08s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  85%|████████▌ | 397/466 [3:52:28<29:59, 26.08s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  83%|████████▎ | 385/466 [3:52:31<35:19, 26.17s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 375/2149 [3:52:35<13:01:59, 26.45s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 374/2149 [3:52:38<13:05:50, 26.56s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  85%|████████▌ | 397/466 [3:52:42<30:26, 26.48s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  85%|████████▌ | 397/466 [3:52:46<30:40, 26.68s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  85%|████████▌ | 398/466 [3:52:49<30:05, 26.55s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  85%|████████▌ | 398/466 [3:52:53<30:22, 26.80s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  85%|████████▌ | 398/466 [3:52:57<30:29, 26.91s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  83%|████████▎ | 386/466 [3:52:59<35:43, 26.80s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  17%|█▋        | 376/2149 [3:53:03<13:16:10, 26.94s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 375/2149 [3:53:07<13:22:35, 27.15s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  85%|████████▌ | 398/466 [3:53:10<30:36, 27.01s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  85%|████████▌ | 398/466 [3:53:15<31:04, 27.42s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  86%|████████▌ | 399/466 [3:53:17<30:21, 27.18s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  86%|████████▌ | 399/466 [3:53:21<30:18, 27.15s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  86%|████████▌ | 399/466 [3:53:24<30:09, 27.01s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  83%|████████▎ | 387/466 [3:53:28<36:06, 27.42s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 377/2149 [3:53:30<13:17:37, 27.01s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  17%|█▋        | 376/2149 [3:53:33<13:10:28, 26.75s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  86%|████████▌ | 399/466 [3:53:36<30:00, 26.87s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  86%|████████▌ | 399/466 [3:53:40<29:44, 26.63s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  86%|████████▌ | 400/466 [3:53:43<29:14, 26.58s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  86%|████████▌ | 400/466 [3:53:46<29:25, 26.75s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  86%|████████▌ | 400/466 [3:53:50<29:25, 26.75s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  83%|████████▎ | 388/466 [3:53:53<34:33, 26.59s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 378/2149 [3:53:56<13:05:11, 26.60s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 377/2149 [3:53:59<13:01:50, 26.47s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  86%|████████▌ | 400/466 [3:54:03<29:21, 26.70s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  86%|████████▌ | 400/466 [3:54:06<29:14, 26.58s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  86%|████████▌ | 401/466 [3:54:11<29:18, 27.05s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  86%|████████▌ | 401/466 [3:54:13<29:03, 26.82s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  86%|████████▌ | 401/466 [3:54:17<28:57, 26.74s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  83%|████████▎ | 389/466 [3:54:20<34:21, 26.77s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 379/2149 [3:54:24<13:17:53, 27.05s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 378/2149 [3:54:27<13:20:18, 27.11s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  86%|████████▌ | 401/466 [3:54:31<29:24, 27.15s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  86%|████████▌ | 401/466 [3:54:34<29:15, 27.00s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  86%|████████▋ | 402/466 [3:54:38<28:54, 27.10s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  86%|████████▋ | 402/466 [3:54:41<28:56, 27.13s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  86%|████████▋ | 402/466 [3:54:44<28:47, 26.99s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  84%|████████▎ | 390/466 [3:54:47<34:01, 26.86s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 380/2149 [3:54:50<13:11:50, 26.86s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 379/2149 [3:54:54<13:15:11, 26.96s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  86%|████████▋ | 402/466 [3:54:57<28:29, 26.71s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  86%|████████▋ | 402/466 [3:55:00<28:35, 26.80s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  86%|████████▋ | 403/466 [3:55:05<28:16, 26.93s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  86%|████████▋ | 403/466 [3:55:07<28:04, 26.73s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  86%|████████▋ | 403/466 [3:55:10<28:00, 26.68s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  84%|████████▍ | 391/466 [3:55:13<33:18, 26.65s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 381/2149 [3:55:16<12:59:30, 26.45s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 380/2149 [3:55:19<12:55:54, 26.32s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  86%|████████▋ | 403/466 [3:55:22<27:46, 26.45s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  86%|████████▋ | 403/466 [3:55:25<27:28, 26.17s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  87%|████████▋ | 404/466 [3:55:29<27:04, 26.20s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  87%|████████▋ | 404/466 [3:55:32<27:01, 26.16s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  87%|████████▋ | 404/466 [3:55:36<27:19, 26.44s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  84%|████████▍ | 392/466 [3:55:39<32:33, 26.40s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 382/2149 [3:55:42<12:57:05, 26.39s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 381/2149 [3:55:46<13:04:52, 26.64s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  87%|████████▋ | 404/466 [3:55:50<27:30, 26.62s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  87%|████████▋ | 404/466 [3:55:53<27:30, 26.63s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  87%|████████▋ | 405/466 [3:55:56<26:50, 26.40s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  87%|████████▋ | 405/466 [3:55:59<26:55, 26.48s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  87%|████████▋ | 405/466 [3:56:02<26:45, 26.32s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  84%|████████▍ | 393/466 [3:56:06<32:09, 26.43s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 383/2149 [3:56:09<12:57:47, 26.43s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 382/2149 [3:56:11<12:51:52, 26.21s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  87%|████████▋ | 405/466 [3:56:15<26:46, 26.34s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  87%|████████▋ | 405/466 [3:56:19<26:51, 26.43s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  87%|████████▋ | 406/466 [3:56:22<26:15, 26.26s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  87%|████████▋ | 406/466 [3:56:26<26:39, 26.66s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  87%|████████▋ | 406/466 [3:56:29<26:30, 26.50s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  85%|████████▍ | 394/466 [3:56:32<31:40, 26.39s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 384/2149 [3:56:35<12:57:56, 26.45s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 383/2149 [3:56:37<12:48:59, 26.13s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  87%|████████▋ | 406/466 [3:56:41<26:09, 26.16s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  87%|████████▋ | 406/466 [3:56:45<26:19, 26.32s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  87%|████████▋ | 407/466 [3:56:48<25:47, 26.22s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  87%|████████▋ | 407/466 [3:56:51<25:42, 26.15s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  87%|████████▋ | 407/466 [3:56:55<25:56, 26.38s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  85%|████████▍ | 395/466 [3:56:59<31:24, 26.55s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 385/2149 [3:57:02<12:58:59, 26.50s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 384/2149 [3:57:05<13:04:31, 26.67s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  87%|████████▋ | 407/466 [3:57:09<26:10, 26.61s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  87%|████████▋ | 407/466 [3:57:12<26:00, 26.45s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  88%|████████▊ | 408/466 [3:57:16<25:45, 26.65s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  88%|████████▊ | 408/466 [3:57:19<25:49, 26.71s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  88%|████████▊ | 408/466 [3:57:22<25:36, 26.50s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  85%|████████▍ | 396/466 [3:57:25<30:55, 26.51s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 386/2149 [3:57:29<13:01:51, 26.61s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 385/2149 [3:57:31<12:54:39, 26.35s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  88%|████████▊ | 408/466 [3:57:35<25:38, 26.53s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  88%|████████▊ | 408/466 [3:57:38<25:32, 26.43s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  88%|████████▊ | 409/466 [3:57:42<25:05, 26.42s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  88%|████████▊ | 409/466 [3:57:45<24:58, 26.29s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  88%|████████▊ | 409/466 [3:57:48<25:09, 26.48s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  85%|████████▌ | 397/466 [3:57:52<30:25, 26.45s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 387/2149 [3:57:55<12:56:02, 26.43s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 386/2149 [3:57:58<13:07:52, 26.81s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  88%|████████▊ | 409/466 [3:58:02<25:18, 26.63s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  88%|████████▊ | 409/466 [3:58:05<25:24, 26.74s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  88%|████████▊ | 410/466 [3:58:09<24:52, 26.66s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  88%|████████▊ | 410/466 [3:58:12<24:44, 26.52s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  88%|████████▊ | 410/466 [3:58:15<24:42, 26.48s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  85%|████████▌ | 398/466 [3:58:18<29:52, 26.36s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 388/2149 [3:58:21<12:58:36, 26.53s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 387/2149 [3:58:24<12:54:45, 26.38s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  88%|████████▊ | 410/466 [3:58:27<24:29, 26.24s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  88%|████████▊ | 410/466 [3:58:30<24:24, 26.16s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  88%|████████▊ | 411/466 [3:58:33<23:50, 26.02s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  88%|████████▊ | 411/466 [3:58:37<24:01, 26.21s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  88%|████████▊ | 411/466 [3:58:40<24:00, 26.19s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  86%|████████▌ | 399/466 [3:58:44<29:15, 26.19s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 389/2149 [3:58:47<12:52:12, 26.33s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 388/2149 [3:58:50<12:49:23, 26.21s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  88%|████████▊ | 411/466 [3:58:54<24:05, 26.29s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  88%|████████▊ | 411/466 [3:58:57<24:07, 26.32s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  88%|████████▊ | 412/466 [3:59:00<23:42, 26.35s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  88%|████████▊ | 412/466 [3:59:03<23:38, 26.26s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  88%|████████▊ | 412/466 [3:59:06<23:30, 26.11s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  86%|████████▌ | 400/466 [3:59:10<28:51, 26.24s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 390/2149 [3:59:13<12:45:09, 26.10s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 389/2149 [3:59:16<12:48:05, 26.18s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  88%|████████▊ | 412/466 [3:59:20<23:34, 26.19s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  88%|████████▊ | 412/466 [3:59:23<23:45, 26.39s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  89%|████████▊ | 413/466 [3:59:27<23:24, 26.50s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  89%|████████▊ | 413/466 [3:59:32<23:43, 26.87s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  89%|████████▊ | 413/466 [3:59:35<23:39, 26.78s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  86%|████████▌ | 401/466 [3:59:39<29:13, 26.97s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 391/2149 [3:59:41<13:03:57, 26.76s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 390/2149 [3:59:44<13:05:11, 26.78s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  89%|████████▊ | 413/466 [3:59:48<23:38, 26.76s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  89%|████████▊ | 413/466 [3:59:51<23:35, 26.71s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  89%|████████▉ | 414/466 [3:59:54<23:01, 26.57s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  89%|████████▉ | 414/466 [3:59:58<23:05, 26.64s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  89%|████████▉ | 414/466 [4:00:02<23:15, 26.83s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  86%|████████▋ | 402/466 [4:00:04<28:26, 26.66s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 392/2149 [4:00:08<13:03:09, 26.74s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 391/2149 [4:00:10<12:58:59, 26.59s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  89%|████████▉ | 414/466 [4:00:14<23:03, 26.61s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  89%|████████▉ | 414/466 [4:00:17<23:03, 26.61s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  89%|████████▉ | 415/466 [4:00:21<22:45, 26.77s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  89%|████████▉ | 415/466 [4:00:24<22:33, 26.54s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  89%|████████▉ | 415/466 [4:00:27<22:28, 26.44s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  86%|████████▋ | 403/466 [4:00:30<27:46, 26.46s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 393/2149 [4:00:33<12:52:03, 26.38s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 392/2149 [4:00:36<12:53:33, 26.42s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  89%|████████▉ | 415/466 [4:00:40<22:28, 26.44s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  89%|████████▉ | 415/466 [4:00:43<22:24, 26.37s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  89%|████████▉ | 416/466 [4:00:47<22:10, 26.61s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  89%|████████▉ | 416/466 [4:00:50<21:56, 26.33s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  89%|████████▉ | 416/466 [4:00:54<22:07, 26.55s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  87%|████████▋ | 404/466 [4:00:57<27:16, 26.39s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 394/2149 [4:01:00<12:54:11, 26.47s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 393/2149 [4:01:03<12:55:56, 26.51s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  89%|████████▉ | 416/466 [4:01:06<21:53, 26.26s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  89%|████████▉ | 416/466 [4:01:09<21:53, 26.27s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  89%|████████▉ | 417/466 [4:01:14<21:38, 26.50s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  89%|████████▉ | 417/466 [4:01:17<21:37, 26.48s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  89%|████████▉ | 417/466 [4:01:21<21:44, 26.62s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  87%|████████▋ | 405/466 [4:01:25<27:16, 26.83s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 395/2149 [4:01:27<13:02:03, 26.75s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 394/2149 [4:01:31<13:08:45, 26.97s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  89%|████████▉ | 417/466 [4:01:35<22:09, 27.14s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  89%|████████▉ | 417/466 [4:01:39<22:20, 27.36s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  90%|████████▉ | 418/466 [4:01:42<21:40, 27.09s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  90%|████████▉ | 418/466 [4:01:46<21:46, 27.22s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  90%|████████▉ | 418/466 [4:01:49<21:35, 26.99s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  87%|████████▋ | 406/466 [4:01:52<27:05, 27.09s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 396/2149 [4:01:56<13:14:06, 27.18s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 395/2149 [4:01:58<13:09:47, 27.02s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  90%|████████▉ | 418/466 [4:02:02<21:46, 27.22s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  90%|████████▉ | 418/466 [4:02:06<21:52, 27.35s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  90%|████████▉ | 419/466 [4:02:10<21:24, 27.33s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  90%|████████▉ | 419/466 [4:02:13<21:19, 27.22s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  90%|████████▉ | 419/466 [4:02:16<21:20, 27.25s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  87%|████████▋ | 407/466 [4:02:19<26:32, 27.00s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  18%|█▊        | 397/2149 [4:02:23<13:17:35, 27.31s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 396/2149 [4:02:25<13:12:59, 27.14s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  90%|████████▉ | 419/466 [4:02:29<21:09, 27.01s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  90%|████████▉ | 419/466 [4:02:32<21:06, 26.95s/it]
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  90%|█████████ | 420/466 [4:02:44<21:40, 28.28s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  90%|█████████ | 420/466 [4:02:52<22:47, 29.73s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  88%|████████▊ | 408/466 [4:02:59<29:51, 30.90s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▊        | 398/2149 [4:03:06<15:33:07, 31.97s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  18%|█▊        | 397/2149 [4:03:12<16:02:49, 32.97s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  90%|█████████ | 420/466 [4:03:20<26:10, 34.15s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  90%|█████████ | 420/466 [4:03:27<27:01, 35.26s/it]
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  90%|█████████ | 421/466 [4:03:34<26:12, 34.95s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  90%|█████████ | 421/466 [4:03:41<26:41, 35.59s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  88%|████████▊ | 409/466 [4:03:49<34:39, 36.48s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▊        | 399/2149 [4:03:55<17:57:16, 36.94s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▊        | 398/2149 [4:04:01<18:21:07, 37.73s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  90%|█████████ | 421/466 [4:04:07<28:39, 38.22s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  90%|█████████ | 421/466 [4:04:14<28:59, 38.66s/it]
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  91%|█████████ | 422/466 [4:04:21<28:11, 38.44s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  91%|█████████ | 422/466 [4:04:28<28:40, 39.10s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  88%|████████▊ | 410/466 [4:04:36<37:05, 39.75s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▊        | 400/2149 [4:04:41<19:21:08, 39.83s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▊        | 399/2149 [4:04:48<19:44:22, 40.61s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  91%|█████████ | 422/466 [4:04:55<30:12, 41.18s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  91%|█████████ | 422/466 [4:05:02<30:29, 41.57s/it]
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  91%|█████████ | 423/466 [4:05:08<29:30, 41.17s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  91%|█████████ | 423/466 [4:05:15<29:42, 41.45s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  88%|████████▊ | 411/466 [4:05:23<38:22, 41.86s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▊        | 401/2149 [4:05:28<20:25:42, 42.07s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▊        | 400/2149 [4:05:35<20:39:04, 42.51s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  91%|█████████ | 423/466 [4:05:42<30:40, 42.80s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  91%|█████████ | 423/466 [4:05:49<30:56, 43.18s/it]
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  91%|█████████ | 424/466 [4:05:56<30:10, 43.11s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  91%|█████████ | 424/466 [4:06:03<30:23, 43.42s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  88%|████████▊ | 412/466 [4:06:10<39:06, 43.46s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▊        | 402/2149 [4:06:18<21:26:28, 44.18s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▊        | 401/2149 [4:06:23<21:24:41, 44.10s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  91%|█████████ | 424/466 [4:06:30<30:59, 44.27s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  91%|█████████ | 424/466 [4:06:37<31:16, 44.69s/it]
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  91%|█████████ | 425/466 [4:06:44<30:27, 44.57s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  91%|█████████ | 425/466 [4:06:52<30:48, 45.08s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  89%|████████▊ | 413/466 [4:06:59<39:54, 45.17s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▉        | 403/2149 [4:07:05<21:56:39, 45.25s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▊        | 402/2149 [4:07:11<22:01:35, 45.39s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  91%|█████████ | 425/466 [4:07:18<30:58, 45.33s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  91%|█████████ | 425/466 [4:07:24<31:03, 45.45s/it]
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  91%|█████████▏| 426/466 [4:07:30<30:03, 45.08s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  91%|█████████▏| 426/466 [4:07:37<30:01, 45.05s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  89%|████████▉ | 414/466 [4:07:44<39:06, 45.13s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▉        | 404/2149 [4:07:50<21:54:14, 45.19s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▉        | 403/2149 [4:07:57<21:59:15, 45.34s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  91%|█████████▏| 426/466 [4:08:04<30:22, 45.56s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  91%|█████████▏| 426/466 [4:08:11<30:28, 45.72s/it]
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  92%|█████████▏| 427/466 [4:08:17<29:41, 45.68s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  92%|█████████▏| 427/466 [4:08:24<29:35, 45.53s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  89%|████████▉ | 415/466 [4:08:31<38:47, 45.63s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▉        | 405/2149 [4:08:38<22:12:24, 45.84s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▉        | 404/2149 [4:08:43<22:10:41, 45.75s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  92%|█████████▏| 427/466 [4:08:50<29:43, 45.73s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  92%|█████████▏| 427/466 [4:08:56<29:37, 45.57s/it]
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  92%|█████████▏| 428/466 [4:09:03<28:56, 45.70s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  92%|█████████▏| 428/466 [4:09:11<29:01, 45.84s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  89%|████████▉ | 416/466 [4:09:19<38:32, 46.24s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▉        | 406/2149 [4:09:26<22:29:59, 46.47s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▉        | 405/2149 [4:09:32<22:33:59, 46.58s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  92%|█████████▏| 428/466 [4:09:40<29:44, 46.96s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  92%|█████████▏| 428/466 [4:09:46<29:45, 46.99s/it]
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  92%|█████████▏| 429/466 [4:09:53<28:58, 46.99s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  92%|█████████▏| 429/466 [4:10:00<28:53, 46.86s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  89%|████████▉ | 417/466 [4:10:06<38:09, 46.72s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▉        | 407/2149 [4:10:13<22:38:41, 46.80s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▉        | 406/2149 [4:10:20<22:50:52, 47.19s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  92%|█████████▏| 429/466 [4:10:28<29:10, 47.30s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  92%|█████████▏| 429/466 [4:10:35<29:15, 47.44s/it]
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  92%|█████████▏| 430/466 [4:10:42<28:26, 47.41s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  92%|█████████▏| 430/466 [4:10:48<28:24, 47.33s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  90%|████████▉ | 418/466 [4:10:55<37:44, 47.18s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▉        | 408/2149 [4:11:01<22:47:25, 47.13s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▉        | 407/2149 [4:11:07<22:45:52, 47.05s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  92%|█████████▏| 430/466 [4:11:15<28:17, 47.15s/it][A[A[A[A2025-08-15 14:30:44.636 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 135380470572112: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaQaRelevanceResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 298767 [type=json_invalid, input_value='{\n\n"analysis_problem_v...ration rule as an extra', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.docs.10 in batches of 5:  92%|█████████▏| 430/466 [4:11:19<27:56, 46.56s/it]
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  92%|█████████▏| 431/466 [4:11:23<26:35, 45.59s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  92%|█████████▏| 431/466 [4:11:26<25:51, 44.34s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  90%|████████▉ | 419/466 [4:11:29<33:56, 43.34s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▉        | 409/2149 [4:11:32<20:25:41, 42.26s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▉        | 408/2149 [4:11:35<19:54:38, 41.17s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  92%|█████████▏| 431/466 [4:11:38<23:18, 39.97s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  92%|█████████▏| 431/466 [4:11:42<22:59, 39.41s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  90%|█████████ | 420/466 [4:11:48<2:27:29, 192.39s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  93%|█████████▎| 432/466 [4:11:50<22:42, 40.07s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  93%|█████████▎| 432/466 [4:11:54<22:23, 39.51s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  90%|█████████ | 420/466 [4:11:57<29:35, 38.59s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▉        | 410/2149 [4:12:00<18:20:58, 37.99s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▉        | 409/2149 [4:12:03<18:03:48, 37.37s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  93%|█████████▎| 432/466 [4:12:07<20:46, 36.68s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  93%|█████████▎| 432/466 [4:12:10<20:23, 35.99s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  90%|█████████ | 421/466 [4:12:14<1:46:50, 142.46s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  93%|█████████▎| 433/466 [4:12:16<19:47, 35.98s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  93%|█████████▎| 433/466 [4:12:20<19:32, 35.53s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  90%|█████████ | 421/466 [4:12:23<26:13, 34.97s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▉        | 411/2149 [4:12:26<16:40:17, 34.53s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▉        | 410/2149 [4:12:30<16:31:53, 34.22s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  93%|█████████▎| 433/466 [4:12:33<18:25, 33.50s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  93%|█████████▎| 433/466 [4:12:36<18:10, 33.04s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  91%|█████████ | 422/466 [4:12:40<1:18:52, 107.56s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  93%|█████████▎| 434/466 [4:12:43<17:40, 33.15s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  93%|█████████▎| 434/466 [4:12:46<17:26, 32.69s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  91%|█████████ | 422/466 [4:12:50<23:48, 32.47s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▉        | 412/2149 [4:12:53<15:30:17, 32.13s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▉        | 411/2149 [4:12:55<15:15:23, 31.60s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  93%|█████████▎| 434/466 [4:12:59<16:41, 31.30s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  93%|█████████▎| 434/466 [4:13:02<16:31, 30.99s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  91%|█████████ | 423/466 [4:13:06<59:31, 83.07s/it]   [A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  93%|█████████▎| 435/466 [4:13:09<16:03, 31.08s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  93%|█████████▎| 435/466 [4:13:15<16:14, 31.43s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  91%|█████████ | 423/466 [4:13:17<22:08, 30.89s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▉        | 413/2149 [4:13:20<14:41:01, 30.45s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▉        | 412/2149 [4:13:23<14:38:37, 30.35s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  93%|█████████▎| 435/466 [4:13:26<15:28, 29.95s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  93%|█████████▎| 435/466 [4:13:29<15:25, 29.85s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  91%|█████████ | 424/466 [4:13:33<46:28, 66.39s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  94%|█████████▎| 436/466 [4:13:36<14:56, 29.89s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  94%|█████████▎| 436/466 [4:13:40<14:47, 29.58s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  91%|█████████ | 424/466 [4:13:43<20:36, 29.45s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▉        | 414/2149 [4:13:46<14:08:07, 29.33s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▉        | 413/2149 [4:13:49<14:01:10, 29.07s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  94%|█████████▎| 436/466 [4:13:52<14:27, 28.90s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  94%|█████████▎| 436/466 [4:13:57<14:30, 29.00s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  91%|█████████ | 425/466 [4:13:59<37:03, 54.22s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  94%|█████████▍| 437/466 [4:14:02<13:51, 28.68s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  94%|█████████▍| 437/466 [4:14:06<13:45, 28.45s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  91%|█████████ | 425/466 [4:14:09<19:26, 28.45s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▉        | 415/2149 [4:14:12<13:39:26, 28.35s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▉        | 414/2149 [4:14:15<13:33:23, 28.13s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  94%|█████████▍| 437/466 [4:14:19<13:36, 28.15s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  94%|█████████▍| 437/466 [4:14:22<13:31, 27.99s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  91%|█████████▏| 426/466 [4:14:26<30:38, 45.97s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  94%|█████████▍| 438/466 [4:14:29<13:07, 28.13s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  94%|█████████▍| 438/466 [4:14:32<12:59, 27.85s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  91%|█████████▏| 426/466 [4:14:35<18:29, 27.75s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▉        | 416/2149 [4:14:38<13:15:25, 27.54s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▉        | 415/2149 [4:14:41<13:12:53, 27.44s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  94%|█████████▍| 438/466 [4:14:45<12:56, 27.72s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  94%|█████████▍| 438/466 [4:14:48<12:44, 27.30s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  92%|█████████▏| 427/466 [4:14:52<26:00, 40.02s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  94%|█████████▍| 439/466 [4:14:54<12:16, 27.27s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  94%|█████████▍| 439/466 [4:14:58<12:15, 27.23s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  92%|█████████▏| 427/466 [4:15:01<17:43, 27.28s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▉        | 417/2149 [4:15:04<13:02:48, 27.12s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▉        | 416/2149 [4:15:07<13:03:04, 27.11s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  94%|█████████▍| 439/466 [4:15:10<12:06, 26.90s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  94%|█████████▍| 439/466 [4:15:14<12:05, 26.86s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  92%|█████████▏| 428/466 [4:15:17<22:30, 35.54s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  94%|█████████▍| 440/466 [4:15:21<11:42, 27.01s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  94%|█████████▍| 440/466 [4:15:23<11:34, 26.73s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  92%|█████████▏| 428/466 [4:15:26<16:50, 26.60s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▉        | 418/2149 [4:15:29<12:42:27, 26.43s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▉        | 417/2149 [4:15:32<12:42:00, 26.40s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  94%|█████████▍| 440/466 [4:15:36<11:26, 26.42s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  94%|█████████▍| 440/466 [4:15:40<11:30, 26.56s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  92%|█████████▏| 429/466 [4:15:43<20:14, 32.84s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  95%|█████████▍| 441/466 [4:15:47<11:05, 26.63s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  95%|█████████▍| 441/466 [4:15:49<11:00, 26.42s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  92%|█████████▏| 429/466 [4:15:52<16:13, 26.31s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  19%|█▉        | 419/2149 [4:15:55<12:40:18, 26.37s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▉        | 418/2149 [4:15:58<12:36:44, 26.23s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  95%|█████████▍| 441/466 [4:16:01<10:54, 26.17s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  95%|█████████▍| 441/466 [4:16:05<10:52, 26.11s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  92%|█████████▏| 430/466 [4:16:09<18:22, 30.64s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  95%|█████████▍| 442/466 [4:16:11<10:26, 26.12s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  95%|█████████▍| 442/466 [4:16:19<10:58, 27.45s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  92%|█████████▏| 430/466 [4:16:26<17:14, 28.75s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|█▉        | 420/2149 [4:16:34<14:27:41, 30.11s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  19%|█▉        | 419/2149 [4:16:43<15:19:03, 31.87s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  95%|█████████▍| 442/466 [4:16:51<13:17, 33.24s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  95%|█████████▍| 442/466 [4:16:59<13:48, 34.54s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  92%|█████████▏| 431/466 [4:17:07<22:45, 39.02s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  95%|█████████▌| 443/466 [4:17:13<14:07, 36.87s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  95%|█████████▌| 443/466 [4:17:22<14:38, 38.21s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  92%|█████████▏| 431/466 [4:17:29<22:43, 38.97s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|█▉        | 421/2149 [4:17:37<19:07:04, 39.83s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|█▉        | 420/2149 [4:17:43<19:25:10, 40.43s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  95%|█████████▌| 443/466 [4:17:51<15:49, 41.30s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  95%|█████████▌| 443/466 [4:17:59<16:09, 42.17s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  93%|█████████▎| 432/466 [4:18:07<25:36, 45.18s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  95%|█████████▌| 444/466 [4:18:13<16:03, 43.79s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  95%|█████████▌| 444/466 [4:18:20<16:08, 44.04s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  93%|█████████▎| 432/466 [4:18:29<25:34, 45.14s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|█▉        | 422/2149 [4:18:36<21:53:46, 45.64s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|█▉        | 421/2149 [4:18:41<21:55:50, 45.69s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  95%|█████████▌| 444/466 [4:18:49<16:56, 46.21s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  95%|█████████▌| 444/466 [4:18:55<17:01, 46.41s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  93%|█████████▎| 433/466 [4:19:04<26:48, 48.75s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  95%|█████████▌| 445/466 [4:19:12<16:51, 48.19s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  95%|█████████▌| 445/466 [4:19:21<17:09, 49.03s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  93%|█████████▎| 433/466 [4:19:29<27:19, 49.67s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|█▉        | 423/2149 [4:19:36<23:57:36, 49.97s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|█▉        | 422/2149 [4:19:44<24:28:02, 51.00s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  95%|█████████▌| 445/466 [4:19:51<17:54, 51.16s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  95%|█████████▌| 445/466 [4:20:02<18:21, 52.46s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  93%|█████████▎| 434/466 [4:20:07<28:18, 53.08s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  96%|█████████▌| 446/466 [4:20:16<17:37, 52.89s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  96%|█████████▌| 446/466 [4:20:24<17:47, 53.35s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  93%|█████████▎| 434/466 [4:20:31<28:23, 53.23s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|█▉        | 424/2149 [4:20:38<25:40:30, 53.58s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|█▉        | 423/2149 [4:20:47<26:05:18, 54.41s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  96%|█████████▌| 446/466 [4:20:52<18:00, 54.01s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  96%|█████████▌| 446/466 [4:21:00<18:05, 54.30s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  93%|█████████▎| 435/466 [4:21:09<28:43, 55.59s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  96%|█████████▌| 447/466 [4:21:18<17:40, 55.84s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  96%|█████████▌| 447/466 [4:21:26<17:43, 55.99s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  93%|█████████▎| 435/466 [4:21:36<29:23, 56.89s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|█▉        | 425/2149 [4:21:42<27:09:19, 56.70s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|█▉        | 424/2149 [4:21:48<26:59:21, 56.33s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  96%|█████████▌| 447/466 [4:22:11<18:46, 59.31s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  94%|█████████▎| 436/466 [4:22:30<31:41, 63.39s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  96%|█████████▌| 448/466 [4:22:46<19:38, 65.47s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  96%|█████████▌| 448/466 [4:23:06<20:44, 69.15s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  94%|█████████▎| 436/466 [4:23:21<35:41, 71.39s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|█▉        | 426/2149 [4:23:37<35:36:25, 74.40s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|█▉        | 425/2149 [4:23:53<36:52:08, 76.99s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  96%|█████████▌| 448/466 [4:24:12<23:21, 77.85s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  94%|█████████▍| 437/466 [4:24:29<38:41, 80.05s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  96%|█████████▋| 449/466 [4:24:44<22:57, 81.04s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  96%|█████████▋| 449/466 [4:24:59<23:19, 82.32s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  94%|█████████▍| 437/466 [4:25:16<40:50, 84.49s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|█▉        | 427/2149 [4:25:32<41:16:55, 86.30s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|█▉        | 426/2149 [4:25:46<42:03:30, 87.88s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  96%|█████████▋| 449/466 [4:26:03<24:50, 87.67s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  94%|█████████▍| 438/466 [4:26:18<41:20, 88.60s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  97%|█████████▋| 450/466 [4:26:36<24:05, 90.32s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  97%|█████████▋| 450/466 [4:26:51<24:18, 91.13s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  94%|█████████▍| 438/466 [4:27:07<43:02, 92.22s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|█▉        | 428/2149 [4:27:21<44:35:22, 93.27s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|█▉        | 427/2149 [4:27:38<45:29:42, 95.11s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  97%|█████████▋| 450/466 [4:27:54<25:14, 94.68s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  94%|█████████▍| 439/466 [4:28:12<43:20, 96.30s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  97%|█████████▋| 451/466 [4:28:31<24:29, 97.98s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  97%|█████████▋| 451/466 [4:28:46<24:34, 98.31s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  94%|█████████▍| 439/466 [4:29:04<44:51, 99.69s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|█▉        | 429/2149 [4:29:16<47:41:07, 99.81s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|█▉        | 428/2149 [4:29:31<47:57:35, 100.32s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  97%|█████████▋| 451/466 [4:29:48<25:06, 100.42s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  94%|█████████▍| 440/466 [4:30:06<43:59, 101.52s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  97%|█████████▋| 452/466 [4:30:22<23:42, 101.60s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  97%|█████████▋| 452/466 [4:30:44<24:18, 104.18s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  94%|█████████▍| 440/466 [4:31:00<45:23, 104.76s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|██        | 430/2149 [4:31:15<50:21:22, 105.46s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|█▉        | 429/2149 [4:31:31<50:51:29, 106.45s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  97%|█████████▋| 452/466 [4:31:48<24:47, 106.28s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  95%|█████████▍| 441/466 [4:32:04<44:22, 106.50s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  97%|█████████▋| 453/466 [4:32:19<23:01, 106.30s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  97%|█████████▋| 453/466 [4:32:33<22:54, 105.72s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  95%|█████████▍| 441/466 [4:32:47<43:55, 105.43s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|██        | 431/2149 [4:33:03<50:42:15, 106.25s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|██        | 430/2149 [4:33:15<50:27:04, 105.66s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  97%|█████████▋| 453/466 [4:33:31<22:48, 105.26s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  95%|█████████▍| 442/466 [4:33:50<42:30, 106.26s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  97%|█████████▋| 454/466 [4:34:04<21:11, 105.98s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  97%|█████████▋| 454/466 [4:34:19<21:07, 105.63s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  95%|█████████▍| 442/466 [4:34:33<42:13, 105.58s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|██        | 432/2149 [4:34:48<50:32:50, 105.98s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|██        | 431/2149 [4:35:04<50:49:56, 106.52s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  97%|█████████▋| 454/466 [4:35:22<21:25, 107.10s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  95%|█████████▌| 443/466 [4:35:39<41:09, 107.36s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  98%|█████████▊| 455/466 [4:35:53<19:35, 106.91s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  98%|█████████▊| 455/466 [4:36:11<19:45, 107.76s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  95%|█████████▌| 443/466 [4:36:25<41:10, 107.39s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|██        | 433/2149 [4:36:40<51:19:56, 107.69s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|██        | 432/2149 [4:36:55<51:25:41, 107.83s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  98%|█████████▊| 455/466 [4:37:11<19:45, 107.79s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  95%|█████████▌| 444/466 [4:37:28<39:28, 107.65s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  98%|█████████▊| 456/466 [4:37:45<18:03, 108.39s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  98%|█████████▊| 456/466 [4:38:00<18:01, 108.11s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  95%|█████████▌| 444/466 [4:38:16<39:48, 108.59s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|██        | 434/2149 [4:38:31<51:50:22, 108.82s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|██        | 433/2149 [4:38:47<52:04:22, 109.24s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  98%|█████████▊| 456/466 [4:39:03<18:09, 108.90s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  95%|█████████▌| 445/466 [4:39:18<37:58, 108.48s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  98%|█████████▊| 457/466 [4:39:33<16:15, 108.42s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  98%|█████████▊| 457/466 [4:39:51<16:18, 108.77s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  95%|█████████▌| 445/466 [4:40:07<38:12, 109.19s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|██        | 435/2149 [4:40:23<52:08:33, 109.52s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|██        | 434/2149 [4:40:37<52:04:41, 109.32s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  98%|█████████▊| 457/466 [4:40:54<16:26, 109.65s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  96%|█████████▌| 446/466 [4:41:10<36:32, 109.62s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  98%|█████████▊| 458/466 [4:41:26<14:36, 109.58s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  98%|█████████▊| 458/466 [4:41:42<14:35, 109.46s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  96%|█████████▌| 446/466 [4:41:59<36:42, 110.11s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|██        | 436/2149 [4:42:14<52:20:21, 109.99s/it][A[A[A[A[A[A[A2025-08-15 15:01:45.414 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 135379786832672: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaQaRelevanceResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 361244 [type=json_invalid, input_value='{\n\n"analysis_problem_v...r types. For example, `', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|██        | 435/2149 [4:42:23<51:40:28, 108.53s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  98%|█████████▊| 458/466 [4:42:31<14:07, 105.88s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  96%|█████████▌| 447/466 [4:42:40<32:47, 103.57s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  98%|█████████▊| 459/466 [4:42:48<11:49, 101.39s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  98%|█████████▊| 459/466 [4:42:56<11:32, 98.87s/it] [A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  96%|█████████▌| 447/466 [4:43:04<30:31, 96.41s/it] [A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|██        | 437/2149 [4:43:11<44:49:56, 94.27s/it] [A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  96%|█████████▌| 447/466 [4:43:24<2:20:22, 443.29s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|██        | 436/2149 [4:43:29<45:33:49, 95.76s/it] [A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  98%|█████████▊| 459/466 [4:43:37<10:56, 93.82s/it] 
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  96%|█████████▌| 448/466 [4:43:45<27:37, 92.06s/it] [A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  99%|█████████▊| 460/466 [4:43:54<09:04, 90.70s/it] [A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  99%|█████████▊| 460/466 [4:44:00<08:51, 88.61s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  96%|█████████▌| 448/466 [4:44:09<26:09, 87.20s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|██        | 438/2149 [4:44:16<40:34:56, 85.39s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  96%|█████████▌| 448/466 [4:44:23<1:38:25, 328.10s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|██        | 437/2149 [4:44:31<40:37:33, 85.43s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  99%|█████████▊| 460/466 [4:44:38<08:23, 83.88s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  96%|█████████▋| 449/466 [4:44:45<23:22, 82.50s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  99%|█████████▉| 461/466 [4:44:53<06:46, 81.29s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  99%|█████████▉| 461/466 [4:45:01<06:40, 80.06s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  96%|█████████▋| 449/466 [4:45:09<22:24, 79.07s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|██        | 439/2149 [4:45:16<36:54:33, 77.70s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  96%|█████████▋| 449/466 [4:45:24<1:10:14, 247.94s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|██        | 438/2149 [4:45:31<37:00:05, 77.85s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  99%|█████████▉| 461/466 [4:45:40<06:26, 77.29s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  97%|█████████▋| 450/466 [4:45:52<20:44, 77.75s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  99%|█████████▉| 462/466 [4:45:58<05:05, 76.36s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  99%|█████████▉| 462/466 [4:46:06<05:02, 75.63s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  97%|█████████▋| 450/466 [4:46:16<20:07, 75.50s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  20%|██        | 440/2149 [4:46:22<35:19:07, 74.40s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  97%|█████████▋| 450/466 [4:46:33<51:46, 194.14s/it]  [A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|██        | 439/2149 [4:46:39<35:38:33, 75.04s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  99%|█████████▉| 462/466 [4:46:46<04:56, 74.12s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  97%|█████████▋| 451/466 [4:46:56<18:23, 73.53s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  99%|█████████▉| 463/466 [4:47:04<03:40, 73.35s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5:  99%|█████████▉| 463/466 [4:47:13<03:39, 73.18s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  97%|█████████▋| 451/466 [4:47:21<18:03, 72.21s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██        | 441/2149 [4:47:27<33:52:57, 71.42s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  97%|█████████▋| 451/466 [4:47:37<38:46, 155.10s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  20%|██        | 440/2149 [4:47:43<34:04:32, 71.78s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5:  99%|█████████▉| 463/466 [4:47:52<03:34, 71.54s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  97%|█████████▋| 452/466 [4:47:59<16:26, 70.48s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5: 100%|█████████▉| 464/466 [4:48:09<02:21, 70.65s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5: 100%|█████████▉| 464/466 [4:48:17<02:20, 70.23s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  97%|█████████▋| 452/466 [4:48:24<16:13, 69.52s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██        | 442/2149 [4:48:30<32:41:39, 68.95s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  97%|█████████▋| 452/466 [4:48:40<29:46, 127.62s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██        | 441/2149 [4:48:47<32:57:33, 69.47s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5: 100%|█████████▉| 464/466 [4:48:55<02:17, 68.95s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  97%|█████████▋| 453/466 [4:49:03<14:50, 68.48s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5: 100%|█████████▉| 465/466 [4:49:12<01:08, 68.32s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5: 100%|█████████▉| 465/466 [4:49:18<01:07, 67.68s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  97%|█████████▋| 453/466 [4:49:26<14:33, 67.18s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██        | 443/2149 [4:49:33<31:50:08, 67.18s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  97%|█████████▋| 453/466 [4:49:41<23:18, 107.59s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██        | 442/2149 [4:49:46<31:26:16, 66.30s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5: 100%|█████████▉| 465/466 [4:49:57<01:06, 66.84s/it]
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  97%|█████████▋| 454/466 [4:50:06<13:23, 66.96s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5: 100%|██████████| 466/466 [4:50:06<00:00, 64.31s/it][A[A[A[A[AProcessing root-project.root.v6-32-06.docs.04 in batches of 5: 100%|██████████| 466/466 [4:50:06<00:00, 37.35s/it]
+2025-08-15 15:09:35.965 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:253 - root-project.root.v6-32-06.docs.04: Finished processing
+
+
+Processing root-project.root.v6-32-06.docs.13 in batches of 5: 100%|██████████| 466/466 [4:50:10<00:00, 62.77s/it][A[AProcessing root-project.root.v6-32-06.docs.13 in batches of 5: 100%|██████████| 466/466 [4:50:10<00:00, 37.36s/it]
+2025-08-15 15:09:39.120 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:253 - root-project.root.v6-32-06.docs.13: Finished processing
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  97%|█████████▋| 454/466 [4:50:15<12:19, 61.62s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██        | 444/2149 [4:50:23<29:21:53, 62.00s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  97%|█████████▋| 454/466 [4:50:31<18:03, 90.27s/it] [A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██        | 443/2149 [4:50:37<29:11:11, 61.59s/it][A[A[AProcessing root-project.root.v6-32-06.docs.10 in batches of 5: 100%|██████████| 466/466 [4:50:40<00:00, 59.69s/it]Processing root-project.root.v6-32-06.docs.10 in batches of 5: 100%|██████████| 466/466 [4:50:40<00:00, 37.43s/it]
+2025-08-15 15:10:09.235 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:253 - root-project.root.v6-32-06.docs.10: Finished processing
+
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  98%|█████████▊| 455/466 [4:50:46<10:46, 58.75s/it][A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  98%|█████████▊| 455/466 [4:50:53<09:59, 54.52s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██        | 445/2149 [4:51:02<26:03:00, 55.04s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  98%|█████████▊| 455/466 [4:51:11<13:47, 75.21s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██        | 444/2149 [4:51:20<26:31:26, 56.00s/it][A[A[A
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  98%|█████████▊| 456/466 [4:51:27<08:54, 53.49s/it][A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  98%|█████████▊| 456/466 [4:51:34<08:27, 50.73s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██        | 446/2149 [4:51:39<23:34:55, 49.85s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  98%|█████████▊| 456/466 [4:51:49<10:40, 64.03s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██        | 445/2149 [4:51:55<23:33:59, 49.79s/it][A[A[A
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  98%|█████████▊| 457/466 [4:52:05<07:19, 48.84s/it][A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  98%|█████████▊| 457/466 [4:52:14<07:06, 47.36s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██        | 447/2149 [4:52:20<22:18:42, 47.19s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  98%|█████████▊| 457/466 [4:52:29<08:31, 56.84s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██        | 446/2149 [4:52:36<22:12:48, 46.96s/it][A[A[A
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  98%|█████████▊| 458/466 [4:52:43<06:05, 45.69s/it][A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  98%|█████████▊| 458/466 [4:52:52<05:55, 44.43s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██        | 448/2149 [4:52:58<20:56:09, 44.31s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  98%|█████████▊| 458/466 [4:53:06<06:46, 50.85s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██        | 447/2149 [4:53:14<21:03:01, 44.53s/it][A[A[A
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  98%|█████████▊| 459/466 [4:53:23<05:07, 43.90s/it][A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  98%|█████████▊| 459/466 [4:53:30<04:57, 42.49s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██        | 449/2149 [4:53:36<20:05:03, 42.53s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  98%|█████████▊| 459/466 [4:53:46<05:33, 47.67s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██        | 448/2149 [4:53:53<20:12:32, 42.77s/it][A[A[A
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  99%|█████████▊| 460/466 [4:54:02<04:13, 42.26s/it][A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  99%|█████████▊| 460/466 [4:54:09<04:10, 41.67s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██        | 450/2149 [4:54:17<19:47:49, 41.95s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  99%|█████████▊| 460/466 [4:54:25<04:29, 44.98s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██        | 449/2149 [4:54:33<19:47:34, 41.91s/it][A[A[A
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  99%|█████████▉| 461/466 [4:54:41<03:27, 41.56s/it][A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  99%|█████████▉| 461/466 [4:54:48<03:24, 40.91s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██        | 451/2149 [4:54:55<19:13:51, 40.77s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  99%|█████████▉| 461/466 [4:55:04<03:36, 43.21s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██        | 450/2149 [4:55:11<19:12:36, 40.70s/it][A[A[A
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  99%|█████████▉| 462/466 [4:55:18<02:39, 39.91s/it][A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  99%|█████████▉| 462/466 [4:55:26<02:39, 39.85s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██        | 452/2149 [4:55:34<18:57:56, 40.23s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  99%|█████████▉| 462/466 [4:55:40<02:44, 41.25s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██        | 451/2149 [4:55:48<18:43:49, 39.71s/it][A[A[A
+Processing root-project.root.v6-32-06.docs.08 in batches of 5:  99%|█████████▉| 463/466 [4:55:58<01:59, 39.95s/it][A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5:  99%|█████████▉| 463/466 [4:56:08<02:01, 40.48s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██        | 453/2149 [4:56:15<18:59:36, 40.32s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5:  99%|█████████▉| 463/466 [4:56:24<02:05, 41.82s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██        | 452/2149 [4:56:29<18:54:56, 40.13s/it][A[A[A
+Processing root-project.root.v6-32-06.docs.08 in batches of 5: 100%|█████████▉| 464/466 [4:56:38<01:20, 40.18s/it][A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5: 100%|█████████▉| 464/466 [4:56:46<01:19, 39.77s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██        | 454/2149 [4:56:51<18:29:47, 39.28s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5: 100%|█████████▉| 464/466 [4:56:58<01:19, 39.58s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██        | 453/2149 [4:57:05<18:14:36, 38.72s/it][A[A[A
+Processing root-project.root.v6-32-06.docs.08 in batches of 5: 100%|█████████▉| 465/466 [4:57:15<00:39, 39.25s/it][A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5: 100%|█████████▉| 465/466 [4:57:22<00:38, 38.73s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██        | 455/2149 [4:57:30<18:24:16, 39.11s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5: 100%|█████████▉| 465/466 [4:57:39<00:40, 40.02s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██        | 454/2149 [4:57:45<18:22:02, 39.01s/it][A[A[A
+Processing root-project.root.v6-32-06.docs.08 in batches of 5: 100%|██████████| 466/466 [4:57:47<00:00, 36.85s/it][AProcessing root-project.root.v6-32-06.docs.08 in batches of 5: 100%|██████████| 466/466 [4:57:47<00:00, 38.34s/it]
+2025-08-15 15:17:16.079 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:253 - root-project.root.v6-32-06.docs.08: Finished processing
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.19 in batches of 5: 100%|██████████| 466/466 [4:57:48<00:00, 34.88s/it][A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.19 in batches of 5: 100%|██████████| 466/466 [4:57:48<00:00, 38.34s/it]
+2025-08-15 15:17:17.562 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:253 - root-project.root.v6-32-06.docs.19: Finished processing
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██        | 456/2149 [4:57:55<16:18:46, 34.69s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.00 in batches of 5: 100%|██████████| 466/466 [4:57:57<00:00, 33.53s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.00 in batches of 5: 100%|██████████| 466/466 [4:57:57<00:00, 38.36s/it]
+2025-08-15 15:17:26.823 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:253 - root-project.root.v6-32-06.docs.00: Finished processing
+
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██        | 455/2149 [4:58:05<15:41:44, 33.36s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██▏       | 457/2149 [4:58:11<13:41:56, 29.15s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██        | 456/2149 [4:58:18<12:55:23, 27.48s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██▏       | 458/2149 [4:58:26<11:44:16, 24.99s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██▏       | 457/2149 [4:58:31<10:50:45, 23.08s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██▏       | 459/2149 [4:58:39<9:59:32, 21.29s/it] [A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██▏       | 458/2149 [4:58:44<9:27:12, 20.13s/it] [A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██▏       | 460/2149 [4:58:54<9:09:18, 19.51s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██▏       | 459/2149 [4:59:00<8:50:19, 18.83s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██▏       | 461/2149 [4:59:09<8:34:30, 18.29s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██▏       | 460/2149 [4:59:16<8:27:02, 18.01s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  21%|██▏       | 462/2149 [4:59:23<7:51:35, 16.77s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██▏       | 461/2149 [4:59:30<7:48:31, 16.65s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 463/2149 [4:59:37<7:33:25, 16.14s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  21%|██▏       | 462/2149 [4:59:43<7:21:42, 15.71s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 464/2149 [4:59:47<6:39:33, 14.23s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 463/2149 [4:59:49<5:56:27, 12.69s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 465/2149 [4:59:53<5:26:05, 11.62s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 464/2149 [4:59:55<5:02:17, 10.76s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 466/2149 [4:59:58<4:36:40,  9.86s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 465/2149 [5:00:02<4:27:56,  9.55s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 467/2149 [5:00:04<4:02:13,  8.64s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 466/2149 [5:00:07<3:51:45,  8.26s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 468/2149 [5:00:10<3:36:31,  7.73s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 467/2149 [5:00:14<3:35:40,  7.69s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 469/2149 [5:00:16<3:22:55,  7.25s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 468/2149 [5:00:19<3:13:01,  6.89s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 470/2149 [5:00:22<3:16:19,  7.02s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 469/2149 [5:00:25<3:06:32,  6.66s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 471/2149 [5:00:27<2:54:02,  6.22s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 470/2149 [5:00:30<2:54:11,  6.22s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 472/2149 [5:00:32<2:47:56,  6.01s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 471/2149 [5:00:36<2:49:18,  6.05s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 473/2149 [5:00:39<2:55:29,  6.28s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 472/2149 [5:00:43<2:56:12,  6.30s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 474/2149 [5:00:45<2:53:01,  6.20s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 473/2149 [5:00:49<2:55:06,  6.27s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 475/2149 [5:00:51<2:52:49,  6.19s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 474/2149 [5:00:54<2:50:45,  6.12s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 476/2149 [5:00:57<2:51:03,  6.13s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 475/2149 [5:01:00<2:48:58,  6.06s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 477/2149 [5:01:03<2:47:43,  6.02s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 476/2149 [5:01:06<2:46:58,  5.99s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 478/2149 [5:01:09<2:47:24,  6.01s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 477/2149 [5:01:12<2:47:29,  6.01s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 479/2149 [5:01:16<2:51:43,  6.17s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 478/2149 [5:01:18<2:46:23,  5.97s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 480/2149 [5:01:22<2:52:56,  6.22s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 479/2149 [5:01:25<2:49:39,  6.10s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 481/2149 [5:01:27<2:43:06,  5.87s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 480/2149 [5:01:30<2:40:51,  5.78s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 482/2149 [5:01:33<2:42:11,  5.84s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 481/2149 [5:01:35<2:41:19,  5.80s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  22%|██▏       | 483/2149 [5:01:38<2:36:48,  5.65s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 482/2149 [5:01:41<2:42:17,  5.84s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 484/2149 [5:01:44<2:41:28,  5.82s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  22%|██▏       | 483/2149 [5:01:47<2:40:25,  5.78s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 485/2149 [5:01:51<2:45:35,  5.97s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 484/2149 [5:01:53<2:39:57,  5.76s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 486/2149 [5:01:56<2:41:52,  5.84s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 485/2149 [5:01:59<2:43:04,  5.88s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 487/2149 [5:02:02<2:43:19,  5.90s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 486/2149 [5:02:05<2:42:09,  5.85s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 488/2149 [5:02:08<2:40:02,  5.78s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 487/2149 [5:02:11<2:43:51,  5.92s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 489/2149 [5:02:15<2:49:56,  6.14s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 488/2149 [5:02:17<2:49:33,  6.12s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 490/2149 [5:02:20<2:42:13,  5.87s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 489/2149 [5:02:23<2:41:57,  5.85s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 491/2149 [5:02:25<2:39:28,  5.77s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 490/2149 [5:02:28<2:39:05,  5.75s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 492/2149 [5:02:32<2:42:51,  5.90s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 491/2149 [5:02:35<2:47:14,  6.05s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 493/2149 [5:02:37<2:42:00,  5.87s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 492/2149 [5:02:41<2:49:06,  6.12s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 494/2149 [5:02:43<2:43:34,  5.93s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 493/2149 [5:02:46<2:40:43,  5.82s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 495/2149 [5:02:49<2:40:00,  5.80s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 494/2149 [5:02:52<2:42:56,  5.91s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 496/2149 [5:02:55<2:42:11,  5.89s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 495/2149 [5:02:58<2:40:13,  5.81s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 497/2149 [5:03:00<2:37:27,  5.72s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 496/2149 [5:03:03<2:36:17,  5.67s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 498/2149 [5:03:06<2:38:58,  5.78s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 497/2149 [5:03:10<2:42:47,  5.91s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 499/2149 [5:03:13<2:42:41,  5.92s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 498/2149 [5:03:15<2:38:17,  5.75s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 500/2149 [5:03:19<2:43:59,  5.97s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 499/2149 [5:03:22<2:46:13,  6.04s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 501/2149 [5:03:25<2:48:29,  6.13s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 500/2149 [5:03:31<3:15:14,  7.10s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 502/2149 [5:03:38<3:45:42,  8.22s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 501/2149 [5:03:46<4:16:49,  9.35s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 503/2149 [5:03:54<4:44:49, 10.38s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 502/2149 [5:04:00<4:52:14, 10.65s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 504/2149 [5:04:06<5:01:48, 11.01s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 503/2149 [5:04:13<5:15:16, 11.49s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  23%|██▎       | 505/2149 [5:04:22<5:38:07, 12.34s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 504/2149 [5:04:29<5:47:54, 12.69s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▎       | 506/2149 [5:04:36<5:55:14, 12.97s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  23%|██▎       | 505/2149 [5:04:45<6:14:56, 13.68s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▎       | 507/2149 [5:04:52<6:18:42, 13.84s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▎       | 506/2149 [5:04:58<6:14:52, 13.69s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▎       | 508/2149 [5:05:06<6:18:25, 13.84s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▎       | 507/2149 [5:05:13<6:23:11, 14.00s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▎       | 509/2149 [5:05:20<6:23:57, 14.05s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▎       | 508/2149 [5:05:28<6:34:09, 14.41s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▎       | 510/2149 [5:05:36<6:35:28, 14.48s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▎       | 509/2149 [5:05:42<6:26:00, 14.12s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▍       | 511/2149 [5:05:50<6:35:30, 14.49s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▎       | 510/2149 [5:05:57<6:36:37, 14.52s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▍       | 512/2149 [5:06:04<6:32:51, 14.40s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▍       | 511/2149 [5:06:12<6:40:59, 14.69s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▍       | 513/2149 [5:06:19<6:31:05, 14.34s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▍       | 512/2149 [5:06:24<6:13:07, 13.68s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▍       | 514/2149 [5:06:30<6:07:22, 13.48s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▍       | 513/2149 [5:06:40<6:30:07, 14.31s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▍       | 515/2149 [5:06:44<6:12:47, 13.69s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▍       | 514/2149 [5:06:51<6:09:36, 13.56s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▍       | 516/2149 [5:06:58<6:12:41, 13.69s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▍       | 515/2149 [5:07:05<6:11:57, 13.66s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▍       | 517/2149 [5:07:12<6:14:05, 13.75s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▍       | 516/2149 [5:07:18<6:02:26, 13.32s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▍       | 518/2149 [5:07:27<6:24:09, 14.13s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▍       | 517/2149 [5:07:33<6:20:50, 14.00s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▍       | 519/2149 [5:07:41<6:21:41, 14.05s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▍       | 518/2149 [5:07:49<6:33:32, 14.48s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▍       | 520/2149 [5:07:57<6:35:58, 14.58s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▍       | 519/2149 [5:08:03<6:28:38, 14.31s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▍       | 521/2149 [5:08:08<6:11:21, 13.69s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▍       | 520/2149 [5:08:16<6:17:51, 13.92s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▍       | 522/2149 [5:08:24<6:26:01, 14.24s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▍       | 521/2149 [5:08:31<6:27:08, 14.27s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▍       | 523/2149 [5:08:37<6:16:34, 13.90s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▍       | 522/2149 [5:08:43<6:09:53, 13.64s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▍       | 524/2149 [5:08:51<6:16:51, 13.91s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▍       | 523/2149 [5:08:58<6:18:11, 13.96s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▍       | 525/2149 [5:09:05<6:22:47, 14.14s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▍       | 524/2149 [5:09:12<6:23:07, 14.15s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  24%|██▍       | 526/2149 [5:09:21<6:32:45, 14.52s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▍       | 525/2149 [5:09:28<6:34:24, 14.57s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  25%|██▍       | 527/2149 [5:09:35<6:26:27, 14.30s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  24%|██▍       | 526/2149 [5:09:42<6:28:06, 14.35s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  25%|██▍       | 528/2149 [5:09:50<6:32:41, 14.54s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▍       | 527/2149 [5:09:54<6:08:56, 13.65s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  25%|██▍       | 529/2149 [5:10:01<6:04:50, 13.51s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▍       | 528/2149 [5:10:07<6:02:25, 13.41s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  25%|██▍       | 530/2149 [5:10:12<5:43:47, 12.74s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▍       | 529/2149 [5:10:20<6:00:24, 13.35s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  25%|██▍       | 531/2149 [5:10:24<5:42:32, 12.70s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▍       | 530/2149 [5:10:31<5:44:52, 12.78s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  25%|██▍       | 532/2149 [5:10:37<5:39:18, 12.59s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▍       | 531/2149 [5:10:44<5:44:19, 12.77s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  25%|██▍       | 533/2149 [5:10:52<6:01:24, 13.42s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▍       | 532/2149 [5:10:59<5:58:51, 13.32s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  25%|██▍       | 534/2149 [5:11:04<5:50:35, 13.02s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▍       | 533/2149 [5:11:11<5:51:47, 13.06s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  25%|██▍       | 535/2149 [5:11:18<5:54:35, 13.18s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▍       | 534/2149 [5:11:25<5:55:38, 13.21s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  25%|██▍       | 536/2149 [5:11:32<6:04:25, 13.56s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▍       | 535/2149 [5:11:39<6:01:30, 13.44s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  25%|██▍       | 537/2149 [5:11:46<6:03:34, 13.53s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▍       | 536/2149 [5:11:52<5:59:31, 13.37s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  25%|██▌       | 538/2149 [5:11:57<5:47:32, 12.94s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▍       | 537/2149 [5:12:06<6:03:47, 13.54s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  25%|██▌       | 539/2149 [5:12:12<6:05:27, 13.62s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▌       | 538/2149 [5:12:19<5:57:25, 13.31s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  25%|██▌       | 540/2149 [5:12:27<6:09:07, 13.76s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▌       | 539/2149 [5:12:32<5:59:38, 13.40s/it][A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.03 in batches of 5:  25%|██▌       | 541/2149 [5:12:40<6:08:30, 13.75s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▌       | 540/2149 [5:12:46<6:01:17, 13.47s/it][A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▌       | 541/2149 [5:13:06<6:58:02, 15.60s/it][A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▌       | 542/2149 [5:13:21<6:47:40, 15.22s/it][A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▌       | 543/2149 [5:13:33<6:26:15, 14.43s/it][A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▌       | 544/2149 [5:13:49<6:33:21, 14.71s/it][A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▌       | 545/2149 [5:14:04<6:36:02, 14.81s/it][A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▌       | 546/2149 [5:14:20<6:44:22, 15.14s/it][A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  25%|██▌       | 547/2149 [5:14:36<6:57:34, 15.64s/it][A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  26%|██▌       | 548/2149 [5:14:52<6:52:58, 15.48s/it][A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  26%|██▌       | 549/2149 [5:15:08<6:56:59, 15.64s/it][A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.12 in batches of 5:  26%|██▌       | 550/2149 [5:15:22<6:49:29, 15.37s/it][A[A[A
