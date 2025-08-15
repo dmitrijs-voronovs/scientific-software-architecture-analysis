@@ -146,7 +146,7 @@ Based on the rules provided in the system prompt, analyze the following availabl
 
 
 def main():
-    TacticExtractionStage_v2(hostname=LLMHost.GREEN_LAB, disable_cache=True, cot_prompt=True, n_threads_override=5, batch_size_override=10).execute([],
+    TacticExtractionStage_v2(hostname=LLMHost.GREEN_LAB, disable_cache=True, cot_prompt=True, n_threads_override=10, batch_size_override=10).execute([],
                                                            reverse=False)
 
 
