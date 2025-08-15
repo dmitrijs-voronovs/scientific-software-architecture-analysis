@@ -196,15 +196,15 @@ Now, apply the analysis steps defined in your system prompt to the data provided
 
 
 def main():
-    stage = QARelevanceCheckStage_v2(hostname=LLMHost.SERVER, cot_prompt=True)
-    stage.update_last_processed_item("root-project.root.v6-32-06.code_comment.03.parquet", 200)
-    stage.update_last_processed_item("root-project.root.v6-32-06.code_comment.12.parquet", 210)
-    stage.update_last_processed_item("root-project.root.v6-32-06.docs.00.parquet", 345)
-    stage.clean_cache("root-project.root.v6-32-06.docs.04.parquet")
-    stage.update_last_processed_item("root-project.root.v6-32-06.docs.08.parquet", 200)
-    stage.update_last_processed_item("root-project.root.v6-32-06.docs.10.parquet", 350)
-    stage.update_last_processed_item("root-project.root.v6-32-06.docs.13.parquet", 260)
-    stage.update_last_processed_item("root-project.root.v6-32-06.docs.19.parquet", 235)
+    stage = QARelevanceCheckStage_v2(hostname=LLMHost.SERVER, cot_prompt=True, n_threads_override=10, batch_size_override=20)
+    # stage.update_last_processed_item("root-project.root.v6-32-06.code_comment.03.parquet", 200)
+    # stage.update_last_processed_item("root-project.root.v6-32-06.code_comment.12.parquet", 210)
+    # stage.update_last_processed_item("root-project.root.v6-32-06.docs.00.parquet", 345)
+    # stage.clean_cache("root-project.root.v6-32-06.docs.04.parquet")
+    # stage.update_last_processed_item("root-project.root.v6-32-06.docs.08.parquet", 200)
+    # stage.update_last_processed_item("root-project.root.v6-32-06.docs.10.parquet", 350)
+    # stage.update_last_processed_item("root-project.root.v6-32-06.docs.13.parquet", 260)
+    # stage.update_last_processed_item("root-project.root.v6-32-06.docs.19.parquet", 235)
 
     stage.execute(
         [
