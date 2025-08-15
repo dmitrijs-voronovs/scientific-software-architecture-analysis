@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+import pandas as pd
 
 from cfg.LLMHost import LLMHost
 from cfg.ModelName import ModelName
@@ -90,14 +91,14 @@ Generate a single JSON object with the following keys: `analysis_summary`, `arch
 """
 
     @classmethod
-    def to_prompt(cls, sentence: str) -> str:
+    def to_prompt(cls, x: pd.Series) -> str:
         """
         Provides the specific sentence to be analyzed.
         """
         return f"""### Data for Evaluation
 
 **Content to Analyze:**
-"{sentence}"
+"{x['sentence']}"
 
 Now, apply the analysis steps defined in your system prompt to the data provided above.
 """
