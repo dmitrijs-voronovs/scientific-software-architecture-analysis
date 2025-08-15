@@ -22,7 +22,7 @@ class OllamaArchitectureResponse(BaseModel):
 class ArchitectureRelevanceCheckStage_v2(IBaseStage):
     data_model = OllamaArchitectureResponse
     temperature = 0.0
-    model_name = ModelName.DEEPSEEK_1_5B
+    model_name = ModelName.DEEPSEEK_8B
     cache_dir = AbsDirPath.CACHE / FolderNames.ARCH_RELEVANCE_CHECK_DIR / "v2"
     in_dir = AbsDirPath.O_S1_QA_RELEVANCE_CHECK
     out_dir = AbsDirPath.S2_ARCH_RELEVANCE_CHECK
@@ -85,7 +85,7 @@ Generate a single JSON object with the following keys: `analysis_summary`, `arch
 """
 
     @classmethod
-    def get_user_prompt(cls, sentence: str) -> str:
+    def to_prompt(cls, sentence: str) -> str:
         """
         Provides the specific sentence to be analyzed.
         """
@@ -99,7 +99,7 @@ Now, apply the analysis steps defined in your system prompt to the data provided
 
 def main():
     # ArchitectureRelevanceCheckStage_v2(hostname=LLMHost.SERVER).execute(["code_comment.", "issue."], reverse=False)
-    ArchitectureRelevanceCheckStage_v2(hostname=LLMHost.GREEN_LAB, disable_cache=True, n_threads_override=3, batch_size_override=20).execute(["allenai.scispacy"], reverse=False)
+    ArchitectureRelevanceCheckStage_v2(hostname=LLMHost.GREEN_LAB, disable_cache=True, n_threads_override=10, batch_size_override=20).execute([], reverse=False)
 
 if __name__ == "__main__":
     main()
