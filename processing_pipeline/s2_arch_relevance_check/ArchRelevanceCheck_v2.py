@@ -105,7 +105,7 @@ Now, apply the analysis steps defined in your system prompt to the data provided
 
 def main():
     # ArchitectureRelevanceCheckStage_v2(hostname=LLMHost.SERVER).execute(["code_comment.", "issue."], reverse=False)
-    ArchitectureRelevanceCheckStage_v2(hostname=LLMHost.GREEN_LAB, disable_cache=True, n_threads_override=10, batch_size_override=20).execute([], reverse=False)
+    ArchitectureRelevanceCheckStage_v2(hostname=LLMHost.GREEN_LAB, disable_cache=False, n_threads_override=10, batch_size_override=20).execute([], reverse=False)
 
 if __name__ == "__main__":
     main()
