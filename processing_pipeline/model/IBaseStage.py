@@ -173,18 +173,18 @@ class IBaseStage(metaclass=ABCMeta):
                 self.cache_dir / f"{file_path.stem}.bak",
                 self.cache_dir / f"{file_path.stem}.dir"]
 
-    def update_last_processed_item(self, filename: str, last_idx: int):
-        self.clean_cache(filename)
+    def update_last_processed_item(self, filename_with_ext: str, last_idx: int):
+        self.clean_cache(filename_with_ext)
 
-        shelf_path = self._prepare_shelf_with_path(Path(filename))
+        shelf_path = self._prepare_shelf_with_path(Path(filename_with_ext))
         with shelve.open(shelf_path) as db:
             db["last_idx"] = last_idx
-        logger.info(f"Updated last processed item for {filename} to {last_idx}")
+        logger.info(f"Updated last processed item for {filename_with_ext} to {last_idx}")
 
-    def clean_cache(self, filename: str):
-        for shelf_file_path in self._get_shelf_paths(Path(filename)):
+    def clean_cache(self, filename_with_ext: str):
+        for shelf_file_path in self._get_shelf_paths(Path(filename_with_ext)):
             shelf_file_path.unlink()
-        logger.info(f"Cleaned cache for file {filename}")
+        logger.info(f"Cleaned cache for file {filename_with_ext}")
 
     def _process_in_batches(self, file_path: Path, res_filepath: Path):
         logger.info(f"{file_path.stem}: Processing file")
