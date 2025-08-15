@@ -1,0 +1,169 @@
+nohup: ignoring input
+2025-08-15 09:39:27.352 | INFO     | processing_pipeline.model.IBaseStage:execute:312 - Executing s1 stage
+2025-08-15 09:39:27.353 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.08: Processing file
+2025-08-15 09:39:27.353 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.12: Processing file
+2025-08-15 09:39:27.354 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.13: Processing file
+2025-08-15 09:39:27.355 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.issue.4: Processing file
+2025-08-15 09:39:27.355 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.00: Processing file
+2025-08-15 09:39:27.356 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.03: Processing file
+2025-08-15 09:39:27.356 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.23: Processing file
+2025-08-15 09:39:27.356 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.04: Processing file
+2025-08-15 09:39:27.357 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.04: Processing file
+2025-08-15 09:39:27.357 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.19: Processing file
+2025-08-15 09:39:27.357 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.10: Processing file
+2025-08-15 09:39:27.358 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.20: Processing file
+2025-08-15 09:39:27.358 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.08: Processing file
+2025-08-15 09:39:27.371 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.06: Processing file
+2025-08-15 09:39:27.371 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.issue.1: Processing file
+2025-08-15 09:39:27.372 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.issue.5: Processing file
+2025-08-15 09:39:27.372 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.01: Processing file
+2025-08-15 09:39:27.372 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.issue.0: Processing file
+2025-08-15 09:39:27.373 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.15: Processing file
+2025-08-15 09:39:27.376 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.issue.0: File already processed
+2025-08-15 09:39:27.376 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.06: Processing file
+2025-08-15 09:39:27.377 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.code_comment.04: File already processed
+2025-08-15 09:39:27.377 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.issue.1: File already processed
+2025-08-15 09:39:27.377 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.issue.5: File already processed
+2025-08-15 09:39:27.378 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.16: Processing file
+2025-08-15 09:39:27.378 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.issue.7: Processing file
+2025-08-15 09:39:27.378 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.issue.8: Processing file
+2025-08-15 09:39:27.378 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.issue.4: File already processed
+2025-08-15 09:39:27.379 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.05: Processing file
+2025-08-15 09:39:27.379 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.code_comment.01: File already processed
+2025-08-15 09:39:27.380 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.code_comment.15: File already processed
+2025-08-15 09:39:27.380 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.code_comment.06: File already processed
+2025-08-15 09:39:27.380 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.issue.2: Processing file
+2025-08-15 09:39:27.381 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.22: Processing file
+2025-08-15 09:39:27.381 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.code_comment.08: File already processed
+2025-08-15 09:39:27.382 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.00: Processing file
+2025-08-15 09:39:27.384 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.06: File already processed
+2025-08-15 09:39:27.384 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.21: Processing file
+2025-08-15 09:39:27.385 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.09: Processing file
+2025-08-15 09:39:27.387 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.issue.7: File already processed
+2025-08-15 09:39:27.388 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.code_comment.16: File already processed
+2025-08-15 09:39:27.388 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.07: Processing file
+2025-08-15 09:39:27.388 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.02: Processing file
+2025-08-15 09:39:27.389 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.issue.2: File already processed
+2025-08-15 09:39:27.389 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.issue.8: File already processed
+2025-08-15 09:39:27.389 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.05: File already processed
+2025-08-15 09:39:27.390 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.22: File already processed
+2025-08-15 09:39:27.390 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.25: Processing file
+2025-08-15 09:39:27.390 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.14: Processing file
+2025-08-15 09:39:27.391 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.14: Processing file
+2025-08-15 09:39:27.391 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.21: File already processed
+2025-08-15 09:39:27.391 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.code_comment.00: File already processed
+2025-08-15 09:39:27.391 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.05: Processing file
+2025-08-15 09:39:27.391 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.07: File already processed
+2025-08-15 09:39:27.391 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.09: File already processed
+2025-08-15 09:39:27.392 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.15: Processing file
+2025-08-15 09:39:27.392 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.03: Processing file
+2025-08-15 09:39:27.392 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.issue.3: Processing file
+2025-08-15 09:39:27.393 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.10: Processing file
+2025-08-15 09:39:27.393 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.02: File already processed
+2025-08-15 09:39:27.394 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.25: File already processed
+2025-08-15 09:39:27.394 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.14: File already processed
+2025-08-15 09:39:27.394 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.13: Processing file
+2025-08-15 09:39:27.394 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.09: Processing file
+2025-08-15 09:39:27.394 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.code_comment.14: File already processed
+2025-08-15 09:39:27.394 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.15: File already processed
+2025-08-15 09:39:27.394 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.issue.6: Processing file
+2025-08-15 09:39:27.395 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.code_comment.05: File already processed
+2025-08-15 09:39:27.395 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.11: Processing file
+2025-08-15 09:39:27.395 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.24: Processing file
+2025-08-15 09:39:27.395 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.03: File already processed
+2025-08-15 09:39:27.395 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.01: Processing file
+2025-08-15 09:39:27.395 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.07: Processing file
+2025-08-15 09:39:27.396 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.issue.3: File already processed
+2025-08-15 09:39:27.397 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.12: Processing file
+2025-08-15 09:39:27.397 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.24: File already processed
+2025-08-15 09:39:27.397 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.18: Processing file
+2025-08-15 09:39:27.398 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.code_comment.13: File already processed
+2025-08-15 09:39:27.398 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.code_comment.09: File already processed
+2025-08-15 09:39:27.398 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.17: Processing file
+2025-08-15 09:39:27.398 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.02: Processing file
+2025-08-15 09:39:27.398 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.issue.6: File already processed
+2025-08-15 09:39:27.398 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.code_comment.10: File already processed
+2025-08-15 09:39:27.399 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.01: File already processed
+2025-08-15 09:39:27.399 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.11: Processing file
+2025-08-15 09:39:27.399 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.16: Processing file
+2025-08-15 09:39:27.399 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.18: File already processed
+2025-08-15 09:39:27.399 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.code_comment.07: File already processed
+2025-08-15 09:39:27.399 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.code_comment.11: File already processed
+2025-08-15 09:39:27.409 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.code_comment.02: File already processed
+2025-08-15 09:39:27.412 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.17: File already processed
+2025-08-15 09:39:27.415 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.16: File already processed
+2025-08-15 09:39:27.416 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.12: File already processed
+2025-08-15 09:39:27.421 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.docs.11: File already processed
+2025-08-15 09:39:27.422 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.issue.2.parquet: Thread finished processing the file
+2025-08-15 09:39:27.422 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.code_comment.16.parquet: Thread finished processing the file
+2025-08-15 09:39:27.422 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.issue.1.parquet: Thread finished processing the file
+2025-08-15 09:39:27.422 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.code_comment.07.parquet: Thread finished processing the file
+2025-08-15 09:39:27.422 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.code_comment.05.parquet: Thread finished processing the file
+2025-08-15 09:39:27.422 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.05.parquet: Thread finished processing the file
+2025-08-15 09:39:27.422 | ERROR    | processing_pipeline.model.IBaseStage:execute:337 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.00.parquet: Thread failed to process the file
+2025-08-15 09:39:27.422 | ERROR    | processing_pipeline.model.IBaseStage:execute:338 - pickle data was truncated
+2025-08-15 09:39:27.422 | ERROR    | processing_pipeline.model.IBaseStage:execute:337 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.19.parquet: Thread failed to process the file
+2025-08-15 09:39:27.422 | ERROR    | processing_pipeline.model.IBaseStage:execute:338 - pickle data was truncated
+2025-08-15 09:39:27.422 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.01.parquet: Thread finished processing the file
+2025-08-15 09:39:27.422 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.issue.8.parquet: Thread finished processing the file
+2025-08-15 09:39:27.422 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.14.parquet: Thread finished processing the file
+2025-08-15 09:39:27.422 | ERROR    | processing_pipeline.model.IBaseStage:execute:337 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.23.parquet: Thread failed to process the file
+2025-08-15 09:39:27.423 | ERROR    | processing_pipeline.model.IBaseStage:execute:338 - db type is dbm.dumb, but the module is not available
+2025-08-15 09:39:27.423 | ERROR    | processing_pipeline.model.IBaseStage:execute:337 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.code_comment.12.parquet: Thread failed to process the file
+2025-08-15 09:39:27.423 | ERROR    | processing_pipeline.model.IBaseStage:execute:338 - pickle data was truncated
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.issue.7.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.24.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.code_comment.14.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.code_comment.11.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.25.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | ERROR    | processing_pipeline.model.IBaseStage:execute:337 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.13.parquet: Thread failed to process the file
+2025-08-15 09:39:27.423 | ERROR    | processing_pipeline.model.IBaseStage:execute:338 - pickle data was truncated
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.code_comment.06.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.issue.0.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.issue.6.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | ERROR    | processing_pipeline.model.IBaseStage:execute:337 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.20.parquet: Thread failed to process the file
+2025-08-15 09:39:27.423 | ERROR    | processing_pipeline.model.IBaseStage:execute:338 - pickle data was truncated
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.02.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.code_comment.01.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.16.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | ERROR    | processing_pipeline.model.IBaseStage:execute:337 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.code_comment.03.parquet: Thread failed to process the file
+2025-08-15 09:39:27.423 | ERROR    | processing_pipeline.model.IBaseStage:execute:338 - db type is dbm.dumb, but the module is not available
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.code_comment.15.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.code_comment.09.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | ERROR    | processing_pipeline.model.IBaseStage:execute:337 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.04.parquet: Thread failed to process the file
+2025-08-15 09:39:27.423 | ERROR    | processing_pipeline.model.IBaseStage:execute:338 - db type is dbm.dumb, but the module is not available
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.07.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.11.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.code_comment.13.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.09.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.code_comment.02.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.code_comment.08.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.code_comment.10.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.21.parquet: Thread finished processing the file
+2025-08-15 09:39:27.423 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.17.parquet: Thread finished processing the file
+2025-08-15 09:39:27.424 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.issue.5.parquet: Thread finished processing the file
+2025-08-15 09:39:27.424 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.issue.3.parquet: Thread finished processing the file
+2025-08-15 09:39:27.424 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.code_comment.04.parquet: Thread finished processing the file
+2025-08-15 09:39:27.424 | ERROR    | processing_pipeline.model.IBaseStage:execute:337 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.10.parquet: Thread failed to process the file
+2025-08-15 09:39:27.424 | ERROR    | processing_pipeline.model.IBaseStage:execute:338 - db type is dbm.dumb, but the module is not available
+2025-08-15 09:39:27.424 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.06.parquet: Thread finished processing the file
+2025-08-15 09:39:27.424 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.code_comment.00.parquet: Thread finished processing the file
+2025-08-15 09:39:27.424 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.18.parquet: Thread finished processing the file
+2025-08-15 09:39:27.424 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.03.parquet: Thread finished processing the file
+2025-08-15 09:39:27.424 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.22.parquet: Thread finished processing the file
+2025-08-15 09:39:27.424 | ERROR    | processing_pipeline.model.IBaseStage:execute:337 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.08.parquet: Thread failed to process the file
+2025-08-15 09:39:27.424 | ERROR    | processing_pipeline.model.IBaseStage:execute:338 - pickle data was truncated
+2025-08-15 09:39:27.424 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.12.parquet: Thread finished processing the file
+2025-08-15 09:39:27.424 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.docs.15.parquet: Thread finished processing the file
+2025-08-15 09:39:27.424 | INFO     | processing_pipeline.model.IBaseStage:execute:335 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s0_noise_filtering_o/root-project.root.v6-32-06.issue.4.parquet: Thread finished processing the file
+2025-08-15 09:39:27.424 | INFO     | processing_pipeline.model.IBaseStage:execute:342 - Finished s1 stage
+Stage s1 params:
+stop_event: <threading.Event at 0x7eb23a24cad0: unset>
+model_fields: ['analysis_problem_vs_solution', 'analysis_mechanism_vs_feature', 'analysis_causal_link', 'analysis_rubric_check', 'true_positive', 'reasoning']
+hostname: http://localhost:11434
+model: model='deepseek-r1:1.5b' temperature=0.0 format={'description': 'Defines the structured output required from the LLM, with a more rigorous\nchain-of-thought analysis based on the findings of the error report.', 'properties': {'analysis_problem_vs_solution': {'title': 'Analysis Problem Vs Solution', 'type': 'string'}, 'analysis_mechanism_vs_feature': {'title': 'Analysis Mechanism Vs Feature', 'type': 'string'}, 'analysis_causal_link': {'title': 'Analysis Causal Link', 'type': 'string'}, 'analysis_rubric_check': {'title': 'Analysis Rubric Check', 'type': 'string'}, 'true_positive': {'title': 'True Positive', 'type': 'boolean'}, 'reasoning': {'title': 'Reasoning', 'type': 'string'}}, 'required': ['analysis_problem_vs_solution', 'analysis_mechanism_vs_feature', 'analysis_causal_link', 'analysis_rubric_check', 'true_positive', 'reasoning'], 'title': 'OllamaQaRelevanceResponse', 'type': 'object'} base_url='http://localhost:11434'
+batch_size: 5
+n_threads: 15
+disable_cache: False
+
+
