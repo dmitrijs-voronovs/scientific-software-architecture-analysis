@@ -196,9 +196,26 @@ Now, apply the analysis steps defined in your system prompt to the data provided
 
 
 def main():
+    QARelevanceCheckStage_v2().update_last_processed_item("root-project.root.v6-32-06.code_comment.03.parquet", 200)
+    QARelevanceCheckStage_v2().update_last_processed_item("root-project.root.v6-32-06.code_comment.12.parquet", 210)
+    QARelevanceCheckStage_v2().update_last_processed_item("root-project.root.v6-32-06.docs.00.parquet", 345)
+    QARelevanceCheckStage_v2().clean_cache("root-project.root.v6-32-06.docs.04.parquet")
+    QARelevanceCheckStage_v2().update_last_processed_item("root-project.root.v6-32-06.docs.08.parquet", 200)
+    QARelevanceCheckStage_v2().update_last_processed_item("root-project.root.v6-32-06.docs.10.parquet", 350)
+    QARelevanceCheckStage_v2().update_last_processed_item("root-project.root.v6-32-06.docs.13.parquet", 260)
+    QARelevanceCheckStage_v2().update_last_processed_item("root-project.root.v6-32-06.docs.19.parquet", 235)
+
     QARelevanceCheckStage_v2(hostname=LLMHost.SERVER, cot_prompt=True).execute(
-        ["root-project.root.v6-32-06.code_comment.", "root-project.root.v6-32-06.docs.",
-         "root-project.root.v6-32-06.issue."], reverse=False)
+        [
+            "root-project.root.v6-32-06.code_comment.03.parquet",
+            "root-project.root.v6-32-06.code_comment.12.parquet",
+            "root-project.root.v6-32-06.docs.00.parquet",
+            "root-project.root.v6-32-06.docs.04.parquet",
+            "root-project.root.v6-32-06.docs.08.parquet",
+            "root-project.root.v6-32-06.docs.10.parquet",
+            "root-project.root.v6-32-06.docs.13.parquet",
+            "root-project.root.v6-32-06.docs.19.parquet"
+        ], reverse=False)
 
 
 if __name__ == "__main__":
