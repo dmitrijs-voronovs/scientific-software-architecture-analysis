@@ -27579,3 +27579,839 @@ disable_cache: False
 
 
 Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  27%|██▋       | 152/565 [9:10:04<22:00:16, 191.81s/it][A[A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  21%|██        | 152/736 [8:58:48<31:21:35, 193.31s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  84%|████████▎ | 616/736 [40:32:50<6:26:02, 193.02s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  72%|███████▏  | 630/881 [40:33:13<13:29:38, 193.54s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   5%|▍         | 34/736 [1:30:48<38:07:15, 195.49s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 10:   9%|▊         | 64/736 [3:21:32<36:46:05, 196.97s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  84%|████████▍ | 621/736 [40:34:33<6:21:06, 198.84s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  52%|█████▏    | 380/736 [23:57:28<19:45:04, 199.73s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  77%|███████▋  | 567/736 [40:35:25<9:29:28, 202.18s/it][A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  27%|██▋       | 153/565 [9:13:50<23:09:12, 202.31s/it][A[A[A[A[A[A[A[A[A2025-08-15 17:49:15.645 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 132090316524768: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaQaRelevanceResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 502243 [type=json_invalid, input_value='{ "analysis_problem_vs_s...g is direct, explaining', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  21%|██        | 153/736 [9:02:29<32:38:58, 201.61s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  84%|████████▍ | 617/736 [40:36:18<6:31:53, 197.59s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  72%|███████▏  | 631/881 [40:36:32<13:32:00, 194.88s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   5%|▍         | 35/736 [1:33:48<37:10:34, 190.92s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 10:   9%|▉         | 65/736 [3:24:20<35:08:15, 188.52s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  85%|████████▍ | 622/736 [40:37:08<5:52:48, 185.69s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  52%|█████▏    | 381/736 [23:59:51<17:59:47, 182.50s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  77%|███████▋  | 568/736 [40:37:30<8:21:23, 179.07s/it][A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  27%|██▋       | 154/565 [9:15:46<20:07:52, 176.33s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.1 in batches of 10:  99%|█████████▉| 558/565 [40:37:53<49:18, 422.67s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  21%|██        | 154/736 [9:04:27<28:32:24, 176.54s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  84%|████████▍ | 618/736 [40:38:15<5:41:15, 173.52s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  72%|███████▏  | 632/881 [40:38:27<11:49:52, 171.05s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   5%|▍         | 36/736 [1:35:46<32:53:20, 169.14s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 10:   9%|▉         | 66/736 [3:26:13<30:52:21, 165.88s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  85%|████████▍ | 623/736 [40:39:00<5:07:52, 163.47s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  52%|█████▏    | 382/736 [24:01:44<15:55:23, 161.93s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  77%|███████▋  | 569/736 [40:39:25<7:24:38, 159.75s/it][A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  27%|██▋       | 155/565 [9:17:39<17:54:42, 157.27s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.1 in batches of 10:  99%|█████████▉| 559/565 [40:39:48<33:01, 330.28s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  21%|██        | 155/736 [9:06:23<25:35:02, 158.52s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  84%|████████▍ | 619/736 [40:40:10<5:04:14, 156.02s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  72%|███████▏  | 633/881 [40:40:21<10:36:22, 153.96s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   5%|▌         | 37/736 [1:37:39<29:34:39, 152.33s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 10:   9%|▉         | 67/736 [3:28:07<27:55:24, 150.26s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  85%|████████▍ | 624/736 [40:40:57<4:39:00, 149.47s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  52%|█████▏    | 383/736 [24:03:38<14:26:51, 147.34s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  77%|███████▋  | 570/736 [40:41:19<6:44:06, 146.06s/it][A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  28%|██▊       | 156/565 [9:19:34<16:25:44, 144.61s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.1 in batches of 10:  99%|█████████▉| 560/565 [40:41:42<22:07, 265.51s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  21%|██        | 156/736 [9:08:19<23:28:27, 145.70s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  84%|████████▍ | 620/736 [40:42:06<4:38:24, 144.01s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  72%|███████▏  | 634/881 [40:42:19<9:49:14, 143.13s/it] [A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   5%|▌         | 38/736 [1:39:36<27:29:02, 141.75s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 10:   9%|▉         | 68/736 [3:30:06<26:05:58, 140.66s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  85%|████████▍ | 625/736 [40:42:52<4:17:18, 139.09s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  52%|█████▏    | 384/736 [24:05:35<13:32:03, 138.42s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  78%|███████▊  | 571/736 [40:43:15<6:16:55, 137.06s/it][A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  28%|██▊       | 157/565 [9:21:29<15:23:56, 135.87s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.1 in batches of 10:  99%|█████████▉| 561/565 [40:43:36<14:40, 220.08s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  21%|██▏       | 157/736 [9:10:11<21:47:38, 135.51s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  84%|████████▍ | 621/736 [40:43:58<4:17:11, 134.19s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  72%|███████▏  | 635/881 [40:44:10<9:07:35, 133.56s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   5%|▌         | 39/736 [1:41:30<25:47:18, 133.20s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 10:   9%|▉         | 69/736 [3:31:57<24:26:04, 131.88s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  85%|████████▌ | 626/736 [40:44:43<3:59:58, 130.89s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  52%|█████▏    | 385/736 [24:07:26<12:40:36, 130.02s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  78%|███████▊  | 572/736 [40:45:05<5:52:57, 129.13s/it][A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  28%|██▊       | 158/565 [9:23:21<14:31:41, 128.51s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.1 in batches of 10:  99%|█████████▉| 562/565 [40:45:29<09:24, 188.05s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  21%|██▏       | 158/736 [9:12:04<20:40:59, 128.82s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  85%|████████▍ | 622/736 [40:45:52<4:03:51, 128.35s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  72%|███████▏  | 636/881 [40:46:05<8:43:01, 128.09s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   5%|▌         | 40/736 [1:43:24<24:38:31, 127.46s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 10:  10%|▉         | 70/736 [3:33:53<23:31:22, 127.15s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  85%|████████▌ | 627/736 [40:46:41<3:50:25, 126.84s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  52%|█████▏    | 386/736 [24:09:24<12:18:36, 126.62s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  78%|███████▊  | 573/736 [40:47:03<5:41:24, 125.67s/it][A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  28%|██▊       | 159/565 [9:25:18<14:07:17, 125.22s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.1 in batches of 10: 100%|█████████▉| 563/565 [40:47:26<05:33, 166.67s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  22%|██▏       | 159/736 [9:14:01<20:04:24, 125.24s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  85%|████████▍ | 623/736 [40:47:48<3:54:19, 124.42s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  72%|███████▏  | 637/881 [40:47:59<8:23:13, 123.74s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   6%|▌         | 41/736 [1:45:18<23:49:26, 123.41s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 10:  10%|▉         | 71/736 [3:35:46<22:42:12, 122.91s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  85%|████████▌ | 628/736 [40:48:31<3:39:23, 121.88s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  53%|█████▎    | 387/736 [24:11:14<11:47:12, 121.58s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  78%|███████▊  | 574/736 [40:48:54<5:27:07, 121.16s/it][A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  28%|██▊       | 160/565 [9:27:08<13:34:12, 120.62s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.1 in batches of 10: 100%|█████████▉| 564/565 [40:49:17<02:30, 150.00s/it][A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  22%|██▏       | 160/736 [9:15:53<19:23:00, 121.15s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  85%|████████▍ | 624/736 [40:49:40<3:45:43, 120.92s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  72%|███████▏  | 638/881 [40:49:52<8:07:50, 120.46s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   6%|▌         | 42/736 [1:47:12<23:15:47, 120.67s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 10:  10%|▉         | 72/736 [3:37:41<22:14:17, 120.57s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  85%|████████▌ | 629/736 [40:50:28<3:34:34, 120.33s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  53%|█████▎    | 388/736 [24:13:10<11:34:03, 119.66s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  78%|███████▊  | 575/736 [40:50:49<5:20:51, 119.58s/it][A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  28%|██▊       | 161/565 [9:29:02<13:19:00, 118.66s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.1 in batches of 10: 100%|██████████| 565/565 [40:51:08<00:00, 138.25s/it][A[A[A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.1 in batches of 10: 100%|██████████| 565/565 [40:51:08<00:00, 260.30s/it]
+2025-08-15 18:04:34.513 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:253 - scverse.scanpy.1.10.2.issue_comment.1: Finished processing
+
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  22%|██▏       | 161/736 [9:17:43<18:49:08, 117.82s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  85%|████████▍ | 625/736 [40:51:33<3:38:51, 118.31s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  73%|███████▎  | 639/881 [40:51:45<7:56:51, 118.23s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   6%|▌         | 43/736 [1:49:03<22:41:47, 117.90s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 10:  10%|▉         | 73/736 [3:39:30<21:34:30, 117.15s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  86%|████████▌ | 630/736 [40:52:17<3:26:29, 116.88s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  53%|█████▎    | 389/736 [24:15:01<11:17:40, 117.18s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  78%|███████▊  | 576/736 [40:52:39<5:10:59, 116.62s/it][A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  29%|██▊       | 162/565 [9:30:54<13:02:06, 116.44s/it][A[A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  22%|██▏       | 162/736 [9:19:25<18:01:33, 113.06s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  85%|████████▌ | 626/736 [40:53:13<3:26:50, 112.82s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  73%|███████▎  | 640/881 [40:53:26<7:33:54, 113.01s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   6%|▌         | 44/736 [1:50:43<21:38:10, 112.56s/it][A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  86%|████████▌ | 631/736 [40:54:16<3:25:46, 117.59s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  53%|█████▎    | 390/736 [24:17:12<11:40:30, 121.48s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  78%|███████▊  | 577/736 [40:55:05<5:32:23, 125.43s/it][A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  29%|██▉       | 163/565 [9:33:33<14:27:13, 129.44s/it][A[A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  22%|██▏       | 163/736 [9:22:16<20:46:30, 130.52s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  85%|████████▌ | 627/736 [40:56:17<4:03:52, 134.24s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  73%|███████▎  | 641/881 [40:56:45<9:16:05, 139.02s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   6%|▌         | 45/736 [1:54:18<27:28:45, 143.16s/it][A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  86%|████████▌ | 632/736 [40:57:35<4:06:04, 141.97s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  53%|█████▎    | 391/736 [24:20:31<13:51:12, 144.56s/it]
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  79%|███████▊  | 578/736 [40:58:26<6:29:32, 147.93s/it][A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  29%|██▉       | 164/565 [9:36:56<16:51:45, 151.39s/it][A[A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  22%|██▏       | 164/736 [9:25:41<24:17:32, 152.89s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  85%|████████▌ | 628/736 [40:59:40<4:39:00, 155.00s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  73%|███████▎  | 642/881 [41:00:12<10:34:03, 159.18s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   6%|▋         | 46/736 [1:57:47<31:13:36, 162.92s/it][A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  86%|████████▌ | 633/736 [41:01:04<4:38:23, 162.17s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  53%|█████▎    | 392/736 [24:24:01<15:42:08, 164.33s/it]2025-08-15 18:22:11.896 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 132090317106032: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaQaRelevanceResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 524409 [type=json_invalid, input_value='{ "analysis_problem_vs_s...vides concrete evidence', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  29%|██▉       | 165/565 [9:47:17<32:28:40, 292.30s/it][A[A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  22%|██▏       | 165/736 [9:36:02<46:30:04, 293.18s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  85%|████████▌ | 629/736 [41:10:04<8:47:20, 295.70s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  73%|███████▎  | 643/881 [41:10:31<19:38:48, 297.18s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   6%|▋         | 47/736 [2:08:03<57:12:38, 298.92s/it][A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  86%|████████▌ | 634/736 [41:11:17<8:25:22, 297.28s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  53%|█████▎    | 393/736 [24:34:12<28:25:44, 298.38s/it]
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 10:  10%|█         | 74/736 [3:59:31<81:17:48, 442.10s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  29%|██▉       | 166/565 [9:50:36<29:16:55, 264.20s/it][A[A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  23%|██▎       | 166/736 [9:39:23<42:03:49, 265.67s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  86%|████████▌ | 630/736 [41:13:24<7:51:37, 266.96s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  73%|███████▎  | 644/881 [41:13:49<17:37:05, 267.62s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   7%|▋         | 48/736 [2:11:19<51:12:57, 267.99s/it][A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  86%|████████▋ | 635/736 [41:14:39<7:32:25, 268.77s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  54%|█████▎    | 394/736 [24:37:35<25:37:40, 269.77s/it]
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 10:  10%|█         | 75/736 [4:02:58<68:15:22, 371.74s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  30%|██▉       | 167/565 [9:54:03<27:19:52, 247.22s/it][A[A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  23%|██▎       | 167/736 [9:42:48<39:07:55, 247.59s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  86%|████████▌ | 631/736 [41:16:50<7:15:18, 248.74s/it][A[A[A[A[A[A2025-08-15 18:30:22.042 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 132089106260592: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaQaRelevanceResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 482846 [type=json_invalid, input_value='{ "analysis_problem_vs_s...on context but does not', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  73%|███████▎  | 645/881 [41:17:05<16:07:32, 245.98s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   7%|▋         | 49/736 [2:14:25<46:27:54, 243.49s/it][A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  86%|████████▋ | 636/736 [41:17:29<6:38:41, 239.21s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  54%|█████▎    | 395/736 [24:40:11<22:17:44, 235.38s/it]
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 10:  10%|█         | 76/736 [4:05:17<55:21:00, 301.91s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  30%|██▉       | 168/565 [9:56:06<23:09:32, 210.01s/it][A[A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  23%|██▎       | 168/736 [9:44:38<32:32:19, 206.23s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  86%|████████▌ | 632/736 [41:18:25<5:51:09, 202.59s/it][A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  79%|███████▊  | 579/736 [41:18:39<20:23:20, 467.52s/it][A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  73%|███████▎  | 646/881 [41:18:50<13:18:15, 203.81s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   7%|▋         | 50/736 [2:16:11<38:29:51, 202.03s/it][A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  87%|████████▋ | 637/736 [41:19:15<5:28:45, 199.24s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  54%|█████▍    | 396/736 [24:41:57<18:35:14, 196.81s/it]
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 10:  10%|█         | 77/736 [4:07:03<44:29:21, 243.04s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  30%|██▉       | 169/565 [9:57:51<19:37:05, 178.35s/it][A[A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  23%|██▎       | 169/736 [9:46:22<27:39:21, 175.59s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  86%|████████▌ | 633/736 [41:20:12<4:58:11, 173.70s/it][A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  79%|███████▉  | 580/736 [41:20:22<15:31:23, 358.23s/it][A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  73%|███████▎  | 647/881 [41:20:35<11:18:20, 173.93s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   7%|▋         | 51/736 [2:17:53<32:43:39, 172.00s/it][A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  87%|████████▋ | 638/736 [41:20:56<4:37:08, 169.68s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  54%|█████▍    | 397/736 [24:43:39<15:50:44, 168.27s/it]
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 10:  11%|█         | 78/736 [4:08:42<36:31:59, 199.88s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  30%|███       | 170/565 [9:59:32<17:02:13, 155.28s/it][A[A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  23%|██▎       | 170/736 [9:48:06<24:13:56, 154.13s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  86%|████████▌ | 634/736 [41:21:55<4:19:16, 152.52s/it][A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  79%|███████▉  | 581/736 [41:22:05<12:07:45, 281.71s/it][A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  74%|███████▎  | 648/881 [41:22:17<9:52:39, 152.61s/it] [A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   7%|▋         | 52/736 [2:19:38<28:53:20, 152.05s/it][A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  87%|████████▋ | 639/736 [41:22:41<4:03:16, 150.48s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  54%|█████▍    | 398/736 [24:45:25<14:03:20, 149.71s/it]
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 10:  11%|█         | 79/736 [4:10:30<31:26:04, 172.24s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  30%|███       | 171/565 [10:01:21<15:27:21, 141.22s/it][A[A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  23%|██▎       | 171/736 [9:49:54<21:58:48, 140.05s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.1 in batches of 10:  86%|████████▋ | 635/736 [41:23:42<3:54:05, 139.06s/it][A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  79%|███████▉  | 582/736 [41:23:55<9:50:26, 230.04s/it] [A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  74%|███████▎  | 649/881 [41:24:05<8:57:39, 139.05s/it][A[A[A
+Processing root-project.root.v6-32-06.issue_comment.5 in batches of 10:   7%|▋         | 53/736 [2:21:22<26:07:01, 137.66s/it][A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  87%|████████▋ | 640/736 [41:24:26<3:38:56, 136.84s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.issue_comment.4 in batches of 10:  54%|█████▍    | 399/736 [24:47:09<12:43:22, 135.91s/it]
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.6 in batches of 10:  11%|█         | 80/736 [4:12:15<27:42:52, 152.09s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.2 in batches of 10:  30%|███       | 172/565 [10:03:03<14:09:11, 129.65s/it][A[A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment.3 in batches of 10:  23%|██▎       | 172/736 [9:51:36<20:11:04, 128.84s/it][A[A
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.2 in batches of 10:  79%|███████▉  | 583/736 [41:25:48<8:17:00, 194.91s/it][A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:  74%|███████▍  | 650/881 [41:26:14<8:43:31, 135.98s/it][A[A[A2025-08-15 18:53:58.607 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 132089104983024: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaQaRelevanceResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 199240 [type=json_invalid, input_value='{\n\n"analysis_problem_v...ause you were mentioned', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment.0 in batches of 10:  87%|████████▋ | 641/736 [41:41:20<10:33:18, 399.99s/it][A[A[A[A[A[A[A[A2025-08-15 18:54:53.132 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 132089106046160: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaQaRelevanceResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 496888 [type=json_invalid, input_value='{ "analysis_problem_vs_s...fic examples to broader', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
