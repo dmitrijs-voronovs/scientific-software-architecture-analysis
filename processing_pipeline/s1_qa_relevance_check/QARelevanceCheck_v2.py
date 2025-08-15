@@ -206,17 +206,19 @@ def main():
     # stage.update_last_processed_item("root-project.root.v6-32-06.docs.13.parquet", 260)
     # stage.update_last_processed_item("root-project.root.v6-32-06.docs.19.parquet", 235)
 
-    stage.execute(
-        [
-            "root-project.root.v6-32-06.code_comment.03.parquet",
-            "root-project.root.v6-32-06.code_comment.12.parquet",
-            "root-project.root.v6-32-06.docs.00.parquet",
-            "root-project.root.v6-32-06.docs.04.parquet",
-            "root-project.root.v6-32-06.docs.08.parquet",
-            "root-project.root.v6-32-06.docs.10.parquet",
-            "root-project.root.v6-32-06.docs.13.parquet",
-            "root-project.root.v6-32-06.docs.19.parquet"
-        ], reverse=False)
+    # stage.execute(
+    #     [
+    #         "root-project.root.v6-32-06.code_comment.03.parquet",
+    #         "root-project.root.v6-32-06.code_comment.12.parquet",
+    #         "root-project.root.v6-32-06.docs.00.parquet",
+    #         "root-project.root.v6-32-06.docs.04.parquet",
+    #         "root-project.root.v6-32-06.docs.08.parquet",
+    #         "root-project.root.v6-32-06.docs.10.parquet",
+    #         "root-project.root.v6-32-06.docs.13.parquet",
+    #         "root-project.root.v6-32-06.docs.19.parquet"
+    #     ], reverse=False)
+
+    stage.execute()
 
 
 if __name__ == "__main__":
