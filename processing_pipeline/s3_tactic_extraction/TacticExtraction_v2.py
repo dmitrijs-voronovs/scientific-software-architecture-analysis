@@ -85,7 +85,7 @@ def get_tactic_names_for_qa(qa: str) -> str:
 
 class TacticModelResponse(BaseModel):
     text_summary: str
-    architectural_goal_analysis: str
+    architectural_trigger_analysis: str
     tactic_evaluation: str
     selected_tactic: TacticType
     justification: str
@@ -102,22 +102,23 @@ class TacticExtractionStage_v2(IBaseStage):
 
     @classmethod
     def get_system_prompt(cls) -> str | None:
-        return f"""You are an expert software architect specializing in analyzing developer communications to identify architectural tactics. Your goal is to analyze a text, classify it with the single most specific architectural tactic from a provided list, and justify your choice.
+        return f"""You are an expert software architect with a specialization in analyzing developer communications to identify design patterns and architectural tactics. Your goal is to analyze a text to identify the underlying architectural problem and the specific tactic used to solve it.
 
 You must follow a structured, step-by-step reasoning process. Your entire response must be a single, flat JSON object. Do not use nested objects or markdown.
 
 The JSON object must contain the following fields in this exact order:
 - "text_summary": A brief, neutral summary of the key information in the text.
-- "architectural_goal_analysis": An analysis of the summary to determine the underlying architectural goal or problem being addressed (e.g., "improve performance," "increase flexibility," "prevent errors").
-- "tactic_evaluation": A systematic evaluation of EACH available tactic from the detailed list. For each tactic, provide a brief analysis of its applicability to the text and conclude with either "Match" or "No Match".
-- "selected_tactic": The single best-fitting tactic from the "Relevant Tactic Names" list provided in the user prompt. If no tactic is a strong match, you MUST select "None".
-- "justification": A single, concise sentence explaining why the selected tactic is the best fit, directly linking a specific part of the original text to the tactic's definition. If "None" is selected, explain why no tactic applies.
+- "architectural_trigger_analysis": First, identify the core problem, goal, or "trigger" that led to the change described in the text. This should be a concise statement like "The system needed to support multiple, interchangeable data sources without changing the core logic," or "The goal was to reduce redundant calculations in the data processing pipeline."
+- "tactic_evaluation": A systematic evaluation of EACH available tactic from the detailed list. For each tactic, analyze whether it directly addresses the "architectural_trigger" you identified. Conclude with either "Match" or "No Match".
+- "selected_tactic": The single best-fitting tactic from the "Relevant Tactic Names" list that directly resolves the identified "architectural_trigger". If no tactic is a strong match, you MUST select "None".
+- "justification": A single, concise sentence explaining HOW the selected tactic solves the "architectural_trigger", directly linking a specific part of the original text to the tactic's definition. If "None" is selected, explain why no tactic applies.
 
 Follow these rules strictly:
 1.  Your primary objective is the final classification in "selected_tactic". All other fields are mandatory steps to reach that conclusion.
-2.  The "selected_tactic" MUST be one of the names from the "Relevant Tactic Names" list, or "None". Do not select a tactic from a different category.
-3.  Base your entire analysis ONLY on the provided "Text To Analyze" and "Available Tactics". Do not use external knowledge.
-4.  If "selected_tactic" is "None", then "justification" must explain why no tactic applies.
+2.  The "architectural_trigger_analysis" MUST be completed first. Your entire "tactic_evaluation" must be based on this trigger.
+3.  The "selected_tactic" MUST be one of the names from the "Relevant Tactic Names" list, or "None". Do not select a tactic from a different category.
+4.  Base your entire analysis ONLY on the provided "Text To Analyze" and "Available Tactics". Do not use external knowledge.
+5.  If "selected_tactic" is "None", then "justification" must explain why no tactic effectively addresses the architectural trigger.
 """
 
     @classmethod
