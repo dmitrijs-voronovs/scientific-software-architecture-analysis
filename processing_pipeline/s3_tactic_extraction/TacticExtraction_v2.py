@@ -60,7 +60,7 @@ class TacticExtractionStage_v2(IBaseStage):
     data_model = TacticModelResponse
     temperature = 0.0
     model_name = ModelName.DEEPSEEK_8B
-    cache_dir = AbsDirPath.CACHE / FolderNames.TACTIC_EXTRACTION_DIR
+    cache_dir = AbsDirPath.CACHE / FolderNames.TACTIC_EXTRACTION_DIR / "v2"
     in_dir = AbsDirPath.O_S2_ARCH_RELEVANCE_CHECK
     out_dir = AbsDirPath.S3_TACTIC_EXTRACTION
     stage_name = 's3'
@@ -107,8 +107,8 @@ Based on the rules provided in the system prompt, analyze the following availabl
 
 
 def main():
-    TacticExtractionStage_v2(hostname=LLMHost.SERVER).execute(["issue.", "docs"],
-                                                           reverse=False)  # TacticExtractionStage(hostname=LLMHost.GREEN_LAB, batch_size_override=5, n_threads_override=1,  #                       model_name_override=ModelName.DEEPSEEK_8B, disable_cache=True).execute()
+    TacticExtractionStage_v2(hostname=LLMHost.GREEN_LAB, disable_cache=True, cot_prompt=True, n_threads_override=5, batch_size_override=10).execute([],
+                                                           reverse=False)
 
 
 if __name__ == "__main__":
