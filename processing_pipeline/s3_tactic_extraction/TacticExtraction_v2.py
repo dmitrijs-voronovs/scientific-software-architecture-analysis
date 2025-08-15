@@ -115,8 +115,8 @@ The JSON object must contain the following fields in this exact order:
 - "is_tactic_relevant": Based on the core concept, answer with 'true' or 'false' to the question: "Does this concept describe a deliberate design decision intended to influence a quality attribute?".
 - "relevance_reason": Briefly explain your reasoning for the 'is_tactic_relevant' decision. If the concept is just a bug fix, user question, or documentation, the answer must be false.
 - "tactic_evaluation": IF AND ONLY IF 'is_tactic_relevant' is true, systematically evaluate each available tactic against the 'core_concept_analysis'. Otherwise, state "Not applicable due to relevance check failure."
-- "selected_tactic": The single best-fitting tactic from the "Relevant Tactic Names" list. If 'is_tactic_relevant' is false, this MUST be "None".
-- "justification": If a tactic is selected, explain why it is the best semantic fit for the 'core_concept_analysis'. If "None" is selected, use the 'relevance_reason' to explain why the text was deemed not relevant.
+- "selected_tactic": The single best-fitting tactic from the "Relevant Tactic Names" list. If 'is_tactic_relevant' is false, **or if no tactic from the provided list is a good semantic match**, this MUST be "None".
+- "justification": If a tactic is selected, explain why it is the best semantic fit for the 'core_concept_analysis'. If "None" is selected, use the 'relevance_reason' **or the result of the tactic evaluation** to explain why.
 
 Follow these rules strictly:
 1.  Your primary objective is to correctly filter the text. The classification is secondary.
