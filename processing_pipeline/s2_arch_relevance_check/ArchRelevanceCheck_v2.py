@@ -1,4 +1,3 @@
-import pandas as pd
 from pydantic import BaseModel
 
 from cfg.LLMHost import LLMHost
@@ -103,9 +102,21 @@ Generate a single JSON object with the following keys: `analysis_summary`, `arch
 Now, apply the analysis steps defined in your system prompt to the data provided above.
 """
 
+
 def main():
     # ArchitectureRelevanceCheckStage_v2(hostname=LLMHost.SERVER).execute(["code_comment.", "issue."], reverse=False)
-    ArchitectureRelevanceCheckStage_v2(hostname=LLMHost.GREEN_LAB, disable_cache=False, n_threads_override=5, batch_size_override=10).execute([], reverse=False)
+    ArchitectureRelevanceCheckStage_v2(hostname=LLMHost.GREEN_LAB, disable_cache=False, n_threads_override=5,
+                                       batch_size_override=10).execute(
+        ["scverse.scanpy.1.10.2.code_comment.parquet", "scverse.scanpy.1.10.2.docs.parquet",
+         "google.deepvariant.v1.6.1.issue.parquet", "root-project.root.v6-32-06.wiki.parquet",
+         "allenai.scispacy.v0.5.5.issue.parquet", "OpenGene.fastp.v0.23.4.code_comment.parquet",
+         "google.deepvariant.v1.6.1.code_comment.parquet", "OpenGene.fastp.v0.23.4.docs.parquet",
+         "allenai.scispacy.v0.5.5.code_comment.parquet", "OpenGene.fastp.v0.23.4.issue_comment.parquet",
+         "google.deepvariant.v1.6.1.docs.parquet", "google.deepvariant.v1.6.1.release.parquet",
+         "OpenGene.fastp.v0.23.4.release.parquet", "OpenGene.fastp.v0.23.4.issue.parquet",
+         "allenai.scispacy.v0.5.5.docs.parquet", "allenai.scispacy.v0.5.5.release.parquet",
+         "scverse.scanpy.1.10.2.wiki.parquet", "root-project.root.v6-32-06.release.parquet", ], reverse=False)
+
 
 if __name__ == "__main__":
     main()
