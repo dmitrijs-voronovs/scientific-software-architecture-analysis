@@ -1,12 +1,13 @@
 from functools import cache
-from typing import Dict
+from typing import Dict, Literal
 
 import pandas as pd
 import yaml
+from pydantic import BaseModel
 
 from cfg.LLMHost import LLMHost
 from cfg.ModelName import ModelName
-from cfg.tactics.tactic_list_simplified import TacticSimplifiedModelResponse
+from cfg.tactics.tactic_list_simplified import TacticType
 from constants.abs_paths import AbsDirPath
 from constants.foldernames import FolderNames
 from processing_pipeline.model.IBaseStage import IBaseStage
@@ -44,8 +45,18 @@ def get_tactic_list_for_qa(qa: str) -> str:
     assert tactic_list is not None, f"No tactic list found for qa {qa}"
     return tactic_list
 
+class TacticModelResponse(BaseModel):
+    text_summary: str
+    architectural_goal_analysis: str
+    tactic_evaluation: str
+    selected_tactic: TacticType
+    justification: str
+    tactic_response: str
+    response_measure: str
+
+
 class TacticExtractionStage(IBaseStage):
-    data_model = TacticSimplifiedModelResponse
+    data_model = TacticModelResponse
     temperature = 0.0
     model_name = ModelName.DEEPSEEK_8B
     cache_dir = AbsDirPath.CACHE / FolderNames.TACTIC_EXTRACTION_DIR
@@ -55,31 +66,33 @@ class TacticExtractionStage(IBaseStage):
 
     @classmethod
     def get_system_prompt(cls) -> str | None:
-        return f"""
-You are an expert in software architecture tactics. Your task is to analyze user-provided text and identify the single most specific software architecture tactic being described from a list I will provide.
+        return f"""You are an expert software architect with a specialization in analyzing developer communications to identify design patterns and architectural tactics. Your primary goal is to analyze a given text and classify it with the single most specific architectural tactic from a provided list, and then extract the tactic's response and response measure if they are described.
 
-## Guiding Principles
-- Focus on the Mechanism: Identify the architectural *how* (the solution or feature), not the *why* (the benefit).
-- Handle Non-Feature Descriptions: If the text is a user question, bug report, installation issue, or a general discussion *about* the software rather than a description of a feature *within* the software, you **must** classify the tactic as `None`.
+You must follow a structured, step-by-step reasoning process. Your entire response must be a single, flat JSON object. Do not use nested objects or markdown.
 
-## Your Task
-You will be given a list of "Available Tactics" and a "Text to Analyze". Based on these, provide a single JSON object with two fields:
-1.  `tactic`: The name of the single most specific tactic you identified from the provided list, or `None`.
-2.  `response`: A one-sentence summary of the functionality described, starting with "The system...". If the tactic is `None`, summarize the user's query or the text's purpose.
+The JSON object must contain the following fields in this exact order:
+- "text_summary": A brief, neutral summary of the key information in the text.
+- "architectural_goal_analysis": An analysis of the summary to determine the underlying architectural goal or problem being addressed (e.g., "improve performance," "increase flexibility," "prevent errors").
+- "tactic_evaluation": A systematic evaluation of EACH available tactic. For each tactic, provide a brief analysis of its applicability to the text and conclude with either "Match" or "No Match".
+- "selected_tactic": The single best-fitting tactic from the provided list. If no tactic is a strong match, you MUST select "None".
+- "justification": A single, concise sentence explaining why the selected tactic is the best fit, directly linking a specific part of the original text to the tactic's definition. If "None" is selected, explain why no tactic applies.
+- "tactic_response": The direct outcome or effect of applying the tactic, as described in the text. This describes the change in system behavior or structure that results from the tactic.
+- "response_measure": The specific, measurable metric associated with the response, if mentioned in the text (e.g., "latency reduced by 50ms", "memory usage decreased by 10%", "fault detected within 5 seconds").
 
----
-### Example of Handling a Non-Feature
-- Text: "Tensorflow version of the model checkpoint; What is the version of tensorflow for generating the checkpoint files (`index`, `meta`, `data`)? And is there any way that I can load these checkpoints into a standalone tensorflow program and then dump it as a `.onnx` file?"
-  - `tactic`: None
-  - `response`: The system is being asked about its TensorFlow version and how to convert its model checkpoints to another format.
----
-You will now be provided with the list of available tactics and a text to analyze. Apply these rules to the text that follows.
+Follow these rules strictly:
+1.  Your primary objective is the final classification in "selected_tactic". All other fields are mandatory steps to reach that conclusion.
+2.  Do not stop after summarizing. You must complete the full analysis for all fields.
+3.  Base your entire analysis ONLY on the provided "Text To Analyze" and "Available Tactics". Do not use external knowledge.
+4.  In "tactic_evaluation", you must evaluate every tactic provided in the user prompt.
+5.  In "justification", be specific. Reference the text directly.
+6.  If "selected_tactic" is "None", then "justification" must explain why, and both "tactic_response" and "response_measure" MUST be "None".
+7.  If a tactic is selected but the text does not describe a specific response or measure, the corresponding field must be "None".
 """
 
     @classmethod
     def to_prompt(cls, x: pd.Series) -> str:
         return f"""
-Based on the rules provided, analyze the following available tactics and text and provide the JSON output.
+Based on the rules provided in the system prompt, analyze the following available tactics and text and provide the JSON output.
 
 ---
 
