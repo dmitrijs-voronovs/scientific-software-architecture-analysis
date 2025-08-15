@@ -13,6 +13,9 @@ from processing_pipeline.model.IBaseStage import IBaseStage
 
 
 def get_structured_tactic_list_by_qa() -> Dict[str, str]:
+    """
+    Loads tactic definitions from YAML and formats them into a string for each quality attribute.
+    """
     with open(AbsDirPath.TACTICS / "tactic_list_modified.yaml", "r") as f:
         tactics = yaml.safe_load(f)
     tactics_by_qa = {}
@@ -29,6 +32,25 @@ def get_structured_tactic_list_by_qa() -> Dict[str, str]:
     return tactics_by_qa
 
 
+def get_structured_tactic_names_by_qa() -> Dict[str, str]:
+    """
+    Loads tactic names from YAML and formats them into a comma-separated string for each quality attribute.
+    """
+    with open(AbsDirPath.TACTICS / "tactic_list_modified.yaml", "r") as f:
+        tactics = yaml.safe_load(f)
+    tactics_names_by_qa = {}
+
+    for attr in tactics['tactics']:
+        tactic_names = []
+        for category in attr['tactic_categories']:
+            for tactic in category['tactics']:
+                tactic_names.append(tactic['name'])
+
+        tactics_names_by_qa[attr['quality_attribute'].lower()] = ", ".join(tactic_names)
+
+    return tactics_names_by_qa
+
+
 # This dictionary translates the QA found on an item
 # to the QA that has a corresponding tactic list.
 QA_TO_TACTIC_MAP = {'deployability': 'modifiability',  # mapped
@@ -36,14 +58,29 @@ QA_TO_TACTIC_MAP = {'deployability': 'modifiability',  # mapped
     'reliability': 'availability',  # mapped
 }
 
+# Global maps for tactic details and names
 tactics_by_qa_map = get_structured_tactic_list_by_qa()
+tactic_names_by_qa_map = get_structured_tactic_names_by_qa()
 
 
 def get_tactic_list_for_qa(qa: str) -> str:
+    """
+    Retrieves the detailed tactic definitions for a given quality attribute.
+    """
     mapped_qa = QA_TO_TACTIC_MAP.get(qa, qa)
     tactic_list = tactics_by_qa_map.get(mapped_qa)
     assert tactic_list is not None, f"No tactic list found for qa {qa}"
     return tactic_list
+
+
+def get_tactic_names_for_qa(qa: str) -> str:
+    """
+    Retrieves the comma-separated tactic names for a given quality attribute.
+    """
+    mapped_qa = QA_TO_TACTIC_MAP.get(qa, qa)
+    tactic_names = tactic_names_by_qa_map.get(mapped_qa)
+    assert tactic_names is not None, f"No tactic names found for qa {qa}"
+    return tactic_names
 
 
 class TacticModelResponse(BaseModel):
@@ -74,31 +111,37 @@ You must follow a structured, step-by-step reasoning process. Your entire respon
 The JSON object must contain the following fields in this exact order:
 - "text_summary": A brief, neutral summary of the key information in the text.
 - "architectural_goal_analysis": An analysis of the summary to determine the underlying architectural goal or problem being addressed (e.g., "improve performance," "increase flexibility," "prevent errors").
-- "tactic_evaluation": A systematic evaluation of EACH available tactic. For each tactic, provide a brief analysis of its applicability to the text and conclude with either "Match" or "No Match".
-- "selected_tactic": The single best-fitting tactic from the provided list. If no tactic is a strong match, you MUST select "None".
+- "tactic_evaluation": A systematic evaluation of EACH available tactic from the detailed list. For each tactic, provide a brief analysis of its applicability to the text and conclude with either "Match" or "No Match".
+- "selected_tactic": The single best-fitting tactic from the "Relevant Tactic Names" list provided in the user prompt. If no tactic is a strong match, you MUST select "None".
 - "justification": A single, concise sentence explaining why the selected tactic is the best fit, directly linking a specific part of the original text to the tactic's definition. If "None" is selected, explain why no tactic applies.
-- "tactic_response": The direct outcome or effect of applying the tactic, as described in the text. This describes the change in system behavior or structure that results from the tactic.
-- "response_measure": The specific, measurable metric associated with the response, if mentioned in the text (e.g., "latency reduced by 50ms", "memory usage decreased by 10%", "fault detected within 5 seconds").
+- "tactic_response": The direct qualitative outcome or effect of applying the selected tactic. This describes WHAT changed (e.g., "execution time was reduced," "model accuracy was improved"). This field must not contain numbers or metrics. If no response is described, this must be "None".
+- "response_measure": The specific, quantitative metric associated with the response. This describes HOW MUCH it changed (e.g., "from 48 minutes to 30 minutes," "F1 score improved from 94% to 98%"). If no measure is described, this must be "None".
 
 Follow these rules strictly:
 1.  Your primary objective is the final classification in "selected_tactic". All other fields are mandatory steps to reach that conclusion.
-2.  Do not stop after summarizing. You must complete the full analysis for all fields.
+2.  The "selected_tactic" MUST be one of the names from the "Relevant Tactic Names" list, or "None". Do not select a tactic from a different category.
 3.  Base your entire analysis ONLY on the provided "Text To Analyze" and "Available Tactics". Do not use external knowledge.
-4.  In "tactic_evaluation", you must evaluate every tactic provided in the user prompt.
-5.  In "justification", be specific. Reference the text directly.
-6.  If "selected_tactic" is "None", then "justification" must explain why, and both "tactic_response" and "response_measure" MUST be "None".
-7.  If a tactic is selected but the text does not describe a specific response or measure, the corresponding field must be "None".
+4.  The "tactic_response" and "response_measure" must be the direct result of the "selected_tactic". Do not extract outcomes from unrelated parts of the text.
+5.  If "selected_tactic" is "None", then "justification" must explain why, and both "tactic_response" and "response_measure" MUST be "None".
 """
 
     @classmethod
     def to_prompt(cls, x: pd.Series) -> str:
+        tactic_definitions = get_tactic_list_for_qa(x['qa'])
+        tactic_names_list = get_tactic_names_for_qa(x['qa'])
+
         return f"""
 Based on the rules provided in the system prompt, analyze the following available tactics and text and provide the JSON output.
 
 ---
 
-## Available Tactics
-{get_tactic_list_for_qa(x['qa'])}
+## Relevant Tactic Names for this Quality Attribute
+{tactic_names_list}
+
+---
+
+## Available Tactics (with definitions)
+{tactic_definitions}
 
 ---
 ## Text To Analyze:
