@@ -196,16 +196,17 @@ Now, apply the analysis steps defined in your system prompt to the data provided
 
 
 def main():
-    QARelevanceCheckStage_v2().update_last_processed_item("root-project.root.v6-32-06.code_comment.03.parquet", 200)
-    QARelevanceCheckStage_v2().update_last_processed_item("root-project.root.v6-32-06.code_comment.12.parquet", 210)
-    QARelevanceCheckStage_v2().update_last_processed_item("root-project.root.v6-32-06.docs.00.parquet", 345)
-    QARelevanceCheckStage_v2().clean_cache("root-project.root.v6-32-06.docs.04.parquet")
-    QARelevanceCheckStage_v2().update_last_processed_item("root-project.root.v6-32-06.docs.08.parquet", 200)
-    QARelevanceCheckStage_v2().update_last_processed_item("root-project.root.v6-32-06.docs.10.parquet", 350)
-    QARelevanceCheckStage_v2().update_last_processed_item("root-project.root.v6-32-06.docs.13.parquet", 260)
-    QARelevanceCheckStage_v2().update_last_processed_item("root-project.root.v6-32-06.docs.19.parquet", 235)
+    stage = QARelevanceCheckStage_v2(hostname=LLMHost.SERVER, cot_prompt=True)
+    stage.update_last_processed_item("root-project.root.v6-32-06.code_comment.03.parquet", 200)
+    stage.update_last_processed_item("root-project.root.v6-32-06.code_comment.12.parquet", 210)
+    stage.update_last_processed_item("root-project.root.v6-32-06.docs.00.parquet", 345)
+    stage.clean_cache("root-project.root.v6-32-06.docs.04.parquet")
+    stage.update_last_processed_item("root-project.root.v6-32-06.docs.08.parquet", 200)
+    stage.update_last_processed_item("root-project.root.v6-32-06.docs.10.parquet", 350)
+    stage.update_last_processed_item("root-project.root.v6-32-06.docs.13.parquet", 260)
+    stage.update_last_processed_item("root-project.root.v6-32-06.docs.19.parquet", 235)
 
-    QARelevanceCheckStage_v2(hostname=LLMHost.SERVER, cot_prompt=True).execute(
+    stage.execute(
         [
             "root-project.root.v6-32-06.code_comment.03.parquet",
             "root-project.root.v6-32-06.code_comment.12.parquet",
