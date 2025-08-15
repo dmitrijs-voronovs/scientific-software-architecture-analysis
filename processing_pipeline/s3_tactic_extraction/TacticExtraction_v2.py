@@ -89,8 +89,6 @@ class TacticModelResponse(BaseModel):
     tactic_evaluation: str
     selected_tactic: TacticType
     justification: str
-    tactic_response: str
-    response_measure: str
 
 
 class TacticExtractionStage_v2(IBaseStage):
@@ -104,7 +102,7 @@ class TacticExtractionStage_v2(IBaseStage):
 
     @classmethod
     def get_system_prompt(cls) -> str | None:
-        return f"""You are an expert software architect with a specialization in analyzing developer communications to identify design patterns and architectural tactics. Your primary goal is to analyze a given text and classify it with the single most specific architectural tactic from a provided list, and then extract the tactic's response and response measure if they are described.
+        return f"""You are an expert software architect specializing in analyzing developer communications to identify architectural tactics. Your goal is to analyze a text, classify it with the single most specific architectural tactic from a provided list, and justify your choice.
 
 You must follow a structured, step-by-step reasoning process. Your entire response must be a single, flat JSON object. Do not use nested objects or markdown.
 
@@ -114,15 +112,12 @@ The JSON object must contain the following fields in this exact order:
 - "tactic_evaluation": A systematic evaluation of EACH available tactic from the detailed list. For each tactic, provide a brief analysis of its applicability to the text and conclude with either "Match" or "No Match".
 - "selected_tactic": The single best-fitting tactic from the "Relevant Tactic Names" list provided in the user prompt. If no tactic is a strong match, you MUST select "None".
 - "justification": A single, concise sentence explaining why the selected tactic is the best fit, directly linking a specific part of the original text to the tactic's definition. If "None" is selected, explain why no tactic applies.
-- "tactic_response": The direct qualitative outcome or effect of applying the selected tactic. This describes WHAT changed (e.g., "execution time was reduced," "model accuracy was improved"). This field must not contain numbers or metrics. If no response is described, this must be "None".
-- "response_measure": The specific, quantitative metric associated with the response. This describes HOW MUCH it changed (e.g., "from 48 minutes to 30 minutes," "F1 score improved from 94% to 98%"). If no measure is described, this must be "None".
 
 Follow these rules strictly:
 1.  Your primary objective is the final classification in "selected_tactic". All other fields are mandatory steps to reach that conclusion.
 2.  The "selected_tactic" MUST be one of the names from the "Relevant Tactic Names" list, or "None". Do not select a tactic from a different category.
 3.  Base your entire analysis ONLY on the provided "Text To Analyze" and "Available Tactics". Do not use external knowledge.
-4.  The "tactic_response" and "response_measure" must be the direct result of the "selected_tactic". Do not extract outcomes from unrelated parts of the text.
-5.  If "selected_tactic" is "None", then "justification" must explain why, and both "tactic_response" and "response_measure" MUST be "None".
+4.  If "selected_tactic" is "None", then "justification" must explain why no tactic applies.
 """
 
     @classmethod
