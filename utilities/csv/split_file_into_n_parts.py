@@ -1,7 +1,9 @@
+import math
 from pathlib import Path
 
 from processing_pipeline.model.CSVDFHandler import CSVDFHandler
 from processing_pipeline.model.IDFHandler import IDfHandler
+from processing_pipeline.model.ParquetDFHandler import ParquetDFHandler
 
 
 def split_file(path: Path, n_parts: int, handler: IDfHandler):
@@ -9,9 +11,19 @@ def split_file(path: Path, n_parts: int, handler: IDfHandler):
     for i in range(n_parts):
         handler.write_df(df.iloc[i::n_parts], path.with_stem(f"{path.stem}.part_{i:0{len(str(n_parts))}}"))
 
+def split_file_in_batches(path: Path, handler: IDfHandler, batch_size: int = 3000):
+    df = handler.read_df(path)
+    n_parts = math.ceil(df.shape[0] / batch_size)
+    split_file(path, n_parts, handler)
+
 
 def main():
-    split_file(Path(r"C:\Users\Dmitrijs\Documents\myDocs\masters\courses\thesis\code\data\samples\verified\s0.csv"), 4, CSVDFHandler())
+    # split_file(Path(r"C:\Users\Dmitrijs\Documents\myDocs\masters\courses\thesis\code\data\samples\verified\s0.csv"), 4, CSVDFHandler())
+    split_file_in_batches(Path(r"C:\Users\Dmitrijs\Documents\myDocs\masters\courses\thesis\code\data\keywords_2\s1_qa_relevance_check_o\root-project.root.v6-32-06.code_comment.0.parquet"), ParquetDFHandler())
+    split_file_in_batches(Path(r"C:\Users\Dmitrijs\Documents\myDocs\masters\courses\thesis\code\data\keywords_2\s1_qa_relevance_check_o\root-project.root.v6-32-06.code_comment.1.parquet"), ParquetDFHandler())
+    split_file_in_batches(Path(r"C:\Users\Dmitrijs\Documents\myDocs\masters\courses\thesis\code\data\keywords_2\s1_qa_relevance_check_o\root-project.root.v6-32-06.code_comment.2.parquet"), ParquetDFHandler())
+    split_file_in_batches(Path(r"C:\Users\Dmitrijs\Documents\myDocs\masters\courses\thesis\code\data\keywords_2\s1_qa_relevance_check_o\root-project.root.v6-32-06.code_comment.3.parquet"), ParquetDFHandler())
+    split_file_in_batches(Path(r"C:\Users\Dmitrijs\Documents\myDocs\masters\courses\thesis\code\data\keywords_2\s1_qa_relevance_check_o\root-project.root.v6-32-06.code_comment.4.parquet"), ParquetDFHandler())
 
 if __name__ == "__main__":
     main()
