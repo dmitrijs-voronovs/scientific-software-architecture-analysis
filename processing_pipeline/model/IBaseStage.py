@@ -222,6 +222,10 @@ class IBaseStage(metaclass=ABCMeta):
 
         for batch_n in tqdm(range(0, len(df), self.batch_size), total=math.ceil(len(df) / self.batch_size),
                             desc=f"Processing {file_path.stem} in batches of {self.batch_size}"):
+            if self.stop_event.is_set():
+                logger.warning(f"{file_path.stem}: Stopping processing, batch {batch_n} of {len(df)}")
+                return
+
             batch_end = batch_n + self.batch_size
             batch_df = df.iloc[batch_n:batch_end]
             prompts = batch_df[prompt_field].tolist()
@@ -242,9 +246,6 @@ class IBaseStage(metaclass=ABCMeta):
             if not self.disable_cache:
                 with shelve.open(shelf_path) as db:
                     db["idx"] = last_idx + batch_end
-
-            if self.stop_event.is_set():
-                return
 
         if not self.disable_cache:
             with shelve.open(shelf_path) as db:
