@@ -9,3 +9,6 @@ data/mongodb/
 .tmp/
 /.logs
 /metadata/results/format_validation_sample.csv
+
+__pycache__/
+*.pyc
