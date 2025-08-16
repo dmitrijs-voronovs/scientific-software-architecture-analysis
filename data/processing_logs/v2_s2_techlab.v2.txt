@@ -1,27 +1,23 @@
 nohup: ignoring input
-2025-08-16 23:06:56.753 | INFO     | processing_pipeline.model.IBaseStage:execute:313 - Executing s2 stage
-2025-08-16 23:06:56.753 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.2.part_3: Processing file
-2025-08-16 23:06:56.754 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - allenai.scispacy.v0.5.5.code_comment: Processing file
-2025-08-16 23:06:56.754 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.release: Processing file
-2025-08-16 23:06:56.754 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.issue: Processing file
-2025-08-16 23:06:56.754 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.3.part_1: Processing file
-2025-08-16 23:06:56.773 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - allenai.scispacy.v0.5.5.issue_comment: Processing file
-2025-08-16 23:06:56.775 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - allenai.scispacy.v0.5.5.code_comment: File already processed
-2025-08-16 23:06:56.775 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - scverse.scanpy.1.10.2.issue: Processing file
-2025-08-16 23:06:56.776 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - allenai.scispacy.v0.5.5.issue_comment: File already processed
-2025-08-16 23:06:56.776 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.4.part_3: Processing file
-2025-08-16 23:06:56.776 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.release: File already processed
-2025-08-16 23:06:56.777 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - OpenGene.fastp.v0.23.4.release: Processing file
-2025-08-16 23:06:56.779 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - OpenGene.fastp.v0.23.4.release: File already processed
-2025-08-16 23:06:56.779 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - OpenGene.fastp.v0.23.4.issue_comment: Processing file
-2025-08-16 23:06:56.783 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - OpenGene.fastp.v0.23.4.issue_comment: File already processed
-2025-08-16 23:06:56.783 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.1.part_3: Processing file
-2025-08-16 23:06:56.793 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:214 - root-project.root.v6-32-06.code_comment.2.part_3: Continuing processing from 947
-2025-08-16 23:06:56.793 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:214 - root-project.root.v6-32-06.code_comment.4.part_3: Continuing processing from 490
-2025-08-16 23:06:56.797 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:214 - scverse.scanpy.1.10.2.issue: Continuing processing from 736
-2025-08-16 23:06:56.806 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:214 - root-project.root.v6-32-06.code_comment.1.part_3: Continuing processing from 460
+2025-08-16 23:08:59.569 | INFO     | processing_pipeline.model.IBaseStage:execute:313 - Executing s2 stage
+2025-08-16 23:08:59.575 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.2.part_3: Processing file
+2025-08-16 23:08:59.575 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - allenai.scispacy.v0.5.5.code_comment: Processing file
+2025-08-16 23:08:59.575 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.release: Processing file
+2025-08-16 23:08:59.575 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.issue: Processing file
+2025-08-16 23:08:59.576 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.3.part_1: Processing file
+2025-08-16 23:08:59.596 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - root-project.root.v6-32-06.release: File already processed
+2025-08-16 23:08:59.596 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - allenai.scispacy.v0.5.5.issue_comment: Processing file
+2025-08-16 23:08:59.596 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - allenai.scispacy.v0.5.5.code_comment: File already processed
+2025-08-16 23:08:59.597 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - scverse.scanpy.1.10.2.issue: Processing file
+2025-08-16 23:08:59.600 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:197 - allenai.scispacy.v0.5.5.issue_comment: File already processed
+2025-08-16 23:08:59.600 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.code_comment.4.part_3: Processing file
+2025-08-16 23:08:59.613 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:214 - root-project.root.v6-32-06.code_comment.4.part_3: Continuing processing from 504
+2025-08-16 23:08:59.619 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:214 - scverse.scanpy.1.10.2.issue: Continuing processing from 750
+2025-08-16 23:08:59.619 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:214 - root-project.root.v6-32-06.code_comment.3.part_1: Continuing processing from 991
+2025-08-16 23:08:59.626 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:214 - root-project.root.v6-32-06.code_comment.2.part_3: Continuing processing from 961
+2025-08-16 23:08:59.635 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:214 - root-project.root.v6-32-06.issue: Continuing processing from 766
 Stage s2 params:
-stop_event: <threading.Event at 0x784e23549bb0: unset>
+stop_event: <threading.Event at 0x7bc1802ed640: unset>
 model_fields: ['analysis_summary', 'architectural_signal', 'exclusionary_signal', 'final_logic', 'related_to_arch']
 hostname: http://localhost:11434
 model: model='deepseek-r1:1.5b' temperature=0.0 format={'description': 'Updated Pydantic model to match the new JSON output structure.', 'properties': {'analysis_summary': {'title': 'Analysis Summary', 'type': 'string'}, 'architectural_signal': {'title': 'Architectural Signal', 'type': 'string'}, 'exclusionary_signal': {'title': 'Exclusionary Signal', 'type': 'string'}, 'final_logic': {'title': 'Final Logic', 'type': 'string'}, 'related_to_arch': {'title': 'Related To Arch', 'type': 'boolean'}}, 'required': ['analysis_summary', 'architectural_signal', 'exclusionary_signal', 'final_logic', 'related_to_arch'], 'title': 'OllamaArchitectureResponse', 'type': 'object'} base_url='http://localhost:11434'
@@ -30,15 +26,20 @@ n_threads: 5
 disable_cache: False
 
 
-Processing root-project.root.v6-32-06.code_comment.2.part_3 in batches of 14:   0%|          | 0/107 [00:00<?, ?it/s]
-Processing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 14:   0%|          | 0/140 [00:00<?, ?it/s][A
-
-Processing scverse.scanpy.1.10.2.issue in batches of 14:   0%|          | 0/46 [00:00<?, ?it/s][A[A
+Processing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 14:   0%|          | 0/139 [00:00<?, ?it/s]
 
 
-Processing root-project.root.v6-32-06.code_comment.1.part_3 in batches of 14:   0%|          | 0/142 [00:00<?, ?it/s][A[A[A2025-08-16 23:06:56.819 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:214 - root-project.root.v6-32-06.issue: Continuing processing from 766
+Processing root-project.root.v6-32-06.code_comment.3.part_1 in batches of 14:   0%|          | 0/104 [00:00<?, ?it/s][A[A[A
 
+Processing root-project.root.v6-32-06.code_comment.2.part_3 in batches of 14:   0%|          | 0/106 [00:00<?, ?it/s][A[A
+Processing scverse.scanpy.1.10.2.issue in batches of 14:   0%|          | 0/45 [00:00<?, ?it/s][A
 
 
 
 Processing root-project.root.v6-32-06.issue in batches of 14:   0%|          | 0/551 [00:00<?, ?it/s][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_1 in batches of 14:   1%|          | 1/104 [00:50<1:26:07, 50.17s/it][A[A[A
+
+Processing root-project.root.v6-32-06.code_comment.2.part_3 in batches of 14:   1%|          | 1/106 [00:53<1:33:20, 53.34s/it][A[A
+Processing scverse.scanpy.1.10.2.issue in batches of 14:   2%|▏         | 1/45 [00:56<41:31, 56.63s/it][AProcessing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 14:   1%|          | 1/139 [00:58<2:14:31, 58.49s/it]
