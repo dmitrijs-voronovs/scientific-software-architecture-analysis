@@ -99,7 +99,7 @@ class IBaseStage(metaclass=ABCMeta):
         self.model = ChatOllama(model=self.model_name, temperature=self.temperature, base_url=self.hostname,
                                 format=self.data_model.model_json_schema())
 
-        optimal_params_settings = optimal_processing_parameters if cot_prompt else optimal_processing_parameters_cot
+        optimal_params_settings = optimal_processing_parameters_cot if cot_prompt else optimal_processing_parameters
         optimal_params = optimal_params_settings[self.model_name]
         self.batch_size = batch_size_override or optimal_params.batch_size
         self.n_threads = n_threads_override or optimal_params.n_threads
