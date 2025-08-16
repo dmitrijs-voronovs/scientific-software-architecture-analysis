@@ -2387,4 +2387,463 @@ disable_cache: False
 
 
 
-Processing scverse.scanpy.1.10.2.issue in batches of 5:  15%|█▌        | 37/244 [3:04:10<19:34:31, 340.44s/it][A[A[A[A[A[A
+Processing scverse.scanpy.1.10.2.issue in batches of 5:  15%|█▌        | 37/244 [3:04:10<19:34:31, 340.44s/it][A[A[A[A[A[A2025-08-16 20:26:16.034 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 139237612279840: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 425469 [type=json_invalid, input_value='{"analysis_summary": "Th...r, the primary issue is', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_3 in batches of 5:  11%|█         | 52/464 [3:09:06<23:18:07, 203.61s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.2.part_3 in batches of 5:  12%|█▏        | 54/466 [3:09:12<25:02:38, 218.83s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.code_comment.1.part_3 in batches of 5:  12%|█▏        | 53/460 [3:09:19<23:07:35, 204.56s/it]
+
+Processing root-project.root.v6-32-06.code_comment.2.part_1 in batches of 5:   4%|▍         | 20/488 [1:05:17<26:07:05, 200.91s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue in batches of 5:   3%|▎         | 48/1665 [3:09:35<89:53:08, 200.12s/it][A[A[A[A[A[A[A[A[A
+Processing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 5:  13%|█▎        | 59/460 [3:09:43<22:19:47, 200.47s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_1 in batches of 5:  13%|█▎        | 59/468 [3:09:49<22:46:58, 200.53s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 5:  16%|█▌        | 38/244 [3:09:59<19:37:16, 342.90s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 5:   3%|▎         | 55/1856 [3:10:09<191:01:28, 381.84s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_3 in batches of 5:  11%|█▏        | 53/464 [3:10:18<18:43:21, 163.99s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.2.part_3 in batches of 5:  12%|█▏        | 55/466 [3:10:23<19:56:01, 174.60s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.code_comment.1.part_3 in batches of 5:  12%|█▏        | 54/460 [3:10:33<18:39:13, 165.40s/it]
+
+Processing root-project.root.v6-32-06.code_comment.2.part_1 in batches of 5:   4%|▍         | 21/488 [1:06:28<21:00:41, 161.97s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue in batches of 5:   3%|▎         | 49/1665 [3:10:49<72:49:56, 162.25s/it][A[A[A[A[A[A[A[A[A
+Processing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 5:  13%|█▎        | 60/460 [3:10:54<17:56:25, 161.46s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_1 in batches of 5:  13%|█▎        | 60/468 [3:11:02<18:23:22, 162.26s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 5:  16%|█▌        | 39/244 [3:11:09<14:52:09, 261.12s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 5:   3%|▎         | 56/1856 [3:11:15<143:32:55, 287.10s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_3 in batches of 5:  12%|█▏        | 54/464 [3:11:24<15:19:23, 134.55s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.2.part_3 in batches of 5:  12%|█▏        | 56/466 [3:11:29<16:09:17, 141.85s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.code_comment.1.part_3 in batches of 5:  12%|█▏        | 55/460 [3:11:36<15:10:24, 134.87s/it]
+
+Processing root-project.root.v6-32-06.code_comment.2.part_1 in batches of 5:   5%|▍         | 22/488 [1:07:36<17:17:56, 133.64s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue in batches of 5:   3%|▎         | 50/1665 [3:11:54<59:44:55, 133.19s/it][A[A[A[A[A[A[A[A[A
+Processing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 5:  13%|█▎        | 61/460 [3:11:59<14:41:28, 132.55s/it][A2025-08-16 20:36:47.851 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 139237610982096: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 442087 [type=json_invalid, input_value='{"analysis_summary": "Th...s SPECTER against SCido', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 5:  16%|█▋        | 40/244 [3:19:44<19:06:04, 337.08s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 5:   3%|▎         | 57/1856 [3:19:53<178:04:28, 356.35s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_3 in batches of 5:  12%|█▏        | 55/464 [3:19:59<28:16:01, 248.80s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.2.part_3 in batches of 5:  12%|█▏        | 57/466 [3:20:07<28:56:13, 254.70s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.code_comment.1.part_3 in batches of 5:  12%|█▏        | 56/460 [3:20:18<28:08:45, 250.81s/it]
+
+Processing root-project.root.v6-32-06.code_comment.2.part_1 in batches of 5:   5%|▍         | 23/488 [1:16:19<32:21:09, 250.47s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue in batches of 5:   3%|▎         | 51/1665 [3:20:39<112:25:58, 250.78s/it][A[A[A[A[A[A[A[A[A
+Processing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 5:  13%|█▎        | 62/460 [3:20:45<27:42:59, 250.70s/it][A
+
+
+
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 5:  68%|██████▊   | 45/66 [3:20:56<2:26:27, 418.45s/it][A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 5:  17%|█▋        | 41/244 [3:21:06<14:41:36, 260.57s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 5:   3%|▎         | 58/1856 [3:21:15<136:53:42, 274.09s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_3 in batches of 5:  12%|█▏        | 56/464 [3:21:21<22:31:53, 198.81s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.2.part_3 in batches of 5:  12%|█▏        | 58/466 [3:21:27<22:55:05, 202.22s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.code_comment.1.part_3 in batches of 5:  12%|█▏        | 57/460 [3:21:35<22:15:05, 198.77s/it]
+
+Processing root-project.root.v6-32-06.code_comment.2.part_1 in batches of 5:   5%|▍         | 24/488 [1:17:33<25:27:53, 197.57s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue in batches of 5:   3%|▎         | 52/1665 [3:21:51<88:20:52, 197.18s/it] [A[A[A[A[A[A[A[A[A
+Processing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 5:  14%|█▎        | 63/460 [3:22:01<21:50:42, 198.09s/it][A
+
+
+
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 5:  70%|██████▉   | 46/66 [3:22:11<1:45:08, 315.42s/it][A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 5:  17%|█▋        | 42/244 [3:22:23<11:32:39, 205.74s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 5:   3%|▎         | 59/1856 [3:22:32<107:15:57, 214.89s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_3 in batches of 5:  12%|█▏        | 57/464 [3:22:39<18:23:33, 162.69s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.2.part_3 in batches of 5:  13%|█▎        | 59/466 [3:22:44<18:38:30, 164.89s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.code_comment.1.part_3 in batches of 5:  13%|█▎        | 58/460 [3:22:50<18:02:06, 161.51s/it]
+
+Processing root-project.root.v6-32-06.code_comment.2.part_1 in batches of 5:   5%|▌         | 25/488 [1:18:46<20:36:54, 160.29s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue in batches of 5:   3%|▎         | 53/1665 [3:23:04<71:34:05, 159.83s/it][A[A[A[A[A[A[A[A[A
+Processing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 5:  14%|█▍        | 64/460 [3:23:13<17:37:56, 160.29s/it][A
+
+
+
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 5:  71%|███████   | 47/66 [3:23:21<1:16:36, 241.91s/it][A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 5:  18%|█▊        | 43/244 [3:23:31<9:10:38, 164.37s/it] [A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 5:   3%|▎         | 60/1856 [3:23:40<85:10:23, 170.73s/it] [A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_3 in batches of 5:  12%|█▎        | 58/464 [3:23:48<15:08:44, 134.30s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.2.part_3 in batches of 5:  13%|█▎        | 60/466 [3:23:57<15:27:45, 137.11s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.code_comment.1.part_3 in batches of 5:  13%|█▎        | 59/460 [3:24:02<15:01:16, 134.85s/it]
+
+Processing root-project.root.v6-32-06.code_comment.2.part_1 in batches of 5:   5%|▌         | 26/488 [1:20:05<17:25:18, 135.75s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue in batches of 5:   3%|▎         | 54/1665 [3:24:26<61:05:07, 136.50s/it][A[A[A[A[A[A[A[A[A
+Processing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 5:  14%|█▍        | 65/460 [3:24:32<14:54:57, 135.94s/it][A
+
+
+
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 5:  73%|███████▎  | 48/66 [3:24:41<57:58, 193.24s/it]  [A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 5:  18%|█▊        | 44/244 [3:24:53<7:45:30, 139.65s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 5:   3%|▎         | 61/1856 [3:25:00<71:30:31, 143.42s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_3 in batches of 5:  13%|█▎        | 59/464 [3:25:05<13:11:51, 117.31s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.2.part_3 in batches of 5:  13%|█▎        | 61/466 [3:25:15<13:26:38, 119.50s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.code_comment.1.part_3 in batches of 5:  13%|█▎        | 60/460 [3:25:22<13:07:54, 118.19s/it]
+
+Processing root-project.root.v6-32-06.code_comment.2.part_1 in batches of 5:   6%|▌         | 27/488 [1:21:19<15:01:35, 117.34s/it][A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue in batches of 5:   3%|▎         | 55/1665 [3:25:40<52:38:19, 117.70s/it][A[A[A[A[A[A[A[A[A
+Processing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 5:  14%|█▍        | 66/460 [3:25:45<12:49:40, 117.21s/it][A
+
+
+
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 5:  74%|███████▍  | 49/66 [3:25:52<44:23, 156.66s/it][A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 5:  18%|█▊        | 45/244 [3:26:02<6:32:09, 118.24s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 5:   3%|▎         | 62/1856 [3:26:12<60:48:26, 122.02s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_3 in batches of 5:  13%|█▎        | 60/464 [3:26:21<11:45:19, 104.75s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.2.part_3 in batches of 5:  13%|█▎        | 62/466 [3:26:28<11:50:04, 105.46s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.code_comment.1.part_3 in batches of 5:  13%|█▎        | 61/460 [3:26:34<11:35:10, 104.54s/it]
+
+Processing root-project.root.v6-32-06.code_comment.2.part_1 in batches of 5:   6%|▌         | 28/488 [1:22:30<13:12:39, 103.39s/it][A[A2025-08-16 20:44:38.626 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 139238552767040: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 418619 [type=json_invalid, input_value='{"analysis_summary": "Th... or project management,', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 5:  15%|█▍        | 67/460 [3:27:29<12:21:54, 113.27s/it][A
+
+
+
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 5:  76%|███████▌  | 50/66 [3:27:39<37:47, 141.70s/it][A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 5:  19%|█▉        | 46/244 [3:27:52<6:22:20, 115.86s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 5:   3%|▎         | 63/1856 [3:28:03<59:06:30, 118.68s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_3 in batches of 5:  13%|█▎        | 61/464 [3:28:12<11:57:42, 106.85s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.2.part_3 in batches of 5:  14%|█▎        | 63/466 [3:28:17<11:54:41, 106.41s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.code_comment.1.part_3 in batches of 5:  13%|█▎        | 62/460 [3:28:34<12:02:51, 108.97s/it]
+
+Processing root-project.root.v6-32-06.code_comment.2.part_1 in batches of 5:   6%|▌         | 29/488 [1:24:32<13:54:12, 109.05s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_1 in batches of 5:  13%|█▎        | 61/468 [3:28:49<48:59:56, 433.41s/it][A[A[A[A[A
+Processing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 5:  15%|█▍        | 68/460 [3:28:55<11:25:54, 104.99s/it][A
+
+
+
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 5:  77%|███████▋  | 51/66 [3:29:04<31:11, 124.76s/it][A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 5:  19%|█▉        | 47/244 [3:29:16<5:49:01, 106.30s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 5:   3%|▎         | 64/1856 [3:29:25<53:41:48, 107.87s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_3 in batches of 5:  13%|█▎        | 62/464 [3:29:32<11:01:14, 98.69s/it] [A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.2.part_3 in batches of 5:  14%|█▎        | 64/466 [3:29:41<11:08:46, 99.82s/it] [A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.code_comment.1.part_3 in batches of 5:  14%|█▎        | 63/460 [3:29:49<10:54:55, 98.98s/it] 
+
+Processing root-project.root.v6-32-06.code_comment.2.part_1 in batches of 5:   6%|▌         | 30/488 [1:25:46<12:33:07, 98.66s/it] [A[A
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_1 in batches of 5:  13%|█▎        | 62/468 [3:30:03<36:44:07, 325.73s/it][A[A[A[A[A
+Processing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 5:  15%|█▌        | 69/460 [3:30:11<10:27:34, 96.30s/it] [A
+
+
+
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 5:  79%|███████▉  | 52/66 [3:30:20<25:38, 109.92s/it][A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 5:  20%|█▉        | 48/244 [3:30:27<5:13:11, 95.87s/it] [A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 5:   4%|▎         | 65/1856 [3:30:38<48:22:16, 97.23s/it] [A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_3 in batches of 5:  14%|█▎        | 63/464 [3:30:44<10:06:13, 90.71s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.2.part_3 in batches of 5:  14%|█▍        | 65/466 [3:30:56<10:17:27, 92.39s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.code_comment.1.part_3 in batches of 5:  14%|█▍        | 64/460 [3:31:03<10:03:42, 91.47s/it]
+
+Processing root-project.root.v6-32-06.code_comment.2.part_1 in batches of 5:   6%|▋         | 31/488 [1:26:58<11:29:08, 90.48s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_1 in batches of 5:  13%|█▎        | 63/468 [3:31:14<28:02:09, 249.21s/it][A[A[A[A[A
+Processing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 5:  15%|█▌        | 70/460 [3:31:19<9:31:23, 87.91s/it] [A
+
+
+
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 5:  80%|████████  | 53/66 [3:31:31<21:17, 98.28s/it] [A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 5:  20%|██        | 49/244 [3:31:40<4:48:25, 88.75s/it][A[A[A[A[A[A
