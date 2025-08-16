@@ -415,3 +415,43 @@ disable_cache: False
 Processing scverse.scanpy.1.10.2.wiki in batches of 5:  87%|████████▋ | 13/15 [36:45<05:39, 169.67s/it]
 Processing OpenGene.fastp.v0.23.4.issue_comment in batches of 5:  19%|█▉        | 13/69 [36:55<5:48:58, 373.90s/it]2025-08-16 15:03:49.783 | WARNING  | processing_pipeline.model.IBaseStage:_process_in_batches:226 - OpenGene.fastp.v0.23.4.issue_comment: Stopping processing, batch 65 of 344
 Processing OpenGene.fastp.v0.23.4.issue_comment in batches of 5:  19%|█▉        | 13/69 [36:55<2:39:03, 170.41s/it]
+
+
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 5:  14%|█▍        | 14/100 [37:03<8:54:20, 372.80s/it][A[A2025-08-16 15:03:57.470 | WARNING  | processing_pipeline.model.IBaseStage:_process_in_batches:226 - allenai.scispacy.v0.5.5.issue_comment: Stopping processing, batch 70 of 496
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 5:  14%|█▍        | 14/100 [37:03<3:47:35, 158.79s/it]
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 5:  28%|██▊       | 11/39 [37:14<3:47:42, 487.94s/it][A[A[A[A[A[A2025-08-16 15:04:09.045 | WARNING  | processing_pipeline.model.IBaseStage:_process_in_batches:226 - root-project.root.v6-32-06.wiki: Stopping processing, batch 55 of 195
+Processing root-project.root.v6-32-06.wiki in batches of 5:  28%|██▊       | 11/39 [37:14<1:34:48, 203.15s/it]
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 5:   1%|          | 14/1892 [37:22<179:38:07, 344.35s/it][A[A[A[A2025-08-16 15:04:16.465 | WARNING  | processing_pipeline.model.IBaseStage:_process_in_batches:226 - root-project.root.v6-32-06.issue_comment: Stopping processing, batch 70 of 9459
+Processing root-project.root.v6-32-06.issue_comment in batches of 5:   1%|          | 14/1892 [37:22<83:32:33, 160.15s/it] 
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 5:   3%|▎         | 7/275 [37:36<44:27:36, 597.22s/it][A[A[A2025-08-16 15:04:30.519 | WARNING  | processing_pipeline.model.IBaseStage:_process_in_batches:226 - scverse.scanpy.1.10.2.issue: Stopping processing, batch 35 of 1374
+Processing scverse.scanpy.1.10.2.issue in batches of 5:   3%|▎         | 7/275 [37:36<23:59:36, 322.30s/it]
+Exception ignored in: <module 'threading' from '/usr/lib/python3.12/threading.py'>
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/threading.py", line 1592, in _shutdown
+    atexit_call()
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 31, in _python_exit
+    t.join()
+  File "/usr/lib/python3.12/threading.py", line 1147, in join
+    self._wait_for_tstate_lock()
+  File "/usr/lib/python3.12/threading.py", line 1167, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dmitry/scientific-software-architecture-analysis/processing_pipeline/model/IBaseStage.py", line 120, in _cleanup_and_exit
+    sys.exit(0)  # Triggers the context manager's cleanup
+    ^^^^^^^^^^^
+SystemExit: 0
+Caught interrupt, cleaning up...
+Caught interrupt, cleaning up...
