@@ -502,4 +502,119 @@ disable_cache: False
 
 
 
-Processing root-project.root.v6-32-06.code_comment.3.part_1 in batches of 10:   3%|▎         | 8/244 [1:00:18<19:45:32, 301.41s/it][A[A[A[A[A[A[A[A
+Processing root-project.root.v6-32-06.code_comment.3.part_1 in batches of 10:   3%|▎         | 8/244 [1:00:18<19:45:32, 301.41s/it][A[A[A[A[A[A[A[A2025-08-16 16:43:53.595 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 130802568039408: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 498013 [type=json_invalid, input_value='{"analysis_summary": "Th... discusses how removing', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_3 in batches of 10:   5%|▍         | 12/244 [1:13:44<30:57:34, 480.41s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.code_comment.2.part_3 in batches of 10:   4%|▍         | 10/244 [1:13:59<31:33:04, 485.40s/it][A[A[A[A2025-08-16 16:46:16.694 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 130800886314816: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 462834 [type=json_invalid, input_value='{"analysis_summary": "Th...s that the architecture', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing OpenGene.fastp.v0.23.4.issue_comment in batches of 10:  32%|███▏      | 9/28 [1:15:58<3:01:54, 574.45s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 10:   5%|▍         | 12/244 [1:16:12<32:09:10, 498.92s/it]
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 10:   1%|          | 9/939 [1:16:30<189:55:40, 735.20s/it][A[A[A[A[A[A[A[A[A2025-08-16 16:59:54.485 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 130800883832960: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 472447 [type=json_invalid, input_value='{"analysis_summary": "Th...serialized and handled.', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_1 in batches of 10:   4%|▎         | 9/244 [1:29:36<49:23:41, 756.69s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_3 in batches of 10:   5%|▍         | 11/244 [1:29:51<55:35:55, 859.04s/it][A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_3 in batches of 10:   5%|▌         | 13/244 [1:30:06<40:33:46, 632.15s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.code_comment.2.part_3 in batches of 10:   5%|▍         | 11/244 [1:30:24<41:19:01, 638.38s/it][A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:   8%|▊         | 11/134 [1:30:55<27:25:16, 802.57s/it][A[A[A[A[A[A
+
+
+Processing OpenGene.fastp.v0.23.4.issue_comment in batches of 10:  36%|███▌      | 10/28 [1:31:12<3:23:42, 679.02s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 10:   5%|▌         | 13/244 [1:31:24<40:01:42, 623.82s/it]
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 10:   1%|          | 10/939 [1:31:39<203:33:57, 788.85s/it][A[A[A[A[A[A[A[A[A2025-08-16 17:02:27.763 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 130800884674400: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 524473 [type=json_invalid, input_value='{"analysis_summary": "Th... cross-cutting concerns', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 10:  23%|██▎       | 10/43 [1:32:03<7:30:45, 819.57s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_1 in batches of 10:   4%|▍         | 10/244 [1:32:11<37:06:28, 570.89s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_3 in batches of 10:   5%|▍         | 12/244 [1:32:16<41:22:33, 642.04s/it][A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_3 in batches of 10:   6%|▌         | 14/244 [1:32:26<30:53:44, 483.58s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 10:   9%|▉         | 12/134 [1:32:55<20:09:09, 594.66s/it][A[A[A[A[A[A
+
+
+Processing OpenGene.fastp.v0.23.4.issue_comment in batches of 10:  39%|███▉      | 11/28 [1:33:08<2:23:34, 506.71s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.4.part_3 in batches of 10:   6%|▌         | 14/244 [1:33:20<30:04:18, 470.69s/it]
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 10:   1%|          | 11/939 [1:33:39<150:34:44, 584.14s/it][A[A[A[A[A[A[A[A[A
