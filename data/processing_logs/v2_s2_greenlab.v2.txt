@@ -1006,4 +1006,20 @@ disable_cache: False
 
 
 
-Processing root-project.root.v6-32-06.docs.05 in batches of 5:   2%|▏         | 10/465 [31:14<18:55:17, 149.71s/it][A[A[A[A[A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   2%|▏         | 10/465 [31:14<18:55:17, 149.71s/it][A[A[A[A[A[A[A[A[A[AException ignored in: <module 'threading' from '/usr/lib/python3.12/threading.py'>
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/threading.py", line 1592, in _shutdown
+    atexit_call()
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 31, in _python_exit
+    t.join()
+  File "/usr/lib/python3.12/threading.py", line 1147, in join
+    self._wait_for_tstate_lock()
+  File "/usr/lib/python3.12/threading.py", line 1167, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dmitrijs/scientific-software-architecture-analysis/processing_pipeline/model/IBaseStage.py", line 120, in _cleanup_and_exit
+    sys.exit(0)  # Triggers the context manager's cleanup
+    ^^^^^^^^^^^
+SystemExit: 0
+Caught interrupt, cleaning up...
+Caught interrupt, cleaning up...
