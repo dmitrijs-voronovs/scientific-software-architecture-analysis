@@ -1,40 +1,81 @@
 nohup: ignoring input
-2025-08-17 21:09:54.353 | INFO     | processing_pipeline.model.IBaseStage:execute:331 - Executing s2 stage
-2025-08-17 21:09:54.354 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - scverse.scanpy.1.10.2.issue_comment.pt_3: Processing file
-2025-08-17 21:09:54.354 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - scverse.scanpy.1.10.2.issue_comment.pt_2: Processing file
-2025-08-17 21:09:54.354 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - scverse.scanpy.1.10.2.issue_comment: Processing file
-2025-08-17 21:09:54.366 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:234 - scverse.scanpy.1.10.2.issue_comment.pt_3: Continuing processing from 720
-2025-08-17 21:09:54.372 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:234 - scverse.scanpy.1.10.2.issue_comment: Continuing processing from 930
-2025-08-17 21:09:54.374 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:234 - scverse.scanpy.1.10.2.issue_comment.pt_2: Continuing processing from 660
+2025-08-17 21:21:54.144 | INFO     | processing_pipeline.model.IBaseStage:execute:332 - Executing s2 stage
+2025-08-17 21:21:54.144 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - scverse.scanpy.1.10.2.issue_comment.pt_3: Processing file
+2025-08-17 21:21:54.145 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - scverse.scanpy.1.10.2.issue_comment.pt_2: Processing file
+2025-08-17 21:21:54.145 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - scverse.scanpy.1.10.2.issue_comment: Processing file
+2025-08-17 21:21:54.159 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:234 - scverse.scanpy.1.10.2.issue_comment.pt_2: Continuing processing from 840
+2025-08-17 21:21:54.161 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:234 - scverse.scanpy.1.10.2.issue_comment: Continuing processing from 1110
+2025-08-17 21:21:54.163 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:234 - scverse.scanpy.1.10.2.issue_comment.pt_3: Continuing processing from 900
 Stage s2 params:
-stop_event: <threading.Event at 0x7d3a1683bb00: unset>
+stop_event: <threading.Event at 0x7ad557140d40: unset>
 model_fields: ['analysis_summary', 'architectural_signal', 'exclusionary_signal', 'final_logic', 'related_to_arch']
 hostname: http://localhost:11434
-model: model='deepseek-r1:1.5b' temperature=0.0 format={'description': 'Updated Pydantic model to match the new JSON output structure.', 'properties': {'analysis_summary': {'title': 'Analysis Summary', 'type': 'string'}, 'architectural_signal': {'title': 'Architectural Signal', 'type': 'string'}, 'exclusionary_signal': {'title': 'Exclusionary Signal', 'type': 'string'}, 'final_logic': {'title': 'Final Logic', 'type': 'string'}, 'related_to_arch': {'title': 'Related To Arch', 'type': 'boolean'}}, 'required': ['analysis_summary', 'architectural_signal', 'exclusionary_signal', 'final_logic', 'related_to_arch'], 'title': 'OllamaArchitectureResponse', 'type': 'object'} base_url='http://localhost:11434'
+model: model='deepseek-r1:1.5b' temperature=0.0 format={'description': 'Updated Pydantic model to match the new JSON output structure.', 'properties': {'analysis_summary': {'title': 'Analysis Summary', 'type': 'string'}, 'architectural_signal': {'title': 'Architectural Signal', 'type': 'string'}, 'exclusionary_signal': {'title': 'Exclusionary Signal', 'type': 'string'}, 'final_logic': {'title': 'Final Logic', 'type': 'string'}, 'related_to_arch': {'title': 'Related To Arch', 'type': 'boolean'}}, 'required': ['analysis_summary', 'architectural_signal', 'exclusionary_signal', 'final_logic', 'related_to_arch'], 'title': 'OllamaArchitectureResponse', 'type': 'object'} keep_alive='24h' base_url='http://localhost:11434'
 batch_size: 30
 n_threads: 3
 disable_cache: False
 
 
-Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:   0%|          | 0/20 [00:00<?, ?it/s]
-Processing scverse.scanpy.1.10.2.issue_comment in batches of 30:   0%|          | 0/13 [00:00<?, ?it/s][A
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:   0%|          | 0/16 [00:00<?, ?it/s]
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 30:   0%|          | 0/7 [00:00<?, ?it/s][A
 
-Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:   0%|          | 0/22 [00:00<?, ?it/s][A[A
-Processing scverse.scanpy.1.10.2.issue_comment in batches of 30:   8%|▊         | 1/13 [00:45<09:10, 45.89s/it][A
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:   0%|          | 0/14 [00:00<?, ?it/s][A[A
 
-Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:   5%|▍         | 1/22 [00:47<16:35, 47.42s/it][A[AProcessing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:   5%|▌         | 1/20 [00:49<15:31, 49.03s/it]
-Processing scverse.scanpy.1.10.2.issue_comment in batches of 30:  15%|█▌        | 2/13 [01:01<05:09, 28.13s/it][A
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:   7%|▋         | 1/14 [00:41<09:03, 41.80s/it][A[AProcessing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:   6%|▋         | 1/16 [00:42<10:32, 42.14s/it]
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 30:  14%|█▍        | 1/7 [00:42<04:16, 42.79s/it][A
 
-Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:   9%|▉         | 2/22 [01:14<11:46, 35.33s/it][A[AProcessing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:  10%|█         | 2/20 [01:26<12:43, 42.42s/it]
-Processing scverse.scanpy.1.10.2.issue_comment in batches of 30:  23%|██▎       | 3/13 [01:40<05:32, 33.25s/it][A
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:  14%|█▍        | 2/14 [00:57<05:16, 26.34s/it][A[AProcessing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  12%|█▎        | 2/16 [01:12<08:14, 35.32s/it]
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 30:  29%|██▊       | 2/7 [01:27<03:40, 44.07s/it][A
 
-Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  14%|█▎        | 3/22 [01:56<12:13, 38.58s/it][A[AProcessing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:  15%|█▌        | 3/20 [02:11<12:15, 43.29s/it]
-Processing scverse.scanpy.1.10.2.issue_comment in batches of 30:  31%|███       | 4/13 [02:25<05:40, 37.78s/it][A
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:  21%|██▏       | 3/14 [01:42<06:24, 34.97s/it][A[A
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 30:  43%|████▎     | 3/7 [02:36<03:42, 55.54s/it][A
 
-Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  18%|█▊        | 4/22 [02:38<11:54, 39.71s/it][A[AProcessing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:  20%|██        | 4/20 [02:50<11:10, 41.92s/it]
-Processing scverse.scanpy.1.10.2.issue_comment in batches of 30:  38%|███▊      | 5/13 [03:05<05:09, 38.69s/it][A
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:  29%|██▊       | 4/14 [03:01<08:42, 52.24s/it][A[A
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 30:  57%|█████▋    | 4/7 [03:32<02:47, 55.70s/it][A
 
-Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  23%|██▎       | 5/22 [03:19<11:26, 40.39s/it][A[AProcessing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:  25%|██▌       | 5/20 [03:32<10:25, 41.70s/it]
-Processing scverse.scanpy.1.10.2.issue_comment in batches of 30:  46%|████▌     | 6/13 [03:47<04:38, 39.76s/it][A
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:  36%|███▌      | 5/14 [04:00<08:11, 54.58s/it][A[A2025-08-17 21:32:06.500 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 135056707998528: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 532024 [type=json_invalid, input_value='{"analysis_summary": "Th...hat this implementation', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
 
-Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  27%|██▋       | 6/22 [04:02<10:59, 41.19s/it][A[AProcessing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:  30%|███       | 6/20 [04:15<09:50, 42.20s/it]
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:  43%|████▎     | 6/14 [10:44<23:07, 173.42s/it][A[AProcessing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  19%|█▉        | 3/16 [11:16<1:03:55, 295.00s/it]
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:  50%|█████     | 7/14 [11:45<15:56, 136.70s/it][A[AProcessing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  25%|██▌       | 4/16 [12:15<40:22, 201.85s/it]  
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:  57%|█████▋    | 8/14 [12:47<11:17, 112.85s/it][A[A2025-08-17 21:34:44.028 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 135056657718624: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 361240 [type=json_invalid, input_value='{"analysis_summary": "Th...t the rubric again: The', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  31%|███▏      | 5/16 [13:03<26:49, 146.27s/it]
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:  64%|██████▍   | 9/14 [13:16<07:13, 86.68s/it] [A[A
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 30:  71%|███████▏  | 5/7 [13:32<08:23, 251.82s/it][AProcessing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  38%|███▊      | 6/16 [13:46<18:32, 111.22s/it]2025-08-17 21:44:17.156 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 135056660290048: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 450066 [type=json_invalid, input_value='{"analysis_summary": "Th...uardrails. There are no', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 30:  86%|████████▌ | 6/7 [22:33<05:50, 350.11s/it][AProcessing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  44%|████▍     | 7/16 [22:48<37:48, 252.04s/it]
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:  71%|███████▏  | 10/14 [23:02<16:03, 240.96s/it][A[A
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 30: 100%|██████████| 7/7 [23:10<00:00, 247.78s/it][AProcessing scverse.scanpy.1.10.2.issue_comment in batches of 30: 100%|██████████| 7/7 [23:10<00:00, 198.64s/it]
+2025-08-17 21:45:04.616 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:273 - scverse.scanpy.1.10.2.issue_comment: Finished processing
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  50%|█████     | 8/16 [23:27<24:33, 184.14s/it]
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:  79%|███████▊  | 11/14 [23:42<08:58, 179.52s/it][A[AProcessing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  56%|█████▋    | 9/16 [23:57<15:51, 135.95s/it]
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:  86%|████████▌ | 12/14 [24:11<04:27, 133.76s/it][A[AProcessing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  62%|██████▎   | 10/16 [24:24<10:14, 102.36s/it]
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30:  93%|█████████▎| 13/14 [24:38<01:41, 101.38s/it][A[AProcessing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  69%|██████▉   | 11/16 [24:53<06:39, 79.86s/it] 
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30: 100%|██████████| 14/14 [25:00<00:00, 77.46s/it] [A[AProcessing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 30: 100%|██████████| 14/14 [25:00<00:00, 107.21s/it]
+2025-08-17 21:46:55.088 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:273 - scverse.scanpy.1.10.2.issue_comment.pt_3: Finished processing
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  75%|███████▌  | 12/16 [25:14<04:08, 62.09s/it]2025-08-17 21:52:23.823 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 135056697784944: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 503485 [type=json_invalid, input_value='{"analysis_summary": "Th...gnificant architectural', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  81%|████████▏ | 13/16 [30:46<07:11, 143.81s/it]2025-08-17 21:57:59.057 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 135056698095616: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 446873 [type=json_invalid, input_value='{"analysis_summary": "Th...ithms. So, the analysis', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  88%|████████▊ | 14/16 [36:24<06:44, 202.50s/it]Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30:  94%|█████████▍| 15/16 [36:37<02:25, 145.21s/it]Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30: 100%|██████████| 16/16 [36:44<00:00, 103.55s/it]Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 30: 100%|██████████| 16/16 [36:44<00:00, 137.75s/it]
+2025-08-17 21:58:38.194 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:273 - scverse.scanpy.1.10.2.issue_comment.pt_2: Finished processing
+2025-08-17 21:58:38.194 | INFO     | processing_pipeline.model.IBaseStage:execute:354 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s1_qa_relevance_check_o/scverse.scanpy.1.10.2.issue_comment.pt_2.parquet: Thread finished processing the file
+2025-08-17 21:58:38.194 | INFO     | processing_pipeline.model.IBaseStage:execute:354 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s1_qa_relevance_check_o/scverse.scanpy.1.10.2.issue_comment.parquet: Thread finished processing the file
+2025-08-17 21:58:38.194 | INFO     | processing_pipeline.model.IBaseStage:execute:354 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s1_qa_relevance_check_o/scverse.scanpy.1.10.2.issue_comment.pt_3.parquet: Thread finished processing the file
+2025-08-17 21:58:38.194 | INFO     | processing_pipeline.model.IBaseStage:execute:361 - Finished s2 stage
