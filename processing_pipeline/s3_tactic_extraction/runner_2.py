@@ -1,9 +1,9 @@
 from cfg.LLMHost import LLMHost
-from processing_pipeline.s3_tactic_extraction.TacticExtraction import TacticExtractionStage
+from processing_pipeline.s3_tactic_extraction.TacticExtraction_v2 import TacticExtractionStage_v2
 
 
 def main():
-    TacticExtractionStage(hostname=LLMHost.SERVER).execute(["issue.", "docs"], reverse=True)
+    TacticExtractionStage_v2(hostname=LLMHost.SERVER).execute(["issue.", "docs"], reverse=True)
 
 
 if __name__ == "__main__":
