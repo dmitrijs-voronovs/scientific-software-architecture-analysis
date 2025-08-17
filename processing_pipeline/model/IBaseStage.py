@@ -1,4 +1,5 @@
 import concurrent.futures.thread
+import dataclasses
 import math
 import os
 import shelve
@@ -10,6 +11,7 @@ from pathlib import Path
 from typing import List
 
 import pandas as pd
+import pyarrow.parquet as pq
 from langchain_core.messages import SystemMessage, HumanMessage
 from langchain_ollama import ChatOllama
 from loguru import logger
@@ -88,9 +90,8 @@ class IBaseStage(metaclass=ABCMeta):
                                    "RuntimeError cannot schedule new futures after interpreter shutdown"]
 
     def __init__(self, hostname: str = LLMHost.SERVER, *, batch_size_override: int = None,
-                 n_threads_override: int = None,
-                 disable_cache=False, model_name_override: str = None, in_dir_override: Path = None,
-                 out_dir_override: Path = None, cot_prompt=False):
+                 n_threads_override: int = None, disable_cache=False, model_name_override: str = None,
+                 in_dir_override: Path = None, out_dir_override: Path = None, cot_prompt=False):
         self.stop_event = threading.Event()
         self.model_fields = list(self.data_model.model_fields.keys())
         self.hostname = hostname
@@ -169,8 +170,7 @@ class IBaseStage(metaclass=ABCMeta):
         return f"{self.stage_name}_{field_name}"
 
     def _get_shelf_paths(self, file_path: Path):
-        return [self.cache_dir / f"{file_path.stem}.dat",
-                self.cache_dir / f"{file_path.stem}.bak",
+        return [self.cache_dir / f"{file_path.stem}.dat", self.cache_dir / f"{file_path.stem}.bak",
                 self.cache_dir / f"{file_path.stem}.dir"]
 
     def update_last_processed_item(self, filename_with_ext: str, last_idx: int):
@@ -178,13 +178,33 @@ class IBaseStage(metaclass=ABCMeta):
 
         shelf_path = self._prepare_shelf_with_path(Path(filename_with_ext))
         with shelve.open(shelf_path) as db:
-            db["last_idx"] = last_idx
+            db["idx"] = last_idx
         logger.info(f"Updated last processed item for {filename_with_ext} to {last_idx}")
 
     def clean_cache(self, filename_with_ext: str):
         for shelf_file_path in self._get_shelf_paths(Path(filename_with_ext)):
             shelf_file_path.unlink()
         logger.info(f"Cleaned cache for file {filename_with_ext}")
+
+    def get_processing_results(self) -> pd.DataFrame:
+        @dataclasses.dataclass
+        class ProcessingResults:
+            file_path: Path
+            filename: str
+            n_items: int
+            last_idx: int
+            processed: bool
+
+        data: List[ProcessingResults] = []
+        for file_path_s in self.in_dir.glob(f"*{self.file_ext}"):
+            path = Path(file_path_s)
+            shelf_path = self._prepare_shelf_with_path(path)
+            with shelve.open(shelf_path) as db:
+                last_idx, processed = db.get("idx", 0), db.get("processed", False)
+            n_tems = pq.ParquetFile(path).metadata.num_rows
+            data.append(ProcessingResults(path, path.stem, n_tems, last_idx, processed))
+
+        return pd.DataFrame(data)
 
     def _process_in_batches(self, file_path: Path, res_filepath: Path):
         logger.info(f"{file_path.stem}: Processing file")
@@ -236,8 +256,7 @@ class IBaseStage(metaclass=ABCMeta):
                 logger.error(f"Error processing batch {last_idx + batch_n}")
                 continue
 
-            df_with_responses = pd.DataFrame(llm_responses,
-                                             columns=self.get_columns(), index=batch_index)
+            df_with_responses = pd.DataFrame(llm_responses, columns=self.get_columns(), index=batch_index)
             df.loc[batch_index, df_with_responses.columns] = df_with_responses.values
 
             resulting_df = df.iloc[:batch_end]
@@ -255,8 +274,7 @@ class IBaseStage(metaclass=ABCMeta):
 
     def get_columns(self):
         # noinspection PyUnresolvedReferences
-        return [self.get_stage_column_name(field) for field in
-                # self.model_fields]
+        return [self.get_stage_column_name(field) for field in # self.model_fields]
                 self.data_model.model_fields.keys()]
 
     @staticmethod
@@ -327,8 +345,7 @@ class IBaseStage(metaclass=ABCMeta):
                         continue
 
                     res_filepath = self.out_dir / f"{file_path.stem}{self.file_ext}"
-                    futures_to_filenames[
-                        executor.submit(self._process_in_batches, file_path, res_filepath)] = file_path
+                    futures_to_filenames[executor.submit(self._process_in_batches, file_path, res_filepath)] = file_path
 
             for future in concurrent.futures.as_completed(futures_to_filenames):
                 try:
