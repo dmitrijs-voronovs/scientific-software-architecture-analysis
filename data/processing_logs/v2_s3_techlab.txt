@@ -1,0 +1,124 @@
+nohup: ignoring input
+2025-08-18 00:01:13.858 | INFO     | processing_pipeline.model.IBaseStage:execute:332 - Executing s3 stage
+2025-08-18 00:01:13.858 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - allenai.scispacy.v0.5.5.code_comment: Processing file
+2025-08-18 00:01:13.858 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - allenai.scispacy.v0.5.5.issue_comment: Processing file
+2025-08-18 00:01:13.859 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - OpenGene.fastp.v0.23.4.release: Processing file
+2025-08-18 00:01:13.859 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - OpenGene.fastp.v0.23.4.issue_comment: Processing file
+2025-08-18 00:01:13.859 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - allenai.scispacy.v0.5.5.issue: Processing file
+2025-08-18 00:01:13.860 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - OpenGene.fastp.v0.23.4.code_comment: Processing file
+2025-08-18 00:01:13.860 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - allenai.scispacy.v0.5.5.docs: Processing file
+Stage s3 params:
+stop_event: <threading.Event at 0x7c1a3d373da0: unset>
+model_fields: ['architectural_activity_extraction', 'core_concept_analysis', 'is_tactic_relevant', 'relevance_reason', 'tactic_evaluation', 'selected_tactic', 'justification']
+hostname: http://localhost:11434
+model: model='deepseek-r1:1.5b' temperature=0.0 format={'description': 'Pydantic model for the multi-stage filtering and semantic analysis JSON output.', 'properties': {'architectural_activity_extraction': {'title': 'Architectural Activity Extraction', 'type': 'string'}, 'core_concept_analysis': {'title': 'Core Concept Analysis', 'type': 'string'}, 'is_tactic_relevant': {'title': 'Is Tactic Relevant', 'type': 'boolean'}, 'relevance_reason': {'title': 'Relevance Reason', 'type': 'string'}, 'tactic_evaluation': {'title': 'Tactic Evaluation', 'type': 'string'}, 'selected_tactic': {'enum': ['Ping/Echo', 'Monitor', 'Heartbeat', 'Timestamp', 'Sanity Checking', 'Condition Monitoring', 'Voting', 'Exception Detection', 'Self-Test', 'Active Redundancy', 'Passive Redundancy', 'Spare', 'Exception Handling', 'Rollback', 'Software Upgrade', 'Retry', 'Ignore Faulty Behavior', 'Degradation', 'Reconfiguration', 'Shadow', 'State Resynchronization', 'Escalating Restart', 'Non-Stop Forwarding', 'Removal from Service', 'Transactions', 'Predictive Model', 'Exception Prevention', 'Increase Competence Set', 'Discover Service', 'Orchestrate', 'Tailor Interface', 'Split Module', 'Increase Semantic Coherence', 'Encapsulate', 'Use an Intermediary', 'Restrict Dependencies', 'Refactor', 'Abstract Common Services', 'Component Replacement', 'Compile-time Parameterization', 'Aspects', 'Configuration-time Binding', 'Resource Files', 'Runtime Registration', 'Dynamic Lookup', 'Interpret Parameters', 'Startup Time Binding', 'Name Servers', 'Plug-ins', 'Publish-Subscribe', 'Shared Repositories', 'Polymorphism', 'Manage Sampling Rate', 'Limit Event Response', 'Prioritize Events', 'Reduce Overhead', 'Bound Execution Times', 'Increase Resource Efficiency', 'Increase Resources', 'Introduce Concurrency', 'Maintain Multiple Copies of Computations', 'Maintain Multiple Copies of Data', 'Bound Queue Sizes', 'Schedule Resources', 'Detect Intrusion', 'Detect Service Denial', 'Verify Message Integrity', 'Detect Message Delay', 'Identify Actors', 'Authenticate Actors', 'Authorize Actors', 'Limit Access', 'Limit Exposure', 'Encrypt Data', 'Separate Entities', 'Change Default Settings', 'Revoke Access', 'Lock Computer', 'Inform Actors', 'Maintain Audit Trail', 'Restore', 'Specialized Interfaces', 'Record/Playback', 'Localize State Storage', 'Abstract Data Sources', 'Sandbox', 'Executable Assertions', 'Limit Structural Complexity', 'Limit Nondeterminism', 'Increase semantic coherence', 'Co-locate related responsibilities', 'Restrict dependencies', 'Defer binding', 'Cancel', 'Undo', 'Pause/resume', 'Aggregate', 'Maintain task models', 'Maintain user models', 'Maintain system models', 'Metering', 'Static Classification', 'Dynamic Classification', 'Vertical Scaling', 'Horizontal Scaling', 'Scheduling', 'Brokering', 'Service Adaptation', 'Increase Efficiency', 'None'], 'title': 'Selected Tactic', 'type': 'string'}, 'justification': {'title': 'Justification', 'type': 'string'}}, 'required': ['architectural_activity_extraction', 'core_concept_analysis', 'is_tactic_relevant', 'relevance_reason', 'tactic_evaluation', 'selected_tactic', 'justification'], 'title': 'TacticModelResponse', 'type': 'object'} keep_alive='24h' base_url='http://localhost:11434'
+batch_size: 12
+n_threads: 6
+disable_cache: False
+
+
+Processing allenai.scispacy.v0.5.5.code_comment in batches of 12:   0%|          | 0/1 [00:00<?, ?it/s]
+Processing allenai.scispacy.v0.5.5.docs in batches of 12:   0%|          | 0/2 [00:00<?, ?it/s][A
+
+Processing OpenGene.fastp.v0.23.4.release in batches of 12:   0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 12:   0%|          | 0/92 [00:00<?, ?it/s][A[A[A
+
+
+
+Processing OpenGene.fastp.v0.23.4.issue_comment in batches of 12:   0%|          | 0/71 [00:00<?, ?it/s][A[A[A[A
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.code_comment in batches of 12:   0%|          | 0/12 [00:00<?, ?it/s][A[A[A[A[A
+
+Processing OpenGene.fastp.v0.23.4.release in batches of 12: 100%|██████████| 1/1 [00:52<00:00, 52.37s/it][A[AProcessing OpenGene.fastp.v0.23.4.release in batches of 12: 100%|██████████| 1/1 [00:52<00:00, 52.37s/it]
+2025-08-18 00:02:06.263 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:273 - OpenGene.fastp.v0.23.4.release: Finished processing
+2025-08-18 00:02:06.263 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - allenai.scispacy.v0.5.5.release: Processing file
+
+
+Processing allenai.scispacy.v0.5.5.release in batches of 12:   0%|          | 0/2 [00:00<?, ?it/s][A[A2025-08-18 00:17:52.230 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 136452136251232: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 5 column 479725 [type=json_invalid, input_value='{\n\n"architectural_acti...ters such as processing', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.issue_comment in batches of 12:   1%|▏         | 1/71 [16:40<19:26:52, 1000.19s/it][A[A[A[AProcessing allenai.scispacy.v0.5.5.code_comment in batches of 12: 100%|██████████| 1/1 [16:40<00:00, 1000.60s/it]Processing allenai.scispacy.v0.5.5.code_comment in batches of 12: 100%|██████████| 1/1 [16:40<00:00, 1000.60s/it]
+2025-08-18 00:17:54.489 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:273 - allenai.scispacy.v0.5.5.code_comment: Finished processing
+2025-08-18 00:17:54.489 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - OpenGene.fastp.v0.23.4.docs: Processing file
+Processing OpenGene.fastp.v0.23.4.docs in batches of 12:   0%|          | 0/2 [00:00<?, ?it/s]2025-08-18 00:17:57.545 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 136452136244896: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 498124 [type=json_invalid, input_value='{\n\n"architectural_acti...ade during installation', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.code_comment in batches of 12:   8%|▊         | 1/12 [16:45<3:04:18, 1005.29s/it][A[A[A[A[A
+
+Processing allenai.scispacy.v0.5.5.release in batches of 12:  50%|█████     | 1/2 [16:23<16:23, 983.83s/it][A[A
+
+
+
+Processing OpenGene.fastp.v0.23.4.issue_comment in batches of 12:   3%|▎         | 2/71 [17:36<8:31:32, 444.81s/it]  [A[A[A[AProcessing OpenGene.fastp.v0.23.4.docs in batches of 12:  50%|█████     | 1/2 [01:28<01:28, 88.59s/it]
+
+
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 12:   1%|          | 1/92 [18:24<27:54:41, 1104.19s/it][A[A[A
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.code_comment in batches of 12:  17%|█▋        | 2/12 [18:45<1:20:49, 484.95s/it] [A[A[A[A[A
+Processing allenai.scispacy.v0.5.5.docs in batches of 12:  50%|█████     | 1/2 [19:06<19:06, 1146.59s/it][A
+
+Processing allenai.scispacy.v0.5.5.release in batches of 12: 100%|██████████| 2/2 [18:21<00:00, 474.24s/it][A[AProcessing allenai.scispacy.v0.5.5.release in batches of 12: 100%|██████████| 2/2 [18:21<00:00, 550.68s/it]
+2025-08-18 00:20:27.623 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:273 - allenai.scispacy.v0.5.5.release: Finished processing
+2025-08-18 00:20:27.623 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - OpenGene.fastp.v0.23.4.issue: Processing file
+
+
+Processing OpenGene.fastp.v0.23.4.issue in batches of 12:   0%|          | 0/11 [00:00<?, ?it/s][A[A2025-08-18 00:20:42.690 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 136451986532848: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 803 [type=json_invalid, input_value='{\n\n"architectural_acti...TTTTTTTTTTTTTTTTTTTTTTT', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 12:   2%|▏         | 2/92 [20:37<13:19:36, 533.07s/it] [A[A[A
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.code_comment in batches of 12:  25%|██▌       | 3/12 [21:15<49:47, 331.91s/it]  [A[A[A[A[A
+Processing allenai.scispacy.v0.5.5.docs in batches of 12: 100%|██████████| 2/2 [21:48<00:00, 567.44s/it] [AProcessing allenai.scispacy.v0.5.5.docs in batches of 12: 100%|██████████| 2/2 [21:48<00:00, 654.31s/it]
+2025-08-18 00:23:02.515 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:273 - allenai.scispacy.v0.5.5.docs: Finished processing
+
+
+Processing OpenGene.fastp.v0.23.4.issue in batches of 12:   9%|▉         | 1/11 [03:18<33:08, 198.83s/it][A[A2025-08-18 00:24:26.209 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 136451986532848: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 802 [type=json_invalid, input_value='{\n\n"architectural_acti...TTTTTTTTTTTTTTTTTTTTTTT', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 12:   3%|▎         | 3/92 [23:54<9:23:18, 379.76s/it] [A[A[A
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.code_comment in batches of 12:  33%|███▎      | 4/12 [24:36<37:20, 280.01s/it][A[A[A[A[A
+
+Processing OpenGene.fastp.v0.23.4.issue in batches of 12:  18%|█▊        | 2/11 [06:06<27:03, 180.36s/it][A[A2025-08-18 00:27:07.821 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 136451986532848: attempt #3; slept for 15.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 803 [type=json_invalid, input_value='{\n\n"architectural_acti...TTTTTTTTTTTTTTTTTTTTTTT', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing allenai.scispacy.v0.5.5.issue_comment in batches of 12:   4%|▍         | 4/92 [26:31<7:07:41, 291.61s/it][A[A[A
+
+
+
+
+Processing OpenGene.fastp.v0.23.4.code_comment in batches of 12:  42%|████▏     | 5/12 [27:31<28:16, 242.41s/it][A[A[A[A[A
+
+Processing OpenGene.fastp.v0.23.4.issue in batches of 12:  27%|██▋       | 3/11 [08:58<23:34, 176.82s/it][A[A
