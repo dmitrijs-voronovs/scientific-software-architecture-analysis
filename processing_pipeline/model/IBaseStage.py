@@ -186,7 +186,7 @@ class IBaseStage(metaclass=ABCMeta):
             shelf_file_path.unlink()
         logger.info(f"Cleaned cache for file {filename_with_ext}")
 
-    def get_processing_results(self) -> pd.DataFrame:
+    def get_processing_status(self) -> pd.DataFrame:
         @dataclasses.dataclass
         class ProcessingResults:
             file_path: Path
