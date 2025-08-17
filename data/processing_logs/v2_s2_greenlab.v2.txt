@@ -20068,4 +20068,4208 @@ disable_cache: False
 
 
 
-Processing root-project.root.v6-32-06.docs.02 in batches of 5:   4%|▍         | 17/453 [31:43<20:01:10, 165.30s/it][A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.code_comment.0.part_0 in batches of 5:  99%|█████████▉| 427/432 [15:44:53<12:15, 147.15s/it]
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   4%|▍         | 17/453 [31:43<20:01:10, 165.30s/it][A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.code_comment.0.part_0 in batches of 5:  99%|█████████▉| 427/432 [15:44:53<12:15, 147.15s/it]2025-08-17 07:09:49.724 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541809840976: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 488795 [type=json_invalid, input_value='{"analysis_summary": "Th.... These changes address', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   2%|▏         | 10/451 [55:56<40:29:22, 330.53s/it][A[A[A[A[A[A2025-08-17 07:14:26.334 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541810474752: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 449375 [type=json_invalid, input_value='{"analysis_summary": "Th...f localized issues like', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:   7%|▋         | 32/484 [1:06:03<34:27:23, 274.43s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   4%|▍         | 18/452 [49:15<40:18:41, 334.38s/it][A[A[A[A[A2025-08-17 07:18:19.890 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541809707104: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 463911 [type=json_invalid, input_value='{"analysis_summary": "Th...ask sensitive data. The', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  99%|█████████▉| 404/409 [15:57:10<28:38, 343.76s/it][A[A2025-08-17 07:22:57.856 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541808166960: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 485607 [type=json_invalid, input_value='{"analysis_summary": "Th...ut doesn\'t address how', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.code_comment.0.part_0 in batches of 5:  99%|█████████▉| 428/432 [16:01:53<27:16, 409.01s/it]
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   6%|▌         | 25/453 [1:10:03<65:15:38, 548.92s/it][A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   2%|▏         | 11/451 [1:09:17<58:00:10, 474.57s/it][A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  93%|█████████▎| 411/442 [16:02:10<4:33:01, 528.44s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:   7%|▋         | 33/484 [1:15:01<44:17:00, 353.48s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   4%|▍         | 19/452 [58:12<47:32:50, 395.31s/it][A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   1%|▏         | 7/488 [33:09<65:17:47, 488.71s/it][A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  99%|█████████▉| 405/409 [16:02:37<22:34, 338.67s/it][A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   3%|▎         | 14/424 [49:39<50:50:52, 446.47s/it][A[A[A[AProcessing root-project.root.v6-32-06.code_comment.0.part_0 in batches of 5:  99%|█████████▉| 429/432 [16:02:46<15:06, 302.03s/it]
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   6%|▌         | 26/453 [1:10:54<47:23:38, 399.57s/it][A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   3%|▎         | 12/451 [1:10:07<42:06:14, 345.27s/it][A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  93%|█████████▎| 412/442 [16:03:02<3:12:41, 385.37s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:   7%|▋         | 34/484 [1:15:51<32:49:30, 262.60s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   4%|▍         | 20/452 [59:03<35:01:27, 291.87s/it][A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   2%|▏         | 8/488 [33:52<46:14:20, 346.79s/it][A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5:  99%|█████████▉| 406/409 [16:03:20<12:30, 250.02s/it][A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   4%|▎         | 15/424 [50:21<36:53:06, 324.66s/it][A[A[A[AProcessing root-project.root.v6-32-06.code_comment.0.part_0 in batches of 5: 100%|█████████▉| 430/432 [16:03:29<07:29, 224.52s/it]
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   6%|▌         | 27/453 [1:11:38<34:40:04, 292.97s/it][A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   3%|▎         | 13/451 [1:10:52<30:56:10, 254.27s/it][A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  93%|█████████▎| 413/442 [16:03:45<2:16:37, 282.69s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:   7%|▋         | 35/484 [1:16:36<24:35:54, 197.23s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   5%|▍         | 21/452 [59:49<26:05:53, 217.99s/it][A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   2%|▏         | 9/488 [34:38<33:39:44, 252.99s/it][A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5: 100%|█████████▉| 407/409 [16:04:08<06:18, 189.26s/it][A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   4%|▍         | 16/424 [51:08<27:18:08, 240.90s/it][A[A[A[AProcessing root-project.root.v6-32-06.code_comment.0.part_0 in batches of 5: 100%|█████████▉| 431/432 [16:04:18<02:51, 171.90s/it]
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   6%|▌         | 28/453 [1:12:26<25:54:22, 219.44s/it][A2025-08-17 07:26:53.684 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127542407453712: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 483211 [type=json_invalid, input_value='{"analysis_summary": "Th...alls. However, the text', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  94%|█████████▎| 414/442 [16:05:47<1:49:23, 234.40s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:   7%|▋         | 36/484 [1:18:36<21:40:07, 174.12s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   5%|▍         | 22/452 [1:01:47<22:28:18, 188.14s/it][A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   2%|▏         | 10/488 [36:34<27:58:17, 210.67s/it][A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5: 100%|█████████▉| 408/409 [16:06:02<02:46, 166.92s/it][A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   4%|▍         | 17/424 [53:04<23:00:17, 203.48s/it][A[A[A[AProcessing root-project.root.v6-32-06.code_comment.0.part_0 in batches of 5: 100%|██████████| 432/432 [16:06:12<00:00, 154.44s/it]Processing root-project.root.v6-32-06.code_comment.0.part_0 in batches of 5: 100%|██████████| 432/432 [16:06:12<00:00, 134.20s/it]
+2025-08-17 07:27:27.005 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:254 - root-project.root.v6-32-06.code_comment.0.part_0: Finished processing
+2025-08-17 07:27:27.005 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.03: Processing file
+2025-08-17 07:27:27.017 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:214 - root-project.root.v6-32-06.docs.03: Continuing processing from 25
+Processing root-project.root.v6-32-06.docs.03 in batches of 5:   0%|          | 0/460 [00:00<?, ?it/s]
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   6%|▋         | 29/453 [1:14:20<22:07:48, 187.90s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   4%|▍         | 18/453 [53:14<60:52:52, 503.84s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  94%|█████████▍| 415/442 [16:06:27<1:19:16, 176.16s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:   8%|▊         | 37/484 [1:19:18<16:41:41, 134.45s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   5%|▌         | 23/452 [1:02:30<17:12:29, 144.40s/it][A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   2%|▏         | 11/488 [37:19<21:10:15, 159.78s/it][A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.04 in batches of 5: 100%|██████████| 409/409 [16:06:45<00:00, 129.75s/it][A[AProcessing root-project.root.v6-32-06.docs.04 in batches of 5: 100%|██████████| 409/409 [16:06:45<00:00, 141.82s/it]
+2025-08-17 07:28:00.306 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:254 - root-project.root.v6-32-06.docs.04: Finished processing
+2025-08-17 07:28:00.307 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.01: Processing file
+
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   0%|          | 0/465 [00:00<?, ?it/s][A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   4%|▍         | 18/424 [53:46<17:27:43, 154.84s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   0%|          | 1/460 [00:42<5:21:24, 42.02s/it]
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   7%|▋         | 30/453 [1:15:02<16:56:29, 144.18s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   4%|▍         | 19/453 [53:57<44:02:03, 365.26s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  94%|█████████▍| 416/442 [16:07:07<58:41, 135.44s/it]  [A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:   8%|▊         | 38/484 [1:19:59<13:10:54, 106.40s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   5%|▌         | 24/452 [1:03:10<13:27:03, 113.14s/it][A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   2%|▏         | 12/488 [37:59<16:19:01, 123.41s/it][A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   0%|          | 1/465 [00:43<5:39:08, 43.85s/it][A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   4%|▍         | 19/424 [54:31<13:43:00, 121.93s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   0%|          | 2/460 [01:27<5:36:12, 44.04s/it]
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   7%|▋         | 31/453 [1:15:48<13:26:00, 114.60s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   4%|▍         | 20/453 [54:42<32:22:18, 269.14s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  94%|█████████▍| 417/442 [16:07:52<45:09, 108.38s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:   8%|▊         | 39/484 [1:20:41<10:47:11, 87.26s/it] [A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   6%|▌         | 25/452 [1:03:52<10:54:08, 91.92s/it] [A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   3%|▎         | 13/488 [38:41<13:01:32, 98.72s/it] [A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   0%|          | 2/465 [01:26<5:34:52, 43.40s/it][A[A2025-08-17 07:34:08.114 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541810059920: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 420976 [type=json_invalid, input_value='{"analysis_summary": "Th...gnals and receivers. It', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.docs.03 in batches of 5:   1%|          | 3/460 [06:52<21:52:26, 172.31s/it]
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   7%|▋         | 32/453 [1:21:14<20:48:52, 177.99s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   5%|▍         | 21/453 [1:00:10<34:24:35, 286.75s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  95%|█████████▍| 418/442 [16:13:22<1:09:52, 174.71s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:   8%|▊         | 40/484 [1:26:13<19:48:46, 160.65s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   6%|▌         | 26/452 [1:09:24<19:22:35, 163.74s/it][A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   3%|▎         | 14/488 [44:12<22:13:37, 168.81s/it][A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   1%|          | 3/465 [06:56<22:18:58, 173.89s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   3%|▎         | 14/451 [1:20:59<43:48:43, 360.92s/it][A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   1%|          | 4/460 [07:40<15:38:15, 123.45s/it]
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   7%|▋         | 33/453 [1:22:00<16:09:15, 138.47s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   5%|▍         | 22/453 [1:00:55<25:39:01, 214.25s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  95%|█████████▍| 419/442 [16:14:07<52:00, 135.67s/it]  [A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:   8%|▊         | 41/484 [1:26:56<15:25:28, 125.35s/it][A[A[A2025-08-17 07:37:49.591 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127540804673104: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 430299 [type=json_invalid, input_value='{"analysis_summary": "Th... to crash. The error is', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   3%|▎         | 15/488 [47:16<22:47:43, 173.50s/it][A[A[A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   1%|          | 4/465 [09:59<22:43:22, 177.45s/it][A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   3%|▎         | 15/451 [1:24:00<37:09:35, 306.83s/it][A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   1%|          | 5/460 [10:43<18:18:02, 144.80s/it]
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   8%|▊         | 34/453 [1:25:04<17:41:30, 152.01s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   5%|▌         | 23/453 [1:03:59<24:30:33, 205.19s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  95%|█████████▌| 420/442 [16:17:11<55:04, 150.20s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:   9%|▊         | 42/484 [1:30:01<17:33:37, 143.03s/it][A[A[A2025-08-17 07:43:49.563 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541808164944: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 490077 [type=json_invalid, input_value='{"analysis_summary": "Th...s-cutting concerns like', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   3%|▎         | 16/488 [53:19<30:13:06, 230.48s/it][A[A[A[A[A[A[A[A2025-08-17 07:46:47.963 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127540804673104: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 505635 [type=json_invalid, input_value='{"analysis_summary": "Th... different systems. The', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   4%|▎         | 16/451 [1:32:55<45:21:21, 375.36s/it][A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   1%|▏         | 6/460 [19:37<34:57:44, 277.23s/it]
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   8%|▊         | 35/453 [1:33:58<30:58:39, 266.79s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   5%|▌         | 24/453 [1:12:54<36:15:09, 304.22s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  95%|█████████▌| 421/442 [16:26:05<1:32:55, 265.49s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:   9%|▉         | 43/484 [1:38:55<31:54:29, 260.47s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   6%|▌         | 27/452 [1:22:07<40:33:03, 343.49s/it][A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   3%|▎         | 17/488 [56:54<29:33:47, 225.96s/it][A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   5%|▍         | 20/424 [1:13:20<47:37:17, 424.35s/it][A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   4%|▍         | 17/451 [1:33:41<33:18:48, 276.33s/it][A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   2%|▏         | 7/460 [20:23<25:22:08, 201.61s/it]
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   8%|▊         | 36/453 [1:34:44<23:12:52, 200.41s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   6%|▌         | 25/453 [1:13:42<27:00:01, 227.11s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  95%|█████████▌| 422/442 [16:26:53<1:06:42, 200.13s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:   9%|▉         | 44/484 [1:39:42<24:01:01, 196.50s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   6%|▌         | 28/452 [1:22:52<29:54:50, 253.99s/it][A[A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   4%|▎         | 18/488 [57:39<22:24:05, 171.59s/it][A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   5%|▍         | 21/424 [1:14:05<34:44:21, 310.33s/it][A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   4%|▍         | 18/451 [1:34:25<24:49:17, 206.37s/it][A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   2%|▏         | 8/460 [21:06<18:58:27, 151.12s/it]
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   8%|▊         | 37/453 [1:35:29<17:47:25, 153.96s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   6%|▌         | 26/453 [1:14:26<20:26:40, 172.37s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  96%|█████████▌| 423/442 [16:27:36<48:29, 153.15s/it]  [A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:   9%|▉         | 45/484 [1:40:25<18:20:24, 150.40s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   6%|▋         | 29/452 [1:23:38<22:30:06, 191.51s/it][A[A[A[A[A2025-08-17 07:52:26.319 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541808386736: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 499755 [type=json_invalid, input_value='{"analysis_summary": "Th...uous mode on Darwin but', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   5%|▌         | 22/424 [1:18:13<32:33:42, 291.60s/it][A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   4%|▍         | 19/451 [1:38:33<26:17:36, 219.11s/it][A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   2%|▏         | 9/460 [25:20<22:55:46, 183.03s/it]
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   8%|▊         | 38/453 [1:39:41<21:06:36, 183.12s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   6%|▌         | 27/453 [1:18:37<23:10:58, 195.91s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  96%|█████████▌| 424/442 [16:31:51<55:03, 183.52s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  10%|▉         | 46/484 [1:44:42<22:10:07, 182.21s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   7%|▋         | 30/452 [1:27:53<24:41:25, 210.63s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   5%|▌         | 23/424 [1:19:02<24:22:38, 218.85s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   1%|          | 5/465 [25:28<57:18:53, 448.55s/it][A[A2025-08-17 07:57:22.921 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127542345625968: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 481303 [type=json_invalid, input_value='{"analysis_summary": "Th...s impacts the system\'s', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.docs.03 in batches of 5:   2%|▏         | 10/460 [30:03<26:46:03, 214.14s/it]
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   9%|▊         | 39/453 [1:44:22<24:27:58, 212.75s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   6%|▌         | 28/453 [1:23:19<26:10:10, 221.67s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  96%|█████████▌| 425/442 [16:36:31<1:00:12, 212.49s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  10%|▉         | 47/484 [1:49:22<25:41:38, 211.67s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   7%|▋         | 31/452 [1:32:33<27:05:19, 231.64s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   6%|▌         | 24/424 [1:23:42<26:21:24, 237.21s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   1%|▏         | 6/465 [30:05<49:46:35, 390.40s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   4%|▍         | 19/488 [1:07:31<38:46:48, 297.67s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   2%|▏         | 11/460 [30:48<20:14:53, 162.35s/it]
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   9%|▉         | 40/453 [1:45:11<18:45:38, 163.53s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   6%|▋         | 29/453 [1:24:06<19:57:33, 169.47s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  96%|█████████▋| 426/442 [16:37:16<43:18, 162.42s/it]  [A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  10%|▉         | 48/484 [1:50:07<19:34:32, 161.63s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   7%|▋         | 32/452 [1:33:19<20:31:15, 175.89s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   6%|▌         | 25/424 [1:24:30<20:00:09, 180.47s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   2%|▏         | 7/465 [30:52<35:22:20, 278.04s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   4%|▍         | 20/488 [1:08:19<28:57:47, 222.79s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   3%|▎         | 12/460 [31:37<15:54:54, 127.89s/it]
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   9%|▉         | 41/453 [1:46:00<14:47:08, 129.20s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   7%|▋         | 30/453 [1:24:55<15:39:31, 133.27s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  97%|█████████▋| 427/442 [16:38:06<32:07, 128.51s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  10%|█         | 49/484 [1:50:55<15:25:29, 127.66s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   7%|▋         | 33/452 [1:34:06<15:58:35, 137.27s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   6%|▌         | 26/424 [1:25:18<15:33:03, 140.66s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   2%|▏         | 8/465 [31:40<26:00:42, 204.91s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   4%|▍         | 21/488 [1:09:08<22:07:45, 170.59s/it][A[A[A[A[A[A[A[A2025-08-17 08:01:59.169 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127542345616848: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 576787 [type=json_invalid, input_value='{"analysis_summary": "Th...nt abstract algorithmic', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   9%|▉         | 42/453 [1:48:52<16:12:15, 141.94s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   7%|▋         | 31/453 [1:27:46<16:56:49, 144.57s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  97%|█████████▋| 428/442 [16:40:59<33:07, 141.96s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  10%|█         | 50/484 [1:53:52<17:10:55, 142.52s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   8%|▊         | 34/452 [1:37:04<17:19:32, 149.22s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   6%|▋         | 27/424 [1:28:13<16:39:16, 151.02s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   2%|▏         | 9/465 [34:36<24:47:30, 195.72s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   5%|▍         | 22/488 [1:12:03<22:15:21, 171.93s/it][A[A[A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:   9%|▉         | 43/453 [1:49:36<12:49:37, 112.63s/it][A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   4%|▍         | 20/451 [1:48:51<40:32:42, 338.66s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   7%|▋         | 32/453 [1:28:38<13:39:53, 116.85s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  97%|█████████▋| 429/442 [16:41:49<24:47, 114.45s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  11%|█         | 51/484 [1:54:43<13:49:50, 114.99s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   8%|▊         | 35/452 [1:37:53<13:49:33, 119.36s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   7%|▋         | 28/424 [1:29:01<13:13:35, 120.24s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   2%|▏         | 10/465 [35:24<18:58:20, 150.11s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   5%|▍         | 23/488 [1:12:50<17:22:22, 134.50s/it][A[A[A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  10%|▉         | 44/453 [1:50:25<10:37:56, 93.59s/it] [A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   5%|▍         | 21/451 [1:49:39<30:02:27, 251.51s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   7%|▋         | 33/453 [1:29:27<11:13:58, 96.28s/it] [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  97%|█████████▋| 430/442 [16:42:37<18:52, 94.37s/it] [A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  11%|█         | 52/484 [1:55:28<11:15:43, 93.85s/it] [A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   8%|▊         | 36/452 [1:38:39<11:15:14, 97.39s/it] [A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   7%|▋         | 29/424 [1:29:51<10:51:06, 98.90s/it] [A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   2%|▏         | 11/465 [36:13<15:01:53, 119.19s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   5%|▍         | 24/488 [1:13:39<14:01:51, 108.86s/it][A[A[A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  10%|▉         | 45/453 [1:51:11<8:58:52, 79.25s/it] [A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   5%|▍         | 22/451 [1:50:25<22:36:29, 189.72s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   8%|▊         | 34/453 [1:30:12<9:25:06, 80.92s/it] [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  98%|█████████▊| 431/442 [16:43:23<14:40, 80.02s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  11%|█         | 53/484 [1:56:14<9:31:11, 79.52s/it] [A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   8%|▊         | 37/452 [1:39:26<9:27:36, 82.06s/it] [A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   7%|▋         | 30/424 [1:30:35<9:01:56, 82.53s/it] [A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   3%|▎         | 12/465 [36:59<12:11:40, 96.91s/it] [A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   5%|▌         | 25/488 [1:14:25<11:33:41, 89.89s/it] [A[A[A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  10%|█         | 46/453 [1:51:57<7:48:55, 69.13s/it][A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   5%|▌         | 23/451 [1:51:09<17:22:46, 146.18s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   8%|▊         | 35/453 [1:30:56<8:07:11, 69.93s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  98%|█████████▊| 432/442 [16:44:08<11:33, 69.34s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  11%|█         | 54/484 [1:56:58<8:14:40, 69.02s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   8%|▊         | 38/452 [1:40:11<8:09:55, 71.00s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   7%|▋         | 31/424 [1:31:20<7:47:37, 71.39s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   3%|▎         | 13/465 [37:43<10:10:28, 81.04s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   5%|▌         | 26/488 [1:15:10<9:49:36, 76.57s/it] [A[A[A[A[A[A[A[A2025-08-17 08:08:25.146 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541811996400: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 472667 [type=json_invalid, input_value='{"analysis_summary": "Th... which affects platform', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   5%|▌         | 24/451 [1:54:30<19:16:38, 162.53s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   8%|▊         | 36/453 [1:34:17<12:39:52, 109.34s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  98%|█████████▊| 433/442 [16:47:28<16:18, 108.69s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  11%|█▏        | 55/484 [2:00:19<12:56:38, 108.62s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   9%|▊         | 39/452 [1:43:32<12:36:31, 109.91s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   8%|▊         | 32/424 [1:34:41<11:59:12, 110.08s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   3%|▎         | 14/465 [41:04<14:39:41, 117.03s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   6%|▌         | 27/488 [1:18:29<14:29:24, 113.15s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   3%|▎         | 13/460 [41:45<33:54:45, 273.12s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   6%|▌         | 25/451 [1:55:16<15:06:01, 127.61s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   8%|▊         | 37/453 [1:35:05<10:30:08, 90.89s/it] [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  98%|█████████▊| 434/442 [16:48:17<12:06, 90.75s/it] [A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  12%|█▏        | 56/484 [2:01:07<10:45:00, 90.42s/it] [A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   9%|▉         | 40/452 [1:44:18<10:24:46, 90.99s/it] [A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   8%|▊         | 33/424 [1:35:27<9:53:01, 91.00s/it]  [A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   3%|▎         | 15/465 [41:51<12:00:03, 96.01s/it] [A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   6%|▌         | 28/488 [1:19:16<11:57:09, 93.54s/it] [A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   3%|▎         | 14/460 [42:34<25:26:42, 205.39s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   6%|▌         | 26/451 [1:56:03<12:12:51, 103.46s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   8%|▊         | 38/453 [1:35:50<8:53:27, 77.13s/it] [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  98%|█████████▊| 435/442 [16:49:05<09:05, 77.89s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  12%|█▏        | 57/484 [2:01:54<9:10:54, 77.41s/it] [A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   9%|▉         | 41/452 [1:45:05<8:52:55, 77.80s/it] [A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   8%|▊         | 34/424 [1:36:18<8:32:39, 78.87s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   3%|▎         | 16/465 [42:41<10:15:46, 82.29s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   6%|▌         | 29/488 [1:20:08<10:19:50, 81.03s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   3%|▎         | 15/460 [43:25<19:38:24, 158.89s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   6%|▌         | 27/451 [1:56:54<10:19:18, 87.64s/it] [A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   9%|▊         | 39/453 [1:36:41<7:57:14, 69.17s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  99%|█████████▊| 436/442 [16:49:51<06:48, 68.15s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  12%|█▏        | 58/484 [2:02:40<8:00:55, 67.74s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:   9%|▉         | 42/452 [1:45:51<7:46:13, 68.23s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   8%|▊         | 35/424 [1:37:00<7:19:54, 67.85s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   4%|▎         | 17/465 [43:23<8:42:31, 69.98s/it] [A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   6%|▌         | 30/488 [1:20:48<8:44:20, 68.69s/it] [A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   3%|▎         | 16/460 [44:05<15:10:39, 123.06s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   6%|▌         | 28/451 [1:57:32<8:33:19, 72.81s/it] [A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   9%|▉         | 40/453 [1:37:18<6:50:31, 59.64s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  99%|█████████▉| 437/442 [16:50:29<04:56, 59.22s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  12%|█▏        | 59/484 [2:03:19<7:00:12, 59.32s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  10%|▉         | 43/452 [1:46:30<6:45:33, 59.49s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   8%|▊         | 36/424 [1:37:43<6:31:22, 60.52s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   4%|▍         | 18/465 [44:06<7:42:52, 62.13s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   6%|▋         | 31/488 [1:21:33<7:48:02, 61.45s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   4%|▎         | 17/460 [44:51<12:17:31, 99.89s/it] 
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   6%|▋         | 29/451 [1:58:19<7:37:00, 64.98s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   9%|▉         | 41/453 [1:38:08<6:29:08, 56.67s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  99%|█████████▉| 438/442 [16:51:19<03:46, 56.53s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  12%|█▏        | 60/484 [2:04:10<6:41:17, 56.79s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  10%|▉         | 44/452 [1:47:23<6:30:04, 57.36s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   9%|▊         | 37/424 [1:38:31<6:06:13, 56.78s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   4%|▍         | 19/465 [44:56<7:14:14, 58.42s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   7%|▋         | 32/488 [1:22:22<7:18:18, 57.67s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   4%|▍         | 18/460 [45:38<10:19:26, 84.09s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   7%|▋         | 30/451 [1:59:07<7:01:08, 60.02s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   9%|▉         | 42/453 [1:38:54<6:06:21, 53.48s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5:  99%|█████████▉| 439/442 [16:52:05<02:39, 53.20s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  13%|█▎        | 61/484 [2:04:54<6:13:59, 53.05s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  10%|▉         | 45/452 [1:48:05<5:58:46, 52.89s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   9%|▉         | 38/424 [1:39:19<5:48:02, 54.10s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   4%|▍         | 20/465 [45:44<6:48:35, 55.09s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   7%|▋         | 33/488 [1:23:11<6:58:35, 55.20s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   4%|▍         | 19/460 [46:27<9:01:43, 73.71s/it] 
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   7%|▋         | 31/451 [1:59:56<6:35:51, 56.55s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:   9%|▉         | 43/453 [1:39:43<5:56:28, 52.17s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5: 100%|█████████▉| 440/442 [16:52:54<01:44, 52.15s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  13%|█▎        | 62/484 [2:05:43<6:03:51, 51.73s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  10%|█         | 46/452 [1:48:55<5:50:35, 51.81s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   9%|▉         | 39/424 [1:40:03<5:28:15, 51.16s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   5%|▍         | 21/465 [46:26<6:19:56, 51.34s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   7%|▋         | 34/488 [1:23:52<6:24:49, 50.86s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   4%|▍         | 20/460 [47:07<7:45:55, 63.54s/it]2025-08-17 08:14:35.912 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541808385776: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 447886 [type=json_invalid, input_value='{"analysis_summary": "Th... on the target and data', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   7%|▋         | 32/451 [2:00:35<5:58:26, 51.33s/it][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  10%|▉         | 44/453 [1:40:20<5:23:46, 47.50s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5: 100%|█████████▉| 441/442 [16:53:31<00:47, 47.41s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  13%|█▎        | 63/484 [2:06:18<5:28:21, 46.80s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  10%|█         | 47/452 [1:49:28<5:11:36, 46.16s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:   9%|▉         | 40/424 [1:40:34<4:48:22, 45.06s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   5%|▍         | 22/465 [46:54<5:27:33, 44.37s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   7%|▋         | 35/488 [1:24:19<5:30:43, 43.81s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   5%|▍         | 21/460 [47:33<6:22:33, 52.29s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   7%|▋         | 33/451 [2:00:59<5:01:56, 43.34s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  10%|█         | 47/453 [2:01:55<25:42:38, 227.98s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  10%|▉         | 45/453 [1:40:49<4:45:59, 42.06s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5: 100%|██████████| 442/442 [16:53:58<00:00, 41.28s/it][A[A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.code_comment.0.part_3 in batches of 5: 100%|██████████| 442/442 [16:53:58<00:00, 137.64s/it]
+2025-08-17 08:15:12.543 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:254 - root-project.root.v6-32-06.code_comment.0.part_3: Finished processing
+2025-08-17 08:15:12.543 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:190 - root-project.root.v6-32-06.docs.11: Processing file
+
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   0%|          | 0/464 [00:00<?, ?it/s][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  13%|█▎        | 64/484 [2:06:46<4:46:46, 40.97s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  11%|█         | 48/452 [1:49:54<4:31:16, 40.29s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  10%|▉         | 41/424 [1:41:01<4:12:23, 39.54s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   5%|▍         | 23/465 [47:22<4:49:00, 39.23s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   7%|▋         | 36/488 [1:24:46<4:51:12, 38.66s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   5%|▍         | 22/460 [48:00<5:25:59, 44.66s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   8%|▊         | 34/451 [2:01:27<4:28:05, 38.58s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  11%|█         | 48/453 [2:02:21<18:50:12, 167.44s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  10%|█         | 46/453 [1:41:14<4:10:37, 36.95s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   0%|          | 1/464 [00:26<3:28:11, 26.98s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  13%|█▎        | 65/484 [2:07:13<4:16:29, 36.73s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  11%|█         | 49/452 [1:50:21<4:03:50, 36.30s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  10%|▉         | 42/424 [1:41:28<3:47:09, 35.68s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   5%|▌         | 24/465 [47:48<4:20:54, 35.50s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   8%|▊         | 37/488 [1:25:12<4:22:55, 34.98s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   5%|▌         | 23/460 [48:27<4:46:58, 39.40s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   8%|▊         | 35/451 [2:01:54<4:03:37, 35.14s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  11%|█         | 49/453 [2:02:49<14:04:20, 125.40s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  10%|█         | 47/453 [1:41:43<3:53:20, 34.48s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   0%|          | 2/464 [00:54<3:31:20, 27.45s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  14%|█▎        | 66/484 [2:07:40<3:57:29, 34.09s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  11%|█         | 50/452 [1:50:52<3:51:56, 34.62s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  10%|█         | 43/424 [1:41:57<3:35:28, 33.93s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   5%|▌         | 25/465 [48:18<4:07:29, 33.75s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   8%|▊         | 38/488 [1:25:43<4:12:12, 33.63s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   5%|▌         | 24/460 [48:56<4:24:02, 36.33s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   8%|▊         | 36/451 [2:02:23<3:50:06, 33.27s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  11%|█         | 50/453 [2:03:20<10:53:26, 97.29s/it] [A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  11%|█         | 48/453 [1:42:13<3:43:20, 33.09s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   1%|          | 3/464 [01:24<3:38:09, 28.39s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  14%|█▍        | 67/484 [2:08:11<3:48:57, 32.94s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  11%|█▏        | 51/452 [1:51:21<3:41:24, 33.13s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  10%|█         | 44/424 [1:42:28<3:27:41, 32.79s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   6%|▌         | 26/465 [48:47<3:57:09, 32.41s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   8%|▊         | 39/488 [1:26:11<4:00:09, 32.09s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   5%|▌         | 25/460 [49:26<4:08:46, 34.31s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   8%|▊         | 37/451 [2:02:53<3:42:37, 32.27s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  11%|█▏        | 51/453 [2:03:48<8:31:12, 76.30s/it] [A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  11%|█         | 49/453 [1:42:41<3:32:32, 31.56s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   1%|          | 4/464 [01:52<3:36:38, 28.26s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  14%|█▍        | 68/484 [2:08:39<3:38:40, 31.54s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  12%|█▏        | 52/452 [1:51:48<3:26:40, 31.00s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  11%|█         | 45/424 [1:42:54<3:14:37, 30.81s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   6%|▌         | 27/465 [49:15<3:46:01, 30.96s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   8%|▊         | 40/488 [1:26:38<3:48:25, 30.59s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   6%|▌         | 26/460 [49:53<3:53:05, 32.22s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   8%|▊         | 38/451 [2:03:19<3:30:23, 30.56s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  11%|█▏        | 52/453 [2:04:14<6:50:09, 61.37s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  11%|█         | 50/453 [1:43:08<3:23:57, 30.37s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   1%|          | 5/464 [02:23<3:42:59, 29.15s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  14%|█▍        | 69/484 [2:09:07<3:31:24, 30.57s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  12%|█▏        | 53/452 [1:52:17<3:22:45, 30.49s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  11%|█         | 46/424 [1:43:24<3:12:58, 30.63s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   6%|▌         | 28/465 [49:45<3:42:38, 30.57s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   8%|▊         | 41/488 [1:27:09<3:47:29, 30.54s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   6%|▌         | 27/460 [50:22<3:45:02, 31.18s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   9%|▊         | 39/451 [2:03:49<3:27:00, 30.15s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  12%|█▏        | 53/453 [2:04:44<5:45:05, 51.76s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  11%|█▏        | 51/453 [1:43:37<3:19:29, 29.78s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   1%|▏         | 6/464 [02:48<3:33:46, 28.00s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  14%|█▍        | 70/484 [2:09:34<3:23:13, 29.45s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  12%|█▏        | 54/452 [1:52:43<3:14:01, 29.25s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  11%|█         | 47/424 [1:43:49<3:02:52, 29.10s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   6%|▌         | 29/465 [50:11<3:32:36, 29.26s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   9%|▊         | 42/488 [1:27:35<3:36:46, 29.16s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   6%|▌         | 28/460 [50:51<3:38:54, 30.40s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   9%|▉         | 40/451 [2:04:17<3:21:46, 29.46s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  12%|█▏        | 54/453 [2:05:11<4:56:26, 44.58s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  11%|█▏        | 52/453 [1:44:04<3:14:18, 29.07s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   2%|▏         | 7/464 [03:16<3:31:41, 27.79s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  15%|█▍        | 71/484 [2:10:02<3:19:32, 28.99s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  12%|█▏        | 55/452 [1:53:11<3:10:18, 28.76s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  11%|█▏        | 48/424 [1:44:18<3:00:37, 28.82s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   6%|▋         | 30/465 [50:38<3:27:41, 28.65s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   9%|▉         | 43/488 [1:28:02<3:32:42, 28.68s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   6%|▋         | 29/460 [51:18<3:31:36, 29.46s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   9%|▉         | 41/451 [2:04:44<3:17:00, 28.83s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  12%|█▏        | 55/453 [2:05:39<4:21:29, 39.42s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  12%|█▏        | 53/453 [1:44:32<3:10:40, 28.60s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   2%|▏         | 8/464 [03:43<3:29:17, 27.54s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  15%|█▍        | 72/484 [2:10:29<3:14:20, 28.30s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  12%|█▏        | 56/452 [1:53:38<3:07:45, 28.45s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  12%|█▏        | 49/424 [1:44:45<2:58:02, 28.49s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   7%|▋         | 31/465 [51:06<3:25:07, 28.36s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   9%|▉         | 44/488 [1:28:31<3:32:12, 28.68s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   7%|▋         | 30/460 [51:44<3:23:27, 28.39s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:   9%|▉         | 42/451 [2:05:11<3:12:45, 28.28s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  12%|█▏        | 56/453 [2:06:05<3:54:33, 35.45s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  12%|█▏        | 54/453 [1:44:58<3:05:53, 27.95s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   2%|▏         | 9/464 [04:09<3:27:02, 27.30s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  15%|█▌        | 73/484 [2:10:56<3:12:14, 28.06s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  13%|█▎        | 57/452 [1:54:05<3:03:38, 27.90s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  12%|█▏        | 50/424 [1:45:12<2:54:33, 28.00s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   7%|▋         | 32/465 [51:33<3:21:53, 27.97s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   9%|▉         | 45/488 [1:28:58<3:29:13, 28.34s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   7%|▋         | 31/460 [52:13<3:23:57, 28.53s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  10%|▉         | 43/451 [2:05:41<3:16:12, 28.85s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  13%|█▎        | 57/453 [2:06:36<3:45:15, 34.13s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  12%|█▏        | 55/453 [1:45:29<3:12:16, 28.99s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   2%|▏         | 10/464 [04:41<3:36:52, 28.66s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  15%|█▌        | 74/484 [2:11:27<3:17:30, 28.90s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  13%|█▎        | 58/452 [1:54:36<3:09:43, 28.89s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  12%|█▏        | 51/424 [1:45:43<2:58:41, 28.74s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   7%|▋         | 33/465 [52:04<3:27:49, 28.86s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:   9%|▉         | 46/488 [1:29:28<3:31:28, 28.71s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   7%|▋         | 32/460 [52:41<3:23:22, 28.51s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  10%|▉         | 44/451 [2:06:08<3:10:54, 28.14s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  13%|█▎        | 58/453 [2:07:02<3:28:15, 31.63s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  12%|█▏        | 56/453 [1:45:56<3:06:47, 28.23s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   2%|▏         | 11/464 [05:07<3:29:24, 27.74s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  15%|█▌        | 75/484 [2:11:55<3:14:20, 28.51s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  13%|█▎        | 59/452 [1:55:04<3:06:33, 28.48s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  12%|█▏        | 52/424 [1:46:11<2:58:05, 28.72s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   7%|▋         | 34/465 [52:31<3:24:44, 28.50s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  10%|▉         | 47/488 [1:29:55<3:28:13, 28.33s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   7%|▋         | 33/460 [53:10<3:24:14, 28.70s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  10%|▉         | 45/451 [2:06:36<3:11:53, 28.36s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  13%|█▎        | 59/453 [2:07:32<3:24:43, 31.18s/it][A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   3%|▎         | 12/464 [05:40<3:41:36, 29.42s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  16%|█▌        | 76/484 [2:12:28<3:23:58, 30.00s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  13%|█▎        | 60/452 [1:55:40<3:21:31, 30.84s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  12%|█▎        | 53/424 [1:46:51<3:17:37, 31.96s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   8%|▊         | 35/465 [53:14<3:54:11, 32.68s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  10%|▉         | 48/488 [1:30:41<4:06:13, 33.58s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   7%|▋         | 34/460 [53:58<4:04:42, 34.47s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  10%|█         | 46/451 [2:07:27<3:56:47, 35.08s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  13%|█▎        | 60/453 [2:08:25<4:07:27, 37.78s/it][A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   3%|▎         | 13/464 [06:28<4:24:01, 35.12s/it][A[A[A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  16%|█▌        | 77/484 [2:13:16<3:59:35, 35.32s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  13%|█▎        | 61/452 [1:56:28<3:54:24, 35.97s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  13%|█▎        | 54/424 [1:47:38<3:44:50, 36.46s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   8%|▊         | 36/465 [54:01<4:24:55, 37.05s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  10%|█         | 49/488 [1:31:28<4:34:12, 37.48s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   8%|▊         | 35/460 [54:44<4:27:58, 37.83s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  10%|█         | 47/451 [2:08:12<4:16:13, 38.05s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  13%|█▎        | 61/453 [2:09:10<4:20:13, 39.83s/it][A2025-08-17 08:29:10.237 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541810278816: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 474860 [type=json_invalid, input_value='{"analysis_summary": "Th...ss-cutting requirements', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  16%|█▌        | 78/484 [2:22:15<21:02:08, 186.52s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  14%|█▎        | 62/452 [2:05:27<20:14:35, 186.86s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  13%|█▎        | 55/424 [1:56:36<19:09:38, 186.93s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   8%|▊         | 37/465 [1:03:00<22:18:26, 187.63s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  10%|█         | 50/488 [1:40:26<22:50:23, 187.72s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   8%|▊         | 36/460 [1:03:45<22:13:35, 188.72s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  11%|█         | 48/451 [2:17:12<21:07:25, 188.70s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  14%|█▎        | 62/453 [2:18:10<20:36:56, 189.81s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  13%|█▎        | 57/453 [1:57:05<24:14:46, 220.42s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  16%|█▋        | 79/484 [2:23:01<16:14:29, 144.37s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  14%|█▍        | 63/452 [2:06:14<15:39:15, 144.87s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  13%|█▎        | 56/424 [1:57:25<14:53:14, 145.64s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   8%|▊         | 38/465 [1:03:49<17:18:56, 145.99s/it][A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  10%|█         | 51/488 [1:41:15<17:43:17, 145.99s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   8%|▊         | 37/460 [1:04:33<17:13:04, 146.54s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  11%|█         | 49/451 [2:18:02<16:24:13, 146.90s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  14%|█▍        | 63/453 [2:18:58<15:58:05, 147.40s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  13%|█▎        | 58/453 [1:57:54<18:33:30, 169.14s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  17%|█▋        | 80/484 [2:23:50<12:58:57, 115.69s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  14%|█▍        | 64/452 [2:07:02<12:29:42, 115.93s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  13%|█▎        | 57/424 [1:58:11<11:48:18, 115.80s/it][A[A[A[A2025-08-17 08:37:38.186 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541808384720: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 486564 [type=json_invalid, input_value='{"analysis_summary": "Th...erns about performance,', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  11%|█         | 52/488 [1:47:04<25:03:15, 206.87s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   8%|▊         | 38/460 [1:10:20<24:14:36, 206.82s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  11%|█         | 50/451 [2:23:49<23:04:17, 207.13s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  14%|█▍        | 64/453 [2:24:47<22:27:17, 207.81s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  13%|█▎        | 59/453 [2:03:42<24:22:53, 222.77s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  17%|█▋        | 81/484 [2:29:39<20:47:18, 185.70s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  14%|█▍        | 65/452 [2:12:51<19:57:28, 185.65s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  14%|█▎        | 58/424 [2:04:01<18:54:42, 186.02s/it][A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  11%|█         | 53/488 [1:47:45<18:59:04, 157.11s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   3%|▎         | 14/464 [23:17<41:09:22, 329.25s/it][A[A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   8%|▊         | 39/460 [1:11:09<18:37:47, 159.31s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  11%|█▏        | 51/451 [2:24:39<17:45:24, 159.81s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  14%|█▍        | 65/453 [2:25:36<17:15:59, 160.20s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  13%|█▎        | 60/453 [2:04:30<18:36:07, 170.40s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  17%|█▋        | 82/484 [2:30:30<16:13:30, 145.30s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  15%|█▍        | 66/452 [2:13:42<15:34:08, 145.20s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  14%|█▍        | 59/424 [2:04:51<14:43:39, 145.26s/it][A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  11%|█         | 54/488 [1:48:35<15:04:50, 125.09s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   3%|▎         | 15/464 [24:06<30:32:03, 244.82s/it][A[A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   9%|▊         | 40/460 [1:11:59<14:45:20, 126.48s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  12%|█▏        | 52/451 [2:25:27<13:59:51, 126.29s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  15%|█▍        | 66/453 [2:26:24<13:35:39, 126.46s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  13%|█▎        | 61/453 [2:05:19<14:35:18, 133.98s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  17%|█▋        | 83/484 [2:31:16<12:51:08, 115.38s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  15%|█▍        | 67/452 [2:14:28<12:21:22, 115.54s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  14%|█▍        | 60/424 [2:05:37<11:40:25, 115.45s/it][A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  11%|█▏        | 55/488 [1:49:22<12:13:45, 101.68s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   3%|▎         | 16/464 [24:53<23:01:47, 185.06s/it][A[A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   9%|▉         | 41/460 [1:12:44<11:52:27, 102.02s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  12%|█▏        | 53/451 [2:26:13<11:17:57, 102.21s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  15%|█▍        | 67/453 [2:27:12<11:02:14, 102.94s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  14%|█▎        | 62/453 [2:06:08<11:45:42, 108.29s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  17%|█▋        | 84/484 [2:32:06<10:38:45, 95.81s/it] [A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  15%|█▌        | 68/452 [2:15:20<10:16:48, 96.38s/it] [A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  14%|█▍        | 61/424 [2:06:29<9:42:00, 96.20s/it]  [A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  11%|█▏        | 56/488 [1:50:16<10:28:57, 87.36s/it] [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   4%|▎         | 17/464 [25:50<18:12:01, 146.58s/it][A[A[A[A[A[A[A[A[A2025-08-17 08:41:05.534 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127542407175856: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 530930 [type=json_invalid, input_value='{"analysis_summary": "Th...r methods. The analysis', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.docs.03 in batches of 5:   9%|▉         | 42/460 [1:13:40<10:14:46, 88.25s/it] 
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  12%|█▏        | 54/451 [2:27:06<9:39:29, 87.58s/it]  [A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  15%|█▌        | 68/453 [2:28:01<9:17:31, 86.89s/it]  [A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  14%|█▍        | 63/453 [2:06:54<9:43:47, 89.81s/it]  [A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  18%|█▊        | 85/484 [2:32:49<8:51:28, 79.92s/it] [A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  15%|█▌        | 69/452 [2:15:57<8:22:51, 78.78s/it] [A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  15%|█▍        | 62/424 [2:07:04<7:50:12, 77.94s/it][A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  12%|█▏        | 57/488 [1:50:46<8:24:43, 70.26s/it] [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   4%|▍         | 18/464 [26:16<13:40:30, 110.38s/it][A[A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:   9%|▉         | 43/460 [1:14:05<8:01:22, 69.26s/it] 
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  12%|█▏        | 55/451 [2:27:31<7:34:04, 68.80s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   8%|▊         | 39/465 [1:13:37<32:57:57, 278.59s/it][A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  15%|█▌        | 69/453 [2:28:29<7:23:33, 69.30s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  14%|█▍        | 64/453 [2:07:21<7:39:57, 70.95s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  18%|█▊        | 86/484 [2:33:16<7:06:03, 64.23s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  15%|█▌        | 70/452 [2:16:27<6:47:29, 64.00s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  15%|█▍        | 63/424 [2:07:33<6:21:16, 63.37s/it][A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  12%|█▏        | 58/488 [1:51:14<6:52:54, 57.62s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   4%|▍         | 19/464 [26:43<10:34:04, 85.49s/it] [A[A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  10%|▉         | 44/460 [1:14:31<6:30:06, 56.27s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  12%|█▏        | 56/451 [2:27:59<6:10:46, 56.32s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   9%|▊         | 40/465 [1:14:04<23:59:34, 203.23s/it][A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  15%|█▌        | 70/453 [2:28:57<6:03:30, 56.95s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  14%|█▍        | 65/453 [2:07:50<6:16:36, 58.24s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  18%|█▊        | 87/484 [2:33:45<5:53:31, 53.43s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  16%|█▌        | 71/452 [2:16:54<5:35:40, 52.86s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  15%|█▌        | 64/424 [2:08:01<5:15:39, 52.61s/it][A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  12%|█▏        | 59/488 [1:51:43<5:49:25, 48.87s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   4%|▍         | 20/464 [27:11<8:23:56, 68.10s/it] [A[A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  10%|▉         | 45/460 [1:14:59<5:31:39, 47.95s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  13%|█▎        | 57/451 [2:28:25<5:11:25, 47.42s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   9%|▉         | 41/465 [1:14:32<17:43:52, 150.55s/it][A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  16%|█▌        | 71/453 [2:29:22<5:01:10, 47.30s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  15%|█▍        | 66/453 [2:08:15<5:11:22, 48.28s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  18%|█▊        | 88/484 [2:34:10<4:57:21, 45.05s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  16%|█▌        | 72/452 [2:17:20<4:44:13, 44.88s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  15%|█▌        | 65/424 [2:08:26<4:25:45, 44.42s/it][A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  12%|█▏        | 60/488 [1:52:07<4:56:36, 41.58s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   5%|▍         | 21/464 [27:36<6:47:50, 55.24s/it][A[A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  10%|█         | 46/460 [1:15:25<4:44:40, 41.26s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  13%|█▎        | 58/451 [2:28:51<4:28:13, 40.95s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   9%|▉         | 42/465 [1:14:57<13:17:00, 113.05s/it][A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  16%|█▌        | 72/453 [2:29:50<4:22:29, 41.34s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  15%|█▍        | 67/453 [2:08:42<4:30:15, 42.01s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  18%|█▊        | 89/484 [2:34:37<4:21:13, 39.68s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  16%|█▌        | 73/452 [2:17:46<4:08:44, 39.38s/it][A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  16%|█▌        | 66/424 [2:08:53<3:54:12, 39.25s/it][A[A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  12%|█▎        | 61/488 [1:52:35<4:26:28, 37.44s/it][A[A[A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  10%|█         | 47/460 [1:15:55<4:21:01, 37.92s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  13%|█▎        | 59/451 [2:29:26<4:15:43, 39.14s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   9%|▉         | 43/465 [1:15:36<10:38:14, 90.75s/it] [A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  16%|█▌        | 73/453 [2:30:30<4:20:48, 41.18s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  15%|█▌        | 68/453 [2:09:25<4:30:50, 42.21s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  19%|█▊        | 90/484 [2:35:23<4:33:29, 41.65s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  16%|█▋        | 74/452 [2:18:35<4:25:19, 42.12s/it][A[A[A[A[A2025-08-17 08:51:38.575 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541810273632: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 526106 [type=json_invalid, input_value='{"analysis_summary": "Th...s specific points where', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-17 08:52:19.900 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127542345621264: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 507858 [type=json_invalid, input_value='{"analysis_summary": "Th...rmance optimization and', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.docs.03 in batches of 5:  10%|█         | 48/460 [1:24:59<21:42:12, 189.64s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  13%|█▎        | 60/451 [2:38:29<20:39:27, 190.20s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:   9%|▉         | 44/465 [1:24:37<26:23:49, 225.72s/it][A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  16%|█▋        | 74/453 [2:39:32<20:09:01, 191.40s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  15%|█▌        | 69/453 [2:18:28<20:32:00, 192.50s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  19%|█▉        | 91/484 [2:44:25<20:54:25, 191.52s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  17%|█▋        | 75/452 [2:27:36<20:05:56, 191.93s/it][A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   5%|▍         | 22/464 [37:51<27:23:50, 223.15s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  16%|█▌        | 67/424 [2:18:51<20:30:40, 206.84s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  11%|█         | 49/460 [1:25:47<16:49:18, 147.34s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  14%|█▎        | 61/451 [2:39:16<15:57:27, 147.30s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  10%|▉         | 45/465 [1:25:23<20:03:48, 171.97s/it][A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  17%|█▋        | 75/453 [2:40:20<15:33:49, 148.23s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  15%|█▌        | 70/453 [2:19:16<15:52:05, 149.15s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  19%|█▉        | 92/484 [2:45:14<16:12:09, 148.80s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  17%|█▋        | 76/452 [2:28:27<15:37:49, 149.65s/it][A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   5%|▍         | 23/464 [38:42<21:01:38, 171.65s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  16%|█▌        | 68/424 [2:19:40<15:46:56, 159.60s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  11%|█         | 50/460 [1:26:37<13:27:20, 118.15s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  14%|█▎        | 62/451 [2:40:07<12:47:12, 118.34s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  10%|▉         | 46/465 [1:26:16<15:50:11, 136.07s/it][A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  17%|█▋        | 76/453 [2:41:09<12:23:52, 118.39s/it][A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  16%|█▌        | 71/453 [2:20:03<12:33:46, 118.39s/it][A[A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  19%|█▉        | 93/484 [2:45:59<12:47:28, 117.77s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  17%|█▋        | 77/452 [2:29:11<12:16:10, 117.79s/it][A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   5%|▌         | 24/464 [39:27<16:18:49, 133.48s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  16%|█▋        | 69/424 [2:20:26<12:21:16, 125.29s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  11%|█         | 51/460 [1:27:24<10:59:21, 96.73s/it] 
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  14%|█▍        | 63/451 [2:40:52<10:24:42, 96.60s/it] [A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  10%|█         | 47/465 [1:27:01<12:38:01, 108.81s/it][A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  17%|█▋        | 77/453 [2:41:53<10:03:35, 96.32s/it] [A2025-08-17 09:00:13.004 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541808279728: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 509396 [type=json_invalid, input_value='{"analysis_summary": "Th...arallel execution), and', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  19%|█▉        | 94/484 [2:51:49<20:17:18, 187.28s/it][A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  17%|█▋        | 78/452 [2:35:00<19:26:15, 187.10s/it][A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   5%|▌         | 25/464 [45:14<24:06:41, 197.72s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  17%|█▋        | 70/424 [2:26:17<18:58:57, 193.04s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  11%|█▏        | 52/460 [1:33:14<19:33:29, 172.57s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  14%|█▍        | 64/451 [2:46:43<18:33:56, 172.70s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  10%|█         | 48/465 [1:32:52<21:01:33, 181.52s/it][A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  17%|█▋        | 78/453 [2:47:48<18:05:28, 173.68s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  20%|█▉        | 95/484 [2:52:37<15:43:43, 145.56s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  13%|█▎        | 62/488 [2:10:33<41:21:01, 349.44s/it][A[A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  17%|█▋        | 79/452 [2:35:55<15:17:49, 147.64s/it][A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   6%|▌         | 26/464 [46:10<18:52:07, 155.09s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  17%|█▋        | 71/424 [2:27:08<14:45:25, 150.50s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  12%|█▏        | 53/460 [1:34:05<15:24:10, 136.24s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  14%|█▍        | 65/451 [2:47:35<14:39:31, 136.71s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  11%|█         | 49/465 [1:33:44<16:29:01, 142.65s/it][A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  17%|█▋        | 79/453 [2:48:38<14:11:24, 136.59s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  20%|█▉        | 96/484 [2:53:24<12:30:19, 116.03s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  13%|█▎        | 63/488 [2:11:18<30:27:54, 258.06s/it][A[A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  18%|█▊        | 80/452 [2:36:42<12:06:50, 117.23s/it][A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   6%|▌         | 27/464 [46:57<14:53:47, 122.72s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  17%|█▋        | 72/424 [2:27:56<11:42:37, 119.77s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  12%|█▏        | 54/460 [1:34:53<12:22:06, 109.67s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  15%|█▍        | 66/451 [2:48:22<11:43:57, 109.71s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  11%|█         | 50/465 [1:34:30<13:07:04, 113.79s/it][A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  18%|█▊        | 80/453 [2:49:25<11:22:13, 109.74s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  20%|██        | 97/484 [2:54:11<10:15:14, 95.39s/it] [A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  13%|█▎        | 64/488 [2:12:07<23:01:42, 195.52s/it][A[A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  18%|█▊        | 81/452 [2:37:30<9:56:26, 96.46s/it]  [A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   6%|▌         | 28/464 [47:46<12:09:55, 100.45s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  17%|█▋        | 73/424 [2:28:46<9:37:13, 98.67s/it]  [A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  12%|█▏        | 55/460 [1:35:43<10:20:53, 91.98s/it] 
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  15%|█▍        | 67/451 [2:49:13<9:49:27, 92.10s/it]  [A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  11%|█         | 51/465 [1:35:22<10:55:43, 95.03s/it] [A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  18%|█▊        | 81/453 [2:50:17<9:32:33, 92.35s/it]  [A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  20%|██        | 98/484 [2:55:02<8:48:30, 82.15s/it] [A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  13%|█▎        | 65/488 [2:12:57<17:50:38, 151.86s/it][A[A[A[A[A[A[A[A2025-08-17 09:03:40.332 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127542345624000: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 477250 [type=json_invalid, input_value='{"analysis_summary": "Th...epts are applied within', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  18%|█▊        | 82/452 [2:38:19<8:27:16, 82.26s/it][A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   6%|▋         | 29/464 [48:30<10:06:41, 83.68s/it] [A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  17%|█▋        | 74/424 [2:29:28<7:56:52, 81.75s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  12%|█▏        | 56/460 [1:36:22<8:31:49, 76.01s/it] 
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  15%|█▌        | 68/451 [2:49:48<7:58:45, 75.00s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  11%|█         | 52/465 [1:35:54<8:45:10, 76.30s/it] [A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  18%|█▊        | 82/453 [2:50:46<7:35:09, 73.61s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  20%|██        | 99/484 [2:55:31<7:04:43, 66.19s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  14%|█▎        | 66/488 [2:13:26<13:27:55, 114.87s/it][A[A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  18%|█▊        | 83/452 [2:38:44<6:40:54, 65.19s/it][A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   6%|▋         | 30/464 [48:57<8:01:33, 66.58s/it] [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  16%|█▌        | 72/453 [2:29:51<27:26:36, 259.31s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  18%|█▊        | 75/424 [2:29:56<6:22:31, 65.76s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  12%|█▏        | 57/460 [1:36:50<6:53:34, 61.57s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  15%|█▌        | 69/451 [2:50:17<6:29:29, 61.18s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  11%|█▏        | 53/465 [1:36:22<7:04:44, 61.85s/it][A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  18%|█▊        | 83/453 [2:51:14<6:08:36, 59.77s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  21%|██        | 100/484 [2:55:59<5:48:37, 54.47s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  14%|█▎        | 67/488 [2:13:50<10:16:17, 87.83s/it] [A[A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  19%|█▊        | 84/452 [2:39:11<5:29:06, 53.66s/it][A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   7%|▋         | 31/464 [49:23<6:33:01, 54.46s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  16%|█▌        | 73/453 [2:30:17<19:58:55, 189.31s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  18%|█▊        | 76/424 [2:30:22<5:11:26, 53.70s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  13%|█▎        | 58/460 [1:37:16<5:41:45, 51.01s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  16%|█▌        | 70/451 [2:50:42<5:19:32, 50.32s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  12%|█▏        | 54/465 [1:36:48<5:48:53, 50.93s/it][A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  19%|█▊        | 84/453 [2:51:39<5:03:23, 49.33s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  21%|██        | 101/484 [2:56:24<4:51:33, 45.67s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  14%|█▍        | 68/488 [2:14:16<8:04:38, 69.24s/it] [A[A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  19%|█▉        | 85/452 [2:39:36<4:36:15, 45.16s/it][A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   7%|▋         | 32/464 [49:48<5:28:24, 45.61s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  16%|█▋        | 74/453 [2:30:44<14:47:44, 140.54s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  18%|█▊        | 77/424 [2:30:49<4:24:13, 45.69s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  13%|█▎        | 59/460 [1:37:43<4:52:22, 43.75s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  16%|█▌        | 71/451 [2:51:10<4:35:15, 43.46s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  12%|█▏        | 55/465 [1:37:16<5:00:42, 44.01s/it][A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  19%|█▉        | 85/453 [2:52:09<4:27:15, 43.57s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  21%|██        | 102/484 [2:56:53<4:19:13, 40.71s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  14%|█▍        | 69/488 [2:14:44<6:37:06, 56.86s/it][A[A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  19%|█▉        | 86/452 [2:40:03<4:02:16, 39.72s/it][A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   7%|▋         | 33/464 [50:16<4:48:31, 40.17s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  17%|█▋        | 75/453 [2:31:10<11:09:51, 106.33s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  18%|█▊        | 78/424 [2:31:16<3:51:43, 40.18s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  13%|█▎        | 60/460 [1:38:10<4:16:49, 38.52s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  16%|█▌        | 72/451 [2:51:36<4:01:55, 38.30s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  12%|█▏        | 56/465 [1:37:42<4:24:41, 38.83s/it][A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  19%|█▉        | 86/453 [2:52:34<3:52:37, 38.03s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  21%|██▏       | 103/484 [2:57:20<3:52:49, 36.66s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  14%|█▍        | 70/488 [2:15:13<5:36:36, 48.32s/it][A[A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  19%|█▉        | 87/452 [2:40:32<3:42:16, 36.54s/it][A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   7%|▋         | 34/464 [50:45<4:24:44, 36.94s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  17%|█▋        | 76/453 [2:31:39<8:42:03, 83.09s/it]  [A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  19%|█▊        | 79/424 [2:31:44<3:30:23, 36.59s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  13%|█▎        | 61/460 [1:38:39<3:57:25, 35.70s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  16%|█▌        | 73/451 [2:52:05<3:43:19, 35.45s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  12%|█▏        | 57/465 [1:38:11<4:03:38, 35.83s/it][A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  19%|█▉        | 87/453 [2:53:03<3:34:40, 35.19s/it][A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  15%|█▍        | 71/488 [2:15:42<4:55:31, 42.52s/it][A[A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  19%|█▉        | 88/452 [2:41:04<3:32:05, 34.96s/it][A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   8%|▊         | 35/464 [51:19<4:16:50, 35.92s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  17%|█▋        | 77/453 [2:32:14<7:10:27, 68.69s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  19%|█▉        | 80/424 [2:32:22<3:30:44, 36.76s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  13%|█▎        | 62/460 [1:39:18<4:04:18, 36.83s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  16%|█▋        | 74/451 [2:52:47<3:56:03, 37.57s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  12%|█▏        | 58/465 [1:38:58<4:24:45, 39.03s/it][A[A2025-08-17 09:14:34.481 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541810380480: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 511624 [type=json_invalid, input_value='{"analysis_summary": "Th...algorithmic complexity,', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  15%|█▍        | 72/488 [2:24:01<20:44:07, 179.44s/it][A[A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  20%|█▉        | 89/452 [2:49:24<17:35:56, 174.54s/it][A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   8%|▊         | 36/464 [59:42<20:55:38, 176.03s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  17%|█▋        | 78/453 [2:40:40<20:49:42, 199.95s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  19%|█▉        | 81/424 [2:40:50<16:59:03, 178.26s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  14%|█▎        | 63/460 [1:47:47<19:40:36, 178.43s/it]2025-08-17 09:15:20.976 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541808275744: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 463008 [type=json_invalid, input_value='{"analysis_summary": "Th...hich is a cross-cutting', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  17%|█▋        | 75/451 [3:01:18<18:45:12, 179.56s/it][A[A[A[A[A[A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  13%|█▎        | 59/465 [1:47:25<20:15:16, 179.60s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  21%|██▏       | 104/484 [3:07:00<21:04:03, 199.59s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  15%|█▍        | 73/488 [2:24:51<16:13:07, 140.69s/it][A[A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  20%|█▉        | 90/452 [2:50:11<13:43:20, 136.46s/it][A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   8%|▊         | 37/464 [1:00:24<16:07:18, 135.92s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  17%|█▋        | 79/453 [2:41:17<15:41:49, 151.09s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  19%|█▉        | 82/424 [2:41:23<12:48:25, 134.81s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  14%|█▍        | 64/460 [1:48:18<14:45:00, 134.09s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  17%|█▋        | 76/451 [3:01:45<13:55:26, 133.67s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  19%|█▉        | 88/453 [3:02:40<20:02:48, 197.72s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  13%|█▎        | 60/465 [1:47:53<15:05:24, 134.13s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  22%|██▏       | 105/484 [3:07:28<15:36:44, 148.30s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  15%|█▌        | 74/488 [2:25:21<12:20:58, 107.39s/it][A[A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  20%|██        | 91/452 [2:50:40<10:26:05, 104.06s/it][A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   8%|▊         | 38/464 [1:00:53<12:17:31, 103.88s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  18%|█▊        | 80/453 [2:41:50<11:57:35, 115.43s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  20%|█▉        | 83/424 [2:41:54<9:49:08, 103.66s/it] [A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  14%|█▍        | 65/460 [1:48:48<11:17:36, 102.93s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  17%|█▋        | 77/451 [3:02:14<10:38:40, 102.46s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  20%|█▉        | 89/453 [3:03:09<14:52:57, 147.19s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  13%|█▎        | 61/465 [1:48:23<11:31:44, 102.73s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  22%|██▏       | 106/484 [3:07:57<11:47:48, 112.35s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  15%|█▌        | 75/488 [2:25:49<9:35:50, 83.66s/it]  [A[A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  20%|██        | 92/452 [2:51:09<8:09:10, 81.53s/it]  [A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   8%|▊         | 39/464 [1:01:21<9:35:06, 81.19s/it]  [A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  20%|█▉        | 84/424 [2:42:23<7:40:08, 81.20s/it] [A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  14%|█▍        | 66/460 [1:49:20<8:56:48, 81.75s/it]  
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  17%|█▋        | 78/451 [3:02:49<8:30:01, 82.04s/it]  [A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  20%|█▉        | 90/453 [3:03:46<11:29:57, 114.04s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  13%|█▎        | 62/465 [1:49:01<9:19:29, 83.30s/it]  [A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  22%|██▏       | 107/484 [3:08:36<9:27:54, 90.38s/it]  [A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  16%|█▌        | 76/488 [2:26:29<8:05:14, 70.67s/it][A[A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  21%|██        | 93/452 [2:51:53<7:00:28, 70.27s/it][A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   9%|▊         | 40/464 [1:02:07<8:19:34, 70.69s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  20%|██        | 85/424 [2:43:06<6:34:10, 69.77s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  15%|█▍        | 67/460 [1:50:01<7:35:40, 69.57s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  18%|█▊        | 79/451 [3:03:31<7:14:04, 70.01s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  20%|██        | 91/453 [3:04:28<9:18:57, 92.65s/it]  [A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  14%|█▎        | 63/465 [1:49:45<7:59:16, 71.53s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  22%|██▏       | 108/484 [3:09:21<8:00:12, 76.63s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  16%|█▌        | 77/488 [2:27:14<7:11:59, 63.06s/it][A[A[A[A[A[A[A[A2025-08-17 09:24:56.660 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541811433008: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 475895 [type=json_invalid, input_value='{"analysis_summary": "Th...compared to Clang and C', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   9%|▉         | 41/464 [1:09:48<22:03:19, 187.71s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  20%|██        | 86/424 [2:50:47<17:34:17, 187.15s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  15%|█▍        | 68/460 [1:57:43<20:22:56, 187.18s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  18%|█▊        | 80/451 [3:11:11<19:17:46, 187.24s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  20%|██        | 92/453 [3:12:09<20:20:58, 202.93s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  14%|█▍        | 64/465 [1:57:24<20:55:54, 187.92s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  23%|██▎       | 109/484 [3:17:00<19:56:04, 191.37s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  16%|█▌        | 78/488 [2:34:56<20:46:51, 182.47s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   9%|▉         | 42/464 [1:10:28<16:47:18, 143.22s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  18%|█▊        | 81/453 [2:51:26<26:12:45, 253.67s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  21%|██        | 87/424 [2:51:35<13:36:47, 145.42s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  15%|█▌        | 69/460 [1:58:39<16:02:39, 147.72s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  18%|█▊        | 81/451 [3:12:08<15:13:35, 148.15s/it][A[A[A[A[A[A2025-08-17 09:26:16.171 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541811608416: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 428899 [type=json_invalid, input_value='{"analysis_summary": "Th...se button behavior (e.g', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  21%|██        | 93/453 [3:13:05<15:54:19, 159.06s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  14%|█▍        | 65/465 [1:58:19<16:25:55, 147.89s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  23%|██▎       | 110/484 [3:17:53<15:34:09, 149.86s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  16%|█▌        | 79/488 [2:35:45<16:12:46, 142.70s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   9%|▉         | 43/464 [1:11:15<13:23:24, 114.50s/it][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  18%|█▊        | 82/453 [2:52:08<19:37:01, 190.36s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  21%|██        | 88/424 [2:52:14<10:35:16, 113.44s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  15%|█▌        | 70/460 [1:59:08<12:10:25, 112.37s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  18%|█▊        | 82/451 [3:12:35<11:26:28, 111.62s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  21%|██        | 94/453 [3:13:29<11:49:30, 118.58s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  14%|█▍        | 66/465 [1:58:45<12:21:36, 111.52s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  21%|██        | 94/452 [3:01:26<21:59:19, 221.12s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  23%|██▎       | 111/484 [3:18:22<11:47:31, 113.81s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  16%|█▋        | 80/488 [2:36:14<12:17:09, 108.41s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:   9%|▉         | 44/464 [1:11:43<10:20:03, 88.58s/it] [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  18%|█▊        | 83/453 [2:52:38<14:36:21, 142.11s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  21%|██        | 89/424 [2:52:43<8:12:04, 88.13s/it]  [A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  15%|█▌        | 71/460 [1:59:37<9:25:26, 87.22s/it]  
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  18%|█▊        | 83/451 [3:13:03<8:51:39, 86.68s/it]  [A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  21%|██        | 95/453 [3:13:58<9:05:43, 91.46s/it]  [A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  14%|█▍        | 67/465 [1:59:13<9:31:58, 86.23s/it]  [A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  21%|██        | 95/452 [3:01:53<16:09:12, 162.89s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  23%|██▎       | 112/484 [3:18:48<9:01:53, 87.40s/it]  [A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  17%|█▋        | 81/488 [2:36:40<9:27:30, 83.66s/it]  [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  19%|█▊        | 84/453 [2:53:04<11:00:17, 107.36s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:  10%|▉         | 45/464 [1:12:14<8:18:05, 71.33s/it] [A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  21%|██        | 90/424 [2:53:12<6:30:51, 70.21s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  16%|█▌        | 72/460 [2:00:05<7:29:09, 69.46s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  19%|█▊        | 84/451 [3:13:31<7:01:29, 68.91s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  21%|██        | 96/453 [3:14:25<7:10:32, 72.36s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  15%|█▍        | 68/465 [1:59:40<7:34:05, 68.63s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  21%|██        | 96/452 [3:02:21<12:06:25, 122.43s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  23%|██▎       | 113/484 [3:19:17<7:12:27, 69.94s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  17%|█▋        | 82/488 [2:37:09<7:36:03, 67.40s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  19%|█▉        | 85/453 [2:53:30<8:28:02, 82.83s/it]  [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:  10%|▉         | 46/464 [1:12:41<6:44:45, 58.10s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  21%|██▏       | 91/424 [2:53:38<5:17:14, 57.16s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  16%|█▌        | 73/460 [2:00:35<6:11:44, 57.64s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  19%|█▉        | 85/451 [3:14:01<5:49:36, 57.31s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  21%|██▏       | 97/453 [3:14:57<5:57:09, 60.20s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  15%|█▍        | 69/465 [2:00:10<6:16:15, 57.01s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  21%|██▏       | 97/452 [3:02:51<9:20:07, 94.67s/it]  [A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  24%|██▎       | 114/484 [3:19:47<5:57:32, 57.98s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  17%|█▋        | 83/488 [2:37:39<6:19:32, 56.23s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  19%|█▉        | 86/453 [2:54:00<6:50:11, 67.06s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:  10%|█         | 47/464 [1:13:12<5:46:26, 49.85s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  22%|██▏       | 92/424 [2:54:09<4:32:14, 49.20s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  16%|█▌        | 74/460 [2:01:02<5:12:02, 48.50s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  19%|█▉        | 86/451 [3:14:29<4:55:51, 48.63s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  22%|██▏       | 98/453 [3:15:25<4:58:43, 50.49s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  15%|█▌        | 70/465 [2:00:39<5:18:49, 48.43s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  22%|██▏       | 98/452 [3:03:20<7:22:12, 74.95s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  24%|██▍       | 115/484 [3:20:16<5:01:53, 49.09s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  17%|█▋        | 84/488 [2:38:08<5:22:54, 47.96s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  19%|█▉        | 87/453 [2:54:28<5:36:57, 55.24s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:  10%|█         | 48/464 [1:13:39<4:58:15, 43.02s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  22%|██▏       | 93/424 [2:54:37<3:56:17, 42.83s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  16%|█▋        | 75/460 [2:01:31<4:32:31, 42.47s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  19%|█▉        | 87/451 [3:14:57<4:16:28, 42.28s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  22%|██▏       | 99/453 [3:15:54<4:18:56, 43.89s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  15%|█▌        | 71/465 [2:01:07<4:38:01, 42.34s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  22%|██▏       | 99/452 [3:03:49<5:59:28, 61.10s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  24%|██▍       | 116/484 [3:20:44<4:23:31, 42.97s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  17%|█▋        | 85/488 [2:38:38<4:46:17, 42.62s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  19%|█▉        | 88/453 [2:54:57<4:48:31, 47.43s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:  11%|█         | 49/464 [1:14:10<4:31:28, 39.25s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  22%|██▏       | 94/424 [2:55:07<3:34:05, 38.93s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  17%|█▋        | 76/460 [2:02:01<4:08:27, 38.82s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  20%|█▉        | 88/451 [3:15:30<3:58:35, 39.44s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  22%|██▏       | 100/453 [3:16:23<3:52:49, 39.57s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  15%|█▌        | 72/465 [2:01:37<4:14:06, 38.79s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  22%|██▏       | 100/452 [3:04:18<5:02:05, 51.49s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  24%|██▍       | 117/484 [3:21:13<3:56:04, 38.60s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  18%|█▊        | 86/488 [2:39:04<4:12:35, 37.70s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  20%|█▉        | 89/453 [2:55:25<4:11:38, 41.48s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:  11%|█         | 50/464 [1:14:36<4:03:14, 35.25s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  22%|██▏       | 95/424 [2:55:33<3:12:46, 35.16s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  17%|█▋        | 77/460 [2:02:27<3:42:58, 34.93s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  20%|█▉        | 89/451 [3:15:53<3:28:35, 34.57s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  22%|██▏       | 101/453 [3:16:48<3:25:47, 35.08s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  16%|█▌        | 73/465 [2:02:03<3:47:05, 34.76s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  22%|██▏       | 101/452 [3:04:43<4:15:58, 43.76s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  24%|██▍       | 118/484 [3:21:39<3:32:28, 34.83s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  18%|█▊        | 87/488 [2:39:31<3:50:16, 34.45s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  20%|█▉        | 90/453 [2:55:52<3:44:35, 37.12s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:  11%|█         | 51/464 [1:15:05<3:50:52, 33.54s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  23%|██▎       | 96/424 [2:56:02<3:01:14, 33.16s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  17%|█▋        | 78/460 [2:02:56<3:31:07, 33.16s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  20%|█▉        | 90/451 [3:16:22<3:18:02, 32.92s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  23%|██▎       | 102/453 [3:17:17<3:15:52, 33.48s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  16%|█▌        | 74/465 [2:02:31<3:33:32, 32.77s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  23%|██▎       | 102/452 [3:05:12<3:49:27, 39.33s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  25%|██▍       | 119/484 [3:22:13<3:30:18, 34.57s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  18%|█▊        | 88/488 [2:40:03<3:43:45, 33.56s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  20%|██        | 91/453 [2:56:23<3:33:46, 35.43s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:  11%|█         | 52/464 [1:15:34<3:41:02, 32.19s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  23%|██▎       | 97/424 [2:56:32<2:55:48, 32.26s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  17%|█▋        | 79/460 [2:03:26<3:25:35, 32.38s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  20%|██        | 91/451 [3:16:53<3:14:17, 32.38s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  23%|██▎       | 103/453 [3:17:48<3:09:45, 32.53s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  16%|█▌        | 75/465 [2:03:02<3:30:37, 32.40s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  23%|██▎       | 103/452 [3:05:43<3:34:30, 36.88s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  25%|██▍       | 120/484 [3:22:39<3:15:16, 32.19s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  18%|█▊        | 89/488 [2:40:32<3:34:55, 32.32s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  20%|██        | 92/453 [2:56:53<3:23:36, 33.84s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:  11%|█▏        | 53/464 [1:16:04<3:35:30, 31.46s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  23%|██▎       | 98/424 [2:57:01<2:50:59, 31.47s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  17%|█▋        | 80/460 [2:03:55<3:17:40, 31.21s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  20%|██        | 92/451 [3:17:22<3:07:07, 31.27s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  23%|██▎       | 104/453 [3:18:17<3:02:41, 31.41s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  16%|█▋        | 76/465 [2:03:33<3:26:08, 31.80s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  23%|██▎       | 104/452 [3:06:14<3:23:14, 35.04s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  25%|██▌       | 121/484 [3:23:10<3:11:15, 31.61s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  18%|█▊        | 90/488 [2:41:02<3:28:36, 31.45s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  21%|██        | 93/453 [2:57:21<3:12:35, 32.10s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:  12%|█▏        | 54/464 [1:16:34<3:31:14, 30.91s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  23%|██▎       | 99/424 [2:57:31<2:47:30, 30.93s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  18%|█▊        | 81/460 [2:04:25<3:14:52, 30.85s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  21%|██        | 93/451 [3:17:51<3:03:51, 30.81s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  23%|██▎       | 105/453 [3:18:46<2:58:14, 30.73s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  17%|█▋        | 77/465 [2:04:00<3:16:16, 30.35s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  23%|██▎       | 105/452 [3:06:41<3:08:38, 32.62s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  25%|██▌       | 122/484 [3:23:36<3:01:36, 30.10s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  19%|█▊        | 91/488 [2:41:28<3:18:42, 30.03s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  21%|██        | 94/453 [2:57:49<3:04:16, 30.80s/it][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:  12%|█▏        | 55/464 [1:17:01<3:23:09, 29.80s/it][A[A[A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  24%|██▎       | 100/424 [2:58:01<2:44:47, 30.52s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  18%|█▊        | 82/460 [2:04:58<3:19:22, 31.65s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  21%|██        | 94/451 [3:18:23<3:04:05, 30.94s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  23%|██▎       | 106/453 [3:19:18<3:00:04, 31.14s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  17%|█▋        | 78/465 [2:04:31<3:18:13, 30.73s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  23%|██▎       | 106/452 [3:07:12<3:05:26, 32.16s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  25%|██▌       | 123/484 [3:24:09<3:05:08, 30.77s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  19%|█▉        | 92/488 [2:42:00<3:22:09, 30.63s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  21%|██        | 95/453 [2:58:21<3:05:42, 31.12s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  24%|██▍       | 101/424 [2:58:35<2:51:01, 31.77s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  18%|█▊        | 83/460 [2:05:32<3:22:18, 32.20s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  21%|██        | 95/451 [3:19:03<3:20:08, 33.73s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  24%|██▎       | 107/453 [3:19:59<3:17:38, 34.27s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  17%|█▋        | 79/465 [2:05:18<3:49:31, 35.68s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  24%|██▎       | 107/452 [3:08:02<3:35:53, 37.55s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  26%|██▌       | 124/484 [3:25:02<3:45:40, 37.61s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  19%|█▉        | 93/488 [2:42:56<4:10:55, 38.12s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  21%|██        | 96/453 [2:59:19<3:53:28, 39.24s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  24%|██▍       | 102/424 [2:59:29<3:25:06, 38.22s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  18%|█▊        | 84/460 [2:06:24<3:59:36, 38.24s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  21%|██▏       | 96/451 [3:19:54<3:50:07, 38.90s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  24%|██▍       | 108/453 [3:20:50<3:45:55, 39.29s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  17%|█▋        | 80/465 [2:06:06<4:11:29, 39.19s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  24%|██▍       | 108/452 [3:08:50<3:52:25, 40.54s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  26%|██▌       | 125/484 [3:25:48<4:00:23, 40.18s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  19%|█▉        | 94/488 [2:43:42<4:24:53, 40.34s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  21%|██▏       | 97/453 [3:00:04<4:03:26, 41.03s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  24%|██▍       | 103/424 [3:00:12<3:33:02, 39.82s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  18%|█▊        | 85/460 [2:07:10<4:12:44, 40.44s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  22%|██▏       | 97/451 [3:20:38<3:58:55, 40.50s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  24%|██▍       | 109/453 [3:21:35<3:54:10, 40.85s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  17%|█▋        | 81/465 [2:06:51<4:22:25, 41.00s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  24%|██▍       | 109/452 [3:09:34<3:58:08, 41.66s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  26%|██▌       | 126/484 [3:26:31<4:04:23, 40.96s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  19%|█▉        | 95/488 [2:44:25<4:30:05, 41.24s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  22%|██▏       | 98/453 [3:00:49<4:09:10, 42.11s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  25%|██▍       | 104/424 [3:00:57<3:40:19, 41.31s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  19%|█▊        | 86/460 [2:07:52<4:16:07, 41.09s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  22%|██▏       | 98/451 [3:21:21<4:02:00, 41.13s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  24%|██▍       | 110/453 [3:22:19<3:59:23, 41.88s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  18%|█▊        | 82/465 [2:07:36<4:29:57, 42.29s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  24%|██▍       | 110/452 [3:10:19<4:03:38, 42.74s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  26%|██▌       | 127/484 [3:27:17<4:12:23, 42.42s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  20%|█▉        | 96/488 [2:45:12<4:41:03, 43.02s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  22%|██▏       | 99/453 [3:01:36<4:17:54, 43.71s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  25%|██▍       | 105/424 [3:01:47<3:52:54, 43.81s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  19%|█▉        | 87/460 [2:08:42<4:31:16, 43.64s/it]2025-08-17 09:41:15.361 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541809850912: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 448649 [type=json_invalid, input_value='{"analysis_summary": "Th...to portability issues (', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  25%|██▍       | 111/453 [3:28:09<12:45:59, 134.38s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  18%|█▊        | 83/465 [2:13:31<14:25:05, 135.88s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  25%|██▍       | 111/452 [3:16:14<12:55:13, 136.40s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  26%|██▋       | 128/484 [3:33:12<13:27:45, 136.14s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  20%|█▉        | 97/488 [2:51:06<14:47:22, 136.17s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  22%|██▏       | 100/453 [3:07:30<13:25:05, 136.84s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  25%|██▌       | 106/424 [3:07:37<12:00:26, 135.93s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  19%|█▉        | 88/460 [2:14:34<14:03:46, 136.09s/it]
+
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.11 in batches of 5:  12%|█▏        | 56/464 [1:26:52<22:28:04, 198.25s/it][A[A[A[A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  25%|██▍       | 112/453 [3:28:58<10:18:20, 108.80s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  18%|█▊        | 84/465 [2:14:15<11:29:19, 108.56s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  25%|██▍       | 112/452 [3:17:01<10:20:16, 109.46s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  27%|██▋       | 129/484 [3:33:59<10:47:54, 109.51s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  20%|██        | 98/488 [2:51:55<11:56:02, 110.16s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  22%|██▏       | 101/453 [3:08:17<10:43:20, 109.66s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  25%|██▌       | 107/424 [3:08:25<9:37:46, 109.36s/it] [A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  19%|█▉        | 89/460 [2:15:21<11:17:23, 109.55s/it]2025-08-17 09:44:36.757 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 127541810068080: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 479274 [type=json_invalid, input_value='{"analysis_summary": "Th...act of dynamic rules on', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  25%|██▍       | 113/453 [3:31:34<11:36:07, 122.85s/it][A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  18%|█▊        | 85/465 [2:16:51<12:56:20, 122.58s/it][A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.07 in batches of 5:  25%|██▌       | 113/452 [3:19:34<11:32:41, 122.60s/it][A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.1.part_0 in batches of 5:  27%|██▋       | 130/484 [3:36:32<12:02:12, 122.41s/it][A[A[A
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.0.part_2 in batches of 5:  20%|██        | 99/488 [2:54:29<13:19:13, 123.27s/it][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.02 in batches of 5:  23%|██▎       | 102/453 [3:10:51<12:00:01, 123.08s/it][A[A[A[A[A[A[A
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 5:  25%|██▌       | 108/424 [3:10:58<10:45:41, 122.60s/it][A[A[A[AProcessing root-project.root.v6-32-06.docs.03 in batches of 5:  20%|█▉        | 90/460 [2:17:55<12:37:09, 122.78s/it]
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.09 in batches of 5:  22%|██▏       | 99/451 [3:31:25<20:32:37, 210.11s/it][A[A[A[A[A[A
+Processing root-project.root.v6-32-06.docs.05 in batches of 5:  25%|██▌       | 114/453 [3:32:23<9:27:58, 100.53s/it] [A
+
+Processing root-project.root.v6-32-06.docs.01 in batches of 5:  18%|█▊        | 86/465 [2:17:42<10:38:30, 101.08s/it][A[A
