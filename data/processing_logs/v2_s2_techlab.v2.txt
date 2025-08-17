@@ -2147,3 +2147,9 @@ disable_cache: False
 
 Processing root-project.root.v6-32-06.code_comment.3.part_3 in batches of 14:  62%|██████▎   | 90/144 [8:33:59<3:37:37, 241.81s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.2.part_1 in batches of 14:  42%|████▏     | 69/164 [6:00:54<7:11:40, 272.64s/it]
 Processing root-project.root.v6-32-06.code_comment.3.part_0 in batches of 14:   9%|▊         | 15/175 [1:18:45<8:24:04, 189.03s/it] [A
+
+
+
+Processing root-project.root.v6-32-06.issue in batches of 14:  24%|██▍       | 132/551 [19:16:59<24:00:36, 206.29s/it][A[A[A[A
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 14:  14%|█▍        | 88/640 [9:51:01<38:44:39, 252.68s/it][A[A
