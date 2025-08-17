@@ -97,7 +97,7 @@ class TacticModelResponse(BaseModel):
 class TacticExtractionStage_v2(IBaseStage):
     data_model = TacticModelResponse
     temperature = 0.0
-    model_name = ModelName.DEEPSEEK_8B
+    model_name = ModelName.DEEPSEEK_1_5B
     cache_dir = AbsDirPath.CACHE / FolderNames.TACTIC_EXTRACTION_DIR / "v2"
     in_dir = AbsDirPath.O_S2_ARCH_RELEVANCE_CHECK
     out_dir = AbsDirPath.S3_TACTIC_EXTRACTION
