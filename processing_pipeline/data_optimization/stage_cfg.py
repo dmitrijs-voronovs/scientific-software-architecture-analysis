@@ -1,5 +1,5 @@
 from processing_pipeline.utilities.data_transformation import split_dataset_by_repo_and_source
-from utilities.split_parquet import split_files_exceeding_max_limit
+from utilities.split_parquet import split_files_exceeding_max_limit, split_big_files_into_seq_batches
 from dataclasses import field, dataclass
 from pathlib import Path
 from typing import List, Optional, Callable
@@ -89,7 +89,7 @@ class StageConfig:
     def save_data(self, df):
         split_dataset_by_repo_and_source(self.out_dir, df, clean_before_saving=True,
                                          drop_columns_before_save=COLUMNS_FOR_SPLITTING_DATA + [self.get_column_name("prompt")])
-        split_files_exceeding_max_limit(self.out_dir)
+        split_big_files_into_seq_batches(self.out_dir)
 
 
 

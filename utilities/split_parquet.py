@@ -1,13 +1,10 @@
 import math
-import os
-from itertools import islice
 from pathlib import Path
 
 import pandas as pd
-from tqdm import tqdm
+import pyarrow.parquet as pq
 
 from constants.abs_paths import AbsDirPath
-from constants.foldernames import FolderNames
 from processing_pipeline.model.ParquetDFHandler import ParquetDFHandler
 from utilities.csv.split_file_into_n_parts import split_file_in_batches, split_file_in_seq_batches
 
@@ -24,7 +21,8 @@ def split_file(file_path: Path, size_bytes=MAX_FILE_SIZE_BYTES / 2):
     chunks = [content.iloc[ran] for ran in grouper_ranges(num_rows, chunk_size_rows)]
     n_chunks = len(chunks)
     for i, chunk in enumerate(chunks):
-        chunk.to_parquet(file_path.with_stem(f"{file_path.stem}.{i:0{len(str(n_chunks))}}"), engine='pyarrow', compression='snappy', index=False)
+        chunk.to_parquet(file_path.with_stem(f"{file_path.stem}.{i:0{len(str(n_chunks))}}"), engine='pyarrow',
+                         compression='snappy', index=False)
 
 
 def split_files_exceeding_max_limit(dir, size_limit=MAX_FILE_SIZE_BYTES):
@@ -34,26 +32,18 @@ def split_files_exceeding_max_limit(dir, size_limit=MAX_FILE_SIZE_BYTES):
             print(f"File size: {file_path} | {size}")
             split_file_in_batches(file_path, ParquetDFHandler(), 1500)
 
-def split_big_files_into_seq_batches(dir, size_limit=MAX_FILE_SIZE_BYTES):
+
+def split_big_files_into_seq_batches(dir, rows_limit=2000):
     for file_path in Path(dir).glob("*[A-Z].parquet"):
-        size = file_path.stat().st_size
-        if size > size_limit:
-            print(f"File size: {file_path} | {size}")
-            split_file_in_seq_batches(file_path, ParquetDFHandler(), 1500)
+        num_rows = pq.ParquetFile(file_path).metadata.num_rows
+        if num_rows > rows_limit:
+            print(f"{file_path}: # rows {num_rows}")
+            split_file_in_seq_batches(file_path, ParquetDFHandler(), rows_limit)
 
 
 def grouper_ranges(total_size, chunk_size):
     return (range(i, min(i + chunk_size, total_size)) for i in range(0, total_size, chunk_size))
 
 
-
 if __name__ == "__main__":
-    # split_files_exceeding_max_limit(AbsDirPath.KEYWORDS_MATCHING)
     split_files_exceeding_max_limit(AbsDirPath.O_KEYWORDS_MATCHING)
-    # split_files_exceeding_max_limit(AbsDirPath.S0_NOISE_FILTERING)
-    # split_files_exceeding_max_limit(AbsDirPath.S1_QA_RELEVANCE_CHECK)
-    # split_files_exceeding_max_limit(AbsDirPath.S2_ARCH_RELEVANCE_CHECK)
-    # split_files_exceeding_max_limit(AbsDirPath.S3_TACTIC_EXTRACTION)
-
-    # print(list(grouper_ranges(98, 10)))
-    # split_file("metadata/keywords/broadinstitute.cromwell.87.ISSUE_COMMENT.csv", 500_000)

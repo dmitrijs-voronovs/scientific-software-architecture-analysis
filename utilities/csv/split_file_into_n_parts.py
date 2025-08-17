@@ -31,6 +31,7 @@ def split_file_in_seq_batches(path: Path, handler: IDfHandler, batch_size: int =
     path.rename(path.with_stem(f"_{path.stem}"))
 
     n_parts = math.ceil(df.shape[0] / batch_size)
+    print(f"{path}: Splitting into {n_parts} parts")
     for i in range(n_parts):
         start = i * batch_size
         part_name = path if i == 0 else path.with_stem(f"{path.stem}.pt_{i+1:0{len(str(n_parts))}}")
