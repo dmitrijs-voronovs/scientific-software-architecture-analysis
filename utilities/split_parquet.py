@@ -8,6 +8,8 @@ from tqdm import tqdm
 
 from constants.abs_paths import AbsDirPath
 from constants.foldernames import FolderNames
+from processing_pipeline.model.ParquetDFHandler import ParquetDFHandler
+from utilities.csv.split_file_into_n_parts import split_file_in_batches, split_file_in_seq_batches
 
 MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024
 
@@ -30,8 +32,14 @@ def split_files_exceeding_max_limit(dir, size_limit=MAX_FILE_SIZE_BYTES):
         size = file_path.stat().st_size
         if size > size_limit:
             print(f"File size: {file_path} | {size}")
-            split_file(file_path)
-            file_path.rename(file_path.with_stem(f"_{file_path.stem}"))
+            split_file_in_batches(file_path, ParquetDFHandler(), 1500)
+
+def split_big_files_into_seq_batches(dir, size_limit=MAX_FILE_SIZE_BYTES):
+    for file_path in Path(dir).glob("*[A-Z].parquet"):
+        size = file_path.stat().st_size
+        if size > size_limit:
+            print(f"File size: {file_path} | {size}")
+            split_file_in_seq_batches(file_path, ParquetDFHandler(), 1500)
 
 
 def grouper_ranges(total_size, chunk_size):
