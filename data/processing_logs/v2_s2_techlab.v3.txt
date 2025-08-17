@@ -1,0 +1,18 @@
+nohup: ignoring input
+2025-08-17 23:10:01.402 | INFO     | processing_pipeline.model.IBaseStage:execute:331 - Executing s2 stage
+2025-08-17 23:10:01.402 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - google.deepvariant.v1.6.1.issue_comment: Processing file
+2025-08-17 23:10:01.415 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:234 - google.deepvariant.v1.6.1.issue_comment: Continuing processing from 2060
+Stage s2 params:
+stop_event: <threading.Event at 0x7dd97d06a120: unset>
+model_fields: ['analysis_summary', 'architectural_signal', 'exclusionary_signal', 'final_logic', 'related_to_arch']
+hostname: http://localhost:11434
+model: model='deepseek-r1:1.5b' temperature=0.0 format={'description': 'Updated Pydantic model to match the new JSON output structure.', 'properties': {'analysis_summary': {'title': 'Analysis Summary', 'type': 'string'}, 'architectural_signal': {'title': 'Architectural Signal', 'type': 'string'}, 'exclusionary_signal': {'title': 'Exclusionary Signal', 'type': 'string'}, 'final_logic': {'title': 'Final Logic', 'type': 'string'}, 'related_to_arch': {'title': 'Related To Arch', 'type': 'boolean'}}, 'required': ['analysis_summary', 'architectural_signal', 'exclusionary_signal', 'final_logic', 'related_to_arch'], 'title': 'OllamaArchitectureResponse', 'type': 'object'} base_url='http://localhost:11434'
+batch_size: 30
+n_threads: 1
+disable_cache: False
+
+
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 30:   0%|          | 0/4 [00:00<?, ?it/s]Processing google.deepvariant.v1.6.1.issue_comment in batches of 30:  25%|██▌       | 1/4 [00:27<01:22, 27.43s/it]Processing google.deepvariant.v1.6.1.issue_comment in batches of 30:  50%|█████     | 2/4 [00:57<00:58, 29.02s/it]Processing google.deepvariant.v1.6.1.issue_comment in batches of 30:  75%|███████▌  | 3/4 [01:22<00:27, 27.14s/it]Processing google.deepvariant.v1.6.1.issue_comment in batches of 30: 100%|██████████| 4/4 [01:41<00:00, 23.93s/it]Processing google.deepvariant.v1.6.1.issue_comment in batches of 30: 100%|██████████| 4/4 [01:41<00:00, 25.37s/it]
+2025-08-17 23:11:42.890 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:273 - google.deepvariant.v1.6.1.issue_comment: Finished processing
+2025-08-17 23:11:42.890 | INFO     | processing_pipeline.model.IBaseStage:execute:353 - /home/dmitry/scientific-software-architecture-analysis/data/keywords_2/s1_qa_relevance_check_o/google.deepvariant.v1.6.1.issue_comment.parquet: Thread finished processing the file
+2025-08-17 23:11:42.890 | INFO     | processing_pipeline.model.IBaseStage:execute:360 - Finished s2 stage
