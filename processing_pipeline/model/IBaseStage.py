@@ -28,6 +28,14 @@ from processing_pipeline.processing_parameter_tuning.optimal_params import optim
 from utilities.utils import create_logger_path
 
 
+@dataclasses.dataclass
+class ProcessingResults:
+    file_path: Path
+    filename: str
+    n_items: int
+    last_idx: int
+    processed: bool
+
 class IBaseStage(metaclass=ABCMeta):
     @property
     @abstractmethod
@@ -98,7 +106,7 @@ class IBaseStage(metaclass=ABCMeta):
         if model_name_override:
             self.model_name = model_name_override
         self.model = ChatOllama(model=self.model_name, temperature=self.temperature, base_url=self.hostname,
-                                format=self.data_model.model_json_schema())
+                                format=self.data_model.model_json_schema(), keep_alive="24h")
 
         optimal_params_settings = optimal_processing_parameters_cot if cot_prompt else optimal_processing_parameters
         optimal_params = optimal_params_settings[self.model_name]
@@ -187,18 +195,10 @@ class IBaseStage(metaclass=ABCMeta):
         logger.info(f"Cleaned cache for file {filename_with_ext}")
 
     def get_processing_status(self) -> pd.DataFrame:
-        @dataclasses.dataclass
-        class ProcessingResults:
-            file_path: Path
-            filename: str
-            n_items: int
-            last_idx: int
-            processed: bool
-
         data: List[ProcessingResults] = []
         for file_path_s in self.in_dir.glob(f"*{self.file_ext}"):
             path = Path(file_path_s)
-            shelf_path = self._prepare_shelf_with_path(path)
+            shelf_path = self._prepare_shelf_with_path(path, create_if_not_exist=False)
             with shelve.open(shelf_path) as db:
                 last_idx, processed = db.get("idx", 0), db.get("processed", False)
             n_tems = pq.ParquetFile(path).metadata.num_rows
@@ -286,10 +286,11 @@ class IBaseStage(metaclass=ABCMeta):
                 logger.error(f"{shelf_path.stem}: Cache error")
                 logger.error(e)
 
-    def _prepare_shelf_with_path(self, file_path) -> Path:
-        # fix for shelve with multithreading
-        for shelf_file_path in self._get_shelf_paths(file_path):
-            shelf_file_path.touch()
+    def _prepare_shelf_with_path(self, file_path, create_if_not_exist=True) -> Path:
+        if create_if_not_exist:
+            # fix for shelve with multithreading
+            for shelf_file_path in self._get_shelf_paths(file_path):
+                shelf_file_path.touch()
 
         shelf_path = self.cache_dir / file_path.stem
         self._test_shelf(shelf_path)
