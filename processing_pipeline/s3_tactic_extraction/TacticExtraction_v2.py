@@ -54,9 +54,9 @@ def get_structured_tactic_names_by_qa() -> Dict[str, str]:
 # This dictionary translates the QA found on an item
 # to the QA that has a corresponding tactic list.
 QA_TO_TACTIC_MAP = {'deployability': 'modifiability',  # mapped
-    'integrability': 'interoperability',  # mapped
-    'reliability': 'availability',  # mapped
-}
+                    'integrability': 'interoperability',  # mapped
+                    'reliability': 'availability',  # mapped
+                    }
 
 # Global maps for tactic details and names
 tactics_by_qa_map = get_structured_tactic_list_by_qa()
@@ -150,8 +150,8 @@ Based on the rules provided in the system prompt, analyze the following availabl
 
 
 def main():
-    TacticExtractionStage_v2(hostname=LLMHost.GREEN_LAB, disable_cache=True, cot_prompt=True, n_threads_override=10, batch_size_override=10).execute([],
-                                                           reverse=False)
+    TacticExtractionStage_v2(hostname=LLMHost.GREEN_LAB, n_threads_override=8, batch_size_override=16).execute(
+        ["google.deepvariant.v1.6.1", "scverse.scanpy.1.10.2", ], reverse=False)
 
 
 if __name__ == "__main__":
