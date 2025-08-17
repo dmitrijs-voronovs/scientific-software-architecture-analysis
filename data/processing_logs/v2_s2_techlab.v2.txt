@@ -2493,3 +2493,30 @@ disable_cache: False
 Processing root-project.root.v6-32-06.issue in batches of 14:  28%|██▊       | 152/551 [21:34:55<28:16:41, 255.14s/it][A[A[A[A2025-08-17 20:45:31.540 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 136070070485216: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
   Invalid JSON: EOF while parsing a string at line 1 column 467358 [type=json_invalid, input_value='{"analysis_summary": "Th...l issues with alignment', input_type=str]
     For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.code_comment.2.part_1 in batches of 14:  63%|██████▎   | 104/164 [8:34:51<6:27:33, 387.56s/it]
+Processing root-project.root.v6-32-06.code_comment.3.part_0 in batches of 14:  32%|███▏      | 56/175 [3:52:52<12:48:55, 387.70s/it][A
+
+
+
+Processing root-project.root.v6-32-06.issue in batches of 14:  28%|██▊       | 153/551 [21:51:23<52:31:47, 475.14s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.3.part_3 in batches of 14:  87%|████████▋ | 125/144 [11:09:15<3:22:44, 640.23s/it][A[A[A2025-08-17 21:00:58.541 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:138 - <RetryCallState 136070605316000: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for OllamaArchitectureResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 514206 [type=json_invalid, input_value='{"analysis_summary": "Th...d performance. The text', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.code_comment.2.part_1 in batches of 14:  64%|██████▍   | 105/164 [8:36:18<4:52:20, 297.30s/it]
+Processing root-project.root.v6-32-06.code_comment.3.part_0 in batches of 14:  33%|███▎      | 57/175 [3:54:10<9:39:53, 294.86s/it] [A
+
+
+
+Processing root-project.root.v6-32-06.issue in batches of 14:  28%|██▊       | 154/551 [21:52:25<38:42:18, 350.98s/it][A[A[A[AProcessing root-project.root.v6-32-06.code_comment.2.part_1 in batches of 14:  65%|██████▍   | 106/164 [8:37:05<3:34:58, 222.39s/it]
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 14:  20%|██        | 129/640 [12:27:00<62:23:49, 439.59s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.3.part_0 in batches of 14:  33%|███▎      | 58/175 [3:55:27<7:27:46, 229.63s/it][A
+
+
+
+Processing root-project.root.v6-32-06.issue in batches of 14:  28%|██▊       | 155/551 [21:54:02<30:14:09, 274.87s/it][A[A[A[AProcessing root-project.root.v6-32-06.code_comment.2.part_1 in batches of 14:  65%|██████▌   | 107/164 [8:38:35<2:53:32, 182.68s/it]
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 14:  20%|██        | 130/640 [12:28:29<47:23:51, 334.57s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.3.part_0 in batches of 14:  34%|███▎      | 59/175 [3:57:01<6:05:11, 188.89s/it][A
