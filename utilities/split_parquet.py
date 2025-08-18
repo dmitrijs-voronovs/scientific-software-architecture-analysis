@@ -34,7 +34,7 @@ def split_files_exceeding_max_limit(dir, size_limit=MAX_FILE_SIZE_BYTES):
             split_file_in_batches(file_path, ParquetDFHandler(), 1500)
 
 
-def split_big_files_into_seq_batches(dir, rows_limit=2000):
+def split_big_files_into_seq_batches(dir, rows_limit: int=2000):
     for file_path in Path(dir).glob("*[A-Z].parquet"):
         num_rows = pq.ParquetFile(file_path).metadata.num_rows
         if num_rows > rows_limit:

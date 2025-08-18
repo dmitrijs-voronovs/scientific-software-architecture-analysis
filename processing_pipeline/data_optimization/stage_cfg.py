@@ -100,7 +100,7 @@ class StageConfig:
         columns_to_drop = COLUMNS_FOR_SPLITTING_DATA + [self.get_column_name("prompt")] if drop_columns else []
         split_dataset_by_repo_and_source(self.out_dir, df, clean_before_saving=True,
                                          drop_columns_before_save=columns_to_drop)
-        split_big_files_into_seq_batches(self.out_dir, rows_limit)
+        self.split_big_files(rows_limit)
 
     def save_data_only(self, df, drop_columns=True):
         columns_to_drop = COLUMNS_FOR_SPLITTING_DATA + [self.get_column_name("prompt")] if drop_columns else []
@@ -108,19 +108,22 @@ class StageConfig:
                                          drop_columns_before_save=columns_to_drop)
 
     def split_big_files(self, rows_limit=None):
-        split_big_files_into_seq_batches(self.out_dir, rows_limit)
+        if rows_limit:
+            split_big_files_into_seq_batches(self.out_dir, rows_limit)
+        else:
+            split_big_files_into_seq_batches(self.out_dir)
 
 
 S3TacticExtraction = StageConfig("s3", ["qa", "sentence"], AbsDirPath.S3_TACTIC_EXTRACTION, AbsDirPath.MERGED,
                                  TacticExtractionStage_v2(), _apply_filters=lambda df: df[
         (~df['s3_selected_tactic'].isna()) & (df['s3_selected_tactic'] != "None")])
 
-S2ArchRelevance = StageConfig("s2", ["sentence"], AbsDirPath.S2_ARCH_RELEVANCE_CHECK, AbsDirPath.O_S2_ARCH_RELEVANCE_CHECK,
-                              ArchitectureRelevanceCheckStage_v2(), S3TacticExtraction,
-                              lambda df: df[df['s2_related_to_arch'] == True])
+S2ArchRelevance = StageConfig("s2", ["sentence"], AbsDirPath.S2_ARCH_RELEVANCE_CHECK,
+                              AbsDirPath.O_S2_ARCH_RELEVANCE_CHECK, ArchitectureRelevanceCheckStage_v2(),
+                              S3TacticExtraction, lambda df: df[df['s2_related_to_arch'] == True])
 
-S1QARelevance = StageConfig("s1", ["qa", "sentence"], AbsDirPath.S1_QA_RELEVANCE_CHECK, AbsDirPath.O_S1_QA_RELEVANCE_CHECK,
-                            QARelevanceCheckStage_v2(), S2ArchRelevance,
+S1QARelevance = StageConfig("s1", ["qa", "sentence"], AbsDirPath.S1_QA_RELEVANCE_CHECK,
+                            AbsDirPath.O_S1_QA_RELEVANCE_CHECK, QARelevanceCheckStage_v2(), S2ArchRelevance,
                             lambda df: df[df['s1_true_positive'] == True])
 
 S0NoiseFiltering = StageConfig("s0", ["sentence"], AbsDirPath.S0_NOISE_FILTERING, AbsDirPath.O_S0_NOISE_FILTERING,
