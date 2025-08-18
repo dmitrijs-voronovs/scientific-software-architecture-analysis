@@ -105,12 +105,8 @@ Now, apply the analysis steps defined in your system prompt to the data provided
 
 
 def main():
-    ArchitectureRelevanceCheckStage_v2(hostname=LLMHost.SERVER, n_threads_override=3, batch_size_override=30).execute(
-        [
-            "scverse.scanpy.1.10.2.issue_comment",
-            "scverse.scanpy.1.10.2.issue_comment.pt_2",
-            "scverse.scanpy.1.10.2.issue_comment.pt_3",
-        ], reverse=False)
+    ArchitectureRelevanceCheckStage_v2(hostname=LLMHost.SERVER, n_threads_override=8, batch_size_override=16).execute(
+        ["root-project.root.v6-32-06.code_comment"], reverse=False)
 
 
 if __name__ == "__main__":
