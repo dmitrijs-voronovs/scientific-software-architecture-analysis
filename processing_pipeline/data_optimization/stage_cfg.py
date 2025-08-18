@@ -86,9 +86,10 @@ class StageConfig:
         df = df.drop_duplicates(required_columns_for_the_next_stage_prompt)[total_columns]
         return df
 
-    def save_data(self, df, rows_limit=None):
+    def save_data(self, df, rows_limit=None, drop_columns=True):
+        columns_to_drop = COLUMNS_FOR_SPLITTING_DATA + [self.get_column_name("prompt")] if drop_columns else []
         split_dataset_by_repo_and_source(self.out_dir, df, clean_before_saving=True,
-                                         drop_columns_before_save=COLUMNS_FOR_SPLITTING_DATA + [self.get_column_name("prompt")])
+                                         drop_columns_before_save=columns_to_drop)
         split_big_files_into_seq_batches(self.out_dir, rows_limit)
 
 
