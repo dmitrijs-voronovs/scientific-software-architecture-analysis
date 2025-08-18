@@ -143,3 +143,26 @@ disable_cache: False
 Processing google.deepvariant.v1.6.1.issue in batches of 16:  14%|█▍        | 2/14 [12:32<1:13:13, 366.17s/it][A[A[A2025-08-18 00:57:28.109 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335412141056: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
   Invalid JSON: EOF while parsing a string at line 3 column 341214 [type=json_invalid, input_value='{\n\n"architectural_acti..._diff = np.sum(np.abs(A', input_type=str]
     For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:   4%|▎         | 4/107 [16:20<8:06:22, 283.32s/it][A[A[A[A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:   3%|▎         | 4/125 [16:53<9:43:47, 289.48s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:   4%|▎         | 4/110 [17:21<8:41:32, 295.21s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.code_comment in batches of 16:   9%|▊         | 2/23 [11:59<2:07:34, 364.49s/it]
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:   3%|▎         | 4/118 [18:17<9:38:55, 304.69s/it][A[A[A[A
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 16:  21%|██▏       | 3/14 [18:48<1:08:01, 371.01s/it][A[A[A
