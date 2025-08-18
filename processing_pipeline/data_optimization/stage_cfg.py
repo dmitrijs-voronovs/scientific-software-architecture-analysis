@@ -38,8 +38,8 @@ class StageConfig:
         return f"{self.name}_{col_name}"
 
     @property
-    def all_columns(self):
-        return self.columns_in + self.columns_out
+    def all_new_columns(self):
+        return self.columns_out + [self.column_stage_passed, self.get_column_name("prompt")]
 
     @classmethod
     def load_main_df(cls):
@@ -100,6 +100,14 @@ class StageConfig:
         columns_to_drop = COLUMNS_FOR_SPLITTING_DATA + [self.get_column_name("prompt")] if drop_columns else []
         split_dataset_by_repo_and_source(self.out_dir, df, clean_before_saving=True,
                                          drop_columns_before_save=columns_to_drop)
+        split_big_files_into_seq_batches(self.out_dir, rows_limit)
+
+    def save_data_only(self, df, drop_columns=True):
+        columns_to_drop = COLUMNS_FOR_SPLITTING_DATA + [self.get_column_name("prompt")] if drop_columns else []
+        split_dataset_by_repo_and_source(self.out_dir, df, clean_before_saving=True,
+                                         drop_columns_before_save=columns_to_drop)
+
+    def split_big_files(self, rows_limit=None):
         split_big_files_into_seq_batches(self.out_dir, rows_limit)
 
 

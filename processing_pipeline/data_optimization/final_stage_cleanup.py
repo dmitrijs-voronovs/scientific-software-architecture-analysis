@@ -5,11 +5,12 @@ from processing_pipeline.data_optimization.stage_cfg import last_stage, StageCon
 
 class FinalStageCleanup:
     @staticmethod
-    def fix_passed_fields(df: pd.DataFrame):
+    def _fix_passed_fields(df: pd.DataFrame):
         """
         """
         for cur in StageConfig.all_stages():
             df[cur.column_stage_passed] = df[cur.column_stage_passed].fillna(False).astype(bool)
+        return df
 
     @staticmethod
     def fix_data_quality(df: pd.DataFrame):
@@ -19,5 +20,7 @@ class FinalStageCleanup:
         stage_it = StageConfig.all_stages()
         prev = next(stage_it)
         for cur in stage_it:
-            df.loc[df[prev.column_stage_passed != True], cur.all_columns] = pd.NA
+            df.loc[df[prev.column_stage_passed] != True, cur.all_new_columns] = pd.NA
+            prev = cur
 
+        return FinalStageCleanup._fix_passed_fields(df)
