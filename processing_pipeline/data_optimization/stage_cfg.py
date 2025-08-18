@@ -86,15 +86,15 @@ class StageConfig:
         df = df.drop_duplicates(required_columns_for_the_next_stage_prompt)[total_columns]
         return df
 
-    def save_data(self, df):
+    def save_data(self, df, rows_limit=None):
         split_dataset_by_repo_and_source(self.out_dir, df, clean_before_saving=True,
                                          drop_columns_before_save=COLUMNS_FOR_SPLITTING_DATA + [self.get_column_name("prompt")])
-        split_big_files_into_seq_batches(self.out_dir)
+        split_big_files_into_seq_batches(self.out_dir, rows_limit)
 
 
 
-S3TacticExtraction = StageConfig("s3", ["qa", "sentence"], ["tactic", "response"], AbsDirPath.S3_TACTIC_EXTRACTION,
-                                 _apply_filters=lambda df: df[(~df['s3_tactic'].isna()) & (df['s3_tactic'] != "None")])
+S3TacticExtraction = StageConfig("s3", ["qa", "sentence"], ["tactic", "response"], AbsDirPath.S3_TACTIC_EXTRACTION, AbsDirPath.MERGED,
+                                 _apply_filters=lambda df: df[(~df['s3_selected_tactic'].isna()) & (df['s3_selected_tactic'] != "None")])
 
 S2ArchRelevance = StageConfig("s2", ["sentence"], ["related_to_arch", "reasoning"], AbsDirPath.S2_ARCH_RELEVANCE_CHECK,
                               AbsDirPath.O_S2_ARCH_RELEVANCE_CHECK, "related_to_arch", S3TacticExtraction,
