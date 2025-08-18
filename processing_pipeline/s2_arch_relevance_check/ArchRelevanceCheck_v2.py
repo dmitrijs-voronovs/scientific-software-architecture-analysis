@@ -105,8 +105,10 @@ Now, apply the analysis steps defined in your system prompt to the data provided
 
 
 def main():
-    ArchitectureRelevanceCheckStage_v2(hostname=LLMHost.SERVER, n_threads_override=8, batch_size_override=16).execute(
-        ["root-project.root.v6-32-06.code_comment"], reverse=False)
+    ArchitectureRelevanceCheckStage_v2(hostname=LLMHost.SERVER, n_threads_override=8, batch_size_override=32).execute(
+        ["allenai.scispacy.v0.5.5.issue"
+#, "root-project.root.v6-32-06.code_comment"
+	], reverse=False)
 
 
 if __name__ == "__main__":
