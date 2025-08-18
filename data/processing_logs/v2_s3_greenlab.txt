@@ -1,0 +1,145 @@
+nohup: ignoring input
+2025-08-18 00:41:41.774 | INFO     | processing_pipeline.model.IBaseStage:execute:332 - Executing s3 stage
+2025-08-18 00:41:41.775 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - scverse.scanpy.1.10.2.wiki: Processing file
+2025-08-18 00:41:41.775 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - scverse.scanpy.1.10.2.code_comment: Processing file
+2025-08-18 00:41:41.775 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - scverse.scanpy.1.10.2.issue_comment.pt_3: Processing file
+2025-08-18 00:41:41.776 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - scverse.scanpy.1.10.2.issue_comment.pt_2: Processing file
+2025-08-18 00:41:41.776 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - google.deepvariant.v1.6.1.issue: Processing file
+2025-08-18 00:41:41.776 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - scverse.scanpy.1.10.2.issue_comment.pt_5: Processing file
+2025-08-18 00:41:41.776 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - google.deepvariant.v1.6.1.issue_comment.pt_2: Processing file
+2025-08-18 00:41:41.777 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - scverse.scanpy.1.10.2.issue.pt_2: Processing file
+2025-08-18 00:41:41.778 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - google.deepvariant.v1.6.1.release: Processing file
+2025-08-18 00:41:41.781 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:217 - scverse.scanpy.1.10.2.code_comment: File already processed
+2025-08-18 00:41:41.781 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - scverse.scanpy.1.10.2.issue_comment.pt_4: Processing file
+2025-08-18 00:41:41.785 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:217 - google.deepvariant.v1.6.1.release: File already processed
+2025-08-18 00:41:41.785 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - scverse.scanpy.1.10.2.issue: Processing file
+2025-08-18 00:41:41.793 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:234 - scverse.scanpy.1.10.2.wiki: Continuing processing from 192
+2025-08-18 00:41:41.802 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:234 - scverse.scanpy.1.10.2.issue.pt_2: Continuing processing from 176
+Stage s3 params:
+stop_event: <threading.Event at 0x7ce827b23fe0: unset>
+model_fields: ['architectural_activity_extraction', 'core_concept_analysis', 'is_tactic_relevant', 'relevance_reason', 'tactic_evaluation', 'selected_tactic', 'justification']
+hostname: http://localhost:11434
+model: model='deepseek-r1:1.5b' temperature=0.0 format={'description': 'Pydantic model for the multi-stage filtering and semantic analysis JSON output.', 'properties': {'architectural_activity_extraction': {'title': 'Architectural Activity Extraction', 'type': 'string'}, 'core_concept_analysis': {'title': 'Core Concept Analysis', 'type': 'string'}, 'is_tactic_relevant': {'title': 'Is Tactic Relevant', 'type': 'boolean'}, 'relevance_reason': {'title': 'Relevance Reason', 'type': 'string'}, 'tactic_evaluation': {'title': 'Tactic Evaluation', 'type': 'string'}, 'selected_tactic': {'enum': ['Ping/Echo', 'Monitor', 'Heartbeat', 'Timestamp', 'Sanity Checking', 'Condition Monitoring', 'Voting', 'Exception Detection', 'Self-Test', 'Active Redundancy', 'Passive Redundancy', 'Spare', 'Exception Handling', 'Rollback', 'Software Upgrade', 'Retry', 'Ignore Faulty Behavior', 'Degradation', 'Reconfiguration', 'Shadow', 'State Resynchronization', 'Escalating Restart', 'Non-Stop Forwarding', 'Removal from Service', 'Transactions', 'Predictive Model', 'Exception Prevention', 'Increase Competence Set', 'Discover Service', 'Orchestrate', 'Tailor Interface', 'Split Module', 'Increase Semantic Coherence', 'Encapsulate', 'Use an Intermediary', 'Restrict Dependencies', 'Refactor', 'Abstract Common Services', 'Component Replacement', 'Compile-time Parameterization', 'Aspects', 'Configuration-time Binding', 'Resource Files', 'Runtime Registration', 'Dynamic Lookup', 'Interpret Parameters', 'Startup Time Binding', 'Name Servers', 'Plug-ins', 'Publish-Subscribe', 'Shared Repositories', 'Polymorphism', 'Manage Sampling Rate', 'Limit Event Response', 'Prioritize Events', 'Reduce Overhead', 'Bound Execution Times', 'Increase Resource Efficiency', 'Increase Resources', 'Introduce Concurrency', 'Maintain Multiple Copies of Computations', 'Maintain Multiple Copies of Data', 'Bound Queue Sizes', 'Schedule Resources', 'Detect Intrusion', 'Detect Service Denial', 'Verify Message Integrity', 'Detect Message Delay', 'Identify Actors', 'Authenticate Actors', 'Authorize Actors', 'Limit Access', 'Limit Exposure', 'Encrypt Data', 'Separate Entities', 'Change Default Settings', 'Revoke Access', 'Lock Computer', 'Inform Actors', 'Maintain Audit Trail', 'Restore', 'Specialized Interfaces', 'Record/Playback', 'Localize State Storage', 'Abstract Data Sources', 'Sandbox', 'Executable Assertions', 'Limit Structural Complexity', 'Limit Nondeterminism', 'Increase semantic coherence', 'Co-locate related responsibilities', 'Restrict dependencies', 'Defer binding', 'Cancel', 'Undo', 'Pause/resume', 'Aggregate', 'Maintain task models', 'Maintain user models', 'Maintain system models', 'Metering', 'Static Classification', 'Dynamic Classification', 'Vertical Scaling', 'Horizontal Scaling', 'Scheduling', 'Brokering', 'Service Adaptation', 'Increase Efficiency', 'None'], 'title': 'Selected Tactic', 'type': 'string'}, 'justification': {'title': 'Justification', 'type': 'string'}}, 'required': ['architectural_activity_extraction', 'core_concept_analysis', 'is_tactic_relevant', 'relevance_reason', 'tactic_evaluation', 'selected_tactic', 'justification'], 'title': 'TacticModelResponse', 'type': 'object'} keep_alive='24h' base_url='http://localhost:11434'
+batch_size: 16
+n_threads: 8
+disable_cache: False
+
+
+Processing scverse.scanpy.1.10.2.wiki in batches of 16:   0%|          | 0/2 [00:00<?, ?it/s]
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:   0%|          | 0/105 [00:00<?, ?it/s][A2025-08-18 00:41:41.828 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:234 - google.deepvariant.v1.6.1.issue: Continuing processing from 112
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:   0%|          | 0/125 [00:00<?, ?it/s][A[A2025-08-18 00:41:41.828 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:234 - scverse.scanpy.1.10.2.issue_comment.pt_4: Continuing processing from 112
+
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 16:   0%|          | 0/14 [00:00<?, ?it/s][A[A[A2025-08-18 00:41:41.843 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:234 - scverse.scanpy.1.10.2.issue_comment.pt_5: Continuing processing from 272
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:   0%|          | 0/118 [00:00<?, ?it/s][A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:   0%|          | 0/97 [00:00<?, ?it/s][A[A[A[A[A2025-08-18 00:41:41.856 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:234 - scverse.scanpy.1.10.2.issue_comment.pt_2: Continuing processing from 288
+2025-08-18 00:41:41.867 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:234 - scverse.scanpy.1.10.2.issue_comment.pt_3: Continuing processing from 240
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:   0%|          | 0/107 [00:00<?, ?it/s][A[A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:   0%|          | 0/110 [00:00<?, ?it/s][A[A[A[A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:   1%|          | 1/97 [03:03<4:54:07, 183.83s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:   1%|          | 1/107 [03:19<5:52:59, 199.80s/it][A[A[A[A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:   1%|          | 1/125 [03:21<6:56:46, 201.67s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:   1%|          | 1/110 [03:23<6:10:01, 203.68s/it][A[A[A[A[A[A[AProcessing scverse.scanpy.1.10.2.wiki in batches of 16:  50%|█████     | 1/2 [03:24<03:24, 204.86s/it]2025-08-18 00:45:12.055 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335947610160: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 110 [type=json_invalid, input_value='{\n\n"architectural_acti....>.>.>.>.>.>.>.>.>.>.>.', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:   1%|          | 1/118 [03:33<6:56:20, 213.51s/it][A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:   2%|▏         | 2/97 [03:57<2:49:51, 107.27s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:   2%|▏         | 2/107 [04:21<3:27:58, 118.85s/it][A[A[A[A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:   2%|▏         | 2/125 [04:57<4:46:22, 139.69s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:   2%|▏         | 2/110 [05:22<4:36:21, 153.53s/it][A[A[A[A[A[A[AProcessing scverse.scanpy.1.10.2.wiki in batches of 16: 100%|██████████| 2/2 [05:53<00:00, 172.03s/it]Processing scverse.scanpy.1.10.2.wiki in batches of 16: 100%|██████████| 2/2 [05:53<00:00, 176.96s/it]
+2025-08-18 00:47:35.724 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:273 - scverse.scanpy.1.10.2.wiki: Finished processing
+2025-08-18 00:47:35.724 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - google.deepvariant.v1.6.1.code_comment: Processing file
+Processing google.deepvariant.v1.6.1.code_comment in batches of 16:   0%|          | 0/23 [00:00<?, ?it/s]
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:   2%|▏         | 2/118 [06:22<6:01:49, 187.15s/it][A[A[A[A
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 16:   7%|▋         | 1/14 [07:12<1:33:42, 432.48s/it][A[A[A2025-08-18 00:50:51.547 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137336539313792: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 237072 [type=json_invalid, input_value='{\n\n"architectural_acti...ce-article-abstract/doi', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:   3%|▎         | 3/107 [09:53<6:14:34, 216.10s/it][A[A[A[A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:   2%|▏         | 3/125 [10:26<7:39:20, 225.91s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:   3%|▎         | 3/110 [10:55<7:00:00, 235.51s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.code_comment in batches of 16:   4%|▍         | 1/23 [05:31<2:01:40, 331.84s/it]
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:   3%|▎         | 3/118 [11:51<8:03:32, 252.28s/it][A[A[A[A
+
+
+Processing google.deepvariant.v1.6.1.issue in batches of 16:  14%|█▍        | 2/14 [12:32<1:13:13, 366.17s/it][A[A[A2025-08-18 00:57:28.109 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335412141056: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 341214 [type=json_invalid, input_value='{\n\n"architectural_acti..._diff = np.sum(np.abs(A', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
