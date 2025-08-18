@@ -2016,3 +2016,1385 @@ disable_cache: False
 Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  62%|██████▏   | 66/107 [6:34:38<4:14:56, 373.09s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  33%|███▎      | 41/125 [4:15:02<9:31:16, 408.05s/it] 2025-08-18 07:20:38.050 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335945642160: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
   Invalid JSON: EOF while parsing a string at line 3 column 163875 [type=json_invalid, input_value='{\n\n"architectural_acti...svo.svo.svo.svo.svo.svo', input_type=str]
     For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-18 07:25:54.910 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137336539315904: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 291 [type=json_invalid, input_value='{\n\n"architectural_acti...ver ever ever ever ever', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  30%|██▉       | 37/125 [3:32:48<13:16:24, 543.00s/it][A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  62%|██████▏   | 68/110 [6:45:04<6:24:32, 549.34s/it][A[A[A[A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  58%|█████▊    | 56/97 [6:45:25<5:47:58, 509.24s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  63%|██████▎   | 67/107 [6:45:48<5:08:05, 462.13s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  34%|███▎      | 42/125 [4:26:08<11:11:35, 485.49s/it]
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  47%|████▋     | 56/118 [6:46:41<14:51:09, 862.41s/it][A[A[A[A2025-08-18 07:28:54.562 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137336539315904: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 291 [type=json_invalid, input_value='{\n\n"architectural_acti...ver ever ever ever ever', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-18 07:29:13.205 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335943274640: attempt #3; slept for 15.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 507331 [type=json_invalid, input_value='{"architectural_activity...rint enrichment). These', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  30%|███       | 38/125 [3:35:41<10:26:22, 431.99s/it][A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  63%|██████▎   | 69/110 [6:47:48<4:56:19, 433.65s/it][A[A[A[A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  59%|█████▉    | 57/97 [6:48:02<4:29:07, 403.69s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  64%|██████▎   | 68/107 [6:48:15<3:58:52, 367.51s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  34%|███▍      | 43/125 [4:28:16<8:36:51, 378.19s/it] 
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  48%|████▊     | 57/118 [6:48:38<10:49:11, 638.55s/it][A[A[A[A2025-08-18 07:30:35.467 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137336539315904: attempt #3; slept for 15.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 291 [type=json_invalid, input_value='{\n\n"architectural_acti...ver ever ever ever ever', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  31%|███       | 39/125 [3:37:10<7:51:26, 328.92s/it] [A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  64%|██████▎   | 70/110 [6:49:52<3:47:13, 340.84s/it][A[A[A[A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  60%|█████▉    | 58/97 [6:50:20<3:30:29, 323.84s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  64%|██████▍   | 69/107 [6:50:50<3:12:21, 303.73s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  35%|███▌      | 44/125 [4:31:13<7:09:06, 317.86s/it]
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  49%|████▉     | 58/118 [6:51:48<8:24:05, 504.09s/it] [A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  32%|███▏      | 40/125 [3:40:26<6:49:40, 289.18s/it][A[A[A2025-08-18 07:34:29.861 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137336539315904: attempt #4; slept for 30.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 275 [type=json_invalid, input_value='{\n\n"architectural_acti...ver ever ever ever ever', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  65%|██████▍   | 71/110 [6:53:17<3:15:02, 300.07s/it][A[A[A[A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  61%|██████    | 59/97 [6:53:46<3:02:51, 288.72s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  65%|██████▌   | 70/107 [6:54:14<2:48:49, 273.77s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  36%|███▌      | 45/125 [4:34:35<6:17:28, 283.11s/it]
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  50%|█████     | 59/118 [6:55:16<6:48:16, 415.19s/it][A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  33%|███▎      | 41/125 [3:43:54<6:10:30, 264.65s/it][A[A[A2025-08-18 07:38:01.454 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137336539315904: attempt #5; slept for 50.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 291 [type=json_invalid, input_value='{\n\n"architectural_acti...ver ever ever ever ever', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-18 07:38:01.454 | ERROR    | processing_pipeline.model.IBaseStage:process_batch:304 - 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 291 [type=json_invalid, input_value='{\n\n"architectural_acti...ver ever ever ever ever', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-18 07:38:01.454 | ERROR    | processing_pipeline.model.IBaseStage:_process_in_batches:256 - Error processing batch 688
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  35%|███▌      | 44/125 [6:56:19<16:01:22, 712.12s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  65%|██████▌   | 72/110 [6:56:44<2:52:21, 272.15s/it][A[A[A[A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  62%|██████▏   | 60/97 [6:57:17<2:43:34, 265.26s/it][A[A[A[A[A2025-08-18 07:39:21.464 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335943274640: attempt #4; slept for 30.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 7 column 362625 [type=json_invalid, input_value='{\n\n"architectural_acti...f the space compared to', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  66%|██████▋   | 71/107 [6:57:44<2:32:46, 254.61s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  37%|███▋      | 46/125 [4:37:46<5:36:19, 255.43s/it]
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  51%|█████     | 60/118 [6:58:08<5:31:03, 342.47s/it][A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  34%|███▎      | 42/125 [3:46:29<5:20:55, 232.00s/it][A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  36%|███▌      | 45/125 [6:58:40<12:01:03, 540.80s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  66%|██████▋   | 73/110 [6:58:50<2:20:49, 228.38s/it][A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  67%|██████▋   | 72/107 [6:59:32<2:02:49, 210.56s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  38%|███▊      | 47/125 [4:39:51<4:40:56, 216.11s/it]2025-08-18 07:48:51.970 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335946073040: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 171306 [type=json_invalid, input_value='{\n\n"architectural_acti... {H5AD_PATH} H5AD_PATH:', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  52%|█████▏    | 61/118 [7:08:03<6:37:11, 418.10s/it][A[A[A[A2025-08-18 07:50:03.792 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335943274640: attempt #5; slept for 50.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 7 column 362625 [type=json_invalid, input_value='{\n\n"architectural_acti...f the space compared to', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-18 07:50:03.792 | ERROR    | processing_pipeline.model.IBaseStage:process_batch:304 - 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 7 column 362625 [type=json_invalid, input_value='{\n\n"architectural_acti...f the space compared to', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-18 07:50:03.794 | ERROR    | processing_pipeline.model.IBaseStage:_process_in_batches:256 - Error processing batch 656
+
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  30%|██▉       | 31/105 [7:08:21<37:01:59, 1801.61s/it][A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  34%|███▍      | 43/125 [3:56:37<7:51:03, 344.67s/it][A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  37%|███▋      | 46/125 [7:08:45<12:17:20, 560.00s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  67%|██████▋   | 74/110 [7:08:58<3:25:24, 342.35s/it][A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  68%|██████▊   | 73/107 [7:09:10<3:01:51, 320.92s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  38%|███▊      | 48/125 [4:49:15<6:51:34, 320.71s/it]
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  63%|██████▎   | 61/97 [7:09:37<4:04:34, 407.62s/it][A[A[A[A[A
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  53%|█████▎    | 62/118 [7:09:51<5:03:28, 325.15s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  30%|███       | 32/105 [7:10:07<26:12:47, 1292.70s/it][A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  35%|███▌      | 44/125 [3:58:26<6:10:00, 274.08s/it][A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  38%|███▊      | 47/125 [7:10:31<9:10:50, 423.72s/it] [A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  68%|██████▊   | 75/110 [7:10:43<2:38:10, 271.16s/it][A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  69%|██████▉   | 74/107 [7:10:55<2:20:54, 256.20s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  39%|███▉      | 49/125 [4:50:58<5:23:24, 255.32s/it]
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  64%|██████▍   | 62/97 [7:11:19<3:04:23, 316.09s/it][A[A[A[A[A
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  53%|█████▎    | 63/118 [7:11:32<3:56:14, 257.73s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  31%|███▏      | 33/105 [7:11:47<18:41:53, 934.90s/it] [A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  36%|███▌      | 45/125 [4:00:07<4:56:09, 222.12s/it][A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  38%|███▊      | 48/125 [7:12:15<7:00:47, 327.90s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  69%|██████▉   | 76/110 [7:12:26<2:05:04, 220.73s/it][A[A[A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  70%|███████   | 75/107 [7:12:40<1:52:29, 210.94s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  40%|████      | 50/125 [4:52:46<4:23:42, 210.97s/it]
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  65%|██████▍   | 63/97 [7:13:07<2:23:39, 253.51s/it][A[A[A[A[A
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  54%|█████▍    | 64/118 [7:13:19<3:11:23, 212.66s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  32%|███▏      | 34/105 [7:13:39<13:34:21, 688.19s/it][A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  37%|███▋      | 46/125 [4:01:58<4:08:28, 188.72s/it][A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  39%|███▉      | 49/125 [7:14:09<5:33:58, 263.66s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  70%|███████   | 77/110 [7:14:22<1:43:59, 189.08s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  41%|████      | 51/125 [4:55:09<3:55:18, 190.79s/it]
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  66%|██████▌   | 64/97 [7:15:42<2:03:17, 224.16s/it][A[A[A[A[A
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  55%|█████▌    | 65/118 [7:16:08<2:56:12, 199.49s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  33%|███▎      | 35/105 [7:16:41<10:25:39, 536.28s/it][A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  38%|███▊      | 47/125 [4:05:13<4:07:50, 190.65s/it][A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  40%|████      | 50/125 [7:17:38<5:09:05, 247.28s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  71%|███████   | 78/110 [7:18:09<1:46:56, 200.51s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  42%|████▏     | 52/125 [4:58:38<3:58:41, 196.19s/it]
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  67%|██████▋   | 65/97 [7:19:15<1:57:41, 220.67s/it][A[A[A[A[A
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  56%|█████▌    | 66/118 [7:19:46<2:57:43, 205.07s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  34%|███▍      | 36/105 [7:20:07<8:22:51, 437.27s/it] [A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  38%|███▊      | 48/125 [4:08:48<4:13:54, 197.85s/it][A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  41%|████      | 51/125 [7:21:16<4:54:06, 238.47s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  72%|███████▏  | 79/110 [7:21:40<1:45:11, 203.61s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  42%|████▏     | 53/125 [5:01:58<3:56:45, 197.30s/it]
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  68%|██████▊   | 66/97 [7:22:34<1:50:39, 214.19s/it][A[A[A[A[A2025-08-18 08:04:32.817 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335412022096: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 164002 [type=json_invalid, input_value='{\n\n"architectural_acti...p.p.p.bkp.p.p.p.bkp.p.p', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  57%|█████▋    | 67/118 [7:22:57<2:50:39, 200.77s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  35%|███▌      | 37/105 [7:23:14<6:50:18, 362.04s/it][A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  39%|███▉      | 49/125 [4:11:34<3:58:25, 188.23s/it][A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  42%|████▏     | 52/125 [7:23:39<4:15:21, 209.88s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  73%|███████▎  | 80/110 [7:23:54<1:31:27, 182.91s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  43%|████▎     | 54/125 [5:03:57<3:25:46, 173.89s/it]
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  69%|██████▉   | 67/97 [7:24:21<1:30:57, 181.91s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  71%|███████   | 76/107 [7:24:33<3:06:45, 361.47s/it][A[A[A[A[A[A
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  58%|█████▊    | 68/118 [7:24:47<2:24:36, 173.53s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  36%|███▌      | 38/105 [7:24:59<5:18:12, 284.96s/it][A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  40%|████      | 50/125 [4:13:18<3:23:53, 163.11s/it][A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  42%|████▏     | 53/125 [7:25:26<3:34:45, 178.97s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  74%|███████▎  | 81/110 [7:25:38<1:16:55, 159.14s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  44%|████▍     | 55/125 [5:05:42<2:58:38, 153.13s/it]
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  70%|███████   | 68/97 [7:26:05<1:16:42, 158.70s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  72%|███████▏  | 77/107 [7:26:16<2:21:56, 283.89s/it][A[A[A[A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  37%|███▋      | 39/105 [7:27:14<4:24:06, 240.09s/it][A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  41%|████      | 51/125 [4:15:44<3:14:51, 158.00s/it][A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  43%|████▎     | 54/125 [7:28:08<3:25:58, 174.06s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  75%|███████▍  | 82/110 [7:28:34<1:16:41, 164.36s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  45%|████▍     | 56/125 [5:08:51<3:08:26, 163.87s/it]
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  71%|███████   | 69/97 [7:29:27<1:20:07, 171.69s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  73%|███████▎  | 78/107 [7:29:51<2:07:17, 263.35s/it][A[A[A[A[A[A2025-08-18 08:16:23.878 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335943651568: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 261185 [type=json_invalid, input_value='{\n\n"architectural_acti...n3.6/site-packages/scan', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  42%|████▏     | 52/125 [4:23:18<5:00:13, 246.76s/it][A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  44%|████▍     | 55/125 [7:35:44<5:01:43, 258.62s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  75%|███████▌  | 83/110 [7:36:09<1:53:07, 251.38s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  46%|████▌     | 57/125 [5:16:28<4:45:21, 251.79s/it]
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  72%|███████▏  | 70/97 [7:37:06<1:56:04, 257.94s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  74%|███████▍  | 79/107 [7:37:38<2:31:19, 324.28s/it][A[A[A[A[A[A2025-08-18 08:20:23.469 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335945912176: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 486893 [type=json_invalid, input_value='{\n\n"architectural_acti...ed at categorizing data', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  42%|████▏     | 53/125 [4:27:41<5:01:48, 251.50s/it][A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  45%|████▍     | 56/125 [7:40:04<4:57:44, 258.91s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  76%|███████▋  | 84/110 [7:40:32<1:50:24, 254.80s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  46%|████▋     | 58/125 [5:20:55<4:46:16, 256.36s/it]
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  73%|███████▎  | 71/97 [7:41:27<1:52:10, 258.86s/it][A[A[A[A[A2025-08-18 08:27:44.315 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335943651568: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 261185 [type=json_invalid, input_value='{\n\n"architectural_acti...n3.6/site-packages/scan', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-18 08:31:49.259 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335411081088: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 5 column 439832 [type=json_invalid, input_value='{\n\n"architectural_acti...tween groups where size', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-18 08:40:06.845 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335945912176: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 518999 [type=json_invalid, input_value='{"architectural_activity...decision. The text also', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  46%|████▌     | 57/125 [7:59:27<10:00:44, 530.06s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  77%|███████▋  | 85/110 [7:59:57<3:40:00, 528.00s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  47%|████▋     | 59/125 [5:40:13<9:39:44, 527.03s/it]
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  74%|███████▍  | 72/97 [8:00:50<3:40:49, 529.98s/it][A[A[A[A[A2025-08-18 08:44:41.805 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335411330080: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 229440 [type=json_invalid, input_value='{\n\n"architectural_acti...y.plotty/scanpy.plotty/', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-18 08:51:01.806 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335943651568: attempt #3; slept for 15.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 261185 [type=json_invalid, input_value='{\n\n"architectural_acti...n3.6/site-packages/scan', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  38%|███▊      | 40/105 [8:10:05<16:57:31, 939.26s/it][A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  46%|████▋     | 58/125 [8:10:33<10:37:34, 570.96s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  78%|███████▊  | 86/110 [8:11:04<3:47:52, 569.67s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  48%|████▊     | 60/125 [5:51:22<10:16:59, 569.53s/it]2025-08-18 08:53:37.603 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335411081088: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 5 column 448858 [type=json_invalid, input_value='{\n\n"architectural_acti...to zero counts or other', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  75%|███████▌  | 73/97 [8:12:01<3:48:53, 572.22s/it][A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  43%|████▎     | 54/125 [5:00:22<15:04:45, 764.58s/it][A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  39%|███▉      | 41/105 [8:13:07<12:39:28, 712.01s/it][A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  47%|████▋     | 59/125 [8:13:41<8:21:36, 456.01s/it] [A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  79%|███████▉  | 87/110 [8:14:12<2:54:29, 455.21s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  49%|████▉     | 61/125 [5:54:37<8:07:35, 457.12s/it] 
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  76%|███████▋  | 74/97 [8:15:11<2:55:23, 457.56s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  75%|███████▍  | 80/107 [8:15:41<6:50:18, 911.78s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  44%|████▍     | 55/125 [5:04:15<11:45:44, 604.92s/it][A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  40%|████      | 42/105 [8:16:33<9:48:21, 560.33s/it] [A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  48%|████▊     | 60/125 [8:17:08<6:53:13, 381.44s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  80%|████████  | 88/110 [8:17:31<2:18:42, 378.31s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  50%|████▉     | 62/125 [5:57:50<6:36:42, 377.82s/it]
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  77%|███████▋  | 75/97 [8:18:28<2:19:05, 379.35s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  76%|███████▌  | 81/107 [8:18:53<5:01:35, 695.99s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  45%|████▍     | 56/125 [5:07:29<9:13:55, 481.67s/it] [A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  41%|████      | 43/105 [8:19:53<7:47:11, 452.13s/it][A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  49%|████▉     | 61/125 [8:20:26<5:48:03, 326.31s/it][A[A2025-08-18 09:02:38.178 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335943651568: attempt #4; slept for 30.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 238978 [type=json_invalid, input_value='{\n\n"architectural_acti...se/special/matrix.py:13', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  81%|████████  | 89/110 [8:20:58<1:54:27, 327.03s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  50%|█████     | 63/125 [6:01:03<5:33:08, 322.39s/it]
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  78%|███████▊  | 76/97 [8:21:22<1:51:15, 317.90s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  77%|███████▋  | 82/107 [8:21:34<3:43:05, 535.43s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  46%|████▌     | 57/125 [5:09:54<7:11:27, 380.70s/it][A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  42%|████▏     | 44/105 [8:22:09<6:03:14, 357.29s/it][A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  50%|████▉     | 62/125 [8:22:23<4:36:46, 263.59s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  82%|████████▏ | 90/110 [8:22:35<1:25:56, 257.80s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  51%|█████     | 64/125 [6:02:42<4:19:50, 255.58s/it]
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  58%|█████▊    | 69/118 [8:23:06<15:56:35, 1171.34s/it][A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  79%|███████▉  | 77/97 [8:23:19<1:25:50, 257.52s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  78%|███████▊  | 83/107 [8:23:30<2:43:50, 409.61s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  46%|████▋     | 58/125 [5:11:52<5:36:59, 301.78s/it][A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  43%|████▎     | 45/105 [8:23:59<4:43:03, 283.06s/it][A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  50%|█████     | 63/125 [8:24:17<3:45:51, 218.57s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  83%|████████▎ | 91/110 [8:24:30<1:08:06, 215.10s/it][A[A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  52%|█████▏    | 65/125 [6:04:37<3:33:07, 213.13s/it]
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  59%|█████▉    | 70/118 [8:24:59<11:22:59, 853.73s/it] [A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  80%|████████  | 78/97 [8:25:13<1:07:53, 214.38s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  79%|███████▊  | 84/107 [8:25:26<2:03:15, 321.52s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  47%|████▋     | 59/125 [5:13:46<4:30:08, 245.59s/it][A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  44%|████▍     | 46/105 [8:25:55<3:49:07, 233.00s/it][A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  51%|█████     | 64/125 [8:26:09<3:09:48, 186.69s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  84%|████████▎ | 92/110 [8:26:20<55:04, 183.57s/it]  [A[A[A[A[A[A[A2025-08-18 09:16:29.538 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335412313840: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 303075 [type=json_invalid, input_value='{\n\n"architectural_acti...ee8314e32bcbf5590987fb8', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  60%|██████    | 71/118 [8:34:59<10:09:14, 777.75s/it][A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  81%|████████▏ | 79/97 [8:35:14<1:39:10, 330.59s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  79%|███████▉  | 85/107 [8:35:26<2:28:32, 405.13s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  48%|████▊     | 60/125 [5:23:48<6:21:55, 352.55s/it][A[A[A2025-08-18 09:25:52.176 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137336538902656: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 273712 [type=json_invalid, input_value='{\n\n"architectural_acti...e dask support:. - 2595', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  52%|█████▏    | 65/125 [8:44:26<7:39:47, 459.79s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  85%|████████▍ | 93/110 [8:44:37<2:09:36, 457.42s/it][A[A[A[A[A[A[A
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  61%|██████    | 72/118 [8:45:18<9:19:37, 729.96s/it] [A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  82%|████████▏ | 80/97 [8:45:47<1:59:20, 421.18s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  80%|████████  | 86/107 [8:46:18<2:47:40, 479.09s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  49%|████▉     | 61/125 [5:34:51<7:55:13, 445.52s/it][A[A[A2025-08-18 09:34:47.211 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335412313840: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 303169 [type=json_invalid, input_value='{\n\n"architectural_acti...rted. If you do want to', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  53%|█████▎    | 66/125 [8:55:57<8:40:26, 529.26s/it][A[A2025-08-18 09:43:05.583 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137336538902656: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 273712 [type=json_invalid, input_value='{\n\n"architectural_acti...e dask support:. - 2595', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  62%|██████▏   | 73/118 [9:01:58<10:08:09, 810.88s/it][A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  84%|████████▎ | 81/97 [9:02:32<2:39:01, 596.37s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  81%|████████▏ | 87/107 [9:03:00<3:32:00, 636.02s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  50%|████▉     | 62/125 [5:51:32<10:42:55, 612.32s/it][A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  53%|█████▎    | 66/125 [6:43:46<13:59:51, 854.10s/it]
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  54%|█████▎    | 67/125 [9:04:31<8:26:57, 524.44s/it][A[A2025-08-18 09:46:22.886 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335944270416: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 525547 [type=json_invalid, input_value='{"architectural_activity...ns and clear separation', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  45%|████▍     | 47/105 [9:04:57<13:56:44, 865.59s/it][A
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  63%|██████▎   | 74/118 [9:05:12<7:39:01, 625.93s/it] [A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  85%|████████▍ | 82/97 [9:05:26<1:57:27, 469.81s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  82%|████████▏ | 88/107 [9:05:38<2:36:00, 492.68s/it][A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  50%|█████     | 63/125 [5:53:59<8:08:31, 472.76s/it] [A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  54%|█████▎    | 67/125 [6:45:56<10:15:32, 636.77s/it]
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  54%|█████▍    | 68/125 [9:06:19<6:19:47, 399.78s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  85%|████████▌ | 94/110 [9:06:31<3:10:34, 714.65s/it][A[A[A[A[A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  46%|████▌     | 48/105 [9:06:45<10:06:24, 638.32s/it][A
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  64%|██████▎   | 75/118 [9:06:59<5:37:05, 470.37s/it][A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  86%|████████▌ | 83/97 [9:07:13<1:24:12, 360.86s/it][A[A[A[A[A2025-08-18 09:49:08.452 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335943406000: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 312 [type=json_invalid, input_value='{\n\n"architectural_acti.... . . . . . . . . . . .', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 16:  54%|█████▍    | 68/125 [6:48:14<7:42:53, 487.25s/it] 
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  55%|█████▌    | 69/125 [9:08:53<5:04:10, 325.90s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  86%|████████▋ | 95/110 [9:09:22<2:17:50, 551.34s/it][A[A[A[A[A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  47%|████▋     | 49/105 [9:09:52<7:49:33, 503.10s/it] [A
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  64%|██████▍   | 76/118 [9:10:17<4:32:02, 388.64s/it][A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  87%|████████▋ | 84/97 [9:10:44<1:08:27, 315.96s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  83%|████████▎ | 89/107 [9:11:16<2:13:49, 446.09s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  55%|█████▌    | 69/125 [6:51:39<6:15:39, 402.50s/it]
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  56%|█████▌    | 70/125 [9:12:29<4:28:26, 292.85s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  87%|████████▋ | 96/110 [9:12:59<1:45:15, 451.09s/it][A[A[A[A[A[A[A2025-08-18 09:57:35.165 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335410324976: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 8 column 352572 [type=json_invalid, input_value='{\n\n"architectural_acti... loompy. I don\'t think', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  65%|██████▌   | 77/118 [9:16:43<4:25:01, 387.85s/it][A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  88%|████████▊ | 85/97 [9:17:11<1:07:26, 337.21s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  84%|████████▍ | 90/107 [9:17:38<2:00:59, 427.03s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  56%|█████▌    | 70/125 [6:57:57<6:02:12, 395.13s/it]
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  57%|█████▋    | 71/125 [9:18:40<4:44:39, 316.29s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  88%|████████▊ | 97/110 [9:19:08<1:32:24, 426.48s/it][A[A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  51%|█████     | 64/125 [6:07:47<9:48:51, 579.21s/it][A[A[A
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  66%|██████▌   | 78/118 [9:20:06<3:41:32, 332.32s/it][A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  89%|████████▊ | 86/97 [9:20:33<54:21, 296.46s/it]  [A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  85%|████████▌ | 91/107 [9:21:02<1:36:01, 360.10s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  57%|█████▋    | 71/125 [7:01:18<5:03:16, 336.98s/it]2025-08-18 10:03:10.833 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137336539302656: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 350954 [type=json_invalid, input_value='{\n\n"architectural_acti...code for marker filter.', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  58%|█████▊    | 72/125 [9:21:44<4:04:28, 276.77s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  89%|████████▉ | 98/110 [9:21:56<1:09:46, 348.84s/it][A[A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  52%|█████▏    | 65/125 [6:10:17<7:30:28, 450.47s/it][A[A[A
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  67%|██████▋   | 79/118 [9:22:23<2:58:00, 273.86s/it][A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  90%|████████▉ | 87/97 [9:22:35<40:41, 244.19s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  86%|████████▌ | 92/107 [9:22:45<1:10:42, 282.85s/it][A[A[A[A[A[A2025-08-18 10:12:50.259 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335412323584: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 239335 [type=json_invalid, input_value='{\n\n"architectural_acti...ge-project centos-cloud', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-18 10:13:18.522 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137336539302656: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 350954 [type=json_invalid, input_value='{\n\n"architectural_acti...code for marker filter.', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  58%|█████▊    | 73/125 [9:31:52<5:25:59, 376.14s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  90%|█████████ | 99/110 [9:32:04<1:18:15, 426.85s/it][A[A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  53%|█████▎    | 66/125 [6:20:24<8:09:16, 497.56s/it][A[A[A
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  68%|██████▊   | 80/118 [9:32:31<3:56:45, 373.82s/it][A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  91%|█████████ | 88/97 [9:32:44<53:02, 353.65s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  87%|████████▋ | 93/107 [9:32:56<1:28:59, 381.41s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  58%|█████▊    | 72/125 [7:13:04<6:35:28, 447.71s/it]
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  59%|█████▉    | 74/125 [9:34:27<4:23:13, 309.68s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  91%|█████████ | 100/110 [9:34:58<58:29, 350.91s/it] [A[A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  54%|█████▎    | 67/125 [6:23:25<6:29:05, 402.51s/it][A[A[A
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  69%|██████▊   | 81/118 [9:35:43<3:16:53, 319.29s/it][A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  92%|█████████▏| 89/97 [9:36:11<41:17, 309.69s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  88%|████████▊ | 94/107 [9:36:34<1:12:01, 332.45s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  58%|█████▊    | 73/125 [7:16:55<5:31:34, 382.58s/it]
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  60%|██████    | 75/125 [9:37:37<3:48:11, 273.83s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  92%|█████████▏| 101/110 [9:38:05<45:16, 301.78s/it][A[A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  54%|█████▍    | 68/125 [6:26:40<5:23:11, 340.20s/it][A[A[A2025-08-18 10:23:15.922 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137336539302656: attempt #3; slept for 15.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 350954 [type=json_invalid, input_value='{\n\n"architectural_acti...code for marker filter.', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  93%|█████████▎| 90/97 [9:42:19<38:10, 327.27s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  89%|████████▉ | 95/107 [9:42:41<1:08:34, 342.84s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  59%|█████▉    | 74/125 [7:23:01<5:21:04, 377.74s/it]
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  61%|██████    | 76/125 [9:43:43<4:06:13, 301.50s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  93%|█████████▎| 102/110 [9:44:09<42:43, 320.46s/it][A[A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  55%|█████▌    | 69/125 [6:32:44<5:24:11, 347.35s/it][A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  48%|████▊     | 50/105 [9:45:11<15:05:24, 987.71s/it][A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  94%|█████████▍| 91/97 [9:45:40<28:56, 289.45s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  90%|████████▉ | 96/107 [9:46:08<55:22, 302.05s/it]  [A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  60%|██████    | 75/125 [7:26:26<4:31:34, 325.90s/it]2025-08-18 10:28:42.223 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335946373952: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 204815 [type=json_invalid, input_value='{\n\n"architectural_acti... flit flit flit flit fl', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-18 10:28:46.447 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335412840624: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 573 [type=json_invalid, input_value='{\n\n"architectural_acti...\\\\\\\\\\\\\\\\\\\\\\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  94%|█████████▎| 103/110 [9:47:16<32:42, 280.32s/it][A[A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  56%|█████▌    | 70/125 [6:35:41<4:31:33, 296.24s/it][A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  49%|████▊     | 51/105 [9:47:49<11:04:59, 738.89s/it][A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  95%|█████████▍| 92/97 [9:48:01<20:24, 244.89s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  91%|█████████ | 97/107 [9:48:14<41:32, 249.29s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  61%|██████    | 76/125 [7:28:17<3:33:18, 261.20s/it]2025-08-18 10:31:03.365 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335412840624: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 573 [type=json_invalid, input_value='{\n\n"architectural_acti...\\\\\\\\\\\\\\\\\\\\\\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  95%|█████████▍| 104/110 [9:49:45<24:04, 240.81s/it][A[A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  57%|█████▋    | 71/125 [6:38:23<3:50:17, 255.88s/it][A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  50%|████▉     | 52/105 [9:50:51<8:25:09, 571.88s/it] [A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  96%|█████████▌| 93/97 [9:51:19<15:23, 230.80s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  92%|█████████▏| 98/107 [9:51:50<35:52, 239.21s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  62%|██████▏   | 77/125 [7:32:14<3:23:12, 254.01s/it]2025-08-18 10:34:38.062 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335412840624: attempt #3; slept for 15.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 573 [type=json_invalid, input_value='{\n\n"architectural_acti...\\\\\\\\\\\\\\\\\\\\\\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  95%|█████████▌| 105/110 [9:53:21<19:26, 233.32s/it][A[A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  58%|█████▊    | 72/125 [6:41:56<3:34:46, 243.13s/it][A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  50%|█████     | 53/105 [9:54:21<6:41:30, 463.28s/it][A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  97%|█████████▋| 94/97 [9:54:49<11:13, 224.38s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  93%|█████████▎| 99/107 [9:55:18<30:37, 229.74s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  62%|██████▏   | 78/125 [7:35:39<3:07:31, 239.39s/it]2025-08-18 10:38:04.142 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335412840624: attempt #4; slept for 30.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 573 [type=json_invalid, input_value='{\n\n"architectural_acti...\\\\\\\\\\\\\\\\\\\\\\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  96%|█████████▋| 106/110 [9:56:50<15:04, 226.09s/it][A[A[A[A[A[A[A2025-08-18 10:38:41.207 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335946373952: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 499375 [type=json_invalid, input_value='{"architectural_activity... core concept. The text', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  58%|█████▊    | 73/125 [6:45:14<3:18:57, 229.56s/it][A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  51%|█████▏    | 54/105 [9:57:20<5:21:21, 378.07s/it][A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  98%|█████████▊| 95/97 [9:57:37<06:54, 207.46s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  93%|█████████▎| 100/107 [9:57:48<24:02, 206.04s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  63%|██████▎   | 79/125 [7:37:55<2:39:40, 208.27s/it]2025-08-18 10:40:00.427 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335412840624: attempt #5; slept for 50.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 573 [type=json_invalid, input_value='{\n\n"architectural_acti...\\\\\\\\\\\\\\\\\\\\\\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-18 10:40:00.427 | ERROR    | processing_pipeline.model.IBaseStage:process_batch:304 - 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 573 [type=json_invalid, input_value='{\n\n"architectural_acti...\\\\\\\\\\\\\\\\\\\\\\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-18 10:40:00.427 | ERROR    | processing_pipeline.model.IBaseStage:_process_in_batches:256 - Error processing batch 1216
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  62%|██████▏   | 77/125 [9:58:18<6:18:50, 473.54s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  97%|█████████▋| 107/110 [9:58:29<09:23, 187.91s/it][A[A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  59%|█████▉    | 74/125 [6:46:48<2:40:30, 188.84s/it][A[A[A
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  69%|██████▉   | 82/118 [9:58:54<6:24:35, 640.98s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  52%|█████▏    | 55/105 [9:59:11<4:08:07, 297.74s/it][A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16:  99%|█████████▉| 96/97 [9:59:24<02:57, 177.36s/it][A[A[A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  94%|█████████▍| 101/107 [9:59:36<17:39, 176.65s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  64%|██████▍   | 80/125 [7:39:39<2:12:49, 177.10s/it]
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  62%|██████▏   | 78/125 [10:00:05<4:44:52, 363.66s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  98%|█████████▊| 108/110 [10:00:19<05:29, 164.55s/it][A[A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  60%|██████    | 75/125 [6:48:39<2:18:02, 165.66s/it][A[A[A
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  70%|███████   | 83/118 [10:00:44<4:41:00, 481.74s/it][A[A[A[A
+Processing scverse.scanpy.1.10.2.issue.pt_2 in batches of 16:  53%|█████▎    | 56/105 [10:00:59<3:16:48, 240.99s/it][A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  95%|█████████▌| 102/107 [10:01:36<13:18, 159.64s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  65%|██████▍   | 81/125 [7:41:54<2:00:37, 164.48s/it]
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  63%|██████▎   | 79/125 [10:02:39<3:50:28, 300.63s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16:  99%|█████████▉| 109/110 [10:03:06<02:45, 165.43s/it][A[A[A[A[A[A[A2025-08-18 10:50:51.270 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335412136112: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 430030 [type=json_invalid, input_value='{\n\n"architectural_acti...: none selected_tactic:', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  71%|███████   | 84/118 [10:09:44<4:42:46, 499.02s/it][A[A[A[A2025-08-18 10:53:04.738 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335945911552: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 344062 [type=json_invalid, input_value='{\n\n"architectural_acti...complicated to maintain', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  96%|█████████▋| 103/107 [10:12:07<20:03, 300.91s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  66%|██████▌   | 82/125 [7:52:27<3:38:29, 304.86s/it]
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  64%|██████▍   | 80/125 [10:13:11<5:00:00, 400.00s/it][A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16: 100%|██████████| 110/110 [10:13:39<00:00, 305.72s/it][A[A[A[A[A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.pt_3 in batches of 16: 100%|██████████| 110/110 [10:13:39<00:00, 334.72s/it]
+2025-08-18 10:55:21.559 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:273 - scverse.scanpy.1.10.2.issue_comment.pt_3: Finished processing
+2025-08-18 10:55:21.559 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - scverse.scanpy.1.10.2.docs: Processing file
+
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.docs in batches of 16:   0%|          | 0/5 [00:00<?, ?it/s][A[A[A[A[A[A[A
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16: 100%|██████████| 97/97 [10:13:59<00:00, 386.64s/it][A[A[A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.pt_5 in batches of 16: 100%|██████████| 97/97 [10:13:59<00:00, 379.79s/it]
+2025-08-18 10:55:41.077 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:273 - scverse.scanpy.1.10.2.issue_comment.pt_5: Finished processing
+2025-08-18 10:55:41.078 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - google.deepvariant.v1.6.1.issue_comment.pt_3: Processing file
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.pt_3 in batches of 16:   0%|          | 0/86 [00:00<?, ?it/s][A[A[A[A[A
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  72%|███████▏  | 85/118 [10:14:26<3:58:41, 433.99s/it][A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  61%|██████    | 76/125 [7:03:05<5:06:53, 375.78s/it][A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  97%|█████████▋| 104/107 [10:15:25<13:29, 269.99s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  66%|██████▋   | 83/125 [7:55:41<3:10:17, 271.83s/it]
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  65%|██████▍   | 81/125 [10:16:24<4:07:56, 338.11s/it][A[A2025-08-18 10:59:48.993 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335947613040: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 320222 [type=json_invalid, input_value='{\n\n"architectural_acti...s/_legs/hashtable_class', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.pt_3 in batches of 16:   1%|          | 1/86 [04:32<6:25:37, 272.20s/it][A[A[A[A[A2025-08-18 11:06:46.676 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335946079760: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 128911 [type=json_invalid, input_value='{\n\n"architectural_acti...6} S Dicks.\\n\\n{pr}28', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  62%|██████▏   | 77/125 [7:13:54<6:06:03, 457.56s/it][A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  98%|█████████▊| 105/107 [10:26:16<12:48, 384.41s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  67%|██████▋   | 84/125 [8:06:30<4:23:05, 385.02s/it]2025-08-18 11:08:28.392 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335943278000: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 164298 [type=json_invalid, input_value='{\n\n"architectural_acti.... > . > . > . > . > . >', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  66%|██████▌   | 82/125 [10:27:00<5:06:16, 427.36s/it][A[A2025-08-18 11:16:48.512 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335947613040: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 320221 [type=json_invalid, input_value='{\n\n"architectural_acti...pxi in pandas/_legs/has', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-18 11:17:24.885 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335412394752: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 489714 [type=json_invalid, input_value='{\n\n"architectural_acti...e package construction,', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-18 11:25:56.016 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335946079760: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 366762 [type=json_invalid, input_value='{\n\n"architectural_acti...s done by calling adata', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  62%|██████▏   | 78/125 [7:32:31<8:33:24, 655.42s/it][A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16:  99%|█████████▉| 106/107 [10:44:35<09:58, 598.71s/it][A[A[A[A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  68%|██████▊   | 85/125 [8:24:39<6:37:20, 596.01s/it]
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  73%|███████▎  | 86/118 [10:44:59<7:35:20, 853.78s/it][A[A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  66%|██████▋   | 83/125 [10:45:14<7:19:05, 627.28s/it][A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.pt_3 in batches of 16:   2%|▏         | 2/86 [31:50<25:06:07, 1075.80s/it][A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.docs in batches of 16:  20%|██        | 1/5 [32:40<2:10:42, 1960.58s/it][A[A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  63%|██████▎   | 79/125 [7:34:55<6:24:59, 502.16s/it][A[A[A
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16: 100%|██████████| 107/107 [10:47:22<00:00, 469.17s/it][A[A[A[A[A[AProcessing scverse.scanpy.1.10.2.issue_comment.pt_2 in batches of 16: 100%|██████████| 107/107 [10:47:22<00:00, 363.01s/it]
+2025-08-18 11:29:04.222 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:273 - scverse.scanpy.1.10.2.issue_comment.pt_2: Finished processing
+Processing google.deepvariant.v1.6.1.issue_comment in batches of 16:  69%|██████▉   | 86/125 [8:27:45<5:07:25, 472.96s/it]
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  74%|███████▎  | 87/118 [10:48:19<5:39:46, 657.62s/it][A[A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  67%|██████▋   | 84/125 [10:48:45<5:43:16, 502.36s/it][A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.pt_3 in batches of 16:   3%|▎         | 3/86 [35:10<15:34:57, 675.88s/it] [A[A[A[A[A
+
+
+
+
+
+
+Processing scverse.scanpy.1.10.2.docs in batches of 16:  40%|████      | 2/5 [35:57<46:09, 923.28s/it]   [A[A[A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  64%|██████▍   | 80/125 [7:38:09<5:07:11, 409.60s/it][A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  70%|██████▉   | 87/125 [8:30:22<3:59:34, 378.27s/it]
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  75%|███████▍  | 88/118 [10:50:58<4:14:01, 508.03s/it][A[A[A[A
+
+Processing scverse.scanpy.1.10.2.issue in batches of 16:  68%|██████▊   | 85/125 [10:51:32<4:27:52, 401.81s/it][A[A
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.pt_3 in batches of 16:   5%|▍         | 4/86 [38:03<10:52:07, 477.17s/it][A[A[A[A[A2025-08-18 11:35:29.355 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335947613040: attempt #3; slept for 15.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 320222 [type=json_invalid, input_value='{\n\n"architectural_acti...s/_legs/hashtable_class', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  65%|██████▍   | 81/125 [7:49:15<5:56:49, 486.57s/it][A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  70%|███████   | 88/125 [8:41:30<4:46:53, 465.22s/it]
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  75%|███████▌  | 89/118 [11:02:03<4:28:14, 554.97s/it][A[A[A[A2025-08-18 11:43:45.252 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335412197856: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 128911 [type=json_invalid, input_value='{\n\n"architectural_acti...6} S Dicks.\\n\\n{pr}28', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-18 11:43:59.152 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335943657424: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 275 [type=json_invalid, input_value='{\n\n"architectural_acti...ver ever ever ever ever', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.pt_3 in batches of 16:   6%|▌         | 5/86 [48:33<11:58:42, 532.38s/it][A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  66%|██████▌   | 82/125 [7:51:23<4:31:40, 379.07s/it][A[A[AProcessing google.deepvariant.v1.6.1.issue_comment in batches of 16:  71%|███████   | 89/125 [8:43:30<3:37:02, 361.75s/it]
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  76%|███████▋  | 90/118 [11:04:08<3:18:51, 426.14s/it][A[A[A[A2025-08-18 11:52:35.890 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335947613040: attempt #4; slept for 30.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 320222 [type=json_invalid, input_value='{\n\n"architectural_acti...s/_legs/hashtable_class', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-18 11:53:07.422 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335943657424: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 275 [type=json_invalid, input_value='{\n\n"architectural_acti...ver ever ever ever ever', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+Processing google.deepvariant.v1.6.1.issue_comment.pt_3 in batches of 16:   7%|▋         | 6/86 [57:52<12:02:00, 541.51s/it][A[A[A[A[A
+
+
+Processing scverse.scanpy.1.10.2.issue_comment in batches of 16:  66%|██████▋   | 83/125 [8:00:25<4:59:34, 427.96s/it][A[A[A2025-08-18 11:54:41.228 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:147 - <RetryCallState 137335412197856: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 333434 [type=json_invalid, input_value='{\n\n"architectural_acti... pandas.DataFrame.stack', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+Processing scverse.scanpy.1.10.2.issue_comment.pt_4 in batches of 16:  77%|███████▋  | 91/118 [11:13:26<3:29:31, 465.59s/it][A[A[A[A
