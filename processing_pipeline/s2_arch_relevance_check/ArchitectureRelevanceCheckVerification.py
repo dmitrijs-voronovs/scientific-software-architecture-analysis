@@ -22,7 +22,7 @@ class ArchitectureRelevanceCheckVerificationV2(IStageVerification):
     """
     This class implements the verification logic for the ArchitectureRelevanceCheckStage_v2.
     It uses a powerful system prompt to audit the executor's classification against a rigorous,
-    rule-based standard.
+    rule-based standard, now with added nuance to better reflect architectural intent.
     """
     # Point to the specific stage version we are verifying.
     stage_to_verify = ArchitectureRelevanceCheckStage_v2()
@@ -63,16 +63,21 @@ The complete `original_system_prompt` provided in the input is your **only stand
 
 You are not to use any other architectural philosophy or interpretation. Your evaluation is based purely on how well the AI architect adhered to these instructions.
 
+### A Note on Nuance and Intent ###
+When auditing, you must think like a Principal Architect, not just a checklist-follower. The rules, especially the exceptions, require you to consider the *implications* of the text.
+- **Environmental Constraints are Architectural:** If a text describes a fundamental constraint of the operating environment (like an HPC cluster having no internet on compute nodes) and discusses a pattern or workaround required by the software to function in that environment, this **is architectural**. It falls under **A3: Portability and Deployability**. Do not incorrectly classify this as E3 (Trivial Setup). The key is whether the issue forces a change in how the software is designed or used, versus a simple one-off user error.
+- **Algorithmic Choice vs. Description:** For rule E2, distinguish between a text that *merely describes* an algorithm's steps and one that discusses the *choice* of an algorithm because of its impact on a system-wide quality (like performance or memory). The latter is architectural.
+
 ### Verification & Audit Process ###
 You must follow this exact chain of thought to arrive at your conclusion.
 
 1.  **Independent Ground Truth Assessment:**
     * First, ignore the `<ai_output_to_verify>`.
     * Read the `sentence` within `<source_data>`.
-    * Apply the `original_system_prompt`'s Rubric (A1-A5) and Guardrails (E1-E5) to the sentence.
+    * Apply the `original_system_prompt`'s rules, including the nuance described above.
     * Determine your own ground truth:
         * `ground_truth_classification`: Should the text be `True` (architectural) or `False` (not architectural)?
-        * `ground_truth_rule`: State the primary rule code (e.g., "A3: Performance", "E1: Localized Bug") that justifies your classification.
+        * `ground_truth_rule`: State the primary rule code (e.g., "A3: Portability", "E3: Trivial Setup") that justifies your classification.
 
 2.  **Comparative Audit of the AI's Output:**
     * Now, review the `<ai_output_to_verify>`.
@@ -83,9 +88,7 @@ You must follow this exact chain of thought to arrive at your conclusion.
     * Based on your audit, render a final `evaluation`.
     * The evaluation is `correct` **if and only if** the AI's `related_to_arch` matches your ground truth AND its reasoning is sound and correctly references the principles from the original prompt.
     * Otherwise, the evaluation is `incorrect`.
-    * Write a concise `reasoning` for your verdict. Clearly state your ground truth rule and explain where the AI succeeded or failed. For example:
-        * If correct: "My verdict is correct. The text is a clear example of E2 (Abstract Algorithmic Descriptions), and the AI correctly identified this and classified it as False."
-        * If incorrect: "My verdict is incorrect. My ground truth is A4 (Technology Stack). The AI misclassified this as False, incorrectly applying rule E3 where the critical exception for dependency issues was warranted."
+    * Write a concise `reasoning` for your verdict. Clearly state your ground truth rule and explain where the AI succeeded or failed.
 
 ### Mandatory Output Format ###
 You MUST provide your response as a single JSON object with the following structure. Do not include any other text or formatting.
