@@ -1,0 +1,118 @@
+nohup: ignoring input
+2025-08-19 02:13:24.403 | INFO     | processing_pipeline.model.IBaseStage:execute:331 - Executing s2 stage
+2025-08-19 02:13:24.403 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.2.part_3: Processing file
+2025-08-19 02:13:24.403 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - allenai.scispacy.v0.5.5.code_comment: Processing file
+2025-08-19 02:13:24.404 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.release: Processing file
+2025-08-19 02:13:24.404 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.issue: Processing file
+2025-08-19 02:13:24.404 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - scverse.scanpy.1.10.2.issue_comment.pt_2: Processing file
+2025-08-19 02:13:24.404 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.3.part_1: Processing file
+2025-08-19 02:13:24.425 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.release: File already processed
+2025-08-19 02:13:24.425 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - scverse.scanpy.1.10.2.issue_comment.pt_2: File already processed
+2025-08-19 02:13:24.425 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - allenai.scispacy.v0.5.5.issue_comment: Processing file
+2025-08-19 02:13:24.425 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - scverse.scanpy.1.10.2.issue: Processing file
+2025-08-19 02:13:24.432 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - allenai.scispacy.v0.5.5.issue_comment: File already processed
+2025-08-19 02:13:24.432 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.1.part_1: Processing file
+2025-08-19 02:13:24.432 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - allenai.scispacy.v0.5.5.code_comment: File already processed
+2025-08-19 02:13:24.433 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.code_comment.3.part_1: File already processed
+2025-08-19 02:13:24.433 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.4.part_3: Processing file
+2025-08-19 02:13:24.433 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.code_comment.2.part_3: File already processed
+2025-08-19 02:13:24.433 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - scverse.scanpy.1.10.2.issue: File already processed
+2025-08-19 02:13:24.433 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.0.part_0: Processing file
+2025-08-19 02:13:24.433 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - OpenGene.fastp.v0.23.4.release: Processing file
+2025-08-19 02:13:24.433 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - OpenGene.fastp.v0.23.4.issue_comment: Processing file
+2025-08-19 02:13:24.434 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.code_comment.4.part_3: File already processed
+2025-08-19 02:13:24.434 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.docs.01: Processing file
+2025-08-19 02:13:24.434 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.code_comment.1.part_1: File already processed
+2025-08-19 02:13:24.434 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.docs.07: Processing file
+2025-08-19 02:13:24.434 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.code_comment.0.part_0: File already processed
+2025-08-19 02:13:24.435 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - OpenGene.fastp.v0.23.4.issue_comment: File already processed
+2025-08-19 02:13:24.435 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.docs.04: Processing file
+2025-08-19 02:13:24.435 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.docs.00: Processing file
+2025-08-19 02:13:24.435 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - OpenGene.fastp.v0.23.4.release: File already processed
+2025-08-19 02:13:24.435 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.1.part_3: Processing file
+2025-08-19 02:13:24.436 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.docs.01: File already processed
+2025-08-19 02:13:24.436 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.issue_comment: Processing file
+2025-08-19 02:13:24.436 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.docs.07: File already processed
+2025-08-19 02:13:24.436 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.docs.04: File already processed
+2025-08-19 02:13:24.436 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.3.part_3: Processing file
+2025-08-19 02:13:24.436 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - allenai.scispacy.v0.5.5.issue: Processing file
+2025-08-19 02:13:24.436 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.docs.00: File already processed
+2025-08-19 02:13:24.437 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.0.part_3: Processing file
+2025-08-19 02:13:24.437 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.code_comment.1.part_3: File already processed
+2025-08-19 02:13:24.437 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.docs.03: Processing file
+2025-08-19 02:13:24.438 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - allenai.scispacy.v0.5.5.issue: File already processed
+2025-08-19 02:13:24.438 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.1.part_0: Processing file
+2025-08-19 02:13:24.438 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.code_comment.3.part_3: File already processed
+2025-08-19 02:13:24.438 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - scverse.scanpy.1.10.2.wiki: Processing file
+2025-08-19 02:13:24.438 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.code_comment.0.part_3: File already processed
+2025-08-19 02:13:24.438 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - google.deepvariant.v1.6.1.issue_comment: Processing file
+2025-08-19 02:13:24.439 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.code_comment.1.part_0: File already processed
+2025-08-19 02:13:24.439 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.0.part_2: Processing file
+2025-08-19 02:13:24.440 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - google.deepvariant.v1.6.1.issue_comment: File already processed
+2025-08-19 02:13:24.440 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.docs.02: Processing file
+2025-08-19 02:13:24.440 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.docs.03: File already processed
+2025-08-19 02:13:24.440 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.docs.09: Processing file
+2025-08-19 02:13:24.440 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - scverse.scanpy.1.10.2.wiki: File already processed
+2025-08-19 02:13:24.440 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.code_comment.0.part_2: File already processed
+2025-08-19 02:13:24.440 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - OpenGene.fastp.v0.23.4.code_comment: Processing file
+2025-08-19 02:13:24.440 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.2.part_1: Processing file
+2025-08-19 02:13:24.441 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.docs.02: File already processed
+2025-08-19 02:13:24.441 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - allenai.scispacy.v0.5.5.docs: Processing file
+2025-08-19 02:13:24.441 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.docs.09: File already processed
+2025-08-19 02:13:24.441 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - google.deepvariant.v1.6.1.issue: Processing file
+2025-08-19 02:13:24.442 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.code_comment.2.part_1: File already processed
+2025-08-19 02:13:24.442 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.3.part_0: Processing file
+2025-08-19 02:13:24.442 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - OpenGene.fastp.v0.23.4.code_comment: File already processed
+2025-08-19 02:13:24.442 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.docs.10: Processing file
+2025-08-19 02:13:24.442 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - google.deepvariant.v1.6.1.issue: File already processed
+2025-08-19 02:13:24.442 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - allenai.scispacy.v0.5.5.release: Processing file
+2025-08-19 02:13:24.442 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - allenai.scispacy.v0.5.5.docs: File already processed
+2025-08-19 02:13:24.443 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - google.deepvariant.v1.6.1.code_comment: Processing file
+2025-08-19 02:13:24.443 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.docs.10: File already processed
+2025-08-19 02:13:24.443 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.docs.11: Processing file
+2025-08-19 02:13:24.444 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - google.deepvariant.v1.6.1.code_comment: File already processed
+2025-08-19 02:13:24.444 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - scverse.scanpy.1.10.2.code_comment: Processing file
+2025-08-19 02:13:24.444 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - allenai.scispacy.v0.5.5.release: File already processed
+2025-08-19 02:13:24.444 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.2.part_0: Processing file
+2025-08-19 02:13:24.444 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.docs.11: File already processed
+2025-08-19 02:13:24.444 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - google.deepvariant.v1.6.1.release: Processing file
+2025-08-19 02:13:24.455 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - scverse.scanpy.1.10.2.code_comment: File already processed
+2025-08-19 02:13:24.455 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - scverse.scanpy.1.10.2.issue_comment.pt_3: Processing file
+2025-08-19 02:13:24.456 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:232 - root-project.root.v6-32-06.issue_comment: Continuing processing from 8054
+2025-08-19 02:13:24.460 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - google.deepvariant.v1.6.1.release: File already processed
+2025-08-19 02:13:24.460 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - scverse.scanpy.1.10.2.docs: Processing file
+2025-08-19 02:13:24.461 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:232 - root-project.root.v6-32-06.code_comment.3.part_0: Continuing processing from 1434
+2025-08-19 02:13:24.461 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:232 - root-project.root.v6-32-06.issue: Continuing processing from 6476
+2025-08-19 02:13:24.472 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - scverse.scanpy.1.10.2.issue_comment.pt_3: File already processed
+2025-08-19 02:13:24.472 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.4.part_2: Processing file
+2025-08-19 02:13:24.472 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - scverse.scanpy.1.10.2.docs: File already processed
+2025-08-19 02:13:24.472 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.4.part_0: Processing file
+Stage s2 params:
+stop_event: <threading.Event at 0x7e41624ba150: unset>
+model_fields: ['analysis_summary', 'architectural_signal', 'exclusionary_signal', 'final_logic', 'related_to_arch']
+hostname: http://localhost:11434
+model: model='deepseek-r1:1.5b' temperature=0.0 format={'description': 'Updated Pydantic model to match the new JSON output structure.', 'properties': {'analysis_summary': {'title': 'Analysis Summary', 'type': 'string'}, 'architectural_signal': {'title': 'Architectural Signal', 'type': 'string'}, 'exclusionary_signal': {'title': 'Exclusionary Signal', 'type': 'string'}, 'final_logic': {'title': 'Final Logic', 'type': 'string'}, 'related_to_arch': {'title': 'Related To Arch', 'type': 'boolean'}}, 'required': ['analysis_summary', 'architectural_signal', 'exclusionary_signal', 'final_logic', 'related_to_arch'], 'title': 'OllamaArchitectureResponse', 'type': 'object'} keep_alive='24h' base_url='http://localhost:11434'
+batch_size: 14
+n_threads: 6
+disable_cache: False
+
+
+Processing root-project.root.v6-32-06.issue_comment in batches of 14:   0%|          | 0/101 [00:00<?, ?it/s]
+Processing root-project.root.v6-32-06.issue in batches of 14:   0%|          | 0/143 [00:00<?, ?it/s][A
+
+Processing root-project.root.v6-32-06.code_comment.3.part_0 in batches of 14:   0%|          | 0/72 [00:00<?, ?it/s][A[A2025-08-19 02:13:24.474 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:232 - root-project.root.v6-32-06.code_comment.2.part_0: Continuing processing from 1328
+
+
+
+Processing root-project.root.v6-32-06.code_comment.2.part_0 in batches of 14:   0%|          | 0/80 [00:00<?, ?it/s][A[A[A2025-08-19 02:13:24.484 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:232 - root-project.root.v6-32-06.code_comment.4.part_2: Continuing processing from 1296
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.4.part_2 in batches of 14:   0%|          | 0/82 [00:00<?, ?it/s][A[A[A[A2025-08-19 02:13:24.488 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:232 - root-project.root.v6-32-06.code_comment.4.part_0: Continuing processing from 1424
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.4.part_0 in batches of 14:   0%|          | 0/73 [00:00<?, ?it/s][A[A[A[A[A
