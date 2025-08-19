@@ -94,7 +94,7 @@ You must follow this exact chain of thought to arrive at your conclusion.
 You MUST provide your response as a single JSON object with the following structure. Do not include any other text or formatting.
 ```json
 {
-  "ground_truth_classification": "boolean",
+  "ground_truth_classification": true,
   "ground_truth_rule": "string",
   "evaluation": "correct | incorrect",
   "reasoning": "string"
@@ -107,7 +107,7 @@ def main():
     """
     Main execution function to run the verification stage.
     """
-    ArchitectureRelevanceCheckVerificationV2(hostname=LLMHost.GREEN_LAB, batch_size_override=20, keep_alive="5m").execute_verification()
+    ArchitectureRelevanceCheckVerificationV2(hostname=LLMHost.GREEN_LAB, batch_size_override=20, keep_alive="5m", disable_cache=True).execute_verification()
 
 
 if __name__ == "__main__":
