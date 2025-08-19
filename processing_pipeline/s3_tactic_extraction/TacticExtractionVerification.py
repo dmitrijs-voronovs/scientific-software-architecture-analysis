@@ -7,10 +7,10 @@ from processing_pipeline.model.IStageVerification import IStageVerification
 from processing_pipeline.s3_tactic_extraction.TacticExtraction_v2 import TacticExtractionStage_v2
 
 
-class S3VerificationResponseV12(BaseModel):
+class S3VerificationResponseV13(BaseModel):
     """
     Defines the structured output for the S3 verifier, using the final, most
-    stable auditing model focused on defensibility and a strict definition of
+    stable auditing model focused on defensibility and a refined definition of
     architectural intent.
     """
     evaluation: Literal["correct", "incorrect"]
@@ -32,7 +32,7 @@ class TacticExtractionVerification(IStageVerification):
         'selected_tactic',
         'justification'
     ]
-    data_model = S3VerificationResponseV12
+    data_model = S3VerificationResponseV13
 
     def get_system_prompt(self) -> str:
         """
@@ -52,20 +52,20 @@ You must check for these red flags in order. If you find one, the evaluation is 
 
 **Red Flag #1: Misidentified Architectural Intent (CRITICAL).**
 This is your most important check.
-- First, read the original `sentence`. Ask yourself: "Is this text describing a **developer's implemented solution or a deliberate design decision**?"
-- A simple user problem (bug report, installation error) or a feature request without any discussion of implementation is NOT architecturally relevant.
+- First, read the original `sentence`. An architectural discussion can be a **developer's implemented solution**, a **deliberate design decision**, OR a **user's feature request or discussion of a system limitation** that implies a need for architectural change.
+- A simple user problem (like a bug report or installation error) is NOT architecturally relevant.
 - Now, look at the AI's `is_tactic_relevant` field.
-- **RED FLAG:** The AI set `is_tactic_relevant: true` for a text that does not describe a developer's solution or design decision. This is a fundamental failure and the evaluation MUST be `incorrect`.
+- **RED FLAG:** The AI set `is_tactic_relevant: true` for a text that is clearly a simple bug report or installation error. However, if the text is a feature request or a discussion of limitations, it IS architecturally relevant, and the AI is correct.
 
 **Red Flag #2: Basic Procedural Errors.**
 If the architectural intent was correctly identified, check for simple mistakes.
 - **RED FLAG (Contradiction):** The AI set `is_tactic_relevant: false` but then selected a tactic anyway.
 - **RED FLAG (Hallucination):** The AI's `selected_tactic` is an invented name that was not on the official list. (NOTE: Treat "None" and "nan" as identical, valid null values. They are NOT hallucinations).
 
-**Red Flag #3: Illogical Justification.**
-This is your final check.
+**Red Flag #3: Indefensible Justification (Use Sparingly).**
+This is your final check. Be very hesitant to use it.
 - Read the AI's `core_concept_analysis`, its `selected_tactic`, and its `justification`.
-- **RED FLAG (Justification Mismatch):** The AI's `justification` fails to provide a clear, logical link between its OWN `core_concept_analysis` and the official definition of the `selected_tactic`. If the argument does not make sense, the evaluation is `incorrect`.
+- **RED FLAG (Nonsensical Fit):** The AI's `justification` is completely nonsensical or has no logical connection to its OWN `core_concept_analysis`. Do not fail based on minor differences of opinion; the choice must only be **defensible**.
 - **Crucially, Respect "None":** If the AI correctly identified an architectural discussion but concluded that none of the provided tactics were a good fit (`selected_tactic: "None"` or `"nan"`), this is a sophisticated and valid analysis. This choice should almost always be considered `correct`.
 
 ### Your Verdict ###
