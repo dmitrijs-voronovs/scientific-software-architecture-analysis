@@ -119,8 +119,6 @@ class IBaseStage(metaclass=ABCMeta):
         if out_dir_override:
             self.out_dir = out_dir_override
 
-        self._print_all_params()
-
         self._init()
 
     def _cleanup_and_exit(self, signal_num, frame):
@@ -329,6 +327,7 @@ class IBaseStage(metaclass=ABCMeta):
 
     def execute(self, only_files_containing_text: List[str] | None = None, reverse: bool = False,
                 dry_run: bool = False):
+        self._print_all_params()
         logger.info(f"Executing {self.stage_name} stage")
         only_files_containing_text = only_files_containing_text or []
 

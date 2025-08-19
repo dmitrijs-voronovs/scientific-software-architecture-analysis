@@ -1,0 +1,19 @@
+nohup: ignoring input
+2025-08-18 23:27:07.408 | INFO     | processing_pipeline.model.IBaseStage:execute:332 - Executing s2 stage
+2025-08-18 23:27:07.408 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - allenai.scispacy.v0.5.5.issue_comment: Processing file
+2025-08-18 23:27:07.408 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:210 - allenai.scispacy.v0.5.5.issue: Processing file
+2025-08-18 23:27:07.410 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:217 - allenai.scispacy.v0.5.5.issue_comment: File already processed
+2025-08-18 23:27:07.410 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:217 - allenai.scispacy.v0.5.5.issue: File already processed
+2025-08-18 23:27:07.410 | INFO     | processing_pipeline.model.IBaseStage:execute:354 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s1_qa_relevance_check_o/allenai.scispacy.v0.5.5.issue_comment.parquet: Thread finished processing the file
+2025-08-18 23:27:07.410 | INFO     | processing_pipeline.model.IBaseStage:execute:354 - /home/dmitrijs/scientific-software-architecture-analysis/data/keywords_2/s1_qa_relevance_check_o/allenai.scispacy.v0.5.5.issue.parquet: Thread finished processing the file
+2025-08-18 23:27:07.410 | INFO     | processing_pipeline.model.IBaseStage:execute:361 - Finished s2 stage
+Stage s2 params:
+stop_event: <threading.Event at 0x7a209f9df950: unset>
+model_fields: ['analysis_summary', 'architectural_signal', 'exclusionary_signal', 'final_logic', 'related_to_arch']
+hostname: http://localhost:11434
+model: model='deepseek-r1:1.5b' temperature=0.0 format={'description': 'Updated Pydantic model to match the new JSON output structure.', 'properties': {'analysis_summary': {'title': 'Analysis Summary', 'type': 'string'}, 'architectural_signal': {'title': 'Architectural Signal', 'type': 'string'}, 'exclusionary_signal': {'title': 'Exclusionary Signal', 'type': 'string'}, 'final_logic': {'title': 'Final Logic', 'type': 'string'}, 'related_to_arch': {'title': 'Related To Arch', 'type': 'boolean'}}, 'required': ['analysis_summary', 'architectural_signal', 'exclusionary_signal', 'final_logic', 'related_to_arch'], 'title': 'OllamaArchitectureResponse', 'type': 'object'} keep_alive='24h' base_url='http://localhost:11434'
+batch_size: 32
+n_threads: 8
+disable_cache: False
+
+

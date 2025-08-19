@@ -150,9 +150,7 @@ Based on the rules provided in the system prompt, analyze the following availabl
 
 
 def main():
-    TacticExtractionStage_v2(hostname=LLMHost.GREEN_LAB, n_threads_override=8, batch_size_override=16).execute(
-        ["google.deepvariant.v1.6.1", "scverse.scanpy.1.10.2", ], reverse=False)
-
+    TacticExtractionStage_v2(hostname=LLMHost.SERVER, n_threads_override=8, batch_size_override=16).execute()
 
 if __name__ == "__main__":
     main()

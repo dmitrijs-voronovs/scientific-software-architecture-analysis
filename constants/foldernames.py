@@ -17,6 +17,7 @@ class FolderNames:
     PARAMETER_TUNING_RES_DIR = "parameter_tuning_res"
 
     MERGED_DIR = "merged"
+    O_MERGED_DIR = "merged_o"
 
     # TODO: think why they are needed, for analysis???
     RES_KEYWORDS_MATCHING_DIR = "keyword_matching"

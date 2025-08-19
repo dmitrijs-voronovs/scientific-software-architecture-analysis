@@ -1,0 +1,1054 @@
+"
+id","keyword
+","keyword_raw
+","sentence
+","qa
+","url
+","matched_word
+","unique_matched_words
+","nunique_matched_words
+","nsimilar
+","prefilter_passed
+","s0_prompt
+","s0_to_eliminate
+","s0_reasoning
+","s0_passed
+","s1_prompt
+","s1_analysis_problem_vs_solution
+","s1_analysis_mechanism_vs_feature
+","s1_analysis_causal_link
+","s1_analysis_rubric_check
+","s1_true_positive
+","s1_reasoning
+","s1_passed
+","s2_prompt
+","s2_analysis_summary
+","s2_architectural_signal
+","s2_exclusionary_signal
+","s2_final_logic
+","s2_related_to_arch
+","s2_passed
+","s3_architectural_activity_extraction
+","s3_core_concept_analysis
+","s3_is_tactic_relevant
+","s3_relevance_reason
+","s3_tactic_evaluation
+","s3_selected_tactic
+","s3_justification
+","s3_passed
+","s3_tactic_category
+"
+OpenGene/fastp/v0.23.4.issue.integrability.2261ae8cfa5f7f0438dd9f184b27c230.adapt.adapters,adapt,adapt,"Plots: y-axis scaling | plot of 3 trimming; Really nice piece of software :+1: . As a sequencing service provider running devices from MiSeq to NovaSeq we deal with quite a lot of fastq files. . Just two tiny suggestions concerning some plots:. - the `quality` plots should scale on y-axis from 0 to 40 for phred33 (at least optionally) as this way it is by far easier to visually detect relevant differences in a set of files. The scaled (y-zoomed) view makes some plots look more dramatical than they are. - the same is valid for `base content` plot: scaling from 0 to 100% (you are using % in the legend so why not using it on the axis as well?) would make plots - put side by side for some samples - better comparable. And it would also be easier to spot issues in a set of files. - maybe an idea: you could create a plot with fractions of trimmed data (polyA,adapter,quality,whatever can be trimmed from 3 end) over the position (cycle number). The different fractions in different colors. In untrimmed data this would be a line slowly raising towards the end of a read where e.g. low quality increases and where adapters are likely to begin. This is a good tool to see how trimming has worked (or not). Especially when we have the before/after plots side-by-side in the report. I will include this tool in our standard data processing pipeline :+1:",integrability,https://github.com/OpenGene/fastp/issues/206,adapters,"adapters, Adapters, ADAPTERS",3,1,True,"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, critiques, or explanations of implementation strategies and trade-offs. This includes bug reports and detailed commit messages.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized.
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, log snippets, or documentation with tags). The key is the **substance and intent** of the natural language text. The ratio of prose to code is not the determining factor.
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking a significant natural language narrative, explanation, or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations) without an explanatory narrative.
+ - **Program output, logs, or error traces** presented without any surrounding human analysis or interpretation.
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data, simple Makefile rules).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, file path changes).
+ - **Formal API signatures or technical interface definitions** without accompanying prose that explains their purpose and usage in a descriptive way.
+ - **Boilerplate text** that does not provide any unique insight or explanation, such as standard license or copyright headers.
+
+## Examples (for reference only – do not analyze):
+
+### Example 1 (Eliminate)
+**Content:**
+Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: This is a program-generated build log. It consists entirely of diagnostic artifacts and lacks human-written analysis or explanation.
+
+### Example 2 (Eliminate)
+**Content:**
+scanpy.neighbors.connectivities. scanpy.neighbors.distances. scanpy.neighbors.eigen_basis.
+**Answer:**
+to_eliminate: true
+reasoning: This is a list of API functions. It is a technical artifact and lacks any human-written narrative, commentary, or explanation.
+
+### Example 3 (Keep)
+**Content:**
+I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: This is a natural language explanation of performance trade-offs and a suggestion for future work. It is a clear example of human-to-human communication.
+
+### Example 4 (Keep)
+**Content:**
+[RF] Wrong integral value, possibly problems with some global caching. It seems `ws.pdf(""""signal"""")->plotOn(frame);` creates some global cache of the integral which is used with newly created objects, causing the issue.
+**Answer:**
+to_eliminate: false
+reasoning: This is a bug report that describes a technical problem and analyzes the potential cause (`global caching` from a specific function call). This is valuable human-written analysis, not just a log.
+
+### Example 5 (Keep)
+**Content:**
+@name Mutation APIs
+These methods provide APIs for submitting updates to the DominatorTree. Note: There are two strategies, Eager and Lazy. It is recommended to use the Lazy strategy for multiple updates to improve performance.
+**Answer:**
+to_eliminate: false
+reasoning: This content, despite using documentation tags like `@name`, provides a detailed explanation of two different technical strategies and gives a recommendation. The substance is a human-written explanation of design and trade-offs.
+
+### Example 6 (Eliminate)
+**Content:**
+History:
+Version 17.8, add new method GetDXDY()
+Version 17.7, updates in the TUnfold implementation
+Version 17.5, fix memory leak
+**Answer:**
+to_eliminate: true
+reasoning: This is a structured changelog that is simply a list of changes. It lacks a narrative or detailed explanation of the *reasons* for the changes, making it a low-value technical artifact.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**
+Plots: y-axis scaling | plot of 3 trimming; Really nice piece of software :+1: . As a sequencing service provider running devices from MiSeq to NovaSeq we deal with quite a lot of fastq files. . Just two tiny suggestions concerning some plots:. - the `quality` plots should scale on y-axis from 0 to 40 for phred33 (at least optionally) as this way it is by far easier to visually detect relevant differences in a set of files. The scaled (y-zoomed) view makes some plots look more dramatical than they are. - the same is valid for `base content` plot: scaling from 0 to 100% (you are using % in the legend so why not using it on the axis as well?) would make plots - put side by side for some samples - better comparable. And it would also be easier to spot issues in a set of files. - maybe an idea: you could create a plot with fractions of trimmed data (polyA,adapter,quality,whatever can be trimmed from 3 end) over the position (cycle number). The different fractions in different colors. In untrimmed data this would be a line slowly raising towards the end of a read where e.g. low quality increases and where adapters are likely to begin. This is a good tool to see how trimming has worked (or not). Especially when we have the before/after plots side-by-side in the report. I will include this tool in our standard data processing pipeline :+1:
+",False,"This content contains detailed human-written commentary and suggestions about software features, specifically regarding plot scaling for quality assessment of sequencing data. It discusses trade-offs between visualization methods (zoomed vs raw scale) and proposes a new feature to monitor trimming effectiveness.",True,"
+### Data for Evaluation
+
+**1. Quality Attribute:** integrability
+
+**2. Detailed Rubric:**
+**Definition:** Integrability refers to the ease with which software components or distinct systems can be combined and made to work together effectively as a coherent whole, often supported by mechanisms that reduce coupling and manage dependencies.
+
+**3. Content to Analyze:**
+""Plots: y-axis scaling | plot of 3 trimming; Really nice piece of software :+1: . As a sequencing service provider running devices from MiSeq to NovaSeq we deal with quite a lot of fastq files. . Just two tiny suggestions concerning some plots:. - the `quality` plots should scale on y-axis from 0 to 40 for phred33 (at least optionally) as this way it is by far easier to visually detect relevant differences in a set of files. The scaled (y-zoomed) view makes some plots look more dramatical than they are. - the same is valid for `base content` plot: scaling from 0 to 100% (you are using % in the legend so why not using it on the axis as well?) would make plots - put side by side for some samples - better comparable. And it would also be easier to spot issues in a set of files. - maybe an idea: you could create a plot with fractions of trimmed data (polyA,adapter,quality,whatever can be trimmed from 3 end) over the position (cycle number). The different fractions in different colors. In untrimmed data this would be a line slowly raising towards the end of a read where e.g. low quality increases and where adapters are likely to begin. This is a good tool to see how trimming has worked (or not). Especially when we have the before/after plots side-by-side in the report. I will include this tool in our standard data processing pipeline :+1:""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+",The text discusses various plot scaling methods and their implications for data processing. It evaluates these methods but does not identify a specific solution or mechanism that achieves integrability.,"Yes, it describes a method of scaling plots, which is a feature within the software's plotting capabilities.","The link between the plot scaling method and improved data processing efficiency is direct. It shows how scaling affects the clarity and usability of the plots, directly impacting integrability.",The mechanism described aligns with the definition of integrability as it enhances software components' integration through improved plotting methods.,True,"The analysis identifies that the text discusses plot scaling methods but does not propose a specific solution or mechanism. It evaluates these methods but does not identify a direct cause-and-effect link between the method and integrability. Therefore, it is a false positive as it misidentifies the content as describing a true mechanism within the software.",True,"### Data for Evaluation
+
+**Content to Analyze:**
+""Plots: y-axis scaling | plot of 3 trimming; Really nice piece of software :+1: . As a sequencing service provider running devices from MiSeq to NovaSeq we deal with quite a lot of fastq files. . Just two tiny suggestions concerning some plots:. - the `quality` plots should scale on y-axis from 0 to 40 for phred33 (at least optionally) as this way it is by far easier to visually detect relevant differences in a set of files. The scaled (y-zoomed) view makes some plots look more dramatical than they are. - the same is valid for `base content` plot: scaling from 0 to 100% (you are using % in the legend so why not using it on the axis as well?) would make plots - put side by side for some samples - better comparable. And it would also be easier to spot issues in a set of files. - maybe an idea: you could create a plot with fractions of trimmed data (polyA,adapter,quality,whatever can be trimmed from 3 end) over the position (cycle number). The different fractions in different colors. In untrimmed data this would be a line slowly raising towards the end of a read where e.g. low quality increases and where adapters are likely to begin. This is a good tool to see how trimming has worked (or not). Especially when we have the before/after plots side-by-side in the report. I will include this tool in our standard data processing pipeline :+1:""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+",The text discusses visual scaling and presentation improvements for scientific plotting software used in sequencing services.,"A3 (Cross-Cutting Concerns & Non-Functional Requirements) - The y-axis scaling suggestion addresses performance, usability, and comparability issues by making data visualization easier to interpret. The base content plot scaling improves usability and testability by enhancing the ability to spot issues across files. The trimming plots idea enhances modifiability and integrability by adding a new feature for comparing raw vs processed data.","E4 (Project Management & Development Process Artifacts) - Some parts of the text discuss development process artifacts like including tools in standard pipelines, but these are not central to the analysis. E1 does not apply as there is no localized bug description. The core discussion about plot scaling and usability improvements falls under A3.","The text contains architectural signals (A3) regarding non-functional requirements for data visualization, specifically addressing performance, usability, and scalability concerns by improving how plots are rendered and interpreted across the system. However, it also includes minor project management artifacts like including tools in standard pipelines which do not rise to the level of a fundamental architectural decision.",True,True,"Plots: y-axis scaling | plot of 3 trimming; Plots should scale from 0 to 40 for phred33 on y-axis (at least optionally) as it's easier to visually detect differences. The scaled view makes plots look more dramatic, but using % in the legend is unnecessary on the axis.",The primary architectural concept identified is scaling of plot axes from 0 to 40 for phred33 values.,True,"The extracted activity discusses scaling plot axes, which aligns with the goal of visually detecting differences in files. This supports the relevance of the concept as a design decision affecting quality attributes.",Discover Service,Discover Service,"The selected tactic 'Discover Service' is chosen because it best matches the extracted activity, which involves locating and scaling plot axes. This aligns with the goal of visually detecting relevant differences in files, making it a suitable fit for the identified architectural concept.",True,Locate
+allenai/scispacy/v0.5.5.docs.safety.5354d592e98d6afd731d616f4fe9ed03.robust.robust,robust,robust,"onent. Passing `extended=True` to the `HyponymDetector` will use the extended set of hearst patterns, which include higher recall but lower precision hyponymy relations (e.g X compared to Y, X similar to Y, etc). This component produces a doc level attribute on the spacy doc: `doc._.hearst_patterns`, which is a list containing tuples of extracted hyponym pairs. The tuples contain:. - The relation rule used to extract the hyponym (type: `str`). - The more general concept (type: `spacy.Span`). - The more specific concept (type: `spacy.Span`). Usage:. ```python. import spacy. from scispacy.hyponym_detector import HyponymDetector. nlp = spacy.load(""en_core_sci_sm""). nlp.add_pipe(""hyponym_detector"", last=True, config={""extended"": False}). doc = nlp(""Keystone plant species such as fig trees are good for the soil.""). print(doc._.hearst_patterns). >>> [('such_as', Keystone plant species, fig trees)]. ```. Citing. If you use ScispaCy in your research, please cite [ScispaCy: Fast and Robust Models for Biomedical Natural Language Processing](https://www.semanticscholar.org/paper/ScispaCy%3A-Fast-and-Robust-Models-for-Biomedical-Neumann-King/de28ec1d7bd38c8fc4e8ac59b6133800818b4e29). Additionally, please indicate which version and model of ScispaCy you used so that your research can be reproduced. ```. @inproceedings{neumann-etal-2019-scispacy,. title = {S}cispa{C}y: {F}ast and {R}obust {M}odels for {B}iomedical {N}atural {L}anguage {P}rocessing"",. author = Neumann, Mark and. King, Daniel and. Beltagy, Iz and. Ammar, Waleed"",. booktitle = Proceedings of the 18th BioNLP Workshop and Shared Task"",. month = aug,. year = 2019"",. address = Florence, Italy"",. publisher = Association for Computational Linguistics"",. url = https://www.aclweb.org/anthology/W19-5034"",. doi = 10.18653/v1/W19-5034"",. pages = 319--327"",. eprint = {arXiv:1902.07669},. abstract = Despite recent advances in natural language processing, many statistical models for processing text perform extre",safety,https://github.com/allenai/scispacy/tree/v0.5.5/README.md,robust,"Robust, robust",2,1,True,"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, critiques, or explanations of implementation strategies and trade-offs. This includes bug reports and detailed commit messages.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized.
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, log snippets, or documentation with tags). The key is the **substance and intent** of the natural language text. The ratio of prose to code is not the determining factor.
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking a significant natural language narrative, explanation, or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations) without an explanatory narrative.
+ - **Program output, logs, or error traces** presented without any surrounding human analysis or interpretation.
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data, simple Makefile rules).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, file path changes).
+ - **Formal API signatures or technical interface definitions** without accompanying prose that explains their purpose and usage in a descriptive way.
+ - **Boilerplate text** that does not provide any unique insight or explanation, such as standard license or copyright headers.
+
+## Examples (for reference only – do not analyze):
+
+### Example 1 (Eliminate)
+**Content:**
+Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: This is a program-generated build log. It consists entirely of diagnostic artifacts and lacks human-written analysis or explanation.
+
+### Example 2 (Eliminate)
+**Content:**
+scanpy.neighbors.connectivities. scanpy.neighbors.distances. scanpy.neighbors.eigen_basis.
+**Answer:**
+to_eliminate: true
+reasoning: This is a list of API functions. It is a technical artifact and lacks any human-written narrative, commentary, or explanation.
+
+### Example 3 (Keep)
+**Content:**
+I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: This is a natural language explanation of performance trade-offs and a suggestion for future work. It is a clear example of human-to-human communication.
+
+### Example 4 (Keep)
+**Content:**
+[RF] Wrong integral value, possibly problems with some global caching. It seems `ws.pdf(""""signal"""")->plotOn(frame);` creates some global cache of the integral which is used with newly created objects, causing the issue.
+**Answer:**
+to_eliminate: false
+reasoning: This is a bug report that describes a technical problem and analyzes the potential cause (`global caching` from a specific function call). This is valuable human-written analysis, not just a log.
+
+### Example 5 (Keep)
+**Content:**
+@name Mutation APIs
+These methods provide APIs for submitting updates to the DominatorTree. Note: There are two strategies, Eager and Lazy. It is recommended to use the Lazy strategy for multiple updates to improve performance.
+**Answer:**
+to_eliminate: false
+reasoning: This content, despite using documentation tags like `@name`, provides a detailed explanation of two different technical strategies and gives a recommendation. The substance is a human-written explanation of design and trade-offs.
+
+### Example 6 (Eliminate)
+**Content:**
+History:
+Version 17.8, add new method GetDXDY()
+Version 17.7, updates in the TUnfold implementation
+Version 17.5, fix memory leak
+**Answer:**
+to_eliminate: true
+reasoning: This is a structured changelog that is simply a list of changes. It lacks a narrative or detailed explanation of the *reasons* for the changes, making it a low-value technical artifact.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**
+onent. Passing `extended=True` to the `HyponymDetector` will use the extended set of hearst patterns, which include higher recall but lower precision hyponymy relations (e.g X compared to Y, X similar to Y, etc). This component produces a doc level attribute on the spacy doc: `doc._.hearst_patterns`, which is a list containing tuples of extracted hyponym pairs. The tuples contain:. - The relation rule used to extract the hyponym (type: `str`). - The more general concept (type: `spacy.Span`). - The more specific concept (type: `spacy.Span`). Usage:. ```python. import spacy. from scispacy.hyponym_detector import HyponymDetector. nlp = spacy.load(""en_core_sci_sm""). nlp.add_pipe(""hyponym_detector"", last=True, config={""extended"": False}). doc = nlp(""Keystone plant species such as fig trees are good for the soil.""). print(doc._.hearst_patterns). >>> [('such_as', Keystone plant species, fig trees)]. ```. Citing. If you use ScispaCy in your research, please cite [ScispaCy: Fast and Robust Models for Biomedical Natural Language Processing](https://www.semanticscholar.org/paper/ScispaCy%3A-Fast-and-Robust-Models-for-Biomedical-Neumann-King/de28ec1d7bd38c8fc4e8ac59b6133800818b4e29). Additionally, please indicate which version and model of ScispaCy you used so that your research can be reproduced. ```. @inproceedings{neumann-etal-2019-scispacy,. title = {S}cispa{C}y: {F}ast and {R}obust {M}odels for {B}iomedical {N}atural {L}anguage {P}rocessing"",. author = Neumann, Mark and. King, Daniel and. Beltagy, Iz and. Ammar, Waleed"",. booktitle = Proceedings of the 18th BioNLP Workshop and Shared Task"",. month = aug,. year = 2019"",. address = Florence, Italy"",. publisher = Association for Computational Linguistics"",. url = https://www.aclweb.org/anthology/W19-5034"",. doi = 10.18653/v1/W19-5034"",. pages = 319--327"",. eprint = {arXiv:1902.07669},. abstract = Despite recent advances in natural language processing, many statistical models for processing text perform extre
+",False,"This content includes a detailed explanation of the HyponymDetector component from ScispaCy, discussing its functionality (using extended set of Heirst patterns), potential trade-offs (recall vs precision), and providing usage examples with code. It also contains citations and references to research papers. The substance is primarily human-written prose that explains technical details, discusses implications, and provides guidance for users. Although it includes some code snippets and formal elements like citations, the core content is a narrative or explanation intended for developers or users of ScispaCy.",True,"
+### Data for Evaluation
+
+**1. Quality Attribute:** safety
+
+**2. Detailed Rubric:**
+**Definition:** Safety refers to the software's ability to avoid entering hazardous states that could cause damage, injury, or loss of life, and to recover or limit harm if such states are entered.
+
+**3. Content to Analyze:**
+""onent. Passing `extended=True` to the `HyponymDetector` will use the extended set of hearst patterns, which include higher recall but lower precision hyponymy relations (e.g X compared to Y, X similar to Y, etc). This component produces a doc level attribute on the spacy doc: `doc._.hearst_patterns`, which is a list containing tuples of extracted hyponym pairs. The tuples contain:. - The relation rule used to extract the hyponym (type: `str`). - The more general concept (type: `spacy.Span`). - The more specific concept (type: `spacy.Span`). Usage:. ```python. import spacy. from scispacy.hyponym_detector import HyponymDetector. nlp = spacy.load(""en_core_sci_sm""). nlp.add_pipe(""hyponym_detector"", last=True, config={""extended"": False}). doc = nlp(""Keystone plant species such as fig trees are good for the soil.""). print(doc._.hearst_patterns). >>> [('such_as', Keystone plant species, fig trees)]. ```. Citing. If you use ScispaCy in your research, please cite [ScispaCy: Fast and Robust Models for Biomedical Natural Language Processing](https://www.semanticscholar.org/paper/ScispaCy%3A-Fast-and-Robust-Models-for-Biomedical-Neumann-King/de28ec1d7bd38c8fc4e8ac59b6133800818b4e29). Additionally, please indicate which version and model of ScispaCy you used so that your research can be reproduced. ```. @inproceedings{neumann-etal-2019-scispacy,. title = {S}cispa{C}y: {F}ast and {R}obust {M}odels for {B}iomedical {N}atural {L}anguage {P}rocessing"",. author = Neumann, Mark and. King, Daniel and. Beltagy, Iz and. Ammar, Waleed"",. booktitle = Proceedings of the 18th BioNLP Workshop and Shared Task"",. month = aug,. year = 2019"",. address = Florence, Italy"",. publisher = Association for Computational Linguistics"",. url = https://www.aclweb.org/anthology/W19-5034"",. doi = 10.18653/v1/W19-5034"",. pages = 319--327"",. eprint = {arXiv:1902.07669},. abstract = Despite recent advances in natural language processing, many statistical models for processing text perform extre""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+","The content describes a feature related to ScispaCy's hyponym detection mechanism, which is an architectural choice within the software. The text does not present any bug or problem but rather explains how the software works by extracting hyponym pairs from documents.","Yes, it describes an architectural mechanism (how ScispaCy detects hyponyms) as part of its feature set for NLP processing.",The link between the mechanism and safety is direct. The text explains how ScispaCy's hyponym detection contributes to the software's overall safety by extracting relevant information from documents.,"This mechanism (hyponym detection) aligns with the safety attribute as it ensures accurate extraction of concepts, which supports safe NLP processing. It meets the inclusion criteria and avoids exclusion criteria.",True,"The text correctly identifies that ScispaCy's hyponym detection mechanism is a solution (architectural) that contributes to safety. The link between the mechanism and safety is direct, explicit, and relevant to the attribute being evaluated.",True,"### Data for Evaluation
+
+**Content to Analyze:**
+""onent. Passing `extended=True` to the `HyponymDetector` will use the extended set of hearst patterns, which include higher recall but lower precision hyponymy relations (e.g X compared to Y, X similar to Y, etc). This component produces a doc level attribute on the spacy doc: `doc._.hearst_patterns`, which is a list containing tuples of extracted hyponym pairs. The tuples contain:. - The relation rule used to extract the hyponym (type: `str`). - The more general concept (type: `spacy.Span`). - The more specific concept (type: `spacy.Span`). Usage:. ```python. import spacy. from scispacy.hyponym_detector import HyponymDetector. nlp = spacy.load(""en_core_sci_sm""). nlp.add_pipe(""hyponym_detector"", last=True, config={""extended"": False}). doc = nlp(""Keystone plant species such as fig trees are good for the soil.""). print(doc._.hearst_patterns). >>> [('such_as', Keystone plant species, fig trees)]. ```. Citing. If you use ScispaCy in your research, please cite [ScispaCy: Fast and Robust Models for Biomedical Natural Language Processing](https://www.semanticscholar.org/paper/ScispaCy%3A-Fast-and-Robust-Models-for-Biomedical-Neumann-King/de28ec1d7bd38c8fc4e8ac59b6133800818b4e29). Additionally, please indicate which version and model of ScispaCy you used so that your research can be reproduced. ```. @inproceedings{neumann-etal-2019-scispacy,. title = {S}cispa{C}y: {F}ast and {R}obust {M}odels for {B}iomedical {N}atural {L}anguage {P}rocessing"",. author = Neumann, Mark and. King, Daniel and. Beltagy, Iz and. Ammar, Waleed"",. booktitle = Proceedings of the 18th BioNLP Workshop and Shared Task"",. month = aug,. year = 2019"",. address = Florence, Italy"",. publisher = Association for Computational Linguistics"",. url = https://www.aclweb.org/anthology/W19-5034"",. doi = 10.18653/v1/W19-5034"",. pages = 319--327"",. eprint = {arXiv:1902.07669},. abstract = Despite recent advances in natural language processing, many statistical models for processing text perform extre""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+",The content describes a feature of a component called HyponymDetector that uses extended hearst patterns for extracting hyponyms with higher recall but lower precision.,"A3 (Cross-Cutting Concerns & Non-Functional Requirements) - The text discusses the trade-off between recall and precision, which is related to performance. It also describes a data attribute on the spaCy doc, which relates to A5 (Data Modeling & Management).",E1: Localized Implementation Bugs - This does not describe an error or crash but rather a feature description.,"The text is architecturally significant because it discusses performance-related trade-offs and data modeling within the system, satisfying tenets A3 (Performance) and A5 (Data Modeling).",True,True,"The ScispaCy model was cited in the research paper [ScispaCy: Fast and Robust Models for Bi biomedical Natural Language Processing](https://www.semanticscholar.org/paper/ScispaCy%3A-Fast-and-Robust-Models-for-Biomedical-Neumann-King/de28ec1d7bd38c8fc4e8ac59b6133800818b4e29). Additionally, it was mentioned that the version and model used were 2019.02.07669.",The primary architectural concept identified is the ScispaCy model citation.,True,"The extracted sentence discusses the citation of a specific ScispaCy model, which falls under the 'Reconfiguration' tactic as it involves reassigning responsibilities to remaining functional resources.",true,Reconfiguration,"The selected tactic is Reconfiguration because the extracted sentence discusses the citation of a specific ScispaCy model, which aligns with the 'Reconfiguration' tactic's purpose of reassigning responsibilities to remaining functional resources.",True,Recover from Faults_Preparation and Repair
+root-project/root/v6-32-06.code_comment.safety.a939af122ab44b7b9889c59e2cb281b3.avail.available,avail,avail,"Returns the error message for the last error which occurred on the given compressed file. errnum is set to zlib error number. If an error occurred in the file system and not in the compression library, errnum is set to Z_ERRNO and the application may consult errno to get the exact error code. The application must not modify the returned string. Future calls to this function may invalidate the previously returned string. If file is closed, then the string previously returned by gzerror will no longer be available. gzerror() should be used to distinguish errors from end-of-file for those functions above that do not distinguish those cases in their return values.",safety,https://github.com/root-project/root/tree/v6-32-06/builtins/zlib/zlib.h,available,"available, Available, AVAILABLE",3,1,True,"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, critiques, or explanations of implementation strategies and trade-offs. This includes bug reports and detailed commit messages.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized.
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, log snippets, or documentation with tags). The key is the **substance and intent** of the natural language text. The ratio of prose to code is not the determining factor.
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking a significant natural language narrative, explanation, or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations) without an explanatory narrative.
+ - **Program output, logs, or error traces** presented without any surrounding human analysis or interpretation.
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data, simple Makefile rules).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, file path changes).
+ - **Formal API signatures or technical interface definitions** without accompanying prose that explains their purpose and usage in a descriptive way.
+ - **Boilerplate text** that does not provide any unique insight or explanation, such as standard license or copyright headers.
+
+## Examples (for reference only – do not analyze):
+
+### Example 1 (Eliminate)
+**Content:**
+Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: This is a program-generated build log. It consists entirely of diagnostic artifacts and lacks human-written analysis or explanation.
+
+### Example 2 (Eliminate)
+**Content:**
+scanpy.neighbors.connectivities. scanpy.neighbors.distances. scanpy.neighbors.eigen_basis.
+**Answer:**
+to_eliminate: true
+reasoning: This is a list of API functions. It is a technical artifact and lacks any human-written narrative, commentary, or explanation.
+
+### Example 3 (Keep)
+**Content:**
+I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: This is a natural language explanation of performance trade-offs and a suggestion for future work. It is a clear example of human-to-human communication.
+
+### Example 4 (Keep)
+**Content:**
+[RF] Wrong integral value, possibly problems with some global caching. It seems `ws.pdf(""""signal"""")->plotOn(frame);` creates some global cache of the integral which is used with newly created objects, causing the issue.
+**Answer:**
+to_eliminate: false
+reasoning: This is a bug report that describes a technical problem and analyzes the potential cause (`global caching` from a specific function call). This is valuable human-written analysis, not just a log.
+
+### Example 5 (Keep)
+**Content:**
+@name Mutation APIs
+These methods provide APIs for submitting updates to the DominatorTree. Note: There are two strategies, Eager and Lazy. It is recommended to use the Lazy strategy for multiple updates to improve performance.
+**Answer:**
+to_eliminate: false
+reasoning: This content, despite using documentation tags like `@name`, provides a detailed explanation of two different technical strategies and gives a recommendation. The substance is a human-written explanation of design and trade-offs.
+
+### Example 6 (Eliminate)
+**Content:**
+History:
+Version 17.8, add new method GetDXDY()
+Version 17.7, updates in the TUnfold implementation
+Version 17.5, fix memory leak
+**Answer:**
+to_eliminate: true
+reasoning: This is a structured changelog that is simply a list of changes. It lacks a narrative or detailed explanation of the *reasons* for the changes, making it a low-value technical artifact.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**
+Returns the error message for the last error which occurred on the given compressed file. errnum is set to zlib error number. If an error occurred in the file system and not in the compression library, errnum is set to Z_ERRNO and the application may consult errno to get the exact error code. The application must not modify the returned string. Future calls to this function may invalidate the previously returned string. If file is closed, then the string previously returned by gzerror will no longer be available. gzerror() should be used to distinguish errors from end-of-file for those functions above that do not distinguish those cases in their return values.
+",False,"This content explains a function's behavior and its implications, including error handling details and usage recommendations (e.g., distinguishing errors from end-of-file). It contains natural language prose discussing technical aspects of the zlib library for human readers.",True,"
+### Data for Evaluation
+
+**1. Quality Attribute:** safety
+
+**2. Detailed Rubric:**
+**Definition:** Safety refers to the software's ability to avoid entering hazardous states that could cause damage, injury, or loss of life, and to recover or limit harm if such states are entered.
+
+**3. Content to Analyze:**
+""Returns the error message for the last error which occurred on the given compressed file. errnum is set to zlib error number. If an error occurred in the file system and not in the compression library, errnum is set to Z_ERRNO and the application may consult errno to get the exact error code. The application must not modify the returned string. Future calls to this function may invalidate the previously returned string. If file is closed, then the string previously returned by gzerror will no longer be available. gzerror() should be used to distinguish errors from end-of-file for those functions above that do not distinguish those cases in their return values.""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+","The text describes a specific behavior of the function, such as returning an error message or handling file operations. It does not present any problematic scenarios or errors but rather outlines how the function behaves under certain conditions.","Yes, this is describing a solution (a mechanism) within the software. The text specifies how the function handles specific cases, which is part of its design to manage error reporting and file system operations.",The link between the mechanism and the quality attribute is direct because it explains how the function's behavior contributes to maintaining safety by handling errors and file operations correctly.,"This matches the definition of safety. The text describes a mechanism that aligns with the software's ability to avoid hazardous states, which is part of its safety feature.",True,"The analysis identifies that the text describes a solution (a mechanism) within the software, specifically how it handles error reporting and file system operations. This mechanism contributes directly to maintaining safety by preventing errors from causing harm or damage. The link between the mechanism and the quality attribute is clear and direct, as explained in the text. This matches the definition of safety provided in the rubric, thus qualifying this description as true positive evidence.",True,"### Data for Evaluation
+
+**Content to Analyze:**
+""Returns the error message for the last error which occurred on the given compressed file. errnum is set to zlib error number. If an error occurred in the file system and not in the compression library, errnum is set to Z_ERRNO and the application may consult errno to get the exact error code. The application must not modify the returned string. Future calls to this function may invalidate the previously returned string. If file is closed, then the string previously returned by gzerror will no longer be available. gzerror() should be used to distinguish errors from end-of-file for those functions above that do not distinguish those cases in their return values.""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+",The text describes a function's behavior related to error handling and retrieval of error messages for compressed files using zlib.,"A3: Cross-Cutting Concerns & Non-Functional Requirements (NFRs) - Specifically, it addresses reliability, availability, and safety by providing an error handling mechanism. It also touches on performance by avoiding unnecessary recomputation or system resource usage when retrieving errors.","E1: Localized Implementation Bugs - The text does not describe a bug but rather the intended behavior of a function in terms of error reporting. However, note that E3 has an exception for complex dependency issues and version compatibility matrices which are absent here. Also, it is not about project management (E4) or non-software domains (E5).",The text discusses system-wide quality attributes related to reliability and availability through error handling mechanisms.,True,True,Returns the error message for the last error which occurred on the given compressed file.,The primary architectural concept identified is 'Error Handling' as it involves managing and returning appropriate error messages during data compression operations.,True,"The extracted sentence discusses an implemented solution (error handling) which directly relates to a concrete architectural activity, thus the relevance is established.","Since 'Error Handling' is one of the relevant tactic names and aligns with the extracted concept, it is selected as the best-fitting tactic.",Reconfiguration,"The selected tactic 'Reconfiguration' was chosen because it directly addresses managing error messages during data compression, which is a key part of the architecture discussed in the text.",True,Recover from Faults_Preparation and Repair
+root-project/root/v6-32-06.code_comment.interoperability.ecddf4f31347eb2825341dff8f171447.incompatib.incompatible,incompatib,incompatib,"dow. windowBits can also be zero to request that inflate use the window size in the zlib header of the compressed stream. windowBits can also be -8..-15 for raw inflate. In this case, -windowBits determines the window size. inflate() will then process raw deflate data, not looking for a zlib or gzip header, not generating a check value, and not looking for any check values for comparison at the end of the stream. This is for use with other formats that use the deflate compressed data format such as zip. Those formats provide their own check values. If a custom format is developed using the raw deflate format for compressed data, it is recommended that a check value such as an adler32 or a crc32 be applied to the uncompressed data as is done in the zlib, gzip, and zip formats. For most applications, the zlib format should be used as is. Note that comments above on the use in deflateInit2() applies to the magnitude of windowBits. windowBits can also be greater than 15 for optional gzip decoding. Add 32 to windowBits to enable zlib and gzip decoding with automatic header detection, or add 16 to decode only the gzip format (the zlib format will return a Z_DATA_ERROR). If a gzip stream is being decoded, strm->adler is a crc32 instead of an adler32. inflateInit2 returns Z_OK if success, Z_MEM_ERROR if there was not enough memory, Z_VERSION_ERROR if the zlib library version is incompatible with the version assumed by the caller, or Z_STREAM_ERROR if the parameters are invalid, such as a null pointer to the structure. msg is set to null if there is no error message. inflateInit2 does not perform any decompression apart from possibly reading the zlib header if present: actual decompression will be done by inflate(). (So next_in and avail_in may be modified, but next_out and avail_out are unused and unchanged.) The current implementation of inflateInit2() does not process any header information -- that is deferred until inflate() is called.",interoperability,https://github.com/root-project/root/tree/v6-32-06/builtins/zlib/zlib.h,incompatible,"incompatible, Incompatible",2,1,True,"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, critiques, or explanations of implementation strategies and trade-offs. This includes bug reports and detailed commit messages.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized.
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, log snippets, or documentation with tags). The key is the **substance and intent** of the natural language text. The ratio of prose to code is not the determining factor.
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking a significant natural language narrative, explanation, or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations) without an explanatory narrative.
+ - **Program output, logs, or error traces** presented without any surrounding human analysis or interpretation.
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data, simple Makefile rules).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, file path changes).
+ - **Formal API signatures or technical interface definitions** without accompanying prose that explains their purpose and usage in a descriptive way.
+ - **Boilerplate text** that does not provide any unique insight or explanation, such as standard license or copyright headers.
+
+## Examples (for reference only – do not analyze):
+
+### Example 1 (Eliminate)
+**Content:**
+Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: This is a program-generated build log. It consists entirely of diagnostic artifacts and lacks human-written analysis or explanation.
+
+### Example 2 (Eliminate)
+**Content:**
+scanpy.neighbors.connectivities. scanpy.neighbors.distances. scanpy.neighbors.eigen_basis.
+**Answer:**
+to_eliminate: true
+reasoning: This is a list of API functions. It is a technical artifact and lacks any human-written narrative, commentary, or explanation.
+
+### Example 3 (Keep)
+**Content:**
+I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: This is a natural language explanation of performance trade-offs and a suggestion for future work. It is a clear example of human-to-human communication.
+
+### Example 4 (Keep)
+**Content:**
+[RF] Wrong integral value, possibly problems with some global caching. It seems `ws.pdf(""""signal"""")->plotOn(frame);` creates some global cache of the integral which is used with newly created objects, causing the issue.
+**Answer:**
+to_eliminate: false
+reasoning: This is a bug report that describes a technical problem and analyzes the potential cause (`global caching` from a specific function call). This is valuable human-written analysis, not just a log.
+
+### Example 5 (Keep)
+**Content:**
+@name Mutation APIs
+These methods provide APIs for submitting updates to the DominatorTree. Note: There are two strategies, Eager and Lazy. It is recommended to use the Lazy strategy for multiple updates to improve performance.
+**Answer:**
+to_eliminate: false
+reasoning: This content, despite using documentation tags like `@name`, provides a detailed explanation of two different technical strategies and gives a recommendation. The substance is a human-written explanation of design and trade-offs.
+
+### Example 6 (Eliminate)
+**Content:**
+History:
+Version 17.8, add new method GetDXDY()
+Version 17.7, updates in the TUnfold implementation
+Version 17.5, fix memory leak
+**Answer:**
+to_eliminate: true
+reasoning: This is a structured changelog that is simply a list of changes. It lacks a narrative or detailed explanation of the *reasons* for the changes, making it a low-value technical artifact.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**
+dow. windowBits can also be zero to request that inflate use the window size in the zlib header of the compressed stream. windowBits can also be -8..-15 for raw inflate. In this case, -windowBits determines the window size. inflate() will then process raw deflate data, not looking for a zlib or gzip header, not generating a check value, and not looking for any check values for comparison at the end of the stream. This is for use with other formats that use the deflate compressed data format such as zip. Those formats provide their own check values. If a custom format is developed using the raw deflate format for compressed data, it is recommended that a check value such as an adler32 or a crc32 be applied to the uncompressed data as is done in the zlib, gzip, and zip formats. For most applications, the zlib format should be used as is. Note that comments above on the use in deflateInit2() applies to the magnitude of windowBits. windowBits can also be greater than 15 for optional gzip decoding. Add 32 to windowBits to enable zlib and gzip decoding with automatic header detection, or add 16 to decode only the gzip format (the zlib format will return a Z_DATA_ERROR). If a gzip stream is being decoded, strm->adler is a crc32 instead of an adler32. inflateInit2 returns Z_OK if success, Z_MEM_ERROR if there was not enough memory, Z_VERSION_ERROR if the zlib library version is incompatible with the version assumed by the caller, or Z_STREAM_ERROR if the parameters are invalid, such as a null pointer to the structure. msg is set to null if there is no error message. inflateInit2 does not perform any decompression apart from possibly reading the zlib header if present: actual decompression will be done by inflate(). (So next_in and avail_in may be modified, but next_out and avail_out are unused and unchanged.) The current implementation of inflateInit2() does not process any header information -- that is deferred until inflate() is called.
+",False,"This content explains the functionality and usage of windowBits in zlib compression/decompression, including its impact on raw deflate data processing, recommended check values for custom formats, and details about gzip decoding options. It contains a detailed technical discussion with explanations of parameters, trade-offs (such as automatic header detection), and implementation considerations.",True,"
+### Data for Evaluation
+
+**1. Quality Attribute:** interoperability
+
+**2. Detailed Rubric:**
+**Definition:** Interoperability is the degree to which two or more systems can usefully exchange and correctly interpret meaningful information via their interfaces within a particular context.
+
+**3. Content to Analyze:**
+""dow. windowBits can also be zero to request that inflate use the window size in the zlib header of the compressed stream. windowBits can also be -8..-15 for raw inflate. In this case, -windowBits determines the window size. inflate() will then process raw deflate data, not looking for a zlib or gzip header, not generating a check value, and not looking for any check values for comparison at the end of the stream. This is for use with other formats that use the deflate compressed data format such as zip. Those formats provide their own check values. If a custom format is developed using the raw deflate format for compressed data, it is recommended that a check value such as an adler32 or a crc32 be applied to the uncompressed data as is done in the zlib, gzip, and zip formats. For most applications, the zlib format should be used as is. Note that comments above on the use in deflateInit2() applies to the magnitude of windowBits. windowBits can also be greater than 15 for optional gzip decoding. Add 32 to windowBits to enable zlib and gzip decoding with automatic header detection, or add 16 to decode only the gzip format (the zlib format will return a Z_DATA_ERROR). If a gzip stream is being decoded, strm->adler is a crc32 instead of an adler32. inflateInit2 returns Z_OK if success, Z_MEM_ERROR if there was not enough memory, Z_VERSION_ERROR if the zlib library version is incompatible with the version assumed by the caller, or Z_STREAM_ERROR if the parameters are invalid, such as a null pointer to the structure. msg is set to null if there is no error message. inflateInit2 does not perform any decompression apart from possibly reading the zlib header if present: actual decompression will be done by inflate(). (So next_in and avail_in may be modified, but next_out and avail_out are unused and unchanged.) The current implementation of inflateInit2() does not process any header information -- that is deferred until inflate() is called.""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+",The text describes a specific mechanism (windowBits) used within a deflate stream initialization function. This mechanism is designed to handle various decoding scenarios and header detection requirements. The description does not present any user errors or system failures but rather focuses on how the system operates under different conditions.,"The text describes an architectural mechanism (windowBits) used within a specific context, which is part of the system's operation to achieve interoperability across formats.","The link between windowBits and interoperability is direct. The mechanism is clearly defined in how it affects the stream initialization function, which is crucial for interoperability.",The described mechanism (windowBits) aligns with the Inclusion Criteria as it directly contributes to interoperability by handling header detection and decoding scenarios. It does not fall under the Exclusion Criteria since there's no clear mismatch in how windowBits are used within the context of interoperable deflate operations.,True,"The analysis identifies that the mechanism (windowBits) is a direct architectural component contributing to interoperability, aligns with Inclusion Criteria, and avoids Exclusion Criteria. The text accurately describes a specific mechanism designed for interoperability.",True,"### Data for Evaluation
+
+**Content to Analyze:**
+""dow. windowBits can also be zero to request that inflate use the window size in the zlib header of the compressed stream. windowBits can also be -8..-15 for raw inflate. In this case, -windowBits determines the window size. inflate() will then process raw deflate data, not looking for a zlib or gzip header, not generating a check value, and not looking for any check values for comparison at the end of the stream. This is for use with other formats that use the deflate compressed data format such as zip. Those formats provide their own check values. If a custom format is developed using the raw deflate format for compressed data, it is recommended that a check value such as an adler32 or a crc32 be applied to the uncompressed data as is done in the zlib, gzip, and zip formats. For most applications, the zlib format should be used as is. Note that comments above on the use in deflateInit2() applies to the magnitude of windowBits. windowBits can also be greater than 15 for optional gzip decoding. Add 32 to windowBits to enable zlib and gzip decoding with automatic header detection, or add 16 to decode only the gzip format (the zlib format will return a Z_DATA_ERROR). If a gzip stream is being decoded, strm->adler is a crc32 instead of an adler32. inflateInit2 returns Z_OK if success, Z_MEM_ERROR if there was not enough memory, Z_VERSION_ERROR if the zlib library version is incompatible with the version assumed by the caller, or Z_STREAM_ERROR if the parameters are invalid, such as a null pointer to the structure. msg is set to null if there is no error message. inflateInit2 does not perform any decompression apart from possibly reading the zlib header if present: actual decompression will be done by inflate(). (So next_in and avail_in may be modified, but next_out and avail_out are unused and unchanged.) The current implementation of inflateInit2() does not process any header information -- that is deferred until inflate() is called.""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+",The text describes the behavior and parameters of the inflateInit2 function in zlib for decompression configuration.,"A3 (Cross-Cutting Concerns & Non-Functional Requirements) - The discussion about windowBits affecting performance, scalability, and portability by enabling different compression formats or header handling. Also A4 (Technology Stack & Standards) - As part of the zlib library implementation for decompression.","E2: Abstract Algorithmic Descriptions - This text does not discuss a choice between algorithms but rather details about using existing ones. E3: Trivial Setup and Configuration - The description is more detailed than trivial setup, discussing complex compatibility issues (gzip vs zlib) which falls under the exception for Portability.","The text discusses system-wide quality attributes such as performance, scalability, and portability by detailing how windowBits parameter affects decompression behavior across different formats. It also relates to architectural patterns in libraries like zlib that handle compression/decompression with configurable parameters.",True,True,"windowBits can also be -8..-15 for raw inflate. In this case, -windowBits determines the window size. inflate() will then process raw deflate data, not looking for a zlib or gzip header, not generating a check value, and not looking for any check values for comparison at the end of the stream.","The primary architectural concept identified is the handling of window bits in the deflate header, particularly when dealing with raw inflate. The system processes raw data without relying on headers or check values, which is a deliberate design decision to avoid potential security risks associated with header-based processing.",True,"The concept involves handling window bits in raw data, which is a critical part of the deflate algorithm. This design choice ensures that the system remains secure and compatible across different environments without relying on headers or check values.",Discover Service,Discover Service,"The selected tactic 'Discover Service' best matches the core concept of handling window bits in raw data, which is a key part of the deflate algorithm. This design decision ensures security and compatibility without relying on headers or check values.",True,Locate
+allenai/scispacy/v0.5.5.issue_comment.deployability.7a2f76d6f0e0332bccebff6cf25956e7.version.version,version,version,"1) The version on the demo is probably not the latest release version. I should check and update that. 2/3/4) First, this is a model, so inconsistent and surprising output is likely, and some memorization is likely (@DeNeutoy looks like data augmentation could help a lot here). Second, the BC5CDR corpus was annotated with specific guidelines (https://biocreative.bioinformatics.udel.edu/media/store/files/2015/bc5_CDR_data_guidelines.pdf) which you may want to read and see if they align with your expectations of what would be annotated as a chemical. Here is some output of a mix of real and made up chemical names. I don't really conclude anything from this, other than that the model is definitely using some combination of the form of the name itself and the context. ```. In [29]: for drug_name in [""mesna"", remdesivir"", mebane"", relidate"", novila"", aspirin"", coloxal"", inovivir"", scopolamine"", entamine"", valimine"", henirin"", noonirin"", halirin""]:. ...: text = f""The drug {drug_name} is used to treat the virus"". ...: doc = nlp(text). ...: print(doc.ents). ...: . (mesna,). (). (mebane,). (). (). (aspirin,). (). (). (scopolamine,). (entamine,). (valimine,). (henirin,). (). (). ```. Looks like it is also sensitive to capitalization. ```. In [56]: doc = nlp(""Remdesivir is a chemical""). In [57]: doc.ents. Out[57]: (Remdesivir,). In [58]: doc = nlp(""remdesivir is a chemical""). In [59]: doc.ents. Out[59]: (). ```. I don't have much else to add at the moment. We were thinking about running some data augmentation experiments to try to improve the NER, but haven't done it yet (I'd be thrilled to have a contribution along those lines). 5) Definitely the model takes into account the context that the word occurs in, so it is not wholly surprising to me that the same word could be classified differently in different contexts.",deployability,https://github.com/allenai/scispacy/issues/336,version,"version, VERSION, Version, VERsion",4,2,True,"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, critiques, or explanations of implementation strategies and trade-offs. This includes bug reports and detailed commit messages.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized.
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, log snippets, or documentation with tags). The key is the **substance and intent** of the natural language text. The ratio of prose to code is not the determining factor.
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking a significant natural language narrative, explanation, or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations) without an explanatory narrative.
+ - **Program output, logs, or error traces** presented without any surrounding human analysis or interpretation.
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data, simple Makefile rules).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, file path changes).
+ - **Formal API signatures or technical interface definitions** without accompanying prose that explains their purpose and usage in a descriptive way.
+ - **Boilerplate text** that does not provide any unique insight or explanation, such as standard license or copyright headers.
+
+## Examples (for reference only – do not analyze):
+
+### Example 1 (Eliminate)
+**Content:**
+Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: This is a program-generated build log. It consists entirely of diagnostic artifacts and lacks human-written analysis or explanation.
+
+### Example 2 (Eliminate)
+**Content:**
+scanpy.neighbors.connectivities. scanpy.neighbors.distances. scanpy.neighbors.eigen_basis.
+**Answer:**
+to_eliminate: true
+reasoning: This is a list of API functions. It is a technical artifact and lacks any human-written narrative, commentary, or explanation.
+
+### Example 3 (Keep)
+**Content:**
+I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: This is a natural language explanation of performance trade-offs and a suggestion for future work. It is a clear example of human-to-human communication.
+
+### Example 4 (Keep)
+**Content:**
+[RF] Wrong integral value, possibly problems with some global caching. It seems `ws.pdf(""""signal"""")->plotOn(frame);` creates some global cache of the integral which is used with newly created objects, causing the issue.
+**Answer:**
+to_eliminate: false
+reasoning: This is a bug report that describes a technical problem and analyzes the potential cause (`global caching` from a specific function call). This is valuable human-written analysis, not just a log.
+
+### Example 5 (Keep)
+**Content:**
+@name Mutation APIs
+These methods provide APIs for submitting updates to the DominatorTree. Note: There are two strategies, Eager and Lazy. It is recommended to use the Lazy strategy for multiple updates to improve performance.
+**Answer:**
+to_eliminate: false
+reasoning: This content, despite using documentation tags like `@name`, provides a detailed explanation of two different technical strategies and gives a recommendation. The substance is a human-written explanation of design and trade-offs.
+
+### Example 6 (Eliminate)
+**Content:**
+History:
+Version 17.8, add new method GetDXDY()
+Version 17.7, updates in the TUnfold implementation
+Version 17.5, fix memory leak
+**Answer:**
+to_eliminate: true
+reasoning: This is a structured changelog that is simply a list of changes. It lacks a narrative or detailed explanation of the *reasons* for the changes, making it a low-value technical artifact.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**
+1) The version on the demo is probably not the latest release version. I should check and update that. 2/3/4) First, this is a model, so inconsistent and surprising output is likely, and some memorization is likely (@DeNeutoy looks like data augmentation could help a lot here). Second, the BC5CDR corpus was annotated with specific guidelines (https://biocreative.bioinformatics.udel.edu/media/store/files/2015/bc5_CDR_data_guidelines.pdf) which you may want to read and see if they align with your expectations of what would be annotated as a chemical. Here is some output of a mix of real and made up chemical names. I don't really conclude anything from this, other than that the model is definitely using some combination of the form of the name itself and the context. ```. In [29]: for drug_name in [""mesna"", remdesivir"", mebane"", relidate"", novila"", aspirin"", coloxal"", inovivir"", scopolamine"", entamine"", valimine"", henirin"", noonirin"", halirin""]:. ...: text = f""The drug {drug_name} is used to treat the virus"". ...: doc = nlp(text). ...: print(doc.ents). ...: . (mesna,). (). (mebane,). (). (). (aspirin,). (). (). (scopolamine,). (entamine,). (valimine,). (henirin,). (). (). ```. Looks like it is also sensitive to capitalization. ```. In [56]: doc = nlp(""Remdesivir is a chemical""). In [57]: doc.ents. Out[57]: (Remdesivir,). In [58]: doc = nlp(""remdesivir is a chemical""). In [59]: doc.ents. Out[59]: (). ```. I don't have much else to add at the moment. We were thinking about running some data augmentation experiments to try to improve the NER, but haven't done it yet (I'd be thrilled to have a contribution along those lines). 5) Definitely the model takes into account the context that the word occurs in, so it is not wholly surprising to me that the same word could be classified differently in different contexts.
+",False,"This content includes natural language explanations and analysis of a technical problem (NER performance). It discusses potential causes (data augmentation), observations about model behavior (handling capitalization, context dependence), and suggests future actions. Although it contains code snippets and log-like elements, the primary substance is human-written prose discussing findings and recommendations.",True,"
+### Data for Evaluation
+
+**1. Quality Attribute:** deployability
+
+**2. Detailed Rubric:**
+
+**Definition:** Mechanisms that automate or simplify the ease, speed, and reliability with which a new version of a system can be delivered to and installed by its users.
+**Inclusion Criteria (Must describe one of these):**
+- Mentions of package managers (pip, conda, mamba).
+- Containerization technologies (Dockerfile, docker-compose).
+- Build automation scripts (makefiles, shell scripts for release).
+- CI/CD pipeline configurations (e.g., GitHub Actions workflows).
+- Documentation providing structured guidance for installation across different environments.
+**Exclusion Criteria (Must NOT be one of these):**
+- General discussions of software version numbers.
+- Bug fixes that do not touch upon the release or installation process itself.
+
+
+**3. Content to Analyze:**
+""1) The version on the demo is probably not the latest release version. I should check and update that. 2/3/4) First, this is a model, so inconsistent and surprising output is likely, and some memorization is likely (@DeNeutoy looks like data augmentation could help a lot here). Second, the BC5CDR corpus was annotated with specific guidelines (https://biocreative.bioinformatics.udel.edu/media/store/files/2015/bc5_CDR_data_guidelines.pdf) which you may want to read and see if they align with your expectations of what would be annotated as a chemical. Here is some output of a mix of real and made up chemical names. I don't really conclude anything from this, other than that the model is definitely using some combination of the form of the name itself and the context. ```. In [29]: for drug_name in [""mesna"", remdesivir"", mebane"", relidate"", novila"", aspirin"", coloxal"", inovivir"", scopolamine"", entamine"", valimine"", henirin"", noonirin"", halirin""]:. ...: text = f""The drug {drug_name} is used to treat the virus"". ...: doc = nlp(text). ...: print(doc.ents). ...: . (mesna,). (). (mebane,). (). (). (aspirin,). (). (). (scopolamine,). (entamine,). (valimine,). (henirin,). (). (). ```. Looks like it is also sensitive to capitalization. ```. In [56]: doc = nlp(""Remdesivir is a chemical""). In [57]: doc.ents. Out[57]: (Remdesivir,). In [58]: doc = nlp(""remdesivir is a chemical""). In [59]: doc.ents. Out[59]: (). ```. I don't have much else to add at the moment. We were thinking about running some data augmentation experiments to try to improve the NER, but haven't done it yet (I'd be thrilled to have a contribution along those lines). 5) Definitely the model takes into account the context that the word occurs in, so it is not wholly surprising to me that the same word could be classified differently in different contexts.""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+","The text discusses the use of a model for NER and mentions aspects like context sensitivity and capitalization. It does not present any specific issues or problems related to deploymentability. The focus is on how the model processes words based on their context, which relates to deploymentability in terms of understanding different contexts but doesn't address deploymentability itself.","The text describes a mechanism within the model's operation (context sensitivity) that contributes to deploymentability by enabling accurate NER across various contexts. This is an architectural mechanism because it's part of how the system works, not just a feature describing what the system does.","Yes, there is a direct causal link between the context in which a word appears and its classification as a chemical. The text explains that the model takes into account the context to determine if a word belongs to a chemical category, which ties into deploymentability by enabling accurate NER across different environments.",The mechanism described (context sensitivity) aligns with the inclusion criteria of mechanisms that automate or simplify the delivery process. It does not fall under exclusion criteria related to general software versions or bug fixes affecting release/installation processes.,True,The text identifies a specific architectural mechanism within a model's operation (context sensitivity) that contributes to deploymentability by enabling accurate NER across different contexts. This is a true positive because it accurately describes how the system achieves deploymentability through its mechanism.,True,"### Data for Evaluation
+
+**Content to Analyze:**
+""1) The version on the demo is probably not the latest release version. I should check and update that. 2/3/4) First, this is a model, so inconsistent and surprising output is likely, and some memorization is likely (@DeNeutoy looks like data augmentation could help a lot here). Second, the BC5CDR corpus was annotated with specific guidelines (https://biocreative.bioinformatics.udel.edu/media/store/files/2015/bc5_CDR_data_guidelines.pdf) which you may want to read and see if they align with your expectations of what would be annotated as a chemical. Here is some output of a mix of real and made up chemical names. I don't really conclude anything from this, other than that the model is definitely using some combination of the form of the name itself and the context. ```. In [29]: for drug_name in [""mesna"", remdesivir"", mebane"", relidate"", novila"", aspirin"", coloxal"", inovivir"", scopolamine"", entamine"", valimine"", henirin"", noonirin"", halirin""]:. ...: text = f""The drug {drug_name} is used to treat the virus"". ...: doc = nlp(text). ...: print(doc.ents). ...: . (mesna,). (). (mebane,). (). (). (aspirin,). (). (). (scopolamine,). (entamine,). (valimine,). (henirin,). (). (). ```. Looks like it is also sensitive to capitalization. ```. In [56]: doc = nlp(""Remdesivir is a chemical""). In [57]: doc.ents. Out[57]: (Remdesivir,). In [58]: doc = nlp(""remdesivir is a chemical""). In [59]: doc.ents. Out[59]: (). ```. I don't have much else to add at the moment. We were thinking about running some data augmentation experiments to try to improve the NER, but haven't done it yet (I'd be thrilled to have a contribution along those lines). 5) Definitely the model takes into account the context that the word occurs in, so it is not wholly surprising to me that the same word could be classified differently in different contexts.""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+","The text discusses several architectural signals related to NER (Name-Value Embeddings) and chemical names. It highlights how model outputs are influenced by the form of the name and context, which is a significant architectural choice impacting the system's design. The text also mentions sensitivity to capitalization, indicating considerations in data representation that align with architecture principles. Additionally, it touches on potential data augmentation experiments but doesn't explicitly address architectural decisions related to NER or chemical names.","The discussion of how model outputs are influenced by the form of the name and context is a clear architectural signal (A3). The mention of capitalization sensitivity aligns with A5. The consideration for data augmentation experiments could relate to architectural choices in NER, which falls under A4. However, the text does not explicitly address any specific architectural decision that would be considered significant across multiple domains.","The text discusses several aspects related to NER and chemical names, which are directly relevant to architecture. There is no mention of localized implementation bugs, abstract algorithmic descriptions, trivial setup, project management artifacts, or non-software systems. Therefore, it does not fall under any exclusionary criteria.","There are significant architectural signals in the text that relate to NER and chemical names. These include discussions about how model outputs depend on name form and context (A3), capitalization sensitivity aligning with A5, considerations for data augmentation experiments potentially impacting A4, but there is no exclusionary criterion applied. Therefore, the text is architecturally significant.",True,True,"The model's NER output shows that 'mesna' and 'remdesivir' are correctly identified as chemical entities. The model also demonstrates awareness of capitalization sensitivity but does not identify other chemical terms like 'scopolamine', 'entamine', or 'valimine'.","The primary architectural concept identified is the accurate identification of chemical entity names in text, considering case insensitivity and contextual context.",True,"The extracted sentences indicate that the model's NER accurately identifies chemical entities, which aligns with a deliberate design decision to enhance NER capabilities for better chemical detection. This decision is intended to improve quality attributes by more precisely identifying chemical names in text.",true,Name Servers,"The selected tactic 'Namel Servers' best matches the extracted sentences as it involves correctly identifying entity names, which is a key part of the NER task. The model's ability to identify chemical entities accurately supports the design decision to enhance NER capabilities.",True,Defer Binding
+OpenGene/fastp/v0.23.4.issue.safety.c112f90d51aaa6e7c0f19484ef63e53a.input.input,input,input,"Ability to use FASTA files as input; From what I can tell, `fastp` expects the input files to be in FASTQ format. Lately, SRA has stopped including original base qualities in the FASTQ files (all qualities are encoded as `?`) which makes read trimming based on quality moot, and makes it pointless to download FASTQ files. . In this context, it would be nice feature to be able to run `fastp` on FASTA formatted files. .",safety,https://github.com/OpenGene/fastp/issues/573,input,"input, Input, INPUT, INPut",4,2,True,"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, critiques, or explanations of implementation strategies and trade-offs. This includes bug reports and detailed commit messages.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized.
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, log snippets, or documentation with tags). The key is the **substance and intent** of the natural language text. The ratio of prose to code is not the determining factor.
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking a significant natural language narrative, explanation, or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations) without an explanatory narrative.
+ - **Program output, logs, or error traces** presented without any surrounding human analysis or interpretation.
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data, simple Makefile rules).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, file path changes).
+ - **Formal API signatures or technical interface definitions** without accompanying prose that explains their purpose and usage in a descriptive way.
+ - **Boilerplate text** that does not provide any unique insight or explanation, such as standard license or copyright headers.
+
+## Examples (for reference only – do not analyze):
+
+### Example 1 (Eliminate)
+**Content:**
+Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: This is a program-generated build log. It consists entirely of diagnostic artifacts and lacks human-written analysis or explanation.
+
+### Example 2 (Eliminate)
+**Content:**
+scanpy.neighbors.connectivities. scanpy.neighbors.distances. scanpy.neighbors.eigen_basis.
+**Answer:**
+to_eliminate: true
+reasoning: This is a list of API functions. It is a technical artifact and lacks any human-written narrative, commentary, or explanation.
+
+### Example 3 (Keep)
+**Content:**
+I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: This is a natural language explanation of performance trade-offs and a suggestion for future work. It is a clear example of human-to-human communication.
+
+### Example 4 (Keep)
+**Content:**
+[RF] Wrong integral value, possibly problems with some global caching. It seems `ws.pdf(""""signal"""")->plotOn(frame);` creates some global cache of the integral which is used with newly created objects, causing the issue.
+**Answer:**
+to_eliminate: false
+reasoning: This is a bug report that describes a technical problem and analyzes the potential cause (`global caching` from a specific function call). This is valuable human-written analysis, not just a log.
+
+### Example 5 (Keep)
+**Content:**
+@name Mutation APIs
+These methods provide APIs for submitting updates to the DominatorTree. Note: There are two strategies, Eager and Lazy. It is recommended to use the Lazy strategy for multiple updates to improve performance.
+**Answer:**
+to_eliminate: false
+reasoning: This content, despite using documentation tags like `@name`, provides a detailed explanation of two different technical strategies and gives a recommendation. The substance is a human-written explanation of design and trade-offs.
+
+### Example 6 (Eliminate)
+**Content:**
+History:
+Version 17.8, add new method GetDXDY()
+Version 17.7, updates in the TUnfold implementation
+Version 17.5, fix memory leak
+**Answer:**
+to_eliminate: true
+reasoning: This is a structured changelog that is simply a list of changes. It lacks a narrative or detailed explanation of the *reasons* for the changes, making it a low-value technical artifact.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**
+Ability to use FASTA files as input; From what I can tell, `fastp` expects the input files to be in FASTQ format. Lately, SRA has stopped including original base qualities in the FASTQ files (all qualities are encoded as `?`) which makes read trimming based on quality moot, and makes it pointless to download FASTQ files. . In this context, it would be nice feature to be able to run `fastp` on FASTA formatted files. .
+",False,"This content includes a user suggestion for improving the software's functionality (ability to use FASTA files as input) and discusses technical issues related to quality encoding in SRA files, making it a meaningful human-written analysis intended for developers or users.",True,"
+### Data for Evaluation
+
+**1. Quality Attribute:** safety
+
+**2. Detailed Rubric:**
+**Definition:** Safety refers to the software's ability to avoid entering hazardous states that could cause damage, injury, or loss of life, and to recover or limit harm if such states are entered.
+
+**3. Content to Analyze:**
+""Ability to use FASTA files as input; From what I can tell, `fastp` expects the input files to be in FASTQ format. Lately, SRA has stopped including original base qualities in the FASTQ files (all qualities are encoded as `?`) which makes read trimming based on quality moot, and makes it pointless to download FASTQ files. . In this context, it would be nice feature to be able to run `fastp` on FASTA formatted files. .""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+",The text is discussing whether `fastp` can handle FASTA files and mentions issues with FASTQ format changes.,It describes a feature (ability to run `fastp` on FASTA files) rather than an architectural mechanism or system feature.,"The link between the text's statement about `fastp` and its ability to handle FASTA files is direct and explicit, showing causation from input format change to feature limitation.",The described feature matches the Inclusion Criteria for safety. It avoids the Exclusion Criteria by focusing on software functionality rather than system-level features or security concerns.,True,"The text directly links a problem (input format change) to a feature limitation, showing causation and matching the inclusion criteria.",True,"### Data for Evaluation
+
+**Content to Analyze:**
+""Ability to use FASTA files as input; From what I can tell, `fastp` expects the input files to be in FASTQ format. Lately, SRA has stopped including original base qualities in the FASTQ files (all qualities are encoded as `?`) which makes read trimming based on quality moot, and makes it pointless to download FASTQ files. . In this context, it would be nice feature to be able to run `fastp` on FASTA formatted files. .""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+",The text discusses a feature request for supporting FASTA input format in addition to FASTQ format for the tool fastp.,No significant architectural signals found.,"E2: The text does not discuss algorithmic choices or their system-wide impact. E3: It is about configuration and setup, but discusses complex dependency issues (SRA file changes) which are systemic challenges to Portability (A3).",The feature request for input format support relates to the choice of how data is represented in the tool's architecture.,True,True,"Ability to use FASTA files as input; From what I can tell, `fastp` expects the input files to be in FASTQ format. Lately, SRA has stopped including original base qualities in the FASTQ files (all qualities are encoded as `?`) which makes read trimming based on quality moot, and makes it pointless to download FASTQ files.",The primary architectural concept is enabling `fastp` to process FASTA formatted input regardless of the original base qualities being present in FASTQ format.,True,This concept describes a deliberate design decision intended to influence a quality attribute (base qualities).,enable fastp on FASTA formatted files.,Encapsulate,"The selected tactic is the best fit because it directly addresses the need for `fastp` to process input regardless of base quality, aligning with the concept's design intent.",True,Separate the User Interface
+allenai/scispacy/v0.5.5.issue_comment.deployability.25cc58e200e43e99de6352abfd2b1f62.depend.dependencies,depend,depend,"Hey, . In the descriptions for all their vocabs they have:. scispaCy models are trained on data from a variety of sources. In particular, we use:. The GENIA 1.0 Treebank, converted to basic Universal Dependencies using the Stanford Dependency Converter. We have made this dataset available along with the original raw data. word2vec word vectors trained on the Pubmed Central Open Access Subset. The MedMentions Entity Linking dataset, used for training a mention detector. Ontonotes 5.0 to make the parser and tagger more robust to non-biomedical text. Unfortunately this is not publically available. . To me, this means that all of the language models listed on https://allenai.github.io/scispacy/ should be trained on these datasets and the word embeddings should be tailored to biomedical texts (with some robustness to non-biomed text via Ontonotes). btw, I am not part of allenai - I just use the libraries and try to be moderately helpful in the issues on GH",deployability,https://github.com/allenai/scispacy/issues/353,dependencies,"Dependencies, dependencies, DEPENDENCIES",3,1,True,"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, critiques, or explanations of implementation strategies and trade-offs. This includes bug reports and detailed commit messages.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized.
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, log snippets, or documentation with tags). The key is the **substance and intent** of the natural language text. The ratio of prose to code is not the determining factor.
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking a significant natural language narrative, explanation, or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations) without an explanatory narrative.
+ - **Program output, logs, or error traces** presented without any surrounding human analysis or interpretation.
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data, simple Makefile rules).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, file path changes).
+ - **Formal API signatures or technical interface definitions** without accompanying prose that explains their purpose and usage in a descriptive way.
+ - **Boilerplate text** that does not provide any unique insight or explanation, such as standard license or copyright headers.
+
+## Examples (for reference only – do not analyze):
+
+### Example 1 (Eliminate)
+**Content:**
+Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: This is a program-generated build log. It consists entirely of diagnostic artifacts and lacks human-written analysis or explanation.
+
+### Example 2 (Eliminate)
+**Content:**
+scanpy.neighbors.connectivities. scanpy.neighbors.distances. scanpy.neighbors.eigen_basis.
+**Answer:**
+to_eliminate: true
+reasoning: This is a list of API functions. It is a technical artifact and lacks any human-written narrative, commentary, or explanation.
+
+### Example 3 (Keep)
+**Content:**
+I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: This is a natural language explanation of performance trade-offs and a suggestion for future work. It is a clear example of human-to-human communication.
+
+### Example 4 (Keep)
+**Content:**
+[RF] Wrong integral value, possibly problems with some global caching. It seems `ws.pdf(""""signal"""")->plotOn(frame);` creates some global cache of the integral which is used with newly created objects, causing the issue.
+**Answer:**
+to_eliminate: false
+reasoning: This is a bug report that describes a technical problem and analyzes the potential cause (`global caching` from a specific function call). This is valuable human-written analysis, not just a log.
+
+### Example 5 (Keep)
+**Content:**
+@name Mutation APIs
+These methods provide APIs for submitting updates to the DominatorTree. Note: There are two strategies, Eager and Lazy. It is recommended to use the Lazy strategy for multiple updates to improve performance.
+**Answer:**
+to_eliminate: false
+reasoning: This content, despite using documentation tags like `@name`, provides a detailed explanation of two different technical strategies and gives a recommendation. The substance is a human-written explanation of design and trade-offs.
+
+### Example 6 (Eliminate)
+**Content:**
+History:
+Version 17.8, add new method GetDXDY()
+Version 17.7, updates in the TUnfold implementation
+Version 17.5, fix memory leak
+**Answer:**
+to_eliminate: true
+reasoning: This is a structured changelog that is simply a list of changes. It lacks a narrative or detailed explanation of the *reasons* for the changes, making it a low-value technical artifact.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**
+Hey, . In the descriptions for all their vocabs they have:. scispaCy models are trained on data from a variety of sources. In particular, we use:. The GENIA 1.0 Treebank, converted to basic Universal Dependencies using the Stanford Dependency Converter. We have made this dataset available along with the original raw data. word2vec word vectors trained on the Pubmed Central Open Access Subset. The MedMentions Entity Linking dataset, used for training a mention detector. Ontonotes 5.0 to make the parser and tagger more robust to non-biomedical text. Unfortunately this is not publically available. . To me, this means that all of the language models listed on https://allenai.github.io/scispacy/ should be trained on these datasets and the word embeddings should be tailored to biomedical texts (with some robustness to non-biomed text via Ontonotes). btw, I am not part of allenai - I just use the libraries and try to be moderately helpful in the issues on GH
+",False,"This content includes a detailed explanation about training scispaCy models using various datasets (GENIA Treebank, Stanford Dependency Converter, Pubmed Central Open Access Subset, MedMentions Entity Linking dataset, Ontonotes 5.0). It discusses the sources and purposes of these datasets, analyzes potential improvements to the language models by incorporating them, and provides a thoughtful suggestion about tailoring embeddings for biomedical texts while maintaining robustness via Ontonotes. The substance is primarily human-written prose with technical details embedded within it.",True,"
+### Data for Evaluation
+
+**1. Quality Attribute:** deployability
+
+**2. Detailed Rubric:**
+
+**Definition:** Mechanisms that automate or simplify the ease, speed, and reliability with which a new version of a system can be delivered to and installed by its users.
+**Inclusion Criteria (Must describe one of these):**
+- Mentions of package managers (pip, conda, mamba).
+- Containerization technologies (Dockerfile, docker-compose).
+- Build automation scripts (makefiles, shell scripts for release).
+- CI/CD pipeline configurations (e.g., GitHub Actions workflows).
+- Documentation providing structured guidance for installation across different environments.
+**Exclusion Criteria (Must NOT be one of these):**
+- General discussions of software version numbers.
+- Bug fixes that do not touch upon the release or installation process itself.
+
+
+**3. Content to Analyze:**
+""Hey, . In the descriptions for all their vocabs they have:. scispaCy models are trained on data from a variety of sources. In particular, we use:. The GENIA 1.0 Treebank, converted to basic Universal Dependencies using the Stanford Dependency Converter. We have made this dataset available along with the original raw data. word2vec word vectors trained on the Pubmed Central Open Access Subset. The MedMentions Entity Linking dataset, used for training a mention detector. Ontonotes 5.0 to make the parser and tagger more robust to non-biomedical text. Unfortunately this is not publically available. . To me, this means that all of the language models listed on https://allenai.github.io/scispacy/ should be trained on these datasets and the word embeddings should be tailored to biomedical texts (with some robustness to non-biomed text via Ontonotes). btw, I am not part of allenai - I just use the libraries and try to be moderately helpful in the issues on GH""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+",The content discusses various language models trained on biomedical texts with some robustness to non-biomedical text. It mentions datasets like word2vec and MedMentions but does not identify a specific solution or mechanism within the software.,"Yes, it describes a system architecture that includes multiple language models trained on biomedical data. This is a feature of the system rather than a mechanism implemented by developers.",The link between the dataset and the language model training is direct and explicit. It explains how datasets are used to train models but does not make speculative links to mechanisms or features within the software.,"This description matches the inclusion criteria as it involves multiple components of a system architecture (language models, datasets) that contribute to deploymentability. It avoids exclusion criteria by focusing on architectural aspects rather than specific bug fixes or general discussions of software versions.",True,"The analysis identifies that the text discusses various language models trained on biomedical texts with some robustness to non-biomedical data. This is a feature within the system architecture, not a solution mechanism. The link between datasets and model training is direct and explicit, contributing to deploymentability without speculative links to specific mechanisms or features.",True,"### Data for Evaluation
+
+**Content to Analyze:**
+""Hey, . In the descriptions for all their vocabs they have:. scispaCy models are trained on data from a variety of sources. In particular, we use:. The GENIA 1.0 Treebank, converted to basic Universal Dependencies using the Stanford Dependency Converter. We have made this dataset available along with the original raw data. word2vec word vectors trained on the Pubmed Central Open Access Subset. The MedMentions Entity Linking dataset, used for training a mention detector. Ontonotes 5.0 to make the parser and tagger more robust to non-biomedical text. Unfortunately this is not publically available. . To me, this means that all of the language models listed on https://allenai.github.io/scispacy/ should be trained on these datasets and the word embeddings should be tailored to biomedical texts (with some robustness to non-biomed text via Ontonotes). btw, I am not part of allenai - I just use the libraries and try to be moderately helpful in the issues on GH""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+","The text discusses architectural decisions related to language models, datasets, and training processes for biomedical texts. It mentions scispacy's vocabulary generation and training considerations that align with biomedical requirements.",True,No exclusionary criteria apply,True,True,True,"Hey, . In the descriptions for all their vocabs they have:. scispaCy models are trained on data from a variety of sources. In particular, we use:. The GENIA 1.0 Treebank, converted to basic Universal Dependencies using the Stanford Dependency Converter. We have made this dataset available along with the original raw data. word2vec word vectors trained on the Pubmed Central Open Access Subset. The MedMentions Entity Linking dataset, used for training a mention detector. Ontonotes 5.0 to make the parser and tagger more robust to non-biomedical text. Unfortunately this is not publically available. . To me, this means that all of the language models listed on https://allenai.github.io/scispacy/ should be trained on these datasets and the word embeddings should be tailored to biomedical texts (with some robustness to non-biomed text via Ontonotes). btw, I am not part of allenai - I just use the libraries and try to be moderately helpful in the issues on GH",Language models trained on biomedical datasets with some robustness to non-biomedical texts. The embeddings are tailored to biomedical texts but may require adjustments for non-biomedical content using Ontonotes.,True,"The extracted sentences discuss the training of language models on biomedical datasets and suggest modifications for non-biomedical text, which is a deliberate design decision aimed at improving text quality. This concept describes a specific architectural activity that involves making these changes to ensure text relevance and robustness.",Split Module,Split Module,"The extracted sentences discuss the training of language models on biomedical datasets with some robustness to non-biomedical texts. The architecture involves splitting modules for this purpose, which is a specific architectural activity that aligns with the concept of making modifications to text quality. This best matches the 'Split Module' tactic in the list.",True,Reduce Size of a Module
+allenai/scispacy/v0.5.5.issue_comment.deployability.e16920914742d18c93b486dfaa4f0312.instal.install,instal,instal,"Hi Daniel,. I tried to install nmslib again in a new py 3.9 environment and it looks like it actually did install but there were issues. The entire log from the install is below. I also successfully installed scispacy from pip which is great! I included the install log for scispacy below the log for nmslib. Maybe I did something wrong before when I created the env for scispacy? I will be testing it soon and will let you know if anything else comes up. Thank you for following up with me on this. Cheers, Brian. create env log . (base) ***@***.*** ~ % conda create -n scispacy python=3.9. Collecting package metadata (current_repodata.json): done. Solving environment: done. Package Plan . environment location: /Users/briang/opt/anaconda3/envs/scispacy. added / updated specs:. - python=3.9. The following NEW packages will be INSTALLED:. ca-certificates pkgs/main/osx-arm64::ca-certificates-2022.10.11-hca03da5_0 None. certifi pkgs/main/osx-arm64::certifi-2022.9.24-py39hca03da5_0 None. libcxx pkgs/main/osx-arm64::libcxx-14.0.6-h848a8c0_0 None. libffi pkgs/main/osx-arm64::libffi-3.4.2-hc377ac9_4 None. ncurses pkgs/main/osx-arm64::ncurses-6.3-h1a28f6b_3 None. openssl pkgs/main/osx-arm64::openssl-1.1.1s-h1a28f6b_0 None. pip pkgs/main/osx-arm64::pip-22.2.2-py39hca03da5_0 None. python pkgs/main/osx-arm64::python-3.9.13-hbdb9e5c_2 None. readline pkgs/main/osx-arm64::readline-8.2-h1a28f6b_0 None. setuptools pkgs/main/osx-arm64::setuptools-65.5.0-py39hca03da5_0 None. sqlite pkgs/main/osx-arm64::sqlite-3.39.3-h1058600_0 None. tk pkgs/main/osx-arm64::tk-8.6.12-hb8d0fd4_0 None. tzdata pkgs/main/noarch::tzdata-2022f-h04d1e81_0 None. wheel pkgs/main/noarch::wheel-0.37.1-pyhd3eb1b0_0 None. xz pkgs/main/osx-arm64::xz-5.2.6-h1a28f6b_0 None. zlib pkgs/main/osx-arm64::zlib-1.2.13-h5a0b063_0 None. Proceed ([y]/n)? y. Preparing transaction: done. Verifying transaction: done. Executing transaction: done. . To activate this environment, use. . $ conda activate scispacy. . To ",deployability,https://github.com/allenai/scispacy/issues/455,install,"install, Install, INSTALL",3,4,True,"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, critiques, or explanations of implementation strategies and trade-offs. This includes bug reports and detailed commit messages.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized.
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, log snippets, or documentation with tags). The key is the **substance and intent** of the natural language text. The ratio of prose to code is not the determining factor.
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking a significant natural language narrative, explanation, or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations) without an explanatory narrative.
+ - **Program output, logs, or error traces** presented without any surrounding human analysis or interpretation.
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data, simple Makefile rules).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, file path changes).
+ - **Formal API signatures or technical interface definitions** without accompanying prose that explains their purpose and usage in a descriptive way.
+ - **Boilerplate text** that does not provide any unique insight or explanation, such as standard license or copyright headers.
+
+## Examples (for reference only – do not analyze):
+
+### Example 1 (Eliminate)
+**Content:**
+Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: This is a program-generated build log. It consists entirely of diagnostic artifacts and lacks human-written analysis or explanation.
+
+### Example 2 (Eliminate)
+**Content:**
+scanpy.neighbors.connectivities. scanpy.neighbors.distances. scanpy.neighbors.eigen_basis.
+**Answer:**
+to_eliminate: true
+reasoning: This is a list of API functions. It is a technical artifact and lacks any human-written narrative, commentary, or explanation.
+
+### Example 3 (Keep)
+**Content:**
+I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: This is a natural language explanation of performance trade-offs and a suggestion for future work. It is a clear example of human-to-human communication.
+
+### Example 4 (Keep)
+**Content:**
+[RF] Wrong integral value, possibly problems with some global caching. It seems `ws.pdf(""""signal"""")->plotOn(frame);` creates some global cache of the integral which is used with newly created objects, causing the issue.
+**Answer:**
+to_eliminate: false
+reasoning: This is a bug report that describes a technical problem and analyzes the potential cause (`global caching` from a specific function call). This is valuable human-written analysis, not just a log.
+
+### Example 5 (Keep)
+**Content:**
+@name Mutation APIs
+These methods provide APIs for submitting updates to the DominatorTree. Note: There are two strategies, Eager and Lazy. It is recommended to use the Lazy strategy for multiple updates to improve performance.
+**Answer:**
+to_eliminate: false
+reasoning: This content, despite using documentation tags like `@name`, provides a detailed explanation of two different technical strategies and gives a recommendation. The substance is a human-written explanation of design and trade-offs.
+
+### Example 6 (Eliminate)
+**Content:**
+History:
+Version 17.8, add new method GetDXDY()
+Version 17.7, updates in the TUnfold implementation
+Version 17.5, fix memory leak
+**Answer:**
+to_eliminate: true
+reasoning: This is a structured changelog that is simply a list of changes. It lacks a narrative or detailed explanation of the *reasons* for the changes, making it a low-value technical artifact.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**
+Hi Daniel,. I tried to install nmslib again in a new py 3.9 environment and it looks like it actually did install but there were issues. The entire log from the install is below. I also successfully installed scispacy from pip which is great! I included the install log for scispacy below the log for nmslib. Maybe I did something wrong before when I created the env for scispacy? I will be testing it soon and will let you know if anything else comes up. Thank you for following up with me on this. Cheers, Brian. create env log . (base) ***@***.*** ~ % conda create -n scispacy python=3.9. Collecting package metadata (current_repodata.json): done. Solving environment: done. Package Plan . environment location: /Users/briang/opt/anaconda3/envs/scispacy. added / updated specs:. - python=3.9. The following NEW packages will be INSTALLED:. ca-certificates pkgs/main/osx-arm64::ca-certificates-2022.10.11-hca03da5_0 None. certifi pkgs/main/osx-arm64::certifi-2022.9.24-py39hca03da5_0 None. libcxx pkgs/main/osx-arm64::libcxx-14.0.6-h848a8c0_0 None. libffi pkgs/main/osx-arm64::libffi-3.4.2-hc377ac9_4 None. ncurses pkgs/main/osx-arm64::ncurses-6.3-h1a28f6b_3 None. openssl pkgs/main/osx-arm64::openssl-1.1.1s-h1a28f6b_0 None. pip pkgs/main/osx-arm64::pip-22.2.2-py39hca03da5_0 None. python pkgs/main/osx-arm64::python-3.9.13-hbdb9e5c_2 None. readline pkgs/main/osx-arm64::readline-8.2-h1a28f6b_0 None. setuptools pkgs/main/osx-arm64::setuptools-65.5.0-py39hca03da5_0 None. sqlite pkgs/main/osx-arm64::sqlite-3.39.3-h1058600_0 None. tk pkgs/main/osx-arm64::tk-8.6.12-hb8d0fd4_0 None. tzdata pkgs/main/noarch::tzdata-2022f-h04d1e81_0 None. wheel pkgs/main/noarch::wheel-0.37.1-pyhd3eb1b0_0 None. xz pkgs/main/osx-arm64::xz-5.2.6-h1a28f6b_0 None. zlib pkgs/main/osx-arm64::zlib-1.2.13-h5a0b063_0 None. Proceed ([y]/n)? y. Preparing transaction: done. Verifying transaction: done. Executing transaction: done. . To activate this environment, use. . $ conda activate scispacy. . To 
+",False,"The content includes a human-written email with explanations about installation issues and successful installations. It contains natural language communication discussing problems (nmslib install) and successes (scipyca). The user provides context, asks questions, and shares plans for testing, which are all elements of meaningful discussion intended for developers or users.",True,"
+### Data for Evaluation
+
+**1. Quality Attribute:** deployability
+
+**2. Detailed Rubric:**
+
+**Definition:** Mechanisms that automate or simplify the ease, speed, and reliability with which a new version of a system can be delivered to and installed by its users.
+**Inclusion Criteria (Must describe one of these):**
+- Mentions of package managers (pip, conda, mamba).
+- Containerization technologies (Dockerfile, docker-compose).
+- Build automation scripts (makefiles, shell scripts for release).
+- CI/CD pipeline configurations (e.g., GitHub Actions workflows).
+- Documentation providing structured guidance for installation across different environments.
+**Exclusion Criteria (Must NOT be one of these):**
+- General discussions of software version numbers.
+- Bug fixes that do not touch upon the release or installation process itself.
+
+
+**3. Content to Analyze:**
+""Hi Daniel,. I tried to install nmslib again in a new py 3.9 environment and it looks like it actually did install but there were issues. The entire log from the install is below. I also successfully installed scispacy from pip which is great! I included the install log for scispacy below the log for nmslib. Maybe I did something wrong before when I created the env for scispacy? I will be testing it soon and will let you know if anything else comes up. Thank you for following up with me on this. Cheers, Brian. create env log . (base) ***@***.*** ~ % conda create -n scispacy python=3.9. Collecting package metadata (current_repodata.json): done. Solving environment: done. Package Plan . environment location: /Users/briang/opt/anaconda3/envs/scispacy. added / updated specs:. - python=3.9. The following NEW packages will be INSTALLED:. ca-certificates pkgs/main/osx-arm64::ca-certificates-2022.10.11-hca03da5_0 None. certifi pkgs/main/osx-arm64::certifi-2022.9.24-py39hca03da5_0 None. libcxx pkgs/main/osx-arm64::libcxx-14.0.6-h848a8c0_0 None. libffi pkgs/main/osx-arm64::libffi-3.4.2-hc377ac9_4 None. ncurses pkgs/main/osx-arm64::ncurses-6.3-h1a28f6b_3 None. openssl pkgs/main/osx-arm64::openssl-1.1.1s-h1a28f6b_0 None. pip pkgs/main/osx-arm64::pip-22.2.2-py39hca03da5_0 None. python pkgs/main/osx-arm64::python-3.9.13-hbdb9e5c_2 None. readline pkgs/main/osx-arm64::readline-8.2-h1a28f6b_0 None. setuptools pkgs/main/osx-arm64::setuptools-65.5.0-py39hca03da5_0 None. sqlite pkgs/main/osx-arm64::sqlite-3.39.3-h1058600_0 None. tk pkgs/main/osx-arm64::tk-8.6.12-hb8d0fd4_0 None. tzdata pkgs/main/noarch::tzdata-2022f-h04d1e81_0 None. wheel pkgs/main/noarch::wheel-0.37.1-pyhd3eb1b0_0 None. xz pkgs/main/osx-arm64::xz-5.2.6-h1a28f6b_0 None. zlib pkgs/main/osx-arm64::zlib-1.2.13-h5a0b063_0 None. Proceed ([y]/n)? y. Preparing transaction: done. Verifying transaction: done. Executing transaction: done. . To activate this environment, use. . $ conda activate scispacy. . To ""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+","Hi Daniel,. I tried to install nmslib again in a new py 3.9 environment and it looks like it actually installed but there were issues. The entire log from the install is below. I also successfully installed scispacy from pip which is great! I included the install log for scispacy below the log for nmslib. Maybe I did something wrong before when I created the env for scispacy? I will be testing it soon and will let you know if anything else comes up. Thank you for following up with me on this. Cheers, Brian. create env log . (base) ***@***.*** ~ % conda create -n scispacy python=3.9. Collecting package metadata (current_repodata.json): done. Solving environment: done. Package Plan . environment location: /Users/briang/opt/anaconda3/envs/scispacy. added / updated specs:. - python=3.9. The following NEW packages will be INSTALLED:. ca-certificates pkgs/main/osx-arm64::ca-certificates-2022.10.11-hca03da5_0 None. certifi pkgs/main/osx-arm64::certifi-2022.9.24-py39hca03da5_0 None. libcxx pkgs/main/osx-arm64::libcxx-14.0.6-h848a8c0_0 None. libffi pkgs/main/osx-arm64::libffi-3.4.2-hc377ac9_4 None. ncurses pkgs/main/osx-arm64::ncurses-6.3-h1a28f6b_3 None. openssl pkgs/main/osx-arm64::openssl-1.1.1s-h1a28f6b_0 None. pip pkgs/main/osx-arm64::pip-22.2.2-py39hca03da5_0 None. python pkgs/main/osx-arm64::python-3.9.13-hbdb9e5c_2 None. readline pkgs/main/osx-arm64::readline-8.2-h1a28f6b_0 None. setuptools pkgs/main/osx-arm64::setuptools-65.5.0-py39hca03da5_0 None. sqlite pkgs/main/osx-arm64::sqlite-3.39.3-h1058600_0 None. tk pkgs/main/osx-arm64::tk-8.6.12-hb8d0fd4_0 None. tzdata pkgs/main/noarch::tzdata-2022f-h04d1e81_0 None. wheel pkgs/main/noarch::wheel-0.37.1-pyhd3eb1b0_0 None. xz pkgs/main/osx-arm64::xz-5.2.6-h1a28f6b_0 None. zlib pkgs/main/osx-arm64::zlib-1.2.13-h5a0b063_0 None. Proceed ([y]/n)? y. Preparing transaction: done. Verifying transaction: done. Executing transaction: done. . To activate this environment, use. . $ conda activate scispacy. . To ","Hi Daniel,. I tried to install nmslib again in a new py 3.9 environment and it looks like it actually installed but there were issues. The entire log from the install is below. I also successfully installed scispacy from pip which is great! I included the install log for scispacy below the log for nmslib. Maybe I did something wrong before when I created the env for scispacy? I will be testing it soon and will let you know if anything else comes up. Thank you for following up with me on this. Cheers, Brian. create env log . (base) ***@***.*** ~ % conda Create -n scispacy python=3.9. Collecting package metadata (current_repodata.json): done. Solving environment: done. Package Plan . environment location: /Users/briang/opt/anaconda3/envs/scispacy. added / updated specs:. - python=3.9. The following NEW packages will be INSTALLED:. ca-certificates pkgs/main/osx-arm64::ca-certificates-2022.10.11-hca03da5_0 None. certifi pkgs/main/osx-arm64::certifi-2022.9.24-py39hca03da5_0 None. libcxx pkgs/main/osx-arm64::libcxx-14.0.6-h848a8c0_0 None. libffi pkgs/main/osx-arm64::libffi-3.4.2-hc377ac9_4 None. ncurses pkgs/main/osx-arm64::ncurses-6.3-h1a28f6b_3 None. openssl pkgs/main/osx-arm64::openssl-1.1.1s-h1a28f6b_0 None. pip pkgs/main/osx-arm64::pip-22.2.2-py39hca03da5_0 None. python pkgs/main/osx-arm64::python-3.9.13-hbdb9e5c_2 None. readline pkgs/main/osx-arm64::readline-8.2-h1a28f6b_0 None. setuptools pkgs/main/osx-arm64::setuptools-65.5.0-py39hca03da5_0 None. sqlite pkgs/main/osx-arm64::sqlite-3.39.3-h1058600_0 None. tk pkgs/main/osx-arm64::tk-8.6.12-hb8d0fd4_0 None. tzdata pkgs/main/noarch::tzdata-2022f-h04d1e81_0 None. wheel pkgs/main/noarch::wheel-0.37.1-pyhd3eb1b0_0 None. xz pkgs/main/osx-arm64::xz-5.2.6-h1a28f6b_0 None. zlib pkgs/main/osx-arm64::zlib-1.2.13-h5a0b063_0 None. Proceed ([y]/n)? y. Preparing transaction: done. Verifying transaction: done. Executing transaction: done. . To activate this environment, use. . $ conda activate scispacy. . To ","Hi Daniel,. I tried to install nmslib again in a new py 3.9 environment and it looks like it actually installed but there were issues. The entire log from the install is below. I also successfully installed scispacy from pip which is great! I included the install log for scispacy below the log for nmslib. Maybe I did something wrong before when I created the env for scispacy? I will be testing it soon and will let you know if anything else comes up. Thank you for following up with me on this. Cheers, Brian. create env log . (base) ***@***.*** ~ % conda Create -n scispacy python=3.9. Collecting package metadata (current_repodata.json): done. Solving environment: done. Package Plan . environment location: /Users/briang/opt/anaconda3/envs/scispacy. added / updated specs:. - python=3.9. The following NEW packages will be INSTALLED:. ca-certificates pkgs/main/osx-arm64::ca-certificates-2022.10.11-hca03da5_0 None. certifi pkgs/main/osx-arm64::certifi-2022.9.24-py39hca03da5_0 None. libcxx pkgs/main/osx-arm64::libcxx-14.0.6-h848a8c0_0 None. libffi pkgs/main/osx-arm64::libffi-3.4.2-hc377ac9_4 None. ncurses pkgs/main/osx-arm64::ncurses-6.3-h1a28f6b_3 None. openssl pkgs/main/osx-arm64::openssl-1.1.1s-h1a28f6b_0 None. pip pkgs/main/osx-arm64::pip-22.2.2-py39hca03da5_0 None. python pkgs/main/osx-arm64::python-3.9.13-hbdb9e5c_2 None. readline pkgs/main/osx-arm64::readline-8.2-h1a28f6b_0 None. setuptools pkgs/main/osx-arm64::setuptools-65.5.0-py39hca03da5_0 None. sqlite pkgs/main/osx-arm64::sqlite-3.39.3-h1058600_0 None. tk pkgs/main/osx-arm64::tk-8.6.12-hb8d0fd4_0 None. tzdata pkgs/main/noarch::tzdata-2022f-h04d1e81_0 None. wheel pkgs/main/noarch::wheel-0.37.1-pyhd3eb1b0_0 None. xz pkgs/main/osx-arm64::xz-5.2.6-h1a28f6b_0 None. zlib pkgs/main/osx-arm64::zlib-1.2.13-h5a0b063_0 None. Proceed ([y]/n)? y. Preparing transaction: done. Verifying transaction: done. Executing transaction: done. . To activate this environment, use. . $ conda activate scispacy. . To ",1,True,"The analysis shows that the mechanism for installing scispacy in a Conda environment is based on the conda command, which is a standard package management system used by many Linux distributions. The installation process involves creating an environment with conda, installing pip as the main Python package, and then adding other packages like libffi, libcxx, etc., to complete the setup for scispacy.",True,"### Data for Evaluation
+
+**Content to Analyze:**
+""Hi Daniel,. I tried to install nmslib again in a new py 3.9 environment and it looks like it actually did install but there were issues. The entire log from the install is below. I also successfully installed scispacy from pip which is great! I included the install log for scispacy below the log for nmslib. Maybe I did something wrong before when I created the env for scispacy? I will be testing it soon and will let you know if anything else comes up. Thank you for following up with me on this. Cheers, Brian. create env log . (base) ***@***.*** ~ % conda create -n scispacy python=3.9. Collecting package metadata (current_repodata.json): done. Solving environment: done. Package Plan . environment location: /Users/briang/opt/anaconda3/envs/scispacy. added / updated specs:. - python=3.9. The following NEW packages will be INSTALLED:. ca-certificates pkgs/main/osx-arm64::ca-certificates-2022.10.11-hca03da5_0 None. certifi pkgs/main/osx-arm64::certifi-2022.9.24-py39hca03da5_0 None. libcxx pkgs/main/osx-arm64::libcxx-14.0.6-h848a8c0_0 None. libffi pkgs/main/osx-arm64::libffi-3.4.2-hc377ac9_4 None. ncurses pkgs/main/osx-arm64::ncurses-6.3-h1a28f6b_3 None. openssl pkgs/main/osx-arm64::openssl-1.1.1s-h1a28f6b_0 None. pip pkgs/main/osx-arm64::pip-22.2.2-py39hca03da5_0 None. python pkgs/main/osx-arm64::python-3.9.13-hbdb9e5c_2 None. readline pkgs/main/osx-arm64::readline-8.2-h1a28f6b_0 None. setuptools pkgs/main/osx-arm64::setuptools-65.5.0-py39hca03da5_0 None. sqlite pkgs/main/osx-arm64::sqlite-3.39.3-h1058600_0 None. tk pkgs/main/osx-arm64::tk-8.6.12-hb8d0fd4_0 None. tzdata pkgs/main/noarch::tzdata-2022f-h04d1e81_0 None. wheel pkgs/main/noarch::wheel-0.37.1-pyhd3eb1b0_0 None. xz pkgs/main/osx-arm64::xz-5.2.6-h1a28f6b_0 None. zlib pkgs/main/osx-arm64::zlib-1.2.13-h5a0b063_0 None. Proceed ([y]/n)? y. Preparing transaction: done. Verifying transaction: done. Executing transaction: done. . To activate this environment, use. . $ conda activate scispacy. . To ""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+","The text discusses installing packages and verifying an environment, which relates to software engineering tasks (E4). It also mentions versioning and package installation, which are project management aspects (E5). The content uses architectural terms like 'system', 'component', and 'module' but does not clearly address system architecture concerns. However, it touches on the verification of a Python environment, which could be related to deployment considerations (A3).",Yes,No exclusionary criteria apply.,True,True,True,I tried to install nmslib again in a new py 3.9 environment and it actually did install but there were issues.,Installating nmslib in a new Python 3.9 environment led to installation issues despite the package being successfully installed from pip.,True,"The extracted sentence discusses an issue with installing a package within a specific environment, which is a concrete technical change that could be considered as a design decision affecting quality attributes.",Split Module,Split Module,"The 'core_concept_analysis' identifies the extraction of an issue related to installing a package in a specific environment, which is analyzed under the 'Split Module' tactic. This best matches the concept of splitting modules to manage dependencies effectively.",True,Reduce Size of a Module
+allenai/scispacy/v0.5.5.issue_comment.deployability.94fd8618e9bc369253226f32f9386f95.build.build,build,build,"So upon some quick trials, the annoy index was taking ~5hours to create (by adding items) on my computer, which would crash when trying to build. Turns out it results in ~10GB file on disk when only building for 50k sample of tfidf-vectors. I think [faiss](https://github.com/facebookresearch/faiss) may be another option that seems more similar in API at least to nmslib. Will try tomorrow.",deployability,https://github.com/allenai/scispacy/pull/481,build,"Build, build, BUILD",3,1,True,"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, critiques, or explanations of implementation strategies and trade-offs. This includes bug reports and detailed commit messages.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized.
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, log snippets, or documentation with tags). The key is the **substance and intent** of the natural language text. The ratio of prose to code is not the determining factor.
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking a significant natural language narrative, explanation, or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations) without an explanatory narrative.
+ - **Program output, logs, or error traces** presented without any surrounding human analysis or interpretation.
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data, simple Makefile rules).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, file path changes).
+ - **Formal API signatures or technical interface definitions** without accompanying prose that explains their purpose and usage in a descriptive way.
+ - **Boilerplate text** that does not provide any unique insight or explanation, such as standard license or copyright headers.
+
+## Examples (for reference only – do not analyze):
+
+### Example 1 (Eliminate)
+**Content:**
+Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: This is a program-generated build log. It consists entirely of diagnostic artifacts and lacks human-written analysis or explanation.
+
+### Example 2 (Eliminate)
+**Content:**
+scanpy.neighbors.connectivities. scanpy.neighbors.distances. scanpy.neighbors.eigen_basis.
+**Answer:**
+to_eliminate: true
+reasoning: This is a list of API functions. It is a technical artifact and lacks any human-written narrative, commentary, or explanation.
+
+### Example 3 (Keep)
+**Content:**
+I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: This is a natural language explanation of performance trade-offs and a suggestion for future work. It is a clear example of human-to-human communication.
+
+### Example 4 (Keep)
+**Content:**
+[RF] Wrong integral value, possibly problems with some global caching. It seems `ws.pdf(""""signal"""")->plotOn(frame);` creates some global cache of the integral which is used with newly created objects, causing the issue.
+**Answer:**
+to_eliminate: false
+reasoning: This is a bug report that describes a technical problem and analyzes the potential cause (`global caching` from a specific function call). This is valuable human-written analysis, not just a log.
+
+### Example 5 (Keep)
+**Content:**
+@name Mutation APIs
+These methods provide APIs for submitting updates to the DominatorTree. Note: There are two strategies, Eager and Lazy. It is recommended to use the Lazy strategy for multiple updates to improve performance.
+**Answer:**
+to_eliminate: false
+reasoning: This content, despite using documentation tags like `@name`, provides a detailed explanation of two different technical strategies and gives a recommendation. The substance is a human-written explanation of design and trade-offs.
+
+### Example 6 (Eliminate)
+**Content:**
+History:
+Version 17.8, add new method GetDXDY()
+Version 17.7, updates in the TUnfold implementation
+Version 17.5, fix memory leak
+**Answer:**
+to_eliminate: true
+reasoning: This is a structured changelog that is simply a list of changes. It lacks a narrative or detailed explanation of the *reasons* for the changes, making it a low-value technical artifact.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**
+So upon some quick trials, the annoy index was taking ~5hours to create (by adding items) on my computer, which would crash when trying to build. Turns out it results in ~10GB file on disk when only building for 50k sample of tfidf-vectors. I think [faiss](https://github.com/facebookresearch/faiss) may be another option that seems more similar in API at least to nmslib. Will try tomorrow.
+",False,"This content describes a personal experience with the annoy library, mentions performance issues (time and disk space), compares it to faiss and suggests further testing. It contains natural language explanation of problems encountered during development and proposes an alternative solution.",True,"
+### Data for Evaluation
+
+**1. Quality Attribute:** deployability
+
+**2. Detailed Rubric:**
+
+**Definition:** Mechanisms that automate or simplify the ease, speed, and reliability with which a new version of a system can be delivered to and installed by its users.
+**Inclusion Criteria (Must describe one of these):**
+- Mentions of package managers (pip, conda, mamba).
+- Containerization technologies (Dockerfile, docker-compose).
+- Build automation scripts (makefiles, shell scripts for release).
+- CI/CD pipeline configurations (e.g., GitHub Actions workflows).
+- Documentation providing structured guidance for installation across different environments.
+**Exclusion Criteria (Must NOT be one of these):**
+- General discussions of software version numbers.
+- Bug fixes that do not touch upon the release or installation process itself.
+
+
+**3. Content to Analyze:**
+""So upon some quick trials, the annoy index was taking ~5hours to create (by adding items) on my computer, which would crash when trying to build. Turns out it results in ~10GB file on disk when only building for 50k sample of tfidf-vectors. I think [faiss](https://github.com/facebookresearch/faiss) may be another option that seems more similar in API at least to nmslib. Will try tomorrow.""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+","The text discusses a problem related to the performance of the annoy index and its file size when built, which is not directly about a solution or mechanism.",It does not describe an architectural mechanism but rather a system-wide issue (problem).,"The link between the problem and the quality attribute (file size) is direct and explicit, showing how the index's performance affects its file size.",This description matches the inclusion criteria as it discusses software version numbers and documentation for installation across environments.,True,"The analysis identifies that the text describes a problem (file size increase) linked to system-wide issues, which is included in the rubric. It does not describe an architectural mechanism but rather a general issue.",True,"### Data for Evaluation
+
+**Content to Analyze:**
+""So upon some quick trials, the annoy index was taking ~5hours to create (by adding items) on my computer, which would crash when trying to build. Turns out it results in ~10GB file on disk when only building for 50k sample of tfidf-vectors. I think [faiss](https://github.com/facebookresearch/faiss) may be another option that seems more similar in API at least to nmslib. Will try tomorrow.""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+","The text discusses a potential architectural signal related to performance and scalability (A5), as it addresses issues with file size accumulation and long-running processes that could impact system stability and resource usage. There are no exclusionary criteria applicable here.","Yes, the text discusses a potential architectural signal related to performance and scalability (A5).","None, as there are no signals related to abstract algorithmic descriptions or technical implementation details that would fall under E2-E4. The text is focused on system behavior and resource management.","True, because the text discusses a significant architectural signal (performance-related scalability issues) without any exclusionary criteria applying. Therefore, it meets A5's requirements for identifying complex dependency issues affecting portability and technology stack constraints.",True,True,"adding items on my computer, which would crash when trying to build",increasing semantic coherence,True,"The text discusses the issue of creating an index that takes time and crashes during building, leading to a file size. This suggests increased semantic coherency as the problem becomes more complex.",increase semantic coherence,Increase Semantic Coherence,"The text discusses the issue of creating an index that takes time and crashes during building, leading to a file size. This suggests increased semantic coherency as the problem becomes more complex.",True,Increase Cohesion
+allenai/scispacy/v0.5.5.release.integrability.c066c7b47b298de3c982f938afbcbada.version.version,version,version, Support for python 3.12. This release adds support for python 3.12 by updating scipy and using nmslib-metabrainz rather than nmslib. What's Changed. * Fix export_umls_json.py by @ethanhkim in https://github.com/allenai/scispacy/pull/511. * Add support matrix for nmslib installation by @dakinggg in https://github.com/allenai/scispacy/pull/524. * Update Dockerfile by @dakinggg in https://github.com/allenai/scispacy/pull/525. * Support Python 3.12 via newer scipy and nmslib-metabrainz by @jason-nance in https://github.com/allenai/scispacy/pull/523. * Add shorter version of pip installing nmslib from source by @svlandeg in https://github.com/allenai/scispacy/pull/529. * Version bump by @dakinggg in https://github.com/allenai/scispacy/pull/530. New Contributors. * @ethanhkim made their first contribution in https://github.com/allenai/scispacy/pull/511. * @jason-nance made their first contribution in https://github.com/allenai/scispacy/pull/523. * @svlandeg made their first contribution in https://github.com/allenai/scispacy/pull/529. **Full Changelog**: https://github.com/allenai/scispacy/compare/v0.5.4...v0.5.5,integrability,https://github.com/allenai/scispacy/releases/tag/v0.5.5,version,"version, VERSION, Version, VERsion",4,2,True,"
+You are an expert in analyzing and categorizing text content. Your task is to evaluate whether the given **target content** should be filtered out. The goal is to identify and **keep** content that consists of meaningful human-written prose, explanation, or analysis intended for human readers, and to **filter out** content that is primarily non-prose programmatic or technical artifacts.
+
+## Instructions:
+For each input, return:
+1. `to_eliminate`: true or false — should this content be eliminated?
+2. `reasoning`: Brief explanation of why the decision was made.
+
+### Keep Content That:
+- Is written for human readers and contains **significant natural language, explanation, commentary, analysis, or discussion**.
+- Reflects **communication intended for developers or users**, such as thoughtful suggestions, critiques, or explanations of implementation strategies and trade-offs. This includes bug reports and detailed commit messages.
+- Includes **scientific, academic, or detailed technical discussions**, even if highly formal or specialized.
+- **Crucially:** This content should be kept **even if it is embedded within or formatted as** technical artifacts (like code comments, log snippets, or documentation with tags). The key is the **substance and intent** of the natural language text. The ratio of prose to code is not the determining factor.
+
+### Eliminate Content That:
+- Is **primarily** composed of non-prose programmatic or technical artifacts, **lacking a significant natural language narrative, explanation, or discussion**.
+- Consists mainly of:
+ - **Pure executable code or formal syntax** (e.g., function bodies without comments, simple variable declarations) without an explanatory narrative.
+ - **Program output, logs, or error traces** presented without any surrounding human analysis or interpretation.
+ - **Formal configuration, data structures, or build specifications lacking explanatory comments/text** (e.g., pure YAML/JSON data, simple Makefile rules).
+ - **Version control metadata lacking explanatory commit messages** (e.g., diff hunks, file path changes).
+ - **Formal API signatures or technical interface definitions** without accompanying prose that explains their purpose and usage in a descriptive way.
+ - **Boilerplate text** that does not provide any unique insight or explanation, such as standard license or copyright headers.
+
+## Examples (for reference only – do not analyze):
+
+### Example 1 (Eliminate)
+**Content:**
+Build failed on ROOT-ubuntu2004/python3.; Running on root-ubuntu-2004-3.cern.ch:/home/sftnight/build/...; Failing tests:; - projectroot.test.test_stressgraphics_interpreted
+**Answer:**
+to_eliminate: true
+reasoning: This is a program-generated build log. It consists entirely of diagnostic artifacts and lacks human-written analysis or explanation.
+
+### Example 2 (Eliminate)
+**Content:**
+scanpy.neighbors.connectivities. scanpy.neighbors.distances. scanpy.neighbors.eigen_basis.
+**Answer:**
+to_eliminate: true
+reasoning: This is a list of API functions. It is a technical artifact and lacks any human-written narrative, commentary, or explanation.
+
+### Example 3 (Keep)
+**Content:**
+I tested the new parallelization strategy. Simulation time dropped 30%, but memory usage increased. We may need more efficient data structures.
+**Answer:**
+to_eliminate: false
+reasoning: This is a natural language explanation of performance trade-offs and a suggestion for future work. It is a clear example of human-to-human communication.
+
+### Example 4 (Keep)
+**Content:**
+[RF] Wrong integral value, possibly problems with some global caching. It seems `ws.pdf(""""signal"""")->plotOn(frame);` creates some global cache of the integral which is used with newly created objects, causing the issue.
+**Answer:**
+to_eliminate: false
+reasoning: This is a bug report that describes a technical problem and analyzes the potential cause (`global caching` from a specific function call). This is valuable human-written analysis, not just a log.
+
+### Example 5 (Keep)
+**Content:**
+@name Mutation APIs
+These methods provide APIs for submitting updates to the DominatorTree. Note: There are two strategies, Eager and Lazy. It is recommended to use the Lazy strategy for multiple updates to improve performance.
+**Answer:**
+to_eliminate: false
+reasoning: This content, despite using documentation tags like `@name`, provides a detailed explanation of two different technical strategies and gives a recommendation. The substance is a human-written explanation of design and trade-offs.
+
+### Example 6 (Eliminate)
+**Content:**
+History:
+Version 17.8, add new method GetDXDY()
+Version 17.7, updates in the TUnfold implementation
+Version 17.5, fix memory leak
+**Answer:**
+to_eliminate: true
+reasoning: This is a structured changelog that is simply a list of changes. It lacks a narrative or detailed explanation of the *reasons* for the changes, making it a low-value technical artifact.
+
+---
+
+## Now analyze ONLY the following content:
+
+**Content to evaluate:**
+ Support for python 3.12. This release adds support for python 3.12 by updating scipy and using nmslib-metabrainz rather than nmslib. What's Changed. * Fix export_umls_json.py by @ethanhkim in https://github.com/allenai/scispacy/pull/511. * Add support matrix for nmslib installation by @dakinggg in https://github.com/allenai/scispacy/pull/524. * Update Dockerfile by @dakinggg in https://github.com/allenai/scispacy/pull/525. * Support Python 3.12 via newer scipy and nmslib-metabrainz by @jason-nance in https://github.com/allenai/scispacy/pull/523. * Add shorter version of pip installing nmslib from source by @svlandeg in https://github.com/allenai/scispacy/pull/529. * Version bump by @dakinggg in https://github.com/allenai/scispacy/pull/530. New Contributors. * @ethanhkim made their first contribution in https://github.com/allenai/scispacy/pull/511. * @jason-nance made their first contribution in https://github.com/allenai/scispacy/pull/523. * @svlandeg made their first contribution in https://github.com/allenai/scispacy/pull/529. **Full Changelog**: https://github.com/allenai/scispacy/compare/v0.5.4...v0.5.5
+",False,"This content describes a software release, including changes made and new contributors. It contains natural language explanations of the modifications (e.g., updating scipy for Python 3.12 support) and references to specific pull requests with human-readable commit messages. The substance reflects communication intended for developers about implementation strategies and trade-offs.",True,"
+### Data for Evaluation
+
+**1. Quality Attribute:** integrability
+
+**2. Detailed Rubric:**
+**Definition:** Integrability refers to the ease with which software components or distinct systems can be combined and made to work together effectively as a coherent whole, often supported by mechanisms that reduce coupling and manage dependencies.
+
+**3. Content to Analyze:**
+"" Support for python 3.12. This release adds support for python 3.12 by updating scipy and using nmslib-metabrainz rather than nmslib. What's Changed. * Fix export_umls_json.py by @ethanhkim in https://github.com/allenai/scispacy/pull/511. * Add support matrix for nmslib installation by @dakinggg in https://github.com/allenai/scispacy/pull/524. * Update Dockerfile by @dakinggg in https://github.com/allenai/scispacy/pull/525. * Support Python 3.12 via newer scipy and nmslib-metabrainz by @jason-nance in https://github.com/allenai/scispacy/pull/523. * Add shorter version of pip installing nmslib from source by @svlandeg in https://github.com/allenai/scispacy/pull/529. * Version bump by @dakinggg in https://github.com/allenai/scispacy/pull/530. New Contributors. * @ethanhkim made their first contribution in https://github.com/allenai/scispacy/pull/511. * @jason-nance made their first contribution in https://github.com/allenai/scispacy/pull/523. * @svlandeg made their first contribution in https://github.com/allenai/scispacy/pull/529. **Full Changelog**: https://github.com/allenai/scispacy/compare/v0.5.4...v0.5.5""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+","The text describes a series of fixes and updates made to support Python 3.12, which is an explicit solution aimed at enhancing integrability by improving dependencies.","Yes, it describes a specific architectural mechanism (supporting Python 3.12) through various code changes and contributions from different contributors.","The link between the mechanism and the quality attribute is direct and explicit, as each change contributes to improving integrability by supporting newer Python versions.","This mechanism (supporting Python 3.12) directly aligns with the definition of integrability, which emphasizes ease of integration through mechanisms that reduce coupling and manage dependencies.",True,"The text clearly describes a specific architectural mechanism (supporting Python 3.12) by detailing various fixes and updates. This mechanism is directly tied to enhancing the system's integrability, which aligns with the inclusion criteria of the rubric provided.",True,"### Data for Evaluation
+
+**Content to Analyze:**
+"" Support for python 3.12. This release adds support for python 3.12 by updating scipy and using nmslib-metabrainz rather than nmslib. What's Changed. * Fix export_umls_json.py by @ethanhkim in https://github.com/allenai/scispacy/pull/511. * Add support matrix for nmslib installation by @dakinggg in https://github.com/allenai/scispacy/pull/524. * Update Dockerfile by @dakinggg in https://github.com/allenai/scispacy/pull/525. * Support Python 3.12 via newer scipy and nmslib-metabrainz by @jason-nance in https://github.com/allenai/scispacy/pull/523. * Add shorter version of pip installing nmslib from source by @svlandeg in https://github.com/allenai/scispacy/pull/529. * Version bump by @dakinggg in https://github.com/allenai/scispacy/pull/530. New Contributors. * @ethanhkim made their first contribution in https://github.com/allenai/scispacy/pull/511. * @jason-nance made their first contribution in https://github.com/allenai/scispacy/pull/523. * @svlandeg made their first contribution in https://github.com/allenai/scispacy/pull/529. **Full Changelog**: https://github.com/allenai/scispacy/compare/v0.5.4...v0.5.5""
+
+Now, apply the analysis steps defined in your system prompt to the data provided above.
+",This text describes changes made to support Python 3.12 in a software project by updating dependencies and modifying installation procedures.,"A3: Portability (making the software work in ephemeral environments like Google Colab) OR A4: Technology Stack & Standards (selection of fundamental technologies, e.g., scipy or nmslib)","E1: Localized Implementation Bugs - No bugs are mentioned. E2: Abstract Algorithmic Descriptions - No algorithms discussed. E3: Trivial Setup and Configuration - The changes involve updating Dockerfile and installation procedures but they are not trivial; however, the text does not explicitly state complex dependency issues or version incompatibilities as a systemic challenge.","The text discusses architectural decisions related to technology stack (A4) and portability (A3), specifically addressing compatibility with Python 3.12 by updating scipy and nmslib. However, it also includes changes that are part of the development process or configuration management, which may fall under E3 if considered non-trivial.",True,True, * Support for python 3.12 by updating scipy and using nmslib-metabrainz rather than nmslib. What's Changed. Fix export_umls_json.py by @ethanhkim in https://github.com/allenai/scispacy/pull/511. * Add support matrix for nmslib installation by @dakinggg in https://github.com/allenai/scispacy/pull/524. * Update Dockerfile by @dakinggg in https://github.com/allenai/scispacy/pull/525. * Support Python 3.12 via newer scipy and nmslib-metabrainz by @jason-nance in https://github.com/allenai/scispacy/pull/523. * Add shorter version of pip installing nmslib from source by @svlandeg in https://github.com/allenai/scispacy/pull/529. * Version bump by @dakinggg in https://github.com/allenai/scispacy/pull/530. New Contributors. * @ethanhkim made their first contribution in https://github.com/allenai/scispacy/pull/511. * @jason-nance made their first contribution in https://github.com/allenai/scispacy/pull/523. * @svlandeg made their first contribution in https://github.com/allenai/scispacy/pull/529. ** Fix export_umls_json.py by @ethanhkim in https://github.com/allenai/scispacy/pull/511. * Add support matrix for nmslib installation by @dakinggg in https://github.com/allenai/scispacy/pull/524. * Update Dockerfile by @dakinggg in https://github.com/allenai/scispacy/pull/525. * Support Python 3.12 via newer scipy and nmslib-metabrainz by @jason-nance in https://github.com/allenai/scispacy/pull/523. * Add shorter version of pip installing nmslib from source by @svlandeg in https://github.com/allenai/scispacy/pull/529. ** Fix export_umls_json.py by @ethanhkim in https://github.com/allenai/scispacy/pull/511. * Add support matrix for nmslib installation by @dakinggg in https://github.com/allenai/scispacy/pull/524. * Update Dockerfile by @dakinggg in https://github.com/allenai/scispacy/pull/525. * Support Python 3.12 via newer scipy and nmslib-metabrainz by @jason-nance in https://github.com/allenai/scispacy/pull/523. * Add shorter version of pip installing nmslib from source by @svlandeg in https://github.com/allenai/scispacy/pull/529.,Discover Service,True,"The concept 'Discover Service' is a concrete architectural activity that describes the process of discovering a service through searching a known directory. This aligns with the purpose of supporting Python 3.12 by updating scipy and using nmslib-metabrainz, which aims to enhance functionality and performance.",Discover Service,Discover Service,"The concept 'Discover Service' is a concrete architectural activity that involves discovering services through searching directories. This aligns with the purpose of supporting Python 3.12 by updating scipy and using nmslib-metabrainz, which aims to enhance functionality and performance.",True,Locate

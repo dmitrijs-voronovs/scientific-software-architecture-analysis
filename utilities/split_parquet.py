@@ -6,7 +6,8 @@ import pyarrow.parquet as pq
 
 from constants.abs_paths import AbsDirPath
 from processing_pipeline.model.ParquetDFHandler import ParquetDFHandler
-from utilities.csv.split_file_into_n_parts import split_file_in_batches, split_file_in_seq_batches
+from utilities.csv.split_file_into_n_parts import split_file_in_batches, split_file_in_seq_batches, \
+    split_parquet_in_seq_batches_memory_safe
 
 MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024
 
@@ -33,12 +34,12 @@ def split_files_exceeding_max_limit(dir, size_limit=MAX_FILE_SIZE_BYTES):
             split_file_in_batches(file_path, ParquetDFHandler(), 1500)
 
 
-def split_big_files_into_seq_batches(dir, rows_limit=2000):
+def split_big_files_into_seq_batches(dir, rows_limit: int=2000):
     for file_path in Path(dir).glob("*[A-Z].parquet"):
         num_rows = pq.ParquetFile(file_path).metadata.num_rows
         if num_rows > rows_limit:
             print(f"{file_path}: # rows {num_rows}")
-            split_file_in_seq_batches(file_path, ParquetDFHandler(), rows_limit)
+            split_parquet_in_seq_batches_memory_safe(file_path, rows_limit)
 
 
 def grouper_ranges(total_size, chunk_size):
