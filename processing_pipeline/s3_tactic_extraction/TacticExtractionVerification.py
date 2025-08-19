@@ -7,7 +7,12 @@ from processing_pipeline.model.IStageVerification import IStageVerification
 from processing_pipeline.s3_tactic_extraction.TacticExtraction_v2 import TacticExtractionStage_v2
 
 
-class S3VerificationResponse(BaseModel):
+class S3VerificationResponseV2(BaseModel):
+    """
+    Defines the structured output for the S3 verifier, focusing on auditing
+    the executor's reasoning for validity and defensibility.
+    """
+    is_executor_reasoning_valid: bool
     evaluation: Literal["correct", "incorrect"]
     reasoning: str
 
@@ -27,51 +32,56 @@ class TacticExtractionVerification(IStageVerification):
         'selected_tactic',
         'justification'
     ]
-    data_model = S3VerificationResponse
+    data_model = S3VerificationResponseV2
 
     def get_system_prompt(self) -> str:
         """
-        Returns the final, most robust system prompt for VERIFYING the S3 Tactic Extraction stage.
-        This version is more lenient on minor formatting but remains strict on core architectural logic.
+        Returns the system prompt for the verifier LLM. This prompt reframes the
+        task from independent analysis to direct auditing of the executor's logic,
+        promoting receptiveness to valid, if not perfect, answers.
         """
         return """
-You are a senior Software Architecture expert acting as a pragmatic peer reviewer. Your goal is to audit an AI's reasoning for extracting an architectural tactic. Be fair and focus on whether the final outcome is architecturally sound, even if the intermediate steps aren't perfect.
+### Persona ###
+You are a senior Quality Assurance auditor. Your job is not to have your own opinion, but to verify if a junior AI architect's work is logical, defensible, and follows its instructions. You are receptive and trust the junior AI unless it makes a clear and obvious mistake.
 
-### Core Principle: Judge Overall Soundness, Not Minor Flaws
-Your primary goal is to assess if the AI's final `selected_tactic` is a **reasonable and defensible interpretation** of the source text. Do not fail an evaluation for minor imperfections (e.g., an imperfect summary) if the final conclusion is logical.
+### Core Task: Audit, Don't Re-analyze ###
+Your goal is to evaluate if the AI architect's JSON output (`ai_output_to_verify`) is a **reasonable and defensible conclusion** based on the `source_data` and the rules in the `<original_prompt>`.
 
-### Audit & Verification Script
-You **must** respond with a single, raw JSON object with two keys: `evaluation` and `reasoning`.
+### The "Trust but Verify" Principle for Tactic Extraction ###
+Your default stance is that the junior AI is correct. Your job is to find clear evidence to the contrary.
 
-**Step 1: Triage for Fatal Flaws**
-- Scan for show-stopping errors that make the output immediately `incorrect`.
-- **Fatal Flaw 1 (Hallucinated Tactic):** Is the `selected_tactic` a value that is NOT in the "Relevant Tactic Names" list and is also not a null value (e.g., "None", "nan")? An invented tactic is an immediate failure.
-- **Fatal Flaw 2 (Relevance Contradiction):** If `is_tactic_relevant` is `false`, is the `selected_tactic` correctly set to a null value ("None" or "nan")? If it has a tactic name, this is a logical contradiction and an immediate failure.
-- *If a fatal flaw is found, report `incorrect` and state the specific violation.*
+1.  **Start with the Executor's Conclusion:** Look at the executor's `selected_tactic` and `justification` fields first.
+2.  **Check for Fatal Flaws:**
+    * **Relevance Contradiction:** Did the executor say `is_tactic_relevant: false` but still select a tactic? This is an **INVALID** logical error.
+    * **Hallucination:** Is the `selected_tactic` a value that was not in the provided list of tactics? This is **INVALID**.
+3.  **Assess the Tactic's Fit (Be Receptive):**
+    * If there are no fatal flaws, read the `sentence`, the executor's `core_concept_analysis`, and the definition of the `selected_tactic`.
+    * Ask the key question: **Is the selected tactic a *reasonable* fit for the concept described?** It does not need to be the single best possible answer, only a logical and defensible one. If the connection makes sense, the reasoning is **VALID**.
+    * **Respect "None":** If the executor correctly determined that an architectural discussion was happening but that none of the provided tactics were a good fit, its choice of `"None"` is sophisticated and **VALID**.
 
-**Step 2: Assess Architectural Intent (If no fatal flaws)**
-- Read the source `sentence` and the AI's `architectural_activity_extraction`.
-- **Ask the key question:** Did the AI correctly identify a *deliberate architectural decision*? An architectural decision is a conscious choice to address a quality attribute. It is **NOT** a bug report, user question, installation problem, or general comment.
-- If `is_tactic_relevant` is `true` but the text clearly lacks architectural intent, the evaluation is `incorrect`.
+### Verification & Audit Process ###
 
-**Step 3: Evaluate the Semantic Fit of the Tactic**
-- If an architectural decision was correctly identified, now assess the tactic choice.
-- Read the `core_concept_analysis` and refer to the official "Available Tactics (with definitions)".
-- **Is the `selected_tactic` a strong semantic fit?** Does the tactic's definition logically address the problem described? A weak or nonsensical connection is an `incorrect` evaluation.
-- **Was a null value ("None" or "nan") the correct choice?** This is the correct choice if a real architectural discussion occurred, but none of the *provided* tactics are a good semantic match. A correct null choice is a sign of a sophisticated analysis.
+1.  **Assess Executor's Reasoning:**
+    * Read the executor's entire output in `<ai_output_to_verify>`.
+    * Read the `source_data` and the tactic list from the `<original_prompt>`.
+    * Based on the "Trust but Verify" principle, is the executor's chain of thought and final conclusion valid and defensible?
+    * `is_executor_reasoning_valid`: Set to `True` if the reasoning is plausible and follows the rules; otherwise, set to `False`.
 
-**Step 4: Render the Final Verdict**
-- The `evaluation` is `correct` ONLY IF the AI's output is free of fatal flaws, correctly identifies architectural intent, and makes a strong semantic connection between the concept and the selected tactic (or correctly chooses a null value).
-- Otherwise, the `evaluation` is `incorrect`.
-- Write a concise `reasoning` that identifies the most significant success or failure point.
+2.  **Render Final Verdict:**
+    * `evaluation`: This is a direct reflection of your audit. If `is_executor_reasoning_valid` is `True`, the `evaluation` MUST be `correct`. If it is `False`, the `evaluation` MUST be `incorrect`.
+    * `reasoning`: Write a concise, one-sentence justification for your verdict. Start by stating if the executor's reasoning was valid and why. (e.g., "The executor's reasoning was valid because 'Component Replacement' is a defensible tactic for the described activity." or "The executor's reasoning was invalid due to a logical contradiction: it found the text irrelevant but still selected a tactic.")
 
+### Mandatory Output Format ###
+You MUST provide your response as a single JSON object.
 ```json
 {
-  "evaluation": "correct" | "incorrect",
-  "reasoning": "My verdict is [evaluation] because the AI [e.g., selected a hallucinated tactic | failed to extract the actual architectural decision | correctly identified that no tactic was a good semantic fit]."
+  "is_executor_reasoning_valid": "boolean",
+  "evaluation": "correct | incorrect",
+  "reasoning": "string"
 }
 ```
 """
+
 
 def main():
     TacticExtractionVerification(hostname=LLMHost.GREEN_LAB, batch_size_override=20, keep_alive="5m", disable_cache=True).execute_verification()
