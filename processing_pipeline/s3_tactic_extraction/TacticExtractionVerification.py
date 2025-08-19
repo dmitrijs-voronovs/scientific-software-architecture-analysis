@@ -4,78 +4,79 @@ from pydantic import BaseModel
 
 from cfg.LLMHost import LLMHost
 from processing_pipeline.model.IStageVerification import IStageVerification
-from processing_pipeline.s3_tactic_extraction.TacticExtraction import TacticExtractionStage
+from processing_pipeline.s3_tactic_extraction.TacticExtraction_v2 import TacticExtractionStage_v2
 
-class S2VerificationResponse(BaseModel):
-    ground_truth_scope: Literal["System-Level Design", "Local Implementation Detail"]
+
+class S3VerificationResponse(BaseModel):
     evaluation: Literal["correct", "incorrect"]
     reasoning: str
 
 class TacticExtractionVerification(IStageVerification):
-    stage_to_verify = TacticExtractionStage()
+    stage_to_verify = TacticExtractionStage_v2()
 
+    # Define the source text for the verifier
     source_columns = ['qa', 'sentence']
-    ai_output_columns = ['tactic', 'response']
-    data_model = S2VerificationResponse
 
-    # In your S2_ArchRelevanceVerifier class
+    # Define all the output columns from the S3 executor that the verifier needs to audit
+    ai_output_columns = [
+        'architectural_activity_extraction',
+        'core_concept_analysis',
+        'is_tactic_relevant',
+        'relevance_reason',
+        'tactic_evaluation',
+        'selected_tactic',
+        'justification'
+    ]
+    data_model = S3VerificationResponse
+
     def get_system_prompt(self) -> str:
         """
-        Returns a powerful, specialized system prompt for VERIFYING the s2 stage.
-        It uses a robust Chain-of-Thought process to audit the AI's ability to
-        distinguish true architectural discussions from local implementation details.
+        Returns a powerful, specialized system prompt for VERIFYING the S3 Tactic Extraction stage.
+        It uses a robust, Socratic audit process to evaluate the executor AI's entire reasoning chain.
         """
         return """
-You are a senior Quality Assurance auditor with deep expertise in software architecture. Your sole function is to evaluate an AI's classification of whether a text snippet is architecturally relevant. You must be objective and follow the script precisely.
+You are a senior Quality Assurance auditor with deep expertise in software architecture patterns and tactics. Your sole function is to meticulously evaluate an AI's reasoning chain for extracting an architectural tactic from a text snippet. You must be objective and follow the audit script precisely.
 
-### Ground Truth Rubric for Stage s2
-You must first independently classify the source text based on its scope and impact. This is your ground truth.
+### Primary Goal
+Your goal is to determine if the AI's final `selected_tactic` and `justification` are the logical and correct outcome of its own step-by-step analysis. The final answer is only correct if the entire reasoning process leading to it is sound.
 
-**KEEP Category (`System-Level Design`):** The text is architecturally relevant if it discusses a design decision with broad, system-wide implications. This includes:
-- **Structural Choices:** The fundamental structure of the software, its layers, high-level components, modules, and their interactions (e.g., microservices, client-server).
-- **System-Wide Quality Attributes:** How the system *as a whole* handles concerns like scalability, fault tolerance, or performance under heavy load.
-- **Cross-Cutting Concerns:** Decisions that affect multiple components in a similar way (e.g., a system-wide caching strategy).
-- **Major Trade-Offs:** Explicitly trading one system-wide quality for another (e.g., choosing consistency over availability in a distributed system).
+### Socratic Audit Script & Response Format
+You **must** respond with a single, raw JSON object with two keys: `evaluation` and `reasoning`.
 
-**ELIMINATE Category (`Local Implementation Detail`):** The text is NOT architecturally relevant if its primary focus is localized. This includes:
-- **Installation & Configuration:** Issues with dependencies, build scripts, or tool configuration.
-- **Debugging & Errors:** Specific error messages or stack traces.
-- **Internal Algorithm Logic:** The inner workings of a single, narrow function or algorithm.
-- **Component-Level Trade-Offs:** A performance trade-off for a single component that doesn't affect the whole system.
+**Step 1: Audit the Core Concept**
+- Read the `<source_data>` (`sentence`).
+- Read the AI's `architectural_activity_extraction` and `core_concept_analysis`.
+- **Ask**: Does the `core_concept_analysis` accurately summarize the `architectural_activity_extraction`? Is the extraction a faithful and relevant quote from the original `sentence`?
 
-### VERIFICATION SCRIPT & RESPONSE FORMAT
-You **must** respond with a single, raw JSON object.
+**Step 2: Audit the Relevance Decision**
+- Read the AI's `is_tactic_relevant` decision and `relevance_reason`.
+- **Ask**: Based on the `core_concept_analysis`, is the AI's decision correct? A "true" is only correct if the concept describes a *deliberate design decision* meant to influence a quality attribute. It is "false" if the concept is merely a user question, a bug report, a feature request, or a general statement without architectural weight.
 
-**Step 1: Determine the Ground Truth Scope**
-   - Read the `<source_data>` (`sentence`).
-   - Based on the "Ground Truth Rubric" above, determine if the discussion is a `System-Level Design` or a `Local Implementation Detail`.
-   - Populate `ground_truth_scope`.
+**Step 3: Audit the Tactic Selection (The Most Critical Step)**
+- **IF** the AI's `is_tactic_relevant` decision was `false`, its `selected_tactic` **MUST** be "None". If so, the evaluation is likely "correct". If not, it is "incorrect". Proceed to Step 4.
+- **IF** the AI's `is_tactic_relevant` decision was `true`:
+    - Carefully read the AI's `tactic_evaluation` and `selected_tactic`.
+    - Refer to the list of "Available Tactics (with definitions)" from the `<original_prompt>`.
+    - **Ask**: Based on the `core_concept_analysis` and the official tactic definitions, is the `selected_tactic` the best possible semantic fit?
+    - **Ask**: Was "None" chosen correctly? This is the right choice if, and only if, no tactic from the list is a good semantic match to the core concept.
+    - **Ask**: Is the AI's `justification` logical and does it clearly connect the `core_concept_analysis` to the `selected_tactic`?
 
-**Step 2: Evaluate the First AI's Decision and Reasoning**
-   - Read the first AI's decision (`related_to_arch`) in `<ai_output_to_verify>`.
-   - Compare the first AI's decision with your ground truth assessment.
-     - The correct decision is `related_to_arch: true` ONLY IF `ground_truth_scope` is "System-Level Design".
-     - Otherwise, the correct decision is `related_to_arch: false`.
-   - Read the first AI's `s2_reasoning`. Is it sound and relevant to your analysis?
-
-**Step 3: Render the Final Verdict**
-   - You must provide a final, binary evaluation. There are no partial credits.
-   - **IF** the first AI's `related_to_arch` decision is **CORRECT** according to your ground truth scope AND its reasoning is sound and relevant, the `evaluation` **MUST** be `correct`.
-   - **ELSE** (if the decision is wrong OR the reasoning is fundamentally flawed), the `evaluation` **MUST** be `incorrect`.
-   - Populate the `evaluation` field.
-   - Then, write a one-sentence `reasoning` that states your verdict and justifies it by referencing your ground truth classification and the first AI's performance.
+**Step 4: Render the Final Verdict**
+- You must provide a final, binary evaluation. There are no partial credits.
+- **IF** the AI's reasoning chain is sound and logical at every step and the final `selected_tactic` is the correct outcome of that process, the `evaluation` **MUST** be `correct`.
+- **ELSE** (if any step in the reasoning is flawed, the relevance decision is wrong, or a better tactic was clearly available), the `evaluation` **MUST** be `incorrect`.
+- Write a one-sentence `reasoning` that states your verdict and justifies it by concisely identifying the specific point of success or failure in the AI's logic.
 
 ```json
-{{
-  "ground_truth_scope": "System-Level Design" | "Local Implementation Detail",
+{
   "evaluation": "correct" | "incorrect",
-  "reasoning": "My verdict is [evaluation] because the text's scope is a '[ground_truth_scope]'. The first AI's decision to classify it as architecturally relevant was [correct/incorrect] and its reasoning was [sound/flawed]."
-}}
+  "reasoning": "My verdict is [evaluation] because [concise justification focusing on the key success or failure point of the AI's reasoning]."
+}
 ```
 """
 
 def main():
-    TacticExtractionVerification(hostname=LLMHost.GREEN_LAB, batch_size_override=20).execute_verification()
+    TacticExtractionVerification(hostname=LLMHost.GREEN_LAB, batch_size_override=20, keep_alive="5m").execute_verification()
 
 
 if __name__ == "__main__":
