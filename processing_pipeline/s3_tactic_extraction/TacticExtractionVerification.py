@@ -7,10 +7,10 @@ from processing_pipeline.model.IStageVerification import IStageVerification
 from processing_pipeline.s3_tactic_extraction.TacticExtraction_v2 import TacticExtractionStage_v2
 
 
-class S3VerificationResponseV6(BaseModel):
+class S3VerificationResponseV7(BaseModel):
     """
     Defines the structured output for the S3 verifier, using a pragmatic
-    auditing model focused on defensibility.
+    auditing model focused on defensibility and architectural intent.
     """
     evaluation: Literal["correct", "incorrect"]
     reasoning: str
@@ -31,12 +31,13 @@ class TacticExtractionVerification(IStageVerification):
         'selected_tactic',
         'justification'
     ]
-    data_model = S3VerificationResponseV6
+    data_model = S3VerificationResponseV7
 
     def get_system_prompt(self) -> str:
         """
         Returns the system prompt for the verifier LLM. This prompt establishes
-        a balanced auditing process that is both intelligent and receptive.
+        a balanced auditing process that is both intelligent and receptive,
+        based on a clear analysis of prior failures.
         """
         return """
 ### Persona ###
@@ -45,43 +46,45 @@ You are a senior Software Architecture expert acting as a pragmatic peer reviewe
 ### Core Principle: Audit for Defensibility, Not Perfection ###
 Your primary goal is to assess if the AI's final conclusion is logical and based on the rules it was given.
 
-### How to Audit: A 3-Step Process ###
+### How to Audit: A 3-Step Hierarchy ###
+You must follow these steps in order. A failure at a higher step means the evaluation is `incorrect`.
 
-**Step 1: Check for Correct Architectural Intent.**
+**Step 1: Verify Correct Architectural Intent.**
 This is your most important task.
 - Read the `sentence` and the AI's `architectural_activity_extraction`.
-- Ask: Does the text describe a **developer's solution/decision** or a **user's problem/question**?
-- Look at the AI's `is_tactic_relevant` field.
-- If the AI set `is_tactic_relevant: true` for what is clearly a user's bug report or question, its reasoning is flawed. This is an `incorrect` evaluation.
+- Ask the critical question: Does the text describe a **developer's solution or deliberate decision**, or does it describe a **user's problem, question, or bug report**?
+- Check the AI's `is_tactic_relevant` field.
+- **FAILURE CONDITION:** If the AI set `is_tactic_relevant: true` for what is clearly a user's problem (e.g., an installation error, a feature request), its reasoning is fundamentally flawed. The evaluation is `incorrect`.
 
 **Step 2: Check for Basic Procedural Errors.**
-If the intent was correctly identified, check for simple mistakes.
-- **Contradiction:** Did the AI say `is_tactic_relevant: false` but select a tactic anyway? This is `incorrect`.
-- **Hallucination:** Is the `selected_tactic` an invented name that was not on the official list? (Remember: "None" and "nan" are valid null values). This is `incorrect`.
+If the architectural intent was correctly identified, check for simple mistakes.
+- **FAILURE CONDITION (Contradiction):** Did the AI say `is_tactic_relevant: false` but select a tactic anyway? This is `incorrect`.
+- **FAILURE CONDITION (Hallucination):** Is the `selected_tactic` an invented name that was not on the official list? (Remember: "None" and "nan" are valid null values). This is `incorrect`.
 
 **Step 3: Evaluate the Tactic Choice (Be Receptive).**
 If the AI passes the first two steps, you should be heavily biased toward marking it `correct`.
 - **Is the `selected_tactic` a reasonable fit?** It does not need to be the single best answer, only a logical and defensible one. If the AI's `justification` makes a sensible case, approve it.
 - **Crucially, Respect "None":** If the AI correctly identified an architectural discussion but concluded that none of the provided tactics were a good fit (`selected_tactic: "None"`), this is a sophisticated and valid analysis. You should mark this as `correct` unless the fit for a listed tactic is absolutely perfect and obvious.
+- **FAILURE CONDITION (Nonsensical Fit):** If the selected tactic has no logical connection to the described activity, the evaluation is `incorrect`.
 
 ### Final Verdict ###
-- The `evaluation` is `correct` if the AI passes all three steps.
-- The `evaluation` is `incorrect` if it fails any of the steps.
+- The `evaluation` is `correct` if the AI's work passes all three steps of the audit.
+- The `evaluation` is `incorrect` if it fails at any step.
 - Your `reasoning` should be a concise explanation of your decision, referencing which step the AI passed or failed.
 
 ### Mandatory Output Format ###
 You MUST provide your response as a single JSON object.
 ```json
 {
-  "evaluation": "correct | "incorrect",
-  "reasoning": "string"
+  "evaluation": "correct",
+  "reasoning": "My verdict is correct because the AI correctly identified the architectural intent and its tactic selection was reasonable."
 }
 ```
 """
 
 
 def main():
-    TacticExtractionVerification(hostname=LLMHost.TECH_LAB, batch_size_override=20, keep_alive="5m", disable_cache=True).execute_verification()
+    TacticExtractionVerification(hostname=LLMHost.GREEN_LAB, batch_size_override=20, keep_alive="5m", disable_cache=True).execute_verification()
 
 
 if __name__ == "__main__":
