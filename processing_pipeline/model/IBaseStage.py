@@ -99,14 +99,14 @@ class IBaseStage(metaclass=ABCMeta):
 
     def __init__(self, hostname: str = LLMHost.SERVER, *, batch_size_override: int = None,
                  n_threads_override: int = None, disable_cache=False, model_name_override: str = None,
-                 in_dir_override: Path = None, out_dir_override: Path = None, cot_prompt=False):
+                 in_dir_override: Path = None, out_dir_override: Path = None, cot_prompt=False, keep_alive="24h"):
         self.stop_event = threading.Event()
         self.model_fields = list(self.data_model.model_fields.keys())
         self.hostname = hostname
         if model_name_override:
             self.model_name = model_name_override
         self.model = ChatOllama(model=self.model_name, temperature=self.temperature, base_url=self.hostname,
-                                format=self.data_model.model_json_schema(), keep_alive="24h")
+                                format=self.data_model.model_json_schema(), keep_alive=keep_alive)
 
         optimal_params_settings = optimal_processing_parameters_cot if cot_prompt else optimal_processing_parameters
         optimal_params = optimal_params_settings[self.model_name]
