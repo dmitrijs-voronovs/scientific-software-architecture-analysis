@@ -1,0 +1,111 @@
+nohup: ignoring input
+2025-08-19 19:55:22.068 | INFO     | processing_pipeline.model.IBaseStage:execute:331 - Executing s3 stage
+2025-08-19 19:55:22.068 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.docs.pt_07: Processing file
+2025-08-19 19:55:22.068 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.issue_comment.pt_08: Processing file
+2025-08-19 19:55:22.069 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.docs.pt_21: Processing file
+2025-08-19 19:55:22.069 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.docs.pt_17: Processing file
+2025-08-19 19:55:22.069 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.release: Processing file
+2025-08-19 19:55:22.069 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.issue_comment.pt_03: Processing file
+Stage s3 params:
+stop_event: <threading.Event at 0x7b51f3351130: unset>
+model_fields: ['architectural_activity_extraction', 'core_concept_analysis', 'is_tactic_relevant', 'relevance_reason', 'tactic_evaluation', 'selected_tactic', 'justification']
+hostname: http://localhost:11434
+model: model='deepseek-r1:1.5b' temperature=0.0 format={'description': 'Pydantic model for the multi-stage filtering and semantic analysis JSON output.', 'properties': {'architectural_activity_extraction': {'title': 'Architectural Activity Extraction', 'type': 'string'}, 'core_concept_analysis': {'title': 'Core Concept Analysis', 'type': 'string'}, 'is_tactic_relevant': {'title': 'Is Tactic Relevant', 'type': 'boolean'}, 'relevance_reason': {'title': 'Relevance Reason', 'type': 'string'}, 'tactic_evaluation': {'title': 'Tactic Evaluation', 'type': 'string'}, 'selected_tactic': {'enum': ['Ping/Echo', 'Monitor', 'Heartbeat', 'Timestamp', 'Sanity Checking', 'Condition Monitoring', 'Voting', 'Exception Detection', 'Self-Test', 'Active Redundancy', 'Passive Redundancy', 'Spare', 'Exception Handling', 'Rollback', 'Software Upgrade', 'Retry', 'Ignore Faulty Behavior', 'Degradation', 'Reconfiguration', 'Shadow', 'State Resynchronization', 'Escalating Restart', 'Non-Stop Forwarding', 'Removal from Service', 'Transactions', 'Predictive Model', 'Exception Prevention', 'Increase Competence Set', 'Discover Service', 'Orchestrate', 'Tailor Interface', 'Split Module', 'Increase Semantic Coherence', 'Encapsulate', 'Use an Intermediary', 'Restrict Dependencies', 'Refactor', 'Abstract Common Services', 'Component Replacement', 'Compile-time Parameterization', 'Aspects', 'Configuration-time Binding', 'Resource Files', 'Runtime Registration', 'Dynamic Lookup', 'Interpret Parameters', 'Startup Time Binding', 'Name Servers', 'Plug-ins', 'Publish-Subscribe', 'Shared Repositories', 'Polymorphism', 'Manage Sampling Rate', 'Limit Event Response', 'Prioritize Events', 'Reduce Overhead', 'Bound Execution Times', 'Increase Resource Efficiency', 'Increase Resources', 'Introduce Concurrency', 'Maintain Multiple Copies of Computations', 'Maintain Multiple Copies of Data', 'Bound Queue Sizes', 'Schedule Resources', 'Detect Intrusion', 'Detect Service Denial', 'Verify Message Integrity', 'Detect Message Delay', 'Identify Actors', 'Authenticate Actors', 'Authorize Actors', 'Limit Access', 'Limit Exposure', 'Encrypt Data', 'Separate Entities', 'Change Default Settings', 'Revoke Access', 'Lock Computer', 'Inform Actors', 'Maintain Audit Trail', 'Restore', 'Specialized Interfaces', 'Record/Playback', 'Localize State Storage', 'Abstract Data Sources', 'Sandbox', 'Executable Assertions', 'Limit Structural Complexity', 'Limit Nondeterminism', 'Increase semantic coherence', 'Co-locate related responsibilities', 'Restrict dependencies', 'Defer binding', 'Cancel', 'Undo', 'Pause/resume', 'Aggregate', 'Maintain task models', 'Maintain user models', 'Maintain system models', 'Metering', 'Static Classification', 'Dynamic Classification', 'Vertical Scaling', 'Horizontal Scaling', 'Scheduling', 'Brokering', 'Service Adaptation', 'Increase Efficiency', 'None'], 'title': 'Selected Tactic', 'type': 'string'}, 'justification': {'title': 'Justification', 'type': 'string'}}, 'required': ['architectural_activity_extraction', 'core_concept_analysis', 'is_tactic_relevant', 'relevance_reason', 'tactic_evaluation', 'selected_tactic', 'justification'], 'title': 'TacticModelResponse', 'type': 'object'} keep_alive='24h' base_url='http://localhost:11434'
+batch_size: 14
+n_threads: 6
+disable_cache: False
+
+
+Processing root-project.root.v6-32-06.release in batches of 14:   0%|          | 0/1 [00:00<?, ?it/s]
+Processing root-project.root.v6-32-06.issue_comment.pt_03 in batches of 14:   0%|          | 0/143 [00:00<?, ?it/s][A
+
+Processing root-project.root.v6-32-06.docs.pt_21 in batches of 14:   0%|          | 0/44 [00:00<?, ?it/s][A[A
+
+
+Processing root-project.root.v6-32-06.issue_comment.pt_08 in batches of 14:   0%|          | 0/143 [00:00<?, ?it/s][A[A[A2025-08-19 19:55:22.122 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:232 - root-project.root.v6-32-06.docs.pt_17: Continuing processing from 1056
+2025-08-19 19:55:22.127 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:232 - root-project.root.v6-32-06.docs.pt_07: Continuing processing from 880
+
+
+
+
+Processing root-project.root.v6-32-06.docs.pt_17 in batches of 14:   0%|          | 0/68 [00:00<?, ?it/s][A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.pt_07 in batches of 14:   0%|          | 0/80 [00:00<?, ?it/s][A[A[A[A[AProcessing root-project.root.v6-32-06.release in batches of 14: 100%|██████████| 1/1 [01:00<00:00, 60.69s/it]Processing root-project.root.v6-32-06.release in batches of 14: 100%|██████████| 1/1 [01:00<00:00, 60.69s/it]
+2025-08-19 19:56:22.774 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:271 - root-project.root.v6-32-06.release: Finished processing
+2025-08-19 19:56:22.774 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - scverse.scanpy.1.10.2.issue_comment.pt_2: Processing file
+2025-08-19 19:56:22.774 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - scverse.scanpy.1.10.2.issue_comment.pt_2: File already processed
+2025-08-19 19:56:22.774 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - allenai.scispacy.v0.5.5.issue_comment: Processing file
+2025-08-19 19:56:22.774 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - allenai.scispacy.v0.5.5.issue_comment: File already processed
+2025-08-19 19:56:22.774 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - scverse.scanpy.1.10.2.issue_comment.pt_5: Processing file
+2025-08-19 19:56:22.774 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - scverse.scanpy.1.10.2.issue_comment.pt_5: File already processed
+2025-08-19 19:56:22.774 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.docs.pt_18: Processing file
+Processing root-project.root.v6-32-06.docs.pt_18 in batches of 14:   0%|          | 0/143 [00:00<?, ?it/s]
+Processing root-project.root.v6-32-06.issue_comment.pt_03 in batches of 14:   1%|          | 1/143 [01:38<3:53:04, 98.48s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.pt_07 in batches of 14:   1%|▏         | 1/80 [01:48<2:23:13, 108.78s/it][A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.pt_17 in batches of 14:   1%|▏         | 1/68 [01:49<2:01:46, 109.05s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue_comment.pt_08 in batches of 14:   1%|          | 1/143 [01:50<4:22:15, 110.81s/it][A[A[A
+
+Processing root-project.root.v6-32-06.docs.pt_21 in batches of 14:   2%|▏         | 1/44 [01:55<1:22:51, 115.62s/it][A[AProcessing root-project.root.v6-32-06.docs.pt_18 in batches of 14:   1%|          | 1/143 [01:28<3:30:34, 88.98s/it]
+Processing root-project.root.v6-32-06.issue_comment.pt_03 in batches of 14:   1%|▏         | 2/143 [02:48<3:12:17, 81.82s/it][A
+
+
+
+
+Processing root-project.root.v6-32-06.docs.pt_07 in batches of 14:   2%|▎         | 2/80 [03:14<2:03:46, 95.21s/it] [A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.docs.pt_17 in batches of 14:   3%|▎         | 2/68 [03:38<1:59:57, 109.05s/it][A[A[A[A
+
+
+Processing root-project.root.v6-32-06.issue_comment.pt_08 in batches of 14:   1%|▏         | 2/143 [04:01<4:47:22, 122.29s/it][A[A[A2025-08-19 20:14:48.828 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 135591454535520: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 398112 [type=json_invalid, input_value='{\n\n"architectural_acti... a pointer to an object', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-19 20:29:58.831 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 135591454307296: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 277626 [type=json_invalid, input_value='{\n\n"architectural_acti...OOT::Math::Rotation3D r', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-19 20:30:34.306 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 135591895980304: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 1116 [type=json_invalid, input_value='{\n\n"architectural_acti...`. `. `. `. `. `. `. `.', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.pt_07 in batches of 14:   4%|▍         | 3/80 [35:36<20:04:27, 938.53s/it][A[A[A[A[A2025-08-19 20:46:11.852 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 135591450309744: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 353531 [type=json_invalid, input_value='{\n\n"architectural_acti...ve one child, that\'s 5', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-19 20:46:37.628 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 135591450155952: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 199284 [type=json_invalid, input_value='{\n\n"architectural_acti...ckward -isystem /usrusr', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing root-project.root.v6-32-06.docs.pt_21 in batches of 14:   5%|▍         | 2/44 [51:44<21:03:55, 1805.60s/it][A[A2025-08-19 20:49:18.360 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 135591895980304: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 8466 [type=json_invalid, input_value='{\n\n"architectural_acti...enpenpenpenpenpenpenpen', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.pt_07 in batches of 14:   5%|▌         | 4/80 [54:52<21:37:18, 1024.19s/it][A[A[A[A[A2025-08-19 21:02:09.292 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 135591454307296: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 277626 [type=json_invalid, input_value='{\n\n"architectural_acti...OOT::Math::Rotation3D r', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-19 21:05:21.580 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 135591450309744: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 243431 [type=json_invalid, input_value='{\n\n"architectural_acti...TFile` `. f = new TFile', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing root-project.root.v6-32-06.docs.pt_21 in batches of 14:   7%|▋         | 3/44 [1:11:43<17:24:32, 1528.59s/it][A[A
