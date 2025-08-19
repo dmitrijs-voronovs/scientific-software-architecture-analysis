@@ -150,7 +150,7 @@ Based on the rules provided in the system prompt, analyze the following availabl
 
 
 def main():
-    TacticExtractionStage_v2(hostname=LLMHost.SERVER, n_threads_override=8, batch_size_override=16).execute(["issue.", "code_comment."], reverse=False)
+    TacticExtractionStage_v2(hostname=LLMHost.SERVER, n_threads_override=6, batch_size_override=12).execute(["issue.", "code_comment."], reverse=False)
 
 if __name__ == "__main__":
     main()
