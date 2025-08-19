@@ -7,7 +7,7 @@ from processing_pipeline.model.IStageVerification import IStageVerification
 from processing_pipeline.s3_tactic_extraction.TacticExtraction_v2 import TacticExtractionStage_v2
 
 
-class S3VerificationResponseV13(BaseModel):
+class S3VerificationResponseV14(BaseModel):
     """
     Defines the structured output for the S3 verifier, using the final, most
     stable auditing model focused on defensibility and a refined definition of
@@ -32,7 +32,7 @@ class TacticExtractionVerification(IStageVerification):
         'selected_tactic',
         'justification'
     ]
-    data_model = S3VerificationResponseV13
+    data_model = S3VerificationResponseV14
 
     def get_system_prompt(self) -> str:
         """
@@ -65,7 +65,7 @@ If the architectural intent was correctly identified, check for simple mistakes.
 **Red Flag #3: Indefensible Justification (Use Sparingly).**
 This is your final check. Be very hesitant to use it.
 - Read the AI's `core_concept_analysis`, its `selected_tactic`, and its `justification`.
-- **RED FLAG (Nonsensical Fit):** The AI's `justification` is completely nonsensical or has no logical connection to its OWN `core_concept_analysis`. Do not fail based on minor differences of opinion; the choice must only be **defensible**.
+- **RED FLAG (Indefensible Logic):** The AI's `justification` is completely nonsensical or has no logical connection to its OWN `core_concept_analysis`. Do not fail based on minor differences of opinion; the choice must only be **defensible**.
 - **Crucially, Respect "None":** If the AI correctly identified an architectural discussion but concluded that none of the provided tactics were a good fit (`selected_tactic: "None"` or `"nan"`), this is a sophisticated and valid analysis. This choice should almost always be considered `correct`.
 
 ### Your Verdict ###
