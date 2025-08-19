@@ -2472,3 +2472,260 @@ disable_cache: False
 Processing root-project.root.v6-32-06.code_comment.pt_37 in batches of 16:  56%|█████▌    | 70/125 [14:28:54<9:45:56, 639.22s/it][A[A[A[A[A[A[A2025-08-19 14:43:57.634 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862807038016: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
   Invalid JSON: EOF while parsing a string at line 1 column 525392 [type=json_invalid, input_value='{"architectural_activity...e and preventing issues', input_type=str]
     For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-19 14:56:42.048 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862033942544: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 392028 [type=json_invalid, input_value='{\n\n"architectural_acti... TEST=nightly report```', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_04 in batches of 16:  39%|███▉      | 49/125 [7:16:45<16:38:16, 788.11s/it][A[A[A
+
+Processing root-project.root.v6-32-06.docs.pt_12 in batches of 16:  47%|████▋     | 59/125 [14:45:12<18:52:02, 1029.13s/it][A[A
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_27 in batches of 16:  67%|██████▋   | 84/125 [14:46:09<9:29:41, 833.68s/it][A[A[A[A2025-08-19 15:00:32.781 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862800833280: attempt #4; slept for 30.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 245772 [type=json_invalid, input_value='{\n\n"architectural_acti...le \\file \\file \\file', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.docs.pt_17 in batches of 16:  49%|████▉     | 61/125 [14:47:03<17:39:09, 992.96s/it]
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_37 in batches of 16:  57%|█████▋    | 71/125 [14:47:28<11:43:24, 781.56s/it][A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 16:  54%|█████▎    | 67/125 [14:47:53<27:44:37, 1722.03s/it][A[A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.pt_07 in batches of 16:  38%|███▊      | 48/125 [14:48:52<28:23:57, 1327.76s/it][A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_04 in batches of 16:  40%|████      | 50/125 [7:22:26<13:37:36, 654.09s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_27 in batches of 16:  68%|██████▊   | 85/125 [14:51:19<7:31:12, 676.80s/it][A[A[A[A2025-08-19 15:05:58.502 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862800833280: attempt #5; slept for 50.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 222 [type=json_invalid, input_value='{\n\n"architectural_acti...\\\\\\\\\\\\\\\\\\\\\\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-19 15:05:58.502 | ERROR    | processing_pipeline.model.IBaseStage:process_batch:302 - 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 222 [type=json_invalid, input_value='{\n\n"architectural_acti...\\\\\\\\\\\\\\\\\\\\\\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-19 15:05:58.502 | ERROR    | processing_pipeline.model.IBaseStage:_process_in_batches:254 - Error processing batch 864
+
+Processing root-project.root.v6-32-06.code_comment.pt_07 in batches of 16:  44%|████▍     | 55/125 [10:41:33<40:07:09, 2063.28s/it][AProcessing root-project.root.v6-32-06.docs.pt_17 in batches of 16:  50%|████▉     | 62/125 [14:53:00<14:02:09, 802.06s/it]
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_37 in batches of 16:  58%|█████▊    | 72/125 [14:53:27<9:38:20, 654.72s/it] [A[A[A[A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 16:  54%|█████▍    | 68/125 [14:53:48<20:46:18, 1311.91s/it][A[A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.pt_07 in batches of 16:  39%|███▉      | 49/125 [14:54:31<21:46:13, 1031.23s/it][A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_04 in batches of 16:  41%|████      | 51/125 [7:27:56<11:26:40, 556.77s/it][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_27 in batches of 16:  69%|██████▉   | 86/125 [14:55:58<6:02:21, 557.47s/it][A[A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_07 in batches of 16:  45%|████▍     | 56/125 [10:46:21<29:20:18, 1530.71s/it][AProcessing root-project.root.v6-32-06.docs.pt_17 in batches of 16:  50%|█████     | 63/125 [14:58:04<11:14:35, 652.82s/it]
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_37 in batches of 16:  58%|█████▊    | 73/125 [14:59:02<8:04:21, 558.88s/it][A[A[A[A[A[A[A2025-08-19 15:19:23.199 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862500133360: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 328444 [type=json_invalid, input_value='{\n\n"architectural_acti...riable is defined as i3', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.pt_07 in batches of 16:  40%|████      | 50/125 [15:06:14<19:25:55, 932.75s/it] [A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_04 in batches of 16:  42%|████▏     | 52/125 [7:39:36<12:09:32, 599.63s/it][A[A[A2025-08-19 15:24:20.818 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862501999216: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 245772 [type=json_invalid, input_value='{\n\n"architectural_acti...le \\file \\file \\file', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing root-project.root.v6-32-06.code_comment.pt_07 in batches of 16:  46%|████▌     | 57/125 [11:00:23<25:00:48, 1324.24s/it][AProcessing root-project.root.v6-32-06.docs.pt_17 in batches of 16:  51%|█████     | 64/125 [15:11:19<11:46:52, 695.29s/it]
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_37 in batches of 16:  59%|█████▉    | 74/125 [15:11:44<8:46:51, 619.83s/it][A[A[A[A[A[A[A2025-08-19 15:28:55.098 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862033946864: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 218490 [type=json_invalid, input_value='{\n\n"architectural_acti...\\binning\\binning\\bin', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.pt_07 in batches of 16:  41%|████      | 51/125 [15:21:10<18:56:39, 921.61s/it][A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_04 in batches of 16:  42%|████▏     | 53/125 [7:54:36<13:47:57, 689.96s/it][A[A[A2025-08-19 15:37:08.118 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862500133360: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 131096 [type=json_invalid, input_value='{\n\n"architectural_acti.... *\\"*\\". *\\"*\\". *', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing root-project.root.v6-32-06.code_comment.pt_07 in batches of 16:  46%|████▋     | 58/125 [11:13:42<21:42:36, 1166.52s/it][A2025-08-19 15:51:03.996 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862501999216: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 245772 [type=json_invalid, input_value='{\n\n"architectural_acti...le \\file \\file \\file', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_37 in batches of 16:  60%|██████    | 75/125 [15:39:22<12:56:06, 931.33s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_27 in batches of 16:  70%|██████▉   | 87/125 [15:40:06<12:30:09, 1184.47s/it][A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.pt_07 in batches of 16:  42%|████▏     | 52/125 [15:41:23<20:27:37, 1009.01s/it][A[A[A[A[A[A2025-08-19 15:55:36.082 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862501487664: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 316487 [type=json_invalid, input_value='{\n\n"architectural_acti...ssion). set (tmva-TMVAC', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_04 in batches of 16:  43%|████▎     | 54/125 [8:14:42<16:39:36, 844.74s/it][A[A[A
+
+Processing root-project.root.v6-32-06.docs.pt_12 in batches of 16:  48%|████▊     | 60/125 [15:42:04<31:29:14, 1743.91s/it][A[A2025-08-19 16:04:15.266 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862033307312: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 357889 [type=json_invalid, input_value='{\n\n"architectural_acti...citly manage the buffer', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-19 16:04:28.682 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862501999216: attempt #3; slept for 15.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 245772 [type=json_invalid, input_value='{\n\n"architectural_acti...le \\file \\file \\file', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_37 in batches of 16:  61%|██████    | 76/125 [15:50:38<11:38:02, 854.74s/it][A[A[A[A[A[A[A
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_27 in batches of 16:  70%|███████   | 88/125 [15:50:51<10:30:38, 1022.67s/it][A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.pt_07 in batches of 16:  42%|████▏     | 53/125 [15:51:09<17:38:37, 882.18s/it] [A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.pt_17 in batches of 16:  52%|█████▏    | 65/125 [15:51:27<20:09:17, 1209.29s/it]
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_04 in batches of 16:  44%|████▍     | 55/125 [8:24:41<14:59:17, 770.82s/it][A[A[A
+
+Processing root-project.root.v6-32-06.docs.pt_12 in batches of 16:  49%|████▉     | 61/125 [15:52:01<24:53:18, 1399.98s/it][A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_37 in batches of 16:  62%|██████▏   | 77/125 [15:52:33<8:26:16, 632.85s/it] [A[A[A[A[A[A[A2025-08-19 16:14:10.923 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862033307312: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 357889 [type=json_invalid, input_value='{\n\n"architectural_acti...citly manage the buffer', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-19 16:14:37.737 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862501999216: attempt #4; slept for 30.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 245772 [type=json_invalid, input_value='{\n\n"architectural_acti...le \\file \\file \\file', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_27 in batches of 16:  71%|███████   | 89/125 [16:00:45<8:56:27, 894.10s/it]  [A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.pt_07 in batches of 16:  43%|████▎     | 54/125 [16:01:01<15:41:08, 795.33s/it][A[A[A[A[A[AProcessing root-project.root.v6-32-06.docs.pt_17 in batches of 16:  53%|█████▎    | 66/125 [16:01:19<16:46:59, 1024.06s/it]
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_04 in batches of 16:  45%|████▍     | 56/125 [8:34:32<13:44:26, 716.91s/it][A[A[A2025-08-19 16:15:50.679 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862035444784: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 325 [type=json_invalid, input_value='{\n\n"architectural_acti...^^^^^^^^^^^^^^^^^^^^^^^', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_37 in batches of 16:  62%|██████▏   | 78/125 [16:02:03<8:00:51, 613.85s/it][A[A[A[A[A[A[A2025-08-19 16:16:40.659 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862028713360: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 250 [type=json_invalid, input_value='{\n\n"architectural_acti...\\\\\\\\\\\\\\\\\\\\\\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-19 16:26:24.291 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862033307312: attempt #3; slept for 15.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 357889 [type=json_invalid, input_value='{\n\n"architectural_acti...citly manage the buffer', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-19 16:27:36.362 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862501999216: attempt #5; slept for 50.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 245772 [type=json_invalid, input_value='{\n\n"architectural_acti...le \\file \\file \\file', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-19 16:27:36.362 | ERROR    | processing_pipeline.model.IBaseStage:process_batch:302 - 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 245772 [type=json_invalid, input_value='{\n\n"architectural_acti...le \\file \\file \\file', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-19 16:27:36.363 | ERROR    | processing_pipeline.model.IBaseStage:_process_in_batches:254 - Error processing batch 1088
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 16:  55%|█████▌    | 69/125 [16:13:34<36:37:23, 2354.34s/it][A[A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.pt_07 in batches of 16:  44%|████▍     | 55/125 [16:14:00<15:21:54, 790.20s/it][A[A[A[A[A[A
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_04 in batches of 16:  46%|████▌     | 57/125 [8:48:36<14:15:49, 755.15s/it][A[A[A2025-08-19 16:30:13.358 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862035444784: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 325 [type=json_invalid, input_value='{\n\n"architectural_acti...^^^^^^^^^^^^^^^^^^^^^^^', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-19 16:39:42.593 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862800710864: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 143382 [type=json_invalid, input_value='{\n\n"architectural_acti... *.*. . *.*. . *.*. . *', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-19 16:43:33.557 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862028713360: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 250 [type=json_invalid, input_value='{\n\n"architectural_acti...\\\\\\\\\\\\\\\\\\\\\\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-19 16:49:59.681 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 129862035451312: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 245772 [type=json_invalid, input_value='{\n\n"architectural_acti...le \\file \\file \\file', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 16:  56%|█████▌    | 70/125 [16:36:19<31:26:05, 2057.55s/it][A[A[A[A[A
