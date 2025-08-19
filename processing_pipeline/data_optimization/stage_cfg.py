@@ -1,41 +1,45 @@
-from processing_pipeline.utilities.data_transformation import split_dataset_by_repo_and_source
-from utilities.split_parquet import split_files_exceeding_max_limit, split_big_files_into_seq_batches
 from dataclasses import field, dataclass
 from pathlib import Path
-from typing import List, Optional, Callable
+from typing import List, Optional, Callable, Generator
 
 import pandas as pd
 
 from constants.abs_paths import AbsDirPath
+from processing_pipeline.model.IBaseStage import IBaseStage
+from processing_pipeline.s0_noise_filtering.NoiseFiltering_v2 import NoiseFilteringStage_v2
+from processing_pipeline.s1_qa_relevance_check.QARelevanceCheck_v2 import QARelevanceCheckStage_v2
+from processing_pipeline.s2_arch_relevance_check.ArchRelevanceCheck_v2 import ArchitectureRelevanceCheckStage_v2
+from processing_pipeline.s3_tactic_extraction.TacticExtraction_v2 import TacticExtractionStage_v2
 from processing_pipeline.utilities.data_transformation import load_all_files
+from processing_pipeline.utilities.data_transformation import split_dataset_by_repo_and_source
+from utilities.split_parquet import split_big_files_into_seq_batches
 
 type DFTransformers = Callable[[pd.DataFrame], pd.DataFrame]
 
 COLUMNS_FOR_SPLITTING_DATA = ["repo_id", "source"]
 
+
 @dataclass
 class StageConfig:
     name: str
-    depends_on_fields: List[str]
-    resulting_fields: List[str]
+    columns_in: List[str]
     in_dir: Path
     out_dir: Path | None = None
-    boolean_field_name: str | None = None
+    Stage: IBaseStage | None = None
     next_stage: Optional['StageConfig'] = None
     _apply_filters: DFTransformers = field(default_factory=lambda: (lambda df: df))
     _on_load: DFTransformers = field(default_factory=lambda: (lambda df: df))
 
+    @property
+    def columns_out(self) -> List[str]:
+        return self.Stage.get_columns()
+
     def get_column_name(self, col_name: str):
         return f"{self.name}_{col_name}"
 
-    def get_columns(self):
-        return [self.get_column_name(column) for column in self.resulting_fields]
-
-    def all_df_columns(self):
-        return self.depends_on_fields + self.get_columns()
-
-    def get_boolean_field(self):
-        return self.get_column_name(self.boolean_field_name)
+    @property
+    def all_new_columns(self):
+        return self.columns_out + [self.column_stage_passed, self.get_column_name("prompt")]
 
     @classmethod
     def load_main_df(cls):
@@ -45,68 +49,86 @@ class StageConfig:
         return self._on_load(load_all_files(self.in_dir))
 
     def merge_stage_into_main(self, df_main: pd.DataFrame, df_stage: pd.DataFrame):
-        return pd.merge(df_main, df_stage.drop_duplicates(self.depends_on_fields), "left", self.depends_on_fields)
+        return pd.merge(df_main, df_stage.drop_duplicates(self.columns_in), "left", self.columns_in)
 
-    def get_passed_column(self):
+    @property
+    def column_stage_passed(self):
         return f"{self.name}_passed"
 
     def apply_filters(self, df_stage: pd.DataFrame):
         df_stage_res = df_stage.copy().reset_index(drop=True)
-        df_stage_res[self.get_passed_column()] = False
-        df_stage_res = df_stage_res.drop_duplicates(self.depends_on_fields)
-        df_stage_res.loc[self._apply_filters(df_stage_res).index, self.get_passed_column()] = True
+        df_stage_res[self.column_stage_passed] = False
+        df_stage_res = df_stage_res.drop_duplicates(self.columns_in)
+        df_stage_res.loc[self._apply_filters(df_stage_res).index, self.column_stage_passed] = True
         return df_stage_res
 
-    def filter_passed(self, df_merged: pd.DataFrame):
-        return df_merged[df_merged[self.get_passed_column()] == True]
+    def filter_passed_items(self, df_merged: pd.DataFrame):
+        return df_merged[df_merged[self.column_stage_passed] == True]
 
-    def apply_filters_till_current(self, keep_all_data = False):
-        current_stage = first_stage
+    @staticmethod
+    def all_stages() -> Generator['StageConfig', None, None]:
+        current = first_stage
+        while current is not None:
+            yield current
+            current = current.next_stage
+
+    def apply_filters_till_current(self, keep_all_data=False):
         df = self.load_main_df()
-        while True:
+        for current_stage in self.all_stages():
             print(f"Applying filters for {current_stage.name}")
             df_stage = current_stage.load_stage_df()
             df_stage = current_stage.apply_filters(df_stage)
             df = current_stage.merge_stage_into_main(df, df_stage)
             print(f"Current size: {df.shape[0]}")
             if not keep_all_data:
-                df = current_stage.filter_passed(df)
+                df = current_stage.filter_passed_items(df)
                 print(f"Size after filtering: {df.shape[0]}")
 
             if current_stage is self:
                 break
-            current_stage = current_stage.next_stage
         return df
 
     def optimize_df_for_next_stage(self, df: pd.DataFrame):
         next_stage_cfg = self.next_stage
         assert next_stage_cfg is not None, f"The next stage is not defined for this stage {self.name}"
-        required_columns_for_the_next_stage_prompt = next_stage_cfg.depends_on_fields
+        required_columns_for_the_next_stage_prompt = next_stage_cfg.columns_in
         total_columns = required_columns_for_the_next_stage_prompt + COLUMNS_FOR_SPLITTING_DATA
         df = df.drop_duplicates(required_columns_for_the_next_stage_prompt)[total_columns]
         return df
 
-    def save_data(self, df, rows_limit=None):
+    def save_data(self, df, rows_limit=None, drop_columns=True):
+        columns_to_drop = COLUMNS_FOR_SPLITTING_DATA + [self.get_column_name("prompt")] if drop_columns else []
         split_dataset_by_repo_and_source(self.out_dir, df, clean_before_saving=True,
-                                         drop_columns_before_save=COLUMNS_FOR_SPLITTING_DATA + [self.get_column_name("prompt")])
-        split_big_files_into_seq_batches(self.out_dir, rows_limit)
+                                         drop_columns_before_save=columns_to_drop)
+        self.split_big_files(rows_limit)
+
+    def save_data_only(self, df, drop_columns=True):
+        columns_to_drop = COLUMNS_FOR_SPLITTING_DATA + [self.get_column_name("prompt")] if drop_columns else []
+        split_dataset_by_repo_and_source(self.out_dir, df, clean_before_saving=True,
+                                         drop_columns_before_save=columns_to_drop)
+
+    def split_big_files(self, rows_limit=None):
+        if rows_limit:
+            split_big_files_into_seq_batches(self.out_dir, rows_limit)
+        else:
+            split_big_files_into_seq_batches(self.out_dir)
 
 
+S3TacticExtraction = StageConfig("s3", ["qa", "sentence"], AbsDirPath.S3_TACTIC_EXTRACTION, AbsDirPath.MERGED,
+                                 TacticExtractionStage_v2(), _apply_filters=lambda df: df[
+        (~df['s3_selected_tactic'].isna()) & (df['s3_selected_tactic'] != "None")])
 
-S3TacticExtraction = StageConfig("s3", ["qa", "sentence"], ["tactic", "response"], AbsDirPath.S3_TACTIC_EXTRACTION, AbsDirPath.MERGED,
-                                 _apply_filters=lambda df: df[(~df['s3_selected_tactic'].isna()) & (df['s3_selected_tactic'] != "None")])
+S2ArchRelevance = StageConfig("s2", ["sentence"], AbsDirPath.S2_ARCH_RELEVANCE_CHECK,
+                              AbsDirPath.O_S2_ARCH_RELEVANCE_CHECK, ArchitectureRelevanceCheckStage_v2(),
+                              S3TacticExtraction, lambda df: df[df['s2_related_to_arch'] == True])
 
-S2ArchRelevance = StageConfig("s2", ["sentence"], ["related_to_arch", "reasoning"], AbsDirPath.S2_ARCH_RELEVANCE_CHECK,
-                              AbsDirPath.O_S2_ARCH_RELEVANCE_CHECK, "related_to_arch", S3TacticExtraction,
-                              lambda df: df[df['s2_related_to_arch'] == True])
-
-S1QARelevance = StageConfig("s1", ["qa", "sentence"], ["true_positive", "reasoning"], AbsDirPath.S1_QA_RELEVANCE_CHECK,
-                            AbsDirPath.O_S1_QA_RELEVANCE_CHECK, "true_positive", S2ArchRelevance,
+S1QARelevance = StageConfig("s1", ["qa", "sentence"], AbsDirPath.S1_QA_RELEVANCE_CHECK,
+                            AbsDirPath.O_S1_QA_RELEVANCE_CHECK, QARelevanceCheckStage_v2(), S2ArchRelevance,
                             lambda df: df[df['s1_true_positive'] == True])
 
-S0NoiseFiltering = StageConfig("s0", ["sentence"], ["to_eliminate", "reasoning"], AbsDirPath.S0_NOISE_FILTERING,
-                               AbsDirPath.O_S0_NOISE_FILTERING, "to_eliminate", S1QARelevance,
-                               _apply_filters = lambda df: df[df['s0_to_eliminate'] == False])
+S0NoiseFiltering = StageConfig("s0", ["sentence"], AbsDirPath.S0_NOISE_FILTERING, AbsDirPath.O_S0_NOISE_FILTERING,
+                               NoiseFilteringStage_v2(), S1QARelevance,
+                               _apply_filters=lambda df: df[df['s0_to_eliminate'] == False])
 
 
 def ps_apply_filters(df):
@@ -116,7 +138,9 @@ def ps_apply_filters(df):
     return df_res.drop(columns=["nwords"])
 
 
-PrefilterStage = StageConfig("prefilter", ["sentence"], [], AbsDirPath.O_KEYWORDS_MATCHING, AbsDirPath.O2_KEYWORDS_MATCHING,
-                             "to_eliminate", S0NoiseFiltering, ps_apply_filters, lambda df: df.drop_duplicates(["sentence"])[["sentence"]])
+PrefilterStage = StageConfig("prefilter", ["sentence"], AbsDirPath.O_KEYWORDS_MATCHING, AbsDirPath.O2_KEYWORDS_MATCHING,
+                             next_stage=S0NoiseFiltering, _apply_filters=ps_apply_filters,
+                             _on_load=lambda df: df.drop_duplicates(["sentence"])[["sentence"]])
 
 first_stage = PrefilterStage
+last_stage = S3TacticExtraction
