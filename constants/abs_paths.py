@@ -33,8 +33,7 @@ class AbsDirPath:
     KEYWORDS = DATA / "keywords_2"
     # KEYWORDS = DATA / "keywords_3"
     TACTICS = CONFIG / "tactics"
-    # SAMPLES = DATA / "samples"
-    SAMPLES = DATA / "samples_2"
+    SAMPLES = DATA / "samples"
     SAMPLES_VERIFIED = SAMPLES / "verified"
 
 
