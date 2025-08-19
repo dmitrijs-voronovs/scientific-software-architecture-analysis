@@ -7,10 +7,10 @@ from processing_pipeline.model.IStageVerification import IStageVerification
 from processing_pipeline.s3_tactic_extraction.TacticExtraction_v2 import TacticExtractionStage_v2
 
 
-class S3VerificationResponseV11(BaseModel):
+class S3VerificationResponseV12(BaseModel):
     """
-    Defines the structured output for the S3 verifier, using a final, balanced
-    auditing model focused on defensibility and a nuanced understanding of
+    Defines the structured output for the S3 verifier, using the final, most
+    stable auditing model focused on defensibility and a strict definition of
     architectural intent.
     """
     evaluation: Literal["correct", "incorrect"]
@@ -32,13 +32,13 @@ class TacticExtractionVerification(IStageVerification):
         'selected_tactic',
         'justification'
     ]
-    data_model = S3VerificationResponseV11
+    data_model = S3VerificationResponseV12
 
     def get_system_prompt(self) -> str:
         """
         Returns the system prompt for the verifier LLM. This prompt establishes
-        a balanced auditing process that is both intelligent and receptive,
-        based on a clear analysis of prior failures.
+        the final, balanced auditing process based on a thorough analysis of
+        all previous failure patterns.
         """
         return """
 ### Persona ###
@@ -52,18 +52,20 @@ You must check for these red flags in order. If you find one, the evaluation is 
 
 **Red Flag #1: Misidentified Architectural Intent (CRITICAL).**
 This is your most important check.
-- First, read the original `sentence`. Ask yourself: "Is this text describing a developer's implemented solution, a deliberate design decision, OR a discussion about a system's limitations or a feature request that would require an architectural change?" These are all valid architectural discussions. A "user problem" is ONLY a simple bug report or installation error.
+- First, read the original `sentence`. Ask yourself: "Is this text describing a **developer's implemented solution or a deliberate design decision**?"
+- A simple user problem (bug report, installation error) or a feature request without any discussion of implementation is NOT architecturally relevant.
 - Now, look at the AI's `is_tactic_relevant` field.
-- **RED FLAG:** The AI set `is_tactic_relevant: true` for a text that is clearly a simple user bug report or installation error (e.g., "I got a file not found error"). However, if the text is a feature request or a discussion of a limitation, it IS architecturally relevant.
+- **RED FLAG:** The AI set `is_tactic_relevant: true` for a text that does not describe a developer's solution or design decision. This is a fundamental failure and the evaluation MUST be `incorrect`.
 
 **Red Flag #2: Basic Procedural Errors.**
 If the architectural intent was correctly identified, check for simple mistakes.
 - **RED FLAG (Contradiction):** The AI set `is_tactic_relevant: false` but then selected a tactic anyway.
 - **RED FLAG (Hallucination):** The AI's `selected_tactic` is an invented name that was not on the official list. (NOTE: Treat "None" and "nan" as identical, valid null values. They are NOT hallucinations).
 
-**Red Flag #3: Illogical Justification (Use Sparingly).**
-This is your final check. Be very hesitant to use it.
-- **RED FLAG (Nonsensical Fit):** The AI's `justification` for its `selected_tactic` has absolutely no logical connection to its OWN `core_concept_analysis`. The connection must be completely nonsensical to fail. Do not fail based on minor differences of opinion.
+**Red Flag #3: Illogical Justification.**
+This is your final check.
+- Read the AI's `core_concept_analysis`, its `selected_tactic`, and its `justification`.
+- **RED FLAG (Justification Mismatch):** The AI's `justification` fails to provide a clear, logical link between its OWN `core_concept_analysis` and the official definition of the `selected_tactic`. If the argument does not make sense, the evaluation is `incorrect`.
 - **Crucially, Respect "None":** If the AI correctly identified an architectural discussion but concluded that none of the provided tactics were a good fit (`selected_tactic: "None"` or `"nan"`), this is a sophisticated and valid analysis. This choice should almost always be considered `correct`.
 
 ### Your Verdict ###
