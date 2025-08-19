@@ -1,0 +1,55 @@
+nohup: ignoring input
+2025-08-19 00:14:01.396 | INFO     | processing_pipeline.model.IBaseStage:execute:331 - Executing s3 stage
+2025-08-19 00:14:01.396 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.issue.pt_12: Processing file
+2025-08-19 00:14:01.397 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.docs.pt_07: Processing file
+2025-08-19 00:14:01.397 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.pt_37: Processing file
+2025-08-19 00:14:01.398 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - scverse.scanpy.1.10.2.wiki: Processing file
+2025-08-19 00:14:01.399 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.docs.pt_12: Processing file
+2025-08-19 00:14:01.399 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - scverse.scanpy.1.10.2.code_comment: Processing file
+2025-08-19 00:14:01.399 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - scverse.scanpy.1.10.2.issue_comment.pt_3: Processing file
+2025-08-19 00:14:01.399 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.wiki: Processing file
+2025-08-19 00:14:01.402 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - scverse.scanpy.1.10.2.wiki: File already processed
+2025-08-19 00:14:01.403 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.pt_21: Processing file
+2025-08-19 00:14:01.406 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - scverse.scanpy.1.10.2.code_comment: File already processed
+2025-08-19 00:14:01.406 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.pt_27: Processing file
+2025-08-19 00:14:01.407 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - scverse.scanpy.1.10.2.issue_comment.pt_3: File already processed
+2025-08-19 00:14:01.407 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.docs.pt_17: Processing file
+Stage s3 params:
+stop_event: <threading.Event at 0x761c0a7e6ab0: unset>
+model_fields: ['architectural_activity_extraction', 'core_concept_analysis', 'is_tactic_relevant', 'relevance_reason', 'tactic_evaluation', 'selected_tactic', 'justification']
+hostname: http://localhost:11434
+model: model='deepseek-r1:1.5b' temperature=0.0 format={'description': 'Pydantic model for the multi-stage filtering and semantic analysis JSON output.', 'properties': {'architectural_activity_extraction': {'title': 'Architectural Activity Extraction', 'type': 'string'}, 'core_concept_analysis': {'title': 'Core Concept Analysis', 'type': 'string'}, 'is_tactic_relevant': {'title': 'Is Tactic Relevant', 'type': 'boolean'}, 'relevance_reason': {'title': 'Relevance Reason', 'type': 'string'}, 'tactic_evaluation': {'title': 'Tactic Evaluation', 'type': 'string'}, 'selected_tactic': {'enum': ['Ping/Echo', 'Monitor', 'Heartbeat', 'Timestamp', 'Sanity Checking', 'Condition Monitoring', 'Voting', 'Exception Detection', 'Self-Test', 'Active Redundancy', 'Passive Redundancy', 'Spare', 'Exception Handling', 'Rollback', 'Software Upgrade', 'Retry', 'Ignore Faulty Behavior', 'Degradation', 'Reconfiguration', 'Shadow', 'State Resynchronization', 'Escalating Restart', 'Non-Stop Forwarding', 'Removal from Service', 'Transactions', 'Predictive Model', 'Exception Prevention', 'Increase Competence Set', 'Discover Service', 'Orchestrate', 'Tailor Interface', 'Split Module', 'Increase Semantic Coherence', 'Encapsulate', 'Use an Intermediary', 'Restrict Dependencies', 'Refactor', 'Abstract Common Services', 'Component Replacement', 'Compile-time Parameterization', 'Aspects', 'Configuration-time Binding', 'Resource Files', 'Runtime Registration', 'Dynamic Lookup', 'Interpret Parameters', 'Startup Time Binding', 'Name Servers', 'Plug-ins', 'Publish-Subscribe', 'Shared Repositories', 'Polymorphism', 'Manage Sampling Rate', 'Limit Event Response', 'Prioritize Events', 'Reduce Overhead', 'Bound Execution Times', 'Increase Resource Efficiency', 'Increase Resources', 'Introduce Concurrency', 'Maintain Multiple Copies of Computations', 'Maintain Multiple Copies of Data', 'Bound Queue Sizes', 'Schedule Resources', 'Detect Intrusion', 'Detect Service Denial', 'Verify Message Integrity', 'Detect Message Delay', 'Identify Actors', 'Authenticate Actors', 'Authorize Actors', 'Limit Access', 'Limit Exposure', 'Encrypt Data', 'Separate Entities', 'Change Default Settings', 'Revoke Access', 'Lock Computer', 'Inform Actors', 'Maintain Audit Trail', 'Restore', 'Specialized Interfaces', 'Record/Playback', 'Localize State Storage', 'Abstract Data Sources', 'Sandbox', 'Executable Assertions', 'Limit Structural Complexity', 'Limit Nondeterminism', 'Increase semantic coherence', 'Co-locate related responsibilities', 'Restrict dependencies', 'Defer binding', 'Cancel', 'Undo', 'Pause/resume', 'Aggregate', 'Maintain task models', 'Maintain user models', 'Maintain system models', 'Metering', 'Static Classification', 'Dynamic Classification', 'Vertical Scaling', 'Horizontal Scaling', 'Scheduling', 'Brokering', 'Service Adaptation', 'Increase Efficiency', 'None'], 'title': 'Selected Tactic', 'type': 'string'}, 'justification': {'title': 'Justification', 'type': 'string'}}, 'required': ['architectural_activity_extraction', 'core_concept_analysis', 'is_tactic_relevant', 'relevance_reason', 'tactic_evaluation', 'selected_tactic', 'justification'], 'title': 'TacticModelResponse', 'type': 'object'} keep_alive='24h' base_url='http://localhost:11434'
+batch_size: 16
+n_threads: 8
+disable_cache: False
+
+
+
+Processing root-project.root.v6-32-06.wiki in batches of 16:   0%|          | 0/19 [00:00<?, ?it/s][A
+
+Processing root-project.root.v6-32-06.docs.pt_12 in batches of 16:   0%|          | 0/125 [00:00<?, ?it/s][A[AProcessing root-project.root.v6-32-06.docs.pt_17 in batches of 16:   0%|          | 0/125 [00:00<?, ?it/s]
+
+
+Processing root-project.root.v6-32-06.issue.pt_12 in batches of 16:   0%|          | 0/32 [00:00<?, ?it/s][A[A[A
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_27 in batches of 16:   0%|          | 0/125 [00:00<?, ?it/s][A[A[A[A
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 16:   0%|          | 0/125 [00:00<?, ?it/s][A[A[A[A[A
+
+
+
+
+
+Processing root-project.root.v6-32-06.docs.pt_07 in batches of 16:   0%|          | 0/125 [00:00<?, ?it/s][A[A[A[A[A[A
+
+
+
+
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_37 in batches of 16:   0%|          | 0/125 [00:00<?, ?it/s][A[A[A[A[A[A[A
