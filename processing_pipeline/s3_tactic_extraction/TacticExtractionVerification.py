@@ -7,10 +7,11 @@ from processing_pipeline.model.IStageVerification import IStageVerification
 from processing_pipeline.s3_tactic_extraction.TacticExtraction_v2 import TacticExtractionStage_v2
 
 
-class S3VerificationResponseV10(BaseModel):
+class S3VerificationResponseV11(BaseModel):
     """
-    Defines the structured output for the S3 verifier, using a pragmatic
-    auditing model focused on defensibility and architectural intent.
+    Defines the structured output for the S3 verifier, using a final, balanced
+    auditing model focused on defensibility and a nuanced understanding of
+    architectural intent.
     """
     evaluation: Literal["correct", "incorrect"]
     reasoning: str
@@ -31,12 +32,13 @@ class TacticExtractionVerification(IStageVerification):
         'selected_tactic',
         'justification'
     ]
-    data_model = S3VerificationResponseV10
+    data_model = S3VerificationResponseV11
 
     def get_system_prompt(self) -> str:
         """
         Returns the system prompt for the verifier LLM. This prompt establishes
-        a balanced auditing process that is both intelligent and receptive.
+        a balanced auditing process that is both intelligent and receptive,
+        based on a clear analysis of prior failures.
         """
         return """
 ### Persona ###
@@ -50,18 +52,19 @@ You must check for these red flags in order. If you find one, the evaluation is 
 
 **Red Flag #1: Misidentified Architectural Intent (CRITICAL).**
 This is your most important check.
-- First, read the original `sentence`. Ask yourself: "Is this text describing a developer's implemented solution/deliberate design decision, OR is it a user's problem, question, bug report, or feature request?"
+- First, read the original `sentence`. Ask yourself: "Is this text describing a developer's implemented solution, a deliberate design decision, OR a discussion about a system's limitations or a feature request that would require an architectural change?" These are all valid architectural discussions. A "user problem" is ONLY a simple bug report or installation error.
 - Now, look at the AI's `is_tactic_relevant` field.
-- **RED FLAG:** The AI set `is_tactic_relevant: true` for a text that is clearly a user's problem or question. This is a fundamental failure and the evaluation MUST be `incorrect`.
+- **RED FLAG:** The AI set `is_tactic_relevant: true` for a text that is clearly a simple user bug report or installation error (e.g., "I got a file not found error"). However, if the text is a feature request or a discussion of a limitation, it IS architecturally relevant.
 
 **Red Flag #2: Basic Procedural Errors.**
 If the architectural intent was correctly identified, check for simple mistakes.
 - **RED FLAG (Contradiction):** The AI set `is_tactic_relevant: false` but then selected a tactic anyway.
 - **RED FLAG (Hallucination):** The AI's `selected_tactic` is an invented name that was not on the official list. (NOTE: Treat "None" and "nan" as identical, valid null values. They are NOT hallucinations).
 
-**Red Flag #3: Grossly Illogical Justification.**
-This is your final check, and you should be very hesitant to use it.
+**Red Flag #3: Illogical Justification (Use Sparingly).**
+This is your final check. Be very hesitant to use it.
 - **RED FLAG (Nonsensical Fit):** The AI's `justification` for its `selected_tactic` has absolutely no logical connection to its OWN `core_concept_analysis`. The connection must be completely nonsensical to fail. Do not fail based on minor differences of opinion.
+- **Crucially, Respect "None":** If the AI correctly identified an architectural discussion but concluded that none of the provided tactics were a good fit (`selected_tactic: "None"` or `"nan"`), this is a sophisticated and valid analysis. This choice should almost always be considered `correct`.
 
 ### Your Verdict ###
 - The `evaluation` is `correct` if the AI's work has **ZERO** red flags.
