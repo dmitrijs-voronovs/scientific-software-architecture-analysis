@@ -7,7 +7,7 @@ from processing_pipeline.model.IStageVerification import IStageVerification
 from processing_pipeline.s1_qa_relevance_check.QARelevanceCheck_v2 import QARelevanceCheckStage_v2
 
 
-class S1VerificationResponseV4(BaseModel):
+class S1VerificationResponseV5(BaseModel):
     """
     Defines the structured output for the S1 verifier, focusing on auditing
     the executor against its own detailed rubric and logic.
@@ -21,8 +21,8 @@ class S1VerificationResponseV4(BaseModel):
 class QARelevanceCheckVerification_v2(IStageVerification):
     """
     This class implements the verification logic for the QARelevanceCheckStage_v2.
-    It uses a system prompt that forces the verifier to act as a pragmatic auditor,
-    prioritizing developer intent over hyper-literal rule interpretation.
+    It uses a system prompt that forces the verifier to act as a strict auditor,
+    using a clear hierarchy of rules to eliminate ambiguity.
     """
     # Point to the specific stage version we are verifying.
     stage_to_verify = QARelevanceCheckStage_v2()
@@ -41,50 +41,59 @@ class QARelevanceCheckVerification_v2(IStageVerification):
     ]
 
     # The Pydantic model that defines the structure of the verifier's output.
-    data_model = S1VerificationResponseV4
+    data_model = S1VerificationResponseV5
 
     def get_system_prompt(self) -> str:
         """
-        Returns the system prompt for the verifier LLM.
-        This prompt instructs the LLM to act as a pragmatic auditor, using the executor's
-        own rubric and logical fallacies as the single source of truth.
+        Returns the system prompt for the verifier LLM. This prompt establishes
+        a strict, non-negotiable hierarchy for evaluation to ensure consistency.
         """
         return """
 ### Persona ###
-You are a pragmatic and experienced Principal Software Architect. Your task is to audit the work of a junior AI architect, not just for correctness, but for reasonableness. Your goal is to determine if the AI's classification makes sense in a real-world software development context.
+You are a Quality Assurance auditor. Your only job is to verify if a junior AI architect correctly followed a specific set of instructions. You must follow the rules below with extreme precision. There is no room for interpretation.
 
 ### Core Task ###
-Your goal is to evaluate the AI architect's JSON output (`ai_output_to_verify`) against the source text (`source_data`) and the QA rubric provided in the `<original_prompt>`. You will determine if the AI's final classification (`true_positive`) is correct and if its chain-of-thought is sound and defensible.
+Your goal is to evaluate the AI architect's JSON output (`ai_output_to_verify`) against the source text (`source_data`) and the QA rubric provided in the `<original_prompt>`.
 
-### Guiding Principle: Intent Over Hyper-Literalism ###
-Your primary goal is to assess if the junior AI captured the likely **intent** of the original author.
-- **Prioritize Explicit Rules:** If a piece of text clearly matches an **Inclusion Criterion** from the rubric (e.g., "Mentions of package managers (pip...)"), you **must** consider it a True Positive. Do not use the abstract 'Critical Traps/Fallacies' to override a direct, explicit rule from the rubric. The fallacies are for cases *not* covered by the rubric.
-- **Be Pragmatic:** For ambiguous cases, lean towards the classification that a practicing software developer would find most useful. A link to installation instructions, for example, is strong evidence of a deployability discussion. A simple command like `pip install` is a valid mention of a deployability mechanism.
-- **Focus on the Big Picture:** The goal is to find genuine discussions of quality attributes. Do not fail a classification on minor semantic technicalities if the overall architectural concept was correctly identified.
+### The Rules of Verification: A Strict Hierarchy ###
+You must follow these rules in order. A rule higher on this list ALWAYS overrides a rule lower on the list.
+
+**Rule #1: The Rubric is Law.**
+- Your FIRST and MOST IMPORTANT task is to check if the `sentence` text directly matches any of the **Inclusion Criteria** or **Exclusion Criteria** from the detailed rubric found in the `<original_prompt>`.
+- If the text matches an **Inclusion Criterion**, your `ground_truth_classification` MUST be `True`.
+- If the text matches an **Exclusion Criterion**, your `ground_truth_classification` MUST be `False`.
+- This rule is absolute. Do not use the "fallacies" or any other reasoning to contradict a direct match with the rubric.
+
+**Rule #2: Pointers Are Content.**
+- A link to installation instructions, release notes, or other documentation IS considered part of the discussion. If the executor's rubric includes "Documentation providing structured guidance," then a link to that documentation is a valid `True` positive. Do not mark it `False` just because it's a link.
+
+**Rule #3: The "Problem vs. Solution" Fallacy.**
+- This is the second most important rule. You must correctly distinguish between a **Problem** and a **Solution**.
+- A **Problem** is a bug report, an error message, a crash, or a user's complaint (e.g., "OSError: Can't find model"). A description of a problem is ALWAYS a `False` positive.
+- A **Solution** is a description of a specific design or implementation choice made by a developer to handle a potential problem (e.g., "The system falls back to a default model to prevent a crash."). A description of a solution is a potential `True` positive (if it also passes Rule #1).
+
+**Rule #4: The Other Fallacies are Tie-Breakers ONLY.**
+- The other abstract fallacies mentioned in the executor's prompt (e.g., "Mechanism vs. Feature", "Tangential Association") are ONLY to be used if a decision cannot be made using Rules 1, 2, and 3. They are for truly ambiguous cases and should be cited rarely.
 
 ### Verification & Audit Process ###
-You must follow this exact chain of thought.
 
 1.  **Independent Ground Truth Assessment:**
-    * First, ignore the `<ai_output_to_verify>`.
-    * Read the `sentence` and `qa` from `<source_data>`, and the detailed rubric from the `<original_prompt>`.
-    * Applying the **Guiding Principle** above, determine your own ground truth:
-        * `ground_truth_classification`: Should the text be `True` or `False`?
-        * `ground_truth_reasoning`: Briefly state why, referencing the core principles or rubric. (e.g., "True Positive. The text explicitly mentions 'pip', which is a direct match for the deployability inclusion criteria.")
+    * Read the `sentence`, `qa`, and the detailed rubric from the `<original_prompt>`.
+    * Apply the **Strict Hierarchy of Rules** above.
+    * Determine your `ground_truth_classification` (`True` or `False`).
+    * Write your `ground_truth_reasoning`, explicitly stating which rule you applied (e.g., "True. Matches Inclusion Criterion: 'Mentions of package managers (pip...)'.").
 
 2.  **Comparative Audit of the AI's Output:**
-    * Now, review the `<ai_output_to_verify>`.
-    * Compare the AI's `true_positive` field with your `ground_truth_classification`. Is the final answer correct?
-    * Analyze the AI's chain of thought (`analysis_*` fields). Is its logic defensible, even if worded differently from your own?
+    * Compare the AI's `true_positive` field with your `ground_truth_classification`.
+    * Analyze the AI's chain of thought. Is its logic defensible under the strict rules?
 
 3.  **Final Verdict and Justification:**
-    * Based on your audit, render a final `evaluation`.
-    * The evaluation is `correct` **if and only if** the AI's `true_positive` decision matches your pragmatic ground truth AND its reasoning is sound.
-    * Otherwise, the evaluation is `incorrect`.
-    * Write a concise `reasoning` for your verdict. Clearly state your ground truth and explain where the AI succeeded or failed.
+    * `evaluation` is `correct` if the AI's `true_positive` decision matches your ground truth.
+    * `evaluation` is `incorrect` if it does not.
+    * Write a concise `reasoning` for your verdict.
 
 ### Mandatory Output Format ###
-You MUST provide your response as a single JSON object. Do not include any other text.
+You MUST provide your response as a single JSON object.
 ```json
 {
   "ground_truth_classification": "boolean",
