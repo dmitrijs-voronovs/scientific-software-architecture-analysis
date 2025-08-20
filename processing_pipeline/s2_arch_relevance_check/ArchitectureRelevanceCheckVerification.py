@@ -64,9 +64,13 @@ The complete `original_system_prompt` provided in the input is your **only stand
 You are not to use any other architectural philosophy or interpretation. Your evaluation is based purely on how well the AI architect adhered to these instructions.
 
 ### A Note on Nuance and Intent ###
-When auditing, you must think like a Principal Architect, not just a checklist-follower. The rules, especially the exceptions, require you to consider the *implications* of the text.
-- **Environmental Constraints are Architectural:** If a text describes a fundamental constraint of the operating environment (like an HPC cluster having no internet on compute nodes) and discusses a pattern or workaround required by the software to function in that environment, this **is architectural**. It falls under **A3: Portability and Deployability**. Do not incorrectly classify this as E3 (Trivial Setup). The key is whether the issue forces a change in how the software is designed or used, versus a simple one-off user error.
-- **Algorithmic Choice vs. Description:** For rule E2, distinguish between a text that *merely describes* an algorithm's steps and one that discusses the *choice* of an algorithm because of its impact on a system-wide quality (like performance or memory). The latter is architectural.
+When auditing, you must think like a Principal Architect, not just a checklist-follower. The rules, especially the exceptions, require you to consider the *implications* and *intent* behind the text.
+
+- **Environmental Constraints are Architectural (A3):** If a text describes a fundamental constraint of the operating environment (like an HPC cluster having no internet on compute nodes) and discusses a pattern or workaround required by the software to function, this **is architectural**. It falls under **A3: Portability and Deployability**. Do not incorrectly classify this as E3 (Trivial Setup).
+
+- **Testability & Deployability are Architectural (A3):** If a text describes a change that enables a new way of testing or deploying the system (like "running the testsuite before make install"), this **is architectural**. It is a design choice that improves the system's lifecycle, falling under **A3: Testability and Deployability**. Do not misclassify this as E3.
+
+- **Bug Root Causes can be Architectural (A2):** A bug fix is **architectural** if the bug's root cause is a flaw in how components interact. If a text discusses fixing a missing function that another component expected, the issue is not the function itself, but the flawed interaction. This falls under **A2: Component Interactions & APIs**. Do not dismiss this as a simple E1 (Localized Bug).
 
 ### Verification & Audit Process ###
 You must follow this exact chain of thought to arrive at your conclusion.
@@ -74,7 +78,7 @@ You must follow this exact chain of thought to arrive at your conclusion.
 1.  **Independent Ground Truth Assessment:**
     * First, ignore the `<ai_output_to_verify>`.
     * Read the `sentence` within `<source_data>`.
-    * Apply the `original_system_prompt`'s rules, including the nuance described above.
+    * Apply the `original_system_prompt`'s rules, including the critical nuances described above.
     * Determine your own ground truth:
         * `ground_truth_classification`: Should the text be `True` (architectural) or `False` (not architectural)?
         * `ground_truth_rule`: State the primary rule code (e.g., "A3: Portability", "E3: Trivial Setup") that justifies your classification.
@@ -82,7 +86,7 @@ You must follow this exact chain of thought to arrive at your conclusion.
 2.  **Comparative Audit of the AI's Output:**
     * Now, review the `<ai_output_to_verify>`.
     * Compare the AI's `related_to_arch` field with your `ground_truth_classification`. Is the final answer correct?
-    * Analyze the AI's reasoning (`analysis_summary`, `architectural_signal`, `exclusionary_signal`, `final_logic`). Does its logic align with the rules? Did it identify the correct signals and apply the correct exclusion rules (if any)? A correct answer for the wrong reason is still an incorrect evaluation.
+    * Analyze the AI's reasoning (`analysis_summary`, `architectural_signal`, `exclusionary_signal`, `final_logic`). Does its logic align with the rules? A correct answer for the wrong reason is still an incorrect evaluation.
 
 3.  **Final Verdict and Justification:**
     * Based on your audit, render a final `evaluation`.

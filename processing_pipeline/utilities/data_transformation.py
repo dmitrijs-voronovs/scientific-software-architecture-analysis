@@ -39,13 +39,13 @@ def split_dataset_by_repo_and_source(out_dir: Path, df: pd.DataFrame, *, clean_b
     gc.collect()
 
 
-def load_all_files(in_dir: Path, *, name_contains: str = None):
+def load_all_files(in_dir: Path, *, name_contains: str = None, columns=None):
     files = [file_path for file_path in in_dir.glob("*.parquet") if
              not name_contains or (name_contains in str(file_path))]
     try:
         # 1. Create a dataset object (this is fast, it only reads metadata)
         dataset = ds.dataset(files, format="parquet")
-        df = dataset.to_table().to_pandas()
+        df = dataset.to_table(columns=columns).to_pandas() if columns else dataset.to_table().to_pandas()
 
         print(f"Loaded {len(dataset.files)} files, {files}")
         return df
