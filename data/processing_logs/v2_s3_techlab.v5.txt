@@ -206,4 +206,9 @@ disable_cache: False
     For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
 
 
-Processing root-project.root.v6-32-06.docs.pt_07 in batches of 16:  19%|█▉        | 13/67 [4:23:13<31:32:19, 2102.59s/it][A[A
+Processing root-project.root.v6-32-06.docs.pt_07 in batches of 16:  19%|█▉        | 13/67 [4:23:13<31:32:19, 2102.59s/it][A[A2025-08-20 01:45:10.528 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 133136843249888: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 122905 [type=json_invalid, input_value='{\n\n"architectural_acti...*. .*.*. .*.*. .*.*. .*', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.docs.pt_21 in batches of 16:  31%|███       | 11/36 [4:27:34<9:46:22, 1407.32s/it]2025-08-20 01:57:53.253 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 133136561386320: attempt #4; slept for 30.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 262693 [type=json_invalid, input_value='{\n\n"architectural_acti... course :) ) provoke an', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
