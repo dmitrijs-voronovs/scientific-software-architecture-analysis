@@ -14002,3 +14002,943 @@ disable_cache: False
 Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  55%|█████▍    | 137/250 [8:55:51<2:53:01, 91.87s/it] [A
 
 Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  88%|████████▊ | 220/250 [12:24:45<54:19, 108.65s/it]  [A[AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  89%|████████▉ | 222/250 [12:29:30<38:07, 81.69s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  55%|█████▌    | 138/250 [8:56:51<2:34:05, 82.55s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  88%|████████▊ | 221/250 [12:25:56<47:06, 97.46s/it] [A[AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  89%|████████▉ | 223/250 [12:30:43<35:28, 78.82s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  56%|█████▌    | 139/250 [8:58:01<2:25:19, 78.55s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  89%|████████▉ | 222/250 [12:27:06<41:37, 89.19s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  90%|████████▉ | 224/250 [12:31:48<32:22, 74.72s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  56%|█████▌    | 140/250 [8:59:02<2:14:37, 73.43s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  89%|████████▉ | 223/250 [12:27:59<35:18, 78.46s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  90%|█████████ | 225/250 [12:32:43<28:44, 68.99s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  56%|█████▋    | 141/250 [8:59:59<2:04:32, 68.55s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  90%|████████▉ | 224/250 [12:28:53<30:49, 71.13s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  90%|█████████ | 226/250 [12:33:45<26:41, 66.73s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  57%|█████▋    | 142/250 [9:00:59<1:58:27, 65.81s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  90%|█████████ | 225/250 [12:29:58<28:46, 69.06s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  91%|█████████ | 227/250 [12:34:40<24:17, 63.38s/it]2025-08-25 13:14:14.014 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086533888080: attempt #3; slept for 15.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 184421 [type=json_invalid, input_value='{\n\n"architectural_acti...bf{}} \\text{ \\textbf{', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  57%|█████▋    | 143/250 [9:01:57<1:53:08, 63.44s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  90%|█████████ | 226/250 [12:30:42<24:37, 61.55s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  91%|█████████ | 228/250 [12:35:16<20:14, 55.20s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  58%|█████▊    | 144/250 [9:02:23<1:32:32, 52.39s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  91%|█████████ | 227/250 [12:31:25<21:30, 56.10s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  53%|█████▎    | 132/250 [10:13:27<45:02:08, 1373.97s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  92%|█████████▏| 229/250 [12:36:07<18:51, 53.89s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  58%|█████▊    | 145/250 [9:03:18<1:32:49, 53.04s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  91%|█████████ | 228/250 [12:32:04<18:39, 50.87s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  53%|█████▎    | 133/250 [10:14:03<31:36:36, 972.62s/it] [A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  92%|█████████▏| 230/250 [12:36:52<17:01, 51.06s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  58%|█████▊    | 146/250 [9:03:59<1:25:57, 49.60s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  92%|█████████▏| 229/250 [12:32:43<16:38, 47.52s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  54%|█████▎    | 134/250 [10:14:44<22:19:47, 693.00s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  92%|█████████▏| 231/250 [12:37:27<14:41, 46.37s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  59%|█████▉    | 147/250 [9:04:34<1:17:34, 45.19s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  92%|█████████▏| 230/250 [12:33:19<14:35, 43.80s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  54%|█████▍    | 135/250 [10:15:16<15:48:05, 494.66s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  93%|█████████▎| 232/250 [12:38:07<13:17, 44.32s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  59%|█████▉    | 148/250 [9:05:11<1:12:45, 42.80s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  92%|█████████▏| 231/250 [12:34:00<13:38, 43.06s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  54%|█████▍    | 136/250 [10:15:55<11:20:22, 358.10s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  93%|█████████▎| 233/250 [12:38:41<11:40, 41.20s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  60%|█████▉    | 149/250 [9:05:50<1:09:54, 41.53s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  55%|█████▍    | 137/250 [10:16:54<8:25:22, 268.34s/it] [A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  94%|█████████▎| 234/250 [12:39:52<13:22, 50.15s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  60%|██████    | 150/250 [9:07:07<1:27:06, 52.27s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  55%|█████▌    | 138/250 [10:17:51<6:22:36, 204.97s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  94%|█████████▍| 235/250 [12:40:48<12:58, 51.91s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  60%|██████    | 151/250 [9:08:04<1:28:22, 53.56s/it][A2025-08-25 13:33:12.439 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086534968464: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 327737 [type=json_invalid, input_value='{\n\n"architectural_acti...ine\\newline\\newline\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  94%|█████████▍| 236/250 [12:54:22<1:05:30, 280.75s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  61%|██████    | 152/250 [9:21:36<7:39:11, 281.13s/it][A2025-08-25 13:35:20.223 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086539969280: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 327703 [type=json_invalid, input_value='{\n\n"architectural_acti...ine\\newline\\newline\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  95%|█████████▍| 237/250 [13:10:04<1:43:47, 479.06s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  61%|██████    | 153/250 [9:37:20<12:56:07, 480.08s/it][A2025-08-25 13:50:36.176 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086534968464: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 425017 [type=json_invalid, input_value='{\n\n"architectural_acti...these transformations\'', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  95%|█████████▌| 238/250 [13:11:38<1:12:41, 363.44s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  62%|██████▏   | 154/250 [9:38:54<9:42:37, 364.14s/it] [A2025-08-25 14:04:48.968 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086539969280: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 327703 [type=json_invalid, input_value='{\n\n"architectural_acti...ine\\newline\\newline\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  96%|█████████▌| 239/250 [13:25:40<1:32:57, 507.09s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  62%|██████▏   | 155/250 [9:52:55<13:22:50, 507.06s/it][A2025-08-25 14:06:44.031 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086534968464: attempt #3; slept for 15.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 327737 [type=json_invalid, input_value='{\n\n"architectural_acti...ine\\newline\\newline\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  96%|█████████▌| 240/250 [13:27:56<1:05:57, 395.74s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  62%|██████▏   | 156/250 [9:55:18<10:23:21, 397.89s/it][A2025-08-25 14:20:09.709 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086539969280: attempt #3; slept for 15.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 327703 [type=json_invalid, input_value='{\n\n"architectural_acti...ine\\newline\\newline\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  96%|█████████▋| 241/250 [13:41:14<1:17:27, 516.37s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  63%|██████▎   | 157/250 [10:08:35<13:22:16, 517.60s/it][A2025-08-25 14:22:45.395 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086534968464: attempt #4; slept for 30.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 327737 [type=json_invalid, input_value='{\n\n"architectural_acti...ine\\newline\\newline\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-25 14:36:09.011 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086539969280: attempt #4; slept for 30.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 327703 [type=json_invalid, input_value='{\n\n"architectural_acti...ine\\newline\\newline\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  63%|██████▎   | 158/250 [10:24:16<16:28:38, 644.77s/it][A2025-08-25 14:37:57.265 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086224096528: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 508317 [type=json_invalid, input_value='{"architectural_activity...a design decision aimed', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-25 14:51:57.460 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086534968464: attempt #5; slept for 50.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 327737 [type=json_invalid, input_value='{\n\n"architectural_acti...ine\\newline\\newline\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-25 14:51:57.461 | ERROR    | processing_pipeline.model.IBaseStage:process_batch:302 - 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 327737 [type=json_invalid, input_value='{\n\n"architectural_acti...ine\\newline\\newline\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-25 14:51:57.462 | ERROR    | processing_pipeline.model.IBaseStage:_process_in_batches:254 - Error processing batch 1848
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  93%|█████████▎| 232/250 [14:08:08<8:37:23, 1724.62s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  64%|██████▎   | 159/250 [10:40:06<18:36:47, 736.35s/it][A2025-08-25 14:52:51.466 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086539969280: attempt #5; slept for 50.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 327703 [type=json_invalid, input_value='{\n\n"architectural_acti...ine\\newline\\newline\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-25 14:52:51.466 | ERROR    | processing_pipeline.model.IBaseStage:process_batch:302 - 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 327703 [type=json_invalid, input_value='{\n\n"architectural_acti...ine\\newline\\newline\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-25 14:52:51.468 | ERROR    | processing_pipeline.model.IBaseStage:_process_in_batches:254 - Error processing batch 1104
+
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  56%|█████▌    | 139/250 [11:50:49<56:00:57, 1816.73s/it][A[A[A
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  93%|█████████▎| 233/250 [14:09:31<5:49:04, 1232.06s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  64%|██████▍   | 160/250 [10:41:13<13:23:07, 535.42s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  56%|█████▌    | 140/250 [11:51:57<39:28:50, 1292.10s/it][A[A[A
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  94%|█████████▎| 234/250 [14:10:39<3:55:27, 882.97s/it] [A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  64%|██████▍   | 161/250 [10:42:25<9:48:17, 396.60s/it] [A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  56%|█████▋    | 141/250 [11:53:14<28:05:31, 927.81s/it] [A[A[A
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  94%|█████████▍| 235/250 [14:12:07<2:41:03, 644.26s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  65%|██████▍   | 162/250 [10:43:46<7:22:44, 301.87s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  57%|█████▋    | 142/250 [11:54:28<20:08:30, 671.39s/it][A[A[A
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  94%|█████████▍| 236/250 [14:13:05<1:49:18, 468.44s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  65%|██████▌   | 163/250 [10:44:47<5:33:01, 229.68s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  57%|█████▋    | 143/250 [11:55:28<14:30:31, 488.15s/it][A[A[A
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  95%|█████████▍| 237/250 [14:14:03<1:14:48, 345.26s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  66%|██████▌   | 164/250 [10:45:44<4:14:50, 177.79s/it][A2025-08-25 15:07:44.003 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086224096528: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 406557 [type=json_invalid, input_value='{"architectural_activity...ms in time calculations', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  95%|█████████▌| 238/250 [14:24:13<1:24:56, 424.73s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  66%|██████▌   | 165/250 [10:55:55<7:15:50, 307.66s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  97%|█████████▋| 242/250 [14:29:15<2:43:26, 1225.85s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  96%|█████████▌| 239/250 [14:25:14<57:52, 315.73s/it]  [A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  66%|██████▋   | 166/250 [10:56:57<5:27:31, 233.95s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  97%|█████████▋| 243/250 [14:30:16<1:42:15, 876.48s/it] 
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  96%|█████████▌| 240/250 [14:26:11<39:39, 237.98s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  67%|██████▋   | 167/250 [10:57:51<4:08:55, 179.95s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  98%|█████████▊| 244/250 [14:31:15<1:03:06, 631.02s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  96%|█████████▋| 241/250 [14:27:21<28:08, 187.65s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  67%|██████▋   | 168/250 [10:59:01<3:21:03, 147.11s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  98%|█████████▊| 245/250 [14:32:19<38:24, 460.91s/it]  
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  97%|█████████▋| 242/250 [14:28:24<20:00, 150.12s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  68%|██████▊   | 169/250 [11:00:05<2:44:52, 122.13s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  98%|█████████▊| 246/250 [14:33:24<22:48, 342.24s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  97%|█████████▋| 243/250 [14:29:15<14:04, 120.62s/it][A[A2025-08-25 15:13:26.431 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086536002816: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 164763 [type=json_invalid, input_value='{\n\n"architectural_acti...| : | : | : | : | : | :', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  68%|██████▊   | 170/250 [11:01:04<2:17:43, 103.29s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  99%|█████████▉| 247/250 [14:34:14<12:43, 254.64s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  98%|█████████▊| 244/250 [14:29:57<09:42, 97.04s/it] [A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  68%|██████▊   | 171/250 [11:01:33<1:46:39, 81.01s/it] [A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  58%|█████▊    | 144/250 [12:12:09<18:54:10, 641.99s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8:  99%|█████████▉| 248/250 [14:34:56<06:21, 190.86s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  98%|█████████▊| 245/250 [14:30:39<06:41, 80.37s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  69%|██████▉   | 172/250 [11:02:10<1:27:53, 67.61s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  58%|█████▊    | 145/250 [12:12:43<13:23:59, 459.43s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8: 100%|█████████▉| 249/250 [14:35:29<02:23, 143.52s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  98%|█████████▊| 246/250 [14:31:15<04:28, 67.04s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  69%|██████▉   | 173/250 [11:02:50<1:16:12, 59.38s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  58%|█████▊    | 146/250 [12:13:22<9:37:57, 333.44s/it] [A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8: 100%|██████████| 250/250 [14:36:09<00:00, 112.27s/it]Processing root-project.root.v6-32-06.code_comment.pt_25 in batches of 8: 100%|██████████| 250/250 [14:36:09<00:00, 210.28s/it]
+2025-08-25 15:15:33.057 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:271 - root-project.root.v6-32-06.code_comment.pt_25: Finished processing
+2025-08-25 15:15:33.058 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.pt_13: Processing file
+Processing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   0%|          | 0/250 [00:00<?, ?it/s]
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  99%|█████████▉| 247/250 [14:31:53<02:55, 58.49s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  70%|██████▉   | 174/250 [11:03:24<1:05:24, 51.64s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  59%|█████▉    | 147/250 [12:13:56<6:58:25, 243.74s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   0%|          | 1/250 [00:35<2:25:40, 35.10s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8:  99%|█████████▉| 248/250 [14:32:29<01:43, 51.65s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  59%|█████▉    | 148/250 [12:14:52<5:18:12, 187.18s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   1%|          | 2/250 [01:41<3:40:34, 53.36s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8: 100%|█████████▉| 249/250 [14:33:49<01:00, 60.14s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  60%|█████▉    | 149/250 [12:16:03<4:16:33, 152.41s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   1%|          | 3/250 [02:49<4:06:44, 59.94s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8: 100%|██████████| 250/250 [14:34:52<00:00, 61.13s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_06 in batches of 8: 100%|██████████| 250/250 [14:34:52<00:00, 209.97s/it]
+2025-08-25 15:18:41.677 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:271 - root-project.root.v6-32-06.code_comment.pt_06: Finished processing
+2025-08-25 15:18:41.678 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.pt_27: Processing file
+2025-08-25 15:18:41.678 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:215 - root-project.root.v6-32-06.code_comment.pt_27: File already processed
+2025-08-25 15:18:41.678 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.pt_21: Processing file
+2025-08-25 15:18:41.681 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:232 - root-project.root.v6-32-06.code_comment.pt_21: Continuing processing from 1892
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 8:   0%|          | 0/14 [00:00<?, ?it/s][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  60%|██████    | 150/250 [12:16:57<3:24:53, 122.93s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   2%|▏         | 4/250 [03:43<3:57:11, 57.85s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 8:   7%|▋         | 1/14 [00:52<11:17, 52.10s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  60%|██████    | 151/250 [12:18:00<2:52:55, 104.81s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   2%|▏         | 5/250 [04:47<4:04:41, 59.93s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 8:  14%|█▍        | 2/14 [01:59<12:12, 61.08s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  61%|██████    | 152/250 [12:19:03<2:30:59, 92.44s/it] [A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   2%|▏         | 6/250 [05:51<4:10:04, 61.50s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 8:  21%|██▏       | 3/14 [03:02<11:19, 61.75s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  61%|██████    | 153/250 [12:20:03<2:13:24, 82.52s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   3%|▎         | 7/250 [06:57<4:15:15, 63.03s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 8:  29%|██▊       | 4/14 [04:04<10:21, 62.18s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  62%|██████▏   | 154/250 [12:21:03<2:01:40, 76.04s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   3%|▎         | 8/250 [07:50<4:00:18, 59.58s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 8:  36%|███▌      | 5/14 [05:00<08:59, 59.95s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  62%|██████▏   | 155/250 [12:22:00<1:51:08, 70.19s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   4%|▎         | 9/250 [08:45<3:54:08, 58.29s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 8:  43%|████▎     | 6/14 [05:55<07:45, 58.16s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  62%|██████▏   | 156/250 [12:22:54<1:42:33, 65.46s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   4%|▍         | 10/250 [09:48<3:59:06, 59.78s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 8:  50%|█████     | 7/14 [06:57<06:56, 59.51s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  63%|██████▎   | 157/250 [12:23:56<1:39:39, 64.29s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   4%|▍         | 11/250 [10:44<3:53:37, 58.65s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 8:  57%|█████▋    | 8/14 [07:54<05:51, 58.65s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  63%|██████▎   | 158/250 [12:24:52<1:34:52, 61.87s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   5%|▍         | 12/250 [11:37<3:45:56, 56.96s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 8:  64%|██████▍   | 9/14 [08:47<04:44, 56.96s/it][A[A2025-08-25 15:31:53.464 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086222938592: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 371683 [type=json_invalid, input_value='{\n\n"architectural_acti...nse-Identifier: Apache-', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   5%|▌         | 13/250 [16:52<8:53:19, 135.02s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 8:  71%|███████▏  | 10/14 [13:59<09:02, 135.58s/it][A[A2025-08-25 15:42:52.941 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086535134464: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 349788 [type=json_invalid, input_value='{\n\n"architectural_acti...ults in a single insert', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   6%|▌         | 14/250 [27:41<19:01:21, 290.18s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 8:  79%|███████▊  | 11/14 [24:50<14:40, 293.37s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  64%|██████▎   | 159/250 [12:42:04<8:55:08, 352.84s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   6%|▌         | 15/250 [28:50<14:35:28, 223.53s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 8:  86%|████████▌ | 12/14 [25:58<07:29, 224.77s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  64%|██████▍   | 160/250 [12:42:56<6:33:39, 262.44s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   6%|▋         | 16/250 [29:43<11:11:58, 172.30s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 8:  93%|█████████▎| 13/14 [26:54<02:53, 173.75s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  64%|██████▍   | 161/250 [12:43:53<4:58:03, 200.94s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   7%|▋         | 17/250 [30:44<8:58:38, 138.71s/it] 
+
+Processing root-project.root.v6-32-06.code_comment.pt_21 in batches of 8: 100%|██████████| 14/14 [27:45<00:00, 136.50s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_21 in batches of 8: 100%|██████████| 14/14 [27:45<00:00, 118.95s/it]
+2025-08-25 15:46:26.969 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:271 - root-project.root.v6-32-06.code_comment.pt_21: Finished processing
+2025-08-25 15:46:26.969 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.pt_10: Processing file
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   0%|          | 0/250 [00:00<?, ?it/s][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  65%|██████▍   | 162/250 [12:44:45<3:49:19, 156.35s/it][A[A[A2025-08-25 15:48:26.018 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086222938592: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 371683 [type=json_invalid, input_value='{\n\n"architectural_acti...nse-Identifier: Apache-', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   0%|          | 1/250 [02:33<10:35:41, 153.18s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  65%|██████▌   | 163/250 [12:47:16<3:44:17, 154.68s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  70%|███████   | 175/250 [11:37:14<13:26:43, 645.38s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   1%|          | 2/250 [03:30<6:39:29, 96.65s/it]  [A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  66%|██████▌   | 164/250 [12:48:19<3:02:08, 127.07s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  70%|███████   | 176/250 [11:38:16<9:39:53, 470.18s/it] [A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   1%|          | 3/250 [04:31<5:31:13, 80.46s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  66%|██████▌   | 165/250 [12:49:19<2:31:39, 107.06s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  71%|███████   | 177/250 [11:39:12<7:00:57, 346.00s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   2%|▏         | 4/250 [05:28<4:51:50, 71.18s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  66%|██████▋   | 166/250 [12:50:15<2:08:31, 91.80s/it] [A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  71%|███████   | 178/250 [11:40:09<5:11:18, 259.43s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   2%|▏         | 5/250 [06:32<4:40:18, 68.65s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  67%|██████▋   | 167/250 [12:51:19<1:55:13, 83.30s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  72%|███████▏  | 179/250 [11:41:14<3:57:57, 201.09s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   2%|▏         | 6/250 [07:31<4:25:40, 65.33s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  67%|██████▋   | 168/250 [12:52:15<1:42:54, 75.30s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  72%|███████▏  | 180/250 [11:42:15<3:05:29, 158.99s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   3%|▎         | 7/250 [08:36<4:23:36, 65.09s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  68%|██████▊   | 169/250 [12:53:27<1:40:10, 74.20s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  72%|███████▏  | 181/250 [11:43:25<2:32:10, 132.33s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   3%|▎         | 8/250 [09:41<4:22:29, 65.08s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  68%|██████▊   | 170/250 [12:54:26<1:32:46, 69.58s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  73%|███████▎  | 182/250 [11:44:19<2:03:06, 108.62s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   4%|▎         | 9/250 [10:34<4:07:04, 61.51s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  68%|██████▊   | 171/250 [12:55:17<1:24:28, 64.16s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  73%|███████▎  | 183/250 [11:45:14<1:43:33, 92.75s/it] [A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   4%|▍         | 10/250 [11:38<4:08:53, 62.22s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  69%|██████▉   | 172/250 [12:56:28<1:26:02, 66.19s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  74%|███████▎  | 184/250 [11:46:21<1:33:36, 85.10s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   4%|▍         | 11/250 [12:42<4:10:00, 62.76s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  69%|██████▉   | 173/250 [12:57:30<1:23:10, 64.81s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  74%|███████▍  | 185/250 [11:47:29<1:26:25, 79.78s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   5%|▍         | 12/250 [13:41<4:04:45, 61.70s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  70%|██████▉   | 174/250 [12:58:28<1:19:42, 62.93s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  74%|███████▍  | 186/250 [11:48:24<1:17:12, 72.39s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   5%|▌         | 13/250 [14:38<3:57:18, 60.08s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  70%|███████   | 175/250 [12:59:27<1:17:09, 61.73s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  75%|███████▍  | 187/250 [11:49:22<1:11:27, 68.06s/it][A2025-08-25 16:02:07.739 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086535135136: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 359277 [type=json_invalid, input_value='{\n\n"architectural_acti...ome extra practice with', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   6%|▌         | 14/250 [15:41<4:00:13, 61.07s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  70%|███████   | 176/250 [13:00:16<1:11:29, 57.97s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  75%|███████▌  | 188/250 [11:50:02<1:01:33, 59.57s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   6%|▌         | 15/250 [16:07<3:18:09, 50.60s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   7%|▋         | 18/250 [47:12<25:23:51, 394.10s/it]
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  71%|███████   | 177/250 [13:00:52<1:02:24, 51.29s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  76%|███████▌  | 189/250 [11:50:42<54:38, 53.74s/it]  [A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   6%|▋         | 16/250 [16:45<3:02:34, 46.81s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   8%|▊         | 19/250 [47:46<18:20:40, 285.89s/it]
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  71%|███████   | 178/250 [13:01:30<56:37, 47.18s/it]  [A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  76%|███████▌  | 190/250 [11:51:18<48:28, 48.48s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   7%|▋         | 17/250 [17:26<2:54:30, 44.94s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   8%|▊         | 20/250 [48:28<13:35:29, 212.74s/it]
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  72%|███████▏  | 179/250 [13:02:08<52:43, 44.55s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  76%|███████▋  | 191/250 [11:51:55<44:17, 45.04s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   7%|▋         | 18/250 [18:03<2:44:52, 42.64s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   8%|▊         | 21/250 [49:06<10:11:08, 160.13s/it]
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  72%|███████▏  | 180/250 [13:02:46<49:44, 42.63s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  77%|███████▋  | 192/250 [11:52:30<40:38, 42.04s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   8%|▊         | 19/250 [18:39<2:35:37, 40.42s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   9%|▉         | 22/250 [49:40<7:45:15, 122.44s/it] 
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  72%|███████▏  | 181/250 [13:03:20<46:03, 40.05s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  77%|███████▋  | 193/250 [11:53:04<37:42, 39.69s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   8%|▊         | 20/250 [19:09<2:23:50, 37.52s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:   9%|▉         | 23/250 [50:20<6:09:12, 97.59s/it] 
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  73%|███████▎  | 182/250 [13:03:56<44:02, 38.86s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  78%|███████▊  | 194/250 [11:53:42<36:28, 39.07s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   8%|▊         | 21/250 [19:50<2:26:48, 38.47s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  10%|▉         | 24/250 [50:50<4:51:21, 77.35s/it]
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  73%|███████▎  | 183/250 [13:04:33<42:41, 38.23s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  78%|███████▊  | 195/250 [11:54:18<35:02, 38.23s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   9%|▉         | 22/250 [20:29<2:27:05, 38.71s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  10%|█         | 25/250 [51:28<4:05:18, 65.42s/it]
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  74%|███████▎  | 184/250 [13:05:08<41:04, 37.33s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  78%|███████▊  | 196/250 [11:54:52<33:09, 36.85s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:   9%|▉         | 23/250 [20:58<2:15:18, 35.76s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  10%|█         | 26/250 [52:02<3:28:53, 55.95s/it]
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  74%|███████▍  | 185/250 [13:05:40<38:25, 35.47s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  79%|███████▉  | 197/250 [11:55:24<31:12, 35.33s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  10%|▉         | 24/250 [21:28<2:08:35, 34.14s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  11%|█         | 27/250 [52:30<2:57:17, 47.70s/it]
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  74%|███████▍  | 186/250 [13:06:10<36:10, 33.92s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  79%|███████▉  | 198/250 [11:55:55<29:38, 34.21s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  10%|█         | 25/250 [22:00<2:05:31, 33.48s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  11%|█         | 28/250 [53:03<2:39:43, 43.17s/it]
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  75%|███████▍  | 187/250 [13:06:46<36:14, 34.51s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  80%|███████▉  | 199/250 [11:56:29<29:03, 34.18s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  10%|█         | 26/250 [22:35<2:06:18, 33.83s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  12%|█▏        | 29/250 [53:37<2:28:50, 40.41s/it]
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  75%|███████▌  | 188/250 [13:07:18<34:58, 33.85s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  80%|████████  | 200/250 [11:57:02<28:11, 33.84s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  11%|█         | 27/250 [23:10<2:07:24, 34.28s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  12%|█▏        | 30/250 [54:11<2:21:30, 38.59s/it]
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  76%|███████▌  | 189/250 [13:07:50<33:42, 33.16s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  80%|████████  | 201/250 [11:57:36<27:32, 33.72s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  11%|█         | 28/250 [23:44<2:05:55, 34.04s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  12%|█▏        | 31/250 [54:47<2:17:36, 37.70s/it]
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  76%|███████▌  | 190/250 [13:08:27<34:23, 34.40s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  81%|████████  | 202/250 [11:58:15<28:22, 35.47s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  12%|█▏        | 29/250 [24:22<2:09:41, 35.21s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  13%|█▎        | 32/250 [55:24<2:16:14, 37.50s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  81%|████████  | 203/250 [11:59:05<31:01, 39.61s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  12%|█▏        | 30/250 [25:21<2:35:17, 42.35s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  13%|█▎        | 33/250 [56:32<2:48:50, 46.68s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  82%|████████▏ | 204/250 [11:59:57<33:21, 43.51s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  12%|█▏        | 31/250 [26:11<2:43:17, 44.74s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  14%|█▎        | 34/250 [57:22<2:52:21, 47.88s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  82%|████████▏ | 205/250 [12:00:55<35:44, 47.65s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  13%|█▎        | 32/250 [27:07<2:54:58, 48.16s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  14%|█▍        | 35/250 [58:18<2:59:36, 50.12s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  82%|████████▏ | 206/250 [12:01:46<35:52, 48.91s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  13%|█▎        | 33/250 [28:08<3:08:16, 52.06s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  14%|█▍        | 36/250 [59:20<3:11:11, 53.60s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  83%|████████▎ | 207/250 [12:02:52<38:40, 53.97s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  14%|█▎        | 34/250 [29:10<3:17:24, 54.84s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  15%|█▍        | 37/250 [1:00:20<3:17:29, 55.63s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  83%|████████▎ | 208/250 [12:03:45<37:27, 53.50s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  14%|█▍        | 35/250 [29:57<3:08:29, 52.60s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  15%|█▌        | 38/250 [1:01:08<3:08:26, 53.33s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  84%|████████▎ | 209/250 [12:04:36<36:05, 52.81s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  14%|█▍        | 36/250 [30:56<3:14:12, 54.45s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  16%|█▌        | 39/250 [1:02:11<3:18:22, 56.41s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  84%|████████▍ | 210/250 [12:05:37<36:57, 55.44s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  15%|█▍        | 37/250 [31:52<3:15:02, 54.94s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  16%|█▌        | 40/250 [1:03:02<3:10:58, 54.56s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  84%|████████▍ | 211/250 [12:06:28<35:04, 53.96s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  15%|█▌        | 38/250 [32:44<3:10:42, 53.97s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  16%|█▋        | 41/250 [1:03:55<3:08:50, 54.21s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  85%|████████▍ | 212/250 [12:07:25<34:45, 54.89s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  16%|█▌        | 39/250 [33:41<3:13:35, 55.05s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  17%|█▋        | 42/250 [1:04:53<3:12:08, 55.43s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  85%|████████▌ | 213/250 [12:08:19<33:43, 54.68s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  16%|█▌        | 40/250 [34:36<3:11:55, 54.83s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  17%|█▋        | 43/250 [1:05:50<3:11:59, 55.65s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  86%|████████▌ | 214/250 [12:09:20<33:56, 56.57s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  16%|█▋        | 41/250 [35:37<3:17:29, 56.70s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  18%|█▊        | 44/250 [1:06:47<3:12:33, 56.09s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  86%|████████▌ | 215/250 [12:10:13<32:16, 55.33s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  17%|█▋        | 42/250 [36:31<3:13:48, 55.91s/it][A[A2025-08-25 16:25:55.809 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132087501355248: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 109424 [type=json_invalid, input_value='{\n\n"architectural_acti...\\n\\\\\\n\\\\\\n\\\\\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  86%|████████▋ | 216/250 [12:13:55<59:49, 105.59s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  17%|█▋        | 43/250 [40:17<6:09:11, 107.01s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  76%|███████▋  | 191/250 [13:25:04<5:17:58, 323.36s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  87%|████████▋ | 217/250 [12:14:58<50:58, 92.67s/it] [A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  18%|█▊        | 44/250 [41:11<5:13:16, 91.24s/it] [A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  77%|███████▋  | 192/250 [13:25:53<3:52:48, 240.83s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  87%|████████▋ | 218/250 [12:15:49<42:44, 80.13s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  18%|█▊        | 45/250 [42:04<4:31:46, 79.54s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  77%|███████▋  | 193/250 [13:26:54<2:57:28, 186.81s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  88%|████████▊ | 219/250 [12:16:51<38:36, 74.72s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  18%|█▊        | 46/250 [43:06<4:13:22, 74.52s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  78%|███████▊  | 194/250 [13:27:56<2:19:26, 149.41s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  88%|████████▊ | 220/250 [12:17:51<35:11, 70.40s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  19%|█▉        | 47/250 [44:10<4:00:33, 71.10s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  78%|███████▊  | 195/250 [13:28:59<1:53:16, 123.57s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  88%|████████▊ | 221/250 [12:18:57<33:24, 69.13s/it][A2025-08-25 16:37:58.025 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086533386416: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 368607 [type=json_invalid, input_value='{\n\n"architectural_acti... \\newline \\newline \\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  78%|███████▊  | 196/250 [13:36:20<3:16:56, 218.82s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  89%|████████▉ | 222/250 [12:26:16<1:24:03, 180.11s/it][A2025-08-25 16:46:25.297 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086535136192: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 333498 [type=json_invalid, input_value='{\n\n"architectural_acti...eidelberg U., Germany *', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  79%|███████▉  | 197/250 [13:44:58<4:32:41, 308.71s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  89%|████████▉ | 223/250 [12:34:53<2:06:26, 281.00s/it][A2025-08-25 16:53:35.661 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086533386416: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 368607 [type=json_invalid, input_value='{\n\n"architectural_acti... \\newline \\newline \\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  79%|███████▉  | 198/250 [13:52:02<4:57:20, 343.09s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  90%|████████▉ | 224/250 [12:41:55<2:20:04, 323.26s/it][A2025-08-25 17:02:21.711 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086535136192: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 333498 [type=json_invalid, input_value='{\n\n"architectural_acti...eidelberg U., Germany *', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  80%|███████▉  | 199/250 [14:00:50<5:38:49, 398.62s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  90%|█████████ | 225/250 [12:50:45<2:40:32, 385.28s/it][A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  19%|█▉        | 48/250 [1:17:04<36:01:52, 642.14s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  80%|████████  | 200/250 [14:01:53<4:08:14, 297.89s/it][A[A[A2025-08-25 17:09:20.223 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086533386416: attempt #3; slept for 15.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 368607 [type=json_invalid, input_value='{\n\n"architectural_acti... \\newline \\newline \\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  20%|█▉        | 49/250 [1:23:20<31:23:43, 562.31s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  80%|████████  | 201/250 [14:08:04<4:21:20, 320.00s/it][A[A[A2025-08-25 17:18:55.872 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086223776432: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 327703 [type=json_invalid, input_value='{\n\n"architectural_acti...ine\\newline\\newline\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  20%|██        | 50/250 [1:32:53<31:24:40, 565.40s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  81%|████████  | 202/250 [14:17:35<5:16:03, 395.08s/it][A[A[A2025-08-25 17:25:06.112 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086533386416: attempt #4; slept for 30.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 368607 [type=json_invalid, input_value='{\n\n"architectural_acti... \\newline \\newline \\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  20%|██        | 51/250 [1:39:05<28:03:09, 507.48s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  81%|████████  | 203/250 [14:23:58<5:06:38, 391.46s/it][A[A[A2025-08-25 17:34:45.744 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086223776432: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 327703 [type=json_invalid, input_value='{\n\n"architectural_acti...ine\\newline\\newline\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  21%|██        | 52/250 [1:48:54<29:14:48, 531.76s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  82%|████████▏ | 204/250 [14:33:41<5:44:09, 448.91s/it][A[A[A2025-08-25 17:40:49.922 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086533386416: attempt #5; slept for 50.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 368607 [type=json_invalid, input_value='{\n\n"architectural_acti... \\newline \\newline \\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-25 17:40:49.923 | ERROR    | processing_pipeline.model.IBaseStage:process_batch:302 - 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 368607 [type=json_invalid, input_value='{\n\n"architectural_acti... \\newline \\newline \\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-25 17:40:49.924 | ERROR    | processing_pipeline.model.IBaseStage:_process_in_batches:254 - Error processing batch 352
+Processing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  18%|█▊        | 45/250 [2:25:16<82:41:34, 1452.17s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  21%|██        | 53/250 [1:54:46<26:08:50, 477.82s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  82%|████████▏ | 205/250 [14:39:30<5:14:23, 419.18s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  18%|█▊        | 46/250 [2:26:15<58:35:30, 1033.97s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  22%|██▏       | 54/250 [1:55:40<19:06:07, 350.85s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  82%|████████▏ | 206/250 [14:40:27<3:47:35, 310.36s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  19%|█▉        | 47/250 [2:27:10<41:44:54, 740.37s/it] 
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  22%|██▏       | 55/250 [1:56:37<14:13:38, 262.66s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  83%|████████▎ | 207/250 [14:41:27<2:48:35, 235.24s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  19%|█▉        | 48/250 [2:28:18<30:13:40, 538.72s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  22%|██▏       | 56/250 [1:57:47<11:02:42, 204.96s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  83%|████████▎ | 208/250 [14:42:34<2:09:24, 184.87s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  20%|█▉        | 49/250 [2:29:21<22:06:16, 395.90s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  23%|██▎       | 57/250 [1:58:46<8:38:09, 161.09s/it] [A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  84%|████████▎ | 209/250 [14:43:28<1:39:28, 145.57s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  20%|██        | 50/250 [2:30:12<16:15:34, 292.67s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  23%|██▎       | 58/250 [1:59:40<6:52:52, 129.02s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  84%|████████▍ | 210/250 [14:44:32<1:20:37, 120.94s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  20%|██        | 51/250 [2:31:22<12:28:45, 225.76s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  24%|██▎       | 59/250 [2:00:47<5:50:49, 110.21s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  84%|████████▍ | 211/250 [14:45:31<1:06:34, 102.43s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  21%|██        | 52/250 [2:32:20<9:39:04, 175.48s/it] 
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  24%|██▍       | 60/250 [2:01:42<4:57:21, 93.91s/it] [A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  85%|████████▍ | 212/250 [14:46:25<55:39, 87.89s/it]   [A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  21%|██        | 53/250 [2:33:14<7:35:45, 138.81s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  24%|██▍       | 61/250 [2:02:37<4:18:52, 82.18s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  85%|████████▌ | 213/250 [14:47:24<48:51, 79.24s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  22%|██▏       | 54/250 [2:34:11<6:13:32, 114.35s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  25%|██▍       | 62/250 [2:03:38<3:56:54, 75.61s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  86%|████████▌ | 214/250 [14:48:27<44:38, 74.41s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  22%|██▏       | 55/250 [2:35:13<5:21:00, 98.77s/it] 2025-08-25 17:50:55.567 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086223776432: attempt #3; slept for 15.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 327703 [type=json_invalid, input_value='{\n\n"architectural_acti...ine\\newline\\newline\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  25%|██▌       | 63/250 [2:04:37<3:40:44, 70.83s/it][A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  22%|██▏       | 56/250 [2:35:59<4:28:03, 82.90s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  26%|██▌       | 64/250 [2:05:23<3:16:28, 63.38s/it][A[A2025-08-25 18:06:04.480 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086222654736: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 1 column 522958 [type=json_invalid, input_value='{"architectural_activity...connects to the concept', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  23%|██▎       | 57/250 [2:50:51<17:27:46, 325.73s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  26%|██▌       | 65/250 [2:20:17<16:03:27, 312.47s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  86%|████████▌ | 215/250 [15:04:58<3:23:45, 349.30s/it][A[A[A2025-08-25 18:07:05.017 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086223776432: attempt #4; slept for 30.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 327703 [type=json_invalid, input_value='{\n\n"architectural_acti...ine\\newline\\newline\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+Processing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  23%|██▎       | 58/250 [2:51:45<13:01:13, 244.13s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  26%|██▋       | 66/250 [2:20:58<11:48:26, 231.01s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  86%|████████▋ | 216/250 [15:05:33<2:24:33, 255.11s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  24%|██▎       | 59/250 [2:52:10<9:27:54, 178.40s/it] 
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  27%|██▋       | 67/250 [2:21:45<8:56:35, 175.93s/it] [A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  87%|████████▋ | 217/250 [15:06:34<1:48:16, 196.88s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  24%|██▍       | 60/250 [2:53:18<7:39:58, 145.25s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  27%|██▋       | 68/250 [2:22:42<7:05:39, 140.33s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  87%|████████▋ | 218/250 [15:07:28<1:22:12, 154.14s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  24%|██▍       | 61/250 [2:54:11<6:10:32, 117.63s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  28%|██▊       | 69/250 [2:23:41<5:49:18, 115.79s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  88%|████████▊ | 219/250 [15:08:33<1:05:47, 127.34s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  25%|██▍       | 62/250 [2:55:19<5:21:18, 102.54s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  28%|██▊       | 70/250 [2:24:45<5:00:38, 100.22s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  88%|████████▊ | 220/250 [15:09:36<53:56, 107.87s/it]  [A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  25%|██▌       | 63/250 [2:56:19<4:40:04, 89.86s/it] 
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  28%|██▊       | 71/250 [2:25:46<4:23:49, 88.44s/it] [A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  88%|████████▊ | 221/250 [15:10:34<44:56, 93.00s/it] [A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  26%|██▌       | 64/250 [2:57:16<4:08:26, 80.14s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  29%|██▉       | 72/250 [2:26:39<3:51:21, 77.99s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  89%|████████▉ | 222/250 [15:11:33<38:36, 82.74s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  26%|██▌       | 65/250 [2:58:16<3:47:48, 73.88s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  29%|██▉       | 73/250 [2:27:37<3:32:21, 71.99s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  89%|████████▉ | 223/250 [15:12:24<32:58, 73.29s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  26%|██▋       | 66/250 [2:59:10<3:28:14, 67.90s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  30%|██▉       | 74/250 [2:28:35<3:18:40, 67.73s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  90%|████████▉ | 224/250 [15:13:20<29:33, 68.21s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  27%|██▋       | 67/250 [3:00:06<3:16:15, 64.35s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  30%|███       | 75/250 [2:29:33<3:08:54, 64.77s/it][A[A2025-08-25 18:22:49.373 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086223776432: attempt #5; slept for 50.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 327703 [type=json_invalid, input_value='{\n\n"architectural_acti...ine\\newline\\newline\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-25 18:22:49.374 | ERROR    | processing_pipeline.model.IBaseStage:process_batch:302 - 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 327703 [type=json_invalid, input_value='{\n\n"architectural_acti...ine\\newline\\newline\\', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-25 18:22:49.376 | ERROR    | processing_pipeline.model.IBaseStage:_process_in_batches:254 - Error processing batch 1800
+
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  90%|█████████ | 226/250 [14:10:23<11:21:19, 1703.30s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  27%|██▋       | 68/250 [3:07:44<9:14:02, 182.65s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  30%|███       | 76/250 [2:37:10<8:49:18, 182.52s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  91%|█████████ | 227/250 [14:11:28<7:44:26, 1211.61s/it] [AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  28%|██▊       | 69/250 [3:08:43<7:19:11, 145.59s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  31%|███       | 77/250 [2:38:04<6:54:42, 143.83s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  91%|█████████ | 228/250 [14:12:28<5:17:37, 866.27s/it] [AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  28%|██▊       | 70/250 [3:09:36<5:53:08, 117.71s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  31%|███       | 78/250 [2:38:59<5:36:11, 117.27s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  92%|█████████▏| 229/250 [14:13:19<3:37:34, 621.64s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  28%|██▊       | 71/250 [3:10:34<4:57:55, 99.86s/it] 
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  32%|███▏      | 79/250 [2:39:59<4:44:58, 99.99s/it] [A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  92%|█████████▏| 230/250 [14:14:21<2:31:12, 453.63s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  29%|██▉       | 72/250 [3:11:28<4:15:22, 86.08s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  32%|███▏      | 80/250 [2:40:54<4:05:12, 86.54s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  92%|█████████▏| 231/250 [14:15:19<1:46:08, 335.18s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  29%|██▉       | 73/250 [3:12:32<3:54:08, 79.37s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  32%|███▏      | 81/250 [2:41:56<3:42:57, 79.16s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  93%|█████████▎| 232/250 [14:16:16<1:15:30, 251.70s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  30%|██▉       | 74/250 [3:13:27<3:31:14, 72.01s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  33%|███▎      | 82/250 [2:42:51<3:21:21, 71.92s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  93%|█████████▎| 233/250 [14:17:15<54:52, 193.65s/it]  [AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  30%|███       | 75/250 [3:14:26<3:18:29, 68.06s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  33%|███▎      | 83/250 [2:43:47<3:06:58, 67.18s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  94%|█████████▎| 234/250 [14:18:06<40:13, 150.86s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  30%|███       | 76/250 [3:15:14<2:59:52, 62.03s/it]2025-08-25 18:31:00.565 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086533315072: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 95739 [type=json_invalid, input_value='{\n\n"architectural_acti...\u0028\\\\u0029\\\\u002', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  34%|███▎      | 84/250 [2:44:35<2:50:07, 61.49s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  94%|█████████▍| 235/250 [14:18:51<29:49, 119.28s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  31%|███       | 77/250 [3:15:49<2:36:08, 54.15s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  34%|███▍      | 85/250 [2:45:04<2:21:54, 51.60s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  90%|█████████ | 225/250 [15:29:38<2:22:02, 340.92s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  94%|█████████▍| 236/250 [14:19:22<21:36, 92.62s/it] [AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  31%|███       | 78/250 [3:16:21<2:16:06, 47.48s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  34%|███▍      | 86/250 [2:45:38<2:06:46, 46.38s/it][A[A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  90%|█████████ | 226/250 [15:30:16<1:40:02, 250.10s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  95%|█████████▍| 237/250 [14:20:00<16:33, 76.40s/it][A2025-08-25 18:32:31.392 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086533319344: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 217 [type=json_invalid, input_value='{\n\n"architectural_acti...\n\\n\\n\\n\\n\\n\\n\\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  91%|█████████ | 227/250 [15:31:05<1:12:47, 189.89s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  95%|█████████▌| 238/250 [14:21:02<14:25, 72.13s/it][A2025-08-25 18:33:40.473 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086533319344: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 238 [type=json_invalid, input_value='{\n\n"architectural_acti...\n\\n\\n\\n\\n\\n\\n\\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  91%|█████████ | 228/250 [15:31:57<54:26, 148.48s/it]  [A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  96%|█████████▌| 239/250 [14:21:53<12:02, 65.70s/it][A2025-08-25 18:34:31.877 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086533319344: attempt #3; slept for 15.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 217 [type=json_invalid, input_value='{\n\n"architectural_acti...\n\\n\\n\\n\\n\\n\\n\\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  92%|█████████▏| 229/250 [15:32:54<42:21, 121.04s/it][A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  96%|█████████▌| 240/250 [14:22:50<10:29, 63.00s/it][A2025-08-25 18:35:28.749 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086533319344: attempt #4; slept for 30.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 206 [type=json_invalid, input_value='{\n\n"architectural_acti...\n\\n\\n\\n\\n\\n\\n\\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  92%|█████████▏| 230/250 [15:33:44<33:12, 99.61s/it] [A[A[A
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  96%|█████████▋| 241/250 [14:23:37<08:43, 58.15s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  92%|█████████▏| 231/250 [15:34:16<25:07, 79.33s/it][A[A[A2025-08-25 18:36:31.843 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086533319344: attempt #5; slept for 50.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 206 [type=json_invalid, input_value='{\n\n"architectural_acti...\n\\n\\n\\n\\n\\n\\n\\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-25 18:36:31.843 | ERROR    | processing_pipeline.model.IBaseStage:process_batch:302 - 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 206 [type=json_invalid, input_value='{\n\n"architectural_acti...\n\\n\\n\\n\\n\\n\\n\\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-25 18:36:31.844 | ERROR    | processing_pipeline.model.IBaseStage:_process_in_batches:254 - Error processing batch 624
+Processing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  32%|███▏      | 79/250 [3:20:58<5:31:33, 116.33s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  97%|█████████▋| 242/250 [14:24:23<07:17, 54.67s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  93%|█████████▎| 232/250 [15:35:06<21:09, 70.51s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  32%|███▏      | 80/250 [3:21:53<4:37:17, 97.87s/it] 
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  97%|█████████▋| 243/250 [14:25:19<06:25, 55.01s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  93%|█████████▎| 233/250 [15:36:06<19:06, 67.41s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  32%|███▏      | 81/250 [3:22:57<4:07:13, 87.77s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  98%|█████████▊| 244/250 [14:26:24<05:48, 58.03s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  94%|█████████▎| 234/250 [15:37:03<17:11, 64.45s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  33%|███▎      | 82/250 [3:23:53<3:38:27, 78.02s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  98%|█████████▊| 245/250 [14:27:18<04:43, 56.74s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  94%|█████████▍| 235/250 [15:38:04<15:47, 63.18s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  33%|███▎      | 83/250 [3:24:54<3:22:56, 72.91s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  98%|█████████▊| 246/250 [14:28:19<03:52, 58.19s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  94%|█████████▍| 236/250 [15:39:04<14:34, 62.49s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  34%|███▎      | 84/250 [3:25:50<3:07:44, 67.86s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  99%|█████████▉| 247/250 [14:29:18<02:54, 58.22s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  95%|█████████▍| 237/250 [15:40:02<13:14, 61.09s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  34%|███▍      | 85/250 [3:26:54<3:03:24, 66.69s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8:  99%|█████████▉| 248/250 [14:30:27<02:03, 61.64s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  95%|█████████▌| 238/250 [15:41:13<12:49, 64.10s/it][A[A[AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  34%|███▍      | 86/250 [3:28:04<3:05:28, 67.86s/it]
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8: 100%|█████████▉| 249/250 [14:31:34<01:03, 63.24s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  96%|█████████▌| 239/250 [15:42:20<11:52, 64.74s/it][A[A[A2025-08-25 18:44:35.228 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132087501355968: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 240 [type=json_invalid, input_value='{\n\n"architectural_acti...store store store store', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8: 100%|██████████| 250/250 [14:32:30<00:00, 60.95s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_22 in batches of 8: 100%|██████████| 250/250 [14:32:30<00:00, 209.40s/it]
+2025-08-25 18:44:55.696 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:271 - root-project.root.v6-32-06.code_comment.pt_22: Finished processing
+2025-08-25 18:44:55.697 | INFO     | processing_pipeline.model.IBaseStage:_process_in_batches:208 - root-project.root.v6-32-06.code_comment.pt_26: Processing file
+
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   0%|          | 0/250 [00:00<?, ?it/s][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  96%|█████████▌| 240/250 [15:43:20<10:33, 63.39s/it][A[A[A2025-08-25 18:45:35.227 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132087501355968: attempt #2; slept for 5.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 240 [type=json_invalid, input_value='{\n\n"architectural_acti...store store store store', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   0%|          | 1/250 [01:02<4:18:58, 62.40s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  96%|█████████▋| 241/250 [15:44:14<09:06, 60.70s/it][A[A[A2025-08-25 18:46:29.493 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132087501355968: attempt #3; slept for 15.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 240 [type=json_invalid, input_value='{\n\n"architectural_acti...store store store store', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   1%|          | 2/250 [01:53<3:51:24, 55.98s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  97%|█████████▋| 242/250 [15:45:17<08:10, 61.28s/it][A[A[A2025-08-25 18:47:31.376 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132087501355968: attempt #4; slept for 30.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 240 [type=json_invalid, input_value='{\n\n"architectural_acti...store store store store', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-25 18:47:44.163 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086223039632: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 95648 [type=json_invalid, input_value='{\n\n"architectural_acti... \\u2062 \\u2062 \\u206', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   1%|          | 3/250 [02:54<3:59:35, 58.20s/it][A
+
+
+Processing root-project.root.v6-32-06.code_comment in batches of 8:  97%|█████████▋| 243/250 [15:45:57<06:25, 55.02s/it][A[A[A
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  35%|███▍      | 87/250 [3:01:42<14:33:30, 321.54s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   2%|▏         | 4/250 [03:20<3:05:20, 45.21s/it][A2025-08-25 18:48:21.393 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132087501355968: attempt #5; slept for 50.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 240 [type=json_invalid, input_value='{\n\n"architectural_acti...store store store store', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+2025-08-25 18:48:21.393 | ERROR    | processing_pipeline.model.IBaseStage:process_batch:302 - 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 240 [type=json_invalid, input_value='{\n\n"architectural_acti...store store store store', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-25 18:48:21.394 | ERROR    | processing_pipeline.model.IBaseStage:_process_in_batches:254 - Error processing batch 688
+Processing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  35%|███▍      | 87/250 [3:32:48<6:00:14, 132.60s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  35%|███▌      | 88/250 [3:02:25<10:43:11, 238.22s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   2%|▏         | 5/250 [04:21<3:28:07, 50.97s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  35%|███▌      | 88/250 [3:34:00<5:08:54, 114.41s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  36%|███▌      | 89/250 [3:03:26<8:15:56, 184.82s/it] [A[A
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   2%|▏         | 6/250 [05:14<3:30:27, 51.75s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  36%|███▌      | 89/250 [3:34:56<4:20:26, 97.06s/it] 
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  36%|███▌      | 90/250 [3:04:22<6:30:16, 146.35s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   3%|▎         | 7/250 [06:15<3:41:43, 54.75s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  36%|███▌      | 90/250 [3:36:00<3:51:56, 86.98s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  36%|███▋      | 91/250 [3:05:24<5:20:33, 120.97s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   3%|▎         | 8/250 [07:15<3:47:49, 56.49s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  36%|███▋      | 91/250 [3:36:54<3:24:35, 77.21s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  37%|███▋      | 92/250 [3:06:20<4:27:35, 101.62s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   4%|▎         | 9/250 [08:13<3:49:15, 57.08s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  37%|███▋      | 92/250 [3:37:54<3:09:13, 71.86s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  37%|███▋      | 93/250 [3:07:18<3:50:58, 88.27s/it] [A[A
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   4%|▍         | 10/250 [09:11<3:48:20, 57.09s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  37%|███▋      | 93/250 [3:38:47<2:53:48, 66.42s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  38%|███▊      | 94/250 [3:08:13<3:23:44, 78.36s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   4%|▍         | 11/250 [10:02<3:40:37, 55.39s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  38%|███▊      | 94/250 [3:39:42<2:43:45, 62.99s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  38%|███▊      | 95/250 [3:09:08<3:04:09, 71.29s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   5%|▍         | 12/250 [10:57<3:39:29, 55.33s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  38%|███▊      | 95/250 [3:40:35<2:34:42, 59.89s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  38%|███▊      | 96/250 [3:10:00<2:48:27, 65.64s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   5%|▌         | 13/250 [11:53<3:39:26, 55.56s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  38%|███▊      | 96/250 [3:41:33<2:32:12, 59.30s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  39%|███▉      | 97/250 [3:10:55<2:39:28, 62.54s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   6%|▌         | 14/250 [12:43<3:31:34, 53.79s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  39%|███▉      | 97/250 [3:42:29<2:28:55, 58.40s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  39%|███▉      | 98/250 [3:11:55<2:36:17, 61.69s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   6%|▌         | 15/250 [13:41<3:35:11, 54.94s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  39%|███▉      | 98/250 [3:43:27<2:27:32, 58.24s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  40%|███▉      | 99/250 [3:12:47<2:27:55, 58.78s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   6%|▋         | 16/250 [14:36<3:34:22, 54.97s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  40%|███▉      | 99/250 [3:44:17<2:20:33, 55.85s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  40%|████      | 100/250 [3:13:39<2:21:57, 56.78s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   7%|▋         | 17/250 [15:39<3:42:36, 57.33s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  40%|████      | 100/250 [3:45:17<2:22:20, 56.94s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  40%|████      | 101/250 [3:14:42<2:25:08, 58.44s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   7%|▋         | 18/250 [16:30<3:35:21, 55.70s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  40%|████      | 101/250 [3:46:08<2:16:50, 55.10s/it]
+
+Processing root-project.root.v6-32-06.code_comment.pt_10 in batches of 8:  41%|████      | 102/250 [3:15:36<2:21:35, 57.40s/it][A[A
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   8%|▊         | 19/250 [17:23<3:31:00, 54.81s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  41%|████      | 102/250 [3:47:03<2:16:04, 55.17s/it]2025-08-25 19:03:39.986 | WARNING  | processing_pipeline.model.IBaseStage:<lambda>:145 - <RetryCallState 132086535138016: attempt #1; slept for 0.0; last result: failed (ValidationError 1 validation error for TacticModelResponse
+  Invalid JSON: EOF while parsing a string at line 3 column 325469 [type=json_invalid, input_value='{\n\n"architectural_acti...b>S.Schmitt, JINST 7 (2', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid)>
+
+Processing root-project.root.v6-32-06.code_comment.pt_26 in batches of 8:   8%|▊         | 20/250 [19:03<4:21:41, 68.27s/it][AProcessing root-project.root.v6-32-06.code_comment.pt_13 in batches of 8:  41%|████      | 103/250 [3:48:44<2:48:45, 68.88s/it]
