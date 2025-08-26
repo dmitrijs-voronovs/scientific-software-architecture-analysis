@@ -22,7 +22,6 @@ class NoiseFilteringStage_v2(IBaseStage):
     out_dir = AbsDirPath.S0_NOISE_FILTERING
     stage_name = 's0'
 
-    # In your NoiseFilteringStage class
     @classmethod
     def get_system_prompt(cls) -> str | None:
         return """
@@ -33,8 +32,6 @@ Your absolute priority is to **PRESERVE HUMAN-WRITTEN KNOWLEDGE.**
 Your primary goal is to identify and keep text that a human wrote to explain a technical concept, a design choice, or a piece of code to another human. You must favor keeping content if you are in doubt. Your function is to eliminate unambiguous noise, not to be a critic of what constitutes good documentation.
 """
 
-    # In your NoiseFilteringStage class
-    # In your NoiseFilteringStage class
     @classmethod
     def to_prompt(cls, x: pd.Series) -> str:
         return f"""
