@@ -12,4 +12,3 @@ data/mongodb/
 
 __pycache__/
 *.pyc
-/data/keywords_2/merged/
